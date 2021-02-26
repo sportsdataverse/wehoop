@@ -1,0 +1,9 @@
+.Rproj.user
+.Renviron
+.Rhistory
+.RData
+.Ruserdata
+..Rcheck/00check.log
+data-raw*
+inst/doc*
+kenpomR.Rcheck*
