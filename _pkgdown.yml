@@ -27,7 +27,7 @@ navbar:
       href: https://github.com/saiemgilani/wehoop/
 reference:
   - subtitle: Exported Functions
-    desc: Functions exported by kenpomR
+    desc: Functions exported by wehoop
     contents:
       - '`wnba_espn_game_all`'
       - '`wnba_espn_pbp`'

@@ -10,10 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <!-- badges: start -->
 
-![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-experimental-orange.svg) 
+![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg) 
 ![R-CMD-check](https://github.com/saiemgilani/wehoop/workflows/R-CMD-check/badge.svg) [![Twitter Follow](https://img.shields.io/twitter/follow/saiemgilani?style=social)](https://twitter.com/saiemgilani) <!-- badges: end -->
 
-`wehoop` is an R package for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with an active subscription the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
+`wehoop` is an R package for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
 
 #### v0.2.0: Support for ESPN's WNBA game data
 

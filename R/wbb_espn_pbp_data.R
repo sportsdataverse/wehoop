@@ -317,7 +317,7 @@ wbb_espn_teams <- function(){
 
 wbb_espn_scoreboard <- function(season){
 
-  message(glue::glue("Returning data for {season}!"))
+  # message(glue::glue("Returning data for {season}!"))
 
   max_year <- substr(Sys.Date(), 1,4)
 
@@ -456,7 +456,7 @@ wbb_ncaa_NET_rankings <- function(){
 #'
 #' @author Saiem Gilani
 #' @return Returns a tibble
-#' @importFrom dplyr %>%  bind_rows arrange
+#' @importFrom dplyr %>%  bind_rows arrange select
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest
 #' @export
@@ -481,7 +481,8 @@ wbb_rankings <- function(){
     tidyr::unnest(.data$others)
 
   ranks <- dplyr::bind_rows(ranks_top25, ranks_others)
-  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points)
+  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points) %>% 
+    dplyr::select(-.data$`$ref`)
   return(ranks)
 }
 

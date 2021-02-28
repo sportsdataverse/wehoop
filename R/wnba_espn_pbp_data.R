@@ -108,14 +108,14 @@ wnba_espn_pbp <- function(game_id){
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Play-by-Play ------
   plays <- raw_play_df[["plays"]] %>%
-    tidyr::unnest_wider(unlist(.data$participants))
+    tidyr::unnest_wider(unlist(.data$participants, use.names=FALSE))
   suppressWarnings(
     aths <- plays %>%
       dplyr::group_by(.data$id) %>%
       dplyr::select(.data$id, .data$athlete.id) %>%
-      tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = "_")
+      tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
   )
-  names(aths)<-c("play.id","athlete1.id","athlete2.id")
+  names(aths)[1]<-c("play.id")
   plays_df <- dplyr::bind_cols(plays, aths) %>%
     select(-.data$athlete.id)
 
@@ -290,7 +290,7 @@ wnba_espn_teams <- function(){
 
 wnba_espn_scoreboard <- function(season){
 
-  message(glue::glue("Returning data for {season}!"))
+  # message(glue::glue("Returning data for {season}!"))
 
   max_year <- substr(Sys.Date(), 1,4)
 
