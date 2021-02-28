@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get ESPN Team Names and Ids — wbb_espn_teams • wehoop</title>
+<title>Get ESPN Team Names and Ids — wnba_espn_teams • wehoop</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,7 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Get ESPN Team Names and Ids — wbb_espn_teams" />
+<meta property="og:title" content="Get ESPN Team Names and Ids — wnba_espn_teams" />
 <meta property="og:description" content="Get ESPN Team Names and Ids" />
 <meta property="og:image" content="http://saiemgilani.github.io/wehoop/logo.png" />
 
@@ -138,14 +138,14 @@
     <div class="page-header">
     <h1>Get ESPN Team Names and Ids</h1>
     
-    <div class="hidden name"><code>wbb_espn_teams.Rd</code></div>
+    <div class="hidden name"><code>wnba_espn_teams.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Get ESPN Team Names and Ids</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wbb_espn_teams</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>wnba_espn_teams</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
@@ -154,28 +154,30 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
- <span class='fu'>wbb_espn_teams</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 352 x 34</span><span>
-#&gt;    id    uid   slug  location name  nickname abbreviation displayName
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 2000  s:40~ abil~ Abilene~ Wild~ Abil Ch~ ACU          Abilene Ch~
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 2005  s:40~ air-~ Air For~ Falc~ Air For~ AFA          Air Force ~
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 2006  s:40~ akro~ Akron    Zips  Akron    AKR          Akron Zips 
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 2010  s:40~ alab~ Alabama~ Bull~ Alabama~ AAMU         Alabama A&amp;~
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 333   s:40~ alab~ Alabama  Crim~ Alabama  ALA          Alabama Cr~
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 2011  s:40~ alab~ Alabama~ Lady~ Alabama~ ALST         Alabama St~
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 399   s:40~ alba~ Albany   Grea~ Albany   ALB          Albany Gre~
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 2016  s:40~ alco~ Alcorn ~ Lady~ Alcorn ~ ALCN         Alcorn Sta~
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 44    s:40~ amer~ American Eagl~ American AMER         American E~
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 2026  s:40~ appa~ Appalac~ Moun~ Appalac~ APP          Appalachia~
-#&gt; </span><span style='color: #949494;'># ... with 342 more rows, and 26 more variables: shortDisplayName </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
-#&gt; </span><span style='color: #949494;'>#   color </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, alternateColor </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, isActive </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #949494;'>, isAllStar </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #949494;'>,</span><span>
-#&gt; </span><span style='color: #949494;'>#   logos_href_1 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, logos_href_2 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, summary </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, playoffSeed </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+<span class='fu'>wnba_espn_teams</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 12 x 36</span><span>
+#&gt;    id    uid   slug  location name  abbreviation displayName shortDisplayName
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 20    s:40~ atla~ Atlanta  Dream ATL          Atlanta Dr~ Dream           
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 19    s:40~ chic~ Chicago  Sky   CHI          Chicago Sky Sky             
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 18    s:40~ conn~ Connect~ Sun   CONN         Connecticu~ Sun             
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 3     s:40~ dall~ Dallas   Wings DAL          Dallas Win~ Wings           
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 5     s:40~ indi~ Indiana  Fever IND          Indiana Fe~ Fever           
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 17    s:40~ las-~ Las Veg~ Aces  LV           Las Vegas ~ Aces            
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 6     s:40~ los-~ Los Ang~ Spar~ LA           Los Angele~ Sparks          
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 8     s:40~ minn~ Minneso~ Lynx  MIN          Minnesota ~ Lynx            
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 9     s:40~ new-~ New York Libe~ NY           New York L~ Liberty         
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 11    s:40~ phoe~ Phoenix  Merc~ PHX          Phoenix Me~ Mercury         
+#&gt; </span><span style='color: #BCBCBC;'>11</span><span> 14    s:40~ seat~ Seattle  Storm SEA          Seattle St~ Storm           
+#&gt; </span><span style='color: #BCBCBC;'>12</span><span> 16    s:40~ wash~ Washing~ Myst~ WSH          Washington~ Mystics         
+#&gt; </span><span style='color: #949494;'># ... with 28 more variables: color </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, alternateColor </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   isActive </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #949494;'>, isAllStar </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #949494;'>, logos_href_1 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, logos_href_2 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   logos_href_3 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, logos_href_4 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, summary </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, playoffSeed </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   wins </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, losses </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, winPercent </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, gamesBehind </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, ties </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   OTWins </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, OTLosses </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, gamesPlayed </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, pointsFor </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   pointsAgainst </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, avgPointsFor </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, avgPointsAgainst </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   points </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, differential </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, streak </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, divisionWinPercent </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
-#&gt; </span><span style='color: #949494;'>#   leagueWinPercent </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+#&gt; </span><span style='color: #949494;'>#   leagueWinPercent </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, clincher </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

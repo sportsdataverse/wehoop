@@ -29,6 +29,12 @@ reference:
   - subtitle: Exported Functions
     desc: Functions exported by kenpomR
     contents:
+      - '`wnba_espn_game_all`'
+      - '`wnba_espn_pbp`'
+      - '`wnba_espn_team_box`'
+      - '`wnba_espn_player_box`'
+      - '`wnba_espn_teams`'
+      - '`wnba_espn_scoreboard`'
       - '`wbb_espn_game_all`'
       - '`wbb_espn_pbp`'
       - '`wbb_espn_team_box`'

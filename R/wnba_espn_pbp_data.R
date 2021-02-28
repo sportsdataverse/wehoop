@@ -1,7 +1,7 @@
 #' Get ESPN Data (Pbp, Team and Player Box)
 #' @author Saiem Gilani
 #' @param game_id Game ID
-#' @keywords WBB Game
+#' @keywords WNBA Game
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -10,14 +10,14 @@
 #'
 #' @examples
 #'
-#'  wbb_espn_game_all(game_id = 401276115)
-#'
+#' wnba_espn_game_all(game_id = 401244185)
+#' 
 
-wbb_espn_game_all <- function(game_id){
+wnba_espn_game_all <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
 
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
   ## Inputs
   ## game_id
@@ -28,7 +28,7 @@ wbb_espn_game_all <- function(game_id){
 
   #---- Play-by-Play ------
   plays <- raw_play_df[["plays"]] %>%
-    tidyr::unnest_wider(unlist(.data$participants))
+    tidyr::unnest_wider(unlist(.data$participants, use.names=FALSE))
   suppressWarnings(
     aths <- plays %>%
       dplyr::group_by(.data$id) %>%
@@ -66,7 +66,7 @@ wbb_espn_game_all <- function(game_id){
     dplyr::select(.data$starter,.data$ejected, .data$didNotPlay,.data$active,
                   .data$athlete.displayName,.data$athlete.jersey,
                   .data$athlete.id,.data$athlete.shortName,
-                  .data$athlete.headshot.href,.data$athlete.position.name,
+                  .data$athlete.position.name,
                   .data$athlete.position.abbreviation,.data$team.shortDisplayName,
                   .data$team.name,.data$team.logo,.data$team.id,.data$team.abbreviation,
                   .data$team.color,.data$team.alternateColor
@@ -83,7 +83,7 @@ wbb_espn_game_all <- function(game_id){
 #' Get ESPN PBP
 #' @author Saiem Gilani
 #' @param game_id Game ID
-#' @keywords WBB PBP
+#' @keywords WNBA PBP
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -92,13 +92,13 @@ wbb_espn_game_all <- function(game_id){
 #'
 #' @examples
 #'
-#'  wbb_espn_pbp(game_id = 401276115)
+#'  wnba_espn_pbp(game_id = 401244185)
 #'
-wbb_espn_pbp <- function(game_id){
+wnba_espn_pbp <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
 
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
   ## Inputs
   ## game_id
@@ -113,19 +113,19 @@ wbb_espn_pbp <- function(game_id){
     aths <- plays %>%
       dplyr::group_by(.data$id) %>%
       dplyr::select(.data$id, .data$athlete.id) %>%
-      tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
+      tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = "_")
   )
-  names(aths)[1]<-c("play.id")
+  names(aths)<-c("play.id","athlete1.id","athlete2.id")
   plays_df <- dplyr::bind_cols(plays, aths) %>%
     select(-.data$athlete.id)
 
 
   return(plays_df)
 }
-#' Get ESPN Team Box
+#' Get ESPN WNBA Team Box
 #' @author Saiem Gilani
 #' @param game_id Game ID
-#' @keywords WBB Team Box
+#' @keywords WNBA Team Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -135,12 +135,12 @@ wbb_espn_pbp <- function(game_id){
 #' @examples
 #'
 #'
-#'  wbb_espn_team_box(game_id = 401276115)
+#'  wnba_espn_team_box(game_id = 401244185)
 #'
-wbb_espn_team_box <- function(game_id){
+wnba_espn_team_box <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
   ## Inputs
   ## game_id
@@ -163,10 +163,10 @@ wbb_espn_team_box <- function(game_id){
   team_box_score = dplyr::bind_rows(tm, team_box_score)
   return(team_box_score)
 }
-#' Get ESPN Player Box
+#' Get ESPN WNBA Player Box
 #' @author Saiem Gilani
 #' @param game_id Game ID
-#' @keywords WBB Player Box
+#' @keywords WNBA Player Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -175,12 +175,12 @@ wbb_espn_team_box <- function(game_id){
 #'
 #' @examples
 #'
-#'  wbb_espn_player_box(game_id = 401276115)
+#'  wnba_espn_player_box(game_id = 401244185)
 #'
-wbb_espn_player_box <- function(game_id){
+wnba_espn_player_box <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
   ## Inputs
   ## game_id
@@ -202,10 +202,9 @@ wbb_espn_player_box <- function(game_id){
     dplyr::filter(!.data$didNotPlay) %>%
     dplyr::select(.data$starter,.data$ejected, .data$didNotPlay,.data$active,
                   .data$athlete.displayName,.data$athlete.jersey,
-                  .data$athlete.id,.data$athlete.shortName,
-                  .data$athlete.headshot.href,.data$athlete.position.name,
+                  .data$athlete.id,.data$athlete.shortName,.data$athlete.position.name,
                   .data$athlete.position.abbreviation,.data$team.shortDisplayName,
-                  .data$team.name,.data$team.logo,.data$team.id,.data$team.abbreviation,
+                  .data$team.name, .data$team.logo,.data$team.id,.data$team.abbreviation,
                   .data$team.color,.data$team.alternateColor
     )
 
@@ -214,36 +213,9 @@ wbb_espn_player_box <- function(game_id){
   return(player_box)
 }
 
-
-#' Get ESPN Conference Names and Ids
-#' @author Saiem Gilani
-#' @keywords WBB Conferences
-#' @importFrom rlang .data
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
-#' @export
-#'
-#' @examples
-#'
-#'  wbb_espn_conferences()
-#'
-wbb_espn_conferences <- function(){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
-  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences"
-
-  ## Inputs
-  ## game_id
-
-  conferences <- jsonlite::fromJSON(play_base_url)[["conferences"]] %>% dplyr::select(-.data$subGroups)
-
-  return(conferences)
-}
-
 #' Get ESPN Team Names and Ids
 #' @author Saiem Gilani
-#' @keywords WBB Teams
+#' @keywords WNBA Teams
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
@@ -254,13 +226,13 @@ wbb_espn_conferences <- function(){
 #'
 #' @examples
 #'
-#'  wbb_espn_teams()
+#' wnba_espn_teams()
 #'
 
-wbb_espn_teams <- function(){
+wnba_espn_teams <- function(){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
-  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams?groups=50&limit=1000"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
 
   ## Inputs
   ## game_id
@@ -297,7 +269,7 @@ wbb_espn_teams <- function(){
 }
 
 
-#' Get Women's College Basketball schedule for a specific year from ESPN's API
+#' Get WNBA schedule for a specific year/date from ESPN's API
 #'
 #' @param season Either numeric or character
 #' @author Thomas Mock, you a genius for this one.
@@ -310,12 +282,13 @@ wbb_espn_teams <- function(){
 #' @importFrom glue glue
 #' @export
 #' @examples
-#' # Get schedule returns 1000 results, max allowable.
+#' # Get schedule from 2020 season (returns 1000 results, max allowable.)
 #' # Must iterate through dates to get full year's schedule, as below:
-#' # Get schedule from date 2021-02-15, then next date and so on.
-#' wbb_espn_scoreboard (season = "20210215")
+#' wnba_espn_scoreboard (season = 2020)
+#' # Get schedule from date 2020-08-29
+#' wnba_espn_scoreboard (season = "20200829")
 
-wbb_espn_scoreboard <- function(season){
+wnba_espn_scoreboard <- function(season){
 
   message(glue::glue("Returning data for {season}!"))
 
@@ -330,11 +303,11 @@ wbb_espn_scoreboard <- function(season){
 
   season_dates <- season
 
-  schedule_api <- glue::glue("http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?groups=50&limit=1000&dates={season_dates}")
+  schedule_api <- glue::glue("http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?limit=1000&dates={season_dates}")
 
   raw_sched <- jsonlite::fromJSON(schedule_api, simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
 
-  wbb_data <- raw_sched[["events"]] %>%
+  wnba_data <- raw_sched[["events"]] %>%
     tibble::tibble(data = .data$.) %>%
     tidyr::unnest_wider(.data$data) %>%
     tidyr::unchop(.data$competitions) %>%
@@ -376,8 +349,8 @@ wbb_espn_scoreboard <- function(season){
                   home_score = as.integer(.data$home_score),
                   away_score = as.integer(.data$away_score))
 
-  if("leaders" %in% names(wbb_data)){
-    schedule_out <- wbb_data %>%
+  if("leaders" %in% names(wnba_data)){
+    schedule_out <- wnba_data %>%
       tidyr::hoist(
         .data$leaders,
         # points
@@ -418,70 +391,10 @@ wbb_espn_scoreboard <- function(season){
       schedule_out
     }
   } else {
-    wbb_data %>% dplyr::select(!where(is.list))
+    wnba_data %>% dplyr::select(!where(is.list))
   }
 
 }
 
 #' @import utils
 utils::globalVariables(c("where"))
-
-#' Get Women's College Basketball NET Rankings for the current date from the NCAA website
-#'
-#' @author Saiem Gilani
-#' @return Returns a tibble
-#' @importFrom dplyr %>% as_tibble
-#' @importFrom rvest html_nodes html_table
-#' @importFrom xml2 read_html
-#' @export
-#' @examples
-#' # Get current NCAA NET rankings
-#' wbb_ncaa_NET_rankings()
-
-wbb_ncaa_NET_rankings <- function(){
-
-
-  NET_url <- "https://www.ncaa.com/rankings/basketball-women/d1/ncaa-womens-basketball-net-rankings"
-  x <- (NET_url %>%
-          xml2::read_html() %>%
-          rvest::html_nodes("table"))[[1]] %>%
-    rvest::html_table(fill=TRUE) %>%
-    dplyr::as_tibble()
-
-  return(x)
-}
-
-
-#' Get Women's College Basketball AP and Coaches Poll Rankings
-#'
-#' @author Saiem Gilani
-#' @return Returns a tibble
-#' @importFrom dplyr %>%  bind_rows arrange
-#' @importFrom jsonlite fromJSON
-#' @importFrom tidyr unnest
-#' @export
-#' @examples
-#' # Get current AP and Coaches Poll rankings
-#' wbb_rankings()
-
-wbb_rankings <- function(){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
-
-  ranks_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/rankings?groups=50"
-
-  ## Inputs
-  ## game_id
-
-
-  ranks_df <- jsonlite::fromJSON(ranks_url,flatten = TRUE)[['rankings']]
-  ranks_top25 <- ranks_df %>%
-    tidyr::unnest(.data$ranks)
-  ranks_others <- ranks_df %>%
-    tidyr::unnest(.data$others)
-
-  ranks <- dplyr::bind_rows(ranks_top25, ranks_others)
-  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points)
-  return(ranks)
-}
-

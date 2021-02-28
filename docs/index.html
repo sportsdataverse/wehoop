@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A scraping and aggregating interface for ESPNs womens college basketball and WNBA (soon) statistics • wehoop</title>
+<title>A Scraping and Aggregating Interface for ESPNs Womens College Basketball and WNBA Statistics • wehoop</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -18,8 +18,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="A scraping and aggregating interface for ESPNs womens college basketball and WNBA (soon) statistics">
-<meta property="og:description" content="The R package wehoop is for working with womens college and professional basketball data. A scraping and aggregating interface for ESPNs womens college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with an active subscription the capability to access the APIs game play-by-plays, box scores, standings and results to analyze the data for themselves.">
+<meta property="og:title" content="A Scraping and Aggregating Interface for ESPNs Womens College Basketball and WNBA Statistics">
+<meta property="og:description" content="The R package wehoop is for working with womens college and professional basketball data. A scraping and aggregating interface for ESPNs womens college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the APIs game play-by-plays, box scores, standings and results to analyze the data for themselves.">
 <meta property="og:image" content="http://saiemgilani.github.io/wehoop/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -98,7 +98,20 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><code>wehoop</code> is an R package for working with women’s college and professional (soon) basketball data. A scraping and aggregating interface for ESPN’s women’s college basketball and WNBA (soon) statistics, <a href="https://espn.com">espn.com</a>. It provides users with an active subscription the capability to access the API’s game play-by-plays, box scores, standings and results to analyze the data for themselves.</p>
+<p><code>wehoop</code> is an R package for working with women’s college and professional basketball data. A scraping and aggregating interface for ESPN’s women’s college basketball and WNBA statistics, <a href="https://espn.com">espn.com</a>. It provides users with an active subscription the capability to access the API’s game play-by-plays, box scores, standings and results to analyze the data for themselves.</p>
+<div id="v020-support-for-espns-wnba-game-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#v020-support-for-espns-wnba-game-data" class="anchor"></a>v0.2.0: Support for ESPN’s WNBA game data</h4>
+<p>See the following six functions:</p>
+<ul>
+<li><a href="https://saiemgilani.github.io/wehoop/reference/wnba_espn_game_all.html"><code>wehoop::wnba_espn_game_all()</code></a></li>
+<li><a href="https://saiemgilani.github.io/wehoop/reference/wnba_espn_pbp.html"><code>wehoop::wnba_espn_pbp()</code></a></li>
+<li><a href="https://saiemgilani.github.io/wehoop/reference/wnba_espn_team_box.html"><code>wehoop::wnba_espn_team_box()</code></a></li>
+<li><a href="https://saiemgilani.github.io/wehoop/reference/wnba_espn_player_box.html"><code>wehoop::wnba_espn_player_box()</code></a></li>
+<li><a href="https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html"><code>wehoop::wnba_espn_teams()</code></a></li>
+<li><a href="https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html"><code>wehoop::wnba_espn_scoreboard()</code></a></li>
+</ul>
+</div>
 <div id="v010-support-for-espns-womens-college-basketball-game-data-and-ncaa-net-rankings" class="section level4">
 <h4 class="hasAnchor">
 <a href="#v010-support-for-espns-womens-college-basketball-game-data-and-ncaa-net-rankings" class="anchor"></a>v0.1.0: Support for ESPN’s women’s college basketball game data and NCAA NET Rankings</h4>

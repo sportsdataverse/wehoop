@@ -10,12 +10,22 @@ Follow](https://img.shields.io/twitter/follow/saiemgilani?style=social)](https:/
 <!-- badges: end -->
 
 `wehoop` is an R package for working with women’s college and
-professional (soon) basketball data. A scraping and aggregating
-interface for ESPN’s women’s college basketball and WNBA (soon)
-statistics, [espn.com](https://espn.com). It provides users with an
-active subscription the capability to access the API’s game
-play-by-plays, box scores, standings and results to analyze the data for
-themselves.
+professional basketball data. A scraping and aggregating interface for
+ESPN’s women’s college basketball and WNBA statistics,
+[espn.com](https://espn.com). It provides users with an active
+subscription the capability to access the API’s game play-by-plays, box
+scores, standings and results to analyze the data for themselves.
+
+#### v0.2.0: Support for ESPN’s WNBA game data
+
+See the following six functions:
+
+  - [`wehoop::wnba_espn_game_all()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_game_all.html)
+  - [`wehoop::wnba_espn_pbp()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_pbp.html)
+  - [`wehoop::wnba_espn_team_box()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_team_box.html)
+  - [`wehoop::wnba_espn_player_box()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_player_box.html)
+  - [`wehoop::wnba_espn_teams()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html)
+  - [`wehoop::wnba_espn_scoreboard()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html)
 
 #### v0.1.0: Support for ESPN’s women’s college basketball game data and NCAA NET Rankings
 

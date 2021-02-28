@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Women's College Basketball schedule for a specific year from ESPN's API — wbb_espn_scoreboard • wehoop</title>
+<title>Get WNBA schedule for a specific year/date from ESPN's API — wnba_espn_scoreboard • wehoop</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Get Women's College Basketball schedule for a specific year from ESPN's API — wbb_espn_scoreboard" />
-<meta property="og:description" content="Get Women's College Basketball schedule for a specific year from ESPN's API" />
+<meta property="og:title" content="Get WNBA schedule for a specific year/date from ESPN's API — wnba_espn_scoreboard" />
+<meta property="og:description" content="Get WNBA schedule for a specific year/date from ESPN's API" />
 <meta property="og:image" content="http://saiemgilani.github.io/wehoop/logo.png" />
 
 
@@ -136,16 +136,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Women's College Basketball schedule for a specific year from ESPN's API</h1>
+    <h1>Get WNBA schedule for a specific year/date from ESPN's API</h1>
     
-    <div class="hidden name"><code>wbb_espn_scoreboard.Rd</code></div>
+    <div class="hidden name"><code>wnba_espn_scoreboard.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get Women's College Basketball schedule for a specific year from ESPN's API</p>
+    <p>Get WNBA schedule for a specific year/date from ESPN's API</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wbb_espn_scoreboard</span><span class='op'>(</span><span class='va'>season</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>wnba_espn_scoreboard</span><span class='op'>(</span><span class='va'>season</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,31 +164,45 @@
     <p>Thomas Mock, you a genius for this one.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Get schedule returns 1000 results, max allowable.</span>
+    <pre class="examples"><div class='input'><span class='co'># Get schedule from 2020 season (returns 1000 results, max allowable.)</span>
 <span class='co'># Must iterate through dates to get full year's schedule, as below:</span>
-<span class='co'># Get schedule from date 2021-02-15, then next date and so on.</span>
-<span class='fu'>wbb_espn_scoreboard</span> <span class='op'>(</span>season <span class='op'>=</span> <span class='st'>"20210215"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Returning data for 20210215!</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 21 x 31</span><span>
+<span class='fu'>wnba_espn_scoreboard</span> <span class='op'>(</span>season <span class='op'>=</span> <span class='fl'>2020</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Returning data for 2020!</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 154 x 31</span><span>
 #&gt;    matchup matchup_short season  type slug  game_id game_uid game_date
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Stanfo~ STAN @ ORE      </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401263~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Kentuc~ UK @ FLA        </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401261~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> Seton ~ HALL @ DEP      </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401270~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> UNLV L~ UNLV @ SDSU     </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401283~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Creigh~ CREI @ GTWN     </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401270~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> San Di~ USD @ PEPP      </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401289~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> Winthr~ WIN @ GWEB      </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401284~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Easter~ EKY @ JVST      </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401284~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Fairle~ FDU @ WAG       </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401295~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> Notre ~ ND @ NCST       </span><span style='text-decoration: underline;'>2</span><span>021     2 regu~ 401260~ s:40~l:~ 2021-02-~
-#&gt; </span><span style='color: #949494;'># ... with 11 more rows, and 23 more variables: attendance </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Seattl~ SEA @ NY        </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Los An~ LA @ PHX        </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> Indian~ IND @ WSH       </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> Connec~ CONN @ MIN      </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Chicag~ CHI @ LV        </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> Dallas~ DAL @ ATL       </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> Washin~ WSH @ CONN      </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Los An~ LA @ CHI        </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Minnes~ MIN @ SEA       </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> Phoeni~ PHX @ IND       </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-07-~
+#&gt; </span><span style='color: #949494;'># ... with 144 more rows, and 23 more variables: attendance </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   home_team_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_logo </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_abb </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   home_team_id </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_location </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_full </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   home_team_color </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_score </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, home_win </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, home_record </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   away_team_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_logo </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_abb </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   away_team_id </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_location </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_full </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
 #&gt; </span><span style='color: #949494;'>#   away_team_color </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_score </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, away_win </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, away_record </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
-#&gt; </span><span style='color: #949494;'>#   status_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, startDate </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div></span></pre>
+#&gt; </span><span style='color: #949494;'>#   status_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, startDate </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='co'># Get schedule from date 2020-08-29</span>
+<span class='fu'>wnba_espn_scoreboard</span> <span class='op'>(</span>season <span class='op'>=</span> <span class='st'>"20200829"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Returning data for 20200829!</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 31</span><span>
+#&gt;   matchup matchup_short season  type slug  game_id game_uid game_date attendance
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> New Yo~ NY @ LV         </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-08-~          0
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> Seattl~ SEA @ CHI       </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-08-~          0
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> Dallas~ DAL @ IND       </span><span style='text-decoration: underline;'>2</span><span>020     2 regu~ 401230~ s:40~l:~ 2020-08-~          0
+#&gt; </span><span style='color: #949494;'># ... with 22 more variables: home_team_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_logo </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   home_team_abb </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_id </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_location </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   home_team_full </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_team_color </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, home_score </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   home_win </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, home_record </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   away_team_logo </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_abb </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_id </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   away_team_location </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_full </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, away_team_color </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   away_score </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, away_win </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, away_record </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, status_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   startDate </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
