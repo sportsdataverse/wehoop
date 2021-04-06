@@ -4,17 +4,19 @@
 \alias{wbb_espn_game_all}
 \title{Get ESPN Data (Pbp, Team and Player Box)}
 \usage{
-wbb_espn_game_all(game_id)
+wbb_espn_game_all(game_id, verbose = FALSE)
 }
 \arguments{
 \item{game_id}{Game ID}
+
+\item{verbose}{Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function}
 }
 \description{
 Get ESPN Data (Pbp, Team and Player Box)
 }
 \examples{
 
- wbb_espn_game_all(game_id = 401276115)
+wbb_espn_game_all(game_id = 401276115)
 
 }
 \author{

@@ -4,10 +4,12 @@
 \alias{wbb_espn_team_box}
 \title{Get ESPN Team Box}
 \usage{
-wbb_espn_team_box(game_id)
+wbb_espn_team_box(game_id, verbose = FALSE)
 }
 \arguments{
 \item{game_id}{Game ID}
+
+\item{verbose}{Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function}
 }
 \description{
 Get ESPN Team Box
