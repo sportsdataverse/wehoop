@@ -310,7 +310,7 @@ wbb_espn_player_box <- function(game_id, verbose = FALSE){
 #'
 #' @examples
 #'
-#'  wbb_espn_conferences()
+#'  #wbb_espn_conferences()
 #'
 wbb_espn_conferences <- function(){
   options(stringsAsFactors = FALSE)
@@ -322,17 +322,21 @@ wbb_espn_conferences <- function(){
     expr = {
       conferences <- httr::RETRY("GET", play_base_url) %>%
         httr::content(as = "text", encoding = "UTF-8") %>%
-        jsonlite::fromJSON() 
-      groups <- conferences[["groups"]][["children"]][] 
+        jsonlite::parse_json() 
+      groups <- conferences$groups
+      groups <- tibble::as_tibble(groups,.name_repair = c("universal"))
+      confs <- tibble::as_tibble(groups$...1$children,.name_repair = c("universal"))
+      
+      
       
       teams <- groups$teams %>% 
         tibble::tibble(data = .data$teams) %>%
         tidyr::unnest_wider(.data$data)
       
-      dplyr::select(.data$groups)
+      
     },
     error = function(e) {
-      if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no conferences data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no conferences data available!"))
     },
     warning = function(w) {
     },
@@ -398,7 +402,7 @@ wbb_espn_teams <- function(){
       teams <- dplyr::bind_cols(leagues, records)
     },
     error = function(e) {
-      if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no teams data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no teams data available!"))
     },
     warning = function(w) {
     },
@@ -573,7 +577,7 @@ wbb_ncaa_NET_rankings <- function(){
         dplyr::as_tibble()
     },
     error = function(e) {
-      if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
     },
     warning = function(w) {
     },
@@ -592,9 +596,7 @@ wbb_ncaa_NET_rankings <- function(){
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest
 #' @export
-#' @examples
-#' # Get current AP and Coaches Poll rankings
-#' wbb_rankings()
+#' 
 
 wbb_rankings <- function(){
   options(stringsAsFactors = FALSE)
@@ -618,7 +620,7 @@ wbb_rankings <- function(){
         dplyr::select(-.data$`$ref`)
     },
     error = function(e) {
-      if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no rankings data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no rankings data available!"))
     },
     warning = function(w) {
     },

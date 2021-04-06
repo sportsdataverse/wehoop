@@ -11,7 +11,7 @@ Get ESPN Conference Names and Ids
 }
 \examples{
 
- wbb_espn_conferences()
+ #wbb_espn_conferences()
 
 }
 \author{
