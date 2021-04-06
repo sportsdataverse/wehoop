@@ -12,10 +12,6 @@ Returns a tibble
 \description{
 Get Women's College Basketball AP and Coaches Poll Rankings
 }
-\examples{
-# Get current AP and Coaches Poll rankings
-wbb_rankings()
-}
 \author{
 Saiem Gilani
 }
