@@ -4,10 +4,12 @@
 \alias{wbb_espn_scoreboard}
 \title{Get Women's College Basketball schedule for a specific year from ESPN's API}
 \usage{
-wbb_espn_scoreboard(season)
+wbb_espn_scoreboard(season, verbose = FALSE)
 }
 \arguments{
 \item{season}{Either numeric or character}
+
+\item{verbose}{Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function}
 }
 \value{
 Returns a tibble

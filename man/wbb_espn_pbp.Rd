@@ -4,17 +4,19 @@
 \alias{wbb_espn_pbp}
 \title{Get ESPN PBP}
 \usage{
-wbb_espn_pbp(game_id)
+wbb_espn_pbp(game_id, verbose = FALSE)
 }
 \arguments{
 \item{game_id}{Game ID}
+
+\item{verbose}{Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function}
 }
 \description{
 Get ESPN PBP
 }
 \examples{
 
- wbb_espn_pbp(game_id = 401276115)
+ wbb_espn_pbp(game_id = 401287022)
 
 }
 \author{
