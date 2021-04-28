@@ -2,6 +2,7 @@
 output: github_document
 ---
 
+# wehoop <a href='http://saiemgilani.github.io/wehoop'><img src="man/figures/logo.png" align="right" height="139"/></a>
 ```{r, include = FALSE}
 require(knitr)
 if (!requireNamespace('issue') & !requireNamespace('pacman')){
@@ -21,7 +22,7 @@ token <- tryCatch(
   error = function(e) NULL
 )
 raw_data <- issue::get_issues(
-  repo = 'saiemgilani/kenpomR',
+  repo = 'saiemgilani/wehoop',
   last = 20,
   PAT  = token$password
 )
@@ -44,11 +45,10 @@ x2 <- closed_tbl %>%
   dplyr::select(.data$issue, .data$icon, .data$title, .data$labels, .data$opened_by, .data$date, .data$closed)
 ```
 
-# wehoop <a href='http://saiemgilani.github.io/wehoop'><img src="man/figures/logo.png" align="right" height="139"/></a>
-
 <!-- badges: start -->
 ![Version-Number](https://img.shields.io/github/r-package/v/saiemgilani/wehoop?label=wehoop&logo=R&style=for-the-badge) ![R-CMD-check](https://img.shields.io/github/workflow/status/saiemgilani/wehoop/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge) ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
 [![Twitter Follow](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge)](https://twitter.com/saiemgilani)
+[![Twitter Follow](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge)](https://twitter.com/hutchngo)
 
 <!-- badges: end -->
 
@@ -77,7 +77,7 @@ devtools::install_github(repo = "saiemgilani/wehoop")
 
 ## Documentation
 
-For more information on the package and function reference, please see the  [**`kenpomR`** documentation website](https://saiemgilani.github.io/wehoop/).
+For more information on the package and function reference, please see the  [**`wehoop`** documentation website](https://saiemgilani.github.io/wehoop/).
 
 ## **Breaking Changes**
 

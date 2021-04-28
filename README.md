@@ -8,6 +8,8 @@
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge)](https://twitter.com/saiemgilani)
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge)](https://twitter.com/hutchngo)
 
 <!-- badges: end -->
 
@@ -43,7 +45,7 @@ devtools::install_github(repo = "saiemgilani/wehoop")
 ## Documentation
 
 For more information on the package and function reference, please see
-the [**`kenpomR`** documentation
+the [**`wehoop`** documentation
 website](https://saiemgilani.github.io/wehoop/).
 
 ## **Breaking Changes**
@@ -126,9 +128,9 @@ See the following eight functions:
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                           | title                                                                                                                   | labels | opened\_by                                      | date       | closed              |
-| :---- | :----------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- | :----- | :---------------------------------------------- | :--------- | :------------------ |
-| 1     | <span title="Closed Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-closed.png?raw=true"></span> | <span title="**Describe the bug**...">[gameplan function error](https://github.com/saiemgilani/kenpomR/issues/1)</span> | bug    | [mcoleman9221](https://github.com/mcoleman9221) | 2021-01-28 | 2021-01-28 03:31:48 |
+| issue | icon                                                                                                                                         | title                                                                                                                   | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 2     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[remove rankings and conferences functions for now](https://github.com/saiemgilani/wehoop/pull/2)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-04-06 | 2021-04-06 17:46:25 |
 
 </details>
 
