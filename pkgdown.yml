@@ -2,8 +2,8 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-05-07T23:22Z
+last_built: 2021-05-07T23:53Z
 urls:
-  reference: http://saiemgilani.github.io/wehoop/reference
-  article: http://saiemgilani.github.io/wehoop/articles
+  reference: https://saiemgilani.github.io/wehoop/reference
+  article: https://saiemgilani.github.io/wehoop/articles
 
