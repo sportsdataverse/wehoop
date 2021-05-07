@@ -98,7 +98,7 @@ For more information on the package and function reference, please see the  [**`
 - ```furrr``` dependency added
 - ```future``` dependency added
 
-## **Test coverage**
+### **Test coverage**
 
 * Added tests for all ESPN functions
 
@@ -110,7 +110,7 @@ For more information on the package and function reference, please see the  [**`
 
 <details><summary>View more version news</summary>
 
-#### **v0.2.0**: Support for ESPN's WNBA game data
+## **v0.2.0**: Support for ESPN's WNBA game data
 
 See the following six functions:
 
@@ -121,7 +121,7 @@ See the following six functions:
 - [```wehoop::wnba_espn_teams()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html) 
 - [```wehoop::wnba_espn_scoreboard()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html) 
 
-#### **v0.1.0**: Support for ESPN's women's college basketball game data and NCAA NET Rankings
+## **v0.1.0**: Support for ESPN's women's college basketball game data and NCAA NET Rankings
 
 See the following eight functions:
 
@@ -142,7 +142,7 @@ See the following eight functions:
 </details>
 
 
-## Current Issues
+# Current Issues
 
 ```{r,results='asis',echo=FALSE}
 x[c(1:(min(nrow(x),5))),] %>%
@@ -160,7 +160,7 @@ x2[c(1:(min(nrow(x),5))),] %>%
 <br>
 
 
-## **Our Authors**
+# **Our Authors**
 
 -   [Saiem Gilani](https://twitter.com/saiemgilani)       
 <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
