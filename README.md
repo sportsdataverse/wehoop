@@ -55,7 +55,7 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
 # **wehoop 0.3.0**
 
-## **Dependencies**
+### **Dependencies**
 
   - `R` version 3.5.0 or greater dependency added
   - `purrr` version 0.3.0 or greater dependency added
@@ -69,11 +69,11 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
   - `furrr` dependency added
   - `future` dependency added
 
-## **Test coverage**
+### **Test coverage**
 
   - Added tests for all ESPN functions
 
-#### **Function Naming Convention Change**
+### **Function Naming Convention Change**
 
   - Similarly, data and metrics sourced from ESPN will begin with
     `espn_` as opposed to `wbb_` or `wnba_`.
@@ -81,11 +81,13 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
   - Data sourced directly from the NCAA website will start the function
     with `ncaa_`
 
+# 
+
 <details>
 
 <summary>View more version news</summary>
 
-#### **v0.2.0**: Support for ESPN’s WNBA game data
+## **v0.2.0**: Support for ESPN’s WNBA game data
 
 See the following six functions:
 
@@ -96,7 +98,7 @@ See the following six functions:
   - [`wehoop::wnba_espn_teams()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html)
   - [`wehoop::wnba_espn_scoreboard()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html)
 
-#### **v0.1.0**: Support for ESPN’s women’s college basketball game data and NCAA NET Rankings
+## **v0.1.0**: Support for ESPN’s women’s college basketball game data and NCAA NET Rankings
 
 See the following eight functions:
 
@@ -118,7 +120,7 @@ See the following eight functions:
 
 </details>
 
-## Current Issues
+# Current Issues
 
 | issue | icon | title | labels | opened\_by | date | closed |
 | :---- | :--- | :---- | :----- | :--------- | :--- | :----- |
@@ -136,7 +138,7 @@ See the following eight functions:
 
 <br>
 
-## **Our Authors**
+# **Our Authors**
 
   - [Saiem Gilani](https://twitter.com/saiemgilani)  
     <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>

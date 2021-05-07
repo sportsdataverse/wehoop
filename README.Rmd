@@ -85,7 +85,7 @@ For more information on the package and function reference, please see the  [**`
 
 # **wehoop 0.3.0**
 
-##  **Dependencies**
+###  **Dependencies**
 - ```R``` version 3.5.0 or greater dependency added
 - ```purrr``` version 0.3.0 or greater dependency added
 - ```rvest``` version 1.0.0 or greater dependency added
@@ -102,11 +102,13 @@ For more information on the package and function reference, please see the  [**`
 
 * Added tests for all ESPN functions
 
-#### **Function Naming Convention Change**
+### **Function Naming Convention Change**
 
 * Similarly, data and metrics sourced from ESPN will begin with `espn_` as opposed to `wbb_` or `wnba_`. 
 
 * Data sourced directly from the NCAA website will start the function with `ncaa_`
+
+#
 
 <details><summary>View more version news</summary>
 
