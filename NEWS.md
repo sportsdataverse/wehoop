@@ -1,6 +1,12 @@
+# **wehoop 0.9.0**
+
+### **Loading capabilities added to the package**
+- ```wehoop::load_wbb_pbp()``` and ```wehoop::update_wbb_db()``` functions added
+- ```wehoop::load_wnba_pbp()``` and ```wehoop::update_wnba_db()``` functions added
+
 # **wehoop 0.3.0**
 
-##  **Dependencies**
+###  **Dependencies**
 - ```R``` version 3.5.0 or greater dependency added
 - ```purrr``` version 0.3.0 or greater dependency added
 - ```rvest``` version 1.0.0 or greater dependency added
