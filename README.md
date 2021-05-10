@@ -53,7 +53,26 @@ website](https://saiemgilani.github.io/wehoop/).
 [**Full News on
 Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
-# **wehoop 0.3.0**
+# **wehoop 0.9.0**
+
+### **Loading capabilities added to the package**
+
+  - [`wehoop::load_wbb_pbp()`](https://saiemgilani.github.io/wehoop/reference/load_wbb_pbp.html)
+    and
+    [`wehoop::update_wbb_db()`](https://saiemgilani.github.io/wehoop/reference/update_wbb_db.html)
+    functions added
+  - [`wehoop::load_wnba_pbp()`](https://saiemgilani.github.io/wehoop/reference/load_wnba_pbp.html)
+    and
+    [`wehoop::update_wnba_db()`](https://saiemgilani.github.io/wehoop/reference/update_wnba_db.html)
+    functions added
+
+# 
+
+<details>
+
+<summary>View more version news</summary>
+
+## **wehoop 0.3.0**
 
 ### **Dependencies**
 
@@ -80,12 +99,6 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
   - Data sourced directly from the NCAA website will start the function
     with `ncaa_`
-
-# 
-
-<details>
-
-<summary>View more version news</summary>
 
 ## **v0.2.0**: Support for ESPN’s WNBA game data
 

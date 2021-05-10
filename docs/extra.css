@@ -36,12 +36,29 @@ pre, code {
    margin-top: 10px;
    margin-bottom: 10px;
 }
-
+.label-default{
+    border-color: #ecdddd;
+    background-color: #b298dc;
+}
 .navbar-default {
     border-color: #ecdddd;
-    background-color: #221A4D;
   
 }
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
+  
+    background-color: #3c096c;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+  
+    background-color: #3c096c;
+}
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+    background-color: #3c096c;
+}
+.navbar-nav>.open>a, .navbar-nav>.open>a:hover, .navbar-nav>.open>a:focus {
+    background-color: #3c096c;
+}
+
 .navbar {
     border-color: #ecdddd;
     background-color: #221A4D;
@@ -69,7 +86,7 @@ pre, code {
 }
 .dropdown-menu {
   box-shadow: 0 6px 12px rgba(5, 5, 5, 0.18);
-  background-color: #222222;
+  background-color: #220829;
 }
 #navbar ul ul{
   font-family: "Fira Mono";
