@@ -73,6 +73,10 @@ reference:
   - subtitle: Exported Functions
     desc: Functions exported by wehoop
     contents:
+      - '`load_wbb_pbp`'
+      - '`update_wbb_db`'
+      - '`load_wnba_pbp`'
+      - '`update_wnba_db`'
       - '`espn_wnba_game_all`'
       - '`espn_wnba_pbp`'
       - '`espn_wnba_team_box`'

@@ -143,9 +143,9 @@ See the following eight functions:
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                                                                   | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 2     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[remove rankings and conferences functions for now](https://github.com/saiemgilani/wehoop/pull/2)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-04-06 | 2021-04-06 17:46:25 |
+| issue | icon                                                                                                                                         | title                                                                                      | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 3     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[wnba and wbb loaders](https://github.com/saiemgilani/wehoop/pull/3)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-10 | 2021-05-10 13:21:36 |
 
 </details>
 
