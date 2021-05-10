@@ -14,10 +14,14 @@ Follow](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutch
 <!-- badges: end -->
 
 `wehoop` is an R package for working with women’s college and
-professional basketball data. A scraping and aggregating interface for
-ESPN’s women’s college basketball and WNBA statistics. It provides users
-with the capability to access the API’s game play-by-plays, box scores,
-standings and results to analyze the data for themselves.
+professional basketball data. The package has functions to access **live
+play by play and box score** data from ESPN with shot locations when
+available.
+
+A scraping and aggregating interface for ESPN’s women’s college
+basketball and WNBA statistics. It provides users with the capability to
+access the API’s game play-by-plays, box scores, standings and results
+to analyze the data for themselves.
 
 ## Installation
 
