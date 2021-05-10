@@ -70,26 +70,28 @@ navbar:
       user: https://github.com/saiemgilani/
     
 reference:
-  - subtitle: Exported Functions
-    desc: Functions exported by wehoop
+  - title: wehoop Data
+  - subtitle: Women's College Basketball Data Functions
+    desc: Functions exported by wehoop to access the wehoop-data repository's Women's College Basketball Data
     contents:
       - '`load_wbb_pbp`'
       - '`update_wbb_db`'
+  - subtitle: WNBA Data Functions
+    desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
+    contents:
       - '`load_wnba_pbp`'
       - '`update_wnba_db`'
-      - '`espn_wnba_game_all`'
-      - '`espn_wnba_pbp`'
-      - '`espn_wnba_team_box`'
-      - '`espn_wnba_player_box`'
-      - '`espn_wnba_teams`'
-      - '`espn_wnba_scoreboard`'
-      - '`espn_wbb_game_all`'
-      - '`espn_wbb_pbp`'
-      - '`espn_wbb_team_box`'
-      - '`espn_wbb_player_box`'
-      # - '`espn_wbb_conferences`'
-      - '`espn_wbb_teams`'
-      - '`espn_wbb_scoreboard`'
-      - '`ncaa_wbb_NET_rankings`'
-      - '`espn_wbb_rankings`'
-     
+  - title: ESPN Data
+  - subtitle: Women's College Basketball Data Functions
+    desc: Functions exported by wehoop to access ESPN's Women's College Basketball Data
+    contents:
+      - starts_with("espn_wbb_")
+  - subtitle: WNBA Data Functions
+    desc: Functions exported by wehoop to access ESPN's WNBA Data
+    contents:
+      - starts_with("espn_wnba_")
+  - title: NCAA Data
+  - subtitle: NCAA Data Functions
+    desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
+    contents:
+      - starts_with("ncaa_")
