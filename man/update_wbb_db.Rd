@@ -4,7 +4,6 @@
 \alias{update_wbb_db}
 \alias{wbb_db}
 \alias{wbb}
-\alias{database}
 \alias{wbb_pbp_db}
 \title{\strong{Update or create a wehoop play-by-play database}}
 \usage{

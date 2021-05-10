@@ -11,7 +11,6 @@ BugReports: https://www.github.com/saiemgilani/wehoop/issues
 Encoding: UTF-8
 Depends: R (>= 3.5.0)
 Imports: 
-    attempt,
     dplyr,
     furrr,
     future,

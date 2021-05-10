@@ -84,7 +84,7 @@ load_wbb_games <- function(){
 }
 
 #' @name update_wbb_db
-#' @aliases update_wbb_db wbb_db wbb database wbb_pbp_db
+#' @aliases update_wbb_db wbb_db wbb wbb_pbp_db
 #' @title 
 #' **Update or create a wehoop play-by-play database**
 #' @description `update_wbb_db()` updates or creates a database with `wehoop`

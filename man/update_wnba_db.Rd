@@ -4,7 +4,6 @@
 \alias{update_wnba_db}
 \alias{wnba_db}
 \alias{wnba}
-\alias{database}
 \alias{wnba_pbp_db}
 \title{\strong{Update or create a wehoop play-by-play database}}
 \usage{

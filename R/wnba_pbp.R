@@ -84,7 +84,7 @@ load_wnba_games <- function(){
 }
 
 #' @name update_wnba_db
-#' @aliases update_wnba_db wnba_db wnba database wnba_pbp_db
+#' @aliases update_wnba_db wnba_db wnba wnba_pbp_db
 #' @title 
 #' **Update or create a wehoop play-by-play database**
 #' @description `update_wnba_db()` updates or creates a database with `wehoop`
