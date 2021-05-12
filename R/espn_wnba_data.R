@@ -248,6 +248,7 @@ espn_wnba_teams <- function(){
                   .data$location, 
                   .data$name, 
                   .data$displayName, 
+                  .data$shortDisplayName, 
                   .data$abbreviation, 
                   .data$color, 
                   .data$alternateColor, 
@@ -256,36 +257,14 @@ espn_wnba_teams <- function(){
     dplyr::rename(
       logo = .data$logos_href_1,
       logo_dark = .data$logos_href_2,
-      nickname = .data$name,
+      mascot = .data$name,
       team = .data$location,
-      team_id = .data$id
+      team_id = .data$id,
+      short_name = .data$shortDisplayName,
+      display_name = .data$displayName
     )
   
   return(wnba_teams)
-
-
-  # records <- leagues$record
-  # records<- records %>% tidyr::unnest_wider(.data$items) %>%
-  #   tidyr::unnest_wider(.data$stats,names_sep = "_") %>%
-  #   dplyr::mutate(row = dplyr::row_number())
-  # stat <- records %>%
-  #   dplyr::group_by(.data$row) %>%
-  #   purrr::map_if(is.data.frame, list)
-  # stat <- lapply(stat$stats_1,function(x) x %>%
-  #                     purrr::map_if(is.data.frame,list) %>%
-  #                     dplyr::as_tibble() )
-  # 
-  # s <- lapply(stat, function(x) {
-  #   tidyr::pivot_wider(x)
-  # })
-  # 
-  # s <- tibble::tibble(g = s)
-  # stats <- s %>% unnest_wider(.data$g)
-  # 
-  # records <- dplyr::bind_cols(records %>% dplyr::select(.data$summary), stats)
-  # leagues <- leagues %>% dplyr::select(-.data$record,-.data$links)
-  # teams <- dplyr::bind_cols(leagues, records)
-  return(leagues)
 }
 
 

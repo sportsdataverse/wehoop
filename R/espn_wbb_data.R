@@ -352,8 +352,23 @@ espn_wbb_teams <- function(){
       stats <- s %>% unnest_wider(.data$g)
     
       records <- dplyr::bind_cols(records %>% dplyr::select(.data$summary), stats)
-      leagues <- leagues %>% dplyr::select(-.data$record,-.data$links)
-      teams <- dplyr::bind_cols(leagues, records)
+      leagues <- leagues %>% dplyr::select(
+        -.data$record,
+        -.data$links, 
+        -.data$isActive, 
+        -.data$isAllStar,
+        -.data$uid,
+        -.data$slug)
+      teams <- leagues %>% 
+        dplyr::rename(
+          logo = .data$logos_href_1,
+          logo_dark = .data$logos_href_2,
+          mascot = .data$name,
+          team = .data$location,
+          team_id = .data$id,
+          short_name = .data$shortDisplayName,
+          display_name = .data$displayName
+        )
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no teams data available!"))
