@@ -233,7 +233,7 @@ espn_wnba_teams <- function(){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
-
+  
   ## Inputs
   ## game_id
   leagues <- jsonlite::fromJSON(play_base_url)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
@@ -243,6 +243,26 @@ espn_wnba_teams <- function(){
     dplyr::select(-.data$logos_width,-.data$logos_height,
                   -.data$logos_alt, -.data$logos_rel) %>%
     dplyr::ungroup()
+  wnba_teams <- leagues %>%
+    dplyr::select(.data$id, 
+                  .data$location, 
+                  .data$name, 
+                  .data$displayName, 
+                  .data$abbreviation, 
+                  .data$color, 
+                  .data$alternateColor, 
+                  .data$logos_href_1, 
+                  .data$logos_href_2) %>%
+    dplyr::rename(
+      logo = .data$logos_href_1,
+      logo_dark = .data$logos_href_2,
+      nickname = .data$name,
+      team = .data$location,
+      team_id = .data$id
+    )
+  
+  return(wnba_teams)
+
 
   # records <- leagues$record
   # records<- records %>% tidyr::unnest_wider(.data$items) %>%
