@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get women's college basketball schedule for a specific year from ESPN's API — espn_wbb_scoreboard • wehoop</title>
+<title>wehoop: Functions to Access Women's Basketball Play by Play Data — wehoop-package • wehoop</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Get women's college basketball schedule for a specific year from ESPN's API — espn_wbb_scoreboard" />
-<meta property="og:description" content="Get women's college basketball schedule for a specific year from ESPN's API" />
+<meta property="og:title" content="wehoop: Functions to Access Women's Basketball Play by Play Data — wehoop-package" />
+<meta property="og:description" content="
+The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves." />
 <meta property="og:image" content="https://saiemgilani.github.io/wehoop/logo.png" />
 
 
@@ -206,62 +207,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get women's college basketball schedule for a specific year from ESPN's API</h1>
+    <h1>wehoop: Functions to Access Women's Basketball Play by Play Data</h1>
     
-    <div class="hidden name"><code>espn_wbb_scoreboard.Rd</code></div>
+    <div class="hidden name"><code>wehoop-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get women's college basketball schedule for a specific year from ESPN's API</p>
+    <p><img src='figures/logo.png' align='right' alt='logo' width='120' /></p>
+<p>The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>espn_wbb_scoreboard</span><span class='op'>(</span><span class='va'>season</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>season</th>
-      <td><p>Either numeric or character</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Returns a tibble</p>
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='https://saiemgilani.github.io/wehoop (website) https://www.github.com/saiemgilani/wehoop (devel)'>https://saiemgilani.github.io/wehoop (website) https://www.github.com/saiemgilani/wehoop (devel)</a></p></li>
+<li><p>Report bugs at <a href='https://www.github.com/saiemgilani/wehoop/issues'>https://www.github.com/saiemgilani/wehoop/issues</a></p></li>
+</ul>
+
+</div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Thomas Mock, you a genius for this one.</p>
+    <p><strong>Maintainer</strong>: Saiem Gilani <a href='mailto:saiem.gilani@gmail.com'>saiem.gilani@gmail.com</a></p>
+<p>Authors:</p><ul>
+<li><p>Geoff Hutchinson <a href='mailto:geoffery.hutchinson@gmail.com'>geoffery.hutchinson@gmail.com</a></p></li>
+</ul>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Get schedule returns 1000 results, max allowable.</span>
-<span class='co'># Get schedule from date 2021-02-15, then next date and so on.</span>
-<span class='fu'>espn_wbb_scoreboard</span> <span class='op'>(</span>season <span class='op'>=</span> <span class='st'>"20210215"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 21 x 31</span><span>
-#&gt;    matchup       matchup_short season  type slug   game_id  game_uid   game_date
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Stanford Car… STAN @ ORE      </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012632… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Kentucky Wil… UK @ FLA        </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012613… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> Seton Hall P… HALL @ DEP      </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012708… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> UNLV Lady Re… UNLV @ SDSU     </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012833… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Creighton Bl… CREI @ GTWN     </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012708… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> San Diego To… USD @ PEPP      </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012899… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> Winthrop Eag… WIN @ GWEB      </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012843… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Eastern Kent… EKY @ JVST      </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012843… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Fairleigh Di… FDU @ WAG       </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012953… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> Notre Dame F… ND @ NCST       </span><span style='text-decoration: underline;'>2</span><span>021     2 regul… 4012605… s:40~l:54… 2021-02-…
-#&gt; </span><span style='color: #949494;'># … with 11 more rows, and 23 more variables: attendance &lt;int&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   home_team_name &lt;chr&gt;, home_team_logo &lt;chr&gt;, home_team_abb &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   home_team_id &lt;chr&gt;, home_team_location &lt;chr&gt;, home_team_full &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   home_team_color &lt;chr&gt;, home_score &lt;int&gt;, home_win &lt;int&gt;, home_record &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   away_team_name &lt;chr&gt;, away_team_logo &lt;chr&gt;, away_team_abb &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   away_team_id &lt;chr&gt;, away_team_location &lt;chr&gt;, away_team_full &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   away_team_color &lt;chr&gt;, away_score &lt;int&gt;, away_win &lt;int&gt;, away_record &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   status_name &lt;chr&gt;, start_date &lt;chr&gt;</span><span></div></span></pre>
+
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
