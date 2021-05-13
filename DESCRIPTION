@@ -15,6 +15,7 @@ Imports:
     furrr,
     future,
     glue,
+    janitor,
     jsonlite,
     httr,
     magrittr,
