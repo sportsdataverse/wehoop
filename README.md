@@ -160,9 +160,9 @@ See the following eight functions:
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                                      | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 3     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[wnba and wbb loaders](https://github.com/saiemgilani/wehoop/pull/3)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-10 | 2021-05-10 13:21:36 |
+| issue | icon                                                                                                                                         | title                                                                                                | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 4     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="# **wehoop 0.9.1**...">[Teams fix](https://github.com/saiemgilani/wehoop/pull/4)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-13 | 2021-05-13 02:25:54 |
 
 </details>
 
