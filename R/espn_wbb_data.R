@@ -108,6 +108,15 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
     
       player_box <- dplyr::bind_cols(stats_df,players_df) %>%
         dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+      plays_df <- plays_df %>% 
+        janitor::clean_names()
+      team_box_score <- team_box_score %>% 
+        janitor::clean_names()
+      player_box <- player_box %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          fg3 = .data$x3pt
+        )
     },
     error = function(e) {
       if(verbose){
@@ -167,6 +176,8 @@ espn_wbb_pbp <- function(game_id, verbose = FALSE){
       names(aths)[1]<-c("play.id")
       plays_df <- dplyr::bind_cols(plays, aths) %>%
         select(-.data$athlete.id)
+      plays_df <- plays_df %>% 
+        janitor::clean_names()
     },
     error = function(e) {
       if(verbose){
@@ -223,6 +234,8 @@ espn_wbb_team_box <- function(game_id, verbose = FALSE){
       tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
       names(tm) <- c("Home","label","Away")
       team_box_score = dplyr::bind_rows(tm, team_box_score)
+      team_box_score <- team_box_score %>% 
+        janitor::clean_names()
     },
     error = function(e) {
       if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -286,6 +299,11 @@ espn_wbb_player_box <- function(game_id, verbose = FALSE){
     
       player_box <- dplyr::bind_cols(stats_df,players_df) %>%
         dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+      player_box <- player_box %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          fg3 = .data$x3pt
+        )
     },
     error = function(e) {
       if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
@@ -367,6 +385,7 @@ espn_wbb_teams <- function(){
           team = .data$location,
           team_id = .data$id,
           short_name = .data$shortDisplayName,
+          alternate_color = .data$alternateColor,
           display_name = .data$displayName
         )
     },
@@ -500,12 +519,15 @@ espn_wbb_scoreboard <- function(season, verbose = FALSE){
               broadcast_market = list(1, "market"),
               broadcast_name = list(1, "names", 1)
             ) %>%
-            dplyr::select(!where(is.list))
+            dplyr::select(!where(is.list)) %>% 
+            janitor::clean_names()
         } else {
-          schedule_out
+          schedule_out %>% 
+            janitor::clean_names()
         }
       } else {
-        wbb_data %>% dplyr::select(!where(is.list))
+        wbb_data %>% dplyr::select(!where(is.list)) %>% 
+          janitor::clean_names()
       }
     },
     error = function(e) {
@@ -543,7 +565,8 @@ ncaa_wbb_NET_rankings <- function(){
               xml2::read_html() %>%
               rvest::html_nodes("table"))[[1]] %>%
         rvest::html_table(fill=TRUE) %>%
-        dplyr::as_tibble()
+        dplyr::as_tibble() %>% 
+        janitor::clean_names()
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
@@ -599,7 +622,8 @@ espn_wbb_rankings <- function(){
   )
   ranks <- ranks  %>%
     dplyr::select(-dplyr::any_of(drop_cols))
-  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points)
+  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points) %>% 
+    janitor::clean_names()
   return(ranks)
 }
 

@@ -1,5 +1,5 @@
 
-cols <- c("Home","label","Away")
+cols <- c("home","label","away")
 
 test_that("ESPN - WBB Team Box", {
   skip_on_cran()

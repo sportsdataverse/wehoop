@@ -74,7 +74,16 @@ espn_wnba_game_all <- function(game_id){
 
   player_box <- dplyr::bind_cols(stats_df,players_df) %>%
     dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
-
+  plays_df <- plays_df %>% 
+    janitor::clean_names()
+  team_box_score <- team_box_score %>% 
+    janitor::clean_names()
+  player_box <- player_box %>% 
+    janitor::clean_names() %>% 
+    dplyr::rename(
+      '+/-'=.data$x,
+      fg3 = .data$x3pt
+    )
   pbp <- c(list(plays_df), list(team_box_score),list(player_box))
   names(pbp) <- c("Plays","Team","Player")
   return(pbp)
@@ -119,7 +128,8 @@ espn_wnba_pbp <- function(game_id){
   plays_df <- dplyr::bind_cols(plays, aths) %>%
     select(-.data$athlete.id)
 
-
+  plays_df <- plays_df %>% 
+    janitor::clean_names()
   return(plays_df)
 }
 #' Get ESPN's WNBA team box data
@@ -161,6 +171,8 @@ espn_wnba_team_box <- function(game_id){
   tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
   names(tm) <- c("Home","label","Away")
   team_box_score = dplyr::bind_rows(tm, team_box_score)
+  team_box_score <- team_box_score %>% 
+    janitor::clean_names()
   return(team_box_score)
 }
 #' Get ESPN's WNBA player box data
@@ -210,6 +222,13 @@ espn_wnba_player_box <- function(game_id){
 
   player_box <- dplyr::bind_cols(stats_df,players_df) %>%
     dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+  player_box <- player_box %>% 
+    janitor::clean_names() %>% 
+    dplyr::rename(
+      '+/-'=.data$x,
+      fg3 = .data$x3pt
+    )
+  
   return(player_box)
 }
 
@@ -260,6 +279,7 @@ espn_wnba_teams <- function(){
       mascot = .data$name,
       team = .data$location,
       team_id = .data$id,
+      alternate_color = .data$alternateColor,
       short_name = .data$shortDisplayName,
       display_name = .data$displayName
     )
@@ -385,12 +405,15 @@ espn_wnba_scoreboard <- function(season){
           broadcast_market = list(1, "market"),
           broadcast_name = list(1, "names", 1)
         ) %>%
-        dplyr::select(!where(is.list))
+        dplyr::select(!where(is.list)) %>% 
+          janitor::clean_names()    
     } else {
-      schedule_out
+      schedule_out %>% 
+        janitor::clean_names()
     }
   } else {
-    wnba_data %>% dplyr::select(!where(is.list))
+    wnba_data %>% dplyr::select(!where(is.list)) %>% 
+      janitor::clean_names()
   }
 
 }
