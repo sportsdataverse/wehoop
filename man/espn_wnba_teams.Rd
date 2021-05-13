@@ -10,9 +10,7 @@ espn_wnba_teams()
 Get ESPN's WNBA team names and ids
 }
 \examples{
-
 espn_wnba_teams()
-
 }
 \author{
 Saiem Gilani

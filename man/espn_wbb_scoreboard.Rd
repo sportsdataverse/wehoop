@@ -19,7 +19,6 @@ Get women's college basketball schedule for a specific year from ESPN's API
 }
 \examples{
 # Get schedule returns 1000 results, max allowable.
-# Must iterate through dates to get full year's schedule, as below:
 # Get schedule from date 2021-02-15, then next date and so on.
 espn_wbb_scoreboard (season = "20210215")
 }

@@ -15,9 +15,7 @@ espn_wbb_game_all(game_id, verbose = FALSE)
 Get ESPN women's college basketball game data (play-by-play, team and player box)
 }
 \examples{
-
- espn_wbb_game_all(game_id = 401276115)
-
+espn_wbb_game_all(game_id = 401276115)
 }
 \author{
 Saiem Gilani

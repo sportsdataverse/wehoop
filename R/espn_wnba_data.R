@@ -7,11 +7,8 @@
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
 #' espn_wnba_game_all(game_id = 401244185)
-#' 
 
 espn_wnba_game_all <- function(game_id){
   options(stringsAsFactors = FALSE)
@@ -98,11 +95,8 @@ espn_wnba_game_all <- function(game_id){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wnba_pbp(game_id = 401244185)
-#'
+#' espn_wnba_pbp(game_id = 401244185)
 espn_wnba_pbp <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -141,12 +135,8 @@ espn_wnba_pbp <- function(game_id){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'
-#'  espn_wnba_team_box(game_id = 401244185)
-#'
+#' espn_wnba_team_box(game_id = 401244185)
 espn_wnba_team_box <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -184,11 +174,8 @@ espn_wnba_team_box <- function(game_id){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wnba_player_box(game_id = 401244185)
-#'
+#' espn_wnba_player_box(game_id = 401244185)
 espn_wnba_player_box <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -242,11 +229,8 @@ espn_wnba_player_box <- function(game_id){
 #' @importFrom tibble tibble
 #' @importFrom purrr map_if
 #' @export
-#'
 #' @examples
-#'
 #' espn_wnba_teams()
-#'
 
 espn_wnba_teams <- function(){
   options(stringsAsFactors = FALSE)
