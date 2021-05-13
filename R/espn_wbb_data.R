@@ -8,11 +8,8 @@
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wbb_game_all(game_id = 401276115)
-#'
+#' espn_wbb_game_all(game_id = 401276115)
 
 espn_wbb_game_all <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
@@ -144,11 +141,8 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wbb_pbp(game_id = 401276115)
-#'
+#' espn_wbb_pbp(game_id = 401276115)
 espn_wbb_pbp <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -202,12 +196,8 @@ espn_wbb_pbp <- function(game_id, verbose = FALSE){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'
 #'  espn_wbb_team_box(game_id = 401276115)
-#'
 espn_wbb_team_box <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -258,11 +248,8 @@ espn_wbb_team_box <- function(game_id, verbose = FALSE){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
 #'  espn_wbb_player_box(game_id = 401276115)
-#'
 espn_wbb_player_box <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -331,9 +318,7 @@ espn_wbb_player_box <- function(game_id, verbose = FALSE){
 #' @export
 #'
 #' @examples
-#'
 #'  espn_wbb_teams()
-#'
 
 espn_wbb_teams <- function(){
   options(stringsAsFactors = FALSE)
@@ -416,7 +401,6 @@ espn_wbb_teams <- function(){
 #' @export
 #' @examples
 #' # Get schedule returns 1000 results, max allowable.
-#' # Must iterate through dates to get full year's schedule, as below:
 #' # Get schedule from date 2021-02-15, then next date and so on.
 #' espn_wbb_scoreboard (season = "20210215")
 

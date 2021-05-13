@@ -1,3 +1,11 @@
+# **wehoop 0.9.1**
+
+### **Clean names and team returns**
+- All functions have now been given the [```janitor::clean_names()```](https://rdrr.io/cran/janitor/man/clean_names.html) treatment
+- [```wehoop::espn_wbb_teams()](https://saiemgilani.github.io/wehoop/reference/espn_wbb_teams.html) has updated the returns to be more identity information related only
+- [```wehoop::espn_wnba_teams()](https://saiemgilani.github.io/wehoop/reference/espn_wnba_teams.html) to be more identity information related only
+- All tests were updated
+
 # **wehoop 0.9.0**
 
 ### **Loading capabilities added to the package**

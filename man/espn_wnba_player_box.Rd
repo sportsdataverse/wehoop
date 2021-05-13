@@ -13,9 +13,7 @@ espn_wnba_player_box(game_id)
 Get ESPN's WNBA player box data
 }
 \examples{
-
- espn_wnba_player_box(game_id = 401244185)
-
+espn_wnba_player_box(game_id = 401244185)
 }
 \author{
 Saiem Gilani

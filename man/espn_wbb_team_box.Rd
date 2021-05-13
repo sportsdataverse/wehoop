@@ -15,10 +15,7 @@ espn_wbb_team_box(game_id, verbose = FALSE)
 Get ESPN women's college basketball team box data
 }
 \examples{
-
-
  espn_wbb_team_box(game_id = 401276115)
-
 }
 \author{
 Saiem Gilani
