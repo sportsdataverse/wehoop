@@ -8,11 +8,8 @@
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wbb_game_all(game_id = 401276115)
-#'
+#' espn_wbb_game_all(game_id = 401276115)
 
 espn_wbb_game_all <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
@@ -108,6 +105,15 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
     
       player_box <- dplyr::bind_cols(stats_df,players_df) %>%
         dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+      plays_df <- plays_df %>% 
+        janitor::clean_names()
+      team_box_score <- team_box_score %>% 
+        janitor::clean_names()
+      player_box <- player_box %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          fg3 = .data$x3pt
+        )
     },
     error = function(e) {
       if(verbose){
@@ -135,11 +141,8 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wbb_pbp(game_id = 401276115)
-#'
+#' espn_wbb_pbp(game_id = 401276115)
 espn_wbb_pbp <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -167,6 +170,8 @@ espn_wbb_pbp <- function(game_id, verbose = FALSE){
       names(aths)[1]<-c("play.id")
       plays_df <- dplyr::bind_cols(plays, aths) %>%
         select(-.data$athlete.id)
+      plays_df <- plays_df %>% 
+        janitor::clean_names()
     },
     error = function(e) {
       if(verbose){
@@ -191,12 +196,8 @@ espn_wbb_pbp <- function(game_id, verbose = FALSE){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'
 #'  espn_wbb_team_box(game_id = 401276115)
-#'
 espn_wbb_team_box <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -223,6 +224,8 @@ espn_wbb_team_box <- function(game_id, verbose = FALSE){
       tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
       names(tm) <- c("Home","label","Away")
       team_box_score = dplyr::bind_rows(tm, team_box_score)
+      team_box_score <- team_box_score %>% 
+        janitor::clean_names()
     },
     error = function(e) {
       if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -245,11 +248,8 @@ espn_wbb_team_box <- function(game_id, verbose = FALSE){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
 #'  espn_wbb_player_box(game_id = 401276115)
-#'
 espn_wbb_player_box <- function(game_id, verbose = FALSE){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -286,6 +286,11 @@ espn_wbb_player_box <- function(game_id, verbose = FALSE){
     
       player_box <- dplyr::bind_cols(stats_df,players_df) %>%
         dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+      player_box <- player_box %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          fg3 = .data$x3pt
+        )
     },
     error = function(e) {
       if(verbose) message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
@@ -313,9 +318,7 @@ espn_wbb_player_box <- function(game_id, verbose = FALSE){
 #' @export
 #'
 #' @examples
-#'
 #'  espn_wbb_teams()
-#'
 
 espn_wbb_teams <- function(){
   options(stringsAsFactors = FALSE)
@@ -352,8 +355,24 @@ espn_wbb_teams <- function(){
       stats <- s %>% unnest_wider(.data$g)
     
       records <- dplyr::bind_cols(records %>% dplyr::select(.data$summary), stats)
-      leagues <- leagues %>% dplyr::select(-.data$record,-.data$links)
-      teams <- dplyr::bind_cols(leagues, records)
+      leagues <- leagues %>% dplyr::select(
+        -.data$record,
+        -.data$links, 
+        -.data$isActive, 
+        -.data$isAllStar,
+        -.data$uid,
+        -.data$slug)
+      teams <- leagues %>% 
+        dplyr::rename(
+          logo = .data$logos_href_1,
+          logo_dark = .data$logos_href_2,
+          mascot = .data$name,
+          team = .data$location,
+          team_id = .data$id,
+          short_name = .data$shortDisplayName,
+          alternate_color = .data$alternateColor,
+          display_name = .data$displayName
+        )
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no teams data available!"))
@@ -382,7 +401,6 @@ espn_wbb_teams <- function(){
 #' @export
 #' @examples
 #' # Get schedule returns 1000 results, max allowable.
-#' # Must iterate through dates to get full year's schedule, as below:
 #' # Get schedule from date 2021-02-15, then next date and so on.
 #' espn_wbb_scoreboard (season = "20210215")
 
@@ -485,12 +503,15 @@ espn_wbb_scoreboard <- function(season, verbose = FALSE){
               broadcast_market = list(1, "market"),
               broadcast_name = list(1, "names", 1)
             ) %>%
-            dplyr::select(!where(is.list))
+            dplyr::select(!where(is.list)) %>% 
+            janitor::clean_names()
         } else {
-          schedule_out
+          schedule_out %>% 
+            janitor::clean_names()
         }
       } else {
-        wbb_data %>% dplyr::select(!where(is.list))
+        wbb_data %>% dplyr::select(!where(is.list)) %>% 
+          janitor::clean_names()
       }
     },
     error = function(e) {
@@ -528,7 +549,8 @@ ncaa_wbb_NET_rankings <- function(){
               xml2::read_html() %>%
               rvest::html_nodes("table"))[[1]] %>%
         rvest::html_table(fill=TRUE) %>%
-        dplyr::as_tibble()
+        dplyr::as_tibble() %>% 
+        janitor::clean_names()
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
@@ -584,7 +606,8 @@ espn_wbb_rankings <- function(){
   )
   ranks <- ranks  %>%
     dplyr::select(-dplyr::any_of(drop_cols))
-  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points)
+  ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points) %>% 
+    janitor::clean_names()
   return(ranks)
 }
 

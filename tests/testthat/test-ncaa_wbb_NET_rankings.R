@@ -1,6 +1,6 @@
 
-cols <- c("Rank", "Previous", "School", "Conference", "Record", "Road", 
-          "Neutral", "Home", "Non Div I")
+cols <- c("rank", "previous", "school", "conference",
+          "record", "road", "neutral", "home", "non_div_i")
 
 test_that("NCAA - WBB NET Rankings", {
   skip_on_cran()

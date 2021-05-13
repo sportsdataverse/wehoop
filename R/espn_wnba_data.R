@@ -7,11 +7,8 @@
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
 #' espn_wnba_game_all(game_id = 401244185)
-#' 
 
 espn_wnba_game_all <- function(game_id){
   options(stringsAsFactors = FALSE)
@@ -74,7 +71,16 @@ espn_wnba_game_all <- function(game_id){
 
   player_box <- dplyr::bind_cols(stats_df,players_df) %>%
     dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
-
+  plays_df <- plays_df %>% 
+    janitor::clean_names()
+  team_box_score <- team_box_score %>% 
+    janitor::clean_names()
+  player_box <- player_box %>% 
+    janitor::clean_names() %>% 
+    dplyr::rename(
+      '+/-'=.data$x,
+      fg3 = .data$x3pt
+    )
   pbp <- c(list(plays_df), list(team_box_score),list(player_box))
   names(pbp) <- c("Plays","Team","Player")
   return(pbp)
@@ -89,11 +95,8 @@ espn_wnba_game_all <- function(game_id){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wnba_pbp(game_id = 401244185)
-#'
+#' espn_wnba_pbp(game_id = 401244185)
 espn_wnba_pbp <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -119,7 +122,8 @@ espn_wnba_pbp <- function(game_id){
   plays_df <- dplyr::bind_cols(plays, aths) %>%
     select(-.data$athlete.id)
 
-
+  plays_df <- plays_df %>% 
+    janitor::clean_names()
   return(plays_df)
 }
 #' Get ESPN's WNBA team box data
@@ -131,12 +135,8 @@ espn_wnba_pbp <- function(game_id){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'
-#'  espn_wnba_team_box(game_id = 401244185)
-#'
+#' espn_wnba_team_box(game_id = 401244185)
 espn_wnba_team_box <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -161,6 +161,8 @@ espn_wnba_team_box <- function(game_id){
   tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
   names(tm) <- c("Home","label","Away")
   team_box_score = dplyr::bind_rows(tm, team_box_score)
+  team_box_score <- team_box_score %>% 
+    janitor::clean_names()
   return(team_box_score)
 }
 #' Get ESPN's WNBA player box data
@@ -172,11 +174,8 @@ espn_wnba_team_box <- function(game_id){
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
-#'
 #' @examples
-#'
-#'  espn_wnba_player_box(game_id = 401244185)
-#'
+#' espn_wnba_player_box(game_id = 401244185)
 espn_wnba_player_box <- function(game_id){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
@@ -210,6 +209,13 @@ espn_wnba_player_box <- function(game_id){
 
   player_box <- dplyr::bind_cols(stats_df,players_df) %>%
     dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+  player_box <- player_box %>% 
+    janitor::clean_names() %>% 
+    dplyr::rename(
+      '+/-'=.data$x,
+      fg3 = .data$x3pt
+    )
+  
   return(player_box)
 }
 
@@ -223,17 +229,14 @@ espn_wnba_player_box <- function(game_id){
 #' @importFrom tibble tibble
 #' @importFrom purrr map_if
 #' @export
-#'
 #' @examples
-#'
 #' espn_wnba_teams()
-#'
 
 espn_wnba_teams <- function(){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
-
+  
   ## Inputs
   ## game_id
   leagues <- jsonlite::fromJSON(play_base_url)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
@@ -243,29 +246,29 @@ espn_wnba_teams <- function(){
     dplyr::select(-.data$logos_width,-.data$logos_height,
                   -.data$logos_alt, -.data$logos_rel) %>%
     dplyr::ungroup()
-
-  # records <- leagues$record
-  # records<- records %>% tidyr::unnest_wider(.data$items) %>%
-  #   tidyr::unnest_wider(.data$stats,names_sep = "_") %>%
-  #   dplyr::mutate(row = dplyr::row_number())
-  # stat <- records %>%
-  #   dplyr::group_by(.data$row) %>%
-  #   purrr::map_if(is.data.frame, list)
-  # stat <- lapply(stat$stats_1,function(x) x %>%
-  #                     purrr::map_if(is.data.frame,list) %>%
-  #                     dplyr::as_tibble() )
-  # 
-  # s <- lapply(stat, function(x) {
-  #   tidyr::pivot_wider(x)
-  # })
-  # 
-  # s <- tibble::tibble(g = s)
-  # stats <- s %>% unnest_wider(.data$g)
-  # 
-  # records <- dplyr::bind_cols(records %>% dplyr::select(.data$summary), stats)
-  # leagues <- leagues %>% dplyr::select(-.data$record,-.data$links)
-  # teams <- dplyr::bind_cols(leagues, records)
-  return(leagues)
+  wnba_teams <- leagues %>%
+    dplyr::select(.data$id, 
+                  .data$location, 
+                  .data$name, 
+                  .data$displayName, 
+                  .data$shortDisplayName, 
+                  .data$abbreviation, 
+                  .data$color, 
+                  .data$alternateColor, 
+                  .data$logos_href_1, 
+                  .data$logos_href_2) %>%
+    dplyr::rename(
+      logo = .data$logos_href_1,
+      logo_dark = .data$logos_href_2,
+      mascot = .data$name,
+      team = .data$location,
+      team_id = .data$id,
+      alternate_color = .data$alternateColor,
+      short_name = .data$shortDisplayName,
+      display_name = .data$displayName
+    )
+  
+  return(wnba_teams)
 }
 
 
@@ -386,12 +389,15 @@ espn_wnba_scoreboard <- function(season){
           broadcast_market = list(1, "market"),
           broadcast_name = list(1, "names", 1)
         ) %>%
-        dplyr::select(!where(is.list))
+        dplyr::select(!where(is.list)) %>% 
+          janitor::clean_names()    
     } else {
-      schedule_out
+      schedule_out %>% 
+        janitor::clean_names()
     }
   } else {
-    wnba_data %>% dplyr::select(!where(is.list))
+    wnba_data %>% dplyr::select(!where(is.list)) %>% 
+      janitor::clean_names()
   }
 
 }
