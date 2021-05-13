@@ -1,10 +1,10 @@
 
-cols <- c("athlete.displayName", "team.shortDisplayName", "MIN", "FG", 
-          "3PT", "FT", "OREB", "DREB", "REB", "AST", "STL", "BLK", "TO", 
-          "PF","+/-", "PTS", "starter", "ejected", "didNotPlay", "active", "athlete.jersey", 
-          "athlete.id", "athlete.shortName", "athlete.position.name", 
-          "athlete.position.abbreviation", "team.name", "team.logo", "team.id", 
-          "team.abbreviation", "team.color", "team.alternateColor")
+cols <- c("athlete_display_name", "team_short_display_name", 
+          "min", "fg", "fg3", "ft", "oreb", "dreb", "reb", "ast", "stl", "blk", 
+          "to", "pf", "+/-", "pts", "starter", "ejected", "did_not_play", "active", 
+          "athlete_jersey", "athlete_id", "athlete_short_name", "athlete_position_name", 
+          "athlete_position_abbreviation", "team_name", "team_logo", 
+          "team_id", "team_abbreviation", "team_color", "team_alternate_color")
 
 test_that("ESPN - WNBA Player Box", {
   skip_on_cran()

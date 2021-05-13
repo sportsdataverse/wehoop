@@ -5,7 +5,7 @@ cols <- c("matchup", "matchup_short", "season", "type", "slug", "game_id",
           "home_team_color", "home_score", "home_win", "home_record", "away_team_name", 
           "away_team_logo", "away_team_abb", "away_team_id", "away_team_location", 
           "away_team_full", "away_team_color", "away_score", "away_win", 
-          "away_record", "status_name", "startDate")
+          "away_record", "status_name", "start_date")
 
 test_that("ESPN - WBB Scoreboard", {
   x <- espn_wbb_scoreboard(season="20210215")
