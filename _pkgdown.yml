@@ -4,6 +4,13 @@ template:
   params:
     bootswatch: flatly
     ganalytics: G-9CQMXE1XGT
+  opengraph:
+    image:
+      src: "https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/themes/wehoop_gh.png"
+    twitter:
+      creator: "@saiemgilani"
+      card: summary_large_image
+
 authors:
   Saiem Gilani:
     href: https://twitter.com/saiemgilani
@@ -55,8 +62,8 @@ navbar:
         href: https://sportsdataverse.org/
       - text: cfbfastR
         href: https://saiemgilani.github.io/cfbfastR/
-      - text: kenpomR
-        href: https://saiemgilani.github.io/kenpomR/
+      - text: hoopR
+        href: https://saiemgilani.github.io/hoopR/
       - text: cfbrecruitR
         href: https://saiemgilani.github.io/cfbrecruitR/
     github:
