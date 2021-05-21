@@ -226,8 +226,6 @@ espn_wnba_player_box <- function(game_id){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
 #' @importFrom tidyr unnest unnest_wider everything pivot_wider
-#' @importFrom tibble tibble
-#' @importFrom purrr map_if
 #' @export
 #' @examples
 #' espn_wnba_teams()
@@ -278,9 +276,9 @@ espn_wnba_teams <- function(){
 #' @author Thomas Mock, you a genius for this one.
 #' @return Returns a tibble
 #' @import utils
+#' @import rvest
 #' @importFrom dplyr select rename any_of mutate
 #' @importFrom jsonlite fromJSON
-#' @importFrom tibble tibble
 #' @importFrom tidyr unnest_wider unchop hoist
 #' @importFrom glue glue
 #' @export

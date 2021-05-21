@@ -10,6 +10,7 @@ NULL
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by \code{\link[=update_wbb_db]{update_wbb_db()}}).
 #' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
+#' @import furrr
 #' @export
 load_wbb_pbp <- function(seasons, ..., qs = FALSE) {
   options(stringsAsFactors = FALSE)
@@ -124,6 +125,7 @@ load_wbb_games <- function(){
 #' of or the complete play by play data table within the database (please see details for further information)
 #' @param db_connection A `DBIConnection` object, as returned by
 #' [DBI::dbConnect()] (please see details for further information)
+#' @import furrr
 #' @export
 update_wbb_db <- function(dbdir = ".",
                           dbname = "wbb_pbp_db",
@@ -169,7 +171,6 @@ update_wbb_db <- function(dbdir = ".",
   completed_games <- load_wbb_games() %>%
     # completed games since 2002, excluding the broken games
     dplyr::filter(.data$season >= 2002) %>%
-    dplyr::arrange(.data$week) %>%
     dplyr::pull(.data$game_id)
   
   # function below

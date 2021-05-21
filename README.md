@@ -57,6 +57,21 @@ website](https://saiemgilani.github.io/wehoop/).
 [**Full News on
 Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
+# **wehoop 0.9.2**
+
+### **Quick fix for update db functions**
+
+### **Dependency pruning**
+
+This update is a non-user facing change to package dependencies to
+shrink the list of dependencies.
+
+# 
+
+<details>
+
+<summary>View more version news</summary>
+
 # **wehoop 0.9.1**
 
 ### **Clean names and team returns**
@@ -83,12 +98,6 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
     [`wehoop::update_wnba_db()`](https://saiemgilani.github.io/wehoop/reference/update_wnba_db.html)
     functions added
 
-# 
-
-<details>
-
-<summary>View more version news</summary>
-
 ## **wehoop 0.3.0**
 
 ### **Dependencies**
@@ -107,36 +116,36 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
 ### **Test coverage**
 
-  - Added tests for all ESPN functions
-
-### **Function Naming Convention Change**
-
+  - Added tests for all ESPN functions \#\#\# **Function Naming
+    Convention Change**
   - Similarly, data and metrics sourced from ESPN will begin with
     `espn_` as opposed to `wbb_` or `wnba_`.
-
   - Data sourced directly from the NCAA website will start the function
     with `ncaa_`
 
 ## **v0.2.0**: Support for ESPN’s WNBA game data
 
-See the following six functions:
-
-  - [`wehoop::wnba_espn_game_all()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_game_all.html)
-  - [`wehoop::wnba_espn_pbp()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_pbp.html)
-  - [`wehoop::wnba_espn_team_box()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_team_box.html)
-  - [`wehoop::wnba_espn_player_box()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_player_box.html)
-  - [`wehoop::wnba_espn_teams()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html)
-  - [`wehoop::wnba_espn_scoreboard()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html)
+See the following six functions: -
+[`wehoop::wnba_espn_game_all()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_game_all.html)
+-
+[`wehoop::wnba_espn_pbp()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_pbp.html)
+-
+[`wehoop::wnba_espn_team_box()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_team_box.html)
+-
+[`wehoop::wnba_espn_player_box()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_player_box.html)
+-
+[`wehoop::wnba_espn_teams()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html)
+-
+[`wehoop::wnba_espn_scoreboard()`](https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html)
 
 ## **v0.1.0**: Support for ESPN’s women’s college basketball game data and NCAA NET Rankings
 
-See the following eight functions:
-
-  - [`wehoop::wbb_espn_game_all()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_game_all.html)
-
-  - [`wehoop::wbb_espn_pbp()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_pbp.html)
-
-  - [`wehoop::wbb_espn_team_box()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_team_box.html)
+See the following eight functions: -
+[`wehoop::wbb_espn_game_all()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_game_all.html)
+-
+[`wehoop::wbb_espn_pbp()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_pbp.html)
+-
+[`wehoop::wbb_espn_team_box()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_team_box.html)
 
   - [`wehoop::wbb_espn_player_box()`](https://saiemgilani.github.io/wehoop/reference/wbb_espn_player_box.html)
 
