@@ -214,9 +214,9 @@ See the following eight functions: -
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                        | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 5     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[db fix](https://github.com/saiemgilani/wehoop/pull/5)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-21 | 2021-05-21 03:00:43 |
+| issue | icon                                                                                                                                         | title                                                                            | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 6     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[httr retry](https://github.com/saiemgilani/wehoop/pull/6)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-21 | 2021-05-21 04:19:31 |
 
 </details>
 
