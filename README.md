@@ -46,6 +46,47 @@ if (!requireNamespace('devtools', quietly = TRUE)){
 devtools::install_github(repo = "saiemgilani/wehoop")
 ```
 
+## Quick Start
+
+### **WNBA full play-by-play seasons (2002-2021) \~ 1-2 minutes**
+
+``` r
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("saiemgilani/wehoop")
+future::plan("multisession")
+tictoc::tic()
+progressr::with_progress({
+  pbp <- wehoop::load_wnba_pbp(2002:2021)
+})
+tictoc::toc()
+## 10.36 sec elapsed
+length(unique(pbp$game_id))
+nrow(pbp)
+```
+
+### **Women’s college basketball full play-by-play seasons (2002-2021) \~ 2-3 minutes**
+
+``` r
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("saiemgilani/wehoop")
+future::plan("multisession")
+tictoc::tic()
+progressr::with_progress({
+  pbp <- wehoop::load_wbb_pbp(2002:2021)
+})
+tictoc::toc()
+
+## 73.39 sec elapsed
+length(unique(pbp$game_id))
+nrow(pbp)
+```
+
 ## Documentation
 
 For more information on the package and function reference, please see
@@ -58,6 +99,10 @@ website](https://saiemgilani.github.io/wehoop/).
 Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
 # **wehoop 0.9.2**
+
+  - Added
+    [`wehoop::espn_wbb_conferences()`](https://saiemgilani.github.io/wehoop/reference/espn_wbb_conferences.html)
+    function
 
 ### **Quick fix for update db functions**
 
@@ -72,7 +117,7 @@ shrink the list of dependencies.
 
 <summary>View more version news</summary>
 
-# **wehoop 0.9.1**
+## **wehoop 0.9.1**
 
 ### **Clean names and team returns**
 
@@ -85,7 +130,7 @@ shrink the list of dependencies.
     to be more identity information related only
   - All tests were updated
 
-# **wehoop 0.9.0**
+## **wehoop 0.9.0**
 
 ### **Loading capabilities added to the package**
 
@@ -169,9 +214,9 @@ See the following eight functions: -
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                                                | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 4     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="# **wehoop 0.9.1**...">[Teams fix](https://github.com/saiemgilani/wehoop/pull/4)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-13 | 2021-05-13 02:25:54 |
+| issue | icon                                                                                                                                         | title                                                                        | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 5     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[db fix](https://github.com/saiemgilani/wehoop/pull/5)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-21 | 2021-05-21 03:00:43 |
 
 </details>
 
