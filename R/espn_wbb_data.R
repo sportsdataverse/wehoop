@@ -7,6 +7,7 @@
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wbb_game_all(game_id = 401276115)
@@ -21,15 +22,23 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
-  plays <- raw_play_df[["plays"]]
-  plays <- jsonlite::fromJSON(jsonlite::toJSON(plays), flatten=TRUE)
-  raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
   plays_df <- data.frame()
   team_box <- data.frame()
   player_box <- data.frame()
   tryCatch(
     expr = {
+      plays <- raw_play_df[["plays"]]
+      plays <- jsonlite::fromJSON(jsonlite::toJSON(plays), flatten=TRUE)
+      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       #---- Play-by-Play ------
       plays <- plays %>%
         tidyr::unnest_wider(unlist(.data$participants))
@@ -57,6 +66,7 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
   #---- Team Box ------
   tryCatch(
     expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
       teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
       teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
         dplyr::select(.data$displayValue, .data$label) %>%
@@ -83,6 +93,7 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
   #---- Player Box ------
   tryCatch(
     expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
       players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
         tidyr::unnest(.data$statistics) %>%
         tidyr::unnest(.data$athletes)
@@ -140,6 +151,7 @@ espn_wbb_game_all <- function(game_id, verbose = FALSE){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wbb_pbp(game_id = 401276115)
@@ -153,9 +165,18 @@ espn_wbb_pbp <- function(game_id, verbose = FALSE){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]][["plays"]]
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][["plays"]]
 
       raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       #---- Play-by-Play ------
@@ -195,6 +216,7 @@ espn_wbb_pbp <- function(game_id, verbose = FALSE){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #'  espn_wbb_team_box(game_id = 401276115)
@@ -207,11 +229,21 @@ espn_wbb_team_box <- function(game_id, verbose = FALSE){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
-  raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  
+  
   #---- Team Box ------
   tryCatch(
     expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
       teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
         dplyr::select(.data$displayValue, .data$label) %>%
@@ -247,6 +279,7 @@ espn_wbb_team_box <- function(game_id, verbose = FALSE){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #'  espn_wbb_player_box(game_id = 401276115)
@@ -259,11 +292,21 @@ espn_wbb_player_box <- function(game_id, verbose = FALSE){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
-  raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  
+  
   #---- Player Box ------
   tryCatch(
     expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
         tidyr::unnest(.data$statistics) %>%
         tidyr::unnest(.data$athletes)
@@ -325,10 +368,18 @@ espn_wbb_teams <- function(){
   options(scipen = 999)
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams?groups=50&limit=1000"
 
+  res <- httr::RETRY(
+    "GET", play_base_url
+  )
   
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
   tryCatch(
     expr = {
-      leagues <- jsonlite::fromJSON(play_base_url)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
+      
+      leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
         dplyr::group_by(.data$id) %>%
         tidyr::unnest_wider(unlist(.data$logos, use.names=FALSE),names_sep = "_") %>%
         tidyr::unnest_wider(.data$logos_href,names_sep = "_") %>%
@@ -421,9 +472,19 @@ espn_wbb_scoreboard <- function(season, verbose = FALSE){
   season_dates <- season
 
   schedule_api <- glue::glue("http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?groups=50&limit=1000&dates={season_dates}")
+  res <- httr::RETRY(
+    "GET", schedule_api
+  )
+  
+  # Check the result
+  check_status(res)
+  
   tryCatch(
     expr = {
-      raw_sched <- jsonlite::fromJSON(schedule_api, simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
+      raw_sched <- res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
+      
     
       wbb_data <- raw_sched[["events"]] %>%
         tibble::tibble(data = .data$.) %>%
@@ -571,6 +632,7 @@ ncaa_wbb_NET_rankings <- function(){
 #' @importFrom dplyr %>%  bind_rows arrange select
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest
+#' @import rvest
 #' @export
 #' @examples
 #' # Get current AP and Coaches Poll rankings
@@ -585,8 +647,15 @@ espn_wbb_rankings <- function(){
   ## Inputs
   ## game_id
 
-
-  ranks_df <- jsonlite::fromJSON(ranks_url,flatten = TRUE)[['rankings']]
+  res <- httr::RETRY(
+    "GET", ranks_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  ranks_df <- jsonlite::fromJSON(resp,flatten = TRUE)[['rankings']]
   ranks_top25 <- ranks_df %>%
     dplyr::select(-.data$date,-.data$lastUpdated) %>%
     tidyr::unnest(.data$ranks, names_repair="minimal") 
@@ -618,6 +687,7 @@ espn_wbb_rankings <- function(){
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom dplyr select
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wbb_conferences()
@@ -628,8 +698,15 @@ espn_wbb_conferences <- function(){
   
   ## Inputs
   ## game_id
+  res <- httr::RETRY(
+    "GET", play_base_url
+  )
   
-  conferences <- jsonlite::fromJSON(play_base_url)[["conferences"]] %>%
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
     dplyr::select(-.data$subGroups) %>%
     janitor::clean_names()
   
@@ -645,6 +722,7 @@ espn_wbb_conferences <- function(){
 #' #' @importFrom jsonlite fromJSON
 #' #' @importFrom tidyr unnest
 #' #' @importFrom glue glue
+#' #' @import rvest
 #' #' @export
 #' #' @examples
 #' #' # Get current AP and Coaches Poll rankings
