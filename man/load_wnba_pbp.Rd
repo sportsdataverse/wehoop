@@ -12,7 +12,7 @@ load_wnba_pbp(seasons, ..., qs = FALSE)
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{\link[=update_wnba_db]{update_wnba_db()}}).}
 
-\item{qs}{Wheter to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
+\item{qs}{Whether to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
 }
 \description{
 helper that loads multiple seasons from the data repo either into memory

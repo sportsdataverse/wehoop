@@ -9,7 +9,8 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by \code{\link[=update_wnba_db]{update_wnba_db()}}).
-#' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
+#' @param qs Whether to use the function [qs::qdeserialize()] for more efficient loading.
+#' @import furrr
 #' @export
 load_wnba_pbp <- function(seasons, ..., qs = FALSE) {
   options(stringsAsFactors = FALSE)
@@ -124,6 +125,7 @@ load_wnba_games <- function(){
 #' of or the complete play by play data table within the database (please see details for further information)
 #' @param db_connection A `DBIConnection` object, as returned by
 #' [DBI::dbConnect()] (please see details for further information)
+#' @import furrr
 #' @export
 update_wnba_db <- function(dbdir = ".",
                           dbname = "wnba_pbp_db",
@@ -169,7 +171,6 @@ update_wnba_db <- function(dbdir = ".",
   completed_games <- load_wnba_games() %>%
     # completed games since 2002, excluding the broken games
     dplyr::filter(.data$season >= 2002) %>%
-    dplyr::arrange(.data$week) %>%
     dplyr::pull(.data$game_id)
   
   # function below

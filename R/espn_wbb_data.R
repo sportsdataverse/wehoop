@@ -313,8 +313,8 @@ espn_wbb_player_box <- function(game_id, verbose = FALSE){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
 #' @importFrom tidyr unnest unnest_wider everything pivot_wider
-#' @importFrom tibble tibble
-#' @importFrom purrr map_if
+#' @import rvest
+#' @import furrr
 #' @export
 #'
 #' @examples
@@ -393,9 +393,10 @@ espn_wbb_teams <- function(){
 #' @author Thomas Mock, you a genius for this one.
 #' @return Returns a tibble
 #' @import utils
+#' @import rvest
+#' @import furrr
 #' @importFrom dplyr select rename any_of mutate
 #' @importFrom jsonlite fromJSON
-#' @importFrom tibble tibble
 #' @importFrom tidyr unnest_wider unchop hoist
 #' @importFrom glue glue
 #' @export
@@ -532,8 +533,7 @@ utils::globalVariables(c("where"))
 #' @author Saiem Gilani
 #' @return Returns a tibble
 #' @importFrom dplyr %>% as_tibble
-#' @importFrom rvest html_nodes html_table
-#' @importFrom xml2 read_html
+#' @import rvest
 #' @export
 #' @examples
 #' # Get current NCAA NET rankings
@@ -609,6 +609,31 @@ espn_wbb_rankings <- function(){
   ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points) %>% 
     janitor::clean_names()
   return(ranks)
+} 
+
+#' Get women's college basketball conferences
+#'
+#' @author Saiem Gilani
+#' @return Returns a tibble
+#' @importFrom jsonlite fromJSON
+#' @importFrom janitor clean_names
+#' @importFrom dplyr select
+#' @export
+#' @examples
+#' espn_wbb_conferences()
+espn_wbb_conferences <- function(){
+  options(stringsAsFactors = FALSE)
+  options(scipen = 999)
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences"
+  
+  ## Inputs
+  ## game_id
+  
+  conferences <- jsonlite::fromJSON(play_base_url)[["conferences"]] %>%
+    dplyr::select(-.data$subGroups) %>%
+    janitor::clean_names()
+  
+  return(conferences)
 }
 
 #' 
@@ -652,4 +677,4 @@ espn_wbb_rankings <- function(){
 #' 
 #'   return(ranks)
 #' }
-#' 
+#'
