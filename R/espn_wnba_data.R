@@ -6,6 +6,7 @@
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wnba_game_all(game_id = 401244185)
@@ -20,7 +21,15 @@ espn_wnba_game_all <- function(game_id){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
 
   #---- Play-by-Play ------
@@ -94,6 +103,7 @@ espn_wnba_game_all <- function(game_id){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wnba_pbp(game_id = 401244185)
@@ -107,7 +117,15 @@ espn_wnba_pbp <- function(game_id){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Play-by-Play ------
   plays <- raw_play_df[["plays"]] %>%
@@ -134,6 +152,7 @@ espn_wnba_pbp <- function(game_id){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wnba_team_box(game_id = 401244185)
@@ -146,7 +165,15 @@ espn_wnba_team_box <- function(game_id){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Team Box ------
   teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
@@ -173,6 +200,7 @@ espn_wnba_team_box <- function(game_id){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wnba_player_box(game_id = 401244185)
@@ -185,7 +213,16 @@ espn_wnba_player_box <- function(game_id){
   ## game_id
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  raw_play_df <- jsonlite::fromJSON(full_url)[["gamepackageJSON"]]
+  res <- httr::RETRY(
+    "GET", full_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
+  
+  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Player Box ------
   players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
@@ -226,6 +263,7 @@ espn_wnba_player_box <- function(game_id){
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
 #' @importFrom tidyr unnest unnest_wider everything pivot_wider
+#' @import rvest
 #' @export
 #' @examples
 #' espn_wnba_teams()
@@ -234,16 +272,25 @@ espn_wnba_teams <- function(){
   options(stringsAsFactors = FALSE)
   options(scipen = 999)
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
+  res <- httr::RETRY(
+    "GET", play_base_url
+  )
+  
+  # Check the result
+  check_status(res)
+  resp <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") 
   
   ## Inputs
   ## game_id
-  leagues <- jsonlite::fromJSON(play_base_url)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
+  leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
     dplyr::group_by(.data$id) %>%
     tidyr::unnest_wider(unlist(.data$logos, use.names=FALSE),names_sep = "_") %>%
     tidyr::unnest_wider(.data$logos_href,names_sep = "_") %>%
     dplyr::select(-.data$logos_width,-.data$logos_height,
                   -.data$logos_alt, -.data$logos_rel) %>%
     dplyr::ungroup()
+  
   wnba_teams <- leagues %>%
     dplyr::select(.data$id, 
                   .data$location, 
@@ -281,6 +328,7 @@ espn_wnba_teams <- function(){
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest_wider unchop hoist
 #' @importFrom glue glue
+#' @import rvest
 #' @export
 #' @examples
 #' # Get schedule from 2020 season (returns 1000 results, max allowable.)
@@ -305,9 +353,16 @@ espn_wnba_scoreboard <- function(season){
   season_dates <- season
 
   schedule_api <- glue::glue("http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?limit=1000&dates={season_dates}")
-
-  raw_sched <- jsonlite::fromJSON(schedule_api, simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
-
+  res <- httr::RETRY(
+    "GET", schedule_api
+  )
+  
+  # Check the result
+  check_status(res)
+  raw_sched <- res %>%
+    httr::content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
+  
   wnba_data <- raw_sched[["events"]] %>%
     tibble::tibble(data = .data$.) %>%
     tidyr::unnest_wider(.data$data) %>%
