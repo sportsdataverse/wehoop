@@ -4,12 +4,10 @@
 \alias{espn_wbb_player_box}
 \title{Get ESPN women's college basketball player box}
 \usage{
-espn_wbb_player_box(game_id, verbose = FALSE)
+espn_wbb_player_box(game_id)
 }
 \arguments{
 \item{game_id}{Game ID}
-
-\item{verbose}{Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function}
 }
 \description{
 Get ESPN women's college basketball player box

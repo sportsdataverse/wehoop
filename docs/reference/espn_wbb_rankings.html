@@ -50,7 +50,10 @@
 
 <meta property="og:title" content="Get women's college basketball AP and Coaches poll rankings — espn_wbb_rankings" />
 <meta property="og:description" content="Get women's college basketball AP and Coaches poll rankings" />
-<meta property="og:image" content="https://saiemgilani.github.io/wehoop/logo.png" />
+<meta property="og:image" content="https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/themes/wehoop_gh.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@saiemgilani" />
+<meta name="twitter:site" content="@saiemgilani" />
 
 
 
@@ -92,7 +95,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -130,6 +133,9 @@
     <li>
       <a href="../articles/index.html">Vignettes</a>
     </li>
+    <li>
+      <a href="../articles/getting-started-wehoop.html">Getting started</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -155,7 +161,7 @@
       <a href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/kenpomR/">kenpomR</a>
+      <a href="https://saiemgilani.github.io/hoopR/">hoopR</a>
     </li>
     <li>
       <a href="https://saiemgilani.github.io/cfbrecruitR/">cfbrecruitR</a>
@@ -229,28 +235,28 @@
     <pre class="examples"><div class='input'><span class='co'># Get current AP and Coaches Poll rankings</span>
 <span class='fu'>espn_wbb_rankings</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 45 x 36</span><span>
-#&gt;    id    name   shortName type  headline   shortHeadline current previous points
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       1        2    800
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       2       11    752
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       3        1    724
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       4        5    721
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       5        6    672
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       6        7    596
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       7        3    555
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       8       10    549
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~       9        8    531
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 2     Coach~ Coaches ~ usa   2021 NCAA~ 2021 : Final~      10        4    522
-#&gt; </span><span style='color: #949494;'># ... with 35 more rows, and 27 more variables: firstPlaceVotes &lt;int&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   trend &lt;chr&gt;, date &lt;chr&gt;, lastUpdated &lt;chr&gt;, recordSummary &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   team.id &lt;chr&gt;, team.uid &lt;chr&gt;, team.location &lt;chr&gt;, team.name &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   team.nickname &lt;chr&gt;, team.abbreviation &lt;chr&gt;, team.color &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   team.logo &lt;chr&gt;, occurrence.number &lt;int&gt;, occurrence.type &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   occurrence.last &lt;lgl&gt;, occurrence.value &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   occurrence.displayValue &lt;chr&gt;, season.year &lt;int&gt;, season.startDate &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   season.endDate &lt;chr&gt;, season.displayName &lt;chr&gt;, season.type.type &lt;int&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   season.type.name &lt;chr&gt;, season.type.abbreviation &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   firstOccurrence.type &lt;chr&gt;, firstOccurrence.value &lt;chr&gt;</span><span></div></span></pre>
+#&gt;    id    name   short_name type  headline short_headline current previous points
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       1        2    800
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       2       11    752
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       3        1    724
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       4        5    721
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       5        6    672
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       6        7    596
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       7        3    555
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       8       10    549
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~       9        8    531
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 2     Coach~ Coaches P~ usa   2021 NC~ 2021 : Final ~      10        4    522
+#&gt; </span><span style='color: #949494;'># ... with 35 more rows, and 27 more variables: first_place_votes &lt;int&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   trend &lt;chr&gt;, date &lt;chr&gt;, last_updated &lt;chr&gt;, record_summary &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   team_id &lt;chr&gt;, team_uid &lt;chr&gt;, team_location &lt;chr&gt;, team_name &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   team_nickname &lt;chr&gt;, team_abbreviation &lt;chr&gt;, team_color &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   team_logo &lt;chr&gt;, occurrence_number &lt;int&gt;, occurrence_type &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   occurrence_last &lt;lgl&gt;, occurrence_value &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   occurrence_display_value &lt;chr&gt;, season_year &lt;int&gt;, season_start_date &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   season_end_date &lt;chr&gt;, season_display_name &lt;chr&gt;, season_type_type &lt;int&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   season_type_name &lt;chr&gt;, season_type_abbreviation &lt;chr&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   first_occurrence_type &lt;chr&gt;, first_occurrence_value &lt;chr&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

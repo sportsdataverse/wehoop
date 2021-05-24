@@ -21,6 +21,9 @@ home:
   description: Functions to Access Women's Basketball Play by Play Data
   icon: fa-home
   href: index.html
+  links:
+  - text: Getting started with wehoop 
+    href: articles/getting-started-wehoop.html
 navbar:
   structure:
     left:  [home, intro, reference, articles, news, games, network, data, repo]
@@ -54,6 +57,8 @@ navbar:
       menu:
       - text: Vignettes
         href: articles/index.html
+      - text: Getting started
+        href: articles/getting-started-wehoop.html
     network:
       icon: "fas fa-project-diagram"
       text: " SDV"
@@ -82,11 +87,15 @@ reference:
     desc: Functions exported by wehoop to access the wehoop-data repository's Women's College Basketball Data
     contents:
       - '`load_wbb_pbp`'
+      - '`load_wbb_team_box`'
+      - '`load_wbb_player_box`'
       - '`update_wbb_db`'
   - subtitle: WNBA Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
     contents:
       - '`load_wnba_pbp`'
+      - '`load_wnba_team_box`'
+      - '`load_wnba_player_box`'
       - '`update_wnba_db`'
   - title: ESPN Data
   - subtitle: Women's College Basketball Data Functions

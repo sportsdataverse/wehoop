@@ -4,6 +4,9 @@
     <loc>https://saiemgilani.github.io/wehoop/index.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_conferences.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_game_all.html</loc>
   </url>
   <url>
@@ -17,6 +20,9 @@
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_scoreboard.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_standings.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_teams.html</loc>
@@ -37,15 +43,48 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_scoreboard.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_standings.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_teams.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_team_box.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/ncaa_wbb_NET_rankings.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/update_wbb_db.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/update_wnba_db.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/wehoop-package.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html</loc>
   </url>
 </urlset>

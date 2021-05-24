@@ -9,7 +9,7 @@
 \usage{
 update_wnba_db(
   dbdir = ".",
-  dbname = "wnba_pbp_db",
+  dbname = "wehoop_db",
   tblname = "wehoop_wnba_pbp",
   force_rebuild = FALSE,
   db_connection = NULL
