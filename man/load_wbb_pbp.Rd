@@ -18,3 +18,9 @@ the season data into a database (used by \code{\link[=update_wbb_db]{update_wbb_
 helper that loads multiple seasons from the data repo either into memory
 or writes it into a db using some forwarded arguments in the dots
 }
+\examples{
+\dontrun{
+future::plan("multisession")
+load_wbb_pbp(2002:2021)
+}
+}

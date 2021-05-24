@@ -9,7 +9,7 @@
 \usage{
 update_wbb_db(
   dbdir = ".",
-  dbname = "wbb_pbp_db",
+  dbname = "wehoop_db",
   tblname = "wehoop_wbb_pbp",
   force_rebuild = FALSE,
   db_connection = NULL

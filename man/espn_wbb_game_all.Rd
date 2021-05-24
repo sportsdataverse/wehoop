@@ -4,12 +4,10 @@
 \alias{espn_wbb_game_all}
 \title{Get ESPN women's college basketball game data (play-by-play, team and player box)}
 \usage{
-espn_wbb_game_all(game_id, verbose = FALSE)
+espn_wbb_game_all(game_id)
 }
 \arguments{
 \item{game_id}{Game ID}
-
-\item{verbose}{Logical parameter (TRUE/FALSE, default: FALSE) to return warnings and messages from function}
 }
 \description{
 Get ESPN women's college basketball game data (play-by-play, team and player box)

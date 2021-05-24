@@ -1,3 +1,19 @@
+# **wehoop 1.0.0** 
+### **Add team box score loaders**
+- [```wehoop::load_wbb_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html) function added
+- [```wehoop::load_wnba_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html) function added
+
+### **Add player box score loaders**
+- [```wehoop::load_wbb_player_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html) function added
+- [```wehoop::load_wnba_player_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html) function added
+
+### **Standings functions**
+- [```wehoop::espn_wnba_standings()```](https://saiemgilani.github.io/wehoop/reference/espn_wnba_standings.html)
+- [```wehoop::espn_wbb_standings()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_standings.html)
+
+### **Getting Started vignette**
+- [Getting started with wehoop data](https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html)
+
 # **wehoop 0.9.2** 
 ### **Quick fix for update db functions**
 

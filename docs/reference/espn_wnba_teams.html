@@ -50,7 +50,10 @@
 
 <meta property="og:title" content="Get ESPN's WNBA team names and ids — espn_wnba_teams" />
 <meta property="og:description" content="Get ESPN's WNBA team names and ids" />
-<meta property="og:image" content="https://saiemgilani.github.io/wehoop/logo.png" />
+<meta property="og:image" content="https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/themes/wehoop_gh.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@saiemgilani" />
+<meta name="twitter:site" content="@saiemgilani" />
 
 
 
@@ -92,7 +95,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -130,6 +133,9 @@
     <li>
       <a href="../articles/index.html">Vignettes</a>
     </li>
+    <li>
+      <a href="../articles/getting-started-wehoop.html">Getting started</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -155,7 +161,7 @@
       <a href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/kenpomR/">kenpomR</a>
+      <a href="https://saiemgilani.github.io/hoopR/">hoopR</a>
     </li>
     <li>
       <a href="https://saiemgilani.github.io/cfbrecruitR/">cfbrecruitR</a>
@@ -223,27 +229,23 @@
     <p>Saiem Gilani</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>espn_wnba_teams</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 12 x 18</span><span>
-#&gt;    id    uid    slug    location name  abbreviation displayName shortDisplayName
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 20    s:40~~ atlant~ Atlanta  Dream ATL          Atlanta Dr~ Dream           
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 19    s:40~~ chicag~ Chicago  Sky   CHI          Chicago Sky Sky             
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 18    s:40~~ connec~ Connect~ Sun   CONN         Connecticu~ Sun             
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 3     s:40~~ dallas~ Dallas   Wings DAL          Dallas Win~ Wings           
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 5     s:40~~ indian~ Indiana  Fever IND          Indiana Fe~ Fever           
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 17    s:40~~ las-ve~ Las Veg~ Aces  LV           Las Vegas ~ Aces            
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 6     s:40~~ los-an~ Los Ang~ Spar~ LA           Los Angele~ Sparks          
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 8     s:40~~ minnes~ Minneso~ Lynx  MIN          Minnesota ~ Lynx            
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 9     s:40~~ new-yo~ New York Libe~ NY           New York L~ Liberty         
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 11    s:40~~ phoeni~ Phoenix  Merc~ PHX          Phoenix Me~ Mercury         
-#&gt; </span><span style='color: #BCBCBC;'>11</span><span> 14    s:40~~ seattl~ Seattle  Storm SEA          Seattle St~ Storm           
-#&gt; </span><span style='color: #BCBCBC;'>12</span><span> 16    s:40~~ washin~ Washing~ Myst~ WSH          Washington~ Mystics         
-#&gt; </span><span style='color: #949494;'># ... with 10 more variables: color &lt;chr&gt;, alternateColor &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   isActive &lt;lgl&gt;, isAllStar &lt;lgl&gt;, logos_href_1 &lt;chr&gt;, logos_href_2 &lt;chr&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   logos_href_3 &lt;chr&gt;, logos_href_4 &lt;chr&gt;, record &lt;df[,1]&gt;, links &lt;list&gt;</span><span></div><div class='input'>
-</div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>espn_wnba_teams</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 12 x 10</span><span>
+#&gt;    team_id team        mascot  display_name       short_name abbreviation color 
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> 
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 20      Atlanta     Dream   Atlanta Dream      Dream      ATL          d02030
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 19      Chicago     Sky     Chicago Sky        Sky        CHI          4f91cd
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 18      Connecticut Sun     Connecticut Sun    Sun        CONN         de6b36
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 3       Dallas      Wings   Dallas Wings       Wings      DAL          11213e
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 5       Indiana     Fever   Indiana Fever      Fever      IND          e2382f
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 17      Las Vegas   Aces    Las Vegas Aces     Aces       LV           000000
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 6       Los Angeles Sparks  Los Angeles Sparks Sparks     LA           532481
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 8       Minnesota   Lynx    Minnesota Lynx     Lynx       MIN          005084
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 9       New York    Liberty New York Liberty   Liberty    NY           0d79b9
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 11      Phoenix     Mercury Phoenix Mercury    Mercury    PHX          3a267d
+#&gt; </span><span style='color: #BCBCBC;'>11</span><span> 14      Seattle     Storm   Seattle Storm      Storm      SEA          05452a
+#&gt; </span><span style='color: #BCBCBC;'>12</span><span> 16      Washington  Mystics Washington Mystics Mystics    WSH          e03a3e
+#&gt; </span><span style='color: #949494;'># ... with 3 more variables: alternate_color &lt;chr&gt;, logo &lt;chr&gt;, logo_dark &lt;chr&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
