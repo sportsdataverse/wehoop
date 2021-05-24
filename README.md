@@ -98,7 +98,39 @@ website](https://saiemgilani.github.io/wehoop/).
 [**Full News on
 Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
-# **wehoop 0.9.2**
+# **wehoop 1.0.0**
+
+### **Add team box score loaders**
+
+  - [`wehoop::load_wbb_team_box()`](https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html)
+    function added
+  - [`wehoop::load_wnba_team_box()`](https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html)
+    function added
+
+### **Add player box score loaders**
+
+  - [`wehoop::load_wbb_player_box()`](https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html)
+    function added
+  - [`wehoop::load_wnba_player_box()`](https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html)
+    function added
+
+### **Standings functions**
+
+  - [`wehoop::espn_wnba_standings()`](https://saiemgilani.github.io/wehoop/reference/espn_wnba_standings.html)
+  - [`wehoop::espn_wbb_standings()`](https://saiemgilani.github.io/wehoop/reference/espn_wbb_standings.html)
+
+### **Getting Started vignette**
+
+  - [Getting started with wehoop
+    data](https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html)
+
+# 
+
+<details>
+
+<summary>View more version news</summary>
+
+## **wehoop 0.9.2**
 
   - Added
     [`wehoop::espn_wbb_conferences()`](https://saiemgilani.github.io/wehoop/reference/espn_wbb_conferences.html)
@@ -110,12 +142,6 @@ Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
 This update is a non-user facing change to package dependencies to
 shrink the list of dependencies.
-
-# 
-
-<details>
-
-<summary>View more version news</summary>
 
 ## **wehoop 0.9.1**
 
@@ -214,9 +240,9 @@ See the following eight functions: -
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                            | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 6     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="">[httr retry](https://github.com/saiemgilani/wehoop/pull/6)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-21 | 2021-05-21 04:19:31 |
+| issue | icon                                                                                                                                         | title                                                                                                                      | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 7     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="# **wehoop 1.0.0** ...">[loaders wbb/wnba players/teams](https://github.com/saiemgilani/wehoop/pull/7)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-24 | 2021-05-24 19:00:13 |
 
 </details>
 
