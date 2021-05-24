@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get ESPN's WNBA team box data — espn_wnba_team_box • wehoop</title>
+<title>Get ESPN WNBA Standings — espn_wnba_standings • wehoop</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Get ESPN's WNBA team box data — espn_wnba_team_box" />
-<meta property="og:description" content="Get ESPN's WNBA team box data" />
+<meta property="og:title" content="Get ESPN WNBA Standings — espn_wnba_standings" />
+<meta property="og:description" content="Get ESPN WNBA Standings" />
 <meta property="og:image" content="https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/themes/wehoop_gh.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@saiemgilani" />
@@ -212,46 +212,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get ESPN's WNBA team box data</h1>
+    <h1>Get ESPN WNBA Standings</h1>
     
-    <div class="hidden name"><code>espn_wnba_team_box.Rd</code></div>
+    <div class="hidden name"><code>espn_wnba_standings.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get ESPN's WNBA team box data</p>
+    <p>Get ESPN WNBA Standings</p>
     </div>
 
-    <pre class="usage"><span class='fu'>espn_wnba_team_box</span><span class='op'>(</span><span class='va'>game_id</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>espn_wnba_standings</span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>game_id</th>
-      <td><p>Game ID</p></td>
+      <th>year</th>
+      <td><p>Either numeric or character (YYYY)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Saiem Gilani</p>
+    <p>Geoff Hutchinson</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>espn_wnba_team_box</span><span class='op'>(</span>game_id <span class='op'>=</span> <span class='fl'>401244185</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 21 x 3</span><span>
-#&gt;    home  label              away 
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Storm Team               Aces 
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 38-80 FG                 22-64
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 47.5  Field Goal %       34.4 
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 7-26  3PT                2-5  
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 26.9  Three Point %      40.0 
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 9-12  FT                 13-18
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 75.0  Free Throw %       72.2 
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 42    Rebounds           33   
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 11    Offensive Rebounds 7    
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 31    Defensive Rebounds 26   
-#&gt; </span><span style='color: #949494;'># … with 11 more rows</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>espn_wnba_standings</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fl'>2021</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

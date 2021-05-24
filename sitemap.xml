@@ -22,6 +22,9 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_scoreboard.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_standings.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_team_box.html</loc>
   </url>
   <url>
@@ -40,6 +43,9 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_scoreboard.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_standings.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_team_box.html</loc>
   </url>
   <url>
@@ -49,7 +55,19 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_pbp.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/ncaa_wbb_NET_rankings.html</loc>
@@ -65,5 +83,8 @@
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/wehoop-package.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html</loc>
   </url>
 </urlset>
