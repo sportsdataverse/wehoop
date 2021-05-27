@@ -10,7 +10,7 @@ load_wnba_player_box(seasons, ..., qs = FALSE)
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
-the season data into a database (used by \code{\link[=update_wnba_db]{update_wnba_db()}}).}
+the season data into a database (used by \code{update_wnba_db()}).}
 
 \item{qs}{Wheter to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
 }

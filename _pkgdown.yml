@@ -83,13 +83,6 @@ navbar:
     
 reference:
   - title: wehoop Data
-  - subtitle: Women's College Basketball Data Functions
-    desc: Functions exported by wehoop to access the wehoop-data repository's Women's College Basketball Data
-    contents:
-      - '`load_wbb_pbp`'
-      - '`load_wbb_team_box`'
-      - '`load_wbb_player_box`'
-      - '`update_wbb_db`'
   - subtitle: WNBA Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
     contents:
@@ -97,6 +90,13 @@ reference:
       - '`load_wnba_team_box`'
       - '`load_wnba_player_box`'
       - '`update_wnba_db`'
+  - subtitle: Women's College Basketball Data Functions
+    desc: Functions exported by wehoop to access the wehoop-data repository's Women's College Basketball Data
+    contents:
+      - '`load_wbb_pbp`'
+      - '`load_wbb_team_box`'
+      - '`load_wbb_player_box`'
+      - '`update_wbb_db`'
   - title: ESPN Data
   - subtitle: Women's College Basketball Data Functions
     desc: Functions exported by wehoop to access ESPN's Women's College Basketball Data

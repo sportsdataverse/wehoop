@@ -62,14 +62,7 @@ most_recent_wnba_season <- function() {
 }
 my_time <- function() strftime(Sys.time(), format = "%H:%M:%S")
 
-#' Pipe operator
-#'
-#' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
-#'
-#' @name %>%
-#' @rdname pipe
-#' @keywords internal
-#' @export
+
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 NULL

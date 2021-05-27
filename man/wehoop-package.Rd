@@ -6,8 +6,6 @@
 \alias{wehoop-package}
 \title{wehoop: Functions to Access Women's Basketball Play by Play Data}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
-
 The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
 }
 \seealso{

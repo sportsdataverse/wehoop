@@ -12,19 +12,19 @@ output: html_document
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-pacman::p_load_current_gh("r-lib/pkgapi")
-pacman::p_load_current_gh("hadley/emo")
-library(pkgapi)
-pkg <- pkgapi::map_package(path = "../")
-library(dplyr)
-exported <- pkg$defs %>% dplyr::filter(exported == TRUE)
-
-pkg_name <- "saiemgilani/wehoop"
-url <- paste0("https://raw.githubusercontent.com/", pkg_name, "/master/DESCRIPTION")
-
-
-x <- readLines(url)
-remote_version <- gsub("Version:\\s*", "", x[grep('Version:', x)])
+# pacman::p_load_current_gh("r-lib/pkgapi")
+# pacman::p_load_current_gh("hadley/emo")
+# library(pkgapi)
+# pkg <- pkgapi::map_package(path = "../")
+# library(dplyr)
+# exported <- pkg$defs %>% dplyr::filter(exported == TRUE)
+# 
+# pkg_name <- "saiemgilani/wehoop"
+# url <- paste0("https://raw.githubusercontent.com/", pkg_name, "/master/DESCRIPTION")
+# 
+# 
+# x <- readLines(url)
+# remote_version <- gsub("Version:\\s*", "", x[grep('Version:', x)])
 ```
 
 Welcome folks,

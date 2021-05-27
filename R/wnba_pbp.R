@@ -8,7 +8,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by \code{\link[=update_wnba_db]{update_wnba_db()}}).
+#' the season data into a database (used by \code{update_wnba_db()}).
 #' @param qs Whether to use the function [qs::qdeserialize()] for more efficient loading.
 #' @import furrr
 #' @export
@@ -89,7 +89,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by \code{\link[=update_wnba_db]{update_wnba_db()}}).
+#' the season data into a database (used by \code{update_wnba_db()}).
 #' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
 #' @import furrr
 #' @export
@@ -171,7 +171,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by \code{\link[=update_wnba_db]{update_wnba_db()}}).
+#' the season data into a database (used by \code{update_wnba_db()}).
 #' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
 #' @import furrr
 #' @export
@@ -256,7 +256,7 @@ load_wnba_games <- function(){
 #' @aliases update_wnba_db wnba_db wnba wnba_pbp_db
 #' @title 
 #' **Update or create a wehoop play-by-play database**
-#' @description `update_wnba_db()` updates or creates a database with `wehoop`
+#' @description update_wnba_db() updates or creates a database with `wehoop`
 #' play by play data of all completed and available games since 2002.
 #'
 #' @details This function creates and updates a data table with the name `tblname`

@@ -29,7 +29,7 @@ of or the complete play by play data table within the database (please see detai
 \code{\link[DBI:dbConnect]{DBI::dbConnect()}} (please see details for further information)}
 }
 \description{
-\code{update_wbb_db()} updates or creates a database with \code{wehoop}
+update_wbb_db() updates or creates a database with \code{wehoop}
 play by play data of all completed and available games since 2002.
 }
 \details{

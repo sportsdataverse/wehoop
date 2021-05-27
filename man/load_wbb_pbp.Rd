@@ -10,7 +10,7 @@ load_wbb_pbp(seasons, ..., qs = FALSE)
 \item{seasons}{A vector of 4-digit years associated with given women's college basketball seasons.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
-the season data into a database (used by \code{\link[=update_wbb_db]{update_wbb_db()}}).}
+the season data into a database (used by \code{update_wbb_db()}).}
 
 \item{qs}{Wheter to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
 }
