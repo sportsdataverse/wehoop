@@ -28,7 +28,7 @@ const Home = ({ ReferenceData, sortedTopics }: { ReferenceData: ReferenceData[];
           <Box p={5}>
             <Typography variant={large ? 'h1' : 'h4'}>{NAME_AND_DOMAIN}</Typography>
             <Typography className={styles.secondHeading} variant={large ? 'h3' : 'h6'}>
-              R package.
+              R package documentation built by jamstackingup.
             </Typography>
           </Box>
         </Grid>

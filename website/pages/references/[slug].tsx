@@ -46,7 +46,7 @@ const Slug: FC<Props> = ({ referenceData, nextPath }): ReactElement => {
         <meta property="og:url" content={`${BASE_URL}/blog/${referenceData.id}`} />
         <meta property="og:site_name" content={NAME} />
         <meta property="og:image" content={`${BASE_URL}/large/${referenceData.id}.png`} />
-        <meta property="og:image:secure_url" content={`${BASE_URL}/large/${referenceData.id}.png`} /> */} */}
+        <meta property="og:image:secure_url" content={`${BASE_URL}/large/${referenceData.id}.png`} /> */}
       </Head>
       <div className={styles['text-content']}>
         <PageHeading title={referenceData.title} />
@@ -70,13 +70,13 @@ const Slug: FC<Props> = ({ referenceData, nextPath }): ReactElement => {
           {/* <TopicsDisplay topics={referenceData.topics} n={10} noMargin /> */}
         </div>
       </div>
-      <div className={styles['image-container']}>
+      {/* <div className={styles['image-container']}>
         <Card className={styles.image}>
           <CardMedia>
             <img alt={referenceData.title} loading="lazy" src={`/large/${referenceData.id}.png`} />
           </CardMedia>
         </Card>
-      </div>
+      </div> */}
       <div className={styles['reference-container']} dangerouslySetInnerHTML={{ __html: marked(referenceData.content) }} />
       <div className={styles['reference-container']} style={{ paddingTop: 50 }}>
         <hr />

@@ -69,13 +69,13 @@ const Slug: FC<Props> = ({ postData, nextPath }): ReactElement => {
           <TopicsDisplay topics={postData.topics} n={10} noMargin />
         </div>
       </div>
-      <div className={styles['image-container']}>
+      {/* <div className={styles['image-container']}>
         <Card className={styles.image}>
           <CardMedia>
             <img alt={postData.title} loading="lazy" src={`/large/${postData.id}.png`} />
           </CardMedia>
         </Card>
-      </div>
+      </div> */}
       <div className={styles['post-container']} dangerouslySetInnerHTML={{ __html: marked(postData.content) }} />
       <div className={styles['post-container']} style={{ paddingTop: 50 }}>
         <hr />

@@ -12,7 +12,7 @@ async function generateSiteMap() {
     '!pages/404.tsx', 
     'posts/*.md',
     'reference/*.md',
-    'articles/*.md']
+    'articles/*.mdx']
   let pages = await globby(patterns)
 
   const fileNames = fs.readdirSync('posts')
@@ -38,6 +38,7 @@ async function generateSiteMap() {
           .replace('pages', '')
           .replace('.tsx', '')
           .replace('.md', '')
+          .replace('.mdx', '')
           .replace('posts/', '/blog/')
           .replace('articles/','/articles/')
           .replace('reference/','/reference/')

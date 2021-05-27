@@ -1,27 +1,27 @@
 import { GetStaticPropsResult } from 'next'
-import { getSortedReferencesData, getSortedTopics } from '../../src/lib/references'
+import { getSortedArticlesData, getSortedTopics } from '../../src/lib/articles'
 
 import React, { ReactElement } from 'react'
 // import TopicsDisplay from '../../src/components/TopicsDisplay'
 import { Grid } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import { ReferenceData } from '../../src/types/references'
-import { PreviewReference } from '../../src/components/PreviewReference'
+import { ArticleData } from '../../src/types/articles'
+import { PreviewArticle } from '../../src/components/PreviewArticle'
 import { PageHeading } from '../../src/components/PageHeading'
 import Head from 'next/head'
 
-const Topics = ({ topics, referencesData }: { topics: string[]; referencesData: ReferenceData[] }): ReactElement => {
+const Topics = ({ topics, articlesData }: { topics: string[]; articlesData: ArticleData[] }): ReactElement => {
   return (
     <>
       <Head>
-        <title>wehoop Function Reference</title>
+        <title>wehoop Articles</title>
         <meta name="description" content={'Tech topics like ' + topics.slice(0, 5).join(', ') + ' and more'} />
       </Head>
-      <PageHeading title="wehoop Function Reference" />
+      <PageHeading title="wehoop Article" />
       {/* <TopicsDisplay topics={topics} n={1000} /> */}
       <Box pt={12} pb={4}>
         <Grid item xs={12}>
-          <PreviewReference references={referencesData} />
+          <PreviewArticle articles={articlesData} />
         </Grid>
       </Box>
     </>
@@ -31,16 +31,16 @@ const Topics = ({ topics, referencesData }: { topics: string[]; referencesData: 
 export const getStaticProps = async (): Promise<
   GetStaticPropsResult<{
     topics: string[]
-    referencesData: ReferenceData[]
+    articlesData: ArticleData[]
   }>
 > => {
   const sortedTopics = getSortedTopics()
-  const referencesData = getSortedReferencesData()
+  const articlesData = getSortedArticlesData()
 
   return {
     props: {
       topics: sortedTopics,
-      referencesData: referencesData.filter((pd) => pd.featured),
+      articlesData: articlesData.filter((pd) => pd.featured),
     },
   }
 }

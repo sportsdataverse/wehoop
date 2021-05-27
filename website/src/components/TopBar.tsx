@@ -47,9 +47,9 @@ export const TopBar = (): ReactElement => {
         <Link href="/">
           <a>
             <img
-              src="/logo/white.png"
+              src="/logo/logo.png"
               height="25px"
-              alt="saiemgilani.me"
+              alt="wehoop"
               style={{ paddingRight: 10, verticalAlign: 'bottom' }}
             />
           </a>
@@ -65,7 +65,13 @@ export const TopBar = (): ReactElement => {
           <Link href="/references">
             <Button variant="text" color="inherit">
               <DescriptionIcon />
-              &nbsp;Reference
+              &nbsp;Funcs
+            </Button>
+          </Link>
+          <Link href="/articles">
+            <Button variant="text" color="inherit">
+              <DescriptionIcon />
+              &nbsp;Articles
             </Button>
           </Link>
           <Link href="/topics">
