@@ -6,7 +6,7 @@ import { ArticleData } from '../types/articles'
 const articlesDirectory = path.join(process.cwd(), 'articles')
 
 export const getArticle = (id: string, includeContent = false): ArticleData => {
-  const fullPath = path.join(articlesDirectory, `${id}.mdx`)
+  const fullPath = path.join(articlesDirectory, `${id}.md`)
   return getArticleFromFile(fullPath, id, includeContent)
 }
 
@@ -15,7 +15,7 @@ export const getSortedArticlesData = (): ArticleData[] => {
   const fileNames = fs.readdirSync(articlesDirectory)
   const allArticlesData: ArticleData[] = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.mdx$/, '')
+    const id = fileName.replace(/\.md$/, '')
 
     // Read markdown file as string
     const fullPath = path.join(articlesDirectory, fileName)
@@ -45,16 +45,16 @@ const getArticleFromFile = (fullPath: string, id: string, includeContent = false
   } as ArticleData
 }
 
-export const getSortedTopics = (): string[] => {
-  const articles = getSortedArticlesData()
+// export const getSortedTopics = (): string[] => {
+//   const articles = getSortedArticlesData()
 
-  const allTopics = articles
+//   const allTopics = articles
 
-  const map: Record<string, number> = {}
+//   const map: Record<string, number> = {}
 
-  allTopics.map((t) => {
-    map[t] = allTopics.filter((topic) => t === topic).length
-  })
+//   allTopics.map((t) => {
+//     map[t] = allTopics.filter((topic) => t === topic).length
+//   })
 
-  return Array.from(new Set(allTopics)).sort((a, b) => map[b] - map[a])
-}
+//   return Array.from(new Set(allTopics)).sort((a, b) => map[b] - map[a])
+// }

@@ -1,5 +1,5 @@
 import { GetStaticPropsResult } from 'next'
-import { getSortedArticlesData, getSortedTopics } from '../../src/lib/articles'
+import { getSortedArticlesData } from '../../src/lib/articles'
 
 import React, { ReactElement } from 'react'
 // import TopicsDisplay from '../../src/components/TopicsDisplay'
@@ -10,12 +10,12 @@ import { PreviewArticle } from '../../src/components/PreviewArticle'
 import { PageHeading } from '../../src/components/PageHeading'
 import Head from 'next/head'
 
-const Topics = ({ topics, articlesData }: { topics: string[]; articlesData: ArticleData[] }): ReactElement => {
+const Topics = ({ articlesData }: { articlesData: ArticleData[] }): ReactElement => {
   return (
     <>
       <Head>
         <title>wehoop Articles</title>
-        <meta name="description" content={'Tech topics like ' + topics.slice(0, 5).join(', ') + ' and more'} />
+        {/* <meta name="description" content={'Tech topics like ' + topics.slice(0, 5).join(', ') + ' and more'} /> */}
       </Head>
       <PageHeading title="wehoop Article" />
       {/* <TopicsDisplay topics={topics} n={1000} /> */}
@@ -34,7 +34,7 @@ export const getStaticProps = async (): Promise<
     articlesData: ArticleData[]
   }>
 > => {
-  const sortedTopics = getSortedTopics()
+  const sortedTopics = ['']
   const articlesData = getSortedArticlesData()
 
   return {

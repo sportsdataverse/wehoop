@@ -1,17 +1,16 @@
-import { getSortedReferencesData, getSortedTopics } from '../src/lib/references'
+import { getSortedReferencesData } from '../src/lib/references'
 import { GetStaticPropsResult } from 'next'
-import { PostData } from '../src/types/posts'
 import React, { ReactElement } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import styles from '../styles/Shared.module.css'
 import Box from '@material-ui/core/Box'
-import TopicsDisplay from '../src/components/TopicsDisplay'
+import { ReferenceData } from '../src/types/references'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { PreviewReference } from '../src/components/PreviewReference'
 import Head from 'next/head'
 import { NAME, NAME_AND_DOMAIN, BASE_URL } from '../src/types/constants'
 
-const Home = ({ ReferenceData, sortedTopics }: { ReferenceData: ReferenceData[]; sortedTopics: string[] }): ReactElement => {
+const Home = ({ referencesData }: { referencesData: ReferenceData[];  }): ReactElement => {
   const large = useMediaQuery('(min-width:700px)')
 
   return (
@@ -34,7 +33,7 @@ const Home = ({ ReferenceData, sortedTopics }: { ReferenceData: ReferenceData[];
         </Grid>
         <Grid item xs={12}>
           <Box pt={3}>
-            <PreviewReference references={ReferenceData} />
+            <PreviewReference references={referencesData} />
           </Box>
         </Grid>
       </Grid>
@@ -42,20 +41,20 @@ const Home = ({ ReferenceData, sortedTopics }: { ReferenceData: ReferenceData[];
   )
 }
 
+
 export const getStaticProps = async (): Promise<
   GetStaticPropsResult<{
-    ReferenceData: ReferenceData[]
-    sortedTopics: string[]
+    referencesData: ReferenceData[]
   }>
 > => {
-  const sortedTopics = getSortedTopics()
-  const ReferenceData = getSortedReferencesData()
+  const referencesData = getSortedReferencesData()
+
   return {
     props: {
-      ReferenceData: ReferenceData,
-      sortedTopics,
+      referencesData: referencesData.filter((pd) => pd.featured),
     },
   }
 }
+
 
 export default Home

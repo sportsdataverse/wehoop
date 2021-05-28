@@ -1,5 +1,5 @@
 import { GetStaticPropsResult } from 'next'
-import { getSortedReferencesData, getSortedTopics } from '../../src/lib/references'
+import { getSortedReferencesData } from '../../src/lib/references'
 
 import React, { ReactElement } from 'react'
 // import TopicsDisplay from '../../src/components/TopicsDisplay'
@@ -10,12 +10,12 @@ import { PreviewReference } from '../../src/components/PreviewReference'
 import { PageHeading } from '../../src/components/PageHeading'
 import Head from 'next/head'
 
-const Topics = ({ topics, referencesData }: { topics: string[]; referencesData: ReferenceData[] }): ReactElement => {
+const Topics = ({ referencesData }: {  referencesData: ReferenceData[] }): ReactElement => {
   return (
     <>
       <Head>
         <title>wehoop Function Reference</title>
-        <meta name="description" content={'Tech topics like ' + topics.slice(0, 5).join(', ') + ' and more'} />
+        {/* <meta name="description" content={'Tech topics like ' + topics.slice(0, 5).join(', ') + ' and more'} /> */}
       </Head>
       <PageHeading title="wehoop Function Reference" />
       {/* <TopicsDisplay topics={topics} n={1000} /> */}
@@ -34,7 +34,7 @@ export const getStaticProps = async (): Promise<
     referencesData: ReferenceData[]
   }>
 > => {
-  const sortedTopics = getSortedTopics()
+  const sortedTopics = ['']
   const referencesData = getSortedReferencesData()
 
   return {
