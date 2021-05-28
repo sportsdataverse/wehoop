@@ -3,28 +3,21 @@ title: 'Material UI and Next.js – How to Toggle the Selected Theme with React 
 date: '2020-11-24'
 description: 'Material-UI comes with great support for applying a theme to all components of your app. However, if you want to allow your users to toggle between different modes, like dark and light mode, there is no built-in solution for this use case. In this post, we are going to see how this feature can be easily implemented with React context.'
 featured: true
-topics: React,Material-UI,Next.js,React Hooks,React Context,localStorage
+topics: React,Material-UI,Next.js,React Hooks,React Context
 recommended: null
 ---
 
-This is the second post in the series about how this blog functions, and it is an example of a use case for when to apply 
- React context and how this can be achieved. 
- 
-> 
- 
-Material-UI comes with great support for applying a theme to all components of your app. However, if you want to allow your 
-users to toggle between different modes, like dark and light mode, there is no built-in solution for this use case. 
+This is the second post in the series about how this blog functions, and it is an example of a use case for when to apply React context and how this can be achieved.
+
+Material-UI comes with great support for applying a theme to all components of your app. However, if you want to allow your users to toggle between different modes, like dark and light mode, there is no built-in solution for this use case.
 We can however, implement it in a straight forward way by creating a custom [theme provider](https://material-ui.com/customization/theming/#theme-provider) 
 and applying [React context](https://reactjs.org/docs/context.html).
 
 ## React context explained
 
-Theming a web app is a great use case for when to apply context in a React app. You might want to use 
+Theming a web app is a great use case for when to apply context in a React app. You might want to use
 context in all those cases that you usually would have to pass down props through many levels of your virtual DOM.
-For a theme, components on all levels of your app might depend it, starting from the bar at the top of your app
-down to the buttons deep down in the DOM hierarchy. Passing down props through this many levels would complicate 
-your app and make refactorings much more difficult. Here, context comes in handy. Applying context in a React app involves
-two roles:
+For a theme, components on all levels of your app might depend it, starting from the bar at the top of your app down to the buttons deep down in the DOM hierarchy. Passing down props through this many levels would complicate your app and make refactorings much more difficult. Here, context comes in handy. Applying context in a React app involves two roles:
 
 * A provider is responsible for storing the values relating to the context and for making it accessible to its children.
 * The consumers have to be children of the provider. They have access to its values. These values are not passed as props,
@@ -32,7 +25,7 @@ instead there is a `useContext` hook to access them.
 
 ## Theme context in Material-UI
 
-You can find all code for this blog post in the Github repository of this blog's implementation. 
+You can find all code for this blog post in the Github repository of this blog's implementation.
 The following snippets are taken from _src/theme/ThemeProvider.tsx_.
 
 Material-UI already brings a provider for accessing the current theme with it out of the box:
@@ -64,7 +57,7 @@ export const PreviewCard: FC<PreviewCardProps> = ({ post, noMargin }): ReactElem
 }
 ```
 
-Still, there is no solution for toggling the theme, so we have to implement it ourselves. 
+Still, there is no solution for toggling the theme, so we have to implement it ourselves.
 We also have to make sure when switching between pages, the selected theme stays the same for each user,
 and in all of this have to consider the workings of React.js.
 
@@ -120,7 +113,7 @@ and light mode and initially has an "empty" implementation. The actual implement
 
 In the provider, we ``useState`` to keep track of the selected theme. Also, the name of this theme gets saved in _localStorage_.
 This makes sure that whenever the user visits the blog, the correct theme gets applied directly by our ``useEffect``, where the value
-written to _localStorage_ is evaluated. 
+written to _localStorage_ is evaluated.
 
 As the provider wraps the whole blog, we could make it possible in every component to both toggle and access the current theme.
 We can use another React hook – ``useContext`` – in _src/components/TopBar.tsx_ to toggle the selected theme and to show either
@@ -140,7 +133,7 @@ export const TopBar = (): ReactElement => {
         </Button>
       </Tooltip>
     </div>
-  )   
+  )
 }
 ```
 
@@ -149,9 +142,7 @@ There is just one caveat left that we have to deal with: As the blog is a Next.j
 on the server. The server, however, has no way of knowing what theme the user has selected. Also note that ``localStorage`` is only
 used on client-side in the code above, to avoid the server from trying to execute this code (which would not make any sense).
 
-If we kept our app as it is, the standard theme would be the dark theme, and clients would receive prerendered content themed 
-this way, even if they prefer the light mode. This would cause the client-side Javascript code to override the server styles
-as soon as it is ready, potentially leading to flashing content.
+If we kept our app as it is, the standard theme would be the dark theme, and clients would receive prerendered content themed this way, even if they prefer the light mode. This would cause the client-side Javascript code to override the server styles as soon as it is ready, potentially leading to flashing content.
 
 We can deal with this situation in _\_app.tsx_ as follows:
 

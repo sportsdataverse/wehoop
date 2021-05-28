@@ -14,10 +14,10 @@ const Topics = ({ topics, postsData }: { topics: string[]; postsData: PostData[]
   return (
     <>
       <Head>
-        <title>Full Stack Web Development Topics</title>
+        <title>R Development Topics</title>
         <meta name="description" content={'Tech topics like ' + topics.slice(0, 5).join(', ') + ' and more'} />
       </Head>
-      <PageHeading title="The most popular tech topics" />
+      <PageHeading title="The most popular R topics" />
       <TopicsDisplay topics={topics} n={1000} />
       <Box pt={12} pb={4}>
         <Grid item xs={12}>

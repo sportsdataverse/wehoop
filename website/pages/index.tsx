@@ -17,6 +17,20 @@ const Home = ({ referencesData }: { referencesData: ReferenceData[];  }): ReactE
     <>
       <Head>
         <title>{NAME}</title>
+        <Head>
+        <meta name="description" content={`${NAME}`} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:description" content={`${NAME}`} />
+        <meta name="twitter:title" content={`${NAME}`} />
+        <meta name="twitter:image" content={`${BASE_URL}/logo/logo.png`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${NAME}`} />
+        <meta property="og:description" content={`${NAME}`} />
+        <meta property="og:url" content={`${BASE_URL}/`} />
+        <meta property="og:site_name" content={NAME} />
+        <meta property="og:image" content={`${BASE_URL}/logo/logo.png`} />
+        <meta property="og:image:secure_url" content={`${BASE_URL}/logo/logo.png`} />
+      </Head>
         <meta
           name="description"
           content={`${NAME}`}

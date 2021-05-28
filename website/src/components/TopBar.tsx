@@ -3,6 +3,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import SunIcon from '@material-ui/icons/WbSunnyOutlined'
 import MoonIcon from '@material-ui/icons/Brightness2Outlined'
 import CodeIcon from '@material-ui/icons/Code'
+import GitHubIcon from '@material-ui/icons/GitHub';
 import DescriptionIcon from '@material-ui/icons/Description'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
@@ -12,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { ToggleThemeContext } from '../theme'
 import Link from 'next/link'
 import { Tooltip } from '@material-ui/core'
-import { NAME_AND_DOMAIN } from '../types/constants'
+import { NAME_AND_DOMAIN, GH_REPO, GH_USER } from '../types/constants'
 
 const useStyles = makeStyles({
   show: {
@@ -78,6 +79,11 @@ export const TopBar = (): ReactElement => {
             <Button variant="text" color="inherit">
               <CodeIcon />
               &nbsp;Topics
+            </Button>
+          </Link>
+          <Link  href={`http://github.com/${GH_USER}/${GH_REPO}`}>
+            <Button variant="text" color="inherit">
+              <GitHubIcon />
             </Button>
           </Link>
         </div>

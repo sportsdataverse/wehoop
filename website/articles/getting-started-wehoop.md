@@ -54,7 +54,7 @@ tictoc::toc()
 ```
 
 ```
-## 17.16 sec elapsed
+## 15.56 sec elapsed
 ```
 
 ```r
@@ -63,7 +63,7 @@ length(unique(wnba_pbp$game_id))
 ```
 
 ```
-## [1] 4496
+## [1] 4497
 ```
 
 ```r
@@ -71,7 +71,7 @@ nrow(wnba_pbp)
 ```
 
 ```
-## [1] 1715413
+## [1] 1715851
 ```
 ### **WNBA full team box score seasons (2002-2021) ~ 5-30 seconds**
 
@@ -85,7 +85,7 @@ tictoc::toc()
 ```
 
 ```
-## 6.91 sec elapsed
+## 7.58 sec elapsed
 ```
 
 ```r
@@ -93,7 +93,7 @@ length(unique(wnba_team_box$game_id))
 ```
 
 ```
-## [1] 4134
+## [1] 4135
 ```
 
 ```r
@@ -101,7 +101,7 @@ nrow(wnba_team_box)
 ```
 
 ```
-## [1] 8268
+## [1] 8270
 ```
 ### **WNBA full player box score seasons (2002-2021) ~ 5-30 seconds**
 
@@ -115,7 +115,7 @@ tictoc::toc()
 ```
 
 ```
-## 6.86 sec elapsed
+## 7.08 sec elapsed
 ```
 
 ```r
@@ -123,7 +123,7 @@ length(unique(wnba_player_box$game_id))
 ```
 
 ```
-## [1] 4499
+## [1] 4500
 ```
 
 ```r
@@ -131,7 +131,7 @@ nrow(wnba_player_box)
 ```
 
 ```
-## [1] 97365
+## [1] 97385
 ```
 
 ### **Women's college basketball full play-by-play seasons (2002-2021) ~ 45-90 seconds**
@@ -147,7 +147,7 @@ tictoc::toc()
 ```
 
 ```
-## 45.87 sec elapsed
+## 50.14 sec elapsed
 ```
 
 ```r
@@ -179,7 +179,7 @@ tictoc::toc()
 ```
 
 ```
-## 6.97 sec elapsed
+## 7.37 sec elapsed
 ```
 
 ```r
@@ -211,7 +211,7 @@ tictoc::toc()
 ```
 
 ```
-## 8.59 sec elapsed
+## 9.2 sec elapsed
 ```
 
 ```r
