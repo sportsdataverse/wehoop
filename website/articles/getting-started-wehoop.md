@@ -54,7 +54,7 @@ tictoc::toc()
 ```
 
 ```
-## 14.86 sec elapsed
+## 17.16 sec elapsed
 ```
 
 ```r
@@ -85,7 +85,7 @@ tictoc::toc()
 ```
 
 ```
-## 7.51 sec elapsed
+## 6.91 sec elapsed
 ```
 
 ```r
@@ -115,7 +115,7 @@ tictoc::toc()
 ```
 
 ```
-## 6.93 sec elapsed
+## 6.86 sec elapsed
 ```
 
 ```r
@@ -147,7 +147,7 @@ tictoc::toc()
 ```
 
 ```
-## 43.52 sec elapsed
+## 45.87 sec elapsed
 ```
 
 ```r
@@ -179,7 +179,7 @@ tictoc::toc()
 ```
 
 ```
-## 7 sec elapsed
+## 6.97 sec elapsed
 ```
 
 ```r
@@ -211,7 +211,7 @@ tictoc::toc()
 ```
 
 ```
-## 9.09 sec elapsed
+## 8.59 sec elapsed
 ```
 
 ```r

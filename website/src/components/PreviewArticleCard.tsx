@@ -59,9 +59,9 @@ export const PreviewArticleCard: FC<PreviewArticleCardProps> = ({ article, noMar
   return (
     <Link href={`/articles/${article.id}`}>
       <Card className={classes.card} elevation={3} style={noMargin ? { margin: 0 } : {}}>
-        <CardActionArea>
-          {/* <CardMedia className={classes.media} image={`/small/${article.id}.png`} title={article.title} /> */}
-        </CardActionArea>
+        {/* <CardActionArea>
+          <CardMedia className={classes.media} image={`/small/${article.id}.png`} title={article.title} />
+        </CardActionArea> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {article.title}
