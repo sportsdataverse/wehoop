@@ -6,5 +6,4 @@ export type PostData = {
   description: string
   featured: boolean
   topics: string[]
-  recommended?: string
-}
+  recommended?: string}

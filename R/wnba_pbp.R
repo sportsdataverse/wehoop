@@ -8,7 +8,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by \code{update_wnba_db()}).
+#' the season data into a database (used by `update_wnba_db()`).
 #' @param qs Whether to use the function [qs::qdeserialize()] for more efficient loading.
 #' @import furrr
 #' @export
@@ -89,7 +89,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by \code{update_wnba_db()}).
+#' the season data into a database (used by `update_wnba_db()`).
 #' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
 #' @import furrr
 #' @export
@@ -171,7 +171,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by \code{update_wnba_db()}).
+#' the season data into a database (used by `update_wnba_db()`).
 #' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
 #' @import furrr
 #' @export

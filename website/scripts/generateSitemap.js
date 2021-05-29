@@ -39,8 +39,7 @@ async function generateSiteMap() {
           .replace('.tsx', '')
           .replace('.md', '')
           .replace('posts/', 'blog/')
-          .replace('articles/','articles/')
-          .replace('reference/','reference/')
+          .replace('references/','reference/')
           .replace('/index', '')
         const route = path === '/index' ? '' : path
         return `
