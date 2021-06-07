@@ -243,6 +243,54 @@ the season data into a database (used by <code><a href='update_wnba_db.html'>upd
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A dataframe with 42 columns</p><dl>
+<dt>shooting_play</dt><dd><p>Logical value (TRUE/FALSE) indicating whether the play was a shooting play</p></dd>
+<dt>sequence_number</dt><dd><p>Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so)</p></dd>
+<dt>period_display_value</dt><dd><p>Long form of period (1st quarter, 2nd Quarter, OT, etc.)</p></dd>
+<dt>period_number</dt><dd><p>The numeric period of play in the game</p></dd>
+<dt>home_score</dt><dd><p>Home score at the time of the play</p></dd>
+<dt>coordinate_x</dt><dd><p>The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful.</p></dd>
+<dt>coordinate_y</dt><dd><p></p></dd>
+<dt>scoring_play</dt><dd><p>Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored</p></dd>
+<dt>clock_display_value</dt><dd><p>Time left within the period</p></dd>
+<dt>team_id</dt><dd><p>Unique team identification number for the offensive team</p></dd>
+<dt>type_id</dt><dd><p>Unique play type identifcation number</p></dd>
+<dt>type_text</dt><dd><p>Play type text description</p></dd>
+<dt>away_score</dt><dd><p>Away score at the time of the play</p></dd>
+<dt>id</dt><dd><p>Unique play identifcation number</p></dd>
+<dt>text</dt><dd><p>Text description of the play</p></dd>
+<dt>score_value</dt><dd><p>The points value of the shot taken</p></dd>
+<dt>participants_0_athlete_id</dt><dd><p>Unique player identification number</p></dd>
+<dt>participants_1_athlete_id</dt><dd><p>Unique player identification number</p></dd>
+<dt>participants_2_athlete_id</dt><dd><p>Unique player identification number</p></dd>
+<dt>type_abbreviation</dt><dd><p>Play type abbreviation</p></dd>
+<dt>season</dt><dd><p>Season of the game</p></dd>
+<dt>season_type</dt><dd><p>Season type of the game, 1 is pre-season, 2 is regular season, 3 is post-season, 4 is off-season</p></dd>
+<dt>away_team_id</dt><dd><p>Unique away team identification number</p></dd>
+<dt>away_team_name</dt><dd><p>Away team name</p></dd>
+<dt>away_team_mascot</dt><dd><p>Away team mascot</p></dd>
+<dt>away_team_abbrev</dt><dd><p>Text abbreviation for the away team</p></dd>
+<dt>away_team_name_alt</dt><dd><p>Alternate versions of the away team abbreviation</p></dd>
+<dt>home_team_id</dt><dd><p>Unique home team identification number</p></dd>
+<dt>home_team_name</dt><dd><p>home team name</p></dd>
+<dt>home_team_mascot</dt><dd><p>home team mascot</p></dd>
+<dt>home_team_abbrev</dt><dd><p>Text abbreviation for the home team</p></dd>
+<dt>home_team_name_alt</dt><dd><p>Alternate versions of the home team abbreviation</p></dd>
+<dt>home_team_spread</dt><dd><p>The game spread with respect to the home team</p></dd>
+<dt>game_spread</dt><dd><p>Game spread in (-X Team) format. There are almost none, I would recommend not trusting any of these three columns</p></dd>
+<dt>home_favorite</dt><dd><p>Logical (TRUE/FALSE) indicating whether the home team is favored</p></dd>
+<dt>clock_minutes</dt><dd><p>Clock minutes split from seconds for developer convenience</p></dd>
+<dt>clock_seconds</dt><dd><p>Clock seconds split from minutes for developer convenience</p></dd>
+<dt>half</dt><dd><p>Half of the game</p></dd>
+<dt>lag_half</dt><dd><p>A lag column on the half</p></dd>
+<dt>lead_half</dt><dd><p>A lead column on the half</p></dd>
+<dt>game_play_number</dt><dd><p>Game play number</p></dd>
+<dt>game_id</dt><dd><p>Unique identifier for the game event</p></dd>
+
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
