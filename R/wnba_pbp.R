@@ -352,7 +352,10 @@ wnba_schedule_single_season <- function(season, p, dbConnection = NULL, tablenam
   .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/schedules/wnba_schedule_{season}.csv")
   con <- url(.url)
   pbp <- utils::read.csv(con)
-  close(con)
+  pbp <- pbp %>% 
+    dplyr::mutate(
+      status.displayClock = as.character(.data$status.displayClock)
+    )
 
   if (!is.null(dbConnection) && !is.null(tablename)) {
     DBI::dbWriteTable(dbConnection, tablename, pbp, append = TRUE)

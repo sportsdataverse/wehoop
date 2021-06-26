@@ -363,9 +363,11 @@ wbb_schedule_single_season <- function(season, p, dbConnection = NULL, tablename
   
   .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/schedules/wbb_schedule_{season}.csv")
   con <- url(.url)
-  pbp <- read.csv(con)
-  close(con)
-  
+  pbp <- utils::read.csv(con)
+  pbp <- pbp %>% 
+    dplyr::mutate(
+      status.displayClock = as.character(.data$status.displayClock)
+    )
   if (!is.null(dbConnection) && !is.null(tablename)) {
     DBI::dbWriteTable(dbConnection, tablename, pbp, append = TRUE)
     out <- NULL
