@@ -89,6 +89,7 @@ reference:
       - '`load_wnba_pbp`'
       - '`load_wnba_team_box`'
       - '`load_wnba_player_box`'
+      - '`load_wnba_schedule`'
       - '`update_wnba_db`'
   - subtitle: Women's College Basketball Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's Women's College Basketball Data
@@ -96,6 +97,7 @@ reference:
       - '`load_wbb_pbp`'
       - '`load_wbb_team_box`'
       - '`load_wbb_player_box`'
+      - '`load_wbb_schedule`'
       - '`update_wbb_db`'
   - title: ESPN Data
   - subtitle: Women's College Basketball Data Functions
