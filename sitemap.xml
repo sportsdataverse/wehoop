@@ -58,6 +58,9 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_schedules.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html</loc>
   </url>
   <url>
@@ -65,6 +68,9 @@
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_schedule.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html</loc>
