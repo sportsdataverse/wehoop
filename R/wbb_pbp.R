@@ -356,7 +356,7 @@ load_wbb_schedule <- function(seasons, ..., qs = FALSE){
     out <- NULL
   }
   
-  return (dat)
+  return (out)
 }
 
 wbb_schedule_single_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {

@@ -347,7 +347,7 @@ load_wnba_schedule <- function(seasons, ..., qs = FALSE) {
   return(out)
 }
 
-wnba_schedule_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {
+wnba_schedule_single_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {
   
   .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/schedules/wnba_schedule_{season}.csv")
   con <- url(.url)
