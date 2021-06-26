@@ -240,9 +240,9 @@ See the following eight functions: -
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                                                                      | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 7     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="# **wehoop 1.0.0** ...">[loaders wbb/wnba players/teams](https://github.com/saiemgilani/wehoop/pull/7)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-05-24 | 2021-05-24 19:00:13 |
+| issue | icon                                                                                                                                         | title                                                                                                                             | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 8     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="We exporting the schedule loading functions">[Schedule loaders](https://github.com/saiemgilani/wehoop/pull/8)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-06-26 | 2021-06-26 00:30:11 |
 
 </details>
 
