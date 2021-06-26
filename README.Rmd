@@ -125,7 +125,15 @@ For more information on the package and function reference, please see the  [**`
 
 [**Full News on Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
 
-# **wehoop 1.0.0** 
+# **wehoop 1.1.0** 
+### **Add schedule loaders**
+- [```wehoop::load_wbb_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_schedule.html) function added
+- [```wehoop::load_wnba_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_schedule.html) function added
+
+#
+<details><summary>View more version news</summary>
+
+## **wehoop 1.0.0** 
 ### **Add team box score loaders**
 - [```wehoop::load_wbb_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html) function added
 - [```wehoop::load_wnba_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html) function added
@@ -140,9 +148,6 @@ For more information on the package and function reference, please see the  [**`
 
 ### **Getting Started vignette**
 - [Getting started with wehoop data](https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html)
-
-#
-<details><summary>View more version news</summary>
 
 ## **wehoop 0.9.2** 
 - Added [```wehoop::espn_wbb_conferences()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_conferences.html) function

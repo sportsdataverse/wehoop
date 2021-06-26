@@ -1,3 +1,8 @@
+# **wehoop 1.1.0** 
+### **Add schedule loaders**
+- [```wehoop::load_wbb_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_schedule.html) function added
+- [```wehoop::load_wnba_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_schedule.html) function added
+
 # **wehoop 1.0.0** 
 ### **Add team box score loaders**
 - [```wehoop::load_wbb_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html) function added
