@@ -363,7 +363,7 @@ wbb_schedule_single_season <- function(season, p, dbConnection = NULL, tablename
   
   .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/schedules/wbb_schedule_{season}.csv")
   con <- url(.url)
-  pbp <- readRDS(con)
+  pbp <- read.csv(con)
   close(con)
   
   if (!is.null(dbConnection) && !is.null(tablename)) {
