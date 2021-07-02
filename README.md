@@ -266,3 +266,19 @@ See the following eight functions: -
   - [Geoff Hutchinson](https://twitter.com/hutchngo)  
     <a href="https://twitter.com/hutchngo" target="blank"><img src="https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge" alt="@hutchngo" /></a>
     <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>
+
+## **Citations**
+
+To cite the [**`wehoop`**](https://saiemgilani.github.io/wehoop/) R
+package in publications, use:
+
+BibTex Citation
+
+``` bibtex
+@misc{hutchingsongilani2021wehoop,
+  author = {Saiem Gilani and Geoff Hutchinson},
+  title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
+  url = {https://saiemgilani.github.io/wehoop/},
+  year = {2021}
+}
+```
