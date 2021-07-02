@@ -302,11 +302,11 @@ wbb_player_box_single_season <- function(season, p, dbConnection = NULL, tablena
 }
 
 #' **Load wehoop women's college basketball schedule**
-#' @name load_wbb_schedules
+#' @name load_wbb_schedule
 NULL
 #' @title
 #' **Load cleaned women's college basketball schedules from the data repo**
-#' @rdname load_wbb_schedules
+#' @rdname load_wbb_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
