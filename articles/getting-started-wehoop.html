@@ -110,6 +110,8 @@
 <li>
       <a href="https://sportsdataverse.org/">SportsDataverse</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">R Packages</li>
     <li>
       <a href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
     </li>
@@ -118,6 +120,28 @@
     </li>
     <li>
       <a href="https://saiemgilani.github.io/cfbrecruitR/">cfbrecruitR</a>
+    </li>
+    <li>
+      <a href="https://puntalytics.github.io/puntr">puntr</a>
+    </li>
+    <li>
+      <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Python Packages</li>
+    <li>
+      <a href="https://cfbfastR-py.sportsdataverse.org/">cfbfastR-py</a>
+    </li>
+    <li>
+      <a href="https://hoopR-py.sportsdataverse.org/">hoopR-py</a>
+    </li>
+    <li>
+      <a href="https://wehoop-py.sportsdataverse.org/">wehoop-py</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Node.js Packages</li>
+    <li>
+      <a href="https://saiemgilani.github.io/sportsdataverse/">sportsdataverse.js</a>
     </li>
   </ul>
 </li>
@@ -230,14 +254,14 @@
   <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 22.716 sec elapsed</code></pre>
+<pre><code>## 23.672 sec elapsed</code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## 10.36 sec elapsed</span>
 <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 4554</code></pre>
+<pre><code>## [1] 4566</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 1738069</code></pre>
+<pre><code>## [1] 1742765</code></pre>
 </div>
 <div id="wnba-full-team-box-score-seasons-2002-2021-5-30-seconds" class="section level3">
 <h3 class="hasAnchor">
@@ -250,13 +274,13 @@
   <span class="va">wnba_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_team_box.html">load_wnba_team_box</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 6.07 sec elapsed</code></pre>
+<pre><code>## 5.985 sec elapsed</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wnba_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 4192</code></pre>
+<pre><code>## [1] 4204</code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wnba_team_box</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 8384</code></pre>
+<pre><code>## [1] 8408</code></pre>
 </div>
 <div id="wnba-full-player-box-score-seasons-2002-2021-5-30-seconds" class="section level3">
 <h3 class="hasAnchor">
@@ -269,13 +293,13 @@
   <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 5.117 sec elapsed</code></pre>
+<pre><code>## 7.083 sec elapsed</code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 4557</code></pre>
+<pre><code>## [1] 4569</code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 98472</code></pre>
+<pre><code>## [1] 98694</code></pre>
 </div>
 <div id="womens-college-basketball-full-play-by-play-seasons-2002-2021-45-90-seconds" class="section level3">
 <h3 class="hasAnchor">
@@ -288,7 +312,7 @@
   <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 101.905 sec elapsed</code></pre>
+<pre><code>## 107.767 sec elapsed</code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 26023</code></pre>
@@ -307,7 +331,7 @@
   <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 6.587 sec elapsed</code></pre>
+<pre><code>## 7.291 sec elapsed</code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 20762</code></pre>
@@ -326,7 +350,7 @@
   <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 11.596 sec elapsed</code></pre>
+<pre><code>## 12.04 sec elapsed</code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 28957</code></pre>

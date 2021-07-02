@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Update or create a wehoop play-by-play database — update_wnba_db • wehoop</title>
+<title>Load wehoop women's college basketball schedule — load_wbb_schedule • wehoop</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,9 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Update or create a wehoop play-by-play database — update_wnba_db" />
-<meta property="og:description" content="update_wnba_db() updates or creates a database with wehoop
-play by play data of all completed and available games since 2002." />
+<meta property="og:title" content="Load wehoop women's college basketball schedule — load_wbb_schedule" />
+<meta property="og:description" content="helper that loads multiple seasons from the data repo either into memory
+or writes it into a db using some forwarded arguments in the dots" />
 <meta property="og:image" content="https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/themes/wehoop_gh.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@saiemgilani" />
@@ -237,78 +237,43 @@ play by play data of all completed and available games since 2002." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1><strong>Update or create a wehoop play-by-play database</strong></h1>
+    <h1><strong>Load wehoop women's college basketball schedule</strong></h1>
     
-    <div class="hidden name"><code>update_wnba_db.Rd</code></div>
+    <div class="hidden name"><code>load_wbb_schedule.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>update_wnba_db() updates or creates a database with <code>wehoop</code>
-play by play data of all completed and available games since 2002.</p>
+    <p>helper that loads multiple seasons from the data repo either into memory
+or writes it into a db using some forwarded arguments in the dots</p>
     </div>
 
-    <pre class="usage"><span class='fu'>update_wnba_db</span><span class='op'>(</span>
-  dbdir <span class='op'>=</span> <span class='st'>"."</span>,
-  dbname <span class='op'>=</span> <span class='st'>"wehoop_db"</span>,
-  tblname <span class='op'>=</span> <span class='st'>"wehoop_wnba_pbp"</span>,
-  force_rebuild <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  db_connection <span class='op'>=</span> <span class='cn'>NULL</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_wbb_schedule</span><span class='op'>(</span><span class='va'>seasons</span>, <span class='va'>...</span>, qs <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dbdir</th>
-      <td><p>Directory in which the database is or shall be located</p></td>
+      <th>seasons</th>
+      <td><p>A vector of 4-digit years associated with given women's college basketball seasons.</p></td>
     </tr>
     <tr>
-      <th>dbname</th>
-      <td><p>File name of an existing or desired SQLite database within <code>dbdir</code></p></td>
+      <th>...</th>
+      <td><p>Additional arguments passed to an underlying function that writes
+the season data into a database (used by <code><a href='update_wbb_db.html'>update_wbb_db()</a></code>).</p></td>
     </tr>
     <tr>
-      <th>tblname</th>
-      <td><p>The name of the play by play data table within the database</p></td>
-    </tr>
-    <tr>
-      <th>force_rebuild</th>
-      <td><p>Hybrid parameter (logical or numeric) to rebuild parts
-of or the complete play by play data table within the database (please see details for further information)</p></td>
-    </tr>
-    <tr>
-      <th>db_connection</th>
-      <td><p>A <code>DBIConnection</code> object, as returned by
-<code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code> (please see details for further information)</p></td>
+      <th>qs</th>
+      <td><p>Wheter to use the function <code><a href='https://rdrr.io/pkg/qs/man/qdeserialize.html'>qs::qdeserialize()</a></code> for more efficient loading.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function creates and updates a data table with the name <code>tblname</code>
-within a SQLite database (other drivers via <code>db_connection</code>) located in
-<code>dbdir</code> and named <code>dbname</code>.
-The data table combines all play by play data for every available game back
-to the 2002 season and adds the most recent completed games as soon as they
-are available for <code>wehoop</code>.</p>
-<p>The argument <code>force_rebuild</code> is of hybrid type. It can rebuild the play
-by play data table either for the whole wehoop era (with <code>force_rebuild = TRUE</code>)
-or just for specified seasons (e.g. <code>force_rebuild = c(2019, 2020)</code>).
-Please note the following behavior:</p><ul>
-<li><p><code>force_rebuild = TRUE</code>: The data table with the name <code>tblname</code>
-will be removed completely and rebuilt from scratch. This is helpful when
-new columns are added during the Off-Season.</p></li>
-<li><p><code>force_rebuild = c(2019, 2020)</code>: The data table with the name <code>tblname</code>
-will be preserved and only rows from the 2019 and 2020 seasons will be
-deleted and re-added. This is intended to be used for ongoing seasons because
-ESPN's data provider can make changes to the underlying data during the week.</p></li>
-</ul>
-
-<p>The parameter <code>db_connection</code> is intended for advanced users who want
-to use other DBI drivers, such as MariaDB, Postgres or odbc. Please note that
-the arguments <code>dbdir</code> and <code>dbname</code> are dropped in case a <code>db_connection</code>
-is provided but the argument <code>tblname</code> will still be used to write the
-data table into the database.</p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>future</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/future/man/plan.html'>plan</a></span><span class='op'>(</span><span class='st'>"multisession"</span><span class='op'>)</span>
+<span class='fu'>load_wbb_schedule</span><span class='op'>(</span><span class='fl'>2002</span><span class='op'>:</span><span class='fl'>2021</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
