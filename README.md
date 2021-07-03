@@ -3,20 +3,21 @@
 
 <!-- badges: start -->
 
-[![Version-Number](https://img.shields.io/github/r-package/v/saiemgilani/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/saiemgilani/wehoop)
-[![R-CMD-check](https://img.shields.io/github/workflow/status/saiemgilani/wehoop/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)](https://github.com/saiemgilani/wehoop/actions/workflows/R-CMD-check.yaml)
+[![Version-Number](https://img.shields.io/github/r-package/v/saiemgilani/wehoop?label=wehoop&logo=R&logoColor=white&style=for-the-badge)](https://github.com/saiemgilani/wehoop)
+[![R-CMD-check](https://img.shields.io/github/workflow/status/saiemgilani/wehoop/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/saiemgilani/wehoop/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/saiemgilani/wehoop)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge)](https://twitter.com/saiemgilani)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge)](https://twitter.com/hutchngo)
+![Contributors](https://img.shields.io/github/contributors/saiemgilani/wehoop?style=for-the-badge)
 
 <!-- badges: end -->
 
-`wehoop` is an R package for working with women’s college and
-professional basketball data. The package has functions to access **live
-play by play and box score** data from ESPN with shot locations when
-available.
+[**`wehoop`**](http://saiemgilani.github.io/wehoop) is an R package for
+working with women’s college and professional basketball data. The
+package has functions to access **live play by play and box score** data
+from ESPN with shot locations when available.
 
 A scraping and aggregating interface for ESPN’s women’s college
 basketball and WNBA statistics. It provides users with the capability to
