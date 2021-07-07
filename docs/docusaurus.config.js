@@ -88,7 +88,7 @@ module.exports = {
             },
             {
               label: 'hoopR',
-              href: 'https://saiemgilani.github.io/hoopR/',
+              href: 'https://hoopR.sportsdataverse.org',
               target: '_self',
             },
             {
@@ -169,7 +169,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/saiemgilani/wehoop/edit/master/website/',
+            'https://github.com/saiemgilani/wehoop/edit/master/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
