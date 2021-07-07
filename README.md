@@ -108,9 +108,9 @@ Releases**](https://wehoop.sportsdataverse.org/CHANGELOG)
 
 <summary>View More</summary>
 
-| issue | icon                                                                                                                                         | title                                                                                        | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 10    | <span title="Pull Request Closed"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-closed.png?raw=true"></span> | <span title="">[rename website = docs](https://github.com/saiemgilani/wehoop/pull/10)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-07-07 | 2021-07-07 05:07:06 |
+| issue | icon                                                                                                                                         | title                                                                                                                             | labels | opened\_by                                    | date       | closed              |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
+| 8     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="We exporting the schedule loading functions">[Schedule loaders](https://github.com/saiemgilani/wehoop/pull/8)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-06-26 | 2021-06-26 00:30:11 |
 
 </details>
 
