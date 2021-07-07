@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with wehoop"
-description: "Getting started with using wehoop for women's basketball data."
-author: "Saiem Gilani"
+description: "Getting started with using <code>wehoop</code> and women's basketball data."
+author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 opengraph:
   image: 
     src: "https://github.com/saiemgilani/wehoop-data/blob/master/themes/wehoop_gh.png?raw=true"
@@ -10,7 +10,7 @@ opengraph:
     creator: "@saiemgilani"
 output: html_document
 ---
-<a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>
+
 
 Welcome folks,
 

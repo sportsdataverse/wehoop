@@ -36,6 +36,17 @@ module.exports = {
           label: 'Docs',
         },
         {
+          label: 'Tutorials',
+          position: 'left',
+          items: [
+            {
+              href: 'https://sportsdataverse.org',
+              label: 'SportsDataverse',
+              target: '_self',
+            },
+          ],
+        },
+        {
           label: 'News',
           to: 'CHANGELOG',
           position: 'left',
