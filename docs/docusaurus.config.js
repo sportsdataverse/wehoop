@@ -40,7 +40,7 @@ module.exports = {
           position: 'left',
           items: [
             {
-              href: '/blogs/getting-started-wehoop',
+              href: '/blog/getting-started-wehoop',
               label: 'Getting Started',
               target: '_self',
             },
