@@ -40,8 +40,8 @@ module.exports = {
           position: 'left',
           items: [
             {
-              href: 'https://sportsdataverse.org',
-              label: 'SportsDataverse',
+              href: '/blogs/getting-started-wehoop',
+              label: 'Getting Started',
               target: '_self',
             },
           ],
