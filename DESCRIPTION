@@ -1,6 +1,6 @@
 Package: wehoop
 Title: Functions to Access Women's Basketball Play by Play Data
-Version: 1.1.0
+Version: 1.1
 Authors@R: c(person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com',role = c('aut','cre')),
              person('Geoff','Hutchinson', email = 'geoffery.hutchinson@gmail.com', role = c('aut')))
 Description: The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
