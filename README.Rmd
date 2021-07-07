@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# wehoop <a href='http://saiemgilani.github.io/wehoop'><img src="man/figures/logo.png" align="right" height="139"/></a>
+# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right" height="139"/></a>
 ```{r, include = FALSE}
 require(knitr)
 if (!requireNamespace('issue') & !requireNamespace('pacman')){
@@ -119,102 +119,11 @@ nrow(pbp)
 
 ## Documentation
 
-For more information on the package and function reference, please see the  [**`wehoop`** documentation website](https://saiemgilani.github.io/wehoop/).
+For more information on the package and function reference, please see the  [**`wehoop`** documentation website](https://wehoop.sportsdataverse.org).
 
 ## **Breaking Changes**
 
-[**Full News on Releases**](https://saiemgilani.github.io/wehoop/news/index.html)
-
-# **wehoop 1.1.0** 
-### **Add schedule loaders**
-- [```wehoop::load_wbb_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_schedule.html) function added
-- [```wehoop::load_wnba_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_schedule.html) function added
-
-#
-<details><summary>View more version news</summary>
-
-## **wehoop 1.0.0** 
-### **Add team box score loaders**
-- [```wehoop::load_wbb_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html) function added
-- [```wehoop::load_wnba_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html) function added
-
-### **Add player box score loaders**
-- [```wehoop::load_wbb_player_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html) function added
-- [```wehoop::load_wnba_player_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html) function added
-
-### **Standings functions**
-- [```wehoop::espn_wnba_standings()```](https://saiemgilani.github.io/wehoop/reference/espn_wnba_standings.html)
-- [```wehoop::espn_wbb_standings()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_standings.html)
-
-### **Getting Started vignette**
-- [Getting started with wehoop data](https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html)
-
-## **wehoop 0.9.2** 
-- Added [```wehoop::espn_wbb_conferences()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_conferences.html) function
-
-### **Quick fix for update db functions**
-
-### **Dependency pruning**
-This update is a non-user facing change to package dependencies to shrink the list of dependencies.
-
-## **wehoop 0.9.1**
-### **Clean names and team returns**
-- All functions have now been given the [```janitor::clean_names()```](https://rdrr.io/cran/janitor/man/clean_names.html) treatment
-- [```wehoop::espn_wbb_teams()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_teams.html) has updated the returns to be more identity information related only
-- [```wehoop::espn_wnba_teams()```](https://saiemgilani.github.io/wehoop/reference/espn_wnba_teams.html) to be more identity information related only
-- All tests were updated
-
-## **wehoop 0.9.0**
-### **Loading capabilities added to the package**
-- [```wehoop::load_wbb_pbp()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_pbp.html) and [```wehoop::update_wbb_db()```](https://saiemgilani.github.io/wehoop/reference/update_wbb_db.html) functions added
-- [```wehoop::load_wnba_pbp()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_pbp.html) and [```wehoop::update_wnba_db()```](https://saiemgilani.github.io/wehoop/reference/update_wnba_db.html) functions added
-
-## **wehoop 0.3.0**
-###  **Dependencies**
-- ```R``` version 3.5.0 or greater dependency added
-- ```purrr``` version 0.3.0 or greater dependency added
-- ```rvest``` version 1.0.0 or greater dependency added
-- ```progressr``` version 0.6.0 or greater dependency added
-- ```usethis``` version 1.6.0 or greater dependency added
-- ```xgboost``` version 1.1.0 or greater dependency added
-- ```tidyr``` version 1.0.0 or greater dependency added
-- ```stringr``` version 1.3.0 or greater dependency added
-- ```tibble``` version 3.0.0 or greater dependency added
-- ```furrr``` dependency added
-- ```future``` dependency added
-
-### **Test coverage**
-* Added tests for all ESPN functions
-### **Function Naming Convention Change**
-* Similarly, data and metrics sourced from ESPN will begin with `espn_` as opposed to `wbb_` or `wnba_`. 
-* Data sourced directly from the NCAA website will start the function with `ncaa_`
-
-## **v0.2.0**: Support for ESPN's WNBA game data
-See the following six functions:
-- [```wehoop::wnba_espn_game_all()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_game_all.html)
-- [```wehoop::wnba_espn_pbp()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_pbp.html)
-- [```wehoop::wnba_espn_team_box()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_team_box.html)
-- [```wehoop::wnba_espn_player_box()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_player_box.html)
-- [```wehoop::wnba_espn_teams()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_teams.html) 
-- [```wehoop::wnba_espn_scoreboard()```](https://saiemgilani.github.io/wehoop/reference/wnba_espn_scoreboard.html) 
-
-## **v0.1.0**: Support for ESPN's women's college basketball game data and NCAA NET Rankings
-See the following eight functions:
-- [```wehoop::wbb_espn_game_all()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_game_all.html)
-- [```wehoop::wbb_espn_pbp()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_pbp.html)
-- [```wehoop::wbb_espn_team_box()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_team_box.html)
-
-- [```wehoop::wbb_espn_player_box()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_player_box.html)
-
-- [```wehoop::wbb_espn_teams()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_teams.html) 
-
-<!-- - [```wehoop::wbb_espn_conferences()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_conferences.html)  -->
-
-- [```wehoop::wbb_espn_scoreboard()```](https://saiemgilani.github.io/wehoop/reference/wbb_espn_scoreboard.html) 
-- [```wehoop::wbb_ncaa_NET_rankings()```](https://saiemgilani.github.io/wehoop/reference/wbb_ncaa_NET_rankings.html) 
-- [```wehoop::wbb_rankings()```](https://saiemgilani.github.io/wehoop/reference/wbb_rankings.html) 
-
-</details>
+[**Full News on Releases**](https://wehoop.sportsdataverse.org/CHANGELOG)
 
 
 # Current Issues
@@ -248,14 +157,14 @@ x2[c(1:(min(nrow(x),5))),] %>%
 
 ## **Citations**
 
-To cite the [**`wehoop`**](https://saiemgilani.github.io/wehoop/) R package in publications, use:
+To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org) R package in publications, use:
 
 BibTex Citation
 ```bibtex
 @misc{hutchingsongilani2021wehoop,
   author = {Saiem Gilani and Geoff Hutchinson},
   title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
-  url = {https://saiemgilani.github.io/wehoop/},
+  url = {https://wehoop.sportsdataverse.org},
   year = {2021}
 }
 ```

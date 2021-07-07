@@ -1,3 +1,8 @@
+---
+title: Getting Started
+sidebar_label: Getting Started
+sidebar_position: 1
+---
 
 # wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right" height="139"/></a>
 
@@ -98,23 +103,6 @@ website](https://wehoop.sportsdataverse.org).
 [**Full News on
 Releases**](https://wehoop.sportsdataverse.org/CHANGELOG)
 
-# Current Issues
-
-| issue | icon | title | labels | opened\_by | date | closed |
-| :---- | :--- | :---- | :----- | :--------- | :--- | :----- |
-| NA    | NA   | NA    | NA     | NA         | NA   | NA     |
-
-<details>
-
-<summary>View More</summary>
-
-| issue | icon                                                                                                                                         | title                                                                                        | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 10    | <span title="Pull Request Closed"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-closed.png?raw=true"></span> | <span title="">[rename website = docs](https://github.com/saiemgilani/wehoop/pull/10)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-07-07 | 2021-07-07 05:07:06 |
-
-</details>
-
-<br>
 
 # **Our Authors**
 
@@ -133,7 +121,7 @@ in publications, use:
 
 BibTex Citation
 
-``` bibtex
+```bibtex
 @misc{hutchingsongilani2021wehoop,
   author = {Saiem Gilani and Geoff Hutchinson},
   title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
