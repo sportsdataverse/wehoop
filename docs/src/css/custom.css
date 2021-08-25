@@ -66,9 +66,9 @@
   h1, h2, .h1, .h2 {
     font-family: "Chivo";
     letter-spacing: 0.6px;
-    line-height: 1.8rem; /* increases, so wrapping headers don't overlap */
+    line-height: 2.1rem; /* increases, so wrapping headers don't overlap */
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
   }
   
   h3, h4, h5, h6, .h3, .h4{

@@ -386,7 +386,7 @@ espn_wbb_conferences <- function(){
 #' @export
 #'
 #' @examples
-#' d<- espn_wbb_teams()
+#' espn_wbb_teams()
 
 espn_wbb_teams <- function(){
   options(stringsAsFactors = FALSE)

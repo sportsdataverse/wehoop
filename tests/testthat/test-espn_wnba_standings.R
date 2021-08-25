@@ -10,6 +10,6 @@ cols <- c(
 test_that("ESPN - WNBA Standings", {
   skip_on_cran()
   x <- espn_wnba_standings(year = 2021)
-  expect_equal(colnames(x), cols)
+  expect_true(all(cols%in%colnames(x)))
   expect_s3_class(x, "data.frame")
 })
