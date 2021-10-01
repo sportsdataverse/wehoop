@@ -9,7 +9,7 @@ LazyData: true
 URL: https://wehoop.sportsdataverse.org (website) https://www.github.com/saiemgilani/wehoop (devel)
 BugReports: https://www.github.com/saiemgilani/wehoop/issues
 Encoding: UTF-8
-Depends: R (>= 3.5.0)
+Depends: R (>= 4.0.0)
 Imports: 
     data.table,
     dplyr,
