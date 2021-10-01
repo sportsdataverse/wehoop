@@ -98,31 +98,13 @@ website](https://wehoop.sportsdataverse.org).
 [**Full News on
 Releases**](https://wehoop.sportsdataverse.org/CHANGELOG)
 
-# Current Issues
-
-| issue | icon | title | labels | opened\_by | date | closed |
-| :---- | :--- | :---- | :----- | :--------- | :--- | :----- |
-| NA    | NA   | NA    | NA     | NA         | NA   | NA     |
-
-<details>
-
-<summary>View More</summary>
-
-| issue | icon                                                                                                                                         | title                                                                                                                             | labels | opened\_by                                    | date       | closed              |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------- | :--------- | :------------------ |
-| 8     | <span title="Merged Pull Request"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/pull-request-merged.png?raw=true"></span> | <span title="We exporting the schedule loading functions">[Schedule loaders](https://github.com/saiemgilani/wehoop/pull/8)</span> |        | [saiemgilani](https://github.com/saiemgilani) | 2021-06-26 | 2021-06-26 00:30:11 |
-
-</details>
-
-<br>
-
 # **Our Authors**
 
-  - [Saiem Gilani](https://twitter.com/saiemgilani)  
+-   [Saiem Gilani](https://twitter.com/saiemgilani)  
     <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
     <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
-  - [Geoff Hutchinson](https://twitter.com/hutchngo)  
+-   [Geoff Hutchinson](https://twitter.com/hutchngo)  
     <a href="https://twitter.com/hutchngo" target="blank"><img src="https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge" alt="@hutchngo" /></a>
     <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>
 
