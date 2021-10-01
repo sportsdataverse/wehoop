@@ -173,6 +173,6 @@ pad_id <- function(id = 1012100001) {
   }
   
   start <-
-    rep("0", times = zeros) %>% str_c(collapse = "")
+    rep("0", times = zeros) %>% stringr::str_c(collapse = "")
   glue("{start}{id}") %>% as.character()
 }
