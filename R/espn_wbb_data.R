@@ -386,7 +386,7 @@ espn_wbb_conferences <- function(){
 #' @export
 #'
 #' @examples
-#' d<- espn_wbb_teams()
+#' espn_wbb_teams()
 
 espn_wbb_teams <- function(){
   options(stringsAsFactors = FALSE)
@@ -442,7 +442,8 @@ espn_wbb_teams <- function(){
         -.data$isAllStar,
         -.data$uid,
         -.data$slug,
-        -.data$record)
+        -.data$record,
+        -.data$logos_lastUpdated)
       teams <- leagues %>% 
         dplyr::rename(
           logo = .data$logos_href_1,
