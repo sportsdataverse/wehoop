@@ -182,14 +182,14 @@ load_wbb_team_box <- function(seasons, ..., qs = FALSE) {
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wbb_team_box_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wbb_team_box_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wbb_team_box_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wbb_team_box_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -264,14 +264,14 @@ load_wbb_player_box <- function(seasons, ..., qs = FALSE) {
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wbb_player_box_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wbb_player_box_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wbb_player_box_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wbb_player_box_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -345,14 +345,14 @@ load_wbb_schedule <- function(seasons, ..., qs = FALSE){
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wbb_schedule_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wbb_schedule_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wbb_schedule_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wbb_schedule_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -480,8 +480,7 @@ update_wbb_db <- function(dbdir = ".",
   missing <- get_missing_wbb_games(completed_games, connection, tblname)
   
   # rebuild db if number of missing games is too large
-  if(length(missing) > 16) {# limit set to >16 to make sure this doesn't get triggered on gameday (e.g. week 17)
-    # message("The number of missing games is so large that rebuilding the database is more efficient.")
+  if(length(missing) > 100) {
     build_wbb_db(tblname, connection, show_message = FALSE, rebuild = as.numeric(unique(stringr::str_sub(missing, 1, 4))))
     missing <- get_missing_wbb_games(completed_games, connection, tblname)
   }
@@ -535,7 +534,7 @@ build_wbb_db <- function(tblname = "wehoop_wbb_pbp", db_conn, rebuild = FALSE, s
   
   if (!is.null(seasons)) {
     # this function lives in R/utils.R
-    load_wbb_pbp(seasons, dbConnection = db_conn, tablename = tblname, qs = FALSE)
+    load_wbb_pbp(rev(seasons), dbConnection = db_conn, tablename = tblname, qs = FALSE)
   }
 }
 

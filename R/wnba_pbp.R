@@ -88,14 +88,14 @@ load_wnba_pbp <- function(seasons, ..., qs = FALSE) {
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wnba_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wnba_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wnba_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wnba_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -169,14 +169,14 @@ load_wnba_team_box <- function(seasons, ..., qs = FALSE) {
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wnba_team_box_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wnba_team_box_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wnba_team_box_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wnba_team_box_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -251,14 +251,14 @@ load_wnba_player_box <- function(seasons, ..., qs = FALSE) {
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wnba_player_box_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wnba_player_box_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wnba_player_box_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wnba_player_box_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -333,14 +333,14 @@ load_wnba_schedule <- function(seasons, ..., qs = FALSE) {
   }
   
   
-  p <- progressr::progressor(along = seasons)
+  p <- progressr::progressor(along = rev(seasons))
   
   if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wnba_schedule_single_season, p = p, qs = qs)
+    out <- furrr::future_map_dfr(rev(seasons), wnba_schedule_single_season, p = p, qs = qs)
   }
   
   if (isTRUE(in_db)) {
-    purrr::walk(seasons, wnba_schedule_single_season, p, ..., qs = qs)
+    purrr::walk(rev(seasons), wnba_schedule_single_season, p, ..., qs = qs)
     out <- NULL
   }
   
@@ -470,8 +470,7 @@ update_wnba_db <- function(dbdir = ".",
   missing <- get_missing_wnba_games(completed_games, connection, tblname)
   
   # rebuild db if number of missing games is too large
-  if(length(missing) > 16) {# limit set to >16 to make sure this doesn't get triggered on gameday (e.g. week 17)
-    # message("The number of missing games is so large that rebuilding the database is more efficient.")
+  if(length(missing) > 100) {
     build_wnba_db(tblname, connection, show_message = FALSE, rebuild = as.numeric(unique(stringr::str_sub(missing, 1, 4))))
     missing <- get_missing_wnba_games(completed_games, connection, tblname)
   }

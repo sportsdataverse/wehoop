@@ -56,7 +56,7 @@ pacman::p_load_current_gh("saiemgilani/wehoop")
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2021) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2021) ~ 30-60 seconds**
 ```{r load_wnba_pbp_2002_2021, warning = FALSE}
 future::plan("multisession")
 tictoc::tic()
@@ -64,10 +64,12 @@ progressr::with_progress({
   wnba_pbp <- wehoop::load_wnba_pbp(2002:2021)
 })
 tictoc::toc()
-## 10.36 sec elapsed
-length(unique(wnba_pbp$game_id))
-nrow(wnba_pbp)
+## 13.91 sec elapsed
+glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
+## 1782985 rows of WNBA play-by-play data from 4674 games.
+dplyr::glimpse(wnba_pbp)
 ```
+
 ### **WNBA full team box score seasons (2002-2021) ~ 5-30 seconds**
 ```{r load_wnba_team_2002_2021, warning = FALSE}
 future::plan("multisession")
@@ -75,10 +77,13 @@ tictoc::tic()
 progressr::with_progress({
   wnba_team_box <- wehoop::load_wnba_team_box(2002:2021)
 })
+
 tictoc::toc()
-length(unique(wnba_team_box$game_id))
-nrow(wnba_team_box)
+
+glue::glue("{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games.")
+dplyr::glimpse(wnba_team_box)
 ```
+
 ### **WNBA full player box score seasons (2002-2021) ~ 5-30 seconds**
 ```{r load_wnba_player_2002_2021, warning = FALSE}
 future::plan("multisession")
