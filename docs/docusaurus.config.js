@@ -112,6 +112,11 @@ module.exports = {
               target: '_self',
             },
             {
+              label: 'cfb4th',
+              href: 'https://kazink36.github.io/cfb4th/',
+              target: '_self',
+            },
+            {
               label: 'worldfootballR',
               href: 'https://jaseziv.github.io/worldfootballR/',
               target: '_self',
@@ -119,6 +124,11 @@ module.exports = {
             {
               label: 'hockeyR',
               href: 'https://hockeyr.netlify.app/',
+              target: '_self',
+            },
+            {
+              label: 'baseballr',
+              href: 'https://BillPetti.github.io/baseballr/',
               target: '_self',
             },
             {
