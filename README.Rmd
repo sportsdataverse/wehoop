@@ -26,14 +26,14 @@ A scraping and aggregating interface for ESPN's women's college basketball and W
 
 ## Installation
 
-You can install the released version of [**`wehoop`**](https://github.com/saiemgilani/wehoop/) from [GitHub](https://github.com/saiemgilani/wehoop) with:
+You can install the released version of [**`wehoop`**](https://github.com/saiemgilani/wehoop) from [GitHub](https://github.com/saiemgilani/wehoop) with:
 
 ``` r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("saiemgilani/wehoop")
+pacman::p_load_current_gh("saiemgilani/wehoop", dependencies = TRUE, update = TRUE)
 ```
 
 ``` r
@@ -54,7 +54,6 @@ if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
 pacman::p_load_current_gh("saiemgilani/wehoop")
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
   pbp <- wehoop::load_wnba_pbp(2002:2021)
@@ -66,17 +65,16 @@ nrow(pbp)
 ```
 
 
-### **Women's college basketball full play-by-play seasons (2002-2021) ~ 2-3 minutes**
+### **Women's college basketball full play-by-play seasons (2006-2021) ~ 2-3 minutes**
 ```r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
 pacman::p_load_current_gh("saiemgilani/wehoop")
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
-  pbp <- wehoop::load_wbb_pbp(2002:2021)
+  pbp <- wehoop::load_wbb_pbp(2006:2021)
 })
 tictoc::toc()
 
@@ -111,7 +109,7 @@ To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org) R package in publ
 
 BibTex Citation
 ```bibtex
-@misc{hutchingsongilani2021wehoop,
+@misc{hutchinson_gilani_2021_wehoop,
   author = {Saiem Gilani and Geoff Hutchinson},
   title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
   url = {https://wehoop.sportsdataverse.org},

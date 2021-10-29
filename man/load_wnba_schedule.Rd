@@ -4,23 +4,29 @@
 \alias{load_wnba_schedule}
 \title{\strong{Load wehoop WNBA schedules}}
 \usage{
-load_wnba_schedule(seasons, ..., qs = FALSE)
+load_wnba_schedule(
+  seasons = most_recent_wnba_season(),
+  ...,
+  dbConnection = NULL,
+  tablename = NULL
+)
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given WNBA seasons.}
+\item{seasons}{A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_wnba_db()}).}
 
-\item{qs}{Wheter to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
+\item{dbConnection}{A \code{DBIConnection} object, as returned by}
+
+\item{tablename}{The name of the schedule data table within the database}
 }
 \description{
 helper that loads multiple seasons from the data repo either into memory
 or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
-\dontrun{
-future::plan("multisession")
-load_wnba_schedule(2002:2021)
+\donttest{
+load_wnba_schedule(2021)
 }
 }

@@ -11,7 +11,67 @@ check_status <- function(res) {
 # read qs files form an url
 qs_from_url <- function(url) qs::qdeserialize(curl::curl_fetch_memory(url)$content)
 
+.datatable.aware <- TRUE
+#' Progressively
+#'
+#' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
+#'
+#' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
+#'
+#' @param f a function to add progressr functionality to.
+#' @param p a progressor function as created by `progressr::progressor()`
+#'
+#' @return a function that does the same as `f` but it calls `p()` after iteration.
+#'
+#' @export
+progressively <- function(f, p = NULL){
+  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
+  if(is.null(p)) p <- function(...) NULL
+  force(f)
+  
+  function(...){
+    on.exit(p("loading..."))
+    f(...)
+  }
+  
+}
 
+
+#' @title
+#' **Load .csv / .csv.gz file from a remote connection**
+#' @description
+#' This is a thin wrapper on data.table::fread
+#' @param ... passed to data.table::fread
+#' @inheritDotParams data.table::fread
+#' @importFrom data.table fread
+#' @return a dataframe as created by [`data.table::fread()`]
+#' @export
+csv_from_url <- function(...){
+  data.table::fread(...)
+}
+
+.datatable.aware <- TRUE
+
+
+#' @title
+#' **Load .rds file from a remote connection**
+#' @param url a character url
+#' @return a dataframe as created by [`readRDS()`]
+#' @importFrom data.table data.table setDT
+#' @import rvest
+rds_from_url <- function(url) {
+  con <- url(url)
+  on.exit(close(con))
+  load <- try(readRDS(con), silent = TRUE)
+  
+  if (inherits(load, "try-error")) {
+    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
+    return(data.table::data.table())
+  }
+  
+  data.table::setDT(load)
+  return(load)
+}
 
 # The function `message_completed` to create the green "...completed" message
 # only exists to hide the option `in_builder` in dots
@@ -46,6 +106,7 @@ custom_mode <- function(x, na.rm = TRUE) {
   return(ux[which.max(tabulate(match(x, ux)))])
 }
 
+
 most_recent_wbb_season <- function() {
   dplyr::if_else(
     as.double(substr(Sys.Date(), 6, 7)) >= 10,
@@ -60,9 +121,41 @@ most_recent_wnba_season <- function() {
     as.double(substr(Sys.Date(), 1, 4)) - 1
   )
 }
+
 my_time <- function() strftime(Sys.time(), format = "%H:%M:%S")
 
+#' Check Status function
+#' @param res Response from API
+#' @keywords Internal
+#' @import rvest
+#'
+check_status <- function(res) {
+  
+  x = httr::status_code(res)
+  
+  if(x != 200) stop("The API returned an error", call. = FALSE)
+  
+}
 
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 NULL
+
+#' @import utils
+utils::globalVariables(c("where"))
+
+# check if a package is installed
+is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
+
+
+
+#' @keywords internal
+"_PACKAGE"
+
+#' @importFrom Rcpp getRcppVersion
+#' @importFrom RcppParallel defaultNumThreads
+NULL
+
+`%c%` <- function(x,y){
+  ifelse(!is.na(x),x,y)
+}

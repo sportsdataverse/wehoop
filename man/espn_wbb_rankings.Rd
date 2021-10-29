@@ -14,7 +14,9 @@ Get women's college basketball AP and Coaches poll rankings
 }
 \examples{
 # Get current AP and Coaches Poll rankings
-espn_wbb_rankings()
+\donttest{
+  try(espn_wbb_rankings())
+}
 }
 \author{
 Saiem Gilani

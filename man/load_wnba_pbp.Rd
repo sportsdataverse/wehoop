@@ -4,15 +4,22 @@
 \alias{load_wnba_pbp}
 \title{\strong{Load wehoop WNBA play-by-play}}
 \usage{
-load_wnba_pbp(seasons, ..., qs = FALSE)
+load_wnba_pbp(
+  seasons = most_recent_wnba_season(),
+  ...,
+  dbConnection = NULL,
+  tablename = NULL
+)
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given women's college basketball seasons.}
+\item{seasons}{A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_wnba_db()}).}
 
-\item{qs}{Whether to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
+\item{dbConnection}{A \code{DBIConnection} object, as returned by}
+
+\item{tablename}{The name of the play by play data table within the database}
 }
 \value{
 A dataframe with 42 columns
@@ -66,8 +73,7 @@ helper that loads multiple seasons from the data repo either into memory
 or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
-\dontrun{
-future::plan("multisession")
-load_wnba_pbp(2002:2021)
+\donttest{
+load_wnba_pbp(2021)
 }
 }

@@ -13,7 +13,9 @@ espn_wbb_standings(year)
 Get ESPN women's college basketball standings
 }
 \examples{
-espn_wbb_standings(2021)
+\donttest{
+  try(espn_wbb_standings(2021))
+ }
 }
 \keyword{Standings}
 \keyword{WBB}

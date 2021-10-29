@@ -13,7 +13,9 @@ Returns a tibble
 Get women's college basketball conferences
 }
 \examples{
-espn_wbb_conferences()
+\donttest{
+  try(espn_wbb_conferences())
+}
 }
 \author{
 Saiem Gilani

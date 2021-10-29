@@ -4,23 +4,29 @@
 \alias{load_wbb_team_box}
 \title{\strong{Load wehoop women's college basketball team box scores}}
 \usage{
-load_wbb_team_box(seasons, ..., qs = FALSE)
+load_wbb_team_box(
+  seasons = most_recent_wbb_season(),
+  ...,
+  dbConnection = NULL,
+  tablename = NULL
+)
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given women's college basketball seasons.}
+\item{seasons}{A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
-the season data into a database (used by \code{\link[=update_wbb_db]{update_wbb_db()}}).}
+the season data into a database (used by \code{update_wbb_db()}).}
 
-\item{qs}{Wheter to use the function \code{\link[qs:qdeserialize]{qs::qdeserialize()}} for more efficient loading.}
+\item{dbConnection}{A \code{DBIConnection} object, as returned by}
+
+\item{tablename}{The name of the play by play data table within the database}
 }
 \description{
 helper that loads multiple seasons from the data repo either into memory
 or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
-\dontrun{
-future::plan("multisession")
-load_wbb_team_box(2002:2021)
+\donttest{
+load_wbb_team_box(2021)
 }
 }
