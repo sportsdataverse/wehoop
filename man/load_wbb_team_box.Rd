@@ -17,7 +17,7 @@ load_wbb_team_box(
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_wbb_db()}).}
 
-\item{dbConnection}{A \code{DBIConnection} object, as returned by}
+\item{dbConnection}{A \code{DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
 \item{tablename}{The name of the play by play data table within the database}
 }

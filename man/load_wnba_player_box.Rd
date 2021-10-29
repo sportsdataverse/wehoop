@@ -17,7 +17,7 @@ load_wnba_player_box(
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_wnba_db()}).}
 
-\item{dbConnection}{A \code{DBIConnection} object, as returned by}
+\item{dbConnection}{A \code{DBIConnection} object, as returned by \code{\link[DBI:dbConnect]{DBI::dbConnect()}}}
 
 \item{tablename}{The name of the player box data table within the database}
 }

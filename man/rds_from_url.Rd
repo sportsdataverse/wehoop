@@ -15,3 +15,4 @@ a dataframe as created by \code{\link[=readRDS]{readRDS()}}
 \description{
 \strong{Load .rds file from a remote connection}
 }
+\keyword{Internal}

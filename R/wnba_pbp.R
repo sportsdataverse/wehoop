@@ -9,7 +9,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the play by play data table within the database
 #' @return A dataframe with 42 columns
 #' \describe{
@@ -105,7 +105,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2003)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team box data table within the database
 #' @import furrr
 #' @export
@@ -153,7 +153,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player box data table within the database
 #' @import furrr
 #' @export
@@ -202,7 +202,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the schedule data table within the database
 #' @import furrr
 #' @export

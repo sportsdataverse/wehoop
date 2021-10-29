@@ -1,17 +1,5 @@
-#' @keywords Internal
-#' @import rvest
-#'
-check_status <- function(res) {
-  
-  x = httr::status_code(res)
-  
-  if(x != 200) stop("The API returned an error", call. = FALSE) 
-  
-}
-# read qs files form an url
-qs_from_url <- function(url) qs::qdeserialize(curl::curl_fetch_memory(url)$content)
-
 .datatable.aware <- TRUE
+
 #' Progressively
 #'
 #' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
@@ -20,10 +8,10 @@ qs_from_url <- function(url) qs::qdeserialize(curl::curl_fetch_memory(url)$conte
 #'
 #' @param f a function to add progressr functionality to.
 #' @param p a progressor function as created by `progressr::progressor()`
+#' @keywords Internal
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
 #'
-#' @export
 progressively <- function(f, p = NULL){
   if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
   if(is.null(p)) p <- function(...) NULL
@@ -42,10 +30,9 @@ progressively <- function(f, p = NULL){
 #' @description
 #' This is a thin wrapper on data.table::fread
 #' @param ... passed to data.table::fread
+#' @keywords Internal
 #' @inheritDotParams data.table::fread
 #' @importFrom data.table fread
-#' @return a dataframe as created by [`data.table::fread()`]
-#' @export
 csv_from_url <- function(...){
   data.table::fread(...)
 }
@@ -56,6 +43,7 @@ csv_from_url <- function(...){
 #' @title
 #' **Load .rds file from a remote connection**
 #' @param url a character url
+#' @keywords Internal
 #' @return a dataframe as created by [`readRDS()`]
 #' @importFrom data.table data.table setDT
 #' @import rvest

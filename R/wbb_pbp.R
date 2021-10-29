@@ -9,7 +9,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2004)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @return A dataframe with 55 columns:
@@ -117,7 +117,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @export
@@ -166,7 +166,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @export
@@ -215,7 +215,7 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @export
@@ -414,7 +414,7 @@ build_wbb_db <- function(tblname = "wehoop_wbb_pbp", db_conn, rebuild = FALSE, s
   
   if (!is.null(seasons)) {
     # this function lives in R/utils.R
-    load_wbb_pbp(rev(seasons), dbConnection = db_conn, tablename = tblname, qs = FALSE)
+    load_wbb_pbp(rev(seasons), dbConnection = db_conn, tablename = tblname)
   }
 }
 

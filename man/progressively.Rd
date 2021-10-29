@@ -20,3 +20,4 @@ This function helps add progress-reporting to any function - given function \cod
 \details{
 This is inspired by purrr's \code{safely}, \code{quietly}, and \code{possibly} function decorators.
 }
+\keyword{Internal}

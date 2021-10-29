@@ -25,8 +25,9 @@ load_wbb_team_box(seasons, ..., qs = FALSE)
 Argument      |Description
 ------------- |----------------
 `seasons`     |     A vector of 4-digit years associated with given women's college basketball seasons.
-`...`     |     Additional arguments passed to an underlying function that writes the season data into a database (used by [`update_wbb_db()`](#updatewbbdb()) ).
-`qs`     |     Wheter to use the function [`qs::qdeserialize()`](#qs::qdeserialize()) for more efficient loading.
+`...`     |     Additional arguments passed to an underlying function that writes the season data into a database (used by `update_wbb_db()`).
+`dbConnection`     |    A `DBIConnection` object, as returned by `DBI::dbConnect()`
+`tablename`     |     The name of the team box data table within the database
 
 
 ## Examples
