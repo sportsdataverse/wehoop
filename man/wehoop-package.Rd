@@ -8,23 +8,23 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
+The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics. It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
 
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
+The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics. It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://wehoop.sportsdataverse.org/ (website) https://github.com/saiemgilani/wehoop (devel)}
+  \item \url{https://wehoop.sportsdataverse.org (website) https://github.com/saiemgilani/wehoop (devel)}
   \item Report bugs at \url{https://github.com/saiemgilani/wehoop/issues}
 }
 
 
 Useful links:
 \itemize{
-  \item \url{https://wehoop.sportsdataverse.org/ (website) https://github.com/saiemgilani/wehoop (devel)}
+  \item \url{https://wehoop.sportsdataverse.org (website) https://github.com/saiemgilani/wehoop (devel)}
   \item Report bugs at \url{https://github.com/saiemgilani/wehoop/issues}
 }
 
