@@ -56,36 +56,38 @@ if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
 pacman::p_load_current_gh("saiemgilani/wehoop")
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
-  pbp <- wehoop::load_wnba_pbp(2002:2021)
+  wnba_pbp <- wehoop::load_wnba_pbp(2002:2021)
 })
 tictoc::toc()
-## 10.36 sec elapsed
-length(unique(pbp$game_id))
-nrow(pbp)
 ```
 
-### **Women’s college basketball full play-by-play seasons (2002-2021) \~ 2-3 minutes**
+    ## 9.78 sec elapsed
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
-}
-pacman::p_load_current_gh("saiemgilani/wehoop")
-future::plan("multisession")
+glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
+```
+
+    ## 1784144 rows of WNBA play-by-play data from 4677 games.
+
+### **Women’s college basketball full play-by-play seasons (2004-2021) \~ 2-3 minutes**
+
+``` r
 tictoc::tic()
 progressr::with_progress({
-  pbp <- wehoop::load_wbb_pbp(2002:2021)
+  wbb_pbp <- wehoop::load_wbb_pbp(2004:2021)
 })
 tictoc::toc()
-
-## 73.39 sec elapsed
-length(unique(pbp$game_id))
-nrow(pbp)
 ```
+
+    ## 43.88 sec elapsed
+
+``` r
+glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")
+```
+
+    ## 8650487 rows of women's college basketball play-by-play data from 26023 games.
 
 ## Documentation
 
@@ -100,11 +102,11 @@ Releases**](https://wehoop.sportsdataverse.org/CHANGELOG)
 
 # **Our Authors**
 
-  - [Saiem Gilani](https://twitter.com/saiemgilani)  
+-   [Saiem Gilani](https://twitter.com/saiemgilani)  
     <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
     <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
-  - [Geoff Hutchinson](https://twitter.com/hutchngo)  
+-   [Geoff Hutchinson](https://twitter.com/hutchngo)  
     <a href="https://twitter.com/hutchngo" target="blank"><img src="https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge" alt="@hutchngo" /></a>
     <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>
 
@@ -116,7 +118,7 @@ in publications, use:
 BibTex Citation
 
 ``` bibtex
-@misc{hutchingsongilani2021wehoop,
+@misc{hutchinson_gilani_2021_wehoop,
   author = {Saiem Gilani and Geoff Hutchinson},
   title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
   url = {https://wehoop.sportsdataverse.org},

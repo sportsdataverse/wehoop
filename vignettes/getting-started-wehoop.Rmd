@@ -59,7 +59,7 @@ pacman::p_load(tidyverse, zoo, ggimage, gt)
 
 ### **WNBA full play-by-play seasons (2002-2021) ~ 30-60 seconds**
 ```{r load_wnba_pbp_2002_2021, warning = FALSE}
-future::plan("multisession")
+
 tictoc::tic()
 progressr::with_progress({
   wnba_pbp <- wehoop::load_wnba_pbp(2002:2021)
@@ -73,7 +73,6 @@ dplyr::glimpse(wnba_pbp)
 
 ### **WNBA full team box score seasons (2003-2021) ~ 5-30 seconds**
 ```{r load_wnba_team_2003_2021, warning = FALSE}
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
   wnba_team_box <- wehoop::load_wnba_team_box(2003:2021)
@@ -87,7 +86,6 @@ dplyr::glimpse(wnba_team_box)
 
 ### **WNBA full player box score seasons (2002-2021) ~ 5-30 seconds**
 ```{r load_wnba_player_2002_2021, warning = FALSE}
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
   wnba_player_box <- wehoop::load_wnba_player_box(2002:2021)
@@ -100,7 +98,6 @@ nrow(wnba_player_box)
 ### **Women's college basketball full play-by-play seasons (2004-2021) ~ 45-90 seconds**
 
 ```{r load_wbb_pbp_2004_2021, warning = FALSE}
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
   wbb_pbp <- wehoop::load_wbb_pbp(2004:2021)
@@ -113,7 +110,6 @@ nrow(wbb_pbp)
 ### **Women's college basketball full team box score seasons (2006-2021) ~ 5-30 seconds**
 
 ```{r load_wbb_team_2006_2021, warning = FALSE}
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
   wbb_team_box <- wehoop::load_wbb_team_box(2006:2021)
@@ -126,7 +122,6 @@ nrow(wbb_team_box)
 ### **Women's college basketball full player box score seasons (2006-2021) ~ 5-30 seconds**
 
 ```{r load_wbb_player_2006_2021, warning = FALSE}
-future::plan("multisession")
 tictoc::tic()
 progressr::with_progress({
   wbb_player_box <- wehoop::load_wbb_player_box(2006:2021)

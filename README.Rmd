@@ -3,13 +3,15 @@ output: github_document
 ---
 
 # wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right" height="139"/></a>
-```{r, include = FALSE}
+```{r setup_readme, include = FALSE}
 require(knitr)
-if (!requireNamespace('issue') & !requireNamespace('pacman')){
+if (!requireNamespace('pacman')){
   install.packages('pacman')
 }
 pacman::p_load(magick, grid, dplyr, lubridate)
+# You can install using the pacman package using the following code:
 
+pacman::p_load_current_gh("saiemgilani/wehoop")
 
 ```
 
@@ -48,7 +50,7 @@ devtools::install_github(repo = "saiemgilani/wehoop")
 ## Quick Start
 
 ### **WNBA full play-by-play seasons (2002-2021) ~ 1-2 minutes**
-```r
+```{r wnba_load_pbp_readme}
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
@@ -56,31 +58,25 @@ if (!requireNamespace('pacman', quietly = TRUE)){
 pacman::p_load_current_gh("saiemgilani/wehoop")
 tictoc::tic()
 progressr::with_progress({
-  pbp <- wehoop::load_wnba_pbp(2002:2021)
+  wnba_pbp <- wehoop::load_wnba_pbp(2002:2021)
 })
 tictoc::toc()
-## 10.36 sec elapsed
-length(unique(pbp$game_id))
-nrow(pbp)
+glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
+
 ```
 
 
-### **Women's college basketball full play-by-play seasons (2006-2021) ~ 2-3 minutes**
-```r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
-}
-pacman::p_load_current_gh("saiemgilani/wehoop")
+### **Women's college basketball full play-by-play seasons (2004-2021) ~ 2-3 minutes**
+```{r wbb_load_pbp_readme}
+
 tictoc::tic()
 progressr::with_progress({
-  pbp <- wehoop::load_wbb_pbp(2006:2021)
+  wbb_pbp <- wehoop::load_wbb_pbp(2004:2021)
 })
 tictoc::toc()
 
-## 73.39 sec elapsed
-length(unique(pbp$game_id))
-nrow(pbp)
+glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")
+
 ```
 
 ## Documentation
