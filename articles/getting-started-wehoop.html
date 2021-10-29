@@ -266,13 +266,12 @@
 <a href="#wnba-full-play-by-play-seasons-2002-2021-30-60-seconds" class="anchor"></a><strong>WNBA full play-by-play seasons (2002-2021) ~ 30-60 seconds</strong>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">future</span><span class="fu">::</span><span class="fu"><a href="https://future.futureverse.org/reference/plan.html">plan</a></span><span class="op">(</span><span class="st">"multisession"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 21.485 sec elapsed</code></pre>
+<pre><code>## 25.026 sec elapsed</code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## 13.91 sec elapsed</span>
 <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></code></pre></div>
@@ -330,14 +329,13 @@
 <a href="#wnba-full-team-box-score-seasons-2003-2021-5-30-seconds" class="anchor"></a><strong>WNBA full team box score seasons (2003-2021) ~ 5-30 seconds</strong>
 </h3>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">future</span><span class="fu">::</span><span class="fu"><a href="https://future.futureverse.org/reference/plan.html">plan</a></span><span class="op">(</span><span class="st">"multisession"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wnba_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_team_box.html">load_wnba_team_box</a></span><span class="op">(</span><span class="fl">2003</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 4.647 sec elapsed</code></pre>
+<pre><code>## 5.655 sec elapsed</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games."</span><span class="op">)</span></code></pre></div>
 <pre><code>## 8630 rows of WNBA team boxscore data from 4315 games.</code></pre>
@@ -391,13 +389,12 @@
 <a href="#wnba-full-player-box-score-seasons-2002-2021-5-30-seconds" class="anchor"></a><strong>WNBA full player box score seasons (2002-2021) ~ 5-30 seconds</strong>
 </h3>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">future</span><span class="fu">::</span><span class="fu"><a href="https://future.futureverse.org/reference/plan.html">plan</a></span><span class="op">(</span><span class="st">"multisession"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 5.938 sec elapsed</code></pre>
+<pre><code>## 7.099 sec elapsed</code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 4679</code></pre>
@@ -410,13 +407,12 @@
 <a href="#womens-college-basketball-full-play-by-play-seasons-2004-2021-45-90-seconds" class="anchor"></a><strong>Women’s college basketball full play-by-play seasons (2004-2021) ~ 45-90 seconds</strong>
 </h3>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">future</span><span class="fu">::</span><span class="fu"><a href="https://future.futureverse.org/reference/plan.html">plan</a></span><span class="op">(</span><span class="st">"multisession"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="fl">2004</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 90.511 sec elapsed</code></pre>
+<pre><code>## 90.005 sec elapsed</code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 26023</code></pre>
@@ -429,13 +425,12 @@
 <a href="#womens-college-basketball-full-team-box-score-seasons-2006-2021-5-30-seconds" class="anchor"></a><strong>Women’s college basketball full team box score seasons (2006-2021) ~ 5-30 seconds</strong>
 </h3>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">future</span><span class="fu">::</span><span class="fu"><a href="https://future.futureverse.org/reference/plan.html">plan</a></span><span class="op">(</span><span class="st">"multisession"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="fl">2006</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 4.825 sec elapsed</code></pre>
+<pre><code>## 6.301 sec elapsed</code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 20762</code></pre>
@@ -448,13 +443,12 @@
 <a href="#womens-college-basketball-full-player-box-score-seasons-2006-2021-5-30-seconds" class="anchor"></a><strong>Women’s college basketball full player box score seasons (2006-2021) ~ 5-30 seconds</strong>
 </h3>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">future</span><span class="fu">::</span><span class="fu"><a href="https://future.futureverse.org/reference/plan.html">plan</a></span><span class="op">(</span><span class="st">"multisession"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="fl">2006</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## 9.729 sec elapsed</code></pre>
+<pre><code>## 10.01 sec elapsed</code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 20906</code></pre>
