@@ -17,14 +17,16 @@ The R package wehoop is for working with women's college and professional basket
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://wehoop.sportsdataverse.org (website) https://github.com/saiemgilani/wehoop (devel)}
+  \item \url{https://wehoop.sportsdataverse.org}
+  \item \url{https://github.com/saiemgilani/wehoop}
   \item Report bugs at \url{https://github.com/saiemgilani/wehoop/issues}
 }
 
 
 Useful links:
 \itemize{
-  \item \url{https://wehoop.sportsdataverse.org (website) https://github.com/saiemgilani/wehoop (devel)}
+  \item \url{https://wehoop.sportsdataverse.org}
+  \item \url{https://github.com/saiemgilani/wehoop}
   \item Report bugs at \url{https://github.com/saiemgilani/wehoop/issues}
 }
 
