@@ -26,7 +26,7 @@ to analyze the data for themselves.
 ## Installation
 
 You can install the released version of
-[**`wehoop`**](https://github.com/saiemgilani/wehoop/) from
+[**`wehoop`**](https://github.com/saiemgilani/wehoop) from
 [GitHub](https://github.com/saiemgilani/wehoop) with:
 
 ``` r
@@ -34,7 +34,7 @@ You can install the released version of
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("saiemgilani/wehoop")
+pacman::p_load_current_gh("saiemgilani/wehoop", dependencies = TRUE, update = TRUE)
 ```
 
 ``` r

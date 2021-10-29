@@ -18,7 +18,9 @@ Get women's college basketball schedule for a specific year from ESPN's API
 \examples{
 # Get schedule returns 1000 results, max allowable.
 # Get schedule from date 2021-02-15, then next date and so on.
-espn_wbb_scoreboard (season = "20210215")
+\donttest{
+  try(espn_wbb_scoreboard (season = "20210215"))
+}
 }
 \author{
 Thomas Mock, you a genius for this one.

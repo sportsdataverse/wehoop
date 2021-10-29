@@ -10,7 +10,9 @@ espn_wbb_teams()
 Get ESPN women's college basketball team names and ids
 }
 \examples{
-espn_wbb_teams()
+\donttest{
+  try(espn_wbb_teams())
+}
 }
 \author{
 Saiem Gilani

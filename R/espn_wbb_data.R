@@ -9,11 +9,13 @@
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wbb_game_all(game_id = 401276115)
+#' \donttest{
+#'   try(espn_wbb_game_all(game_id = 401276115))
+#'  }
 
 espn_wbb_game_all <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   
   play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
   
@@ -49,7 +51,7 @@ espn_wbb_game_all <- function(game_id){
           dplyr::select(.data$id, .data$athlete.id) %>%
           tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
       )
-      names(aths)[1]<-c("play.id")
+      names(aths)<-c("play.id","athlete.id.1","athlete.id.2")
       plays_df <- dplyr::bind_cols(plays, aths) %>%
         select(-.data$athlete.id)
       
@@ -66,18 +68,65 @@ espn_wbb_game_all <- function(game_id){
   tryCatch(
     expr = {
       raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      season <- raw_play_df[['header']][['season']][['year']]
+      season_type <- raw_play_df[['header']][['season']][['type']]
+      homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
+      homeAwayTeam2 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][2])
+      homeTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][1]
+      awayTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2]
+      homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+      awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+      homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+      awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+      
+      homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+      awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+      game_date = as.Date(substr(raw_play_df[['header']][['competitions']][['date']],0,10))
+      
       teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
+      
       teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-        dplyr::select(.data$displayValue, .data$label) %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
         dplyr::rename(Home = .data$displayValue)
       teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-        dplyr::select(.data$displayValue) %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
         dplyr::rename(Away = .data$displayValue)
+      teams2 <- data.frame(t(teams_box_score_df_2$Home))
+      colnames(teams2) <- t(teams_box_score_df_2$name)
+      teams2$homeAway <- homeAwayTeam2
+      teams2$OpponentId <- as.integer(awayTeamId)
+      teams2$OpponentName <- awayTeamName
+      teams2$OpponentMascot <- awayTeamMascot
+      teams2$OpponentAbbrev <- awayTeamAbbrev
       
-      team_box_score = dplyr::bind_cols(teams_box_score_df_2, teams_box_score_df_1)
-      tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
-      names(tm) <- c("Home","label","Away")
-      team_box_score = dplyr::bind_rows(tm, team_box_score)
+      teams1 <- data.frame(t(teams_box_score_df_1$Away))
+      colnames(teams1) <- t(teams_box_score_df_1$name)
+      teams1$homeAway <- homeAwayTeam1
+      teams1$OpponentId <- as.integer(homeTeamId)
+      teams1$OpponentName <- homeTeamName
+      teams1$OpponentMascot <- homeTeamMascot
+      teams1$OpponentAbbrev <- homeTeamAbbrev
+      teams <- dplyr::bind_rows(teams1,teams2)
+      
+      team_box_score <- teams_box_score_df %>%
+        dplyr::select(-.data$statistics) %>%
+        dplyr::bind_cols(teams)
+      
+      team_box_score <- team_box_score %>%
+        dplyr::mutate(
+          game_id = game_id,
+          season = season,
+          season_type = season_type,
+          game_date = game_date
+        ) %>%
+        janitor::clean_names() %>%
+        dplyr::select(
+          .data$game_id,
+          .data$season,
+          .data$season_type,
+          .data$game_date,
+          tidyr::everything()
+        )
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -148,10 +197,12 @@ espn_wbb_game_all <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wbb_pbp(game_id = 401276115)
+#' \donttest{
+#'   try(espn_wbb_pbp(game_id = 401276115))
+#' }
 espn_wbb_pbp <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   
   play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
   
@@ -184,7 +235,7 @@ espn_wbb_pbp <- function(game_id){
           dplyr::select(.data$id, .data$athlete.id) %>%
           tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
       )
-      names(aths)[1]<-c("play.id")
+      names(aths)<-c("play.id","athlete.id.1","athlete.id.2")
       plays_df <- dplyr::bind_cols(plays, aths) %>%
         select(-.data$athlete.id)
       plays_df <- plays_df %>% 
@@ -212,10 +263,12 @@ espn_wbb_pbp <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#'  espn_wbb_team_box(game_id = 401276115)
+#' \donttest{
+#'   try(espn_wbb_team_box(game_id = 401276115))
+#' }
 espn_wbb_team_box <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
   
   full_url <- paste0(play_base_url,
@@ -233,21 +286,65 @@ espn_wbb_team_box <- function(game_id){
   tryCatch(
     expr = {
       raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
-      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
+      season <- raw_play_df[['header']][['season']][['year']]
+      season_type <- raw_play_df[['header']][['season']][['type']]
+      homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
+      homeAwayTeam2 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][2])
+      homeTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][1]
+      awayTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2]
+      homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+      awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+      homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+      awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+      
+      homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+      awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+      game_date = as.Date(substr(raw_play_df[['header']][['competitions']][['date']],0,10))
+      
       teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
+      
       teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-        dplyr::select(.data$displayValue, .data$label) %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
         dplyr::rename(Home = .data$displayValue)
       teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-        dplyr::select(.data$displayValue) %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
         dplyr::rename(Away = .data$displayValue)
+      teams2 <- data.frame(t(teams_box_score_df_2$Home))
+      colnames(teams2) <- t(teams_box_score_df_2$name)
+      teams2$homeAway <- homeAwayTeam2
+      teams2$OpponentId <- as.integer(awayTeamId)
+      teams2$OpponentName <- awayTeamName
+      teams2$OpponentMascot <- awayTeamMascot
+      teams2$OpponentAbbrev <- awayTeamAbbrev
       
-      team_box_score = dplyr::bind_cols(teams_box_score_df_2, teams_box_score_df_1)
-      tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
-      names(tm) <- c("Home","label","Away")
-      team_box_score = dplyr::bind_rows(tm, team_box_score)
-      team_box_score <- team_box_score %>% 
-        janitor::clean_names()
+      teams1 <- data.frame(t(teams_box_score_df_1$Away))
+      colnames(teams1) <- t(teams_box_score_df_1$name)
+      teams1$homeAway <- homeAwayTeam1
+      teams1$OpponentId <- as.integer(homeTeamId)
+      teams1$OpponentName <- homeTeamName
+      teams1$OpponentMascot <- homeTeamMascot
+      teams1$OpponentAbbrev <- homeTeamAbbrev
+      teams <- dplyr::bind_rows(teams1,teams2)
+      
+      team_box_score <- teams_box_score_df %>%
+        dplyr::select(-.data$statistics) %>%
+        dplyr::bind_cols(teams)
+      
+      team_box_score <- team_box_score %>%
+        dplyr::mutate(
+          game_id = game_id,
+          season = season,
+          season_type = season_type,
+          game_date = game_date
+        ) %>%
+        janitor::clean_names() %>%
+        dplyr::select(
+          .data$game_id,
+          .data$season,
+          .data$season_type,
+          .data$game_date,
+          tidyr::everything()
+        )
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -270,10 +367,12 @@ espn_wbb_team_box <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#'  espn_wbb_player_box(game_id = 401276115)
+#' \donttest{
+#'   try(espn_wbb_player_box(game_id = 401276115))
+#' }
 espn_wbb_player_box <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
   
   ## Inputs
@@ -344,10 +443,12 @@ espn_wbb_player_box <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wbb_conferences()
+#' \donttest{
+#'   try(espn_wbb_conferences())
+#' }
 espn_wbb_conferences <- function(){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences"
   
   res <- httr::RETRY("GET", play_base_url)
@@ -386,11 +487,13 @@ espn_wbb_conferences <- function(){
 #' @export
 #'
 #' @examples
-#' espn_wbb_teams()
+#' \donttest{
+#'   try(espn_wbb_teams())
+#' }
 
 espn_wbb_teams <- function(){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams?groups=50&limit=1000"
   
   res <- httr::RETRY("GET", play_base_url)
@@ -484,7 +587,9 @@ espn_wbb_teams <- function(){
 #' @examples
 #' # Get schedule returns 1000 results, max allowable.
 #' # Get schedule from date 2021-02-15, then next date and so on.
-#' espn_wbb_scoreboard (season = "20210215")
+#' \donttest{
+#'   try(espn_wbb_scoreboard (season = "20210215"))
+#' }
 
 espn_wbb_scoreboard <- function(season){
   
@@ -627,7 +732,9 @@ utils::globalVariables(c("where"))
 #' @export
 #' @examples
 #' # Get current NCAA NET rankings
-#' ncaa_wbb_NET_rankings()
+#' \donttest{
+#'   try(ncaa_wbb_NET_rankings())
+#' }
 
 ncaa_wbb_NET_rankings <- function(){
   
@@ -665,11 +772,13 @@ ncaa_wbb_NET_rankings <- function(){
 #' @export
 #' @examples
 #' # Get current AP and Coaches Poll rankings
-#' espn_wbb_rankings()
+#' \donttest{
+#'   try(espn_wbb_rankings())
+#' }
 
 espn_wbb_rankings <- function(){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   
   ranks_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/rankings?groups=50"
   
@@ -730,7 +839,9 @@ espn_wbb_rankings <- function(){
 #' @importFrom tidyr pivot_wider
 #' @export
 #' @examples
-#' espn_wbb_standings(2021)
+#' \donttest{
+#'   try(espn_wbb_standings(2021))
+#'  }
 espn_wbb_standings <- function(year){
   
   standings_url <- "https://site.web.api.espn.com/apis/v2/sports/basketball/womens-college-basketball/standings?region=us&lang=en&contentorigin=espn&type=0&level=1&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&"

@@ -14,7 +14,9 @@ Get Women's college basketball NET rankings for the current date from the NCAA w
 }
 \examples{
 # Get current NCAA NET rankings
-ncaa_wbb_NET_rankings()
+\donttest{
+  try(ncaa_wbb_NET_rankings())
+}
 }
 \author{
 Saiem Gilani

@@ -13,7 +13,9 @@ espn_wnba_game_all(game_id)
 Get ESPN's WNBA game data (play-by-play, team and player box)
 }
 \examples{
-espn_wnba_game_all(game_id = 401244185)
+\donttest{
+  try(espn_wnba_game_all(game_id = 401244185))
+}
 }
 \author{
 Saiem Gilani

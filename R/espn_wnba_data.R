@@ -9,11 +9,13 @@
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wnba_game_all(game_id = 401244185)
+#' \donttest{
+#'   try(espn_wnba_game_all(game_id = 401244185))
+#' }
 
 espn_wnba_game_all <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
 
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
@@ -33,30 +35,104 @@ espn_wnba_game_all <- function(game_id){
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
 
   #---- Play-by-Play ------
-  plays <- raw_play_df[["plays"]] %>%
-    tidyr::unnest_wider(unlist(.data$participants, use.names=FALSE))
-  suppressWarnings(
-    aths <- plays %>%
-      dplyr::group_by(.data$id) %>%
-      dplyr::select(.data$id, .data$athlete.id) %>%
-      tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
+  tryCatch(
+    expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
+      
+      
+      plays <- raw_play_df[["plays"]] %>%
+        tidyr::unnest_wider(unlist(.data$participants))
+      suppressWarnings(
+        aths <- plays %>%
+          dplyr::group_by(.data$id) %>%
+          dplyr::select(.data$id, .data$athlete.id) %>%
+          tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = "_")
+      )
+      names(aths)<-c("play.id","athlete.id.1","athlete.id.2","athlete.id.3")
+      plays_df <- dplyr::bind_cols(plays, aths) %>%
+        select(-.data$athlete.id)
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
   )
-  names(aths)[1]<-c("play.id")
-  plays_df <- dplyr::bind_cols(plays, aths) %>%
-    select(-.data$athlete.id)
   #---- Team Box ------
-  teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
-  teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-    dplyr::select(.data$displayValue, .data$label) %>%
-    dplyr::rename(Home = .data$displayValue)
-  teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-    dplyr::select(.data$displayValue) %>%
-    dplyr::rename(Away = .data$displayValue)
-
-  team_box_score = dplyr::bind_cols(teams_box_score_df_2, teams_box_score_df_1)
-  tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
-  names(tm) <- c("Home","label","Away")
-  team_box_score = dplyr::bind_rows(tm, team_box_score)
+  tryCatch(
+    expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      season <- raw_play_df[['header']][['season']][['year']]
+      season_type <- raw_play_df[['header']][['season']][['type']]
+      homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
+      homeAwayTeam2 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][2])
+      homeTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][1]
+      awayTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2]
+      homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+      awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+      homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+      awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+      
+      homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+      awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+      game_date = as.Date(substr(raw_play_df[['header']][['competitions']][['date']],0,10))
+      
+      teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
+      
+      teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
+        dplyr::rename(Home = .data$displayValue)
+      teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
+        dplyr::rename(Away = .data$displayValue)
+      teams2 <- data.frame(t(teams_box_score_df_2$Home))
+      colnames(teams2) <- t(teams_box_score_df_2$name)
+      teams2$homeAway <- homeAwayTeam2
+      teams2$OpponentId <- as.integer(awayTeamId)
+      teams2$OpponentName <- awayTeamName
+      teams2$OpponentMascot <- awayTeamMascot
+      teams2$OpponentAbbrev <- awayTeamAbbrev
+      
+      teams1 <- data.frame(t(teams_box_score_df_1$Away))
+      colnames(teams1) <- t(teams_box_score_df_1$name)
+      teams1$homeAway <- homeAwayTeam1
+      teams1$OpponentId <- as.integer(homeTeamId)
+      teams1$OpponentName <- homeTeamName
+      teams1$OpponentMascot <- homeTeamMascot
+      teams1$OpponentAbbrev <- homeTeamAbbrev
+      teams <- dplyr::bind_rows(teams1,teams2)
+      
+      team_box_score <- teams_box_score_df %>%
+        dplyr::select(-.data$statistics) %>%
+        dplyr::bind_cols(teams)
+      
+      team_box_score <- team_box_score %>%
+        dplyr::mutate(
+          game_id = game_id,
+          season = season,
+          season_type = season_type,
+          game_date = game_date
+        ) %>%
+        janitor::clean_names() %>%
+        dplyr::select(
+          .data$game_id,
+          .data$season,
+          .data$season_type,
+          .data$game_date,
+          tidyr::everything()
+        )
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   #---- Player Box ------
   players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
     tidyr::unnest(.data$statistics) %>%
@@ -108,8 +184,8 @@ espn_wnba_game_all <- function(game_id){
 #' @examples
 #' espn_wnba_pbp(game_id = 401244185)
 espn_wnba_pbp <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
 
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
@@ -136,7 +212,7 @@ espn_wnba_pbp <- function(game_id){
       dplyr::select(.data$id, .data$athlete.id) %>%
       tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
   )
-  names(aths)[1]<-c("play.id")
+  names(aths)<-c("play.id","athlete.id.1","athlete.id.2","athlete.id.3")
   plays_df <- dplyr::bind_cols(plays, aths) %>%
     select(-.data$athlete.id)
 
@@ -157,8 +233,8 @@ espn_wnba_pbp <- function(game_id){
 #' @examples
 #' espn_wnba_team_box(game_id = 401244185)
 espn_wnba_team_box <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
   ## Inputs
@@ -173,23 +249,78 @@ espn_wnba_team_box <- function(game_id){
   check_status(res)
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8") 
-  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
-  raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Team Box ------
-  teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
-  teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-    dplyr::select(.data$displayValue, .data$label) %>%
-    dplyr::rename(Home = .data$displayValue)
-  teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-    dplyr::select(.data$displayValue) %>%
-    dplyr::rename(Away = .data$displayValue)
-
-  team_box_score = dplyr::bind_cols(teams_box_score_df_2, teams_box_score_df_1)
-  tm <- c(teams_box_score_df[2,"team.shortDisplayName"], "Team", teams_box_score_df[1,"team.shortDisplayName"])
-  names(tm) <- c("Home","label","Away")
-  team_box_score = dplyr::bind_rows(tm, team_box_score)
-  team_box_score <- team_box_score %>% 
-    janitor::clean_names()
+  tryCatch(
+    expr = {
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      season <- raw_play_df[['header']][['season']][['year']]
+      season_type <- raw_play_df[['header']][['season']][['type']]
+      homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
+      homeAwayTeam2 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][2])
+      homeTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][1]
+      awayTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2]
+      homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+      awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+      homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+      awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+      
+      homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+      awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+      game_date = as.Date(substr(raw_play_df[['header']][['competitions']][['date']],0,10))
+      
+      teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
+      
+      teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
+        dplyr::rename(Home = .data$displayValue)
+      teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
+        dplyr::select(.data$displayValue, .data$name) %>%
+        dplyr::rename(Away = .data$displayValue)
+      teams2 <- data.frame(t(teams_box_score_df_2$Home))
+      colnames(teams2) <- t(teams_box_score_df_2$name)
+      teams2$homeAway <- homeAwayTeam2
+      teams2$OpponentId <- as.integer(awayTeamId)
+      teams2$OpponentName <- awayTeamName
+      teams2$OpponentMascot <- awayTeamMascot
+      teams2$OpponentAbbrev <- awayTeamAbbrev
+      
+      teams1 <- data.frame(t(teams_box_score_df_1$Away))
+      colnames(teams1) <- t(teams_box_score_df_1$name)
+      teams1$homeAway <- homeAwayTeam1
+      teams1$OpponentId <- as.integer(homeTeamId)
+      teams1$OpponentName <- homeTeamName
+      teams1$OpponentMascot <- homeTeamMascot
+      teams1$OpponentAbbrev <- homeTeamAbbrev
+      teams <- dplyr::bind_rows(teams1,teams2)
+      
+      team_box_score <- teams_box_score_df %>%
+        dplyr::select(-.data$statistics) %>%
+        dplyr::bind_cols(teams)
+      
+      team_box_score <- team_box_score %>%
+        dplyr::mutate(
+          game_id = game_id,
+          season = season,
+          season_type = season_type,
+          game_date = game_date
+        ) %>%
+        janitor::clean_names() %>%
+        dplyr::select(
+          .data$game_id,
+          .data$season,
+          .data$season_type,
+          .data$game_date,
+          tidyr::everything()
+        )
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(team_box_score)
 }
 #' Get ESPN's WNBA player box data
@@ -205,8 +336,8 @@ espn_wnba_team_box <- function(game_id){
 #' @examples
 #' espn_wnba_player_box(game_id = 401244185)
 espn_wnba_player_box <- function(game_id){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
 
   ## Inputs
@@ -269,8 +400,8 @@ espn_wnba_player_box <- function(game_id){
 #' espn_wnba_teams()
 
 espn_wnba_teams <- function(){
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
   res <- httr::RETRY(
     "GET", play_base_url

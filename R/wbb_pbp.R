@@ -6,10 +6,11 @@ NULL
 #' @rdname load_wbb_pbp
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
+#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2004)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
+#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @return A dataframe with 55 columns:
 #' \describe{
@@ -71,72 +72,40 @@ NULL
 #' }
 #' @export
 #' @examples
-#' \dontrun{
-#' future::plan("multisession")
-#' load_wbb_pbp(2002:2021)
+#' \donttest{
+#' load_wbb_pbp(2004:2021)
 #' }
-load_wbb_pbp <- function(seasons, ..., qs = FALSE) {
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+load_wbb_pbp <- function(seasons = most_recent_wbb_season(),...,
+                         dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   dots <- rlang::dots_list(...)
+  loader <- rds_from_url
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if (all(c("dbConnection", "tablename") %in% names(dots))) in_db <- TRUE else in_db <- FALSE
+  if(isTRUE(seasons)) seasons <- 2004:most_recent_wbb_season()
   
-  if (isTRUE(qs) && !is_installed("qs")) {
-    usethis::ui_stop("Package {usethis::ui_value('qs')} required for argument {usethis::ui_value('qs = TRUE')}. Please install it.")
-  }
+  stopifnot(is.numeric(seasons),
+            seasons >= 2004,
+            seasons <= most_recent_wbb_season())
   
-  most_recent <- most_recent_wbb_season()
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/pbp/rds/play_by_play_",seasons,".rds")
   
-  if (!all(seasons %in% 2002:most_recent)) {
-    usethis::ui_stop("Please pass valid seasons between 2002 and {most_recent}")
-  }
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   
-  if (length(seasons) > 1 && is_sequential() && isFALSE(in_db)) {
-    usethis::ui_info(c(
-      "It is recommended to use parallel processing when trying to load multiple seasons.",
-      "Please consider running {usethis::ui_code('future::plan(\"multisession\")')}!",
-      "Will go on sequentially..."
-    ))
-  }
-  
-  
-  p <- progressr::progressor(along = seasons)
-  
-  if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(seasons, wbb_single_season, p = p, qs = qs)
-  }
-  
-  if (isTRUE(in_db)) {
-    purrr::walk(seasons, wbb_single_season, p, ..., qs = qs)
-    out <- NULL
-  }
-  
-  return(out)
-}
-
-wbb_single_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {
-  if (isTRUE(qs)) {
-    
-    .url <- glue::glue("https://github.com/saiemgilani/wehoop-data/blob/master/wbb/pbp/rds/play_by_play_{season}.qs")
-    pbp <- qs_from_url(.url)
-    
-  }
-  if (isFALSE(qs)) {
-    .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/pbp/rds/play_by_play_{season}.rds")
-    con <- url(.url)
-    pbp <- readRDS(con)
-    close(con)
-  }
-  if (!is.null(dbConnection) && !is.null(tablename)) {
-    DBI::dbWriteTable(dbConnection, tablename, pbp, append = TRUE)
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    out <- pbp
+    class(out) <- c("tbl_df","tbl","data.table","data.frame")
   }
-  p(sprintf("season=%g", season))
-  return(out)
+  out
 }
+
+
 #' **Load wehoop women's college basketball team box scores**
 #' @name load_wbb_team_box
 NULL
@@ -145,79 +114,46 @@ NULL
 #' @rdname load_wbb_team_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
+#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by [`update_wbb_db()`][update_wbb_db]).
-#' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
+#' the season data into a database (used by `update_wbb_db()`).
+#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @export
-#' @examples
-#' \dontrun{
-#' future::plan("multisession")
-#' load_wbb_team_box(2002:2021)
+#' @examples \donttest{
+#' load_wbb_team_box(2021)
 #' }
-load_wbb_team_box <- function(seasons, ..., qs = FALSE) {
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
+                              dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   dots <- rlang::dots_list(...)
+  loader <- rds_from_url
   
-  if (all(c("dbConnection", "tablename") %in% names(dots))) in_db <- TRUE else in_db <- FALSE
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+  if(isTRUE(seasons)) seasons <- 2006:most_recent_wbb_season()
   
-  if (isTRUE(qs) && !is_installed("qs")) {
-    usethis::ui_stop("Package {usethis::ui_value('qs')} required for argument {usethis::ui_value('qs = TRUE')}. Please install it.")
-  }
+  stopifnot(is.numeric(seasons),
+            seasons >= 2006,
+            seasons <= most_recent_wbb_season())
   
-  most_recent <- most_recent_wbb_season()
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/team_box/rds/team_box_",seasons,".rds")
   
-  if (!all(seasons %in% 2002:most_recent)) {
-    usethis::ui_stop("Please pass valid seasons between 2002 and {most_recent}")
-  }
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   
-  if (length(seasons) > 1 && is_sequential() && isFALSE(in_db)) {
-    usethis::ui_info(c(
-      "It is recommended to use parallel processing when trying to load multiple seasons.",
-      "Please consider running {usethis::ui_code('future::plan(\"multisession\")')}!",
-      "Will go on sequentially..."
-    ))
-  }
-  
-  
-  p <- progressr::progressor(along = rev(seasons))
-  
-  if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(rev(seasons), wbb_team_box_single_season, p = p, qs = qs)
-  }
-  
-  if (isTRUE(in_db)) {
-    purrr::walk(rev(seasons), wbb_team_box_single_season, p, ..., qs = qs)
-    out <- NULL
-  }
-  
-  return(out)
-}
-
-wbb_team_box_single_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {
-  if (isTRUE(qs)) {
-    
-    .url <- glue::glue("https://github.com/saiemgilani/wehoop-data/blob/master/wbb/team_box/rds/team_box_{season}.qs")
-    pbp <- qs_from_url(.url)
-    
-  }
-  if (isFALSE(qs)) {
-    .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/team_box/rds/team_box_{season}.rds")
-    con <- url(.url)
-    pbp <- readRDS(con)
-    close(con)
-  }
-  if (!is.null(dbConnection) && !is.null(tablename)) {
-    DBI::dbWriteTable(dbConnection, tablename, pbp, append = TRUE)
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    out <- pbp
+    class(out) <- c("tbl_df","tbl","data.table","data.frame")
   }
-  p(sprintf("season=%g", season))
-  return(out)
+  out
 }
+
 
 #' **Load wehoop women's college basketball player box scores**
 #' @name load_wbb_player_box
@@ -227,79 +163,46 @@ NULL
 #' @rdname load_wbb_player_box
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
+#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
+#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @export
-#' @examples
-#' \dontrun{
-#' future::plan("multisession")
-#' load_wbb_player_box(2002:2021)
+#' @examples \donttest{
+#' load_wbb_player_box(2021)
 #' }
-load_wbb_player_box <- function(seasons, ..., qs = FALSE) {
-  options(stringsAsFactors = FALSE)
-  options(scipen = 999)
+load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
+                                dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   dots <- rlang::dots_list(...)
+  loader <- rds_from_url
   
-  if (all(c("dbConnection", "tablename") %in% names(dots))) in_db <- TRUE else in_db <- FALSE
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+  if(isTRUE(seasons)) seasons <- 2003:most_recent_wbb_season()
   
-  if (isTRUE(qs) && !is_installed("qs")) {
-    usethis::ui_stop("Package {usethis::ui_value('qs')} required for argument {usethis::ui_value('qs = TRUE')}. Please install it.")
-  }
+  stopifnot(is.numeric(seasons),
+            seasons >= 2003,
+            seasons <= most_recent_wbb_season())
   
-  most_recent <- most_recent_wbb_season()
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/player_box/rds/player_box_",seasons,".rds")
   
-  if (!all(seasons %in% 2002:most_recent)) {
-    usethis::ui_stop("Please pass valid seasons between 2002 and {most_recent}")
-  }
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   
-  if (length(seasons) > 1 && is_sequential() && isFALSE(in_db)) {
-    usethis::ui_info(c(
-      "It is recommended to use parallel processing when trying to load multiple seasons.",
-      "Please consider running {usethis::ui_code('future::plan(\"multisession\")')}!",
-      "Will go on sequentially..."
-    ))
-  }
-  
-  
-  p <- progressr::progressor(along = rev(seasons))
-  
-  if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(rev(seasons), wbb_player_box_single_season, p = p, qs = qs)
-  }
-  
-  if (isTRUE(in_db)) {
-    purrr::walk(rev(seasons), wbb_player_box_single_season, p, ..., qs = qs)
-    out <- NULL
-  }
-  
-  return(out)
-}
-
-wbb_player_box_single_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {
-  if (isTRUE(qs)) {
-    
-    .url <- glue::glue("https://github.com/saiemgilani/wehoop-data/blob/master/wbb/player_box/rds/player_box_{season}.qs")
-    pbp <- qs_from_url(.url)
-    
-  }
-  if (isFALSE(qs)) {
-    .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/player_box/rds/player_box_{season}.rds")
-    con <- url(.url)
-    pbp <- readRDS(con)
-    close(con)
-  }
-  if (!is.null(dbConnection) && !is.null(tablename)) {
-    DBI::dbWriteTable(dbConnection, tablename, pbp, append = TRUE)
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    out <- pbp
+    class(out) <- c("tbl_df","tbl","data.table","data.frame")
   }
-  p(sprintf("season=%g", season))
-  return(out)
+  out
 }
+
 
 #' **Load wehoop women's college basketball schedule**
 #' @name load_wbb_schedule
@@ -309,83 +212,56 @@ NULL
 #' @rdname load_wbb_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons.
+#' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wbb_db()`).
-#' @param qs Wheter to use the function [qs::qdeserialize()] for more efficient loading.
+#' @param dbConnection A `DBIConnection` object, as returned by
+#' @param tablename The name of the play by play data table within the database
 #' @import furrr
 #' @export
-#' @examples
-#' \dontrun{
-#' future::plan("multisession")
-#' load_wbb_schedule(2002:2021)
+#' @examples \donttest{
+#' load_wbb_schedule(2021)
 #' }
-load_wbb_schedule <- function(seasons, ..., qs = FALSE){
-  options(scipen = 999)
+
+load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
+                              dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   dots <- rlang::dots_list(...)
   
-  if (all(c("dbConnection", "tablename") %in% names(dots))) in_db <- TRUE else in_db <- FALSE
+  loader <- rds_from_url
   
-  if (isTRUE(qs) && !is_installed("qs")) {
-    usethis::ui_stop("Package {usethis::ui_value('qs')} required for argument {usethis::ui_value('qs = TRUE')}. Please install it.")
-  }
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+  if(isTRUE(seasons)) seasons <- 2002:most_recent_wbb_season()
   
-  most_recent <- most_recent_wbb_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2002,
+            seasons <= most_recent_wbb_season())
   
-  if (!all(seasons %in% 2002:most_recent)) {
-    usethis::ui_stop("Please pass valid seasons between 2002 and {most_recent}")
-  }
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/schedules/rds/wbb_schedule_",seasons,".rds")
   
-  if (length(seasons) > 1 && is_sequential() && isFALSE(in_db)) {
-    usethis::ui_info(c(
-      "It is recommended to use parallel processing when trying to load multiple seasons.",
-      "Please consider running {usethis::ui_code('future::plan(\"multisession\")')}!",
-      "Will go on sequentially..."
-    ))
-  }
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   
-  
-  p <- progressr::progressor(along = rev(seasons))
-  
-  if (isFALSE(in_db)) {
-    out <- furrr::future_map_dfr(rev(seasons), wbb_schedule_single_season, p = p, qs = qs)
-  }
-  
-  if (isTRUE(in_db)) {
-    purrr::walk(rev(seasons), wbb_schedule_single_season, p, ..., qs = qs)
-    out <- NULL
-  }
-  
-  return (out)
-}
-
-wbb_schedule_single_season <- function(season, p, dbConnection = NULL, tablename = NULL, qs = FALSE) {
-  
-  .url <- glue::glue("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/schedules/wbb_schedule_{season}.csv")
-  con <- url(.url)
-  pbp <- utils::read.csv(con)
-  pbp <- pbp %>% 
-    dplyr::mutate(
-      status.displayClock = as.character(.data$status.displayClock)
-    )
-  if (!is.null(dbConnection) && !is.null(tablename)) {
-    DBI::dbWriteTable(dbConnection, tablename, pbp, append = TRUE)
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    out <- pbp
+    class(out) <- c("tbl_df","tbl","data.table","data.frame")
   }
-  p(sprintf("season=%g", season))
-  return(out)
+  out
 }
 
 # load games file
 load_wbb_games <- function(){
   .url <- "https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wbb/wbb_games_in_data_repo.csv"
-  con <- url(.url)
-  dat <- utils::read.csv(con)
+  dat <- csv_from_url(.url)
   # close(con)
   return (dat)
 }
+
 
 #' @name update_wbb_db
 #' @aliases update_wbb_db wbb_db wbb wbb_pbp_db
@@ -435,6 +311,8 @@ update_wbb_db <- function(dbdir = ".",
                           tblname = "wehoop_wbb_pbp",
                           force_rebuild = FALSE,
                           db_connection = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   
   # rule_header("Update wehoop Play-by-Play Database")
   
@@ -472,8 +350,8 @@ update_wbb_db <- function(dbdir = ".",
   # get completed games
   user_message("Checking for missing completed games...", "todo")
   completed_games <- load_wbb_games() %>%
-    # completed games since 2002, excluding the broken games
-    dplyr::filter(.data$season >= 2002) %>%
+    # completed games since 2006, excluding the broken games
+    dplyr::filter(.data$season >= 2004) %>%
     dplyr::pull(.data$game_id)
   
   # function below
@@ -506,8 +384,10 @@ update_wbb_db <- function(dbdir = ".",
 # this is a helper function to build wehoop database from Scratch
 build_wbb_db <- function(tblname = "wehoop_wbb_pbp", db_conn, rebuild = FALSE, show_message = TRUE) {
   
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
   valid_seasons <- load_wbb_games() %>%
-    dplyr::filter(.data$season >= 2002) %>%
+    dplyr::filter(.data$season >= 2004) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%
     dplyr::ungroup()
