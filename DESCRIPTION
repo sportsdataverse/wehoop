@@ -6,7 +6,7 @@ Authors@R: c(person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com',role = c
 Description: The R package wehoop is for working with women's college and professional basketball data. A scraping and aggregating interface for ESPN's women's college basketball and WNBA statistics, [espn.com](https://espn.com). It provides users with the capability to access the API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
 License: MIT + file LICENSE
 LazyData: true
-URL: https://wehoop.sportsdataverse.org/ (website) https://github.com/saiemgilani/wehoop (devel)
+URL: https://wehoop.sportsdataverse.org (website) https://github.com/saiemgilani/wehoop (devel)
 BugReports: https://github.com/saiemgilani/wehoop/issues
 Encoding: UTF-8
 Depends: R (>= 4.0.0)
