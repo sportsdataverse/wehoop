@@ -25,6 +25,7 @@ jobs:
         with:
           extra-packages: |
             pkgdown
+            pacman
             animation
             ggimage
             hadley/emo
