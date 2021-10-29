@@ -4,6 +4,12 @@
     <loc>https://saiemgilani.github.io/wehoop/index.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/check_status.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/csv_from_url.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wbb_conferences.html</loc>
   </url>
   <url>
@@ -77,6 +83,12 @@
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/ncaa_wbb_NET_rankings.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/progressively.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/rds_from_url.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/update_wbb_db.html</loc>

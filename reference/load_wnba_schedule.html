@@ -96,7 +96,7 @@ or writes it into a db using some forwarded arguments in the dots" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -170,7 +170,7 @@ or writes it into a db using some forwarded arguments in the dots" />
       <a href="https://saiemgilani.github.io/recruitR/">recruitR</a>
     </li>
     <li>
-      <a href="https://puntalytics.github.io/puntr">puntr</a>
+      <a href="https://puntalytics.github.io/puntr/">puntr</a>
     </li>
     <li>
       <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
@@ -179,10 +179,16 @@ or writes it into a db using some forwarded arguments in the dots" />
       <a href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     </li>
     <li>
+      <a href="https://kazink36.github.io/cfb4th/">cfb4th</a>
+    </li>
+    <li>
       <a href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
     </li>
     <li>
       <a href="https://hockeyr.netlify.app/">hockeyR</a>
+    </li>
+    <li>
+      <a href="https://BillPetti.github.io/baseballr/">baseballr</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Python Packages</li>
@@ -250,7 +256,7 @@ or writes it into a db using some forwarded arguments in the dots" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1><strong>Load wehoop WNBA schedules</strong></h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/saiemgilani/wehoop/blob/master/R/wnba_pbp.R'><code>R/wnba_pbp.R</code></a></small>
     <div class="hidden name"><code>load_wnba_schedule.Rd</code></div>
     </div>
 
@@ -259,14 +265,19 @@ or writes it into a db using some forwarded arguments in the dots" />
 or writes it into a db using some forwarded arguments in the dots</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_wnba_schedule</span><span class='op'>(</span><span class='va'>seasons</span>, <span class='va'>...</span>, qs <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_wnba_schedule</span><span class='op'>(</span>
+  seasons <span class='op'>=</span> <span class='fu'>most_recent_wnba_season</span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>,
+  dbConnection <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tablename <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>seasons</th>
-      <td><p>A vector of 4-digit years associated with given WNBA seasons.</p></td>
+      <td><p>A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -274,17 +285,39 @@ or writes it into a db using some forwarded arguments in the dots</p>
 the season data into a database (used by <code><a href='update_wnba_db.html'>update_wnba_db()</a></code>).</p></td>
     </tr>
     <tr>
-      <th>qs</th>
-      <td><p>Wheter to use the function <code><a href='https://rdrr.io/pkg/qs/man/qdeserialize.html'>qs::qdeserialize()</a></code> for more efficient loading.</p></td>
+      <th>dbConnection</th>
+      <td><p>A <code>DBIConnection</code> object, as returned by</p></td>
+    </tr>
+    <tr>
+      <th>tablename</th>
+      <td><p>The name of the schedule data table within the database</p></td>
     </tr>
     </table>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>future</span><span class='fu'>::</span><span class='fu'><a href='https://future.futureverse.org/reference/plan.html'>plan</a></span><span class='op'>(</span><span class='st'>"multisession"</span><span class='op'>)</span>
-<span class='fu'>load_wnba_schedule</span><span class='op'>(</span><span class='fl'>2002</span><span class='op'>:</span><span class='fl'>2021</span><span class='op'>)</span>
-<span class='op'>}</span>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'>load_wnba_schedule</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 211 × 44</span>
+#&gt;           id date              attendance timeValid neutralSite boxscoreAvailab…
+#&gt;        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>           
+#&gt; <span style='color: #BCBCBC;'> 1</span> 401<span style='text-decoration: underline;'>370</span>399 2021-10-20T01:00Z          0 TRUE      FALSE       FALSE           
+#&gt; <span style='color: #BCBCBC;'> 2</span> 401<span style='text-decoration: underline;'>370</span>398 2021-10-17T19:00Z          0 TRUE      FALSE       FALSE           
+#&gt; <span style='color: #BCBCBC;'> 3</span> 401<span style='text-decoration: underline;'>370</span>397 2021-10-16T01:00Z          0 TRUE      FALSE       FALSE           
+#&gt; <span style='color: #BCBCBC;'> 4</span> 401<span style='text-decoration: underline;'>370</span>396 2021-10-14T01:00Z      <span style='text-decoration: underline;'>13</span>685 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #BCBCBC;'> 5</span> 401<span style='text-decoration: underline;'>370</span>395 2021-10-10T19:00Z      <span style='text-decoration: underline;'>10</span>191 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #BCBCBC;'> 6</span> 401<span style='text-decoration: underline;'>370</span>442 2021-10-09T01:00Z       <span style='text-decoration: underline;'>9</span>680 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #BCBCBC;'> 7</span> 401<span style='text-decoration: underline;'>370</span>440 2021-10-07T02:00Z      <span style='text-decoration: underline;'>11</span>255 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #BCBCBC;'> 8</span> 401<span style='text-decoration: underline;'>370</span>441 2021-10-07T00:00Z          0 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #BCBCBC;'> 9</span> 401<span style='text-decoration: underline;'>370</span>438 2021-10-03T19:00Z       <span style='text-decoration: underline;'>7</span>090 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #BCBCBC;'>10</span> 401<span style='text-decoration: underline;'>370</span>439 2021-10-03T17:00Z       <span style='text-decoration: underline;'>7</span>421 TRUE      FALSE       TRUE            
+#&gt; <span style='color: #949494;'># … with 201 more rows, and 38 more variables: ticketsAvailable &lt;lgl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   notes &lt;chr&gt;, type.id &lt;int&gt;, type.text &lt;chr&gt;, type.abbreviation &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   type.slug &lt;chr&gt;, type.type &lt;chr&gt;, venue.fullName &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   venue.address.city &lt;chr&gt;, venue.address.state &lt;chr&gt;, status.clock &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   status.displayClock &lt;chr&gt;, status.period &lt;int&gt;, status.type.id &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   status.type.name &lt;chr&gt;, status.type.state &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   status.type.completed &lt;lgl&gt;, status.type.description &lt;chr&gt;, …</span></div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

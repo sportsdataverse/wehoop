@@ -95,7 +95,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -169,7 +169,7 @@
       <a href="https://saiemgilani.github.io/recruitR/">recruitR</a>
     </li>
     <li>
-      <a href="https://puntalytics.github.io/puntr">puntr</a>
+      <a href="https://puntalytics.github.io/puntr/">puntr</a>
     </li>
     <li>
       <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
@@ -178,10 +178,16 @@
       <a href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     </li>
     <li>
+      <a href="https://kazink36.github.io/cfb4th/">cfb4th</a>
+    </li>
+    <li>
       <a href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
     </li>
     <li>
       <a href="https://hockeyr.netlify.app/">hockeyR</a>
+    </li>
+    <li>
+      <a href="https://BillPetti.github.io/baseballr/">baseballr</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Python Packages</li>
@@ -249,7 +255,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get women's college basketball schedule for a specific year from ESPN's API</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/saiemgilani/wehoop/blob/master/R/espn_wbb_data.R'><code>R/espn_wbb_data.R</code></a></small>
     <div class="hidden name"><code>espn_wbb_scoreboard.Rd</code></div>
     </div>
 
@@ -278,7 +284,8 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Get schedule returns 1000 results, max allowable.</span>
 <span class='co'># Get schedule from date 2021-02-15, then next date and so on.</span>
-<span class='fu'>espn_wbb_scoreboard</span> <span class='op'>(</span>season <span class='op'>=</span> <span class='st'>"20210215"</span><span class='op'>)</span>
+<span class='co'># \donttest{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>espn_wbb_scoreboard</span> <span class='op'>(</span>season <span class='op'>=</span> <span class='st'>"20210215"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 21 × 31</span>
 #&gt;    matchup       matchup_short season  type slug   game_id  game_uid   game_date
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    
@@ -289,7 +296,7 @@
 #&gt; <span style='color: #BCBCBC;'> 5</span> Creighton Bl… CREI @ GTWN     <span style='text-decoration: underline;'>2</span>021     2 regul… 4012708… s:40~l:54… 2021-02-…
 #&gt; <span style='color: #BCBCBC;'> 6</span> San Diego To… USD @ PEPP      <span style='text-decoration: underline;'>2</span>021     2 regul… 4012899… s:40~l:54… 2021-02-…
 #&gt; <span style='color: #BCBCBC;'> 7</span> Winthrop Eag… WIN @ GWEB      <span style='text-decoration: underline;'>2</span>021     2 regul… 4012843… s:40~l:54… 2021-02-…
-#&gt; <span style='color: #BCBCBC;'> 8</span> Eastern Kent… EKU @ JVST      <span style='text-decoration: underline;'>2</span>021     2 regul… 4012843… s:40~l:54… 2021-02-…
+#&gt; <span style='color: #BCBCBC;'> 8</span> Eastern Kent… EKY @ JVST      <span style='text-decoration: underline;'>2</span>021     2 regul… 4012843… s:40~l:54… 2021-02-…
 #&gt; <span style='color: #BCBCBC;'> 9</span> Fairleigh Di… FDU @ WAG       <span style='text-decoration: underline;'>2</span>021     2 regul… 4012953… s:40~l:54… 2021-02-…
 #&gt; <span style='color: #BCBCBC;'>10</span> Notre Dame F… ND @ NCST       <span style='text-decoration: underline;'>2</span>021     2 regul… 4012605… s:40~l:54… 2021-02-…
 #&gt; <span style='color: #949494;'># … with 11 more rows, and 23 more variables: attendance &lt;int&gt;,</span>
@@ -298,7 +305,8 @@
 #&gt; <span style='color: #949494;'>#   home_team_color &lt;chr&gt;, home_score &lt;int&gt;, home_win &lt;int&gt;, home_record &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   away_team_name &lt;chr&gt;, away_team_logo &lt;chr&gt;, away_team_abb &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   away_team_id &lt;chr&gt;, away_team_location &lt;chr&gt;, away_team_full &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   away_team_color &lt;chr&gt;, away_score &lt;int&gt;, away_win &lt;int&gt;, …</span></div></pre>
+#&gt; <span style='color: #949494;'>#   away_team_color &lt;chr&gt;, away_score &lt;int&gt;, away_win &lt;int&gt;, …</span></div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

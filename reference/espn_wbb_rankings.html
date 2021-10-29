@@ -95,7 +95,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -169,7 +169,7 @@
       <a href="https://saiemgilani.github.io/recruitR/">recruitR</a>
     </li>
     <li>
-      <a href="https://puntalytics.github.io/puntr">puntr</a>
+      <a href="https://puntalytics.github.io/puntr/">puntr</a>
     </li>
     <li>
       <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
@@ -178,10 +178,16 @@
       <a href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     </li>
     <li>
+      <a href="https://kazink36.github.io/cfb4th/">cfb4th</a>
+    </li>
+    <li>
       <a href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
     </li>
     <li>
       <a href="https://hockeyr.netlify.app/">hockeyR</a>
+    </li>
+    <li>
+      <a href="https://BillPetti.github.io/baseballr/">baseballr</a>
     </li>
     <li class="divider"></li>
     <li class="dropdown-header">Python Packages</li>
@@ -249,7 +255,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get women's college basketball AP and Coaches poll rankings</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/saiemgilani/wehoop/blob/master/R/espn_wbb_data.R'><code>R/espn_wbb_data.R</code></a></small>
     <div class="hidden name"><code>espn_wbb_rankings.Rd</code></div>
     </div>
 
@@ -269,27 +275,29 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Get current AP and Coaches Poll rankings</span>
-<span class='fu'>espn_wbb_rankings</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 45 × 36</span>
+<span class='co'># \donttest{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>espn_wbb_rankings</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 39 × 36</span>
 #&gt;    id    name   short_name type  headline short_headline current previous points
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       1        2    800
-#&gt; <span style='color: #BCBCBC;'> 2</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       2       11    752
-#&gt; <span style='color: #BCBCBC;'> 3</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       3        1    724
-#&gt; <span style='color: #BCBCBC;'> 4</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       4        5    721
-#&gt; <span style='color: #BCBCBC;'> 5</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       5        6    672
-#&gt; <span style='color: #BCBCBC;'> 6</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       6        7    596
-#&gt; <span style='color: #BCBCBC;'> 7</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       7        3    555
-#&gt; <span style='color: #BCBCBC;'> 8</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       8       10    549
-#&gt; <span style='color: #BCBCBC;'> 9</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …       9        8    531
-#&gt; <span style='color: #BCBCBC;'>10</span> 2     Coach… Coaches P… usa   2021 NC… 2021 : Final …      10        4    522
-#&gt; <span style='color: #949494;'># … with 35 more rows, and 27 more variables: first_place_votes &lt;int&gt;,</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       1        0    705
+#&gt; <span style='color: #BCBCBC;'> 2</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       2        0    696
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       3        0    682
+#&gt; <span style='color: #BCBCBC;'> 4</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       4        0    632
+#&gt; <span style='color: #BCBCBC;'> 5</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       5        0    589
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       6        0    575
+#&gt; <span style='color: #BCBCBC;'> 7</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       7        0    522
+#&gt; <span style='color: #BCBCBC;'> 8</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       8        0    521
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…       9        0    513
+#&gt; <span style='color: #BCBCBC;'>10</span> 1     AP To… AP Poll    ap    2022 NC… 2022 : Presea…      10        0    479
+#&gt; <span style='color: #949494;'># … with 29 more rows, and 27 more variables: first_place_votes &lt;int&gt;,</span>
 #&gt; <span style='color: #949494;'>#   trend &lt;chr&gt;, date &lt;chr&gt;, last_updated &lt;chr&gt;, record_summary &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   team_id &lt;chr&gt;, team_uid &lt;chr&gt;, team_location &lt;chr&gt;, team_name &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   team_nickname &lt;chr&gt;, team_abbreviation &lt;chr&gt;, team_color &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   team_logo &lt;chr&gt;, occurrence_number &lt;int&gt;, occurrence_type &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   occurrence_last &lt;lgl&gt;, occurrence_value &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   occurrence_display_value &lt;chr&gt;, season_year &lt;int&gt;, …</span></div></pre>
+#&gt; <span style='color: #949494;'>#   occurrence_display_value &lt;chr&gt;, season_year &lt;int&gt;, …</span></div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
