@@ -8,6 +8,7 @@ cols <- c("matchup", "matchup_short", "season", "type", "slug", "game_id",
           "away_record", "status_name", "start_date")
 
 test_that("ESPN - WBB Scoreboard", {
+  skip_on_cran()
   x <- espn_wbb_scoreboard(season="20210215")
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")
