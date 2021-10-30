@@ -1,3 +1,6 @@
+# **wehoop 1.1.1** 
+- Change functions from furrr::future_map_dfr functions to data.table::rbindlist functions for loaders.
+
 # **wehoop 1.1.0** 
 ### **Add schedule loaders**
 - [```wehoop::load_wbb_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_schedule.html) function added
