@@ -1,7 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* adds a new function 
+* reworks existing functions
 
 ## R CMD check results
 
