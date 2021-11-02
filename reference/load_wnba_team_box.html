@@ -96,7 +96,7 @@ or writes it into a db using some forwarded arguments in the dots" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wehoop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -294,31 +294,35 @@ the season data into a database (used by <code><a href='update_wnba_db.html'>upd
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Returns a tibble</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>load_wnba_team_box</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 412 × 40</span>
-#&gt;    team_short_display_name team_uid team_alternate_… team_color team_display_na…
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           
-#&gt; <span style='color: #BCBCBC;'> 1</span> Fever                   s:40~l:… 08265b           e2382f     Indiana Fever   
-#&gt; <span style='color: #BCBCBC;'> 2</span> Liberty                 s:40~l:… 89c9bf           0d79b9     New York Liberty
-#&gt; <span style='color: #BCBCBC;'> 3</span> Sun                     s:40~l:… 002d62           de6b36     Connecticut Sun 
-#&gt; <span style='color: #BCBCBC;'> 4</span> Dream                   s:40~l:… 383a37           d02030     Atlanta Dream   
-#&gt; <span style='color: #BCBCBC;'> 5</span> Mercury                 s:40~l:… e56020           3a267d     Phoenix Mercury 
-#&gt; <span style='color: #BCBCBC;'> 6</span> Lynx                    s:40~l:… 47a757           005084     Minnesota Lynx  
-#&gt; <span style='color: #BCBCBC;'> 7</span> Wings                   s:40~l:… c5d646           11213e     Dallas Wings    
-#&gt; <span style='color: #BCBCBC;'> 8</span> Sparks                  s:40~l:… 49ac9c           532481     Los Angeles Spa…
-#&gt; <span style='color: #BCBCBC;'> 9</span> Liberty                 s:40~l:… 89c9bf           0d79b9     New York Liberty
-#&gt; <span style='color: #BCBCBC;'>10</span> Fever                   s:40~l:… 08265b           e2382f     Indiana Fever   
-#&gt; <span style='color: #949494;'># … with 402 more rows, and 35 more variables: team_name &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   team_logo &lt;chr&gt;, team_location &lt;chr&gt;, team_id &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   team_abbreviation &lt;chr&gt;, team_slug &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   field_goals_made_field_goals_attempted &lt;chr&gt;, field_goal_pct &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   three_point_field_goals_made_three_point_field_goals_attempted &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   three_point_field_goal_pct &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   free_throws_made_free_throws_attempted &lt;chr&gt;, free_throw_pct &lt;chr&gt;, …</span></div><div class='input'><span class='co'># }</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='fu'>load_wnba_team_box</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 412 × 40</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    team_short_display_name team_uid team_alternate_… team_color team_display_na…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Fever                   s:40~l:… 08265b           e2382f     Indiana Fever   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Liberty                 s:40~l:… 89c9bf           0d79b9     New York Liberty</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sun                     s:40~l:… 002d62           de6b36     Connecticut Sun </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Dream                   s:40~l:… 383a37           d02030     Atlanta Dream   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Mercury                 s:40~l:… e56020           3a267d     Phoenix Mercury </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Lynx                    s:40~l:… 47a757           005084     Minnesota Lynx  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Wings                   s:40~l:… c5d646           11213e     Dallas Wings    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sparks                  s:40~l:… 49ac9c           532481     Los Angeles Spa…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Liberty                 s:40~l:… 89c9bf           0d79b9     New York Liberty</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Fever                   s:40~l:… 08265b           e2382f     Indiana Fever   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 402 more rows, and 35 more variables: team_name &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   team_logo &lt;chr&gt;, team_location &lt;chr&gt;, team_id &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   team_abbreviation &lt;chr&gt;, team_slug &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   field_goals_made_field_goals_attempted &lt;chr&gt;, field_goal_pct &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   three_point_field_goals_made_three_point_field_goals_attempted &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   three_point_field_goal_pct &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   free_throws_made_free_throws_attempted &lt;chr&gt;, free_throw_pct &lt;chr&gt;, …</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
