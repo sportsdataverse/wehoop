@@ -23,5 +23,5 @@ Get women's college basketball schedule for a specific year from ESPN's API
 }
 }
 \author{
-Thomas Mock, you a genius for this one.
+Saiem Gilani
 }

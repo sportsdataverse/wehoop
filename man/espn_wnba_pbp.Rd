@@ -9,6 +9,9 @@ espn_wnba_pbp(game_id)
 \arguments{
 \item{game_id}{Game ID}
 }
+\value{
+Returns a play-by-play data frame
+}
 \description{
 Get ESPN's WNBA play by play data
 }

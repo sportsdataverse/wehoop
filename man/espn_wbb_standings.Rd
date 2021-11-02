@@ -9,6 +9,9 @@ espn_wbb_standings(year)
 \arguments{
 \item{year}{Either numeric or character (YYYY)}
 }
+\value{
+Returns a tibble
+}
 \description{
 Get ESPN women's college basketball standings
 }

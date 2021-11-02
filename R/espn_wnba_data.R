@@ -1,6 +1,7 @@
 #' Get ESPN's WNBA game data (play-by-play, team and player box)
 #' @author Saiem Gilani
 #' @param game_id Game ID
+#' @return A named list of dataframes: Plays, Team, Player
 #' @keywords WNBA Game
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -16,9 +17,9 @@
 espn_wnba_game_all <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-
+  
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
-
+  
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
@@ -33,7 +34,7 @@ espn_wnba_game_all <- function(game_id){
     httr::content(as = "text", encoding = "UTF-8") 
   raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
-
+  
   #---- Play-by-Play ------
   tryCatch(
     expr = {
@@ -139,10 +140,10 @@ espn_wnba_game_all <- function(game_id){
     tidyr::unnest(.data$athletes)
   stat_cols <- players_df$names[[1]]
   stats <- players_df$stats
-
+  
   stats_df <- as.data.frame(do.call(rbind,stats))
   colnames(stats_df) <- stat_cols
-
+  
   players_df <- players_df %>%
     dplyr::filter(!.data$didNotPlay) %>%
     dplyr::select(.data$starter,.data$ejected, .data$didNotPlay,.data$active,
@@ -153,7 +154,7 @@ espn_wnba_game_all <- function(game_id){
                   .data$team.name,.data$team.logo,.data$team.id,.data$team.abbreviation,
                   .data$team.color,.data$team.alternateColor
     )
-
+  
   player_box <- dplyr::bind_cols(stats_df,players_df) %>%
     dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
   plays_df <- plays_df %>% 
@@ -174,6 +175,7 @@ espn_wnba_game_all <- function(game_id){
 #' Get ESPN's WNBA play by play data
 #' @author Saiem Gilani
 #' @param game_id Game ID
+#' @return Returns a play-by-play data frame
 #' @keywords WNBA PBP
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -186,9 +188,9 @@ espn_wnba_game_all <- function(game_id){
 espn_wnba_pbp <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-
+  
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
-
+  
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
@@ -215,7 +217,7 @@ espn_wnba_pbp <- function(game_id){
   names(aths)<-c("play.id","athlete.id.1","athlete.id.2","athlete.id.3")
   plays_df <- dplyr::bind_cols(plays, aths) %>%
     select(-.data$athlete.id)
-
+  
   plays_df <- plays_df %>% 
     janitor::clean_names()
   return(plays_df)
@@ -223,6 +225,7 @@ espn_wnba_pbp <- function(game_id){
 #' Get ESPN's WNBA team box data
 #' @author Saiem Gilani
 #' @param game_id Game ID
+#' @return Returns a team boxscore data frame
 #' @keywords WNBA Team Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -236,7 +239,7 @@ espn_wnba_team_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
-
+  
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
@@ -326,6 +329,7 @@ espn_wnba_team_box <- function(game_id){
 #' Get ESPN's WNBA player box data
 #' @author Saiem Gilani
 #' @param game_id Game ID
+#' @return Returns a player boxscore data frame
 #' @keywords WNBA Player Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -339,7 +343,7 @@ espn_wnba_player_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
-
+  
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
@@ -361,10 +365,10 @@ espn_wnba_player_box <- function(game_id){
     tidyr::unnest(.data$athletes)
   stat_cols <- players_df$names[[1]]
   stats <- players_df$stats
-
+  
   stats_df <- as.data.frame(do.call(rbind,stats))
   colnames(stats_df) <- stat_cols
-
+  
   players_df <- players_df %>%
     dplyr::filter(!.data$didNotPlay) %>%
     dplyr::select(.data$starter,.data$ejected, .data$didNotPlay,.data$active,
@@ -374,7 +378,7 @@ espn_wnba_player_box <- function(game_id){
                   .data$team.name, .data$team.logo,.data$team.id,.data$team.abbreviation,
                   .data$team.color,.data$team.alternateColor
     )
-
+  
   player_box <- dplyr::bind_cols(stats_df,players_df) %>%
     dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
   player_box <- player_box %>% 
@@ -390,6 +394,7 @@ espn_wnba_player_box <- function(game_id){
 #' Get ESPN's WNBA team names and ids
 #' @author Saiem Gilani
 #' @keywords WNBA Teams
+#' @return Returns a tibble
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
@@ -451,7 +456,7 @@ espn_wnba_teams <- function(){
 #' Get WNBA schedule for a specific year/date from ESPN's API
 #'
 #' @param season Either numeric or character
-#' @author Thomas Mock, you a genius for this one.
+#' @author Saiem Gilani.
 #' @return Returns a tibble
 #' @import utils
 #' @import rvest
@@ -469,20 +474,20 @@ espn_wnba_teams <- function(){
 #' espn_wnba_scoreboard (season = "20200829")
 
 espn_wnba_scoreboard <- function(season){
-
+  
   # message(glue::glue("Returning data for {season}!"))
-
+  
   max_year <- substr(Sys.Date(), 1,4)
-
+  
   if(!(as.integer(substr(season, 1, 4)) %in% c(2001:max_year))){
     message(paste("Error: Season must be between 2001 and", max_year))
   }
-
+  
   # year > 2000
   season <- as.character(season)
-
+  
   season_dates <- season
-
+  
   schedule_api <- glue::glue("http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?limit=1000&dates={season_dates}")
   res <- httr::RETRY(
     "GET", schedule_api
@@ -490,105 +495,85 @@ espn_wnba_scoreboard <- function(season){
   
   # Check the result
   check_status(res)
-  raw_sched <- res %>%
-    httr::content(as = "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
   
-  wnba_data <- raw_sched[["events"]] %>%
-    tibble::tibble(data = .data$.) %>%
-    tidyr::unnest_wider(.data$data) %>%
-    tidyr::unchop(.data$competitions) %>%
-    dplyr::select(-.data$id, -.data$uid, -.data$date, -.data$status) %>%
-    tidyr::unnest_wider(.data$competitions) %>%
-    dplyr::rename(matchup = .data$name, matchup_short = .data$shortName, game_id = .data$id, game_uid = .data$uid, game_date = .data$date) %>%
-    tidyr::hoist(.data$status,
-                 status_name = list("type", "name")) %>%
-    dplyr::select(!dplyr::any_of(c("timeValid", "neutralSite", "conferenceCompetition","recent", "venue", "type"))) %>%
-    tidyr::unnest_wider(.data$season) %>%
-    dplyr::rename(season = .data$year) %>%
-    dplyr::select(-dplyr::any_of("status")) %>%
-    tidyr::hoist(
-      .data$competitors,
-      home_team_name = list(1, "team", "name"),
-      home_team_logo = list(1, "team", "logo"),
-      home_team_abb = list(1, "team", "abbreviation"),
-      home_team_id = list(1, "team", "id"),
-      home_team_location = list(1, "team", "location"),
-      home_team_full = list(1, "team", "displayName"),
-      home_team_color = list(1, "team", "color"),
-      home_score = list(1, "score"),
-      home_win = list(1, "winner"),
-      home_record = list(1, "records", 1, "summary"),
-      # away team
-      away_team_name = list(2, "team", "name"),
-      away_team_logo = list(2, "team", "logo"),
-      away_team_abb = list(2, "team", "abbreviation"),
-      away_team_id = list(2, "team", "id"),
-      away_team_location = list(2, "team", "location"),
-      away_team_full = list(2, "team", "displayName"),
-      away_team_color = list(2, "team", "color"),
-      away_score = list(2, "score"),
-      away_win = list(2, "winner"),
-      away_record = list(2, "records", 1, "summary"),
-    ) %>%
-    dplyr::mutate(home_win = as.integer(.data$home_win),
-                  away_win = as.integer(.data$away_win),
-                  home_score = as.integer(.data$home_score),
-                  away_score = as.integer(.data$away_score))
-
-  if("leaders" %in% names(wnba_data)){
-    schedule_out <- wnba_data %>%
-      tidyr::hoist(
-        .data$leaders,
-        # points
-        points_leader_yards = list(1, "leaders", 1, "value"),
-        points_leader_stat = list(1, "leaders", 1, "displayValue"),
-        points_leader_name = list(1, "leaders", 1, "athlete", "displayName"),
-        points_leader_shortname = list(1, "leaders", 1, "athlete", "shortName"),
-        points_leader_headshot = list(1, "leaders", 1, "athlete", "headshot"),
-        points_leader_team_id = list(1, "leaders", 1, "team", "id"),
-        points_leader_pos = list(1, "leaders", 1, "athlete", "position", "abbreviation"),
-        # rebounds
-        rebounds_leader_yards = list(2, "leaders", 1, "value"),
-        rebounds_leader_stat = list(2, "leaders", 1, "displayValue"),
-        rebounds_leader_name = list(2, "leaders", 1, "athlete", "displayName"),
-        rebounds_leader_shortname = list(2, "leaders", 1, "athlete", "shortName"),
-        rebounds_leader_headshot = list(2, "leaders", 1, "athlete", "headshot"),
-        rebounds_leader_team_id = list(2, "leaders", 1, "team", "id"),
-        rebounds_leader_pos = list(2, "leaders", 1, "athlete", "position", "abbreviation"),
-        # assists
-        assists_leader_yards = list(3, "leaders", 1, "value"),
-        assists_leader_stat = list(3, "leaders", 1, "displayValue"),
-        assists_leader_name = list(3, "leaders", 1, "athlete", "displayName"),
-        assists_leader_shortname = list(3, "leaders", 1, "athlete", "shortName"),
-        assists_leader_headshot = list(3, "leaders", 1, "athlete", "headshot"),
-        assists_leader_team_id = list(3, "leaders", 1, "team", "id"),
-        assists_leader_pos = list(3, "leaders", 1, "athlete", "position", "abbreviation"),
-      )
-
-    if("broadcasts" %in% names(schedule_out)) {
-      schedule_out %>%
+  tryCatch(
+    expr = {
+      raw_sched <- res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
+      
+      wnba_data <- raw_sched[["events"]] %>%
+        tibble::tibble(data = .data$.) %>%
+        tidyr::unnest_wider(.data$data) %>%
+        tidyr::unchop(.data$competitions) %>%
+        dplyr::select(-.data$id, -.data$uid, -.data$date, -.data$status) %>%
+        tidyr::unnest_wider(.data$competitions) %>%
+        dplyr::rename(matchup = .data$name, matchup_short = .data$shortName, game_id = .data$id, game_uid = .data$uid, game_date = .data$date) %>%
+        tidyr::hoist(.data$status,
+                     status_name = list("type", "name")) %>%
+        dplyr::select(!dplyr::any_of(c("timeValid", "neutralSite", "conferenceCompetition","recent", "venue", "type"))) %>%
+        tidyr::unnest_wider(.data$season) %>%
+        dplyr::rename(season = .data$year) %>%
+        dplyr::select(-dplyr::any_of("status")) %>%
         tidyr::hoist(
-          .data$broadcasts,
-          broadcast_market = list(1, "market"),
-          broadcast_name = list(1, "names", 1)
-        ) %>%
-        dplyr::select(!where(is.list)) %>% 
+          .data$competitors,
+          home_team_name = list(1, "team", "name"),
+          home_team_logo = list(1, "team", "logo"),
+          home_team_abbreviation = list(1, "team", "abbreviation"),
+          home_team_id = list(1, "team", "id"),
+          home_team_location = list(1, "team", "location"),
+          home_team_full_name = list(1, "team", "displayName"),
+          home_team_color = list(1, "team", "color"),
+          home_score = list(1, "score"),
+          home_win = list(1, "winner"),
+          home_record = list(1, "records", 1, "summary"),
+          # away team
+          away_team_name = list(2, "team", "name"),
+          away_team_logo = list(2, "team", "logo"),
+          away_team_abbreviation = list(2, "team", "abbreviation"),
+          away_team_id = list(2, "team", "id"),
+          away_team_location = list(2, "team", "location"),
+          away_team_full_name = list(2, "team", "displayName"),
+          away_team_color = list(2, "team", "color"),
+          away_score = list(2, "score"),
+          away_win = list(2, "winner"),
+          away_record = list(2, "records", 1, "summary")) %>%
+        dplyr::mutate(
+          home_win = as.integer(.data$home_win),
+          away_win = as.integer(.data$away_win),
+          home_score = as.integer(.data$home_score),
+          away_score = as.integer(.data$away_score))
+      
+      
+      
+      if("broadcasts" %in% names(wnba_data)) {
+        wnba_data %>%
+          tidyr::hoist(
+            .data$broadcasts,
+            broadcast_market = list(1, "market"),
+            broadcast_name = list(1, "names", 1)) %>%
+          dplyr::select(!where(is.list)) %>% 
           janitor::clean_names()    
-    } else {
-      schedule_out %>% 
-        janitor::clean_names()
+      } else {
+        wnba_data %>% 
+          dplyr::select(!where(is.list)) %>% 
+          janitor::clean_names()
+      }
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
     }
-  } else {
-    wnba_data %>% dplyr::select(!where(is.list)) %>% 
-      janitor::clean_names()
-  }
-
+  )
 }
 #' Get ESPN WNBA Standings
 #'
 #' @author Geoff Hutchinson
 #' @param year Either numeric or character (YYYY)
+#' @return Returns a tibble
 #' @keywords WNBA Standings
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON

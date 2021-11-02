@@ -6,6 +6,9 @@
 \usage{
 espn_wbb_teams()
 }
+\value{
+Returns a teams infomation data frame
+}
 \description{
 Get ESPN women's college basketball team names and ids
 }

@@ -119,6 +119,7 @@ NULL
 #' the season data into a database (used by `update_wbb_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
+#' @return Returns a tibble
 #' @import furrr
 #' @export
 #' @examples \donttest{
@@ -168,6 +169,7 @@ NULL
 #' the season data into a database (used by `update_wbb_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
+#' @return Returns a tibble
 #' @import furrr
 #' @export
 #' @examples \donttest{
@@ -217,6 +219,7 @@ NULL
 #' the season data into a database (used by `update_wbb_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
+#' @return Returns a tibble
 #' @import furrr
 #' @export
 #' @examples \donttest{
@@ -304,6 +307,7 @@ load_wbb_games <- function(){
 #' of or the complete play by play data table within the database (please see details for further information)
 #' @param db_connection A `DBIConnection` object, as returned by
 #' [DBI::dbConnect()] (please see details for further information)
+#' @return Logical TRUE/FALSE
 #' @import furrr
 #' @export
 update_wbb_db <- function(dbdir = ".",

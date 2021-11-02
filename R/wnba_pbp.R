@@ -107,6 +107,7 @@ NULL
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team box data table within the database
+#' @return Returns a tibble
 #' @import furrr
 #' @export
 #' @examples
@@ -155,6 +156,7 @@ NULL
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player box data table within the database
+#' @return Returns a tibble
 #' @import furrr
 #' @export
 #' @examples
@@ -204,6 +206,7 @@ NULL
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the schedule data table within the database
+#' @return Returns a tibble
 #' @import furrr
 #' @export
 #' @examples
@@ -291,6 +294,7 @@ load_wnba_games <- function(){
 #' of or the complete play by play data table within the database (please see details for further information)
 #' @param db_connection A `DBIConnection` object, as returned by
 #' [DBI::dbConnect()] (please see details for further information)
+#' @return Logical TRUE/FALSE
 #' @import furrr
 #' @export
 update_wnba_db <- function(dbdir = ".",

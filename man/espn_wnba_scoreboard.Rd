@@ -23,5 +23,5 @@ espn_wnba_scoreboard (season = 2020)
 espn_wnba_scoreboard (season = "20200829")
 }
 \author{
-Thomas Mock, you a genius for this one.
+Saiem Gilani.
 }

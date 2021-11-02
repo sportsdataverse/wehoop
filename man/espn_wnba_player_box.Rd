@@ -9,6 +9,9 @@ espn_wnba_player_box(game_id)
 \arguments{
 \item{game_id}{Game ID}
 }
+\value{
+Returns a player boxscore data frame
+}
 \description{
 Get ESPN's WNBA player box data
 }

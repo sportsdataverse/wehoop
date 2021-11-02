@@ -1,3 +1,7 @@
+# **wehoop 1.2.0**
+- Add returns for all the functions
+- Update a handful of field names from the scoreboard functions and to also include neutral_site and conference_competition columns for the women's college basketball scoreboard function.
+
 # **wehoop 1.1.1** 
 - Change functions from furrr::future_map_dfr functions to data.table::rbindlist functions for loaders.
 

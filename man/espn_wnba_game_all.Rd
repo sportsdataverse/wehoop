@@ -9,6 +9,9 @@ espn_wnba_game_all(game_id)
 \arguments{
 \item{game_id}{Game ID}
 }
+\value{
+A named list of dataframes: Plays, Team, Player
+}
 \description{
 Get ESPN's WNBA game data (play-by-play, team and player box)
 }

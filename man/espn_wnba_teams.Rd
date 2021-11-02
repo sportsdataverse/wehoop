@@ -6,6 +6,9 @@
 \usage{
 espn_wnba_teams()
 }
+\value{
+Returns a tibble
+}
 \description{
 Get ESPN's WNBA team names and ids
 }
