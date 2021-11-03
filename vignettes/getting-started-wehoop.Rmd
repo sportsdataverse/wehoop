@@ -50,9 +50,9 @@ I'm Saiem Gilani, one of the [authors](https://saiemgilani.github.io/wehoop/auth
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
-}pacman::p_load_current_gh("saiemgilani/wehoop", dependencies = TRUE, update = TRUE)
+}
 
-pacman::p_load(tidyverse, zoo, ggimage, gt)
+pacman::p_load(wehoop, tidyverse, zoo, ggimage, gt)
 ```
 
 ## **Quick Start**
