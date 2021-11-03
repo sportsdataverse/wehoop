@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   getting-started-wehoop: getting-started-wehoop.html
-last_built: 2021-11-02T17:28Z
+last_built: 2021-11-03T21:05Z
 urls:
   reference: https://saiemgilani.github.io/wehoop/reference
   article: https://saiemgilani.github.io/wehoop/articles
