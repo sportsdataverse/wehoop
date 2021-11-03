@@ -219,20 +219,17 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of <a href="https://github.com/saiemgilani/wehoop"><strong><code>wehoop</code></strong></a> from <a href="https://github.com/saiemgilani/wehoop">GitHub</a> with:</p>
+<p>You can install the CRAN version of <a href="https://cran.r-project.org/web/packages/wehoop/index.html"><strong><code>wehoop</code></strong></a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"wehoop"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## Warning: package 'wehoop' is in use and will not be installed</span></span></code></pre></div>
+<p>You can install the released version of <a href="https://github.com/saiemgilani/wehoop"><strong><code>wehoop</code></strong></a> from <a href="https://github.com/saiemgilani/wehoop">GitHub</a> with:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># You can install using the pacman package using the following code:</span>
 <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load_current_gh.html">p_load_current_gh</a></span><span class="op">(</span><span class="st">"saiemgilani/wehoop"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span>, update <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># if you would prefer devtools installation</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">'devtools'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="co"># Alternatively, using the devtools package:</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"saiemgilani/wehoop"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="quick-start" class="section level2">
 <h2 class="hasAnchor">
@@ -241,36 +238,31 @@
 <h3 class="hasAnchor">
 <a href="#wnba-full-play-by-play-seasons-2002-2021--1-2-minutes" class="anchor"></a><strong>WNBA full play-by-play seasons (2002-2021) ~ 1-2 minutes</strong>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># You can install using the pacman package using the following code:</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load_current_gh.html">p_load_current_gh</a></span><span class="op">(</span><span class="st">"saiemgilani/wehoop"</span><span class="op">)</span>
-<span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="fl">2002</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## 9.27 sec elapsed</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## 12.64 sec elapsed</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## 1784144 rows of WNBA play-by-play data from 4677 games.</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## 1784144 rows of WNBA play-by-play data from 4677 games.</span></span></code></pre></div>
 </div>
 <div id="womens-college-basketball-full-play-by-play-seasons-2004-2021--2-3-minutes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#womens-college-basketball-full-play-by-play-seasons-2004-2021--2-3-minutes" class="anchor"></a><strong>Women’s college basketball full play-by-play seasons (2004-2021) ~ 2-3 minutes</strong>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="fl">2004</span><span class="op">:</span><span class="fl">2021</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">## 48.01 sec elapsed</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## 48.3 sec elapsed</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games."</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">## 8650487 rows of women's college basketball play-by-play data from 26023 games.</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## 8650487 rows of women's college basketball play-by-play data from 26023 games.</span></span></code></pre></div>
 </div>
 </div>
 <div id="documentation" class="section level2">
@@ -305,12 +297,12 @@
 </h2>
 <p>To cite the <a href="https://wehoop.sportsdataverse.org"><strong><code>wehoop</code></strong></a> R package in publications, use:</p>
 <p>BibTex Citation</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb11-1"><a href="#cb11-1"></a><span class="va">@misc</span>{<span class="ot">hutchinson_gilani_2021_wehoop</span>,</span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="dt">author</span> = {Saiem Gilani and Geoff Hutchinson},</span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="dt">title</span> = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},</span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="dt">url</span> = {https://wehoop.sportsdataverse.org},</span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="dt">year</span> = {2021}</span>
-<span id="cb11-6"><a href="#cb11-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb12-1"><a href="#cb12-1"></a><span class="va">@misc</span>{<span class="ot">hutchinson_gilani_2021_wehoop</span>,</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="dt">author</span> = {Saiem Gilani and Geoff Hutchinson},</span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="dt">title</span> = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},</span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="dt">url</span> = {https://wehoop.sportsdataverse.org},</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="dt">year</span> = {2021}</span>
+<span id="cb12-6"><a href="#cb12-6"></a>}</span></code></pre></div>
 </div>
 </div>
 
@@ -361,6 +353,8 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=wehoop"><img src="https://www.r-pkg.org/badges/version-last-release/wehoop?style=for-the-badge" alt="CRAN status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=wehoop"><img src="http://cranlogs.r-pkg.org/badges/grand-total/wehoop" alt="CRAN downloads"></a></li>
 <li><a href="https://github.com/saiemgilani/wehoop"><img src="https://img.shields.io/github/r-package/v/saiemgilani/wehoop?label=wehoop&amp;logo=R&amp;style=for-the-badge" alt="Version-Number"></a></li>
 <li><a href="https://github.com/saiemgilani/wehoop/actions/workflows/R-CMD-check.yaml"><img src="https://img.shields.io/github/workflow/status/saiemgilani/wehoop/R-CMD-check?label=R-CMD-Check&amp;logo=R&amp;logoColor=blue&amp;style=for-the-badge" alt="R-CMD-check"></a></li>
 <li><a href="https://github.com/saiemgilani/wehoop"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&amp;logo=github" alt="Lifecycle:maturing"></a></li>
