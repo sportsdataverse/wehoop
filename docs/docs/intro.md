@@ -38,9 +38,6 @@ with:
 ``` r
 install.packages("wehoop")
 ```
-
-    ## Warning: package 'wehoop' is in use and will not be installed
-
 You can install the released version of
 [**`wehoop`**](https://github.com/saiemgilani/wehoop) from
 [GitHub](https://github.com/saiemgilani/wehoop) with:
