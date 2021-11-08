@@ -43,12 +43,12 @@ espn_wnba_game_all <- function(game_id){
       
       
       plays <- raw_play_df[["plays"]] %>%
-        tidyr::unnest_wider(unlist(.data$participants))
+        tidyr::unnest_wider(.data$participants)
       suppressWarnings(
         aths <- plays %>%
           dplyr::group_by(.data$id) %>%
           dplyr::select(.data$id, .data$athlete.id) %>%
-          tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = "_")
+          tidyr::unnest_wider(.data$athlete.id,names_sep = "_")
       )
       names(aths)<-c("play.id","athlete.id.1","athlete.id.2","athlete.id.3")
       plays_df <- dplyr::bind_cols(plays, aths) %>%
@@ -207,12 +207,12 @@ espn_wnba_pbp <- function(game_id){
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Play-by-Play ------
   plays <- raw_play_df[["plays"]] %>%
-    tidyr::unnest_wider(unlist(.data$participants, use.names=FALSE))
+    tidyr::unnest_wider(.data$participants)
   suppressWarnings(
     aths <- plays %>%
       dplyr::group_by(.data$id) %>%
       dplyr::select(.data$id, .data$athlete.id) %>%
-      tidyr::unnest_wider(unlist(.data$athlete.id, use.names=FALSE),names_sep = ".")
+      tidyr::unnest_wider(.data$athlete.id,names_sep = ".")
   )
   names(aths)<-c("play.id","athlete.id.1","athlete.id.2","athlete.id.3")
   plays_df <- dplyr::bind_cols(plays, aths) %>%
@@ -421,7 +421,7 @@ espn_wnba_teams <- function(){
   ## game_id
   leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
     dplyr::group_by(.data$id) %>%
-    tidyr::unnest_wider(unlist(.data$logos, use.names=FALSE),names_sep = "_") %>%
+    tidyr::unnest_wider(.data$logos,names_sep = "_") %>%
     tidyr::unnest_wider(.data$logos_href,names_sep = "_") %>%
     dplyr::select(-.data$logos_width,-.data$logos_height,
                   -.data$logos_alt, -.data$logos_rel) %>%
