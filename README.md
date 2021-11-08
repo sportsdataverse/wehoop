@@ -32,8 +32,7 @@ to analyze the data for themselves.
 ## Installation
 
 You can install the CRAN version of
-[**`wehoop`**](https://cran.r-project.org/web/packages/wehoop/index.html)
-with:
+[**`wehoop`**](https://CRAN.R-project.org/package=wehoop) with:
 
 ``` r
 install.packages("wehoop")
@@ -65,7 +64,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 12.64 sec elapsed
+    ## 13.72 sec elapsed
 
 ``` r
 glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
@@ -83,7 +82,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 48.3 sec elapsed
+    ## 50.41 sec elapsed
 
 ``` r
 glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")

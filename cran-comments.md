@@ -1,8 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* add returns to documentation
-* corrects license/authors issue. I have reversed the Copywrite holder to the wehoop authors default. In particular to the authorship of the scoreboard functions, Thomas Mock wrote a pretty similar function for a different section of the API for his espnscraper package that largely works the same. It was more in jest than a serious attribution of authorship and I should have thought to remove that when submitting.
+* mainly is trying to stay ahead of the `tidyr` release forthcoming. 
 
 ## R CMD check results
 

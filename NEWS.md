@@ -1,3 +1,6 @@
+# **wehoop 1.2.1**
+- Minor release to stay ahead of `tidyr` release revdepchecks
+
 # **wehoop 1.2.0**
 - Add returns for all the functions
 - Update a handful of field names from the scoreboard functions and to also include neutral_site and conference_competition columns for the women's college basketball scoreboard function.
