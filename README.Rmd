@@ -28,7 +28,7 @@ A scraping and aggregating interface for ESPN's women's college basketball and W
 
 ## Installation
 
-You can install the CRAN version of [**```wehoop```** ](https://cran.r-project.org/web/packages/wehoop/index.html) with:
+You can install the CRAN version of [**```wehoop```** ](https://CRAN.R-project.org/package=wehoop) with:
 ```{r readme_cran_install}
 install.packages("wehoop")
 ```
