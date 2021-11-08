@@ -31,7 +31,6 @@ progressively <- function(f, p = NULL){
 #' This is a thin wrapper on data.table::fread
 #' @param ... passed to data.table::fread
 #' @keywords Internal
-#' @inheritDotParams data.table::fread
 #' @importFrom data.table fread
 csv_from_url <- function(...){
   data.table::fread(...)
