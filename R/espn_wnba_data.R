@@ -184,7 +184,10 @@ espn_wnba_game_all <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wnba_pbp(game_id = 401244185)
+#' 
+#' \donttest{
+#'   try(espn_wnba_pbp(game_id = 401244185))
+#' }
 espn_wnba_pbp <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -234,7 +237,10 @@ espn_wnba_pbp <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wnba_team_box(game_id = 401244185)
+#' 
+#' \donttest{
+#'   try(espn_wnba_team_box(game_id = 401244185))
+#' }
 espn_wnba_team_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -338,7 +344,10 @@ espn_wnba_team_box <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wnba_player_box(game_id = 401244185)
+#' \donttest{
+#'   try(espn_wnba_player_box(game_id = 401244185))
+#' }
+#' 
 espn_wnba_player_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -402,7 +411,9 @@ espn_wnba_player_box <- function(game_id){
 #' @import rvest
 #' @export
 #' @examples
-#' espn_wnba_teams()
+#' \donttest{
+#'   try(espn_wnba_teams())
+#' }
 
 espn_wnba_teams <- function(){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -469,7 +480,7 @@ espn_wnba_teams <- function(){
 #' @examples
 #' # Get schedule from date 2020-08-29
 #' \donttest{
-#'   espn_wnba_scoreboard (season = "20200829")
+#'   try(espn_wnba_scoreboard (season = "20200829"))
 #' }
 
 espn_wnba_scoreboard <- function(season){
@@ -581,8 +592,8 @@ espn_wnba_scoreboard <- function(season){
 #' @importFrom data.table rbindlist
 #' @export
 #' @examples
-#' \dontrun{
-#' espn_wnba_standings(year = 2021)
+#' \donttest{
+#'   try(espn_wnba_standings(year = 2021))
 #' }
 espn_wnba_standings <- function(year){
   

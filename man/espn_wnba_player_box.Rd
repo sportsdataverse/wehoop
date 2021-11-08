@@ -16,7 +16,10 @@ Returns a player boxscore data frame
 Get ESPN's WNBA player box data
 }
 \examples{
-espn_wnba_player_box(game_id = 401244185)
+\donttest{
+  try(espn_wnba_player_box(game_id = 401244185))
+}
+
 }
 \author{
 Saiem Gilani

@@ -16,7 +16,10 @@ Returns a play-by-play data frame
 Get ESPN's WNBA play by play data
 }
 \examples{
-espn_wnba_pbp(game_id = 401244185)
+
+\donttest{
+  try(espn_wnba_pbp(game_id = 401244185))
+}
 }
 \author{
 Saiem Gilani

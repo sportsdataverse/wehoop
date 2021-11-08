@@ -13,7 +13,9 @@ Returns a tibble
 Get ESPN's WNBA team names and ids
 }
 \examples{
-espn_wnba_teams()
+\donttest{
+  try(espn_wnba_teams())
+}
 }
 \author{
 Saiem Gilani

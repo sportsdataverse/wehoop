@@ -16,8 +16,8 @@ Returns a tibble
 Get ESPN WNBA Standings
 }
 \examples{
-\dontrun{
-espn_wnba_standings(year = 2021)
+\donttest{
+  try(espn_wnba_standings(year = 2021))
 }
 }
 \author{
