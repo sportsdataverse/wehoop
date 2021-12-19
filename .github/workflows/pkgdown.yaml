@@ -37,7 +37,6 @@ jobs:
             rsconnect
             tictoc
             tidyverse
-            wehoop
             worldfootballR
             zoo
           needs: website
