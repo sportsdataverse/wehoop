@@ -141,3 +141,12 @@ reference:
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
     contents:
       - starts_with("ncaa_")
+  - subtitle: wehoop Helper Functions
+    desc: Internal functions used by wehoop
+    contents:
+      - '`check_status`'
+      - '`csv_from_url`'
+      - '`rds_from_url`'
+      - '`most_recent_wbb_season`'
+      - '`most_recent_wnba_season`'
+      - '`progressively`'

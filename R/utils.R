@@ -94,6 +94,9 @@ custom_mode <- function(x, na.rm = TRUE) {
 }
 
 
+#' @title
+#' **Most Recent Women's College Basketball Season**
+#' @export
 most_recent_wbb_season <- function() {
   dplyr::if_else(
     as.double(substr(Sys.Date(), 6, 7)) >= 10,
@@ -101,6 +104,10 @@ most_recent_wbb_season <- function() {
     as.double(substr(Sys.Date(), 1, 4))
   )
 }
+
+#' @title
+#' **Most Recent WNBA Season**
+#' @export
 most_recent_wnba_season <- function() {
   dplyr::if_else(
     as.double(substr(Sys.Date(), 6, 7)) >= 5,
