@@ -1,5 +1,5 @@
 
-# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right" height="139"/></a>
+# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right"  width="20%" min-width="100px"/></a>
 
 <!-- badges: start -->
 
@@ -64,7 +64,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 13.72 sec elapsed
+    ## 14.2 sec elapsed
 
 ``` r
 glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
@@ -82,7 +82,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 50.41 sec elapsed
+    ## 55.45 sec elapsed
 
 ``` r
 glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")
