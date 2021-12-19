@@ -1,9 +1,9 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   getting-started-wehoop: getting-started-wehoop.html
-last_built: 2021-11-08T23:45Z
+last_built: 2021-12-19T14:56Z
 urls:
   reference: https://saiemgilani.github.io/wehoop/reference
   article: https://saiemgilani.github.io/wehoop/articles

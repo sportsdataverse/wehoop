@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/404.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/authors.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/index.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/news/index.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/check_status.html</loc>
@@ -58,6 +82,9 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/espn_wnba_teams.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wbb_pbp.html</loc>
   </url>
   <url>
@@ -82,6 +109,12 @@
     <loc>https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/most_recent_wbb_season.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/wehoop/reference/most_recent_wnba_season.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/ncaa_wbb_NET_rankings.html</loc>
   </url>
   <url>
@@ -98,8 +131,5 @@
   </url>
   <url>
     <loc>https://saiemgilani.github.io/wehoop/reference/wehoop-package.html</loc>
-  </url>
-  <url>
-    <loc>https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html</loc>
   </url>
 </urlset>
