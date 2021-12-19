@@ -28,10 +28,11 @@ jobs:
             animation
             cfbfastR
             fastRhockey
-            hoopR
             ggimage
             hadley/emo
+            hoopR
             knitr
+            pacman
             ragg
             r-lib/pkgapi
             rsconnect
