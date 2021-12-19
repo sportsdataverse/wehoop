@@ -38,8 +38,6 @@ You can install the CRAN version of
 install.packages("wehoop")
 ```
 
-    ## Warning: package 'wehoop' is in use and will not be installed
-
 You can install the released version of
 [**`wehoop`**](https://github.com/saiemgilani/wehoop) from
 [GitHub](https://github.com/saiemgilani/wehoop) with:
@@ -64,7 +62,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 14.2 sec elapsed
+    ## 14.14 sec elapsed
 
 ``` r
 glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
@@ -82,7 +80,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 55.45 sec elapsed
+    ## 55.82 sec elapsed
 
 ``` r
 glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")
