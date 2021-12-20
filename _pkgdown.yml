@@ -60,7 +60,6 @@ navbar:
       - text: Getting started
         href: articles/getting-started-wehoop.html
     network:
-     network:
       icon: "fas fa-project-diagram"
       text: " SDV"
       menu:
