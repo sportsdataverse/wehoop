@@ -1,3 +1,9 @@
+---
+title: Getting Started
+sidebar_label: Getting Started
+sidebar_position: 1
+---
+# 
 
 # wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right"  width="20%" min-width="100px"/></a>
 
