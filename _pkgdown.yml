@@ -31,6 +31,14 @@ navbar:
   icon: https://raw.githubusercontent.com/saiemgilani/wehoop/master/man/figures/logo.ico
   title: "WeHoop"
   components:
+    home:
+      title: An R package to quickly obtain clean and tidy women's basketball play by play data
+      description: Functions to Access Women's Basketball Play by Play Data
+      icon: fa-home
+      href: index.html
+      links:
+      - text: Getting started with wehoop 
+        href: articles/getting-started-wehoop.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: http://twitter.com/saiemgilani
@@ -98,7 +106,7 @@ navbar:
       - text: --------------------------------
       - text: Node.js Packages
       - text: sportsdataverse.js
-        href: https://saiemgilani.github.io/sportsdataverse/
+        href: https://js.sportsdataverse.org/
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
     github:
