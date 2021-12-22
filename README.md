@@ -4,9 +4,9 @@
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version-last-release/wehoop?style=for-the-badge)](https://CRAN.R-project.org/package=wehoop)
+status](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
 [![CRAN
-downloads](http://cranlogs.r-pkg.org/badges/grand-total/wehoop)](https://CRAN.R-project.org/package=wehoop)
+downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
 [![Version-Number](https://img.shields.io/github/r-package/v/saiemgilani/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/saiemgilani/wehoop)
 [![R-CMD-check](https://img.shields.io/github/workflow/status/saiemgilani/wehoop/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)](https://github.com/saiemgilani/wehoop/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/saiemgilani/wehoop)
@@ -29,7 +29,7 @@ basketball and WNBA statistics. It provides users with the capability to
 access the API’s game play-by-plays, box scores, standings and results
 to analyze the data for themselves.
 
-## Installation
+## **Installation**
 
 You can install the CRAN version of
 [**`wehoop`**](https://CRAN.R-project.org/package=wehoop) with:
@@ -50,7 +50,7 @@ if (!requireNamespace('pacman', quietly = TRUE)){
 pacman::p_load_current_gh("saiemgilani/wehoop", dependencies = TRUE, update = TRUE)
 ```
 
-## Quick Start
+## **Quick Start**
 
 ### **WNBA full play-by-play seasons (2002-2021) \~ 1-2 minutes**
 
@@ -62,11 +62,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 14.14 sec elapsed
-
-``` r
-glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
-```
+    ## 13.61 sec elapsed
 
     ## 1784144 rows of WNBA play-by-play data from 4677 games.
 
@@ -80,15 +76,11 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 55.82 sec elapsed
-
-``` r
-glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")
-```
+    ## 55.67 sec elapsed
 
     ## 8650487 rows of women's college basketball play-by-play data from 26023 games.
 
-## Documentation
+## **Documentation**
 
 For more information on the package and function reference, please see
 the [**`wehoop`** documentation
