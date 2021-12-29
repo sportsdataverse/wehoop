@@ -3,8 +3,8 @@ pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   getting-started-wehoop: getting-started-wehoop.html
-last_built: 2021-12-29T09:53Z
+last_built: 2021-12-29T11:08Z
 urls:
-  reference: https://saiemgilani.github.io/wehoop/reference
-  article: https://saiemgilani.github.io/wehoop/articles
+  reference: https://wehoop.sportsdataverse.org/reference
+  article: https://wehoop.sportsdataverse.org/articles
 
