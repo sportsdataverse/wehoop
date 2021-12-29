@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/logo.png" align="right"  width="20%" min-width="100px"/></a>
+# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/saiemgilani/wehoop/master/logo.png" align="right"  width="20%" min-width="100px"/></a>
 ```{r setup_readme, include = FALSE}
 require(knitr)
 if (!requireNamespace('pacman')){
