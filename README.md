@@ -1,5 +1,5 @@
 
-# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/img/logo.png" align="right"  width="20%" min-width="100px"/></a>
+# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://wehoop.sportsdataverse.org/logo.png" align="right"  width="20%" min-width="100px"/></a>
 
 <!-- badges: start -->
 
@@ -62,7 +62,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 13.61 sec elapsed
+    ## 14.72 sec elapsed
 
     ## 1784144 rows of WNBA play-by-play data from 4677 games.
 
@@ -76,7 +76,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 55.67 sec elapsed
+    ## 58.51 sec elapsed
 
     ## 8650487 rows of women's college basketball play-by-play data from 26023 games.
 

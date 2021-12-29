@@ -24,7 +24,6 @@ progressively <- function(f, p = NULL){
   
 }
 
-
 #' @title
 #' **Load .csv / .csv.gz file from a remote connection**
 #' @description
@@ -35,9 +34,6 @@ progressively <- function(f, p = NULL){
 csv_from_url <- function(...){
   data.table::fread(...)
 }
-
-.datatable.aware <- TRUE
-
 
 #' @title
 #' **Load .rds file from a remote connection**
