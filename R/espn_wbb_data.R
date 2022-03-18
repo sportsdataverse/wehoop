@@ -467,7 +467,7 @@ espn_wbb_conferences <- function(){
       conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
         dplyr::select(-.data$subGroups) %>%
         janitor::clean_names() %>%
-        dplyr::filter(!(group_id %in% c(0,50)))
+        dplyr::filter(!(.data$group_id %in% c(0,50)))
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no conferences info available!"))
