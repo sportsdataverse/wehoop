@@ -453,7 +453,7 @@ espn_wbb_player_box <- function(game_id){
 espn_wbb_conferences <- function(){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences?seasontype=2"
   
   res <- httr::RETRY("GET", play_base_url)
   
@@ -466,7 +466,8 @@ espn_wbb_conferences <- function(){
     expr = {
       conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
         dplyr::select(-.data$subGroups) %>%
-        janitor::clean_names()
+        janitor::clean_names() %>%
+        dplyr::filter(!(group_id %in% c(0,50)))
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no conferences info available!"))
