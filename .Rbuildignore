@@ -35,3 +35,4 @@ wbb_pbp_db*
 ^README\.Rmd$
 ^md
 ^CRAN-RELEASE$
+^\.pre-commit-config\.yaml$
