@@ -54,7 +54,8 @@ espn_wbb_game_all <- function(game_id){
       )
       names(aths)<-c("play.id","athlete.id.1","athlete.id.2")
       plays_df <- dplyr::bind_cols(plays, aths) %>%
-        select(-.data$athlete.id)
+        select(-.data$athlete.id) %>%
+        make_wehoop_data("ESPN WBB Play-by-Play Information from ESPN.com",Sys.time())
       
     },
     error = function(e) {
@@ -126,8 +127,8 @@ espn_wbb_game_all <- function(game_id){
           .data$season,
           .data$season_type,
           .data$game_date,
-          tidyr::everything()
-        )
+          tidyr::everything()) %>%
+        make_wehoop_data("ESPN WBB Team Box Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -170,8 +171,8 @@ espn_wbb_game_all <- function(game_id){
       player_box <- player_box %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          fg3 = .data$x3pt
-        )
+          fg3 = .data$x3pt) %>%
+        make_wehoop_data("ESPN WBB Player Box Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
@@ -241,7 +242,8 @@ espn_wbb_pbp <- function(game_id){
       plays_df <- dplyr::bind_cols(plays, aths) %>%
         select(-.data$athlete.id)
       plays_df <- plays_df %>% 
-        janitor::clean_names()
+        janitor::clean_names() %>%
+        make_wehoop_data("ESPN WBB Play-by-Play Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"))
@@ -346,8 +348,8 @@ espn_wbb_team_box <- function(game_id){
           .data$season,
           .data$season_type,
           .data$game_date,
-          tidyr::everything()
-        )
+          tidyr::everything()) %>%
+        make_wehoop_data("ESPN WBB Team Box Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -422,8 +424,8 @@ espn_wbb_player_box <- function(game_id){
       player_box <- player_box %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          fg3 = .data$x3pt
-        )
+          fg3 = .data$x3pt) %>%
+        make_wehoop_data("ESPN WBB Player Box Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
@@ -467,7 +469,8 @@ espn_wbb_conferences <- function(){
       conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
         dplyr::select(-.data$subGroups) %>%
         janitor::clean_names() %>%
-        dplyr::filter(!(.data$group_id %in% c(0,50)))
+        dplyr::filter(!(.data$group_id %in% c(0,50))) %>%
+        make_wehoop_data("ESPN WBB Conferences Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no conferences info available!"))
@@ -562,8 +565,8 @@ espn_wbb_teams <- function(){
           team_id = .data$id,
           short_name = .data$shortDisplayName,
           alternate_color = .data$alternateColor,
-          display_name = .data$displayName
-        )
+          display_name = .data$displayName) %>%
+        make_wehoop_data("ESPN WBB Teams Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no teams data available!"))
@@ -673,11 +676,13 @@ espn_wbb_scoreboard <- function(season){
             broadcast_market = list(1, "market"),
             broadcast_name = list(1, "names", 1)) %>%
           dplyr::select(!where(is.list)) %>% 
-          janitor::clean_names()
+          janitor::clean_names() %>%
+          make_wehoop_data("ESPN WBB Scoreboard Information from ESPN.com",Sys.time())
       } else {
         wbb_data %>% 
           dplyr::select(!where(is.list)) %>% 
-          janitor::clean_names()
+          janitor::clean_names() %>%
+          make_wehoop_data("ESPN WBB Scoreboard Information from ESPN.com",Sys.time())
       }
     },
     error = function(e) {
@@ -717,7 +722,8 @@ ncaa_wbb_NET_rankings <- function(){
               rvest::html_nodes("table"))[[1]] %>%
         rvest::html_table(fill=TRUE) %>%
         dplyr::as_tibble() %>% 
-        janitor::clean_names()
+        janitor::clean_names() %>%
+        make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
@@ -782,8 +788,10 @@ espn_wbb_rankings <- function(){
       )
       ranks <- ranks  %>%
         dplyr::select(-dplyr::any_of(drop_cols))
-      ranks <- ranks %>% dplyr::arrange(.data$name,-.data$points) %>% 
-        janitor::clean_names()
+      ranks <- ranks %>% 
+        dplyr::arrange(.data$name,-.data$points) %>% 
+        janitor::clean_names() %>%
+        make_wehoop_data("ESPN WBB Rankings Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no rankings data for {game_id} available!"))
@@ -866,7 +874,8 @@ espn_wbb_standings <- function(year){
       
       #joining the 2 dataframes together to create a standings table
       
-      standings <- cbind(teams, standings_data)
+      standings <- cbind(teams, standings_data) %>%
+        make_wehoop_data("ESPN WBB Standings Information from ESPN.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no standings data available!"))

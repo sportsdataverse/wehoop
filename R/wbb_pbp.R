@@ -100,7 +100,7 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(),...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
   }
   out
 }
@@ -150,7 +150,7 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
   }
   out
 }
@@ -200,7 +200,7 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
   }
   out
 }
@@ -252,7 +252,7 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
   }
   out
 }

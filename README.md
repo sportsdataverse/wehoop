@@ -62,7 +62,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 13.33 sec elapsed
+    ## 14.04 sec elapsed
 
     ## 1784144 rows of WNBA play-by-play data from 4677 games.
 
@@ -76,7 +76,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 52.85 sec elapsed
+    ## 53.27 sec elapsed
 
     ## 8650487 rows of women's college basketball play-by-play data from 26023 games.
 
