@@ -1,3 +1,5 @@
+# wehoop 1.4.0
+
 # **wehoop 1.2.1**
 - Minor release to stay ahead of `tidyr` release revdepchecks
 
