@@ -26,7 +26,9 @@ jobs:
           extra-packages: |
             pkgdown
             animation
+            baseballr
             cfbfastR
+            chessR
             fastRhockey
             ggimage
             hoopR
@@ -36,14 +38,9 @@ jobs:
             rsconnect
             tictoc
             tidyverse
-            worldfootballR
+            toRvik
             zoo
           needs: website
-      - name: Install system dependencies
-        run: |
-          pak::pkg_install("hadley/emo")
-          pak::pkg_install("r-lib/pkgapi")
-        shell: Rscript {0}
       - name: Deploy package
         run: |
           git config --local user.name "$GITHUB_ACTOR"
