@@ -35,6 +35,7 @@ Suggests:
     ggplot2,
     ggrepel,
     httr (>= 0.5),
+    knitr,
     purrr (>= 0.3.0),
     rmarkdown,
     RSQLite,
@@ -42,6 +43,7 @@ Suggests:
     stringi,
     testthat,
     tibble (>= 3.0),
+    tictoc,
     xml2 (>= 1.3)
 RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)

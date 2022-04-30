@@ -12,12 +12,12 @@ output: html_document
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-pacman::p_load_current_gh("r-lib/pkgapi")
-pacman::p_load_current_gh("hadley/emo")
-library(pkgapi)
-pkg <- pkgapi::map_package(path = "../")
 library(dplyr)
-exported <- pkg$defs %>% dplyr::filter(exported == TRUE)
+# pacman::p_load_current_gh("r-lib/pkgapi")
+# pacman::p_load_current_gh("hadley/emo")
+# library(pkgapi)
+# pkg <- pkgapi::map_package(path = "../")
+# exported <- pkg$defs %>% dplyr::filter(exported == TRUE)
 
 pkg_name <- "saiemgilani/wehoop"
 url <- paste0("https://raw.githubusercontent.com/", pkg_name, "/master/DESCRIPTION")
@@ -53,7 +53,7 @@ if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
 
-pacman::p_load(wehoop, tidyverse, zoo, ggimage, gt)
+pacman::p_load(wehoop, dplyr, glue, tictoc, progressr)
 ```
 
 ## **Quick Start**
@@ -63,7 +63,7 @@ pacman::p_load(wehoop, tidyverse, zoo, ggimage, gt)
 
 tictoc::tic()
 progressr::with_progress({
-  wnba_pbp <- wehoop::load_wnba_pbp(2002:2021)
+  wnba_pbp <- wehoop::load_wnba_pbp(2021)
 })
 tictoc::toc()
 ## 13.91 sec elapsed
@@ -76,7 +76,7 @@ dplyr::glimpse(wnba_pbp)
 ```{r load_wnba_team_2003_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
-  wnba_team_box <- wehoop::load_wnba_team_box(2003:2021)
+  wnba_team_box <- wehoop::load_wnba_team_box(2021)
 })
 
 tictoc::toc()
@@ -89,7 +89,7 @@ dplyr::glimpse(wnba_team_box)
 ```{r load_wnba_player_2002_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
-  wnba_player_box <- wehoop::load_wnba_player_box(2002:2021)
+  wnba_player_box <- wehoop::load_wnba_player_box(2021)
 })
 tictoc::toc()
 length(unique(wnba_player_box$game_id))
@@ -101,7 +101,7 @@ nrow(wnba_player_box)
 ```{r load_wbb_pbp_2004_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
-  wbb_pbp <- wehoop::load_wbb_pbp(2004:2021)
+  wbb_pbp <- wehoop::load_wbb_pbp(2021)
 })
 tictoc::toc()
 length(unique(wbb_pbp$game_id))
@@ -113,7 +113,7 @@ nrow(wbb_pbp)
 ```{r load_wbb_team_2006_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
-  wbb_team_box <- wehoop::load_wbb_team_box(2006:2021)
+  wbb_team_box <- wehoop::load_wbb_team_box(2021)
 })
 tictoc::toc()
 length(unique(wbb_team_box$game_id))
@@ -125,7 +125,7 @@ nrow(wbb_team_box)
 ```{r load_wbb_player_2006_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
-  wbb_player_box <- wehoop::load_wbb_player_box(2006:2021)
+  wbb_player_box <- wehoop::load_wbb_player_box(2021)
 })
 tictoc::toc()
 length(unique(wbb_player_box$game_id))

@@ -6,6 +6,7 @@ template:
   bslib:
     primary: "#221A4D"
     secondary: "#b298dc"
+    success: "#c2bccc"
     link-color: "#7c689c"
     link-hover-color: "#c2bccc"
     nav-link-hover-color: "#c2bccc"
