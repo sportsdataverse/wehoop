@@ -34,5 +34,3 @@ Argument      |Description
 ```r
 espn_wbb_standings(2021)
 ```
-
-

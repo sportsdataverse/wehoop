@@ -32,5 +32,3 @@ Saiem Gilani
 ```r
 espn_wbb_teams()
 ```
-
-

@@ -36,5 +36,3 @@ Argument      |Description
 future::plan("multisession")
 load_wnba_schedule(2002:2021)
 ```
-
-

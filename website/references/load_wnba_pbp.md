@@ -129,5 +129,3 @@ A dataframe with 42 columns
 future::plan("multisession")
 load_wnba_pbp(2002:2021)
 ```
-
-

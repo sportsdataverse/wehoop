@@ -46,5 +46,3 @@ Thomas Mock, you a genius for this one.
 # Get schedule from date 2021-02-15, then next date and so on.
 espn_wbb_scoreboard (season = "20210215")
 ```
-
-

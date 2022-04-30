@@ -26,5 +26,3 @@ Argument      |Description
 ```r
 espn_wnba_team_box(game_id = 401244185)
 ```
-
-

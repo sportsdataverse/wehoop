@@ -20,5 +20,3 @@ espn_wnba_teams()
 ```r
 espn_wnba_teams()
 ```
-
-

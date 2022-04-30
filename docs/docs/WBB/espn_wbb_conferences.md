@@ -26,5 +26,3 @@ Returns a tibble
 ```r
 espn_wbb_conferences()
 ```
-
-

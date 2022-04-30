@@ -39,5 +39,3 @@ Geoff Hutchinson
 ```r
 espn_wnba_standings(year = 2021)
 ```
-
-

@@ -19,5 +19,3 @@ espn_wbb_teams()
 ```r
 espn_wbb_teams()
 ```
-
-

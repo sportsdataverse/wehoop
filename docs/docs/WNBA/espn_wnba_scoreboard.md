@@ -45,5 +45,3 @@ espn_wnba_scoreboard (season = 2020)
 # Get schedule from date 2020-08-29
 espn_wnba_scoreboard (season = "20200829")
 ```
-
-

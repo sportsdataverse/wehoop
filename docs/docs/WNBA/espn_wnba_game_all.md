@@ -25,5 +25,3 @@ Argument      |Description
 ```r
 espn_wnba_game_all(game_id = 401244185)
 ```
-
-

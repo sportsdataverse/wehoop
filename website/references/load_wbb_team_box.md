@@ -39,5 +39,3 @@ Argument      |Description
 future::plan("multisession")
 load_wbb_team_box(2002:2021)
 ```
-
-

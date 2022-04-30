@@ -39,5 +39,3 @@ Saiem Gilani
 ```r
 espn_wnba_player_box(game_id = 401244185)
 ```
-
-

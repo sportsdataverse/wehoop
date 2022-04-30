@@ -39,5 +39,3 @@ Saiem Gilani
 ```r
 espn_wbb_pbp(game_id = 401276115)
 ```
-
-

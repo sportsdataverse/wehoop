@@ -24,5 +24,3 @@ Returns a tibble
 # Get current AP and Coaches Poll rankings
 espn_wbb_rankings()
 ```
-
-

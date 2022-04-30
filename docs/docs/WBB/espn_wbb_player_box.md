@@ -26,5 +26,3 @@ Argument      |Description
 ```r
 espn_wbb_player_box(game_id = 401276115)
 ```
-
-

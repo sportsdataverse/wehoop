@@ -65,5 +65,3 @@ This function creates and updates a data table with the name `tblname`
  the arguments `dbdir` and `dbname` are dropped in case a `db_connection` 
  is provided but the argument `tblname` will still be used to write the
  data table into the database.
-
-

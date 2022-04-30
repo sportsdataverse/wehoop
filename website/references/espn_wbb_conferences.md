@@ -37,5 +37,3 @@ Saiem Gilani
 ```r
 espn_wbb_conferences()
 ```
-
-

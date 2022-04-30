@@ -25,5 +25,3 @@ Returns a tibble
 # Get current NCAA NET rankings
 ncaa_wbb_NET_rankings()
 ```
-
-

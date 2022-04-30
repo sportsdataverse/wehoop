@@ -155,5 +155,3 @@ A dataframe with 55 columns:
 future::plan("multisession")
 load_wbb_pbp(2002:2021)
 ```
-
-
