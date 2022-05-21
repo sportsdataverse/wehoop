@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,7 +110,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Get ESPN women's college basketball team names and ids</h1>
-      <small class="dont-index">Source: <a href="https://github.com/saiemgilani/wehoop/blob/HEAD/R/espn_wbb_data.R" class="external-link"><code>R/espn_wbb_data.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/R/espn_wbb_data.R" class="external-link"><code>R/espn_wbb_data.R</code></a></small>
       <div class="d-none name"><code>espn_wbb_teams.Rd</code></div>
     </div>
 
@@ -136,21 +136,21 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wbb_teams</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WBB Teams Information from ESPN.com ──────────────────── <span style="font-style: italic;">wehoop 1.3.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-30 06:44:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WBB Teams Information from ESPN.com ──────────────────── <span style="font-style: italic;">wehoop 1.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-05-21 08:49:45 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 356 × 11</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_id team       mascot nickname abbreviation display_name short_name color</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2000    Abilene C… Wildc… Abilene… ACU          Abilene Chr… Abilene C… 4e26…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2005    Air Force  Falco… Air For… AFA          Air Force F… Air Force  004a…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2006    Akron      Zips   Akron    AKR          Akron Zips   Akron      0028…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2010    Alabama A… Bulld… Alabama… AAMU         Alabama A&amp;M… Alabama A… 7900…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 333     Alabama    Crims… Alabama  ALA          Alabama Cri… Alabama    6900…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2011    Alabama S… Lady … Alabama… ALST         Alabama Sta… Alabama St e9a9…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 399     Albany     Great… Albany   ALB          Albany Grea… Albany     3D27…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2016    Alcorn St… Lady … Alcorn … ALCN         Alcorn Stat… Alcorn St  4b00…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 44      American … Eagles American AMER         American Un… American   c411…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2026    Appalachi… Mount… Appalac… APP          Appalachian… Appalachi… 0000…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    team_id abbreviation display_name      short_name mascot nickname team  color</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2000    ACU          Abilene Christia… Abilene C… Wildc… Abilene… Abil… 4e26…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2005    AFA          Air Force Falcons Air Force  Falco… Air For… Air … 004a…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2006    AKR          Akron Zips        Akron      Zips   Akron    Akron 0028…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2010    AAMU         Alabama A&amp;M Bull… Alabama A… Bulld… Alabama… Alab… 7900…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 333     ALA          Alabama Crimson … Alabama    Crims… Alabama  Alab… 6900…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2011    ALST         Alabama State La… Alabama St Lady … Alabama… Alab… e9a9…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 399     ALB          Albany Great Dan… Albany     Great… Albany   Alba… 3D27…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2016    ALCN         Alcorn State Lad… Alcorn St  Lady … Alcorn … Alco… 4b00…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 44      AMER         American Univers… American   Eagles American Amer… c411…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2026    APP          Appalachian Stat… Appalachi… Mount… Appalac… Appa… 0000…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 346 more rows, and 3 more variables: alternate_color &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   logo &lt;chr&gt;, logo_dark &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>

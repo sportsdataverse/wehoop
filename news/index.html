@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,9 +110,225 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/saiemgilani/wehoop/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.4.0" id="wehoop-140"><strong>wehoop 1.4.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-140"></a></h2>
+<div class="section level3">
+<h3 id="104-wnba-stats-api-functions-added-1-4-0">~104 WNBA Stats API functions added<a class="anchor" aria-label="anchor" href="#104-wnba-stats-api-functions-added-1-4-0"></a></h3>
+<table class="table"><thead><tr class="header"><th align="left">name</th>
+<th align="left">file</th>
+</tr></thead><tbody><tr class="odd"><td align="left"><code>wnba_alltimeleadersgrids</code></td>
+<td align="left">R/wnba_stats_leaders.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_assistleaders</code></td>
+<td align="left">R/wnba_stats_leaders.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_assisttracker</code></td>
+<td align="left">R/wnba_stats_leaders.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_boxscoreadvancedv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_boxscorefourfactorsv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_boxscoremiscv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_boxscoreplayertrackv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_boxscorescoringv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_boxscoresummaryv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_boxscoretraditionalv2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_boxscoreusagev2</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_commonallplayers</code></td>
+<td align="left">R/wnba_stats_roster.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_commonplayerinfo</code></td>
+<td align="left">R/wnba_stats_roster.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_commonplayoffseries</code></td>
+<td align="left">R/wnba_stats_roster.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_commonteamroster</code></td>
+<td align="left">R/wnba_stats_roster.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_cumestatsplayer</code></td>
+<td align="left">R/wnba_stats_cume.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_cumestatsplayergames</code></td>
+<td align="left">R/wnba_stats_cume.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_cumestatsteam</code></td>
+<td align="left">R/wnba_stats_cume.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_cumestatsteamgames</code></td>
+<td align="left">R/wnba_stats_cume.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_draftboard</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_draftcombinedrillresults</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_draftcombinenonstationaryshooting</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_draftcombineplayeranthro</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_draftcombinespotshooting</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_draftcombinestats</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_drafthistory</code></td>
+<td align="left">R/wnba_stats_draft.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_fantasywidget</code></td>
+<td align="left">R/wnba_stats_lineups.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_franchisehistory</code></td>
+<td align="left">R/wnba_stats_franchise.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_franchiseleaders</code></td>
+<td align="left">R/wnba_stats_franchise.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_franchiseplayers</code></td>
+<td align="left">R/wnba_stats_franchise.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_homepageleaders</code></td>
+<td align="left">R/wnba_stats_leaders.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_homepagev2</code></td>
+<td align="left">R/wnba_stats_leaders.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_hustlestatsboxscore</code></td>
+<td align="left">R/wnba_stats_boxscore.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguedashlineups</code></td>
+<td align="left">R/wnba_stats_lineups.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguedashplayerbiostats</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguedashplayerclutch</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguedashplayershotlocations</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguedashplayerstats</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguedashteamclutch</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguedashteamshotlocations</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguedashteamstats</code></td>
+<td align="left">R/wnba_stats_league_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguegamefinder</code></td>
+<td align="left">R/wnba_stats_league.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguegamelog</code></td>
+<td align="left">R/wnba_stats_league.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguehustlestatsplayer</code></td>
+<td align="left">R/wnba_stats_hustle.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguehustlestatsplayerleaders</code></td>
+<td align="left">R/wnba_stats_hustle.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguehustlestatsteam</code></td>
+<td align="left">R/wnba_stats_hustle.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguehustlestatsteamleaders</code></td>
+<td align="left">R/wnba_stats_hustle.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leaguelineupviz</code></td>
+<td align="left">R/wnba_stats_lineups.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leagueplayerondetails</code></td>
+<td align="left">R/wnba_stats_lineups.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_leagueseasonmatchups</code></td>
+<td align="left">R/wnba_stats_lineups.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_leaguestandingsv3</code></td>
+<td align="left">R/wnba_stats_league.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_pbp</code></td>
+<td align="left">R/wnba_stats_pbp.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerawards</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playercareerbycollege</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playercareerbycollegerollup</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playercareerstats</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playercompare</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerdashboardbyclutch</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerdashboardbygamesplits</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerdashboardbygeneralsplits</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerdashboardbylastngames</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerdashboardbyopponent</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerdashboardbyshootingsplits</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerdashboardbyteamperformance</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerdashboardbyyearoveryear</code></td>
+<td align="left">R/wnba_stats_player_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerestimatedmetrics</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerfantasyprofile</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerfantasyprofilebargraph</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playergamelog</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playergamelogs</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playergamestreakfinder</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playerheadshot</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerindex</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playernextngames</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_playerprofilev2</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_playervsplayer</code></td>
+<td align="left">R/wnba_stats_player.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_scoreboard</code></td>
+<td align="left">R/wnba_stats_scoreboard.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_scoreboardv2</code></td>
+<td align="left">R/wnba_stats_scoreboard.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_shotchartdetail</code></td>
+<td align="left">R/wnba_stats_shotchart.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_shotchartleaguewide</code></td>
+<td align="left">R/wnba_stats_shotchart.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamdashboardbyclutch</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamdashboardbygamesplits</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamdashboardbygeneralsplits</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamdashboardbylastngames</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamdashboardbyopponent</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamdashboardbyshootingsplits</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamdashboardbyteamperformance</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamdashboardbyyearoveryear</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamdashlineups</code></td>
+<td align="left">R/wnba_stats_team_dash.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamdetails</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamestimatedmetrics</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamgamelog</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamgamelogs</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamgamestreakfinder</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamhistoricalleaders</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teaminfocommon</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamplayerdashboard</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamplayeronoffdetails</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamplayeronoffsummary</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_teamvsplayer</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_teamyearbyyearstats</code></td>
+<td align="left">R/wnba_stats_team.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_videodetails</code></td>
+<td align="left">R/wnba_stats_video.R</td>
+</tr><tr class="odd"><td align="left"><code>wnba_videoevents</code></td>
+<td align="left">R/wnba_stats_video.R</td>
+</tr><tr class="even"><td align="left"><code>wnba_videostatus</code></td>
+<td align="left">R/wnba_stats_video.R</td>
+</tr></tbody></table></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.1" id="wehoop-121"><strong>wehoop 1.2.1</strong><a class="anchor" aria-label="anchor" href="#wehoop-121"></a></h2><p class="text-muted">CRAN release: 2021-11-09</p>
 <ul><li>Minor release to stay ahead of <code>tidyr</code> release revdepchecks</li></ul></div>

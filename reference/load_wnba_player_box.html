@@ -12,7 +12,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
     
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Load wehoop WNBA player box scores</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/saiemgilani/wehoop/blob/HEAD/R/wnba_pbp.R" class="external-link"><code>R/wnba_pbp.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/R/wnba_pbp.R" class="external-link"><code>R/wnba_pbp.R</code></a></small>
       <div class="d-none name"><code>load_wnba_player_box.Rd</code></div>
     </div>
 
@@ -151,23 +151,23 @@ the season data into a database (used by <code><a href="update_wnba_db.html">upd
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu">load_wnba_player_box</span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.3.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,912 × 35</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wnba_player_box</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.4.0</span> ──</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 113 × 35</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    athlete_display_n… team_short_disp… min   fg    fg3   ft    oreb  dreb  reb  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jantel Lavender    Fever            28    4-12  1-1   0-0   8     2     10   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Teaira McCowan     Fever            31    10-17 0-0   2-4   7     9     16   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Danielle Robinson  Fever            30    3-10  0-1   0-0   0     2     2    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Kelsey Mitchell    Fever            30    10-19 1-7   2-3   0     4     4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Victoria Vivians   Fever            20    2-6   0-3   0-0   0     2     2    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Jessica Breland    Fever            18    3-6   0-0   2-2   0     4     4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Chelsey Perry      Fever            3     0-1   0-0   0-0   0     0     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Tiffany Mitchell   Fever            20    2-10  0-3   3-3   3     1     4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Lindsay Allen      Fever            7     1-2   0-1   1-1   1     1     2    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Kysre Gondrezick   Fever            12    2-5   1-2   0-0   0     1     1    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,902 more rows, and 26 more variables: ast &lt;chr&gt;, stl &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   blk &lt;chr&gt;, to &lt;chr&gt;, pf &lt;chr&gt;, plus_minus &lt;chr&gt;, pts &lt;chr&gt;, starter &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> NaLyssa Smith      Fever            35    5-13  0-3   3-5   3     10    13   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Queen Egbo         Fever            20    5-9   0-0   0-0   1     5     6    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Tiffany Mitchell   Fever            18    3-5   1-1   0-0   1     0     1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Kelsey Mitchell    Fever            37    7-16  2-7   2-3   1     2     3    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Destanni Henderson Fever            17    2-6   0-1   0-0   1     1     2    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Alanna Smith       Fever            9     0-1   0-1   0-0   0     2     2    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Emily Engstler     Fever            17    2-5   0-1   0-0   2     7     9    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Victoria Vivians   Fever            22    4-11  1-4   0-0   3     3     6    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Crystal Dangerfie… Fever            18    2-5   1-3   0-0   0     0     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Lexie Hull         Fever            8     0-1   0-1   0-0   0     0     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 103 more rows, and 26 more variables: ast &lt;chr&gt;, stl &lt;chr&gt;, blk &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   to &lt;chr&gt;, pf &lt;chr&gt;, plus_minus &lt;chr&gt;, pts &lt;chr&gt;, starter &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ejected &lt;lgl&gt;, did_not_play &lt;lgl&gt;, active &lt;lgl&gt;, athlete_jersey &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_id &lt;chr&gt;, athlete_short_name &lt;chr&gt;, athlete_headshot_href &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_position_name &lt;chr&gt;, athlete_position_abbreviation &lt;chr&gt;,</span></span>

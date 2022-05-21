@@ -12,7 +12,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
     
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Load wehoop women's college basketball player box scores</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/saiemgilani/wehoop/blob/HEAD/R/wbb_pbp.R" class="external-link"><code>R/wbb_pbp.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/R/wbb_pbp.R" class="external-link"><code>R/wbb_pbp.R</code></a></small>
       <div class="d-none name"><code>load_wbb_player_box.Rd</code></div>
     </div>
 
@@ -151,22 +151,22 @@ the season data into a database (used by <code><a href="update_wbb_db.html">upda
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu">load_wbb_player_box</span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.3.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 75,026 × 34</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wbb_player_box</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.4.0</span> ──</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 111,045 × 34</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    athlete_display_n… team_short_disp… min   fg    fg3   ft    oreb  dreb  reb  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Kristin Scott      Iowa State       28    5-11  1-3   4-4   1     4     5    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Kylie Feuerbach    Iowa State       19    2-6   0-2   4-5   1     2     3    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Emily Ryan         Iowa State       20    1-4   1-3   0-0   0     6     6    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Lexi Donarski      Iowa State       23    2-10  0-2   0-0   0     1     1    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Ashley Joens       Iowa State       36    10-15 3-7   10-10 5     6     11   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Morgan Kane        Iowa State       9     4-4   0-0   0-1   3     1     4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Madison Wise       Iowa State       20    2-2   1-1   0-0   0     7     7    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Aubrey Joens       Iowa State       25    4-14  4-12  0-0   1     3     4    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Maddie Frederick   Iowa State       5     0-1   0-1   0-0   0     1     1    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Rae Johnson        Iowa State       15    1-4   1-4   0-0   0     0     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 75,016 more rows, and 25 more variables: ast &lt;chr&gt;, stl &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Autumn Newby       LSU              32    4-6   0-0   1-2   5     5     10   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Faustine Aifuwa    LSU              37    8-11  0-0   1-2   2     7     9    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Alexis Morris      LSU              40    3-8   0-2   2-2   0     4     4    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Jailin Cherry      LSU              40    5-15  0-1   0-0   2     2     4    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Khayla Pointer     LSU              40    7-20  4-8   3-7   0     2     2    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Awa Trasi          LSU              1     0-0   0-0   0-0   0     0     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Hannah Gusters     LSU              10    1-1   0-0   1-2   0     2     2    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Jordan Isaacs      Georgia          9     1-3   0-0   0-0   3     1     4    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Malury Bates       Georgia          27    1-6   0-0   1-2   1     6     7    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Sarah Ashlee Bark… Georgia          36    6-13  2-4   0-0   0     2     2    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 111,035 more rows, and 25 more variables: ast &lt;chr&gt;, stl &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   blk &lt;chr&gt;, to &lt;chr&gt;, pf &lt;chr&gt;, pts &lt;chr&gt;, starter &lt;lgl&gt;, ejected &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   did_not_play &lt;lgl&gt;, active &lt;lgl&gt;, athlete_jersey &lt;chr&gt;, athlete_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_short_name &lt;chr&gt;, athlete_headshot_href &lt;chr&gt;,</span></span>
