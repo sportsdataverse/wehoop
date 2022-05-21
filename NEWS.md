@@ -1,8 +1,8 @@
 # **wehoop 1.4.0**
 ## ~104 WNBA Stats API functions added
 
-|name                                         |file                       |
-|:--------------------------------------------|:--------------------------|
+|name                                           |file                       |
+|:----------------------------------------------|:--------------------------|
 |```wnba_alltimeleadersgrids()```               |R/wnba_stats_leaders.R     |
 |```wnba_assistleaders()```                     |R/wnba_stats_leaders.R     |
 |```wnba_assisttracker()```                     |R/wnba_stats_leaders.R     |
