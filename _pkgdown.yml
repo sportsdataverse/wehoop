@@ -163,6 +163,12 @@ reference:
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
     contents:
       - starts_with("ncaa_")
+  
+  - title: WNBA Stats Data
+  - subtitle: WNBA Stats Data Functions
+    desc: Functions exported by wehoop to access WNBA Stats API Data
+    contents:
+      - starts_with("wnba_")      
   - subtitle: wehoop Helper Functions
     desc: Internal functions used by wehoop
     contents:

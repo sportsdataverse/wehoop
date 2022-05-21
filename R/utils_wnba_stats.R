@@ -1,5 +1,8 @@
 .wnba_headers <-
-  function(url = "https://stats.wnba.com/stats/leaguegamelog?Counter=1000&Season=2019-20&Direction=DESC&LeagueID=00&PlayerOrTeam=P&SeasonType=Regular%20Season&Sorter=DATE") {
+  function(url = "https://stats.wnba.com/stats/leaguegamelog?Counter=1000&Season=2019-20&Direction=DESC&LeagueID=00&PlayerOrTeam=P&SeasonType=Regular%20Season&Sorter=DATE",
+           params = list(),
+           origin = "https://stats.wnba.com",
+           referer="https://www.wnba.com/") {
     
     headers <- c(
       `Host` = 'stats.wnba.com',
@@ -10,16 +13,22 @@
       `x-nba-stats-origin` = 'stats',
       `x-nba-stats-token` = 'true',
       `Connection` = 'keep-alive',
-      `Origin` = "http://stats.wnba.com",
-      `Referer` = 'https://www.wnba.com/',
+      `Origin` = origin,
+      `Referer` = referer,
       `Pragma` = 'no-cache',
       `Cache-Control` = 'no-cache'
     )
-    
-    res <-
-      httr::GET(url,
-                httr::add_headers(.headers = headers))
-    
+    if(length(params)>=1){
+      
+      res <-
+        httr::RETRY("GET", url,
+                    query = params,
+                    httr::add_headers(.headers = headers))
+    }else{
+      res <-
+        httr::RETRY("GET", url,
+                    httr::add_headers(.headers = headers))
+    }
     json <- res$content %>%
       rawToChar() %>%
       jsonlite::fromJSON(simplifyVector = T)

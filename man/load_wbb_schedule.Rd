@@ -30,6 +30,6 @@ or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
 \donttest{
-load_wbb_schedule(2021)
+  try(load_wbb_schedule())
 }
 }

@@ -60,7 +60,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_wnba_pbp(2021)
+#'   try(load_wnba_pbp())
 #' }
 load_wnba_pbp <- function(seasons = most_recent_wnba_season(),...,
                          dbConnection = NULL, tablename = NULL) {
@@ -112,7 +112,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_wnba_team_box(2021)
+#'   try(load_wnba_team_box())
 #' }
 load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -161,7 +161,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_wnba_player_box(2021)
+#'   try(load_wnba_player_box())
 #' }
 load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
@@ -211,7 +211,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_wnba_schedule(2021)
+#'   try(load_wnba_schedule())
 #' }
 load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
                               dbConnection = NULL, tablename = NULL) {

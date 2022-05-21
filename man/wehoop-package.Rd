@@ -18,16 +18,16 @@ A utility for working with women's basketball data. A scraping and aggregating i
 Useful links:
 \itemize{
   \item \url{https://wehoop.sportsdataverse.org}
-  \item \url{https://github.com/saiemgilani/wehoop}
-  \item Report bugs at \url{https://github.com/saiemgilani/wehoop/issues}
+  \item \url{https://github.com/sportsdataverse/wehoop}
+  \item Report bugs at \url{https://github.com/sportsdataverse/wehoop/issues}
 }
 
 
 Useful links:
 \itemize{
   \item \url{https://wehoop.sportsdataverse.org}
-  \item \url{https://github.com/saiemgilani/wehoop}
-  \item Report bugs at \url{https://github.com/saiemgilani/wehoop/issues}
+  \item \url{https://github.com/sportsdataverse/wehoop}
+  \item Report bugs at \url{https://github.com/sportsdataverse/wehoop/issues}
 }
 
 }
@@ -36,7 +36,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Geoff Hutchinson \email{geoffery.hutchinson@gmail.com}
+  \item Geoffery Hutchinson \email{geoffery.hutchinson@gmail.com}
 }
 
 
@@ -44,7 +44,7 @@ Authors:
 
 Authors:
 \itemize{
-  \item Geoff Hutchinson \email{geoffery.hutchinson@gmail.com}
+  \item Geoffery Hutchinson \email{geoffery.hutchinson@gmail.com}
 }
 
 }

@@ -74,6 +74,6 @@ or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
 \donttest{
-load_wnba_pbp(2021)
+  try(load_wnba_pbp())
 }
 }

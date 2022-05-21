@@ -73,7 +73,7 @@ NULL
 #' @export
 #' @examples
 #' \donttest{
-#' load_wbb_pbp(2004:2021)
+#'   try(load_wbb_pbp())
 #' }
 load_wbb_pbp <- function(seasons = most_recent_wbb_season(),...,
                          dbConnection = NULL, tablename = NULL) {
@@ -123,7 +123,7 @@ NULL
 #' @import furrr
 #' @export
 #' @examples \donttest{
-#' load_wbb_team_box(2021)
+#'   try(load_wbb_team_box())
 #' }
 load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -173,7 +173,7 @@ NULL
 #' @import furrr
 #' @export
 #' @examples \donttest{
-#' load_wbb_player_box(2021)
+#'   try(load_wbb_player_box())
 #' }
 load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
                                 dbConnection = NULL, tablename = NULL) {
@@ -223,7 +223,7 @@ NULL
 #' @import furrr
 #' @export
 #' @examples \donttest{
-#' load_wbb_schedule(2021)
+#'   try(load_wbb_schedule())
 #' }
 
 load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
