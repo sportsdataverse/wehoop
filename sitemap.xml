@@ -172,6 +172,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/franchiseplayers.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/game_rotation.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/homepageleaders.html</loc>
   </url>
   <url>
@@ -443,5 +446,8 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wehoop-package.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.html</loc>
   </url>
 </urlset>
