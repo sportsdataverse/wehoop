@@ -56,7 +56,6 @@ NULL
 #' \item{game_play_number}{Game play number}
 #' \item{game_id}{Unique identifier for the game event}
 #' }
-#' @import furrr
 #' @export
 #' @examples
 #' \donttest{
@@ -108,7 +107,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the team box data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples
 #' \donttest{
@@ -157,7 +155,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player box data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples
 #' \donttest{
@@ -207,7 +204,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the schedule data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples
 #' \donttest{
@@ -295,7 +291,6 @@ load_wnba_games <- function(){
 #' @param db_connection A `DBIConnection` object, as returned by
 #' [DBI::dbConnect()] (please see details for further information)
 #' @return Logical TRUE/FALSE
-#' @import furrr
 #' @export
 update_wnba_db <- function(dbdir = ".",
                           dbname = "wehoop_db",

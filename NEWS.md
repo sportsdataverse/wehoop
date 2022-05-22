@@ -110,6 +110,7 @@
 |```wnba_videoevents()```                       |R/wnba_stats_video.R       |
 |```wnba_videostatus()```                       |R/wnba_stats_video.R       |
 
+* Removes ```furrr``` and ```future``` dependencies and replaces with ```purrr (>= 0.3.0)```
 
 # **wehoop 1.2.1**
 - Minor release to stay ahead of `tidyr` release revdepchecks

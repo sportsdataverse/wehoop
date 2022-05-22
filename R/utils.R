@@ -76,8 +76,7 @@ user_message <- function(x, type) {
     usethis::ui_oops("{my_time()} | {x}")
   }
 }
-# Identify sessions with sequential future resolving
-is_sequential <- function() inherits(future::plan(), "sequential")
+
 # check if a package is installed
 is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 # custom mode function from https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode/8189441

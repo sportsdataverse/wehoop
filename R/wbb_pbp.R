@@ -11,7 +11,6 @@ NULL
 #' the season data into a database (used by `update_wbb_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
-#' @import furrr
 #' @return A dataframe with 55 columns:
 #' \describe{
 #' \item{shooting_play}{Logical value (TRUE/FALSE) indicating whether the play was a shooting play}
@@ -120,7 +119,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples \donttest{
 #'   try(load_wbb_team_box())
@@ -170,7 +168,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples \donttest{
 #'   try(load_wbb_player_box())
@@ -220,7 +217,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples \donttest{
 #'   try(load_wbb_schedule())
@@ -308,7 +304,6 @@ load_wbb_games <- function(){
 #' @param db_connection A `DBIConnection` object, as returned by
 #' [DBI::dbConnect()] (please see details for further information)
 #' @return Logical TRUE/FALSE
-#' @import furrr
 #' @export
 update_wbb_db <- function(dbdir = ".",
                           dbname = "wehoop_db",

@@ -14,6 +14,8 @@ Returns a tibble
 }
 \description{
 \strong{Get WNBA Data API Play-by-Play}
+
+\strong{Get WNBA Data API Play-by-Play}
 }
 \author{
 Saiem Gilani
