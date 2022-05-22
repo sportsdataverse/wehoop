@@ -57,28 +57,28 @@ pacman::p_load_current_gh("sportsdataverse/wehoop", dependencies = TRUE, update 
 ``` r
 tictoc::tic()
 progressr::with_progress({
-  wnba_pbp <- wehoop::load_wnba_pbp(2002:2021)
+  wnba_pbp <- wehoop::load_wnba_pbp()
 })
 tictoc::toc()
 ```
 
-    ## 14.04 sec elapsed
+    ## 0.42 sec elapsed
 
-    ## 1784144 rows of WNBA play-by-play data from 4677 games.
+    ## 13846 rows of WNBA play-by-play data from 35 games.
 
 ### **Women’s college basketball full play-by-play seasons (2004-2021) \~ 2-3 minutes**
 
 ``` r
 tictoc::tic()
 progressr::with_progress({
-  wbb_pbp <- wehoop::load_wbb_pbp(2004:2021)
+  wbb_pbp <- wehoop::load_wbb_pbp()
 })
 tictoc::toc()
 ```
 
-    ## 53.27 sec elapsed
+    ## 13.67 sec elapsed
 
-    ## 8650487 rows of women's college basketball play-by-play data from 26023 games.
+    ## 1760447 rows of women's college basketball play-by-play data from 5347 games.
 
 ## **Documentation**
 
