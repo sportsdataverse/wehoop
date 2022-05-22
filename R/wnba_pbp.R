@@ -77,7 +77,7 @@ load_wnba_pbp <- function(seasons = most_recent_wnba_season(),...,
             seasons >= 2002,
             seasons <= most_recent_wnba_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/pbp/rds/play_by_play_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wnba/pbp/rds/play_by_play_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -127,7 +127,7 @@ load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
             seasons >= 2003,
             seasons <= most_recent_wnba_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/team_box/rds/team_box_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wnba/team_box/rds/team_box_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -174,7 +174,7 @@ load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
             seasons >= 2002,
             seasons <= most_recent_wnba_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/player_box/rds/player_box_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wnba/player_box/rds/player_box_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -224,7 +224,7 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
             seasons >= 2002,
             seasons <= most_recent_wnba_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/schedules/rds/wnba_schedule_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wnba/schedules/rds/wnba_schedule_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -242,7 +242,7 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
 
 # load games file
 load_wnba_games <- function(){
-  .url <- "https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/wnba/wnba_games_in_data_repo.csv"
+  .url <- "https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wnba/wnba_games_in_data_repo.csv"
   con <- url(.url)
   dat <- utils::read.csv(con)
   # close(con)

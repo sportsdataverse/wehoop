@@ -124,24 +124,24 @@
 
 # **wehoop 1.1.0** 
 ### **Add schedule loaders**
-- [```wehoop::load_wbb_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_schedule.html) function added
-- [```wehoop::load_wnba_schedule()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_schedule.html) function added
+- [```wehoop::load_wbb_schedule()```](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule.html) function added
+- [```wehoop::load_wnba_schedule()```](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule.html) function added
 
 # **wehoop 1.0.0** 
 ### **Add team box score loaders**
-- [```wehoop::load_wbb_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_team_box.html) function added
-- [```wehoop::load_wnba_team_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_team_box.html) function added
+- [```wehoop::load_wbb_team_box()```](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.html) function added
+- [```wehoop::load_wnba_team_box()```](https://wehoop.sportsdataverse.org/reference/load_wnba_team_box.html) function added
 
 ### **Add player box score loaders**
-- [```wehoop::load_wbb_player_box()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_player_box.html) function added
-- [```wehoop::load_wnba_player_box()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_player_box.html) function added
+- [```wehoop::load_wbb_player_box()```](https://wehoop.sportsdataverse.org/reference/load_wbb_player_box.html) function added
+- [```wehoop::load_wnba_player_box()```](https://wehoop.sportsdataverse.org/reference/load_wnba_player_box.html) function added
 
 ### **Standings functions**
-- [```wehoop::espn_wnba_standings()```](https://saiemgilani.github.io/wehoop/reference/espn_wnba_standings.html)
-- [```wehoop::espn_wbb_standings()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_standings.html)
+- [```wehoop::espn_wnba_standings()```](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.html)
+- [```wehoop::espn_wbb_standings()```](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.html)
 
 ### **Getting Started vignette**
-- [Getting started with wehoop data](https://saiemgilani.github.io/wehoop/articles/getting-started-wehoop.html)
+- [Getting started with wehoop data](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html)
 
 # **wehoop 0.9.2** 
 ### **Quick fix for update db functions**
@@ -152,14 +152,14 @@ This update is a non-user facing change to package dependencies to shrink the li
 # **wehoop 0.9.1**
 ### **Clean names and team returns**
 - All functions have now been given the [```janitor::clean_names()```](https://rdrr.io/cran/janitor/man/clean_names.html) treatment
-- [```wehoop::espn_wbb_teams()```](https://saiemgilani.github.io/wehoop/reference/espn_wbb_teams.html) has updated the returns to be more identity information related only
-- [```wehoop::espn_wnba_teams()```](https://saiemgilani.github.io/wehoop/reference/espn_wnba_teams.html) to be more identity information related only
+- [```wehoop::espn_wbb_teams()```](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.html) has updated the returns to be more identity information related only
+- [```wehoop::espn_wnba_teams()```](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.html) to be more identity information related only
 - All tests were updated
 
 # **wehoop 0.9.0**
 ### **Loading capabilities added to the package**
-- [```wehoop::load_wbb_pbp()```](https://saiemgilani.github.io/wehoop/reference/load_wbb_pbp.html) and [```wehoop::update_wbb_db()```](https://saiemgilani.github.io/wehoop/reference/update_wbb_db.html) functions added
-- [```wehoop::load_wnba_pbp()```](https://saiemgilani.github.io/wehoop/reference/load_wnba_pbp.html) and [```wehoop::update_wnba_db()```](https://saiemgilani.github.io/wehoop/reference/update_wnba_db.html) functions added
+- [```wehoop::load_wbb_pbp()```](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.html) and [```wehoop::update_wbb_db()```](https://wehoop.sportsdataverse.org/reference/update_wbb_db.html) functions added
+- [```wehoop::load_wnba_pbp()```](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.html) and [```wehoop::update_wnba_db()```](https://wehoop.sportsdataverse.org/reference/update_wnba_db.html) functions added
 
 # **wehoop 0.3.0**
 ###  **Dependencies**

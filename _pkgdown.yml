@@ -25,7 +25,7 @@ template:
     btn-border-radius: 0.25rem
   opengraph:
     image:
-      src: "https://raw.githubusercontent.com/saiemgilani/wehoop-data/master/themes/wehoop_gh.png"
+      src: "https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/themes/wehoop_gh.png"
     twitter:
       creator: "@saiemgilani"
       site: "@sportsdataverse"
@@ -54,7 +54,7 @@ navbar:
   structure:
     left:  [home, reference, articles, news, network, data]
     right: [twitter, github]
-  icon: https://raw.githubusercontent.com/saiemgilani/wehoop/master/man/figures/logo.ico
+  icon: https://raw.githubusercontent.com/sportsdataverse/wehoop/main/man/figures/logo.ico
   title: "wehoop"
   components:
     reference:
@@ -103,7 +103,7 @@ navbar:
       - text: cfb4th
         href: https://kazink36.github.io/cfb4th/
       - text: recruitR
-        href: https://saiemgilani.github.io/recruitR/
+        href: https://recruitR.sportsdataverse.org/
       - text: gamezoneR
         href: https://jacklich10.github.io/gamezoneR/
       - text: puntr
@@ -123,13 +123,13 @@ navbar:
       text: " Data"
       menu:
       - text: "Data Repository"
-        href: https://github.com/saiemgilani/wehoop-data
+        href: https://github.com/sportsdataverse/wehoop-data
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: http://twitter.com/saiemgilani
     github:
       icon: "fab fa-github fa-lg"
-      href: https://github.com/saiemgilani/wehoop/
+      href: https://github.com/sportsdataverse/wehoop/
       
 reference:
   - title: wehoop Data
