@@ -523,3 +523,58 @@ wnba_hustlestatsboxscore <- function(game_id){
   )
   return(df_list)
 }
+
+
+#' **Get WNBA Stats API Game Rotation**
+#' @name game_rotation
+NULL
+#' @title
+#' **Get WNBA Stats API Game Rotation**
+#' @rdname game_rotation
+#' @author Saiem Gilani
+#' @param game_id Game ID
+#' @param league_id League ID 
+#' @param rotation_stat Rotation stat to provide details on: PLAYER_PTS, PT_DIFF, USG_PCT
+#' @return Returns a named list of data frames: AwayTeam, HomeTeam
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
+#' @import rvest
+#' @export
+wnba_gamerotation <- function(
+  game_id,
+  league_id='10', 
+  rotation_stat = 'PLAYER_PTS'){
+  
+  version <- "gamerotation"
+  endpoint <- wnba_endpoint(version)
+  
+  full_url <- paste0(endpoint,
+                     "?GameID=",pad_id(game_id),
+                     "&LeagueID=",league_id,
+                     "&RotationStat=", rotation_stat)
+  tryCatch(
+    expr={
+      resp <- full_url %>%
+        .wnba_headers()
+      
+      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
+        data <- resp$resultSets$rowSet[[x]] %>%
+          data.frame(stringsAsFactors = F) %>%
+          as_tibble()
+        
+        json_names <- resp$resultSets$headers[[x]]
+        colnames(data) <- json_names
+        return(data)
+      })
+      names(df_list) <- resp$resultSets$name
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no game rotation data for {game_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}

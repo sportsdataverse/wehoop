@@ -1,5 +1,5 @@
 # **wehoop 1.4.0**
-## ~104 WNBA Stats API functions added
+## ~106 WNBA Stats API functions added
 
 |name                                           |file                       |
 |:----------------------------------------------|:--------------------------|
@@ -22,6 +22,7 @@
 |```wnba_cumestatsplayergames()```              |R/wnba_stats_cume.R        |
 |```wnba_cumestatsteam()```                     |R/wnba_stats_cume.R        |
 |```wnba_cumestatsteamgames()```                |R/wnba_stats_cume.R        |
+|```wnba_data_pbp()```                          |R/wnba_data_pbp.R          |
 |```wnba_draftboard()```                        |R/wnba_stats_draft.R       |
 |```wnba_draftcombinedrillresults()```          |R/wnba_stats_draft.R       |
 |```wnba_draftcombinenonstationaryshooting()``` |R/wnba_stats_draft.R       |
@@ -33,6 +34,7 @@
 |```wnba_franchisehistory()```                  |R/wnba_stats_franchise.R   |
 |```wnba_franchiseleaders()```                  |R/wnba_stats_franchise.R   |
 |```wnba_franchiseplayers()```                  |R/wnba_stats_franchise.R   |
+|```wnba_gamerotation()```                      |R/wnba_stats_boxscore.R    |
 |```wnba_homepageleaders()```                   |R/wnba_stats_leaders.R     |
 |```wnba_homepagev2()```                        |R/wnba_stats_leaders.R     |
 |```wnba_hustlestatsboxscore()```               |R/wnba_stats_boxscore.R    |
