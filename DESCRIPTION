@@ -1,6 +1,6 @@
 Package: wehoop
 Title: Access Women's Basketball Play by Play Data
-Version: 1.4.0
+Version: 1.5.0
 Authors@R: c(person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com',role = c('aut','cre')),
              person('Geoffery','Hutchinson', email = 'geoffery.hutchinson@gmail.com', role = c('aut')))
 Description: A utility for working with women's basketball data. A scraping and aggregating interface for the WNBA Stats API <https://www.espn.com> and ESPN's <https://www.espn.com> women's college basketball and WNBA statistics. It provides users with the capability to access the game play-by-plays, box scores, standings and results to analyze the data for themselves.

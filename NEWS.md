@@ -1,4 +1,4 @@
-# **wehoop 1.4.0**
+# **wehoop 1.5.0**
 ## ~106 WNBA Stats API functions added
 
 |name                                           |file                       |
