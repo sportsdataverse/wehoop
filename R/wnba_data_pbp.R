@@ -1,5 +1,5 @@
-#' **Get NBA Data API Play-by-Play**
-#' @name nba_data_pbp
+#' **Get WNBA Data API Play-by-Play**
+#' @name wnba_data_pbp
 NULL
 #' @title
 #' **Get WNBA Data API Play-by-Play**
@@ -10,7 +10,6 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr select mutate rename case_when
 #' @importFrom tidyr everything
-#' @import furrr
 #' @import rvest
 #' @export
 wnba_data_pbp <- function(game_id = "1022200034"){

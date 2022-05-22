@@ -1,9 +1,9 @@
 Package: wehoop
-Title: Functions to Access Women's Basketball Play by Play Data
-Version: 1.4.0
+Title: Access Women's Basketball Play by Play Data
+Version: 1.5.0
 Authors@R: c(person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com',role = c('aut','cre')),
              person('Geoffery','Hutchinson', email = 'geoffery.hutchinson@gmail.com', role = c('aut')))
-Description: A utility for working with women's basketball data. A scraping and aggregating interface for ESPN's<https://www.espn.com> women's college basketball and WNBA statistics. It provides users with the capability to access the ESPN API's game play-by-plays, box scores, standings and results to analyze the data for themselves.
+Description: A utility for working with women's basketball data. A scraping and aggregating interface for the WNBA Stats API <https://www.espn.com> and ESPN's <https://www.espn.com> women's college basketball and WNBA statistics. It provides users with the capability to access the game play-by-plays, box scores, standings and results to analyze the data for themselves.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://wehoop.sportsdataverse.org, https://github.com/sportsdataverse/wehoop
@@ -14,12 +14,11 @@ Imports:
     cli (>= 3.0.0),
     data.table (>= 1.14.0),
     dplyr,
-    furrr,
-    future,
     glue,
     janitor,
     jsonlite,
     magrittr,
+    purrr (>= 0.3.0),
     progressr (>= 0.6.0),
     Rcpp (>= 1.0.7),
     RcppParallel (>= 5.1.4),
@@ -36,7 +35,6 @@ Suggests:
     ggrepel,
     httr (>= 0.5),
     knitr,
-    purrr (>= 0.3.0),
     rmarkdown,
     RSQLite,
     stats,

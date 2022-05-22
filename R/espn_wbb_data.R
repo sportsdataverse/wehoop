@@ -492,7 +492,6 @@ espn_wbb_conferences <- function(){
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
 #' @importFrom tidyr unnest unnest_wider everything pivot_wider
 #' @import rvest
-#' @import furrr
 #' @export
 #'
 #' @examples
@@ -585,7 +584,6 @@ espn_wbb_teams <- function(){
 #' @return Returns a tibble
 #' @import utils
 #' @import rvest
-#' @import furrr
 #' @importFrom dplyr select rename any_of mutate
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest_wider unchop hoist
