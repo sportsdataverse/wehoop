@@ -2,7 +2,7 @@
 % Please edit documentation in R/espn_wbb_data.R
 \name{espn_wbb_scoreboard}
 \alias{espn_wbb_scoreboard}
-\title{Get women's college basketball schedule for a specific year from ESPN's API}
+\title{\strong{Get ESPN women's college basketball schedule for a specific year}}
 \usage{
 espn_wbb_scoreboard(season)
 }
@@ -13,15 +13,12 @@ espn_wbb_scoreboard(season)
 Returns a tibble
 }
 \description{
-Get women's college basketball schedule for a specific year from ESPN's API
+\strong{Get ESPN women's college basketball schedule for a specific year}
 }
 \examples{
-# Get schedule returns 1000 results, max allowable.
-# Get schedule from date 2021-02-15, then next date and so on.
+
+# Get schedule from date 2021-02-15
 \donttest{
-  try(espn_wbb_scoreboard (season = "20210215"))
+  try(espn_wbb_scoreboard (season = "20220215"))
 }
-}
-\author{
-Saiem Gilani
 }
