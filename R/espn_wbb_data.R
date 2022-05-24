@@ -40,21 +40,142 @@ espn_wbb_game_all <- function(game_id){
   tryCatch(
     expr = {
       raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
-      plays <- raw_play_df[["plays"]]
-      plays <- jsonlite::fromJSON(jsonlite::toJSON(plays), flatten=TRUE)
-      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       
-      plays <- plays %>%
+      homeAway1 <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
+      
+      season <- raw_play_df[['header']][['season']][['year']]
+      season_type <- raw_play_df[['header']][['season']][['type']]
+      game_date <- as.Date(substr(raw_play_df[['header']][['competitions']][['date']], 0, 10))
+      id_vars <- data.frame()
+      if (homeAway1 == "home") {
+        
+        homeTeamId = as.integer(raw_play_df[["header"]][["competitions"]][["competitors"]][[1]][['team']][['id']][1])
+        homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+        homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+        homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+        homeTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][1]
+        homeTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][2]
+        homeTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][1]
+        homeTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][1]
+        homeTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][1]
+        homeTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][1])
+        homeTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][1]
+        homeTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][1]
+        awayTeamId = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2])
+        awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+        awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+        awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+        awayTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][1]
+        awayTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][2]
+        awayTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][2]
+        awayTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][2]
+        awayTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][2]
+        awayTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][2])
+        awayTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][2]
+        awayTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][2]
+        id_vars <- data.frame(
+          homeTeamId,
+          homeTeamMascot,
+          homeTeamName,
+          homeTeamAbbrev,
+          homeTeamLogo,
+          homeTeamLogoDark,
+          homeTeamFullName,
+          homeTeamColor,
+          homeTeamAlternateColor,
+          homeTeamScore,
+          homeTeamWinner,
+          homeTeamRecord,
+          awayTeamId,
+          awayTeamMascot,
+          awayTeamName,
+          awayTeamAbbrev,
+          awayTeamLogo,
+          awayTeamLogoDark,
+          awayTeamFullName,
+          awayTeamColor,
+          awayTeamAlternateColor,
+          awayTeamScore,
+          awayTeamWinner,
+          awayTeamRecord
+        )
+      }
+      else {
+        
+        awayTeamId = as.integer(raw_play_df[["header"]][["competitions"]][["competitors"]][[1]][['team']][['id']][1])
+        awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+        awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+        awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+        awayTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][1]
+        awayTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][2]
+        awayTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][1]
+        awayTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][1]
+        awayTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][1]
+        awayTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][1])
+        awayTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][1]
+        awayTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][1]
+        homeTeamId = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2])
+        homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+        homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+        homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+        homeTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][1]
+        homeTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][2]
+        homeTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][2]
+        homeTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][2]
+        homeTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][2]
+        homeTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][2])
+        homeTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][2]
+        homeTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][2]
+        id_vars <- data.frame(
+          homeTeamId,
+          homeTeamMascot,
+          homeTeamName,
+          homeTeamAbbrev,
+          homeTeamLogo,
+          homeTeamLogoDark,
+          homeTeamFullName,
+          homeTeamColor,
+          homeTeamAlternateColor,
+          homeTeamScore,
+          homeTeamWinner,
+          homeTeamRecord,
+          awayTeamId,
+          awayTeamMascot,
+          awayTeamName,
+          awayTeamAbbrev,
+          awayTeamLogo,
+          awayTeamLogoDark,
+          awayTeamFullName,
+          awayTeamColor,
+          awayTeamAlternateColor,
+          awayTeamScore,
+          awayTeamWinner,
+          awayTeamRecord
+        )
+        
+      }
+      
+      raw_play_df <-
+        jsonlite::fromJSON(jsonlite::toJSON(raw_play_df), flatten = TRUE)
+      
+      
+      plays <- raw_play_df[["plays"]] %>%
         tidyr::unnest_wider(.data$participants)
       suppressWarnings(
         aths <- plays %>%
           dplyr::group_by(.data$id) %>%
           dplyr::select(.data$id, .data$athlete.id) %>%
-          tidyr::unnest_wider(.data$athlete.id,names_sep = ".")
+          tidyr::unnest_wider(.data$athlete.id, names_sep = "_")
       )
-      names(aths)<-c("play.id","athlete.id.1","athlete.id.2")
-      plays_df <- dplyr::bind_cols(plays, aths) %>%
-        select(-.data$athlete.id) %>%
+      names(aths) <- c("play.id", "athlete.id.1", "athlete.id.2")
+      plays_df <- dplyr::bind_cols(plays, aths, id_vars) %>%
+        select(-.data$athlete.id)  %>%
+        dplyr::mutate(
+          game_id = game_id,
+          season = season,
+          season_type = season_type,
+          game_date = game_date) %>%
+        janitor::clean_names() %>%
         make_wehoop_data("ESPN WBB Play-by-Play Information from ESPN.com",Sys.time())
       
     },
@@ -216,32 +337,153 @@ espn_wbb_pbp <- function(game_id){
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
   
-  res <- httr::RETRY("GET", full_url)
-  
-  # Check the result
-  check_status(res)
-  
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8") 
-  
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][["plays"]]
       
-      raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
-      #---- Play-by-Play ------
-      plays <- raw_play_df %>%
+      res <- httr::RETRY("GET", full_url)
+      
+      # Check the result
+      check_status(res)
+      
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8") 
+      
+      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      
+      homeAway1 <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
+      
+      season <- raw_play_df[['header']][['season']][['year']]
+      season_type <- raw_play_df[['header']][['season']][['type']]
+      game_date <- as.Date(substr(raw_play_df[['header']][['competitions']][['date']], 0, 10))
+      id_vars <- data.frame()
+      if (homeAway1 == "home") {
+        
+        homeTeamId = as.integer(raw_play_df[["header"]][["competitions"]][["competitors"]][[1]][['team']][['id']][1])
+        homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+        homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+        homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+        homeTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][1]
+        homeTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][2]
+        homeTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][1]
+        homeTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][1]
+        homeTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][1]
+        homeTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][1])
+        homeTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][1]
+        homeTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][1]
+        awayTeamId = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2])
+        awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+        awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+        awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+        awayTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][1]
+        awayTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][2]
+        awayTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][2]
+        awayTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][2]
+        awayTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][2]
+        awayTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][2])
+        awayTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][2]
+        awayTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][2]
+        id_vars <- data.frame(
+          homeTeamId,
+          homeTeamMascot,
+          homeTeamName,
+          homeTeamAbbrev,
+          homeTeamLogo,
+          homeTeamLogoDark,
+          homeTeamFullName,
+          homeTeamColor,
+          homeTeamAlternateColor,
+          homeTeamScore,
+          homeTeamWinner,
+          homeTeamRecord,
+          awayTeamId,
+          awayTeamMascot,
+          awayTeamName,
+          awayTeamAbbrev,
+          awayTeamLogo,
+          awayTeamLogoDark,
+          awayTeamFullName,
+          awayTeamColor,
+          awayTeamAlternateColor,
+          awayTeamScore,
+          awayTeamWinner,
+          awayTeamRecord
+        )
+      }
+      else {
+        
+        awayTeamId = as.integer(raw_play_df[["header"]][["competitions"]][["competitors"]][[1]][['team']][['id']][1])
+        awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
+        awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
+        awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
+        awayTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][1]
+        awayTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][2]
+        awayTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][1]
+        awayTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][1]
+        awayTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][1]
+        awayTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][1])
+        awayTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][1]
+        awayTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][1]
+        homeTeamId = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2])
+        homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
+        homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+        homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
+        homeTeamLogo = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][1]
+        homeTeamLogoDark = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][2]
+        homeTeamFullName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][2]
+        homeTeamColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][2]
+        homeTeamAlternateColor = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][2]
+        homeTeamScore = as.integer(raw_play_df[['header']][['competitions']][['competitors']][[1]][['score']][2])
+        homeTeamWinner = raw_play_df[['header']][['competitions']][['competitors']][[1]][['winner']][2]
+        homeTeamRecord = raw_play_df[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][2]
+        id_vars <- data.frame(
+          homeTeamId,
+          homeTeamMascot,
+          homeTeamName,
+          homeTeamAbbrev,
+          homeTeamLogo,
+          homeTeamLogoDark,
+          homeTeamFullName,
+          homeTeamColor,
+          homeTeamAlternateColor,
+          homeTeamScore,
+          homeTeamWinner,
+          homeTeamRecord,
+          awayTeamId,
+          awayTeamMascot,
+          awayTeamName,
+          awayTeamAbbrev,
+          awayTeamLogo,
+          awayTeamLogoDark,
+          awayTeamFullName,
+          awayTeamColor,
+          awayTeamAlternateColor,
+          awayTeamScore,
+          awayTeamWinner,
+          awayTeamRecord
+        )
+        
+      }
+      
+      raw_play_df <-
+        jsonlite::fromJSON(jsonlite::toJSON(raw_play_df), flatten = TRUE)
+      
+      
+      plays <- raw_play_df[["plays"]] %>%
         tidyr::unnest_wider(.data$participants)
       suppressWarnings(
         aths <- plays %>%
           dplyr::group_by(.data$id) %>%
           dplyr::select(.data$id, .data$athlete.id) %>%
-          tidyr::unnest_wider(.data$athlete.id,names_sep = ".")
+          tidyr::unnest_wider(.data$athlete.id, names_sep = "_")
       )
-      names(aths)<-c("play.id","athlete.id.1","athlete.id.2")
-      plays_df <- dplyr::bind_cols(plays, aths) %>%
-        select(-.data$athlete.id)
-      plays_df <- plays_df %>% 
+      names(aths) <- c("play.id", "athlete.id.1", "athlete.id.2")
+      plays_df <- dplyr::bind_cols(plays, aths, id_vars) %>%
+        select(-.data$athlete.id)  %>%
+        dplyr::mutate(
+          game_id = game_id,
+          season = season,
+          season_type = season_type,
+          game_date = game_date) %>%
         janitor::clean_names() %>%
         make_wehoop_data("ESPN WBB Play-by-Play Information from ESPN.com",Sys.time())
     },
@@ -278,18 +520,19 @@ espn_wbb_team_box <- function(game_id){
   
   full_url <- paste0(play_base_url,
                      "gameId=", game_id)
-  
-  res <- httr::RETRY("GET", full_url)
-  
-  # Check the result
-  check_status(res)
-  
-  resp <- res %>%
-    httr::content(as = "text", encoding = "UTF-8") 
-  
+
   #---- Team Box ------
   tryCatch(
-    expr = {
+    expr = {  
+      
+      res <- httr::RETRY("GET", full_url)
+      
+      # Check the result
+      check_status(res)
+      
+      resp <- res %>%
+        httr::content(as = "text", encoding = "UTF-8") 
+      
       raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
