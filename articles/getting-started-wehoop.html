@@ -209,15 +209,15 @@
   <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.427 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.528 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## 13.91 sec elapsed</span>
 <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 14962 rows of WNBA play-by-play data from 38 games.</span></code></pre>
+<pre><code><span class="co">## 20162 rows of WNBA play-by-play data from 51 games.</span></code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## 1782985 rows of WNBA play-by-play data from 4674 games.</span>
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Rows: 14,962</span>
+<pre><code><span class="co">## Rows: 20,162</span>
 <span class="co">## Columns: 42</span>
 <span class="co">## $ shooting_play             <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, TRU…</span>
 <span class="co">## $ sequence_number           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "4", "7", "9", "12", "14", "15", "16", "17",…</span>
@@ -273,13 +273,13 @@
 <span class="op">}</span><span class="op">)</span>
 
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.047 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.02 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games."</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 76 rows of WNBA team boxscore data from 38 games.</span></code></pre>
+<pre><code><span class="co">## 102 rows of WNBA team boxscore data from 51 games.</span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_team_box</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Rows: 76</span>
+<pre><code><span class="co">## Rows: 102</span>
 <span class="co">## Columns: 40</span>
 <span class="co">## $ team_short_display_name                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Fever"…</span>
 <span class="co">## $ team_uid                                                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "s:40~l…</span>
@@ -332,13 +332,13 @@
   <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.043 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.028 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## [1] 38</span></code></pre>
+<pre><code><span class="co">## [1] 51</span></code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## [1] 722</span></code></pre>
+<pre><code><span class="co">## [1] 962</span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-play-by-play-seasons-2004-2022-45-90-seconds">
@@ -350,7 +350,7 @@
   <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 13.491 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 16.608 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 5347</span></code></pre>
@@ -368,7 +368,7 @@
   <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.154 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.164 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 5509</span></code></pre>
@@ -386,7 +386,7 @@
   <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.796 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.954 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 5508</span></code></pre>
