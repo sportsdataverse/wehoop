@@ -1,6 +1,6 @@
 ## Release summary
 
-This is a minor release that 
+This is a minor release that:  
 * Adds 106 functions covering the [WNBA Stats API](https://www.wnba.com) as follows
 
 |name                                           |file                       |
@@ -111,6 +111,13 @@ This is a minor release that
 |```wnba_videodetails()```                      |R/wnba_stats_video.R       |
 |```wnba_videoevents()```                       |R/wnba_stats_video.R       |
 |```wnba_videostatus()```                       |R/wnba_stats_video.R       |
+
+
+* Adds 4 ESPN WBB and WNBA functions
+  - ```espn_wbb_player_stats()``` function added.
+  - ```espn_wbb_team_stats()``` function added.
+  - ```espn_wnba_player_stats()``` function added.
+  - ```espn_wnba_team_stats()``` function added.
 
 * Removes dependencies: `furrr` and `future`, replaces with `purrr (>= 0.3.0)`
 

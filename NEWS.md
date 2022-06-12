@@ -110,6 +110,12 @@
 |```wnba_videoevents()```                       |R/wnba_stats_video.R       |
 |```wnba_videostatus()```                       |R/wnba_stats_video.R       |
 
+## Adds 4 ESPN WBB and WNBA functions
+- ```wehoop::espn_wbb_player_stats()``` function added.
+- ```wehoop::espn_wbb_team_stats()``` function added.
+- ```wehoop::espn_wnba_player_stats()``` function added.
+- ```wehoop::espn_wnba_team_stats()``` function added.
+
 * Removes ```furrr``` and ```future``` dependencies and replaces with ```purrr (>= 0.3.0)```
 
 # **wehoop 1.2.1**
@@ -120,7 +126,7 @@
 - Update a handful of field names from the scoreboard functions and to also include neutral_site and conference_competition columns for the women's college basketball scoreboard function.
 
 # **wehoop 1.1.1** 
-- Change functions from furrr::future_map_dfr functions to data.table::rbindlist functions for loaders.
+- Change functions from ```furrr::future_map_dfr()``` functions to ```data.table::rbindlist()``` functions for loaders.
 
 # **wehoop 1.1.0** 
 ### **Add schedule loaders**

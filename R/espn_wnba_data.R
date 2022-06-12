@@ -483,6 +483,7 @@ espn_wnba_pbp <- function(game_id){
   )
   return(plays_df)
 }
+
 #' Get ESPN's WNBA team box data
 #' @author Saiem Gilani
 #' @param game_id Game ID
@@ -590,6 +591,7 @@ espn_wnba_team_box <- function(game_id){
   )
   return(team_box_score)
 }
+
 #' Get ESPN's WNBA player box data
 #' @author Saiem Gilani
 #' @param game_id Game ID
@@ -721,7 +723,6 @@ espn_wnba_teams <- function(){
   
   return(wnba_teams)
 }
-
 
 #' Get WNBA schedule for a specific year/date from ESPN's API
 #'
@@ -892,6 +893,7 @@ espn_wnba_scoreboard <- function(season){
     }
   )
 }
+
 #' Get ESPN WNBA Standings
 #'
 #' @author Geoff Hutchinson
@@ -977,3 +979,187 @@ espn_wnba_standings <- function(year){
 
 #' @import utils
 utils::globalVariables(c("where"))
+
+#' @title
+#' **Get ESPN WNBA team stats data**
+#' @author Saiem Gilani
+#' @param team_id Team ID
+#' @param year Year
+#' @param season_type (character, default: regular): Season type - regular or postseason
+#' @param total (boolean, default: FALSE): Totals
+#' @keywords WNBA Team Stats
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows
+#' @importFrom tidyr unnest unnest_wider everything
+#' @export
+#' @return Returns a tibble with the team stats data
+#'
+#' @examples
+#' \donttest{
+#'   try(espn_wnba_team_stats(team_id = 18, year = 2020))
+#' }
+
+espn_wnba_team_stats <- function(team_id, year, season_type='regular', total=FALSE){
+  if (!(tolower(season_type) %in% c("regular","postseason"))) {
+    # Check if season_type is appropriate, if not regular
+    cli::cli_abort("Enter valid season_type: regular or postseason")
+  }
+  s_type <- ifelse(season_type == "postseason", 3, 2)
+  
+  base_url <- "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/"
+  
+  totals <- ifelse(total == TRUE, 0, "")
+  full_url <- paste0(
+    base_url,
+    year,
+    '/types/',s_type,
+    '/teams/',team_id,
+    '/statistics/', totals
+  )
+  
+  df <- data.frame()
+  tryCatch(
+    expr = {
+      
+      # Create the GET request and set response as res
+      res <- httr::RETRY("GET", full_url)
+      
+      # Check the result
+      check_status(res)
+      
+      # Get the content and return result as data.frame
+      df <- res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON() %>%
+        purrr::pluck("splits") %>%
+        purrr::pluck("categories") %>%
+        tidyr::unnest(.data$stats, names_sep="_")
+      df <- df %>%
+        dplyr::mutate(
+          stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
+        dplyr::select(.data$stats_category_name, .data$stats_value) %>%
+        tidyr::pivot_wider(names_from = .data$stats_category_name,
+                           values_from = .data$stats_value,
+                           values_fn = dplyr::first) %>%
+        janitor::clean_names()
+      
+      
+        df <- df %>%
+        make_wehoop_data("ESPN WNBA Team Season Stats from ESPN.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}:Invalid arguments or no team season stats data available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df)
+}
+
+#' @title
+#' **Get ESPN WNBA player stats data**
+#' @author Saiem Gilani
+#' @param athlete_id Athlete ID
+#' @param year Year
+#' @param season_type (character, default: regular): Season type - regular or postseason
+#' @param total (boolean, default: FALSE): Totals
+#' @keywords WNBA Player Stats
+#' @return Returns a tibble with the player stats data
+#'
+#' @examples
+#' \donttest{
+#'   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
+#' }
+
+espn_wnba_player_stats <- function(athlete_id, year, season_type='regular', total=FALSE){
+  if (!(tolower(season_type) %in% c("regular","postseason"))) {
+    # Check if season_type is appropriate, if not regular
+    cli::cli_abort("Enter valid season_type: regular or postseason")
+  }
+  s_type <- ifelse(season_type == "postseason", 3, 2)
+  
+  base_url <- "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/"
+  
+  totals <- ifelse(total == TRUE, 0, "")
+  full_url <- paste0(
+    base_url,
+    year,
+    '/types/',s_type,
+    '/athletes/', athlete_id,
+    '/statistics/', totals
+  )
+  athlete_url <- paste0(
+    base_url,
+    year,
+    '/athletes/', athlete_id
+  )
+  df <- data.frame()
+  tryCatch(
+    expr = {
+      
+      # Create the GET request and set response as res
+      res <- httr::RETRY("GET", full_url)
+      
+      # Check the result
+      check_status(res)
+      # Create the GET request and set response as res
+      athlete_res <- httr::RETRY("GET", athlete_url)
+      
+      # Check the result
+      check_status(athlete_res)
+      
+      athlete_df <- athlete_res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE) 
+      athlete_df[["links"]] <- NULL
+      athlete_df[["injuries"]] <- NULL
+      athlete_df[["birthPlace"]] <- NULL
+      
+      athlete_df <- athlete_df %>% 
+        purrr::map_if(is.list, as.data.frame) %>% 
+        tibble::tibble(data=.data$.)
+      athlete_df <- athlete_df$data %>%
+        as.data.frame() %>% 
+        dplyr::select(-dplyr::any_of(c("X.ref","X.ref.1","X.ref.2","X.ref.3","X.ref.4","X.ref.5","X.ref.6","X.ref.7","position.X.ref"))) %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          athlete_id = .data$id,
+          athlete_uid = .data$uid,
+          athlete_guid = .data$guid,
+          athlete_type = .data$type)
+      
+      
+      # Get the content and return result as data.frame
+      df <- res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON() %>%
+        purrr::pluck("splits") %>%
+        purrr::pluck("categories") %>%
+        tidyr::unnest(.data$stats, names_sep="_")
+      df <- df %>%
+        dplyr::mutate(
+          stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
+        dplyr::select(.data$stats_category_name, .data$stats_value) %>%
+        tidyr::pivot_wider(names_from = .data$stats_category_name,
+                           values_from = .data$stats_value,
+                           values_fn = dplyr::first) %>%
+        janitor::clean_names()
+      df <- athlete_df %>% 
+        dplyr::bind_cols(df)
+      df <- df %>%
+        make_wehoop_data("ESPN WNBA Player Season Stats from ESPN.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}:Invalid arguments or no player season stats data available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df)
+}
