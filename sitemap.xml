@@ -124,6 +124,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.html</loc>
   </url>
   <url>
@@ -134,6 +137,9 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_team_stats.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.html</loc>
@@ -148,6 +154,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.html</loc>
   </url>
   <url>
@@ -155,6 +164,9 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.html</loc>
