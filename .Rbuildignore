@@ -36,3 +36,4 @@ wbb_pbp_db*
 ^md
 ^CRAN-RELEASE$
 ^\.pre-commit-config\.yaml$
+^CRAN-SUBMISSION$
