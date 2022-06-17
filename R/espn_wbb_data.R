@@ -1321,10 +1321,68 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
       # Get the content and return result as data.frame
       df <- res %>%
         httr::content(as = "text", encoding = "UTF-8") %>%
-        jsonlite::fromJSON() %>%
+        jsonlite::fromJSON() 
+      
+      team_url <- df[["team"]][["$ref"]]
+      
+      # Create the GET request and set response as res
+      team_res <- httr::RETRY("GET", team_url)
+      
+      # Check the result
+      check_status(team_res)
+      
+      # Get the content and return result as data.frame
+      team_df <- team_res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE) 
+      
+      team_df[["links"]] <- NULL
+      team_df[["injuries"]] <- NULL
+      team_df[["record"]] <- NULL
+      team_df[["athletes"]] <- NULL 
+      team_df[["venue"]] <- NULL 
+      team_df[["groups"]] <- NULL 
+      team_df[["ranks"]] <- NULL 
+      team_df[["statistics"]] <- NULL 
+      team_df[["leaders"]] <- NULL 
+      team_df[["links"]] <- NULL 
+      team_df[["notes"]] <- NULL 
+      team_df[["franchise"]] <- NULL 
+      team_df[["record"]] <- NULL
+      team_df[["college"]] <- NULL                              
+      
+      team_df <- team_df %>%
+        purrr::map_if(is.list,as.data.frame) %>% 
+        as.data.frame() %>% 
+        dplyr::select(
+          -dplyr::any_of(
+            c("logos.width",  
+              "logos.height",
+              "logos.alt",
+              "logos.rel..full.",
+              "logos.rel..default.", 
+              "logos.lastUpdated",
+              "logos.width.1",
+              "logos.height.1",
+              "logos.alt.1",
+              "logos.rel..full..1",
+              "logos.rel..dark.",
+              "logos.lastUpdated.1",
+              "X.ref",
+              "X.ref.1"))) %>% 
+        janitor::clean_names() 
+      colnames(team_df)[1:15] <- paste0("team_",colnames(team_df)[1:15])
+      
+      team_df <- team_df %>%   
+        dplyr::rename(
+          logo_href = .data$logos_href,
+          logo_dark_href = .data$logos_href_1)
+      
+      df <- df %>%
         purrr::pluck("splits") %>%
         purrr::pluck("categories") %>%
         tidyr::unnest(.data$stats, names_sep="_")
+      
       df <- df %>%
         dplyr::mutate(
           stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
@@ -1333,6 +1391,8 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
                            values_from = .data$stats_value,
                            values_fn = dplyr::first) %>%
         janitor::clean_names()
+      df <- team_df %>% 
+        dplyr::bind_cols(df)
       
       df <- df %>%
         make_wehoop_data("ESPN WBB Team Season Stats from ESPN.com",Sys.time())
@@ -1405,9 +1465,66 @@ espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total
       athlete_df <- athlete_res %>%
         httr::content(as = "text", encoding = "UTF-8") %>%
         jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE) 
+      
+      team_url <- athlete_df[["team"]][["$ref"]]
+      
+      # Create the GET request and set response as res
+      team_res <- httr::RETRY("GET", team_url)
+      
+      # Check the result
+      check_status(team_res)
+      
+      team_df <- team_res %>%
+        httr::content(as = "text", encoding = "UTF-8") %>%
+        jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE) 
+      
+      team_df[["links"]] <- NULL
+      team_df[["injuries"]] <- NULL
+      team_df[["record"]] <- NULL
+      team_df[["athletes"]] <- NULL 
+      team_df[["venue"]] <- NULL 
+      team_df[["groups"]] <- NULL 
+      team_df[["ranks"]] <- NULL 
+      team_df[["statistics"]] <- NULL 
+      team_df[["leaders"]] <- NULL 
+      team_df[["links"]] <- NULL 
+      team_df[["notes"]] <- NULL 
+      team_df[["franchise"]] <- NULL 
+      team_df[["record"]] <- NULL
+      team_df[["college"]] <- NULL                              
+      
+      team_df <- team_df %>%
+        purrr::map_if(is.list,as.data.frame) %>% 
+        as.data.frame() %>% 
+        dplyr::select(
+          -dplyr::any_of(
+            c("logos.width",  
+              "logos.height",
+              "logos.alt",
+              "logos.rel..full.",
+              "logos.rel..default.", 
+              "logos.lastUpdated",
+              "logos.width.1",
+              "logos.height.1",
+              "logos.alt.1",
+              "logos.rel..full..1",
+              "logos.rel..dark.",
+              "logos.lastUpdated.1",
+              "X.ref",
+              "X.ref.1"))) %>% 
+        janitor::clean_names() 
+      colnames(team_df)[1:15] <- paste0("team_",colnames(team_df)[1:15])
+        
+      team_df <- team_df %>%   
+        dplyr::rename(
+          logo_href = .data$logos_href,
+          logo_dark_href = .data$logos_href_1)
+        
+      
+      
       athlete_df[["links"]] <- NULL
       athlete_df[["injuries"]] <- NULL
-      as.data.frame(athlete_df[["birthPlace"]])
+      
       
       athlete_df <- athlete_df %>% 
         purrr::map_if(is.list, as.data.frame) %>% 
@@ -1439,7 +1556,8 @@ espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total
                            values_fn = dplyr::first) %>%
         janitor::clean_names()
       df <- athlete_df %>% 
-        dplyr::bind_cols(df)
+        dplyr::bind_cols(df) %>% 
+        dplyr::bind_cols(team_df)
       df <- df %>%
         make_wehoop_data("ESPN WBB Player Season Stats from ESPN.com",Sys.time())
       
