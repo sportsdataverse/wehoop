@@ -120,6 +120,7 @@ This is a minor release that:
   - ```espn_wnba_team_stats()``` function added.
 
 * Removes dependencies: `furrr` and `future`, replaces with `purrr (>= 0.3.0)`
+* Corrects urls in documentation
 
 ## R CMD check results
 
