@@ -213,7 +213,7 @@
   <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.7 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.437 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## 13.91 sec elapsed</span>
 <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></code></pre></div>
@@ -277,7 +277,7 @@
 <span class="op">}</span><span class="op">)</span>
 
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.124 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.031 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games."</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## 102 rows of WNBA team boxscore data from 51 games.</span></code></pre>
@@ -336,7 +336,7 @@
   <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.127 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.036 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 51</span></code></pre>
@@ -354,7 +354,7 @@
   <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 18.334 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 13.236 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 5347</span></code></pre>
@@ -372,7 +372,7 @@
   <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 0.248 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.151 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 5509</span></code></pre>
@@ -390,7 +390,7 @@
   <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## 1.167 sec elapsed</span></code></pre>
+<pre><code><span class="co">## 0.781 sec elapsed</span></code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] 5508</span></code></pre>
