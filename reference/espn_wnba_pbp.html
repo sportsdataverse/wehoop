@@ -148,9 +148,29 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401244185</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-09-13 10:41:43: Invalid arguments or no play-by-play data for 401244185 available!</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in espn_wnba_pbp(game_id = 401244185) : object 'plays_df' not found</span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401455681</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── <span style="font-style: italic;">wehoop 1.5.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-09-13 11:11:28 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 343 × 48</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id      seque…¹ text  away_…² home_…³ scori…⁴ score…⁵ shoot…⁶ type_id type_…⁷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 401455… 4       Jonq…       0       0 FALSE         0 FALSE   615     Jumpba…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 401455… 7       A'ja…       0       2 TRUE          2 TRUE    110     Drivin…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 401455… 9       Nati…       0       2 FALSE         0 TRUE    132     Step B…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 401455… 10      Kiah…       0       2 FALSE         0 FALSE   155     Defens…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 401455… 11      Jack…       0       5 TRUE          3 TRUE    92      Jump S…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 401455… 13      Nati…       3       5 TRUE          3 TRUE    92      Jump S…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 401455… 15      A'ja…       3       7 TRUE          2 TRUE    92      Jump S…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 401455… 17      Cour…       3       7 FALSE         0 TRUE    131     Pullup…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 401455… 18      Kels…       3       7 FALSE         0 FALSE   155     Defens…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 401455… 19      A'ja…       3       9 TRUE          2 TRUE    110     Drivin…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 333 more rows, 38 more variables: period_number &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_display_value &lt;chr&gt;, clock_display_value &lt;chr&gt;, team_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   coordinate_x &lt;int&gt;, coordinate_y &lt;int&gt;, play_id &lt;chr&gt;, athlete_id_1 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_id_2 &lt;chr&gt;, athlete_id_3 &lt;chr&gt;, home_team_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_mascot &lt;chr&gt;, home_team_name &lt;chr&gt;, home_team_abbrev &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_logo &lt;chr&gt;, home_team_logo_dark &lt;chr&gt;, home_team_full_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_color &lt;chr&gt;, home_team_alternate_color &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
