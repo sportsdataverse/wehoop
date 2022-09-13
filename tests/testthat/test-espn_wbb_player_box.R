@@ -36,6 +36,6 @@ test_that("ESPN - WBB Player Box", {
     "team_alternate_color"
   )
   
-  expect_equal(colnames(x), cols)
+  expect_equal(sort(colnames(x)), sort(cols))
   expect_s3_class(x, "data.frame")
 })

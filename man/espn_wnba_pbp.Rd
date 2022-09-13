@@ -18,7 +18,7 @@ Get ESPN's WNBA play by play data
 \examples{
 
 \donttest{
-  try(espn_wnba_pbp(game_id = 401244185))
+  try(espn_wnba_pbp(game_id = 401455681))
 }
 }
 \author{

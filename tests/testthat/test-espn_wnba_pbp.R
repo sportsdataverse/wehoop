@@ -53,6 +53,6 @@ cols <- c(
 test_that("ESPN - WNBA Play-by-Play", {
   skip_on_cran()
   x <- espn_wnba_pbp(game_id = 401244185)
-  expect_equal(colnames(x), cols)
+  expect_equal(sort(colnames(x)), sort(cols))
   expect_s3_class(x, "data.frame")
 })

@@ -2,7 +2,7 @@
 
 test_that("ESPN - WNBA Game all", {
   skip_on_cran()
-  x <- espn_wnba_game_all(game_id = 401244185)
+  x <- espn_wnba_game_all(game_id = 401455681)
   
   cols_x1 <- c(
     "shooting_play",
@@ -131,10 +131,10 @@ test_that("ESPN - WNBA Game all", {
     "team_alternate_color"
   )
   
-  expect_equal(colnames(x$Plays), cols_x1)
+  expect_equal(sort(colnames(x$Plays)), sort(cols_x1))
   expect_s3_class(x$Plays, "data.frame")
-  expect_equal(colnames(x$Team), cols_x2)
+  expect_equal(sort(colnames(x$Team)), sort(cols_x2))
   expect_s3_class(x$Team, "data.frame")
-  expect_equal(colnames(x$Player), cols_x3)
+  expect_equal(sort(colnames(x$Player)), sort(cols_x3))
   expect_s3_class(x$Player, "data.frame")
 })

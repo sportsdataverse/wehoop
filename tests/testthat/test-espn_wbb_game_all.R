@@ -131,10 +131,10 @@ test_that("ESPN - WBB Play-by-Play", {
     "team_color",
     "team_alternate_color"
   )
-  expect_equal(colnames(x$Plays), cols_x1)
+  expect_equal(sort(colnames(x$Plays)),sort(cols_x1))
   expect_s3_class(x$Plays, "data.frame")
-  expect_equal(colnames(x$Team), cols_x2)
+  expect_equal(sort(colnames(x$Team)), sort(cols_x2))
   expect_s3_class(x$Team, "data.frame")
-  expect_equal(colnames(x$Player), cols_x3)
+  expect_equal(sort(colnames(x$Player)), sort(cols_x3))
   expect_s3_class(x$Player, "data.frame")
 })

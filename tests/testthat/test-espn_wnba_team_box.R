@@ -46,6 +46,6 @@ test_that("ESPN - WNBA Team Box", {
     "opponent_abbrev"
   )
   
-  expect_equal(colnames(x), cols)
+  expect_equal(sort(colnames(x)), sort(cols))
   expect_s3_class(x, "data.frame")
 })

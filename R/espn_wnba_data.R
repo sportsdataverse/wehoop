@@ -18,12 +18,12 @@ espn_wnba_game_all <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
   
   plays_df <- data.frame()
   team_box <- data.frame()
@@ -40,9 +40,9 @@ espn_wnba_game_all <- function(game_id){
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       
-      homeAway1 <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
+      homeAway1 <- jsonlite::fromJSON(resp)[['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
       
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
@@ -189,7 +189,7 @@ espn_wnba_game_all <- function(game_id){
   #---- Team Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
       homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
@@ -310,18 +310,18 @@ espn_wnba_game_all <- function(game_id){
 #' @examples
 #' 
 #' \donttest{
-#'   try(espn_wnba_pbp(game_id = 401244185))
+#'   try(espn_wnba_pbp(game_id = 401455681))
 #' }
 espn_wnba_pbp <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
   
   #---- Play-by-Play ------
   tryCatch(
@@ -335,9 +335,9 @@ espn_wnba_pbp <- function(game_id){
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       
-      homeAway1 <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
+      homeAway1 <- jsonlite::fromJSON(resp)[['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
       
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
@@ -503,12 +503,12 @@ espn_wnba_pbp <- function(game_id){
 espn_wnba_team_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
   res <- httr::RETRY(
     "GET", full_url
   )
@@ -520,7 +520,7 @@ espn_wnba_team_box <- function(game_id){
   #---- Team Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
       homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
@@ -611,12 +611,12 @@ espn_wnba_team_box <- function(game_id){
 espn_wnba_player_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  play_base_url <- "http://cdn.espn.com/wnba/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
   res <- httr::RETRY(
     "GET", full_url
   )
@@ -626,7 +626,7 @@ espn_wnba_player_box <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8") 
   
-  raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+  raw_play_df <- jsonlite::fromJSON(resp)
   raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Player Box ------
   players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%

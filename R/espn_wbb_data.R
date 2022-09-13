@@ -18,12 +18,12 @@ espn_wbb_game_all <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
   
   res <- httr::RETRY("GET", full_url)
   
@@ -39,9 +39,9 @@ espn_wbb_game_all <- function(game_id){
   #---- Play-by-Play ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       
-      homeAway1 <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
+      homeAway1 <- jsonlite::fromJSON(resp)[['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
       
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
@@ -190,7 +190,7 @@ espn_wbb_game_all <- function(game_id){
   #---- Team Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
       homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
@@ -262,7 +262,7 @@ espn_wbb_game_all <- function(game_id){
   #---- Player Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
         tidyr::unnest(.data$statistics) %>%
         tidyr::unnest(.data$athletes)
@@ -328,14 +328,15 @@ espn_wbb_pbp <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
   
-  plays_df <- data.frame()
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
+  
+  plays_df <- data.frame()
   
   tryCatch(
     expr = {
@@ -348,9 +349,9 @@ espn_wbb_pbp <- function(game_id){
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8") 
       
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       
-      homeAway1 <- jsonlite::fromJSON(resp)[["gamepackageJSON"]][['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
+      homeAway1 <- jsonlite::fromJSON(resp)[['header']][['competitions']][['competitors']][[1]][['homeAway']][1]
       
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
@@ -516,10 +517,13 @@ espn_wbb_pbp <- function(game_id){
 espn_wbb_team_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
   
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/summary?"
+  
+  ## Inputs
+  ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
 
   #---- Team Box ------
   tryCatch(
@@ -533,7 +537,7 @@ espn_wbb_team_box <- function(game_id){
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8") 
       
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       season <- raw_play_df[['header']][['season']][['year']]
       season_type <- raw_play_df[['header']][['season']][['type']]
       homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
@@ -622,12 +626,13 @@ espn_wbb_team_box <- function(game_id){
 espn_wbb_player_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  play_base_url <- "http://cdn.espn.com/womens-college-basketball/playbyplay?render=false&userab=1&xhr=1&"
+  
+  play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/summary?"
   
   ## Inputs
   ## game_id
   full_url <- paste0(play_base_url,
-                     "gameId=", game_id)
+                     "event=", game_id)
   
   res <- httr::RETRY("GET", full_url)
   
@@ -640,7 +645,7 @@ espn_wbb_player_box <- function(game_id){
   #---- Player Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)[["gamepackageJSON"]]
+      raw_play_df <- jsonlite::fromJSON(resp)
       raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
         tidyr::unnest(.data$statistics) %>%
