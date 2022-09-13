@@ -1127,6 +1127,7 @@ espn_wnba_team_stats <- function(team_id, year, season_type='regular', total=FAL
 #' @param season_type (character, default: regular): Season type - regular or postseason
 #' @param total (boolean, default: FALSE): Totals
 #' @keywords WNBA Player Stats
+#' @export
 #' @return Returns a tibble with the player stats data
 #'
 #' @examples
