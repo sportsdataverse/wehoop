@@ -1080,7 +1080,8 @@ espn_wnba_team_stats <- function(team_id, year, season_type='regular', total=FAL
               "logos.lastUpdated.1",
               "X.ref",
               "X.ref.1",
-              "X.ref.2"))) %>% 
+              "X.ref.2",
+              "X.ref.3"))) %>% 
         janitor::clean_names() 
       colnames(team_df)[1:14] <- paste0("team_",colnames(team_df)[1:14])
       
