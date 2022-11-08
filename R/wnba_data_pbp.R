@@ -42,7 +42,7 @@ wnba_data_pbp <- function(game_id = "1022200034"){
       plays_df <- purrr::map_df(plays[[1]],function(x){
         plays_df <- plays[[2]][[x]] %>%
           dplyr::mutate(period = x) %>%
-          dplyr::select(.data$period, tidyr::everything())
+          dplyr::select("period", tidyr::everything())
       }) %>%
         make_wehoop_data("WNBA Play-by-Play Information from data.WNBA.com",Sys.time())
     },

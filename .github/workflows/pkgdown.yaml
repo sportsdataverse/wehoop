@@ -20,7 +20,6 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
-          r-version: 4.1.3
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: |
@@ -28,17 +27,16 @@ jobs:
             animation
             baseballr
             cfbfastR
-            chessR
             fastRhockey
             ggimage
             hoopR
             knitr
+            oddsapiR
             pacman
             ragg
             rsconnect
             tictoc
             tidyverse
-            toRvik
             zoo
           needs: website
       - name: Deploy package

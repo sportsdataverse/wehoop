@@ -160,16 +160,18 @@ espn_wbb_game_all <- function(game_id){
       
       
       plays <- raw_play_df[["plays"]] %>%
-        tidyr::unnest_wider(.data$participants)
+        tidyr::unnest_wider("participants")
       suppressWarnings(
         aths <- plays %>%
           dplyr::group_by(.data$id) %>%
-          dplyr::select(.data$id, .data$athlete.id) %>%
-          tidyr::unnest_wider(.data$athlete.id, names_sep = "_")
+          dplyr::select(
+            "id", 
+            "athlete.id") %>%
+          tidyr::unnest_wider("athlete.id", names_sep = "_")
       )
       names(aths) <- c("play.id", "athlete.id.1", "athlete.id.2")
       plays_df <- dplyr::bind_cols(plays, aths, id_vars) %>%
-        select(-.data$athlete.id)  %>%
+        select(-"athlete.id")  %>%
         dplyr::mutate(
           game_id = game_id,
           season = season,
@@ -209,11 +211,15 @@ espn_wbb_game_all <- function(game_id){
       teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
       
       teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-        dplyr::select(.data$displayValue, .data$name) %>%
-        dplyr::rename(Home = .data$displayValue)
+        dplyr::select(
+          "displayValue", 
+          "name") %>%
+        dplyr::rename("Home" = "displayValue")
       teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-        dplyr::select(.data$displayValue, .data$name) %>%
-        dplyr::rename(Away = .data$displayValue)
+        dplyr::select(
+          "displayValue", 
+          "name") %>%
+        dplyr::rename("Away" = "displayValue")
       teams2 <- data.frame(t(teams_box_score_df_2$Home))
       colnames(teams2) <- t(teams_box_score_df_2$name)
       teams2$homeAway <- homeAwayTeam2
@@ -232,7 +238,7 @@ espn_wbb_game_all <- function(game_id){
       teams <- dplyr::bind_rows(teams1,teams2)
       
       team_box_score <- teams_box_score_df %>%
-        dplyr::select(-.data$statistics) %>%
+        dplyr::select(-"statistics") %>%
         dplyr::bind_cols(teams)
       
       team_box_score <- team_box_score %>%
@@ -244,10 +250,10 @@ espn_wbb_game_all <- function(game_id){
         ) %>%
         janitor::clean_names() %>%
         dplyr::select(
-          .data$game_id,
-          .data$season,
-          .data$season_type,
-          .data$game_date,
+          "game_id",
+          "season",
+          "season_type",
+          "game_date",
           tidyr::everything()) %>%
         make_wehoop_data("ESPN WBB Team Box Information from ESPN.com",Sys.time())
     },
@@ -264,8 +270,8 @@ espn_wbb_game_all <- function(game_id){
     expr = {
       raw_play_df <- jsonlite::fromJSON(resp)
       players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
-        tidyr::unnest(.data$statistics) %>%
-        tidyr::unnest(.data$athletes)
+        tidyr::unnest("statistics") %>%
+        tidyr::unnest("athletes")
       stat_cols <- players_df$names[[1]]
       stats <- players_df$stats
       
@@ -274,17 +280,32 @@ espn_wbb_game_all <- function(game_id){
       
       players_df <- players_df %>%
         dplyr::filter(!.data$didNotPlay) %>%
-        dplyr::select(.data$starter,.data$ejected, .data$didNotPlay,.data$active,
-                      .data$athlete.displayName,.data$athlete.jersey,
-                      .data$athlete.id,.data$athlete.shortName,
-                      .data$athlete.headshot.href,.data$athlete.position.name,
-                      .data$athlete.position.abbreviation,.data$team.shortDisplayName,
-                      .data$team.name,.data$team.logo,.data$team.id,.data$team.abbreviation,
-                      .data$team.color,.data$team.alternateColor
+        dplyr::select(
+          "starter",
+          "ejected", 
+          "didNotPlay",
+          "active",
+          "athlete.displayName",
+          "athlete.jersey",
+          "athlete.id",
+          "athlete.shortName",
+          "athlete.headshot.href",
+          "athlete.position.name",
+          "athlete.position.abbreviation",
+          "team.shortDisplayName",
+          "team.name",
+          "team.logo",
+          "team.id",
+          "team.abbreviation",
+          "team.color",
+          "team.alternateColor"
         )
       
       player_box <- dplyr::bind_cols(stats_df,players_df) %>%
-        dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+        dplyr::select(
+          "athlete.displayName",
+          "team.shortDisplayName", 
+          tidyr::everything())
       plays_df <- plays_df %>% 
         janitor::clean_names()
       team_box_score <- team_box_score %>% 
@@ -292,7 +313,7 @@ espn_wbb_game_all <- function(game_id){
       player_box <- player_box %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          fg3 = .data$x3pt) %>%
+          "fg3" = "x3pt") %>%
         make_wehoop_data("ESPN WBB Player Box Information from ESPN.com",Sys.time())
     },
     error = function(e) {
@@ -470,16 +491,18 @@ espn_wbb_pbp <- function(game_id){
       
       
       plays <- raw_play_df[["plays"]] %>%
-        tidyr::unnest_wider(.data$participants)
+        tidyr::unnest_wider("participants")
       suppressWarnings(
         aths <- plays %>%
           dplyr::group_by(.data$id) %>%
-          dplyr::select(.data$id, .data$athlete.id) %>%
-          tidyr::unnest_wider(.data$athlete.id, names_sep = "_")
+          dplyr::select(
+            "id", 
+            "athlete.id") %>%
+          tidyr::unnest_wider("athlete.id", names_sep = "_")
       )
       names(aths) <- c("play.id", "athlete.id.1", "athlete.id.2")
       plays_df <- dplyr::bind_cols(plays, aths, id_vars) %>%
-        select(-.data$athlete.id)  %>%
+        select(-"athlete.id")  %>%
         dplyr::mutate(
           game_id = game_id,
           season = season,
@@ -556,11 +579,15 @@ espn_wbb_team_box <- function(game_id){
       teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
       
       teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-        dplyr::select(.data$displayValue, .data$name) %>%
-        dplyr::rename(Home = .data$displayValue)
+        dplyr::select(
+          "displayValue", 
+          "name") %>%
+        dplyr::rename("Home" = "displayValue")
       teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-        dplyr::select(.data$displayValue, .data$name) %>%
-        dplyr::rename(Away = .data$displayValue)
+        dplyr::select(
+          "displayValue", 
+          "name") %>%
+        dplyr::rename("Away" = "displayValue")
       teams2 <- data.frame(t(teams_box_score_df_2$Home))
       colnames(teams2) <- t(teams_box_score_df_2$name)
       teams2$homeAway <- homeAwayTeam2
@@ -579,7 +606,7 @@ espn_wbb_team_box <- function(game_id){
       teams <- dplyr::bind_rows(teams1,teams2)
       
       team_box_score <- teams_box_score_df %>%
-        dplyr::select(-.data$statistics) %>%
+        dplyr::select(-"statistics") %>%
         dplyr::bind_cols(teams)
       
       team_box_score <- team_box_score %>%
@@ -591,10 +618,10 @@ espn_wbb_team_box <- function(game_id){
         ) %>%
         janitor::clean_names() %>%
         dplyr::select(
-          .data$game_id,
-          .data$season,
-          .data$season_type,
-          .data$game_date,
+          "game_id",
+          "season",
+          "season_type",
+          "game_date",
           tidyr::everything()) %>%
         make_wehoop_data("ESPN WBB Team Box Information from ESPN.com",Sys.time())
     },
@@ -648,8 +675,8 @@ espn_wbb_player_box <- function(game_id){
       raw_play_df <- jsonlite::fromJSON(resp)
       raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
       players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
-        tidyr::unnest(.data$statistics) %>%
-        tidyr::unnest(.data$athletes)
+        tidyr::unnest("statistics") %>%
+        tidyr::unnest("athletes")
       stat_cols <- players_df$names[[1]]
       stats <- players_df$stats
       
@@ -658,21 +685,36 @@ espn_wbb_player_box <- function(game_id){
       
       players_df <- players_df %>%
         dplyr::filter(!.data$didNotPlay) %>%
-        dplyr::select(.data$starter,.data$ejected, .data$didNotPlay,.data$active,
-                      .data$athlete.displayName,.data$athlete.jersey,
-                      .data$athlete.id,.data$athlete.shortName,
-                      .data$athlete.headshot.href,.data$athlete.position.name,
-                      .data$athlete.position.abbreviation,.data$team.shortDisplayName,
-                      .data$team.name,.data$team.logo,.data$team.id,.data$team.abbreviation,
-                      .data$team.color,.data$team.alternateColor
+        dplyr::select(
+          "starter",
+          "ejected", 
+          "didNotPlay",
+          "active",
+          "athlete.displayName",
+          "athlete.jersey",
+          "athlete.id",
+          "athlete.shortName",
+          "athlete.headshot.href",
+          "athlete.position.name",
+          "athlete.position.abbreviation",
+          "team.shortDisplayName",
+          "team.name",
+          "team.logo",
+          "team.id",
+          "team.abbreviation",
+          "team.color",
+          "team.alternateColor"
         )
       
       player_box <- dplyr::bind_cols(stats_df,players_df) %>%
-        dplyr::select(.data$athlete.displayName,.data$team.shortDisplayName, tidyr::everything())
+        dplyr::select(
+          "athlete.displayName",
+          "team.shortDisplayName", 
+          tidyr::everything())
       player_box <- player_box %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          fg3 = .data$x3pt) %>%
+          "fg3" = "x3pt") %>%
         make_wehoop_data("ESPN WBB Player Box Information from ESPN.com",Sys.time())
     },
     error = function(e) {
@@ -715,7 +757,7 @@ espn_wbb_conferences <- function(){
   tryCatch(
     expr = {
       conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
-        dplyr::select(-.data$subGroups) %>%
+        dplyr::select(-"subGroups") %>%
         janitor::clean_names() %>%
         dplyr::filter(!(.data$group_id %in% c(0,50))) %>%
         make_wehoop_data("ESPN WBB Conferences Information from ESPN.com",Sys.time())
@@ -766,16 +808,20 @@ espn_wbb_teams <- function(){
       
       leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
         dplyr::group_by(.data$id) %>%
-        tidyr::unnest_wider(.data$logos,names_sep = "_") %>%
-        tidyr::unnest_wider(.data$logos_href,names_sep = "_") %>%
-        dplyr::select(-.data$logos_width,-.data$logos_height,
-                      -.data$logos_alt, -.data$logos_rel) %>%
+        tidyr::unnest_wider("logos",names_sep = "_") %>%
+        tidyr::unnest_wider("logos_href",names_sep = "_") %>%
+        dplyr::select(
+          -"logos_width",
+          -"logos_height",
+          -"logos_alt", 
+          -"logos_rel") %>%
         dplyr::ungroup()
       
       if("records" %in% colnames(leagues)){
         records <- leagues$record
-        records<- records %>% tidyr::unnest_wider(.data$items) %>%
-          tidyr::unnest_wider(.data$stats,names_sep = "_") %>%
+        records<- records %>% 
+          tidyr::unnest_wider("items") %>%
+          tidyr::unnest_wider("stats", names_sep = "_") %>%
           dplyr::mutate(row = dplyr::row_number())
         stat <- records %>%
           dplyr::group_by(.data$row) %>%
@@ -789,9 +835,9 @@ espn_wbb_teams <- function(){
         })
         
         s <- tibble::tibble(g = s)
-        stats <- s %>% unnest_wider(.data$g)
+        stats <- s %>% unnest_wider("g")
         
-        records <- dplyr::bind_cols(records %>% dplyr::select(.data$summary), stats)
+        records <- dplyr::bind_cols(records %>% dplyr::select("summary"), stats)
         leagues <- leagues %>% dplyr::select(
           -dplyr::any_of("record")
         )
@@ -801,14 +847,14 @@ espn_wbb_teams <- function(){
         dplyr::select(-dplyr::any_of(league_drop_cols))
       teams <- leagues %>% 
         dplyr::rename(
-          logo = .data$logos_href_1,
-          logo_dark = .data$logos_href_2,
-          mascot = .data$name,
-          team = .data$location,
-          team_id = .data$id,
-          short_name = .data$shortDisplayName,
-          alternate_color = .data$alternateColor,
-          display_name = .data$displayName) %>%
+          "logo" = "logos_href_1",
+          "logo_dark" = "logos_href_2",
+          "mascot" = "name",
+          "team" = "location",
+          "team_id" = "id",
+          "short_name" = "shortDisplayName",
+          "alternate_color" = "alternateColor",
+          "display_name" = "displayName") %>%
         make_wehoop_data("ESPN WBB Teams Information from ESPN.com",Sys.time())
     },
     error = function(e) {
@@ -862,16 +908,20 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
       
       wbb_data <- raw_sched[["events"]] %>%
         tibble::tibble(data = .data$.) %>%
-        tidyr::unnest_wider(.data$data) %>%
-        tidyr::unchop(.data$competitions) %>%
-        dplyr::select(-.data$id,-.data$uid,-.data$date,-.data$status) %>%
-        tidyr::unnest_wider(.data$competitions) %>%
+        tidyr::unnest_wider("data") %>%
+        tidyr::unchop("competitions") %>%
+        dplyr::select(
+          -"id",
+          -"uid",
+          -"date",
+          -"status") %>%
+        tidyr::unnest_wider("competitions") %>%
         dplyr::rename(
-          matchup = .data$name,
-          matchup_short = .data$shortName,
-          game_id = .data$id,
-          game_uid = .data$uid,
-          game_date = .data$date
+          "matchup" = "name",
+          "matchup_short" = "shortName",
+          "game_id" = "id",
+          "game_uid" = "uid",
+          "game_date" = "date"
         ) %>%
         tidyr::hoist(.data$status,
                      status_name = list("type", "name")) %>%
@@ -885,8 +935,8 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
             "type"
           )
         )) %>%
-        tidyr::unnest_wider(.data$season,names_sep="_") %>%
-        dplyr::rename(season = .data$season_year) %>%
+        tidyr::unnest_wider("season", names_sep="_") %>%
+        dplyr::rename("season" = "season_year") %>%
         dplyr::select(-dplyr::any_of("status")) 
       wbb_data <- wbb_data %>% 
         tidyr::hoist(
@@ -1157,14 +1207,20 @@ espn_wbb_rankings <- function(){
       
       ranks_df <- jsonlite::fromJSON(resp,flatten = TRUE)[['rankings']]
       ranks_top25 <- ranks_df %>%
-        dplyr::select(-.data$date,-.data$lastUpdated) %>%
-        tidyr::unnest(.data$ranks, names_repair="minimal") 
+        dplyr::select(
+          -"date",
+          -"lastUpdated") %>%
+        tidyr::unnest("ranks", names_repair="minimal") 
       ranks_others <- ranks_df %>%
-        dplyr::select(-.data$date,-.data$lastUpdated) %>% 
-        tidyr::unnest(.data$others, names_repair="minimal") 
+        dplyr::select(
+          -"date",
+          -"lastUpdated") %>% 
+        tidyr::unnest("others", names_repair="minimal") 
       ranks_dropped_out <- ranks_df %>%
-        dplyr::select(-.data$date,-.data$lastUpdated) %>%
-        tidyr::unnest(.data$droppedOut, names_repair="minimal") 
+        dplyr::select(
+          -"date",
+          -"lastUpdated") %>%
+        tidyr::unnest("droppedOut", names_repair="minimal") 
       
       ranks <- dplyr::bind_rows(ranks_top25, ranks_others, ranks_dropped_out)
       drop_cols <- c(
@@ -1233,9 +1289,12 @@ espn_wbb_standings <- function(year){
       teams <- raw_standings[["entries"]][["team"]]
       
       teams <- teams %>%
-        dplyr::select(.data$id, .data$displayName) %>%
-        dplyr::rename(team_id = .data$id,
-                      team = .data$displayName)
+        dplyr::select(
+          "id", 
+          "displayName") %>%
+        dplyr::rename(
+          "team_id" = "id",
+          "team" = "displayName")
       
       #creating a dataframe of the WNBA raw standings table from ESPN
       
@@ -1248,16 +1307,19 @@ espn_wbb_standings <- function(year){
       standings_data$value <- ifelse(is.na(standings_data$value) & !is.na(standings_data$summary), standings_data$summary, standings_data$value)
       
       standings_data <- standings_data %>%
-        dplyr::select(.data$.id, .data$type, .data$value)
+        dplyr::select(
+          ".id", 
+          "type", 
+          "value")
       
       #Use pivot_wider to transpose the dataframe so that we now have a standings row for each team
       
       standings_data <- standings_data %>%
-        tidyr::pivot_wider(names_from = .data$type, values_from = .data$value)
+        tidyr::pivot_wider(names_from = "type", values_from = "value")
       
       
       standings_data <- standings_data %>%
-        dplyr::select(-.data$.id)
+        dplyr::select(-".id")
       
       #joining the 2 dataframes together to create a standings table
       
@@ -1380,21 +1442,24 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
       
       team_df <- team_df %>%   
         dplyr::rename(
-          logo_href = .data$logos_href,
-          logo_dark_href = .data$logos_href_1)
+          "logo_href" = "logos_href",
+          "logo_dark_href" = "logos_href_1")
       
       df <- df %>%
         purrr::pluck("splits") %>%
         purrr::pluck("categories") %>%
-        tidyr::unnest(.data$stats, names_sep="_")
+        tidyr::unnest("stats", names_sep="_")
       
       df <- df %>%
         dplyr::mutate(
           stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
-        dplyr::select(.data$stats_category_name, .data$stats_value) %>%
-        tidyr::pivot_wider(names_from = .data$stats_category_name,
-                           values_from = .data$stats_value,
-                           values_fn = dplyr::first) %>%
+        dplyr::select(
+          "stats_category_name", 
+          "stats_value") %>%
+        tidyr::pivot_wider(
+          names_from = "stats_category_name",
+          values_from = "stats_value",
+          values_fn = dplyr::first) %>%
         janitor::clean_names()
       df <- team_df %>% 
         dplyr::bind_cols(df)
@@ -1523,8 +1588,8 @@ espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total
         
       team_df <- team_df %>%   
         dplyr::rename(
-          logo_href = .data$logos_href,
-          logo_dark_href = .data$logos_href_1)
+          "logo_href" = "logos_href",
+          "logo_dark_href" = "logos_href_1")
         
       
       
@@ -1540,10 +1605,10 @@ espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total
         dplyr::select(-dplyr::any_of(c("X.ref","X.ref.1","X.ref.2","X.ref.3","X.ref.4","X.ref.5","position.X.ref"))) %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          athlete_id = .data$id,
-          athlete_uid = .data$uid,
-          athlete_guid = .data$guid,
-          athlete_type = .data$type)
+          "athlete_id" = "id",
+          "athlete_uid" = "uid",
+          "athlete_guid" = "guid",
+          "athlete_type" = "type")
       
       
       # Get the content and return result as data.frame
@@ -1552,14 +1617,17 @@ espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total
         jsonlite::fromJSON() %>%
         purrr::pluck("splits") %>%
         purrr::pluck("categories") %>%
-        tidyr::unnest(.data$stats, names_sep="_")
+        tidyr::unnest("stats", names_sep="_")
       df <- df %>%
         dplyr::mutate(
           stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
-        dplyr::select(.data$stats_category_name, .data$stats_value) %>%
-        tidyr::pivot_wider(names_from = .data$stats_category_name,
-                           values_from = .data$stats_value,
-                           values_fn = dplyr::first) %>%
+        dplyr::select(
+          "stats_category_name",
+          "stats_value") %>%
+        tidyr::pivot_wider(
+          names_from = "stats_category_name",
+          values_from = "stats_value",
+          values_fn = dplyr::first) %>%
         janitor::clean_names()
       df <- athlete_df %>% 
         dplyr::bind_cols(df) %>% 

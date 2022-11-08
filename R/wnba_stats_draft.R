@@ -34,7 +34,7 @@ wnba_draftboard <- function(season = '2022'){
       rounds$draft_lineup <- NULL
       rounds_df <- purrr::map_df(1:length(rounds),function(x){
         rounds[[x]] %>% 
-          tidyr::unnest(.data$player, names_sep="_") %>% 
+          tidyr::unnest("player", names_sep="_") %>% 
           dplyr::mutate(round=x)
       })
       df_list <- c(list(teams),list(draft),list(rounds_df))
