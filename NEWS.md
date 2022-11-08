@@ -1,3 +1,7 @@
+# **wehoop 1.6.0**
+
+* Updates tidyr and dplyr statements to use quotations on columns instead of data masking per tidyselect deprecation notice.
+
 # **wehoop 1.5.0**
 ## ~106 WNBA Stats API functions added
 
