@@ -88,21 +88,29 @@
     <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
     <a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a>
+    <a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a>
+    <a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
+    <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
     <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
+    <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
-    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
     <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
+    <a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a>
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a>
+    <a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
     <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
@@ -179,7 +187,7 @@
 <strong>Linux</strong> - Select the appropriate distro and follow the installation instructions</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Head to <a href="https://www.rstudio.com/products/rstudio/download/#download" title="Download the appropriate version of RStudio (Free) for your operating system to use with R" class="external-link">RStudio.com</a>
+<li>Head to <a href="https://posit.co/download/rstudio-desktop/#download" title="Download the appropriate version of RStudio (Free) for your operating system to use with R" class="external-link">Posit.co</a>
 </li>
 <li>Follow the associated download and installation instructions for RStudio.</li>
 <li>Start peering over the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf" class="external-link">RStudio IDE Cheatsheet</a>. <em>An IDE is an integrated development environment.</em>
@@ -213,15 +221,15 @@
 <span>  <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 1.038 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 1.37 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## 13.91 sec elapsed</span></span>
 <span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 91914 rows of WNBA play-by-play data from 238 games.</span></span></code></pre>
+<pre><code><span><span class="co">## 92964 rows of WNBA play-by-play data from 241 games.</span></span></code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## 1782985 rows of WNBA play-by-play data from 4674 games.</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Rows: 91,914</span></span>
+<pre><code><span><span class="co">## Rows: 92,964</span></span>
 <span><span class="co">## Columns: 55</span></span>
 <span><span class="co">## $ id                              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4013916504, 4013916507, 4013916509, 40…</span></span>
 <span><span class="co">## $ sequence_number                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "4", "7", "9", "12", "14", "15", "16",…</span></span>
@@ -293,10 +301,10 @@
 <pre><code><span><span class="co">## 0.034 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games."</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 476 rows of WNBA team boxscore data from 238 games.</span></span></code></pre>
+<pre><code><span><span class="co">## 478 rows of WNBA team boxscore data from 239 games.</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_team_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Rows: 476</span></span>
+<pre><code><span><span class="co">## Rows: 478</span></span>
 <span><span class="co">## Columns: 40</span></span>
 <span><span class="co">## $ team_id                                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "18", "…</span></span>
 <span><span class="co">## $ team_uid                                                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "s:40~l…</span></span>
@@ -309,26 +317,26 @@
 <span><span class="co">## $ team_color                                                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "de6b36…</span></span>
 <span><span class="co">## $ team_alternate_color                                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "002d62…</span></span>
 <span><span class="co">## $ team_logo                                                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https:…</span></span>
-<span><span class="co">## $ field_goals_made_field_goals_attempted                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "28-74"…</span></span>
-<span><span class="co">## $ field_goal_pct                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "37.8",…</span></span>
-<span><span class="co">## $ three_point_field_goals_made_three_point_field_goals_attempted <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "5-16",…</span></span>
-<span><span class="co">## $ three_point_field_goal_pct                                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "31.3",…</span></span>
-<span><span class="co">## $ free_throws_made_free_throws_attempted                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "3-5", …</span></span>
-<span><span class="co">## $ free_throw_pct                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "60.0",…</span></span>
-<span><span class="co">## $ total_rebounds                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "38", "…</span></span>
-<span><span class="co">## $ offensive_rebounds                                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "13", "…</span></span>
-<span><span class="co">## $ defensive_rebounds                                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "25", "…</span></span>
-<span><span class="co">## $ assists                                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "18", "…</span></span>
-<span><span class="co">## $ steals                                                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "8", "3…</span></span>
-<span><span class="co">## $ blocks                                                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "4", "4…</span></span>
-<span><span class="co">## $ turnovers                                                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7", "1…</span></span>
-<span><span class="co">## $ team_turnovers                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "3", "2…</span></span>
-<span><span class="co">## $ total_turnovers                                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "10", "…</span></span>
+<span><span class="co">## $ field_goals_made_field_goals_attempted                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "27-64"…</span></span>
+<span><span class="co">## $ field_goal_pct                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "42.2",…</span></span>
+<span><span class="co">## $ three_point_field_goals_made_three_point_field_goals_attempted <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "3-14",…</span></span>
+<span><span class="co">## $ three_point_field_goal_pct                                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "21.4",…</span></span>
+<span><span class="co">## $ free_throws_made_free_throws_attempted                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "14-21"…</span></span>
+<span><span class="co">## $ free_throw_pct                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "66.7",…</span></span>
+<span><span class="co">## $ total_rebounds                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "34", "…</span></span>
+<span><span class="co">## $ offensive_rebounds                                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "6", "2…</span></span>
+<span><span class="co">## $ defensive_rebounds                                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "28", "…</span></span>
+<span><span class="co">## $ assists                                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "19", "…</span></span>
+<span><span class="co">## $ steals                                                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "6", "5…</span></span>
+<span><span class="co">## $ blocks                                                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2", "4…</span></span>
+<span><span class="co">## $ turnovers                                                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "8", "7…</span></span>
+<span><span class="co">## $ team_turnovers                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1", "1…</span></span>
+<span><span class="co">## $ total_turnovers                                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "9", "8…</span></span>
 <span><span class="co">## $ technical_fouls                                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0…</span></span>
 <span><span class="co">## $ total_technical_fouls                                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0…</span></span>
-<span><span class="co">## $ flagrant_fouls                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1", "0…</span></span>
-<span><span class="co">## $ fouls                                                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "14", "…</span></span>
-<span><span class="co">## $ largest_lead                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "8", "1…</span></span>
+<span><span class="co">## $ flagrant_fouls                                                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0", "0…</span></span>
+<span><span class="co">## $ fouls                                                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "16", "…</span></span>
+<span><span class="co">## $ largest_lead                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2", "2…</span></span>
 <span><span class="co">## $ home_away                                                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "HOME",…</span></span>
 <span><span class="co">## $ opponent_id                                                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 17, 18,…</span></span>
 <span><span class="co">## $ opponent_name                                                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Las Ve…</span></span>
@@ -349,13 +357,13 @@
 <span>  <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.063 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.069 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 238</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 235</span></span></code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 4498</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 4450</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-play-by-play-seasons-2004-2022-45-90-seconds">
@@ -367,13 +375,13 @@
 <span>  <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.415 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.63 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 129</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 170</span></span></code></pre>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 42575</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 58888</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-team-box-score-seasons-2006-2022-5-30-seconds">
@@ -385,13 +393,13 @@
 <span>  <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.034 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.027 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 142</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 169</span></span></code></pre>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 284</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 338</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-player-box-score-seasons-2006-2022-5-30-seconds">
@@ -403,13 +411,13 @@
 <span>  <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.944 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.061 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 5509</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 166</span></span></code></pre>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 112043</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3596</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
