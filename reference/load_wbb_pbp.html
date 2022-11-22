@@ -12,7 +12,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
     
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -338,23 +338,23 @@ the season data into a database (used by <code><a href="update_wbb_db.html">upda
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wbb_pbp</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.6.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 58,888 × 53</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.7.0</span> ──</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 265,764 × 54</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         id seque…¹ type_id type_…² text  away_…³ home_…⁴ perio…⁵ perio…⁶ clock…⁷</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 4.01<span style="color: #949494;">e</span>17 101906… 558     JumpSh… Isab…       3       0       1 1st Qu… 9:34   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 4.01<span style="color: #949494;">e</span>17 101908… 572     LayUpS… Jess…       3       0       1 1st Qu… 9:13   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 4.01<span style="color: #949494;">e</span>17 101908… 618     Block … Cara…       3       0       1 1st Qu… 9:13   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 4.01<span style="color: #949494;">e</span>17 101908… 587     Defens… Wrig…       3       0       1 1st Qu… 9:11   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 4.01<span style="color: #949494;">e</span>17 101914… 598     Lost B… Emil…       3       0       1 1st Qu… 8:58   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 4.01<span style="color: #949494;">e</span>17 101914… 607     Steal   Soph…       3       0       1 1st Qu… 8:58   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 4.01<span style="color: #949494;">e</span>17 101915… 558     JumpSh… Quin…       3       0       1 1st Qu… 8:44   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 4.01<span style="color: #949494;">e</span>17 101916… 587     Defens… Kace…       3       0       1 1st Qu… 8:39   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 4.01<span style="color: #949494;">e</span>17 101916… 558     JumpSh… Isab…       3       0       1 1st Qu… 8:31   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 4.01<span style="color: #949494;">e</span>17 101917… 587     Defens… Jess…       3       0       1 1st Qu… 8:26   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 58,878 more rows, 43 more variables: scoring_play &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 4.01<span style="color: #949494;">e</span>17 101905… 558     JumpSh… Zia …       0       0       1 1st Qu… 9:46   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 4.01<span style="color: #949494;">e</span>17 101905… 587     Defens… Sara…       0       0       1 1st Qu… 9:41   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 4.01<span style="color: #949494;">e</span>17 101907… 558     JumpSh… Jise…       0       0       1 1st Qu… 9:29   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 4.01<span style="color: #949494;">e</span>17 101907… 586     Offens… Jayl…       0       0       1 1st Qu… 9:26   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 4.01<span style="color: #949494;">e</span>17 101907… 572     LayUpS… Cour…       0       0       1 1st Qu… 9:24   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 4.01<span style="color: #949494;">e</span>17 101907… 618     Block … Aliy…       0       0       1 1st Qu… 9:24   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 4.01<span style="color: #949494;">e</span>17 101907… 587     Defens… Aliy…       0       0       1 1st Qu… 9:20   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 4.01<span style="color: #949494;">e</span>17 101908… 558     JumpSh… Rave…       0       0       1 1st Qu… 9:18   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 4.01<span style="color: #949494;">e</span>17 101908… 586     Offens… Sout…       0       0       1 1st Qu… 9:14   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 4.01<span style="color: #949494;">e</span>17 101908… 558     JumpSh… Zia …       0       2       1 1st Qu… 9:12   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 265,754 more rows, 44 more variables: scoring_play &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   score_value &lt;int&gt;, team_id &lt;chr&gt;, participants_0_athlete_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   participants_1_athlete_id &lt;chr&gt;, shooting_play &lt;lgl&gt;, season &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shooting_play &lt;lgl&gt;, participants_1_athlete_id &lt;chr&gt;, season &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   season_type &lt;int&gt;, away_team_id &lt;int&gt;, away_team_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   away_team_mascot &lt;chr&gt;, away_team_abbrev &lt;chr&gt;, away_team_name_alt &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team_id &lt;int&gt;, home_team_name &lt;chr&gt;, home_team_mascot &lt;chr&gt;,</span></span>

@@ -118,6 +118,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_game_rosters.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.html</loc>
   </url>
   <url>
@@ -146,6 +149,9 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_game_rosters.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.html</loc>
