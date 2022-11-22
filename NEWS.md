@@ -1,3 +1,7 @@
+# **wehoop 1.7.0**
+- ```espn_wbb_game_rosters()``` function added.
+- ```espn_wnba_game_rosters()``` function added.
+
 # **wehoop 1.6.0**
 
 * Updates tidyr and dplyr statements to use quotations on columns instead of data masking per tidyselect deprecation notice.

@@ -62,9 +62,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.42 sec elapsed
+    ## 1.11 sec elapsed
 
-    ## 13846 rows of WNBA play-by-play data from 35 games.
+    ## 92964 rows of WNBA play-by-play data from 241 games.
 
 ### **Women’s college basketball full play-by-play seasons (2004-2021) \~ 2-3 minutes**
 
@@ -76,9 +76,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 13.67 sec elapsed
+    ## 0.8 sec elapsed
 
-    ## 1760447 rows of women's college basketball play-by-play data from 5347 games.
+    ## 62886 rows of women's college basketball play-by-play data from 181 games.
 
 ## **Documentation**
 

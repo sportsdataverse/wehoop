@@ -16,9 +16,9 @@ Returns a tibble
 Get WNBA schedule for a specific year/date from ESPN's API
 }
 \examples{
-# Get schedule from date 2020-08-29
+# Get schedule from date 2022-08-31
 \donttest{
-  try(espn_wnba_scoreboard (season = "20200829"))
+  try(espn_wnba_scoreboard (season = "20220831"))
 }
 }
 \author{
