@@ -154,10 +154,13 @@
 
 
 
-<script src="getting-started-wehoop_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started with wehoop</h1>
-                        <h4 data-toc-skip class="author">Saiem Gilani <br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
+                        <h4 data-toc-skip class="author">Saiem Gilani
+<br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
 </h4>
             
       
@@ -168,7 +171,11 @@
     
     
 <p>Welcome folks,</p>
-<p>I’m Saiem Gilani, one of the <a href="https://saiemgilani.github.io/wehoop/authors.html" title="Authors and contributors to wehoop" class="external-link">authors</a> of <a href="https://saiemgilani.github.io/wehoop/" class="external-link"><code>wehoop</code></a>, and I hope to give the community a high-quality resource for accessing women’s basketball data for statistical analysis, basketball research, and more. I am excited to show you some of what you can do with this edition of the package.</p>
+<p>I’m Saiem Gilani, one of the <a href="https://saiemgilani.github.io/wehoop/authors.html" title="Authors and contributors to wehoop" class="external-link">authors</a> of <a href="https://saiemgilani.github.io/wehoop/" class="external-link"><code>wehoop</code></a>,
+and I hope to give the community a high-quality resource for accessing
+women’s basketball data for statistical analysis, basketball research,
+and more. I am excited to show you some of what you can do with this
+edition of the package.</p>
 <div class="section level4">
 <h4 id="installing-r-and-rstudio">
 <strong>Installing R and RStudio</strong><a class="anchor" aria-label="anchor" href="#installing-r-and-rstudio"></a>
@@ -176,23 +183,35 @@
 <ol style="list-style-type: decimal">
 <li>Head to <a href="https://cran.r-project.org" class="external-link uri">https://cran.r-project.org</a>
 </li>
-<li>Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)</li>
+<li>Select the appropriate link for your operating system (Windows, Mac
+OS X, or Linux)</li>
 </ol>
 <ul>
 <li>
-<strong>Windows</strong> - Select base and download the most recent version</li>
+<strong>Windows</strong> - Select base and download the most recent
+version</li>
 <li>
-<strong>Mac OS X</strong> - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release</li>
+<strong>Mac OS X</strong> - Select Latest Release, but check to make
+sure your OS is the correct version. Look through Binaries for Legacy OS
+X Systems if you are on an older release</li>
 <li>
-<strong>Linux</strong> - Select the appropriate distro and follow the installation instructions</li>
+<strong>Linux</strong> - Select the appropriate distro and follow
+the installation instructions</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li>Head to <a href="https://posit.co/download/rstudio-desktop/#download" title="Download the appropriate version of RStudio (Free) for your operating system to use with R" class="external-link">Posit.co</a>
 </li>
-<li>Follow the associated download and installation instructions for RStudio.</li>
-<li>Start peering over the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf" class="external-link">RStudio IDE Cheatsheet</a>. <em>An IDE is an integrated development environment.</em>
+<li>Follow the associated download and installation instructions for
+RStudio.</li>
+<li>Start peering over the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf" class="external-link">RStudio
+IDE Cheatsheet</a>. <em>An IDE is an integrated development
+environment.</em>
 </li>
-<li>For <strong>Windows</strong> users: I recommend you install <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">Rtools</a>. This is not an R package! It is “a collection of resources for building packages for R under Microsoft Windows, or for building R itself”. Go to <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">https://cran.r-project.org/bin/windows/Rtools/</a> and follow the directions for installation.</li>
+<li>For <strong>Windows</strong> users: I recommend you install <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">Rtools</a>. This
+is not an R package! It is “a collection of resources for building
+packages for R under Microsoft Windows, or for building R itself”. Go to
+<a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">https://cran.r-project.org/bin/windows/Rtools/</a>
+and follow the directions for installation.</li>
 </ol>
 </div>
 <div class="section level3">
@@ -213,7 +232,8 @@
 </h3>
 <div class="section level4">
 <h4 id="wnba-full-play-by-play-seasons-2002-2022-30-60-seconds">
-<strong>WNBA full play-by-play seasons (2002-2022) ~ 30-60 seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2022-30-60-seconds"></a>
+<strong>WNBA full play-by-play seasons (2002-2022) ~ 30-60
+seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2022-30-60-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -221,7 +241,7 @@
 <span>  <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 1.172 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 1.151 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## 13.91 sec elapsed</span></span>
 <span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></span></code></pre></div>
@@ -289,7 +309,8 @@
 </div>
 <div class="section level4">
 <h4 id="wnba-full-team-box-score-seasons-2003-2022-5-30-seconds">
-<strong>WNBA full team box score seasons (2003-2022) ~ 5-30 seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-team-box-score-seasons-2003-2022-5-30-seconds"></a>
+<strong>WNBA full team box score seasons (2003-2022) ~ 5-30
+seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-team-box-score-seasons-2003-2022-5-30-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -298,7 +319,7 @@
 <span><span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.037 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.104 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games."</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## 478 rows of WNBA team boxscore data from 239 games.</span></span></code></pre>
@@ -349,7 +370,8 @@
 </div>
 <div class="section level4">
 <h4 id="wnba-full-player-box-score-seasons-2002-2022-5-30-seconds">
-<strong>WNBA full player box score seasons (2002-2022) ~ 5-30 seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-box-score-seasons-2002-2022-5-30-seconds"></a>
+<strong>WNBA full player box score seasons (2002-2022) ~ 5-30
+seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-box-score-seasons-2002-2022-5-30-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -357,7 +379,7 @@
 <span>  <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.066 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.137 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 235</span></span></code></pre>
@@ -367,7 +389,8 @@
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-play-by-play-seasons-2004-2022-45-90-seconds">
-<strong>Women’s college basketball full play-by-play seasons (2004-2022) ~ 45-90 seconds</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-play-by-play-seasons-2004-2022-45-90-seconds"></a>
+<strong>Women’s college basketball full play-by-play seasons
+(2004-2022) ~ 45-90 seconds</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-play-by-play-seasons-2004-2022-45-90-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -375,17 +398,18 @@
 <span>  <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 2.496 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 5.12 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 772</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 1711</span></span></code></pre>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 265764</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 577523</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-team-box-score-seasons-2006-2022-5-30-seconds">
-<strong>Women’s college basketball full team box score seasons (2006-2022) ~ 5-30 seconds</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-team-box-score-seasons-2006-2022-5-30-seconds"></a>
+<strong>Women’s college basketball full team box score seasons
+(2006-2022) ~ 5-30 seconds</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-team-box-score-seasons-2006-2022-5-30-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -393,17 +417,18 @@
 <span>  <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.052 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.179 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 790</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 1777</span></span></code></pre>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 1580</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3554</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-player-box-score-seasons-2006-2022-5-30-seconds">
-<strong>Women’s college basketball full player box score seasons (2006-2022) ~ 5-30 seconds</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-player-box-score-seasons-2006-2022-5-30-seconds"></a>
+<strong>Women’s college basketball full player box score seasons
+(2006-2022) ~ 5-30 seconds</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-player-box-score-seasons-2006-2022-5-30-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -411,13 +436,13 @@
 <span>  <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.173 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.38 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 790</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 1778</span></span></code></pre>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 16942</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 37416</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -425,8 +450,10 @@
 <strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
 </h2>
 <ul>
-<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
-<li><p><a href="https://twitter.com/hutchngo" class="external-link">Geoff Hutchinson</a><br><a href="https://twitter.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/hutchngo?color=blue&amp;label=%40hutchngo&amp;logo=twitter&amp;style=for-the-badge" alt="@hutchngo"></a> <a href="https://github.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@hutchngo"></a></p></li>
+<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
+<li><p><a href="https://twitter.com/hutchngo" class="external-link">Geoff Hutchinson</a><br><a href="https://twitter.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/hutchngo?color=blue&amp;label=%40hutchngo&amp;logo=twitter&amp;style=for-the-badge" alt="@hutchngo"></a>
+<a href="https://github.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@hutchngo"></a></p></li>
 </ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
