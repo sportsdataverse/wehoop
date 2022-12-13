@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   getting-started-wehoop: getting-started-wehoop.html
-last_built: 2022-12-13T02:32Z
+last_built: 2022-12-13T03:12Z
 urls:
   reference: https://wehoop.sportsdataverse.org/reference
   article: https://wehoop.sportsdataverse.org/articles
