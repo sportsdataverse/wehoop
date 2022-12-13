@@ -21,6 +21,7 @@ test_that("ESPN - WNBA Game all", {
     "team_id",
     "type_id",
     "type_text",
+    "wallclock",
     "play_id",
     "athlete_id_1",
     "athlete_id_2",

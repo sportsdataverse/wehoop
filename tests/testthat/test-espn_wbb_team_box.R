@@ -28,7 +28,6 @@ test_that("ESPN - WBB Team Box", {
     "total_rebounds",
     "offensive_rebounds",
     "defensive_rebounds",
-    "team_rebounds",
     "assists",
     "steals",
     "blocks",
