@@ -41,7 +41,6 @@ jobs:
             any::rsconnect
             any::sportyR
             any::tictoc
-            any::tidyverse
             any::zoo
             local::.
           needs: website
