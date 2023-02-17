@@ -8,7 +8,7 @@ status](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=succ
 [![CRAN
 downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/wehoop)
-[![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/wehoop/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge)](https://twitter.com/saiemgilani)
@@ -62,7 +62,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.11 sec elapsed
+    ## 2.22 sec elapsed
 
     ## 92964 rows of WNBA play-by-play data from 241 games.
 
@@ -76,9 +76,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.8 sec elapsed
+    ## 16.72 sec elapsed
 
-    ## 62886 rows of women's college basketball play-by-play data from 181 games.
+    ## 1489442 rows of women's college basketball play-by-play data from 4493 games.
 
 ## **Documentation**
 
