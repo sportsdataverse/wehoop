@@ -1,6 +1,8 @@
 # **wehoop 1.7.0**
-- ```espn_wbb_game_rosters()``` function added.
-- ```espn_wnba_game_rosters()``` function added.
+* ```espn_wbb_game_rosters()``` function added.
+* ```espn_wnba_game_rosters()``` function added.
+* ```wnba_teams()``` function added. Useful for cross-walking between ESPN and WNBA Stats API
+* Add proxy rlang dots option for passing httr::use_proxy() option to wnba_stats_*() functions
 
 # **wehoop 1.6.0**
 

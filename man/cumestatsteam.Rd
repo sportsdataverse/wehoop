@@ -10,7 +10,8 @@ wnba_cumestatsteam(
   league_id = "10",
   season = "2021-22",
   season_type = "Regular Season",
-  team_id = "1611661317"
+  team_id = "1611661317",
+  ...
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ wnba_cumestatsteam(
 \item{season_type}{season_type}
 
 \item{team_id}{team_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: GameByGameStats, TotalTeamStats

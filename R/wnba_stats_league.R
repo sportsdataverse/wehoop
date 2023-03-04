@@ -14,6 +14,7 @@ NULL
 #' @param season season
 #' @param season_type season_type
 #' @param sorter sorter
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: LeagueGameLog
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -28,7 +29,8 @@ wnba_leaguegamelog <- function(
   player_or_team='T',
   season='2021',
   season_type='Regular Season',
-  sorter='DATE'){
+  sorter='DATE',
+  ...){
   season_type <- gsub(' ','+',season_type)
   version <- "leaguegamelog"
   endpoint <- wnba_endpoint(version)
@@ -45,9 +47,8 @@ wnba_leaguegamelog <- function(
                      "&Sorter=",sorter)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -84,6 +85,7 @@ NULL
 #' @param season season
 #' @param season_type season_type
 #' @param season_year season_year
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: Standings
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -93,7 +95,8 @@ wnba_leaguestandingsv3 <- function(
   league_id='10',
   season='2021',
   season_type='Regular Season',
-  season_year=''){
+  season_year='',
+  ...){
   season_type <- gsub(' ','+',season_type)
   version <- "leaguestandingsv3"
   endpoint <- wnba_endpoint(version)
@@ -105,9 +108,8 @@ wnba_leaguestandingsv3 <- function(
                      "&SeasonYear=", season_year)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -228,6 +230,7 @@ NULL
 #' @param vs_division vs_division
 #' @param vs_team_id vs_team_id
 #' @param years_experience years_experience
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: LeagueGameFinderResults
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -321,7 +324,8 @@ wnba_leaguegamefinder <- function(
   vs_conference='',
   vs_division='',
   vs_team_id='',
-  years_experience=''){
+  years_experience='',
+  ...){
   season_type <- gsub(' ','+',season_type)
   version <- "leaguegamefinder"
   endpoint <- wnba_endpoint(version)
@@ -419,9 +423,8 @@ wnba_leaguegamefinder <- function(
   )
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%

@@ -11,7 +11,8 @@ wnba_teamgamelog(
   league_id = "10",
   season = "2022",
   season_type = "Regular Season",
-  team_id = "1611661317"
+  team_id = "1611661317",
+  ...
 )
 }
 \arguments{
@@ -26,6 +27,8 @@ wnba_teamgamelog(
 \item{season_type}{Season Type - Regular Season, Playoffs, All-Star}
 
 \item{team_id}{Team ID}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: TeamGameLog

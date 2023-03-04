@@ -81,67 +81,69 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: LeagueAverages, Shot_Chart_Detail
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_shotchartdetail <- function(
-  ahead_behind='',
-  cfid='33',
-  cfparams='2022',
-  clutch_time='',
-  conference='',
-  context_filter='',
-  context_measure='FGA',
-  date_from='',
-  date_to='',
-  division='',
-  end_period='10',
-  end_range='24000',
-  group_id='',
-  game_event_id='',
-  game_id='',
-  game_segment='',
-  group_id_2='',
-  group_mode='',
-  group_quantity='5',
-  last_n_games='0',
-  league_id='10',
-  location='',
-  month='0',
-  on_off='',
-  opponent_team_id='0',
-  outcome='',
-  po_round='0',
-  period='0',
-  player_id='202250',
-  player_id1='',
-  player_id2='',
-  player_id3='',
-  player_id4='',
-  player_id5='',
-  player_position='',
-  point_diff='',
-  position='',
-  range_type='0',
-  rookie_year='',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  start_period='1',
-  start_range='0',
-  starter_bench='',
-  team_id='0',
-  vs_conference='',
-  vs_division='',
-  vs_player_id1='',
-  vs_player_id2='',
-  vs_player_id3='',
-  vs_player_id4='',
-  vs_player_id5='',
-  vs_team_id=''){
+    ahead_behind='',
+    cfid='33',
+    cfparams='2022',
+    clutch_time='',
+    conference='',
+    context_filter='',
+    context_measure='FGA',
+    date_from='',
+    date_to='',
+    division='',
+    end_period='10',
+    end_range='24000',
+    group_id='',
+    game_event_id='',
+    game_id='',
+    game_segment='',
+    group_id_2='',
+    group_mode='',
+    group_quantity='5',
+    last_n_games='0',
+    league_id='10',
+    location='',
+    month='0',
+    on_off='',
+    opponent_team_id='0',
+    outcome='',
+    po_round='0',
+    period='0',
+    player_id='202250',
+    player_id1='',
+    player_id2='',
+    player_id3='',
+    player_id4='',
+    player_id5='',
+    player_position='',
+    point_diff='',
+    position='',
+    range_type='0',
+    rookie_year='',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    start_period='1',
+    start_range='0',
+    starter_bench='',
+    team_id='0',
+    vs_conference='',
+    vs_division='',
+    vs_player_id1='',
+    vs_player_id2='',
+    vs_player_id3='',
+    vs_player_id4='',
+    vs_player_id5='',
+    vs_team_id='',
+    ...){
   
   
   season_type <- gsub(' ','+',season_type)
@@ -149,61 +151,61 @@ wnba_shotchartdetail <- function(
   endpoint <- wnba_endpoint(version)
   
   full_url <- paste0(endpoint,
-    "?AheadBehind=", ahead_behind, 
-    "&CFID=", cfid,
-    "&CFPARAMS=", cfparams,
-    "&ClutchTime=", clutch_time, 
-    "&Conference=", conference, 
-    "&ContextFilter=", context_filter, 
-    "&ContextMeasure=", context_measure,
-    "&DateFrom=", date_from, 
-    "&DateTo=", date_to, 
-    "&Division=", division, 
-    "&EndPeriod=", end_period,
-    "&EndRange=", end_range, 
-    "&GROUP_ID=", group_id, 
-    "&GameEventID=", game_event_id, 
-    "&GameID=", game_id, 
-    "&GameSegment=", game_segment, 
-    "&GroupID=", group_id_2, 
-    "&GroupMode=", group_mode, 
-    "&GroupQuantity=", group_quantity,
-    "&LastNGames=", last_n_games, 
-    "&LeagueID=", league_id, 
-    "&Location=", location, 
-    "&Month=", month, 
-    "&OnOff=", on_off, 
-    "&OpponentTeamID=", opponent_team_id, 
-    "&Outcome=", outcome, 
-    "&PORound=", po_round, 
-    "&Period=", period, 
-    "&PlayerID=", player_id, 
-    "&PlayerID1=", player_id1, 
-    "&PlayerID2=", player_id2, 
-    "&PlayerID3=", player_id3, 
-    "&PlayerID4=", player_id4, 
-    "&PlayerID5=", player_id5, 
-    "&PlayerPosition=", player_position, 
-    "&PointDiff=", point_diff, 
-    "&Position=", position, 
-    "&RangeType=", range_type, 
-    "&RookieYear=", rookie_year, 
-    "&Season=", season, 
-    "&SeasonSegment=", season_segment, 
-    "&SeasonType=", season_type, 
-    "&ShotClockRange=", shot_clock_range, 
-    "&StartPeriod=", start_period, 
-    "&StartRange=", start_range, 
-    "&StarterBench=", starter_bench, 
-    "&TeamID=", team_id, 
-    "&VsConference=", vs_conference, 
-    "&VsDivision=", vs_division, 
-    "&VsPlayerID1=", vs_player_id1, 
-    "&VsPlayerID2=", vs_player_id2, 
-    "&VsPlayerID3=", vs_player_id3, 
-    "&VsPlayerID4=", vs_player_id4, 
-    "&VsPlayerID5=", vs_player_id5, 
-    "&VsTeamID=", vs_team_id 
+                     "?AheadBehind=", ahead_behind, 
+                     "&CFID=", cfid,
+                     "&CFPARAMS=", cfparams,
+                     "&ClutchTime=", clutch_time, 
+                     "&Conference=", conference, 
+                     "&ContextFilter=", context_filter, 
+                     "&ContextMeasure=", context_measure,
+                     "&DateFrom=", date_from, 
+                     "&DateTo=", date_to, 
+                     "&Division=", division, 
+                     "&EndPeriod=", end_period,
+                     "&EndRange=", end_range, 
+                     "&GROUP_ID=", group_id, 
+                     "&GameEventID=", game_event_id, 
+                     "&GameID=", game_id, 
+                     "&GameSegment=", game_segment, 
+                     "&GroupID=", group_id_2, 
+                     "&GroupMode=", group_mode, 
+                     "&GroupQuantity=", group_quantity,
+                     "&LastNGames=", last_n_games, 
+                     "&LeagueID=", league_id, 
+                     "&Location=", location, 
+                     "&Month=", month, 
+                     "&OnOff=", on_off, 
+                     "&OpponentTeamID=", opponent_team_id, 
+                     "&Outcome=", outcome, 
+                     "&PORound=", po_round, 
+                     "&Period=", period, 
+                     "&PlayerID=", player_id, 
+                     "&PlayerID1=", player_id1, 
+                     "&PlayerID2=", player_id2, 
+                     "&PlayerID3=", player_id3, 
+                     "&PlayerID4=", player_id4, 
+                     "&PlayerID5=", player_id5, 
+                     "&PlayerPosition=", player_position, 
+                     "&PointDiff=", point_diff, 
+                     "&Position=", position, 
+                     "&RangeType=", range_type, 
+                     "&RookieYear=", rookie_year, 
+                     "&Season=", season, 
+                     "&SeasonSegment=", season_segment, 
+                     "&SeasonType=", season_type, 
+                     "&ShotClockRange=", shot_clock_range, 
+                     "&StartPeriod=", start_period, 
+                     "&StartRange=", start_range, 
+                     "&StarterBench=", starter_bench, 
+                     "&TeamID=", team_id, 
+                     "&VsConference=", vs_conference, 
+                     "&VsDivision=", vs_division, 
+                     "&VsPlayerID1=", vs_player_id1, 
+                     "&VsPlayerID2=", vs_player_id2, 
+                     "&VsPlayerID3=", vs_player_id3, 
+                     "&VsPlayerID4=", vs_player_id4, 
+                     "&VsPlayerID5=", vs_player_id5, 
+                     "&VsTeamID=", vs_team_id 
   )
   
   tryCatch(
@@ -224,7 +226,7 @@ wnba_shotchartdetail <- function(
       )
       
       res <-
-        httr::RETRY("GET", full_url,
+        httr::RETRY("GET", full_url, ...,
                     httr::add_headers(.headers = headers))
       resp <- res$content %>%
         rawToChar() %>%
@@ -262,14 +264,16 @@ NULL
 #' @author Saiem Gilani
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
 #' @param season season
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: League_Wide
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_shotchartleaguewide <- function(
-  league_id='10',
-  season='2022'){
+    league_id='10',
+    season='2022',
+    ...){
   
   version <- "shotchartleaguewide"
   endpoint <- wnba_endpoint(version)
@@ -280,8 +284,8 @@ wnba_shotchartleaguewide <- function(
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%

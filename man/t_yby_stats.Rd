@@ -9,7 +9,8 @@ wnba_teamyearbyyearstats(
   league_id = "10",
   per_mode = "Totals",
   season_type = "Regular Season",
-  team_id = "1611661317"
+  team_id = "1611661317",
+  ...
 )
 }
 \arguments{
@@ -20,6 +21,8 @@ wnba_teamyearbyyearstats(
 \item{season_type}{Season Type - Regular Season, Playoffs, All-Star}
 
 \item{team_id}{Team ID}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: TeamStats

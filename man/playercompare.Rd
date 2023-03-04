@@ -29,7 +29,8 @@ wnba_playercompare(
   shot_clock_range = "",
   vs_conference = "",
   vs_division = "",
-  vs_player_id_list = "202662,1627675,1628280,1627673,203826"
+  vs_player_id_list = "202662,1627675,1628280,1627673,203826",
+  ...
 )
 }
 \arguments{
@@ -80,6 +81,8 @@ wnba_playercompare(
 \item{vs_division}{vs_division}
 
 \item{vs_player_id_list}{vs_player_id_list}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: Individual, OverallCompare

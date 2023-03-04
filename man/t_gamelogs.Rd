@@ -28,7 +28,8 @@ wnba_teamgamelogs(
   shot_clock_range = "",
   team_id = "1611661319",
   vs_conference = "",
-  vs_division = ""
+  vs_division = "",
+  ...
 )
 }
 \arguments{
@@ -77,6 +78,8 @@ wnba_teamgamelogs(
 \item{vs_conference}{vs_conference}
 
 \item{vs_division}{vs_division}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: TeamGameLogs

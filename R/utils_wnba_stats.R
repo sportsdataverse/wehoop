@@ -1,6 +1,7 @@
 .wnba_headers <-
   function(url = "https://stats.wnba.com/stats/leaguegamelog?Counter=1000&Season=2019-20&Direction=DESC&LeagueID=00&PlayerOrTeam=P&SeasonType=Regular%20Season&Sorter=DATE",
            params = list(),
+           ...,
            origin = "https://stats.wnba.com",
            referer="https://www.wnba.com/") {
     
@@ -18,15 +19,20 @@
       `Pragma` = 'no-cache',
       `Cache-Control` = 'no-cache'
     )
-    if(length(params)>=1){
+    
+    dots <- rlang::dots_list(..., .named = TRUE)
+    proxy <- dots$proxy
+    if (length(params) >= 1) {
       
       res <-
         httr::RETRY("GET", url,
                     query = params,
+                    ...,
                     httr::add_headers(.headers = headers))
-    }else{
+    } else {
       res <-
         httr::RETRY("GET", url,
+                    ...,
                     httr::add_headers(.headers = headers))
     }
     json <- res$content %>%
@@ -36,6 +42,53 @@
     return(json)
     
   }
+
+#' @title
+#' **Retry http request with proxy**
+#' @description
+#' This is a thin wrapper on httr::RETRY
+#' @param url Request url
+#' @param ... passed to httr::RETRY
+#' @param params list of params
+#' @keywords internal
+#' @import rvest
+request_with_proxy <- function(url, ..., params=list(),
+                               origin = "https://stats.wnba.com",
+                               referer="https://www.wnba.com/"){
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$proxy
+  headers <- dots$headers
+  headers <- c(
+    `Host` = 'stats.wnba.com',
+    `User-Agent` = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+    `Accept` = 'application/json, text/plain, */*',
+    `Accept-Language` = 'en-US,en;q=0.5',
+    `Accept-Encoding` = 'gzip, deflate, br',
+    `x-nba-stats-origin` = 'stats',
+    `x-nba-stats-token` = 'true',
+    `Connection` = 'keep-alive',
+    `Origin` = origin,
+    `Referer` = referer,
+    `Pragma` = 'no-cache',
+    `Cache-Control` = 'no-cache'
+  )
+  if (length(params) >= 1) {
+    res <- httr::RETRY("GET", {{url}},
+                  query = {{params}},
+                  ...,
+                  httr::add_headers(.headers = headers))
+  } else {
+    res <- httr::RETRY("GET", {{url}},
+                  ...,
+                  httr::add_headers(.headers = headers))
+  }
+  
+  json <- res$content %>%
+    rawToChar() %>%
+    jsonlite::fromJSON(simplifyVector = T)
+  return(json)
+}
+
 
 wnba_endpoint <- function(endpoint){
   all_endpoints = c(

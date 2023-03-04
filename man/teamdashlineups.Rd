@@ -30,7 +30,8 @@ wnba_teamdashlineups(
   shot_clock_range = "",
   team_id = "1611661317",
   vs_conference = "",
-  vs_division = ""
+  vs_division = "",
+  ...
 )
 }
 \arguments{
@@ -83,6 +84,8 @@ wnba_teamdashlineups(
 \item{vs_conference}{vs_conference}
 
 \item{vs_division}{vs_division}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: Lineups, Overall

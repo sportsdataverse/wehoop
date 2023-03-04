@@ -202,3 +202,4 @@ reference:
       - '`most_recent_wbb_season`'
       - '`most_recent_wnba_season`'
       - '`progressively`'
+      - '`request_with_proxy`'

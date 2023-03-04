@@ -19,6 +19,6 @@ Returns a tibble
 
 # Get schedule from date 2022-11-15
 \donttest{
-  try(espn_wbb_scoreboard (season = "20221115"))
+  try(espn_wbb_scoreboard (season = "20230225"))
 }
 }

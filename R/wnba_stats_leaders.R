@@ -9,6 +9,7 @@ NULL
 #' @param per_mode Per Mode - PerGame, Totals
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
 #' @param top_x Top X
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: ASTLeaders, BLKLeaders, DREBLeaders, FG3ALeaders, FG3MLeaders, FG3_PCTLeaders, FGALeaders, FGMLeaders,
 #'   FG_PCTLeaders, FTALeaders, FTMLeaders, FT_PCTLeaders, GPLeaders, OREBLeaders, PFLeaders, PTSLeaders, REBLeaders, STLLeaders, TOVLeaders
 #' @importFrom jsonlite fromJSON toJSON
@@ -19,7 +20,8 @@ NULL
 wnba_alltimeleadersgrids <- function(league_id='10',
                                     per_mode = 'PerGame',
                                     season_type = 'Regular Season',
-                                    top_x = 10){
+                                    top_x = 10,
+                                    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "alltimeleadersgrids"
   endpoint <- wnba_endpoint(version)
@@ -31,9 +33,8 @@ wnba_alltimeleadersgrids <- function(league_id='10',
                      "&TopX=",top_x)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -70,6 +71,7 @@ NULL
 #' @param per_mode Per Mode - PerGame, Totals
 #' @param player_or_team Player or Team
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: AssistLeaders
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -80,7 +82,8 @@ wnba_assistleaders <- function(league_id='10',
                               per_mode = 'PerGame',
                               player_or_team ='Team',
                               season = '2020',
-                              season_type = 'Regular Season'){
+                              season_type = 'Regular Season',
+                              ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "assistleaders"
@@ -94,9 +97,8 @@ wnba_assistleaders <- function(league_id='10',
                      "&SeasonType=",season_type)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -130,6 +132,7 @@ NULL
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param per_mode Per Mode - PerGame, Totals
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: AssistTracker
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -138,7 +141,8 @@ NULL
 wnba_assisttracker <- function(league_id='10',
                               per_mode = 'PerGame',
                               season = '2020',
-                              season_type = 'Regular Season'){
+                              season_type = 'Regular Season',
+                              ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "assisttracker"
@@ -151,9 +155,8 @@ wnba_assisttracker <- function(league_id='10',
                      "&SeasonType=",season_type)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -191,6 +194,7 @@ NULL
 #' @param player_scope Player Scope - All Players, Rookies
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
 #' @param stat_category Stat Category: Points, Rebounds, Assists, Defense, Clutch, Playmaking, Efficiency, Fast Break, Scoring Breakdown
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: HomePageLeaders, LeagueAverage, LeagueMax
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -203,7 +207,8 @@ wnba_homepageleaders <- function(league_id='10',
                                 player_scope = 'All Players',
                                 season = '2020',
                                 season_type = 'Regular Season',
-                                stat_category = 'Points'){
+                                stat_category = 'Points',
+                                ...){
   player_scope <- gsub(' ','+',player_scope)
   season_type <- gsub(' ','+',season_type)
   stat_category <- gsub(' ','+',stat_category)
@@ -220,9 +225,8 @@ wnba_homepageleaders <- function(league_id='10',
                      "&StatCategory=",stat_category)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -261,6 +265,7 @@ NULL
 #' @param player_scope Player Scope - All Players, Rookies
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
 #' @param stat_type Stat Type - Traditional, Advanced, Tracking
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: HomePageStat1, HomePageStat2, HomePageStat3,
 #'  HomePageStat4, HomePageStat5, HomePageStat6, HomePageStat7, HomePageStat8
 #' @importFrom jsonlite fromJSON toJSON
@@ -274,7 +279,8 @@ wnba_homepagev2 <- function(league_id='10',
                            player_scope = 'All Players',
                            season = '2020',
                            season_type = 'Regular Season',
-                           stat_type = 'Traditional'){
+                           stat_type = 'Traditional',
+                           ...){
   player_scope <- gsub(' ','+',player_scope)
   season_type <- gsub(' ','+',season_type)
   stat_type <- gsub(' ','+',stat_type)
@@ -291,9 +297,8 @@ wnba_homepagev2 <- function(league_id='10',
                      "&StatType=",stat_type)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%

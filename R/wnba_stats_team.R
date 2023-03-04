@@ -1,3 +1,70 @@
+#' **Get WNBA Stats and ESPN API Teams and Logos**
+#' @name wnba_teams
+NULL
+#' @title
+#' **Get WNBA Stats and ESPN API Teams and Logos**
+#' @rdname wnba_teams
+#' @author Saiem Gilani
+#' @param ... Additional arguments passed to an underlying function like httr.
+#' @return Return a tibble with the following columns:
+#' 
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |LEAGUE_ID         |numeric   |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |espn_team_id      |integer   |
+#'    |team              |character |
+#'    |mascot            |character |
+#'    |display_name      |character |
+#'    |short_name        |character |
+#'    |abbreviation      |character |
+#'    |color             |character |
+#'    |alternate_color   |character |
+#'    |logo              |character |
+#'    |logo_dark         |character |
+#'    
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
+#' @import rvest
+#' @export
+wnba_teams <- function(...){
+  
+  tryCatch(
+    expr = {
+        x <- wnba_leaguegamelog(season = most_recent_wnba_season() - 1)$LeagueGameLog %>% 
+          dplyr::select("TEAM_ID", "TEAM_NAME","TEAM_ABBREVIATION") %>% 
+          dplyr::distinct()
+        y <- espn_wnba_teams()
+        
+        wnba_teams_df <- y %>% 
+          dplyr::left_join(x, by = c("display_name" = "TEAM_NAME"))
+        wnba_teams_df <- wnba_teams_df %>% 
+          dplyr::mutate(
+            LEAGUE_ID = 10,
+            TEAM_ID = as.integer(.data$TEAM_ID),
+            team_id = as.integer(.data$team_id)) %>% 
+          dplyr::select(
+            "LEAGUE_ID",
+            "TEAM_ID",
+            "TEAM_ABBREVIATION",
+            "espn_team_id" = "team_id",
+            tidyr::everything()
+          )
+            
+        
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team details data for {team_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(wnba_teams_df)
+}
+
 #' **Get WNBA Stats API Team Details**
 #' @name t_details
 NULL
@@ -6,6 +73,7 @@ NULL
 #' @rdname t_details
 #' @author Saiem Gilani
 #' @param team_id Team ID
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamAwardsChampionships,
 #' TeamAwardsConf, TeamAwardsDiv, TeamBackground,
 #' TeamHistory, TeamHof, TeamRetired, TeamSocialSites
@@ -13,7 +81,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-wnba_teamdetails <- function(team_id='1611661317'){
+wnba_teamdetails <- function(team_id='1611661317',
+                             ...){
   
   version <- "teamdetails"
   endpoint <- wnba_endpoint(version)
@@ -22,8 +91,8 @@ wnba_teamdetails <- function(team_id='1611661317'){
                      "?TeamID=",team_id)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -59,14 +128,16 @@ NULL
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamEstimatedMetrics
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamestimatedmetrics <- function(league_id = '10',
-                                     season='2021',
-                                     season_type='Regular Season'){
+                                      season='2021',
+                                      season_type='Regular Season',
+                                      ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "teamestimatedmetrics"
@@ -78,8 +149,8 @@ wnba_teamestimatedmetrics <- function(league_id = '10',
                      "&SeasonType=",season_type)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet %>%
@@ -120,18 +191,20 @@ NULL
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param team_id Team ID
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamGameLog
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamgamelog <- function(
-  date_from = '',
-  date_to = '',
-  league_id = '10',
-  season='2022',
-  season_type='Regular Season',
-  team_id='1611661317'){
+    date_from = '',
+    date_to = '',
+    league_id = '10',
+    season='2022',
+    season_type='Regular Season',
+    team_id='1611661317',
+    ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "teamgamelog"
@@ -146,8 +219,8 @@ wnba_teamgamelog <- function(
                      "&TeamID=",team_id)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet[[x]] %>%
@@ -203,35 +276,37 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamGameLogs
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamgamelogs <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  po_round='0',
-  pace_adjust='N',
-  per_mode='Totals',
-  period=0,
-  plus_minus='N',
-  rank='N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661319',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    po_round='0',
+    pace_adjust='N',
+    per_mode='Totals',
+    period=0,
+    plus_minus='N',
+    rank='N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661319',
+    vs_conference='',
+    vs_division='',
+    ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "teamgamelogs"
@@ -280,7 +355,8 @@ wnba_teamgamelogs <- function(
     expr = {
       
       res <-
-        httr::RETRY("GET", full_url,
+        httr::RETRY("GET", full_url, 
+                    ...,
                     httr::add_headers(.headers = headers))
       
       resp <- res$content %>%
@@ -322,15 +398,17 @@ NULL
 #' @param league_id league_id
 #' @param season_id season_id
 #' @param team_id team_id
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: CareerLeadersByTeam
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamhistoricalleaders <- function(
-  league_id='10',
-  season_id='22022',
-  team_id='1611661317'){
+    league_id='10',
+    season_id='22022',
+    team_id='1611661317',
+    ...){
   
   version <- "teamhistoricalleaders"
   endpoint <- wnba_endpoint(version)
@@ -341,8 +419,8 @@ wnba_teamhistoricalleaders <- function(
                      "&TeamID=", team_id)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -379,16 +457,18 @@ NULL
 #' @param team_id Team ID
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: AvailableSeasons, TeamInfoCommon, TeamSeasonRanks
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teaminfocommon <- function(
-  league_id = '10',
-  season='2022',
-  season_type='Regular Season',
-  team_id='1611661317'){
+    league_id = '10',
+    season='2022',
+    season_type='Regular Season',
+    team_id='1611661317',
+    ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "teaminfocommon"
@@ -401,8 +481,8 @@ wnba_teaminfocommon <- function(
                      "&TeamID=",team_id)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet[[x]] %>%
@@ -459,6 +539,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: OverallTeamPlayerOnOffDetails,
 #' PlayersOffCourtTeamPlayerOnOffDetails, PlayersOnCourtTeamPlayerOnOffDetails
 #' @importFrom jsonlite fromJSON toJSON
@@ -466,29 +547,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamplayeronoffdetails <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamplayeronoffdetails"
   endpoint <- wnba_endpoint(version)
@@ -519,8 +601,8 @@ wnba_teamplayeronoffdetails <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -576,6 +658,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: OverallTeamPlayerOnOffSummary,
 #' PlayersOffCourtTeamPlayerOnOffSummary, PlayersOnCourtTeamPlayerOnOffSummary
 #' @importFrom jsonlite fromJSON toJSON
@@ -583,29 +666,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamplayeronoffsummary <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamplayeronoffsummary"
   endpoint <- wnba_endpoint(version)
@@ -636,8 +720,8 @@ wnba_teamplayeronoffsummary <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -693,35 +777,37 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: PlayersSeasonTotals, TeamOverall
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamplayerdashboard <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamplayerdashboard"
   endpoint <- wnba_endpoint(version)
@@ -752,8 +838,8 @@ wnba_teamplayerdashboard <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -790,16 +876,18 @@ NULL
 #' @param per_mode Per Mode
 #' @param team_id Team ID
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamStats
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamyearbyyearstats <- function(
-  league_id = '10',
-  per_mode = 'Totals',
-  season_type = 'Regular Season',
-  team_id = '1611661317'){
+    league_id = '10',
+    per_mode = 'Totals',
+    season_type = 'Regular Season',
+    team_id = '1611661317',
+    ...){
   
   season_type <- gsub(' ','+',season_type)
   version <- "teamyearbyyearstats"
@@ -812,8 +900,8 @@ wnba_teamyearbyyearstats <- function(
                      "&TeamID=", team_id)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet[[x]] %>%
@@ -872,6 +960,7 @@ NULL
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
 #' @param vs_player_id vs_player_id
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: OnOffCourt, Overall, ShotAreaOffCourt,
 #' ShotAreaOnCourt, ShotAreaOverall, ShotDistanceOffCourt, ShotDistanceOnCourt,
 #' ShotDistanceOverall, vsPlayerOverall
@@ -880,31 +969,32 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamvsplayer <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  po_round='',
-  pace_adjust='N',
-  per_mode='Totals',
-  period=0,
-  player_id='',
-  plus_minus = 'N',
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division='',
-  vs_player_id='202250'){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    po_round='',
+    pace_adjust='N',
+    per_mode='Totals',
+    period=0,
+    player_id='',
+    plus_minus = 'N',
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    vs_player_id='202250',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamvsplayer"
   endpoint <- wnba_endpoint(version)
@@ -937,8 +1027,8 @@ wnba_teamvsplayer <- function(
                      "&VsPlayerID=", vs_player_id)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -1163,6 +1253,7 @@ NULL
 #' @param wrs_opp_reb wrs_opp_reb
 #' @param wrs_opp_stl wrs_opp_stl
 #' @param wrs_opp_tov wrs_opp_tov
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamGameStreakFinderParametersResults
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1170,194 +1261,195 @@ NULL
 #' @export
 
 wnba_teamgamestreakfinder <- function(
-  active_streaks_only='',
-  active_teams_only='',
-  btr_opp_ast='',
-  btr_opp_blk='',
-  btr_opp_dreb='',
-  btr_opp_fg3a='',
-  btr_opp_fg3m='',
-  btr_opp_fg3_pct='',
-  btr_opp_fga='',
-  btr_opp_fgm='',
-  btr_opp_fg_pct='',
-  btr_opp_fta='',
-  btr_opp_ftm='',
-  btr_opp_ft_pct='',
-  btr_opp_oreb='',
-  btr_opp_pf='',
-  btr_opp_pts='',
-  btr_opp_pts2nd_chance='',
-  btr_opp_pts_fb='',
-  btr_opp_pts_off_tov='',
-  btr_opp_pts_paint='',
-  btr_opp_reb='',
-  btr_opp_stl='',
-  btr_opp_tov='',
-  conference = '',
-  date_from = '',
-  date_to = '',
-  division = '',
-  et_ast='',
-  et_blk='',
-  et_dd='',
-  et_dreb='',
-  et_fg3a='',
-  et_fg3m='',
-  et_fg3_pct='',
-  et_fga='',
-  et_fgm='',
-  et_fg_pct='',
-  et_fta='',
-  et_ftm='',
-  et_ft_pct='',
-  et_minutes='',
-  eq_opp_pts2nd_chance='',
-  eq_opp_pts_fb='',
-  eq_opp_pts_off_tov='',
-  eq_opp_pts_paint='',
-  et_oreb='',
-  et_pf='',
-  et_pts='',
-  eq_pts2nd_chance='',
-  eq_pts_fb='',
-  eq_pts_off_tov='',
-  eq_pts_paint='',
-  et_reb='',
-  et_stl='',
-  et_td='',
-  et_tov='',
-  game_id='',
-  gt_ast='',
-  gt_blk='',
-  gt_dd='',
-  gt_dreb='',
-  gt_fg3a='',
-  gt_fg3m='',
-  gt_fg3_pct='',
-  gt_fga='',
-  gt_fgm='',
-  gt_fg_pct='',
-  gt_fta='',
-  gt_ftm='',
-  gt_ft_pct='',
-  gt_minutes='',
-  gt_opp_ast='',
-  gt_opp_blk='',
-  gt_opp_dreb='',
-  gt_opp_fg3a='',
-  gt_opp_fg3m='',
-  gt_opp_fg3_pct='',
-  gt_opp_fga='',
-  gt_opp_fgm='',
-  gt_opp_fg_pct='',
-  gt_opp_fta='',
-  gt_opp_ftm='',
-  gt_opp_ft_pct='',
-  gt_opp_oreb='',
-  gt_opp_pf='',
-  gt_opp_pts='',
-  gt_opp_pts2nd_chance='',
-  gt_opp_pts_fb='',
-  gt_opp_pts_off_tov='',
-  gt_opp_pts_paint='',
-  gt_opp_reb='',
-  gt_opp_stl='',
-  gt_opp_tov='',
-  gt_oreb='',
-  gt_pf='',
-  gt_pts='',
-  gt_pts2nd_chance='',
-  gt_pts_fb='',
-  gt_pts_off_tov='',
-  gt_pts_paint='',
-  gt_reb='',
-  gt_stl='',
-  gt_td='',
-  gt_tov='',
-  lstreak='',
-  league_id='10',
-  location='',
-  lt_ast='',
-  lt_blk='',
-  lt_dd='',
-  lt_dreb='',
-  lt_fg3a='',
-  lt_fg3m='',
-  lt_fg3_pct='',
-  lt_fga='',
-  lt_fgm='',
-  lt_fg_pct='',
-  lt_fta='',
-  lt_ftm='',
-  lt_ft_pct='',
-  lt_minutes='',
-  lt_opp_ast='',
-  lt_opp_blk='',
-  lt_opp_dreb='',
-  lt_opp_fg3a='',
-  lt_opp_fg3m='',
-  lt_opp_fg3_pct='',
-  lt_opp_fga='',
-  lt_opp_fgm='',
-  lt_opp_fg_pct='',
-  lt_opp_fta='',
-  lt_opp_ftm='',
-  lt_opp_ft_pct='',
-  lt_opp_oreb='',
-  lt_opp_pf='',
-  lt_opp_pts='',
-  lt_opp_pts2nd_chance='',
-  lt_opp_pts_fb='',
-  lt_opp_pts_off_tov='',
-  lt_opp_pts_paint='',
-  lt_opp_reb='',
-  lt_opp_stl='',
-  lt_opp_tov='',
-  lt_oreb='',
-  lt_pf='',
-  lt_pts='',
-  lt_pts2nd_chance='',
-  lt_pts_fb='',
-  lt_pts_off_tov='',
-  lt_pts_paint='',
-  lt_reb='',
-  lt_stl='',
-  lt_td='',
-  lt_tov='',
-  min_games='',
-  outcome='',
-  po_round='',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  team_id='',
-  vs_conference='',
-  vs_division='',
-  vs_team_id='',
-  wstreak='',
-  wrs_opp_ast='',
-  wrs_opp_blk='',
-  wrs_opp_dreb='',
-  wrs_opp_fg3a='',
-  wrs_opp_fg3m='',
-  wrs_opp_fg3_pct='',
-  wrs_opp_fga='',
-  wrs_opp_fgm='',
-  wrs_opp_fg_pct='',
-  wrs_opp_fta='',
-  wrs_opp_ftm='',
-  wrs_opp_ft_pct='',
-  wrs_opp_oreb='',
-  wrs_opp_pf='',
-  wrs_opp_pts='',
-  wrs_opp_pts2nd_chance='',
-  wrs_opp_pts_fb='',
-  wrs_opp_pts_off_tov='',
-  wrs_opp_pts_paint='',
-  wrs_opp_reb='',
-  wrs_opp_stl='',
-  wrs_opp_tov=''){
+    active_streaks_only='',
+    active_teams_only='',
+    btr_opp_ast='',
+    btr_opp_blk='',
+    btr_opp_dreb='',
+    btr_opp_fg3a='',
+    btr_opp_fg3m='',
+    btr_opp_fg3_pct='',
+    btr_opp_fga='',
+    btr_opp_fgm='',
+    btr_opp_fg_pct='',
+    btr_opp_fta='',
+    btr_opp_ftm='',
+    btr_opp_ft_pct='',
+    btr_opp_oreb='',
+    btr_opp_pf='',
+    btr_opp_pts='',
+    btr_opp_pts2nd_chance='',
+    btr_opp_pts_fb='',
+    btr_opp_pts_off_tov='',
+    btr_opp_pts_paint='',
+    btr_opp_reb='',
+    btr_opp_stl='',
+    btr_opp_tov='',
+    conference = '',
+    date_from = '',
+    date_to = '',
+    division = '',
+    et_ast='',
+    et_blk='',
+    et_dd='',
+    et_dreb='',
+    et_fg3a='',
+    et_fg3m='',
+    et_fg3_pct='',
+    et_fga='',
+    et_fgm='',
+    et_fg_pct='',
+    et_fta='',
+    et_ftm='',
+    et_ft_pct='',
+    et_minutes='',
+    eq_opp_pts2nd_chance='',
+    eq_opp_pts_fb='',
+    eq_opp_pts_off_tov='',
+    eq_opp_pts_paint='',
+    et_oreb='',
+    et_pf='',
+    et_pts='',
+    eq_pts2nd_chance='',
+    eq_pts_fb='',
+    eq_pts_off_tov='',
+    eq_pts_paint='',
+    et_reb='',
+    et_stl='',
+    et_td='',
+    et_tov='',
+    game_id='',
+    gt_ast='',
+    gt_blk='',
+    gt_dd='',
+    gt_dreb='',
+    gt_fg3a='',
+    gt_fg3m='',
+    gt_fg3_pct='',
+    gt_fga='',
+    gt_fgm='',
+    gt_fg_pct='',
+    gt_fta='',
+    gt_ftm='',
+    gt_ft_pct='',
+    gt_minutes='',
+    gt_opp_ast='',
+    gt_opp_blk='',
+    gt_opp_dreb='',
+    gt_opp_fg3a='',
+    gt_opp_fg3m='',
+    gt_opp_fg3_pct='',
+    gt_opp_fga='',
+    gt_opp_fgm='',
+    gt_opp_fg_pct='',
+    gt_opp_fta='',
+    gt_opp_ftm='',
+    gt_opp_ft_pct='',
+    gt_opp_oreb='',
+    gt_opp_pf='',
+    gt_opp_pts='',
+    gt_opp_pts2nd_chance='',
+    gt_opp_pts_fb='',
+    gt_opp_pts_off_tov='',
+    gt_opp_pts_paint='',
+    gt_opp_reb='',
+    gt_opp_stl='',
+    gt_opp_tov='',
+    gt_oreb='',
+    gt_pf='',
+    gt_pts='',
+    gt_pts2nd_chance='',
+    gt_pts_fb='',
+    gt_pts_off_tov='',
+    gt_pts_paint='',
+    gt_reb='',
+    gt_stl='',
+    gt_td='',
+    gt_tov='',
+    lstreak='',
+    league_id='10',
+    location='',
+    lt_ast='',
+    lt_blk='',
+    lt_dd='',
+    lt_dreb='',
+    lt_fg3a='',
+    lt_fg3m='',
+    lt_fg3_pct='',
+    lt_fga='',
+    lt_fgm='',
+    lt_fg_pct='',
+    lt_fta='',
+    lt_ftm='',
+    lt_ft_pct='',
+    lt_minutes='',
+    lt_opp_ast='',
+    lt_opp_blk='',
+    lt_opp_dreb='',
+    lt_opp_fg3a='',
+    lt_opp_fg3m='',
+    lt_opp_fg3_pct='',
+    lt_opp_fga='',
+    lt_opp_fgm='',
+    lt_opp_fg_pct='',
+    lt_opp_fta='',
+    lt_opp_ftm='',
+    lt_opp_ft_pct='',
+    lt_opp_oreb='',
+    lt_opp_pf='',
+    lt_opp_pts='',
+    lt_opp_pts2nd_chance='',
+    lt_opp_pts_fb='',
+    lt_opp_pts_off_tov='',
+    lt_opp_pts_paint='',
+    lt_opp_reb='',
+    lt_opp_stl='',
+    lt_opp_tov='',
+    lt_oreb='',
+    lt_pf='',
+    lt_pts='',
+    lt_pts2nd_chance='',
+    lt_pts_fb='',
+    lt_pts_off_tov='',
+    lt_pts_paint='',
+    lt_reb='',
+    lt_stl='',
+    lt_td='',
+    lt_tov='',
+    min_games='',
+    outcome='',
+    po_round='',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    team_id='',
+    vs_conference='',
+    vs_division='',
+    vs_team_id='',
+    wstreak='',
+    wrs_opp_ast='',
+    wrs_opp_blk='',
+    wrs_opp_dreb='',
+    wrs_opp_fg3a='',
+    wrs_opp_fg3m='',
+    wrs_opp_fg3_pct='',
+    wrs_opp_fga='',
+    wrs_opp_fgm='',
+    wrs_opp_fg_pct='',
+    wrs_opp_fta='',
+    wrs_opp_ftm='',
+    wrs_opp_ft_pct='',
+    wrs_opp_oreb='',
+    wrs_opp_pf='',
+    wrs_opp_pts='',
+    wrs_opp_pts2nd_chance='',
+    wrs_opp_pts_fb='',
+    wrs_opp_pts_off_tov='',
+    wrs_opp_pts_paint='',
+    wrs_opp_reb='',
+    wrs_opp_stl='',
+    wrs_opp_tov='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamgamestreakfinder"
   endpoint <- wnba_endpoint(version)
@@ -1554,8 +1646,8 @@ wnba_teamgamestreakfinder <- function(
   )
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%

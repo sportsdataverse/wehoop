@@ -7,12 +7,14 @@ NULL
 #' @rdname dboard
 #' @author Saiem Gilani
 #' @param season season
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: teams,draft_info, picks
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-wnba_draftboard <- function(season = '2022'){
+wnba_draftboard <- function(season = '2022',
+                            ...){
   
   
   version <- "draftboard"
@@ -23,7 +25,7 @@ wnba_draftboard <- function(season = '2022'){
   
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", full_url)
+      res <- httr::RETRY("GET", full_url, ...)
       resp <-  res %>%
         httr::content(as = "text", encoding = "UTF-8") %>%
         jsonlite::fromJSON()
@@ -62,13 +64,15 @@ NULL
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param season_year season_year
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: DraftCombineStats
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_draftcombinestats <- function(league_id='10',
-                                  season_year = '2020'){
+                                  season_year = '2020',
+                                  ...){
   
   
   version <- "draftcombinestats"
@@ -80,8 +84,7 @@ wnba_draftcombinestats <- function(league_id='10',
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -115,13 +118,15 @@ NULL
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param season_year season_year
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: Results
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_draftcombinedrillresults <- function(league_id='10',
-                                         season_year = '2020'){
+                                         season_year = '2020',
+                                         ...){
   
   
   version <- "draftcombinedrillresults"
@@ -133,8 +138,7 @@ wnba_draftcombinedrillresults <- function(league_id='10',
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -168,13 +172,15 @@ NULL
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param season_year season_year
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: Results
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_draftcombinenonstationaryshooting <- function(league_id='10',
-                                                  season_year = '2020'){
+                                                  season_year = '2020',
+                                                  ...){
   
   
   version <- "draftcombinenonstationaryshooting"
@@ -186,8 +192,7 @@ wnba_draftcombinenonstationaryshooting <- function(league_id='10',
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -221,13 +226,15 @@ NULL
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param season_year season_year
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: Results
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_draftcombineplayeranthro <- function(league_id='10',
-                                         season_year = '2020'){
+                                         season_year = '2020',
+                                         ...){
   
   
   version <- "draftcombineplayeranthro"
@@ -238,8 +245,7 @@ wnba_draftcombineplayeranthro <- function(league_id='10',
                      "&SeasonYear=",season_year)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -272,13 +278,15 @@ NULL
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param season_year season_year
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: Results
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_draftcombinespotshooting <- function(league_id='10',
-                                         season_year = '2020'){
+                                         season_year = '2020',
+                                         ...){
   
   
   version <- "draftcombinespotshooting"
@@ -290,8 +298,7 @@ wnba_draftcombinespotshooting <- function(league_id='10',
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -327,6 +334,7 @@ wnba_draftcombinespotshooting <- function(league_id='10',
 #' @param season season
 #' @param team_id team_id
 #' @param top_x top_x
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: DraftHistory
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -339,7 +347,8 @@ wnba_drafthistory <- function(league_id='10',
                              round_num = '',
                              season = '2019',
                              team_id = '',
-                             top_x = ''){
+                             top_x = '',
+                             ...){
   
   
   version <- "drafthistory"
@@ -357,8 +366,7 @@ wnba_drafthistory <- function(league_id='10',
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%

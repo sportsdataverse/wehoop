@@ -5,10 +5,12 @@
 \alias{wnba_teamdetails}
 \title{\strong{Get WNBA Stats API Team Details}}
 \usage{
-wnba_teamdetails(team_id = "1611661317")
+wnba_teamdetails(team_id = "1611661317", ...)
 }
 \arguments{
 \item{team_id}{Team ID}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: TeamAwardsChampionships,

@@ -5,7 +5,12 @@
 \alias{wnba_scoreboardv2}
 \title{\strong{Get WNBA Stats API Scoreboard V2}}
 \usage{
-wnba_scoreboardv2(league_id = "10", game_date = "2022/05/17", day_offset = 0)
+wnba_scoreboardv2(
+  league_id = "10",
+  game_date = "2022/05/17",
+  day_offset = 0,
+  ...
+)
 }
 \arguments{
 \item{league_id}{League - default: '00'. Other options include '10': WWNBA, '20': G-League}
@@ -13,6 +18,8 @@ wnba_scoreboardv2(league_id = "10", game_date = "2022/05/17", day_offset = 0)
 \item{game_date}{Game Date, format: 2022/05/17}
 
 \item{day_offset}{Day Offset (integer 0,-1)}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: Available, EastConfStandingsByDay,

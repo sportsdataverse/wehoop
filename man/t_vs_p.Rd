@@ -30,7 +30,8 @@ wnba_teamvsplayer(
   team_id = "1611661317",
   vs_conference = "",
   vs_division = "",
-  vs_player_id = "202250"
+  vs_player_id = "202250",
+  ...
 )
 }
 \arguments{
@@ -83,6 +84,8 @@ wnba_teamvsplayer(
 \item{vs_division}{vs_division}
 
 \item{vs_player_id}{vs_player_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: OnOffCourt, Overall, ShotAreaOffCourt,

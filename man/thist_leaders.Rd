@@ -8,7 +8,8 @@
 wnba_teamhistoricalleaders(
   league_id = "10",
   season_id = "22022",
-  team_id = "1611661317"
+  team_id = "1611661317",
+  ...
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ wnba_teamhistoricalleaders(
 \item{season_id}{season_id}
 
 \item{team_id}{team_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: CareerLeadersByTeam

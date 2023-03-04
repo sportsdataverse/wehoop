@@ -14,7 +14,8 @@ wnba_cumestatsplayergames(
   season_type = "Regular Season",
   vs_conference = "",
   vs_division = "",
-  vs_team_id = ""
+  vs_team_id = "",
+  ...
 )
 }
 \arguments{
@@ -35,6 +36,8 @@ wnba_cumestatsplayergames(
 \item{vs_division}{vs_division}
 
 \item{vs_team_id}{vs_team_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: CumeStatsPlayerGames

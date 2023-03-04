@@ -17,7 +17,7 @@ Get ESPN women's college basketball play by play data
 }
 \examples{
 \donttest{
-  try(espn_wbb_pbp(game_id = 401276115))
+  try(espn_wbb_pbp(game_id = 401498717))
 }
 }
 \author{

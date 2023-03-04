@@ -5,12 +5,14 @@
 \alias{wnba_videoevents}
 \title{\strong{Get WNBA Stats API Video Events}}
 \usage{
-wnba_videoevents(game_id = "1022200030", game_event_id = "1")
+wnba_videoevents(game_id = "1022200030", game_event_id = "1", ...)
 }
 \arguments{
 \item{game_id}{game_id}
 
 \item{game_event_id}{game_event_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a list of tibbles

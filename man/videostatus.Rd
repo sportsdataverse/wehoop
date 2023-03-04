@@ -5,12 +5,14 @@
 \alias{wnba_videostatus}
 \title{\strong{Get WNBA Stats API Video Events}}
 \usage{
-wnba_videostatus(game_date = "2022-05-19", league_id = "10")
+wnba_videostatus(game_date = "2022-05-19", league_id = "10", ...)
 }
 \arguments{
 \item{game_date}{game_date}
 
 \item{league_id}{league_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a list of tibbles: VideoStatus

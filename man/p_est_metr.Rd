@@ -8,7 +8,8 @@
 wnba_playerestimatedmetrics(
   league_id = "10",
   season = "2022",
-  season_type = "Regular Season"
+  season_type = "Regular Season",
+  ...
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ wnba_playerestimatedmetrics(
 \item{season}{Season - format 2022}
 
 \item{season_type}{Season Type - Regular Season, Playoffs, All-Star}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: PlayerEstimatedMetrics

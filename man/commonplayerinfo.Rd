@@ -5,12 +5,14 @@
 \alias{wnba_commonplayerinfo}
 \title{\strong{Get WNBA Stats API Player Info}}
 \usage{
-wnba_commonplayerinfo(league_id = "10", player_id = "202250")
+wnba_commonplayerinfo(league_id = "10", player_id = "202250", ...)
 }
 \arguments{
 \item{league_id}{league_id}
 
 \item{player_id}{player_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: AvailableSeasons

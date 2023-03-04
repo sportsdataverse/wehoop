@@ -5,7 +5,7 @@
 \alias{wnba_gamerotation}
 \title{\strong{Get WNBA Stats API Game Rotation}}
 \usage{
-wnba_gamerotation(game_id, league_id = "10", rotation_stat = "PLAYER_PTS")
+wnba_gamerotation(game_id, league_id = "10", rotation_stat = "PLAYER_PTS", ...)
 }
 \arguments{
 \item{game_id}{Game ID}
@@ -13,6 +13,8 @@ wnba_gamerotation(game_id, league_id = "10", rotation_stat = "PLAYER_PTS")
 \item{league_id}{League ID}
 
 \item{rotation_stat}{Rotation stat to provide details on: PLAYER_PTS, PT_DIFF, USG_PCT}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: AwayTeam, HomeTeam

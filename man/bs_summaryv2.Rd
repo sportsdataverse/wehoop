@@ -5,10 +5,12 @@
 \alias{wnba_boxscoresummaryv2}
 \title{\strong{Get WNBA Stats API Boxscore Summary V2}}
 \usage{
-wnba_boxscoresummaryv2(game_id)
+wnba_boxscoresummaryv2(game_id, ...)
 }
 \arguments{
 \item{game_id}{Game ID}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: AvailableVideo, GameInfo, GameSummary, InactivePlayers, LastMeeting, LineScore, Officials, OtherStats, SeasonSeries

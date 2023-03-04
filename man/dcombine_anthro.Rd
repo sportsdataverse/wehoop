@@ -5,12 +5,14 @@
 \alias{wnba_draftcombineplayeranthro}
 \title{\strong{Get WNBA Stats API Draft Combine Player Anthropological Measurements}}
 \usage{
-wnba_draftcombineplayeranthro(league_id = "10", season_year = "2020")
+wnba_draftcombineplayeranthro(league_id = "10", season_year = "2020", ...)
 }
 \arguments{
 \item{league_id}{league_id}
 
 \item{season_year}{season_year}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: Results

@@ -26,7 +26,8 @@ wnba_leagueplayerondetails(
   season_type = "Regular Season",
   team_id = "1611661313",
   vs_conference = "",
-  vs_division = ""
+  vs_division = "",
+  ...
 )
 }
 \arguments{
@@ -71,6 +72,8 @@ wnba_leagueplayerondetails(
 \item{vs_conference}{vs_conference}
 
 \item{vs_division}{vs_division}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: PlayersOnCourtLeaguePlayerDetails

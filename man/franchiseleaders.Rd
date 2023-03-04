@@ -5,12 +5,14 @@
 \alias{wnba_franchiseleaders}
 \title{\strong{Get WNBA Stats API Franchise Leaders}}
 \usage{
-wnba_franchiseleaders(league_id = "10", team_id = "1611661324")
+wnba_franchiseleaders(league_id = "10", team_id = "1611661324", ...)
 }
 \arguments{
 \item{league_id}{league_id}
 
 \item{team_id}{team_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: FranchiseLeaders

@@ -60,7 +60,8 @@ wnba_shotchartdetail(
   vs_player_id3 = "",
   vs_player_id4 = "",
   vs_player_id5 = "",
-  vs_team_id = ""
+  vs_team_id = "",
+  ...
 )
 }
 \arguments{
@@ -173,6 +174,8 @@ wnba_shotchartdetail(
 \item{vs_player_id5}{vs_player_id5}
 
 \item{vs_team_id}{vs_team_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: LeagueAverages, Shot_Chart_Detail

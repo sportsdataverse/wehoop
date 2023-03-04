@@ -8,7 +8,8 @@
 wnba_commonteamroster(
   league_id = "10",
   season = "2022",
-  team_id = "1611661323"
+  team_id = "1611661323",
+  ...
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ wnba_commonteamroster(
 \item{season}{season}
 
 \item{team_id}{team_id}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: Coaches, CommonTeamRoster

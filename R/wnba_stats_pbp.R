@@ -8,12 +8,15 @@ NULL
 #' @author Saiem Gilani
 #' @param game_id Game ID
 #' @param version Play-by-play version ("v2" available from 2016-17 onwards)
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: PlayByPlay
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-wnba_pbp <- function(game_id, version = "v2"){
+wnba_pbp <- function(game_id, 
+                     version = "v2", 
+                     ...){
   
   if(version=="v2"){
     endpoint <- wnba_endpoint('playbyplayv2')
@@ -28,8 +31,7 @@ wnba_pbp <- function(game_id, version = "v2"){
   
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
       
       data <-
         resp$resultSets$rowSet[[1]] %>%

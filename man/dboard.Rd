@@ -5,10 +5,12 @@
 \alias{wnba_draftboard}
 \title{\strong{Get WNBA Stats API Draft Board}}
 \usage{
-wnba_draftboard(season = "2022")
+wnba_draftboard(season = "2022", ...)
 }
 \arguments{
 \item{season}{season}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: teams,draft_info, picks

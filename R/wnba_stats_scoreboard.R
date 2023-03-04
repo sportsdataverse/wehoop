@@ -8,6 +8,7 @@ NULL
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
 #' @param game_date Game Date, format: 2022/05/17
 #' @param day_offset Day Offset (integer 0,-1)
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: Available, EastConfStandingsByDay,
 #' GameHeader, LastMeeting, LineScore, SeriesStandings, WestConfStandingsByDay
 #' @importFrom jsonlite fromJSON toJSON
@@ -16,7 +17,8 @@ NULL
 #' @export
 wnba_scoreboard <- function(league_id = '10',
                             game_date='2022/05/17',
-                            day_offset=0){
+                            day_offset=0,
+                            ...){
   
   
   version <- "scoreboard"
@@ -29,8 +31,8 @@ wnba_scoreboard <- function(league_id = '10',
   full_url <- httr::modify_url(full_url,query = params)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet[[x]] %>%
@@ -65,6 +67,7 @@ NULL
 #' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
 #' @param game_date Game Date, format: 2022/05/17
 #' @param day_offset Day Offset (integer 0,-1)
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: Available, EastConfStandingsByDay,
 #' GameHeader, LastMeeting, LineScore, SeriesStandings, TeamLeaders,
 #' TicketLinks, WestConfStandingsByDay, WinProbability
@@ -74,7 +77,8 @@ NULL
 #' @export
 wnba_scoreboardv2 <- function(league_id = '10',
                               game_date='2022/05/17',
-                              day_offset=0){
+                              day_offset=0,
+                              ...){
   
   
   version <- "scoreboardV2"
@@ -87,8 +91,8 @@ wnba_scoreboardv2 <- function(league_id = '10',
   full_url <- httr::modify_url(full_url,query = params)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet[[x]] %>%

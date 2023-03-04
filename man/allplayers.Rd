@@ -8,7 +8,8 @@
 wnba_commonallplayers(
   is_only_current_season = 0,
   league_id = "10",
-  season = "2022"
+  season = "2022",
+  ...
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ wnba_commonallplayers(
 \item{league_id}{league_id}
 
 \item{season}{season}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: CommonAllPlayers

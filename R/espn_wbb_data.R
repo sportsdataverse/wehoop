@@ -343,7 +343,7 @@ espn_wbb_game_all <- function(game_id){
 #' @export
 #' @examples
 #' \donttest{
-#'   try(espn_wbb_pbp(game_id = 401276115))
+#'   try(espn_wbb_pbp(game_id = 401498717))
 #' }
 espn_wbb_pbp <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -1330,7 +1330,7 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #'
 #' # Get schedule from date 2022-11-15
 #' \donttest{
-#'   try(espn_wbb_scoreboard (season = "20221115"))
+#'   try(espn_wbb_scoreboard (season = "20230225"))
 #' }
 
 espn_wbb_scoreboard <- function(season) {

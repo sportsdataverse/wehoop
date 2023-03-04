@@ -37,6 +37,7 @@ NULL
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
 #' @param weight weight
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: LeagueDashPlayerBioStats
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -74,7 +75,8 @@ wnba_leaguedashplayerbiostats <- function(
   touch_time_range = '',
   vs_conference='',
   vs_division='',
-  weight=''){
+  weight='',
+  ...){
   season_type <- gsub(' ','+',season_type)
   version <- "leaguedashplayerbiostats"
   endpoint <- wnba_endpoint(version)
@@ -114,9 +116,8 @@ wnba_leaguedashplayerbiostats <- function(
                      "&Weight=", weight)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -186,6 +187,7 @@ NULL
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
 #' @param weight weight
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: LeagueDashPlayerClutch
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -230,7 +232,8 @@ wnba_leaguedashplayerclutch <- function(
   touch_time_range = '',
   vs_conference='',
   vs_division='',
-  weight=''){
+  weight='',
+  ...){
   ahead_behind <- gsub(' ','+',ahead_behind)
   clutch_time <- gsub(' ','+',clutch_time)
   season_type <- gsub(' ','+',season_type)
@@ -279,9 +282,8 @@ wnba_leaguedashplayerclutch <- function(
                      "&Weight=", weight)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -349,6 +351,7 @@ NULL
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
 #' @param weight weight
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: LeagueDashPlayerStats
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -390,7 +393,8 @@ wnba_leaguedashplayerstats <- function(
   two_way='',
   vs_conference='',
   vs_division='',
-  weight=''){
+  weight='',
+  ...){
   season_type <- gsub(' ','+',season_type)
   version <- "leaguedashplayerstats"
   endpoint <- wnba_endpoint(version)
@@ -434,9 +438,8 @@ wnba_leaguedashplayerstats <- function(
                      "&Weight=", weight)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -504,6 +507,7 @@ NULL
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
 #' @param weight weight
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: ShotLocations
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -546,7 +550,8 @@ wnba_leaguedashplayershotlocations <- function(
   team_id='',
   vs_conference='',
   vs_division='',
-  weight=''){
+  weight='',
+  ...){
   
   distance_range <- gsub(' ','+',distance_range)
   season_type <- gsub(' ','+',season_type)
@@ -593,9 +598,8 @@ wnba_leaguedashplayershotlocations <- function(
                      "&Weight=", weight)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet %>%
@@ -664,6 +668,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: LeagueDashTeamClutch
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -701,7 +706,8 @@ wnba_leaguedashteamclutch <- function(
   starter_bench = '',
   team_id='',
   vs_conference='',
-  vs_division=''){
+  vs_division='',
+  ...){
   ahead_behind <- gsub(' ','+',ahead_behind)
   clutch_time <- gsub(' ','+',clutch_time)
   season_type <- gsub(' ','+',season_type)
@@ -743,9 +749,8 @@ wnba_leaguedashteamclutch <- function(
                      "&VsDivision=", vs_division)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -805,6 +810,7 @@ NULL
 #' @param two_way two_way
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: LeagueDashTeamStats
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -838,7 +844,8 @@ wnba_leaguedashteamstats <- function(
   team_id='',
   two_way='',
   vs_conference='',
-  vs_division=''){
+  vs_division='',
+  ...){
   season_type <- gsub(' ','+',season_type)
   version <- "leaguedashteamstats"
   endpoint <- wnba_endpoint(version)
@@ -874,9 +881,8 @@ wnba_leaguedashteamstats <- function(
                      "&VsDivision=", vs_division)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -938,6 +944,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: ShotLocations
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -973,7 +980,8 @@ wnba_leaguedashteamshotlocations <- function(
   starter_bench = '',
   team_id='',
   vs_conference='',
-  vs_division=''){
+  vs_division='',
+  ...){
   
   distance_range <- gsub(' ','+',distance_range)
   season_type <- gsub(' ','+',season_type)
@@ -1013,9 +1021,8 @@ wnba_leaguedashteamshotlocations <- function(
                      "&VsDivision=", vs_division)
   
   tryCatch(
-    expr={
-      resp <- full_url %>%
-        .wnba_headers()
+    expr = {
+      resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet %>%

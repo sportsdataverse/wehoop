@@ -13,7 +13,8 @@ wnba_leagueseasonmatchups(
   off_team_id = "1611661313",
   per_mode = "Totals",
   season = "2021",
-  season_type = "Regular Season"
+  season_type = "Regular Season",
+  ...
 )
 }
 \arguments{
@@ -32,6 +33,8 @@ wnba_leagueseasonmatchups(
 \item{season}{season}
 
 \item{season_type}{season_type}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a named list of data frames: SeasonMatchups

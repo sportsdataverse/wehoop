@@ -30,6 +30,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: Last10Sec3Point2TeamDashboard,
 #' Last10Sec3PointTeamDashboard, Last1Min5PointTeamDashboard, Last1MinPlusMinus5PointTeamDashboard,
 #' Last30Sec3Point2TeamDashboard, Last30Sec3PointTeamDashboard, Last3Min5PointTeamDashboard,
@@ -40,29 +41,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbyclutch <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbyclutch"
   endpoint <- wnba_endpoint(version)
@@ -93,8 +95,8 @@ wnba_teamdashboardbyclutch <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -150,6 +152,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: ByActualMarginTeamDashboard,
 #' ByHalfTeamDashboard, ByPeriodTeamDashboard, ByScoreMarginTeamDashboard,
 #' OverallTeamDashboard
@@ -158,29 +161,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbygamesplits <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbygamesplits"
   endpoint <- wnba_endpoint(version)
@@ -211,8 +215,8 @@ wnba_teamdashboardbygamesplits <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -269,6 +273,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: DaysRestTeamDashboard,
 #' LocationTeamDashboard, MonthTeamDashboard, OverallTeamDashboard,
 #' PrePostAllStarTeamDashboard, WinsLossesTeamDashboard
@@ -277,29 +282,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbygeneralsplits <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbygeneralsplits"
   endpoint <- wnba_endpoint(version)
@@ -330,8 +336,8 @@ wnba_teamdashboardbygeneralsplits <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -388,6 +394,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: GameNumberTeamDashboard,
 #' Last10TeamDashboard, Last15TeamDashboard, Last20TeamDashboard,
 #' Last5TeamDashboard, OverallTeamDashboard
@@ -396,29 +403,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbylastngames <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbylastngames"
   endpoint <- wnba_endpoint(version)
@@ -449,8 +457,8 @@ wnba_teamdashboardbylastngames <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -507,6 +515,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: ConferenceTeamDashboard,
 #' DivisionTeamDashboard, OpponentTeamDashboard, OverallTeamDashboard
 #' @importFrom jsonlite fromJSON toJSON
@@ -514,29 +523,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbyopponent <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbyopponent"
   endpoint <- wnba_endpoint(version)
@@ -567,8 +577,8 @@ wnba_teamdashboardbyopponent <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -624,6 +634,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: AssistedBy,
 #' AssitedShotTeamDashboard, OverallTeamDashboard, Shot5FTTeamDashboard,
 #' Shot8FTTeamDashboard, ShotAreaTeamDashboard, ShotTypeTeamDashboard
@@ -632,29 +643,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbyshootingsplits <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbyshootingsplits"
   endpoint <- wnba_endpoint(version)
@@ -686,8 +698,8 @@ wnba_teamdashboardbyshootingsplits <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -743,6 +755,7 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: OverallTeamDashboard,
 #' PointsScoredTeamDashboard, PontsAgainstTeamDashboard, ScoreDifferentialTeamDashboard
 #' @importFrom jsonlite fromJSON toJSON
@@ -750,29 +763,30 @@ NULL
 #' @import rvest
 #' @export
 wnba_teamdashboardbyteamperformance <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbyteamperformance"
   endpoint <- wnba_endpoint(version)
@@ -803,8 +817,8 @@ wnba_teamdashboardbyteamperformance <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -860,35 +874,37 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: ByYearTeamDashboard, OverallTeamDashboard
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamdashboardbyyearoveryear <- function(
-  date_from = '',
-  date_to = '',
-  game_segment = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashboardbyyearoveryear"
   endpoint <- wnba_endpoint(version)
@@ -919,8 +935,8 @@ wnba_teamdashboardbyyearoveryear <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%
@@ -978,37 +994,39 @@ NULL
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: Lineups, Overall
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
 wnba_teamdashlineups <- function(
-  date_from = '',
-  date_to = '',
-  game_id = '',
-  game_segment = '',
-  group_quantity = 5,
-  last_n_games=0,
-  league_id='10',
-  location='',
-  measure_type='Base',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  pace_adjust='N',
-  plus_minus = 'N',
-  po_round='',
-  per_mode='Totals',
-  period=0,
-  rank = 'N',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  shot_clock_range='',
-  team_id='1611661317',
-  vs_conference='',
-  vs_division=''){
+    date_from = '',
+    date_to = '',
+    game_id = '',
+    game_segment = '',
+    group_quantity = 5,
+    last_n_games=0,
+    league_id='10',
+    location='',
+    measure_type='Base',
+    month=0,
+    opponent_team_id=0,
+    outcome='',
+    pace_adjust='N',
+    plus_minus = 'N',
+    po_round='',
+    per_mode='Totals',
+    period=0,
+    rank = 'N',
+    season='2022',
+    season_segment='',
+    season_type='Regular Season',
+    shot_clock_range='',
+    team_id='1611661317',
+    vs_conference='',
+    vs_division='',
+    ...){
   season_type <- gsub(' ','+',season_type)
   version <- "teamdashlineups"
   endpoint <- wnba_endpoint(version)
@@ -1041,8 +1059,8 @@ wnba_teamdashlineups <- function(
                      "&VsDivision=", vs_division)
   tryCatch(
     expr = {
-      resp <- full_url %>%
-        .wnba_headers()
+      resp <- request_with_proxy(url = full_url, ...)
+      
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
         data <- resp$resultSets$rowSet[[x]] %>%

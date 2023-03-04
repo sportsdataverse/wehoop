@@ -5,12 +5,14 @@
 \alias{wnba_shotchartleaguewide}
 \title{\strong{Get WNBA Stats API Shot Chart League-Wide}}
 \usage{
-wnba_shotchartleaguewide(league_id = "10", season = "2022")
+wnba_shotchartleaguewide(league_id = "10", season = "2022", ...)
 }
 \arguments{
 \item{league_id}{League - default: '00'. Other options include '10': WWNBA, '20': G-League}
 
 \item{season}{season}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Return a named list of data frames: League_Wide
