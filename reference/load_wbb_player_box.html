@@ -174,20 +174,20 @@ the season data into a database (used by <code><a href="update_wbb_db.html">upda
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wbb_player_box</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.7.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 93,767 × 34</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 107,697 × 34</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    athlete…¹ team_…² min   fg    fg3   ft    oreb  dreb  reb   ast   stl   blk  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Tess Sus… UC Dav… 30    5-9   3-5   4-4   0     6     6     2     2     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Megan No… UC Dav… 22    4-7   0-0   0-1   2     6     8     1     0     2    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Tova Sab… UC Dav… 29    10-19 2-8   1-1   2     2     4     1     0     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Evanne T… UC Dav… 29    2-10  2-9   0-1   1     3     4     4     2     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Campbell… UC Dav… 23    0-2   0-0   0-0   0     1     1     7     0     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Mazatlan… UC Dav… 14    2-4   2-3   0-0   1     3     4     1     1     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Megan Jo… UC Dav… 17    3-3   0-0   1-2   4     2     6     0     0     2    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Nya Epps  UC Dav… 10    1-4   0-2   0-0   0     0     0     0     0     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Victoria… UC Dav… 13    1-3   0-0   0-0   2     1     3     0     1     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Makaila … UC Dav… 11    0-4   0-3   0-0   1     2     3     0     1     0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 93,757 more rows, 22 more variables: to &lt;chr&gt;, pf &lt;chr&gt;, pts &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jelena M… Oregon… 28    5-7   0-0   2-2   3     3     6     1     0     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Raegan B… Oregon… 33    5-13  0-1   8-9   1     8     9     1     2     1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Adlee Bl… Oregon… 27    4-10  3-6   4-4   1     5     6     1     2     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Noelle M… Oregon… 10    0-0   0-0   0-0   0     0     0     0     0     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Bendu Ye… Oregon… 37    0-8   0-1   3-4   0     4     4     8     2     1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Timea Ga… Oregon… 7     0-4   0-0   0-0   4     2     6     0     0     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Lily Han… Oregon… 13    0-2   0-2   0-0   0     0     0     0     1     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> AJ Marot… Oregon… 33    3-9   0-1   2-2   0     3     3     2     1     0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Shalexxu… Oregon… 12    0-0   0-0   0-0   0     3     3     0     0     1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Kadi Sis… USC     36    8-17  0-2   0-0   1     2     3     0     1     1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 107,687 more rows, 22 more variables: to &lt;chr&gt;, pf &lt;chr&gt;, pts &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   starter &lt;lgl&gt;, ejected &lt;lgl&gt;, did_not_play &lt;lgl&gt;, active &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_jersey &lt;chr&gt;, athlete_id &lt;chr&gt;, athlete_short_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_headshot_href &lt;chr&gt;, athlete_position_name &lt;chr&gt;,</span></span>

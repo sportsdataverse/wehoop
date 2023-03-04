@@ -373,6 +373,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/rds_from_url.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/request_with_proxy.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/sc.html</loc>
   </url>
   <url>
@@ -467,5 +470,8 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teams.html</loc>
   </url>
 </urlset>
