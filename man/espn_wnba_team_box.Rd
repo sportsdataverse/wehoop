@@ -18,7 +18,7 @@ Get ESPN's WNBA team box data
 \examples{
 
 \donttest{
-  try(espn_wnba_team_box(game_id = 401244185))
+   try(espn_wnba_team_box(game_id = 401244185))
 }
 }
 \author{
