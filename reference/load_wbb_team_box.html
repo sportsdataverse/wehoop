@@ -12,7 +12,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
     
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.8.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,27 +173,27 @@ the season data into a database (used by <code><a href="update_wbb_db.html">upda
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wbb_team_box</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.7.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,610 × 40</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_id team_uid      team_…¹ team_…² team_…³ team_…⁴ team_…⁵ team_…⁶ team_…⁷</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 204     s:40~l:54~t:… oregon… Oregon… Beavers ORST    Oregon… Oregon… d73f09 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 30      s:40~l:54~t:… usc-tr… USC     Trojans USC     USC Tr… USC     9e2237 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2026    s:40~l:54~t:… appala… Appala… Mounta… APP     Appala… Appala… 000000 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 309     s:40~l:54~t:… louisi… Louisi… Ragin'… UL      Louisi… Louisi… ce2842 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 25      s:40~l:54~t:… califo… Califo… Golden… CAL     Califo… Califo… 031522 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 265     s:40~l:54~t:… washin… Washin… Cougars WSU     Washin… Washin… 94022a </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 66      s:40~l:54~t:… iowa-s… Iowa S… Cyclon… ISU     Iowa S… Iowa S… 822433 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2305    s:40~l:54~t:… kansas… Kansas  Jayhaw… KU      Kansas… Kansas  0051ba </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2628    s:40~l:54~t:… tcu-ho… TCU     Horned… TCU     TCU Ho… TCU     4d1979 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2641    s:40~l:54~t:… texas-… Texas … Lady R… TTU     Texas … Texas … C80025 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 10,600 more rows, 31 more variables: team_alternate_color &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_logo &lt;chr&gt;, field_goals_made_field_goals_attempted &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   field_goal_pct &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   three_point_field_goals_made_three_point_field_goals_attempted &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   three_point_field_goal_pct &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   free_throws_made_free_throws_attempted &lt;chr&gt;, free_throw_pct &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_rebounds &lt;chr&gt;, offensive_rebounds &lt;chr&gt;, defensive_rebounds &lt;chr&gt;, …</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 1.8.0</span> ──</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11,130 × 52</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      game_id season season_…¹ game_date  team_id team_…² team_…³ team_…⁴ team_…⁵</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 401<span style="text-decoration: underline;">516</span>463   <span style="text-decoration: underline;">2</span>023         2 2023-03-08      36 s:40~l… colora… Colora… Rams   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 401<span style="text-decoration: underline;">516</span>463   <span style="text-decoration: underline;">2</span>023         2 2023-03-08    <span style="text-decoration: underline;">2</span>751 s:40~l… wyomin… Wyoming Cowgir…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 401<span style="text-decoration: underline;">516</span>416   <span style="text-decoration: underline;">2</span>023         2 2023-03-08    <span style="text-decoration: underline;">2</span>655 s:40~l… tulane… Tulane  Green …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 401<span style="text-decoration: underline;">516</span>416   <span style="text-decoration: underline;">2</span>023         2 2023-03-08     151 s:40~l… east-c… East C… Pirates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 401<span style="text-decoration: underline;">516</span>462   <span style="text-decoration: underline;">2</span>023         2 2023-03-08      21 s:40~l… san-di… San Di… Aztecs </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 401<span style="text-decoration: underline;">516</span>462   <span style="text-decoration: underline;">2</span>023         2 2023-03-08    <span style="text-decoration: underline;">2</span>439 s:40~l… unlv-l… UNLV    Lady R…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 401<span style="text-decoration: underline;">516</span>415   <span style="text-decoration: underline;">2</span>023         2 2023-03-08    <span style="text-decoration: underline;">2</span>116 s:40~l… ucf-kn… UCF     Knights</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 401<span style="text-decoration: underline;">516</span>415   <span style="text-decoration: underline;">2</span>023         2 2023-03-08     235 s:40~l… memphi… Memphis Tigers </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 401<span style="text-decoration: underline;">513</span>503   <span style="text-decoration: underline;">2</span>023         2 2023-03-07      27 s:40~l… uc-riv… UC Riv… Highla…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 401<span style="text-decoration: underline;">513</span>503   <span style="text-decoration: underline;">2</span>023         2 2023-03-07      13 s:40~l… cal-po… Cal Po… Mustan…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11,120 more rows, 43 more variables: team_abbreviation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_display_name &lt;chr&gt;, team_short_display_name &lt;chr&gt;, team_color &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_alternate_color &lt;chr&gt;, team_logo &lt;chr&gt;, team_home_away &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_score &lt;int&gt;, team_winner &lt;lgl&gt;, assists &lt;int&gt;, blocks &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   defensive_rebounds &lt;int&gt;, field_goal_pct &lt;dbl&gt;, field_goals_made &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   field_goals_attempted &lt;int&gt;, flagrant_fouls &lt;int&gt;, fouls &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   free_throw_pct &lt;dbl&gt;, free_throws_made &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
