@@ -83,7 +83,7 @@ request_with_proxy <- function(url, ..., params=list(),
       rawToChar() %>%
       jsonlite::fromJSON(simplifyVector = T)
   } else {
-    res <- rvest::html_session(url = {{url}}, proxy, httr::add_headers(.headers = headers))
+    res <- rvest::html_session(url = {{url}}, proxy, httr::add_headers(.headers = headers), httr::timeout(10))
     json <- res$response %>% 
       httr::content(as = "text", encoding = "UTF-8") %>% 
       jsonlite::fromJSON()
