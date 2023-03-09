@@ -58,17 +58,17 @@ request_with_proxy <- function(url, ..., params=list(),
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$proxy
   headers <- dots$headers
+  
   headers <- c(
     `Host` = 'stats.wnba.com',
-    `User-Agent` = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+    `User-Agent` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
     `Accept` = 'application/json, text/plain, */*',
     `Accept-Language` = 'en-US,en;q=0.5',
     `Accept-Encoding` = 'gzip, deflate, br',
     `x-nba-stats-origin` = 'stats',
     `x-nba-stats-token` = 'true',
     `Connection` = 'keep-alive',
-    `Origin` = origin,
-    `Referer` = referer,
+    `Referer` = "https://www.wnba.com/",
     `Pragma` = 'no-cache',
     `Cache-Control` = 'no-cache'
   )
@@ -83,7 +83,7 @@ request_with_proxy <- function(url, ..., params=list(),
       rawToChar() %>%
       jsonlite::fromJSON(simplifyVector = T)
   } else {
-    res <- rvest::html_session(url, ..., httr::add_headers(.headers = headers))
+    res <- rvest::html_session(url = {{url}}, proxy, httr::add_headers(.headers = headers))
     json <- res$response %>% 
       httr::content(as = "text", encoding = "UTF-8") %>% 
       jsonlite::fromJSON()
