@@ -29,15 +29,15 @@
                     query = params,
                     ...,
                     httr::add_headers(.headers = headers))
+      json <- res$content %>%
+        rawToChar() %>%
+        jsonlite::fromJSON(simplifyVector = T)
     } else {
-      res <-
-        httr::RETRY("GET", url,
-                    ...,
-                    httr::add_headers(.headers = headers))
+      res <- rvest::html_session(url, ..., httr::add_headers(.headers = headers))
+      json <- res$response %>% 
+        httr::content(as = "text", encoding = "UTF-8") %>% 
+        jsonlite::fromJSON()
     }
-    json <- res$content %>%
-      rawToChar() %>%
-      jsonlite::fromJSON(simplifyVector = T)
     
     return(json)
     
@@ -73,19 +73,22 @@ request_with_proxy <- function(url, ..., params=list(),
     `Cache-Control` = 'no-cache'
   )
   if (length(params) >= 1) {
-    res <- httr::RETRY("GET", {{url}},
-                  query = {{params}},
+    
+    res <-
+      httr::RETRY("GET", url,
+                  query = params,
                   ...,
                   httr::add_headers(.headers = headers))
+    json <- res$content %>%
+      rawToChar() %>%
+      jsonlite::fromJSON(simplifyVector = T)
   } else {
-    res <- httr::RETRY("GET", {{url}},
-                  ...,
-                  httr::add_headers(.headers = headers))
+    res <- rvest::html_session(url, ..., httr::add_headers(.headers = headers))
+    json <- res$response %>% 
+      httr::content(as = "text", encoding = "UTF-8") %>% 
+      jsonlite::fromJSON()
   }
   
-  json <- res$content %>%
-    rawToChar() %>%
-    jsonlite::fromJSON(simplifyVector = T)
   return(json)
 }
 

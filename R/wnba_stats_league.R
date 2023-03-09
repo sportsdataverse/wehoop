@@ -48,6 +48,7 @@ wnba_leaguegamelog <- function(
   
   tryCatch(
     expr = {
+      
       resp <- request_with_proxy(url = full_url, ...)
       
       df_list <- purrr::map(1:length(resp$resultSets$name), function(x){

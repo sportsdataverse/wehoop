@@ -16,7 +16,6 @@ NULL
 wnba_franchiseleaders <- function(league_id='10',
                                  team_id = '1611661324',
                                  ...){
-  season_type <- gsub(' ','+',season_type)
   version <- "franchiseleaders"
   endpoint <- wnba_endpoint(version)
   
