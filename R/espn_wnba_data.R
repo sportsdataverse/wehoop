@@ -191,70 +191,191 @@ espn_wnba_game_all <- function(game_id){
   #---- Team Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)
-      season <- raw_play_df[['header']][['season']][['year']]
-      season_type <- raw_play_df[['header']][['season']][['type']]
-      homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
-      homeAwayTeam2 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][2])
-      homeTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][1]
-      awayTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2]
-      homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
-      awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
-      homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
-      awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+      game_json <- resp %>% 
+        jsonlite::fromJSON()
       
-      homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
-      awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
-      game_date = as.Date(substr(raw_play_df[['header']][['competitions']][['date']],0,10))
+      box_score_available <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
       
-      teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
-      
-      teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-        dplyr::select(
-          "displayValue", 
-          "name") %>%
-        dplyr::rename("Home" = "displayValue")
-      teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-        dplyr::select(
-          "displayValue", 
-          "name") %>%
-        dplyr::rename("Away" = "displayValue")
-      teams2 <- data.frame(t(teams_box_score_df_2$Home))
-      colnames(teams2) <- t(teams_box_score_df_2$name)
-      teams2$homeAway <- homeAwayTeam2
-      teams2$OpponentId <- as.integer(awayTeamId)
-      teams2$OpponentName <- awayTeamName
-      teams2$OpponentMascot <- awayTeamMascot
-      teams2$OpponentAbbrev <- awayTeamAbbrev
-      
-      teams1 <- data.frame(t(teams_box_score_df_1$Away))
-      colnames(teams1) <- t(teams_box_score_df_1$name)
-      teams1$homeAway <- homeAwayTeam1
-      teams1$OpponentId <- as.integer(homeTeamId)
-      teams1$OpponentName <- homeTeamName
-      teams1$OpponentMascot <- homeTeamMascot
-      teams1$OpponentAbbrev <- homeTeamAbbrev
-      teams <- dplyr::bind_rows(teams1,teams2)
-      
-      team_box_score <- teams_box_score_df %>%
-        dplyr::select(-"statistics") %>%
-        dplyr::bind_cols(teams)
-      
-      team_box_score <- team_box_score %>%
-        dplyr::mutate(
-          game_id = game_id,
-          season = season,
-          season_type = season_type,
-          game_date = game_date
-        ) %>%
-        janitor::clean_names() %>%
-        dplyr::select(
-          "game_id",
-          "season",
-          "season_type",
-          "game_date",
-          tidyr::everything()) %>%
-        make_wehoop_data("ESPN WNBA Team Box Information from ESPN.com",Sys.time())
+      if (box_score_available == TRUE) {
+        teams_box_score_df <- game_json[["boxscore"]][["teams"]] %>%
+          jsonlite::toJSON() %>%
+          jsonlite::fromJSON(flatten = TRUE)
+        if (length(teams_box_score_df[["statistics"]][[1]]) > 0) {
+          # Teams info columns and values
+          teams_df <- game_json[["header"]][["competitions"]][["competitors"]][[1]]
+          
+          homeAway1 <- teams_df[["homeAway"]][1]
+          homeAway1_team.id <- as.integer(teams_df[["id"]][1])
+          homeAway1_team.score <- as.integer(teams_df[["score"]][1])
+          homeAway1_team.winner <- teams_df[["winner"]][1]
+          
+          homeAway2 <- teams_df[["homeAway"]][2]
+          homeAway2_team.id <- as.integer(teams_df[["id"]][2])
+          homeAway2_team.score <- as.integer(teams_df[["score"]][2])
+          homeAway2_team.winner <- teams_df[["winner"]][2]
+          
+          # Pivoting the table values for each team from long to wide
+          statistics_df_1 <- teams_box_score_df[["statistics"]][[1]] %>%
+            tibble::tibble() %>%
+            dplyr::select("name", "displayValue") %>%
+            tidyr::spread("name", "displayValue")
+          
+          statistics_df_2 <- teams_box_score_df[["statistics"]][[2]] %>%
+            tibble::tibble() %>%
+            dplyr::select("name", "displayValue") %>%
+            tidyr::spread("name", "displayValue")
+          
+          # Assigning values to the correct data frame rows - 1
+          statistics_df_1$team.homeAway <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+            homeAway1,
+            homeAway2
+          )
+          statistics_df_1$team.score <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+            as.integer(homeAway1_team.score),
+            as.integer(homeAway2_team.score)
+          )
+          statistics_df_1$team.winner <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+            homeAway1_team.winner,
+            homeAway2_team.winner
+          )
+          statistics_df_1$team.id <- as.integer(teams_box_score_df[["team.id"]][[1]])
+          statistics_df_1$team.uid <- teams_box_score_df[["team.uid"]][[1]]
+          statistics_df_1$team.slug <- teams_box_score_df[["team.slug"]][[1]]
+          statistics_df_1$team.location <- teams_box_score_df[["team.location"]][[1]]
+          statistics_df_1$team.name <- teams_box_score_df[["team.name"]][[1]]
+          statistics_df_1$team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[1]]
+          statistics_df_1$team.displayName <- teams_box_score_df[["team.displayName"]][[1]]
+          statistics_df_1$team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[1]]
+          statistics_df_1$team.color <- teams_box_score_df[["team.color"]][[1]]
+          statistics_df_1$team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[1]]
+          statistics_df_1$team.logo <- teams_box_score_df[["team.logo"]][[1]]
+          statistics_df_1$opponent.team.id <- as.integer(teams_box_score_df[["team.id"]][[2]])
+          statistics_df_1$opponent.team.uid <- teams_box_score_df[["team.uid"]][[2]]
+          statistics_df_1$opponent.team.slug <- teams_box_score_df[["team.slug"]][[2]]
+          statistics_df_1$opponent.team.location <- teams_box_score_df[["team.location"]][[2]]
+          statistics_df_1$opponent.team.name <- teams_box_score_df[["team.name"]][[2]]
+          statistics_df_1$opponent.team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[2]]
+          statistics_df_1$opponent.team.displayName <- teams_box_score_df[["team.displayName"]][[2]]
+          statistics_df_1$opponent.team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[2]]
+          statistics_df_1$opponent.team.color <- teams_box_score_df[["team.color"]][[2]]
+          statistics_df_1$opponent.team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[2]]
+          statistics_df_1$opponent.team.logo <- teams_box_score_df[["team.logo"]][[2]]
+          
+          # Assigning values to the correct data frame rows - 2
+          statistics_df_2$team.homeAway <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+            homeAway2,
+            homeAway1
+          )
+          statistics_df_2$team.score <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+            as.integer(homeAway2_team.score),
+            as.integer(homeAway1_team.score)
+          )
+          statistics_df_2$team.winner <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+            homeAway2_team.winner,
+            homeAway1_team.winner
+          )
+          statistics_df_2$team.id <- as.integer(teams_box_score_df[["team.id"]][[2]])
+          statistics_df_2$team.uid <- teams_box_score_df[["team.uid"]][[2]]
+          statistics_df_2$team.slug <- teams_box_score_df[["team.slug"]][[2]]
+          statistics_df_2$team.location <- teams_box_score_df[["team.location"]][[2]]
+          statistics_df_2$team.name <- teams_box_score_df[["team.name"]][[2]]
+          statistics_df_2$team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[2]]
+          statistics_df_2$team.displayName <- teams_box_score_df[["team.displayName"]][[2]]
+          statistics_df_2$team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[2]]
+          statistics_df_2$team.color <- teams_box_score_df[["team.color"]][[2]]
+          statistics_df_2$team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[2]]
+          statistics_df_2$team.logo <- teams_box_score_df[["team.logo"]][[2]]
+          statistics_df_2$opponent.team.id <- as.integer(teams_box_score_df[["team.id"]][[1]])
+          statistics_df_2$opponent.team.uid <- teams_box_score_df[["team.uid"]][[1]]
+          statistics_df_2$opponent.team.slug <- teams_box_score_df[["team.slug"]][[1]]
+          statistics_df_2$opponent.team.location <- teams_box_score_df[["team.location"]][[1]]
+          statistics_df_2$opponent.team.name <- teams_box_score_df[["team.name"]][[1]]
+          statistics_df_2$opponent.team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[1]]
+          statistics_df_2$opponent.team.displayName <- teams_box_score_df[["team.displayName"]][[1]]
+          statistics_df_2$opponent.team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[1]]
+          statistics_df_2$opponent.team.color <- teams_box_score_df[["team.color"]][[1]]
+          statistics_df_2$opponent.team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[1]]
+          statistics_df_2$opponent.team.logo <- teams_box_score_df[["team.logo"]][[1]]
+          
+          complete_statistics_df <- statistics_df_1 %>%
+            dplyr::bind_rows(statistics_df_2)
+          
+          # Assigning game/season level data to team box score and converting types
+          complete_statistics_df$season <- game_json[["header"]][["season"]][["year"]]
+          complete_statistics_df$season_type <- game_json[["header"]][["season"]][["type"]]
+          complete_statistics_df$game_date <- as.Date(substr(game_json[["header"]][["competitions"]][["date"]], 0, 10))
+          complete_statistics_df$game_id <- as.integer(game_id)
+          
+          suppressWarnings(
+            complete_statistics_df <- complete_statistics_df %>%
+              tidyr::separate("fieldGoalsMade-fieldGoalsAttempted",
+                              into = c("fieldGoalsMade", "fieldGoalsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("freeThrowsMade-freeThrowsAttempted",
+                              into = c("freeThrowsMade", "freeThrowsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("threePointFieldGoalsMade-threePointFieldGoalsAttempted",
+                              into = c("threePointFieldGoalsMade", "threePointFieldGoalsAttempted"),
+                              sep = "-") %>%
+              dplyr::mutate(dplyr::across(c(
+                "fieldGoalPct",
+                "freeThrowPct",
+                "threePointFieldGoalPct"
+              ), ~as.numeric(.x))) %>%
+              dplyr::mutate(dplyr::across(dplyr::any_of(c(
+                "assists",
+                "blocks",
+                "defensiveRebounds",
+                "fieldGoalsMade",
+                "fieldGoalsAttempted",
+                "flagrantFouls",
+                "fouls",
+                "freeThrowsMade",
+                "freeThrowsAttempted",
+                "largestLead",
+                "offensiveRebounds",
+                "steals",
+                "teamTurnovers",
+                "technicalFouls",
+                "threePointFieldGoalsMade",
+                "threePointFieldGoalsAttempted",
+                "totalRebounds",
+                "totalTechnicalFouls",
+                "totalTurnovers",
+                "turnovers"
+              )), ~as.integer(.x)))
+          )
+          team_box_score <- complete_statistics_df %>%
+            janitor::clean_names() %>%
+            dplyr::select(dplyr::any_of(c(
+              "game_id",
+              "season",
+              "season_type",
+              "game_date",
+              "team_id",
+              "team_uid",
+              "team_slug",
+              "team_location",
+              "team_name",
+              "team_abbreviation",
+              "team_display_name",
+              "team_short_display_name",
+              "team_color",
+              "team_alternate_color",
+              "team_logo",
+              "team_home_away",
+              "team_score",
+              "team_winner")),
+              tidyr::everything()) %>%
+            make_wehoop_data("ESPN WNBA Team Box Information from ESPN.com", Sys.time())
+        }
+      }
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -265,53 +386,169 @@ espn_wnba_game_all <- function(game_id){
     }
   )
   #---- Player Box ------
-  players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
-    tidyr::unnest("statistics") %>%
-    tidyr::unnest("athletes")
-  stat_cols <- players_df$names[[1]]
-  stats <- players_df$stats
-  
-  stats_df <- as.data.frame(do.call(rbind,stats))
-  colnames(stats_df) <- stat_cols
-  
-  players_df <- players_df %>%
-    dplyr::filter(!.data$didNotPlay) %>%
-    dplyr::select(
-      "starter",
-      "ejected",
-      "didNotPlay",
-      "active",
-      "athlete.displayName",
-      "athlete.jersey",
-      "athlete.id",
-      "athlete.shortName",
-      "athlete.headshot.href",
-      "athlete.position.name",
-      "athlete.position.abbreviation",
-      "team.shortDisplayName",
-      "team.name",
-      "team.logo",
-      "team.id",
-      "team.abbreviation",
-      "team.color",
-      "team.alternateColor"
-    )
-  
-  player_box <- dplyr::bind_cols(stats_df,players_df) %>%
-    dplyr::select(
-      "athlete.displayName",
-      "team.shortDisplayName", tidyr::everything())
-  plays_df <- plays_df %>% 
-    janitor::clean_names()
-  team_box_score <- team_box_score %>% 
-    janitor::clean_names()
-  player_box <- player_box %>% 
-    janitor::clean_names() %>% 
-    dplyr::rename(
-      "+/-" = "x",
-      "fg3" = "x3pt") %>%
-    make_wehoop_data("ESPN WNBA Player Box Information from ESPN.com",Sys.time())
-  pbp <- c(list(plays_df), list(team_box_score),list(player_box))
+  tryCatch(
+    expr = {
+      
+      game_json <- resp %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      
+      players_box_score_df <- game_json[["boxscore"]][["players"]] %>%
+        jsonlite::toJSON() %>%
+        jsonlite::fromJSON(flatten = TRUE) %>%
+        as.data.frame()
+      
+      gameId <- as.integer(game_json[["header"]][["id"]])
+      season <- game_json[["header"]][["season"]][["year"]]
+      season_type <- game_json[["header"]][["season"]][["type"]]
+      game_date <- as.Date(substr(game_json[["header"]][["competitions"]][["date"]], 0, 10))
+      boxScoreAvailable <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
+      
+      boxScoreSource <- game_json[["header"]][["competitions"]][["boxscoreSource"]]
+      if (boxScoreAvailable == TRUE &&
+          length(players_box_score_df[["statistics"]][[1]][["athletes"]][[1]]) > 1) {
+        players_df <- players_box_score_df %>%
+          tidyr::unnest("statistics") %>%
+          tidyr::unnest("athletes")
+        if (length(players_box_score_df[["statistics"]]) > 1 &&
+            length(players_df$stats[[1]]) > 0) {
+          players_df <- jsonlite::fromJSON(jsonlite::toJSON(game_json[["boxscore"]][["players"]]), flatten = TRUE) %>%
+            tidyr::unnest("statistics") %>%
+            tidyr::unnest("athletes")
+          stat_cols <- players_df$names[[1]]
+          stat_cols <- players_df$keys[[1]]
+          stats <- players_df$stats
+          
+          stats_df <- as.data.frame(do.call(rbind,stats))
+          colnames(stats_df) <- stat_cols
+          suppressWarnings(
+            stats_df <- stats_df %>%
+              tidyr::separate("fieldGoalsMade-fieldGoalsAttempted",
+                              into = c("fieldGoalsMade", "fieldGoalsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("freeThrowsMade-freeThrowsAttempted",
+                              into = c("freeThrowsMade", "freeThrowsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("threePointFieldGoalsMade-threePointFieldGoalsAttempted",
+                              into = c("threePointFieldGoalsMade", "threePointFieldGoalsAttempted"),
+                              sep = "-") %>%
+              dplyr::mutate(dplyr::across(dplyr::any_of(c(
+                "minutes",
+                "fieldGoalPct",
+                "freeThrowPct",
+                "threePointFieldGoalPct"
+              )), ~as.numeric(.x))) %>%
+              dplyr::mutate(dplyr::across(dplyr::any_of(c(
+                "assists",
+                "blocks",
+                "defensiveRebounds",
+                "fieldGoalsMade",
+                "fieldGoalsAttempted",
+                "flagrantFouls",
+                "fouls",
+                "freeThrowsMade",
+                "freeThrowsAttempted",
+                "offensiveRebounds",
+                "steals",
+                "teamTurnovers",
+                "technicalFouls",
+                "threePointFieldGoalsMade",
+                "threePointFieldGoalsAttempted",
+                "rebounds",
+                "totalTechnicalFouls",
+                "totalTurnovers",
+                "turnovers",
+                "points"
+              )), ~as.integer(.x)))
+          )
+          players_df <- players_df %>%
+            dplyr::filter(!.data$didNotPlay) %>%
+            dplyr::select(dplyr::any_of(c(
+              "starter",
+              "ejected", 
+              "didNotPlay",
+              "active",
+              "athlete.displayName",
+              "athlete.jersey",
+              "athlete.id",
+              "athlete.shortName",
+              "athlete.headshot.href",
+              "athlete.position.name",
+              "athlete.position.abbreviation",
+              "team.shortDisplayName",
+              "team.name",
+              "team.logo",
+              "team.id",
+              "team.abbreviation",
+              "team.color",
+              "team.alternateColor"
+            )))
+          
+          players_df <- dplyr::bind_cols(stats_df,players_df) %>%
+            dplyr::select(dplyr::any_of(c(
+              "athlete.displayName",
+              "team.shortDisplayName")), 
+              tidyr::everything()) %>% 
+            janitor::clean_names() %>%
+            dplyr::mutate(
+              game_id = gameId,
+              season = season,
+              season_type = season_type,
+              game_date = game_date)
+          
+          player_box_score <- players_df %>% 
+            dplyr::select(dplyr::any_of(c(
+              "game_id",
+              "season",
+              "season_type",
+              "game_date",
+              "athlete_id",
+              "athlete_display_name",
+              "team_id",
+              "team_name",
+              "team_short_display_name",
+              "minutes",
+              "field_goals_made",
+              "field_goals_attempted",
+              "three_point_field_goals_made",
+              "three_point_field_goals_attempted",
+              "free_throws_made",
+              "free_throws_attempted",
+              "offensive_rebounds",
+              "defensive_rebounds",
+              "rebounds",
+              "assists",
+              "steals",
+              "blocks",
+              "turnovers",
+              "fouls",
+              "plus_minus",
+              "points",
+              "starter",
+              "ejected",
+              "did_not_play",
+              "active",
+              "athlete_jersey",
+              "athlete_short_name",
+              "athlete_headshot_href",
+              "athlete_position_name",
+              "athlete_position_abbreviation",
+              "team_logo",
+              "team_abbreviation",
+              "team_color",
+              "team_alternate_color"))) %>%
+            make_wehoop_data("ESPN WNBA Player Box Information from ESPN.com", Sys.time())
+        }
+      }
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  pbp <- c(list(plays_df), list(team_box_score),list(player_box_score))
   names(pbp) <- c("Plays","Team","Player")
   return(pbp)
 }
@@ -484,7 +721,7 @@ espn_wnba_pbp <- function(game_id){
             "athlete.id") %>%
           tidyr::unnest_wider("athlete.id", names_sep = "_")
       )
-      names(aths)<-c("play.id","athlete.id.1","athlete.id.2","athlete.id.3")
+      names(aths) <- c("play.id", "athlete.id.1", "athlete.id.2", "athlete.id.3")
       plays_df <- dplyr::bind_cols(plays, aths, id_vars) %>%
         select(-"athlete.id") %>%
         dplyr::mutate(
@@ -520,7 +757,7 @@ espn_wnba_pbp <- function(game_id){
 #' @examples
 #' 
 #' \donttest{
-#'   try(espn_wnba_team_box(game_id = 401244185))
+#'    try(espn_wnba_team_box(game_id = 401244185))
 #' }
 espn_wnba_team_box <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -537,75 +774,197 @@ espn_wnba_team_box <- function(game_id){
   
   # Check the result
   check_status(res)
+  
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8") 
   #---- Team Box ------
   tryCatch(
     expr = {
-      raw_play_df <- jsonlite::fromJSON(resp)
-      season <- raw_play_df[['header']][['season']][['year']]
-      season_type <- raw_play_df[['header']][['season']][['type']]
-      homeAwayTeam1 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][1])
-      homeAwayTeam2 = toupper(raw_play_df[['header']][['competitions']][['competitors']][[1]][['homeAway']][2])
-      homeTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][1]
-      awayTeamId = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['id']][2]
-      homeTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][1]
-      awayTeamMascot = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['name']][2]
-      homeTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][1]
-      awayTeamName = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['location']][2]
+      game_json <- resp %>% 
+        jsonlite::fromJSON()
       
-      homeTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][1]
-      awayTeamAbbrev = raw_play_df[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']][2]
-      game_date = as.Date(substr(raw_play_df[['header']][['competitions']][['date']],0,10))
+      box_score_available <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
       
-      teams_box_score_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["teams"]]),flatten=TRUE)
-      
-      teams_box_score_df_2 <- teams_box_score_df[[1]][[2]] %>%
-        dplyr::select(
-          "displayValue", 
-          "name") %>%
-        dplyr::rename("Home" = "displayValue")
-      teams_box_score_df_1 <- teams_box_score_df[[1]][[1]] %>%
-        dplyr::select(
-          "displayValue", 
-          "name") %>%
-        dplyr::rename("Away" = "displayValue")
-      teams2 <- data.frame(t(teams_box_score_df_2$Home))
-      colnames(teams2) <- t(teams_box_score_df_2$name)
-      teams2$homeAway <- homeAwayTeam2
-      teams2$OpponentId <- as.integer(awayTeamId)
-      teams2$OpponentName <- awayTeamName
-      teams2$OpponentMascot <- awayTeamMascot
-      teams2$OpponentAbbrev <- awayTeamAbbrev
-      
-      teams1 <- data.frame(t(teams_box_score_df_1$Away))
-      colnames(teams1) <- t(teams_box_score_df_1$name)
-      teams1$homeAway <- homeAwayTeam1
-      teams1$OpponentId <- as.integer(homeTeamId)
-      teams1$OpponentName <- homeTeamName
-      teams1$OpponentMascot <- homeTeamMascot
-      teams1$OpponentAbbrev <- homeTeamAbbrev
-      teams <- dplyr::bind_rows(teams1,teams2)
-      
-      team_box_score <- teams_box_score_df %>%
-        dplyr::select(-"statistics") %>%
-        dplyr::bind_cols(teams)
-      
-      team_box_score <- team_box_score %>%
-        dplyr::mutate(
-          game_id = game_id,
-          season = season,
-          season_type = season_type,
-          game_date = game_date
-        ) %>%
-        janitor::clean_names() %>%
-        dplyr::select(
-          "game_id",
-          "season",
-          "season_type",
-          "game_date",
-          tidyr::everything()) %>%
-        make_wehoop_data("ESPN WNBA Team Box Information from ESPN.com",Sys.time())
+      if (box_score_available == TRUE) {
+        teams_box_score_df <- game_json[["boxscore"]][["teams"]] %>%
+          jsonlite::toJSON() %>%
+          jsonlite::fromJSON(flatten = TRUE)
+        if (length(teams_box_score_df[["statistics"]][[1]]) > 0) {
+          # Teams info columns and values
+          teams_df <- game_json[["header"]][["competitions"]][["competitors"]][[1]]
+          
+          homeAway1 <- teams_df[["homeAway"]][1]
+          homeAway1_team.id <- as.integer(teams_df[["id"]][1])
+          homeAway1_team.score <- as.integer(teams_df[["score"]][1])
+          homeAway1_team.winner <- teams_df[["winner"]][1]
+          
+          homeAway2 <- teams_df[["homeAway"]][2]
+          homeAway2_team.id <- as.integer(teams_df[["id"]][2])
+          homeAway2_team.score <- as.integer(teams_df[["score"]][2])
+          homeAway2_team.winner <- teams_df[["winner"]][2]
+          
+          # Pivoting the table values for each team from long to wide
+          statistics_df_1 <- teams_box_score_df[["statistics"]][[1]] %>%
+            tibble::tibble() %>%
+            dplyr::select("name", "displayValue") %>%
+            tidyr::spread("name", "displayValue")
+          
+          statistics_df_2 <- teams_box_score_df[["statistics"]][[2]] %>%
+            tibble::tibble() %>%
+            dplyr::select("name", "displayValue") %>%
+            tidyr::spread("name", "displayValue")
+          
+          # Assigning values to the correct data frame rows - 1
+          statistics_df_1$team.homeAway <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+            homeAway1,
+            homeAway2
+          )
+          statistics_df_1$team.score <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+            as.integer(homeAway1_team.score),
+            as.integer(homeAway2_team.score)
+          )
+          statistics_df_1$team.winner <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+            homeAway1_team.winner,
+            homeAway2_team.winner
+          )
+          statistics_df_1$team.id <- as.integer(teams_box_score_df[["team.id"]][[1]])
+          statistics_df_1$team.uid <- teams_box_score_df[["team.uid"]][[1]]
+          statistics_df_1$team.slug <- teams_box_score_df[["team.slug"]][[1]]
+          statistics_df_1$team.location <- teams_box_score_df[["team.location"]][[1]]
+          statistics_df_1$team.name <- teams_box_score_df[["team.name"]][[1]]
+          statistics_df_1$team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[1]]
+          statistics_df_1$team.displayName <- teams_box_score_df[["team.displayName"]][[1]]
+          statistics_df_1$team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[1]]
+          statistics_df_1$team.color <- teams_box_score_df[["team.color"]][[1]]
+          statistics_df_1$team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[1]]
+          statistics_df_1$team.logo <- teams_box_score_df[["team.logo"]][[1]]
+          statistics_df_1$opponent.team.id <- as.integer(teams_box_score_df[["team.id"]][[2]])
+          statistics_df_1$opponent.team.uid <- teams_box_score_df[["team.uid"]][[2]]
+          statistics_df_1$opponent.team.slug <- teams_box_score_df[["team.slug"]][[2]]
+          statistics_df_1$opponent.team.location <- teams_box_score_df[["team.location"]][[2]]
+          statistics_df_1$opponent.team.name <- teams_box_score_df[["team.name"]][[2]]
+          statistics_df_1$opponent.team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[2]]
+          statistics_df_1$opponent.team.displayName <- teams_box_score_df[["team.displayName"]][[2]]
+          statistics_df_1$opponent.team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[2]]
+          statistics_df_1$opponent.team.color <- teams_box_score_df[["team.color"]][[2]]
+          statistics_df_1$opponent.team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[2]]
+          statistics_df_1$opponent.team.logo <- teams_box_score_df[["team.logo"]][[2]]
+          
+          # Assigning values to the correct data frame rows - 2
+          statistics_df_2$team.homeAway <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+            homeAway2,
+            homeAway1
+          )
+          statistics_df_2$team.score <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+            as.integer(homeAway2_team.score),
+            as.integer(homeAway1_team.score)
+          )
+          statistics_df_2$team.winner <- ifelse(
+            as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+            homeAway2_team.winner,
+            homeAway1_team.winner
+          )
+          statistics_df_2$team.id <- as.integer(teams_box_score_df[["team.id"]][[2]])
+          statistics_df_2$team.uid <- teams_box_score_df[["team.uid"]][[2]]
+          statistics_df_2$team.slug <- teams_box_score_df[["team.slug"]][[2]]
+          statistics_df_2$team.location <- teams_box_score_df[["team.location"]][[2]]
+          statistics_df_2$team.name <- teams_box_score_df[["team.name"]][[2]]
+          statistics_df_2$team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[2]]
+          statistics_df_2$team.displayName <- teams_box_score_df[["team.displayName"]][[2]]
+          statistics_df_2$team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[2]]
+          statistics_df_2$team.color <- teams_box_score_df[["team.color"]][[2]]
+          statistics_df_2$team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[2]]
+          statistics_df_2$team.logo <- teams_box_score_df[["team.logo"]][[2]]
+          statistics_df_2$opponent.team.id <- as.integer(teams_box_score_df[["team.id"]][[1]])
+          statistics_df_2$opponent.team.uid <- teams_box_score_df[["team.uid"]][[1]]
+          statistics_df_2$opponent.team.slug <- teams_box_score_df[["team.slug"]][[1]]
+          statistics_df_2$opponent.team.location <- teams_box_score_df[["team.location"]][[1]]
+          statistics_df_2$opponent.team.name <- teams_box_score_df[["team.name"]][[1]]
+          statistics_df_2$opponent.team.abbreviation <- teams_box_score_df[["team.abbreviation"]][[1]]
+          statistics_df_2$opponent.team.displayName <- teams_box_score_df[["team.displayName"]][[1]]
+          statistics_df_2$opponent.team.shortDisplayName <- teams_box_score_df[["team.shortDisplayName"]][[1]]
+          statistics_df_2$opponent.team.color <- teams_box_score_df[["team.color"]][[1]]
+          statistics_df_2$opponent.team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[1]]
+          statistics_df_2$opponent.team.logo <- teams_box_score_df[["team.logo"]][[1]]
+          
+          complete_statistics_df <- statistics_df_1 %>%
+            dplyr::bind_rows(statistics_df_2)
+          
+          # Assigning game/season level data to team box score and converting types
+          complete_statistics_df$season <- game_json[["header"]][["season"]][["year"]]
+          complete_statistics_df$season_type <- game_json[["header"]][["season"]][["type"]]
+          complete_statistics_df$game_date <- as.Date(substr(game_json[["header"]][["competitions"]][["date"]], 0, 10))
+          complete_statistics_df$game_id <- as.integer(game_id)
+          
+          suppressWarnings(
+            complete_statistics_df <- complete_statistics_df %>%
+              tidyr::separate("fieldGoalsMade-fieldGoalsAttempted",
+                              into = c("fieldGoalsMade", "fieldGoalsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("freeThrowsMade-freeThrowsAttempted",
+                              into = c("freeThrowsMade", "freeThrowsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("threePointFieldGoalsMade-threePointFieldGoalsAttempted",
+                              into = c("threePointFieldGoalsMade", "threePointFieldGoalsAttempted"),
+                              sep = "-") %>%
+              dplyr::mutate(dplyr::across(c(
+                "fieldGoalPct",
+                "freeThrowPct",
+                "threePointFieldGoalPct"
+              ), ~as.numeric(.x))) %>%
+              dplyr::mutate(dplyr::across(dplyr::any_of(c(
+                "assists",
+                "blocks",
+                "defensiveRebounds",
+                "fieldGoalsMade",
+                "fieldGoalsAttempted",
+                "flagrantFouls",
+                "fouls",
+                "freeThrowsMade",
+                "freeThrowsAttempted",
+                "largestLead",
+                "offensiveRebounds",
+                "steals",
+                "teamTurnovers",
+                "technicalFouls",
+                "threePointFieldGoalsMade",
+                "threePointFieldGoalsAttempted",
+                "totalRebounds",
+                "totalTechnicalFouls",
+                "totalTurnovers",
+                "turnovers"
+              )), ~as.integer(.x)))
+          )
+          team_box_score <- complete_statistics_df %>%
+            janitor::clean_names() %>%
+            dplyr::select(dplyr::any_of(c(
+              "game_id",
+              "season",
+              "season_type",
+              "game_date",
+              "team_id",
+              "team_uid",
+              "team_slug",
+              "team_location",
+              "team_name",
+              "team_abbreviation",
+              "team_display_name",
+              "team_short_display_name",
+              "team_color",
+              "team_alternate_color",
+              "team_logo",
+              "team_home_away",
+              "team_score",
+              "team_winner")),
+              tidyr::everything()) %>%
+            make_wehoop_data("ESPN WNBA Team Box Information from ESPN.com", Sys.time())
+        }
+      }
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
@@ -652,54 +1011,171 @@ espn_wnba_player_box <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8") 
   
-  raw_play_df <- jsonlite::fromJSON(resp)
-  raw_play_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df),flatten=TRUE)
   #---- Player Box ------
-  players_df <- jsonlite::fromJSON(jsonlite::toJSON(raw_play_df[["boxscore"]][["players"]]), flatten=TRUE) %>%
-    tidyr::unnest("statistics") %>%
-    tidyr::unnest("athletes")
-  stat_cols <- players_df$names[[1]]
-  stats <- players_df$stats
+  tryCatch(
+    expr = {
+      
+      game_json <- resp %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      
+      players_box_score_df <- game_json[["boxscore"]][["players"]] %>%
+        jsonlite::toJSON() %>%
+        jsonlite::fromJSON(flatten = TRUE) %>%
+        as.data.frame()
+      
+      gameId <- as.integer(game_json[["header"]][["id"]])
+      season <- game_json[["header"]][["season"]][["year"]]
+      season_type <- game_json[["header"]][["season"]][["type"]]
+      game_date <- as.Date(substr(game_json[["header"]][["competitions"]][["date"]], 0, 10))
+      boxScoreAvailable <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
+      
+      boxScoreSource <- game_json[["header"]][["competitions"]][["boxscoreSource"]]
+      if (boxScoreAvailable == TRUE &&
+          length(players_box_score_df[["statistics"]][[1]][["athletes"]][[1]]) > 1) {
+        players_df <- players_box_score_df %>%
+          tidyr::unnest("statistics") %>%
+          tidyr::unnest("athletes")
+        if (length(players_box_score_df[["statistics"]]) > 1 &&
+            length(players_df$stats[[1]]) > 0) {
+          players_df <- jsonlite::fromJSON(jsonlite::toJSON(game_json[["boxscore"]][["players"]]), flatten = TRUE) %>%
+            tidyr::unnest("statistics") %>%
+            tidyr::unnest("athletes")
+          stat_cols <- players_df$names[[1]]
+          stat_cols <- players_df$keys[[1]]
+          stats <- players_df$stats
+          
+          stats_df <- as.data.frame(do.call(rbind,stats))
+          colnames(stats_df) <- stat_cols
+          suppressWarnings(
+            stats_df <- stats_df %>%
+              tidyr::separate("fieldGoalsMade-fieldGoalsAttempted",
+                              into = c("fieldGoalsMade", "fieldGoalsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("freeThrowsMade-freeThrowsAttempted",
+                              into = c("freeThrowsMade", "freeThrowsAttempted"),
+                              sep = "-") %>%
+              tidyr::separate("threePointFieldGoalsMade-threePointFieldGoalsAttempted",
+                              into = c("threePointFieldGoalsMade", "threePointFieldGoalsAttempted"),
+                              sep = "-") %>%
+              dplyr::mutate(dplyr::across(dplyr::any_of(c(
+                "minutes",
+                "fieldGoalPct",
+                "freeThrowPct",
+                "threePointFieldGoalPct"
+              )), ~as.numeric(.x))) %>%
+              dplyr::mutate(dplyr::across(dplyr::any_of(c(
+                "assists",
+                "blocks",
+                "defensiveRebounds",
+                "fieldGoalsMade",
+                "fieldGoalsAttempted",
+                "flagrantFouls",
+                "fouls",
+                "freeThrowsMade",
+                "freeThrowsAttempted",
+                "offensiveRebounds",
+                "steals",
+                "teamTurnovers",
+                "technicalFouls",
+                "threePointFieldGoalsMade",
+                "threePointFieldGoalsAttempted",
+                "rebounds",
+                "totalTechnicalFouls",
+                "totalTurnovers",
+                "turnovers",
+                "points"
+              )), ~as.integer(.x)))
+          )
+          players_df <- players_df %>%
+            dplyr::filter(!.data$didNotPlay) %>%
+            dplyr::select(dplyr::any_of(c(
+              "starter",
+              "ejected", 
+              "didNotPlay",
+              "active",
+              "athlete.displayName",
+              "athlete.jersey",
+              "athlete.id",
+              "athlete.shortName",
+              "athlete.headshot.href",
+              "athlete.position.name",
+              "athlete.position.abbreviation",
+              "team.shortDisplayName",
+              "team.name",
+              "team.logo",
+              "team.id",
+              "team.abbreviation",
+              "team.color",
+              "team.alternateColor"
+            )))
+          
+          players_df <- dplyr::bind_cols(stats_df,players_df) %>%
+            dplyr::select(dplyr::any_of(c(
+              "athlete.displayName",
+              "team.shortDisplayName")), 
+              tidyr::everything()) %>% 
+            janitor::clean_names() %>%
+            dplyr::mutate(
+              game_id = gameId,
+              season = season,
+              season_type = season_type,
+              game_date = game_date)
+          
+          player_box_score <- players_df %>% 
+            dplyr::select(dplyr::any_of(c(
+              "game_id",
+              "season",
+              "season_type",
+              "game_date",
+              "athlete_id",
+              "athlete_display_name",
+              "team_id",
+              "team_name",
+              "team_short_display_name",
+              "minutes",
+              "field_goals_made",
+              "field_goals_attempted",
+              "three_point_field_goals_made",
+              "three_point_field_goals_attempted",
+              "free_throws_made",
+              "free_throws_attempted",
+              "offensive_rebounds",
+              "defensive_rebounds",
+              "rebounds",
+              "assists",
+              "steals",
+              "blocks",
+              "turnovers",
+              "fouls",
+              "plus_minus",
+              "points",
+              "starter",
+              "ejected",
+              "did_not_play",
+              "active",
+              "athlete_jersey",
+              "athlete_short_name",
+              "athlete_headshot_href",
+              "athlete_position_name",
+              "athlete_position_abbreviation",
+              "team_logo",
+              "team_abbreviation",
+              "team_color",
+              "team_alternate_color"))) %>%
+            make_wehoop_data("ESPN WNBA Player Box Information from ESPN.com", Sys.time())
+        }
+      }
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
-  stats_df <- as.data.frame(do.call(rbind,stats))
-  colnames(stats_df) <- stat_cols
-  
-  players_df <- players_df %>%
-    dplyr::filter(!.data$didNotPlay) %>%
-    dplyr::select(
-      "starter",
-      "ejected", 
-      "didNotPlay",
-      "active",
-      "athlete.displayName",
-      "athlete.jersey",
-      "athlete.id",
-      "athlete.shortName",
-      "athlete.headshot.href",
-      "athlete.position.name",
-      "athlete.position.abbreviation",
-      "team.shortDisplayName",
-      "team.name",
-      "team.logo",
-      "team.id",
-      "team.abbreviation",
-      "team.color",
-      "team.alternateColor"
-    )
-  
-  player_box <- dplyr::bind_cols(stats_df,players_df) %>%
-    dplyr::select(
-      "athlete.displayName",
-      "team.shortDisplayName", 
-      tidyr::everything())
-  player_box <- player_box %>% 
-    janitor::clean_names() %>% 
-    dplyr::rename(
-      '+/-' = "x",
-      "fg3" = "x3pt") %>%
-    make_wehoop_data("ESPN WNBA Player Box Information from ESPN.com",Sys.time())
-  
-  return(player_box)
+  return(player_box_score)
 }
 
 
@@ -866,7 +1342,7 @@ espn_wnba_game_rosters <- function(game_id) {
       colnames(team_roster_df) <- gsub(".\\$ref","_href", colnames(team_roster_df))
       
       athlete_roster_df <- purrr::map_dfr(team_roster_df$athlete_href, function(x){
-
+        
         res <- httr::RETRY("GET", x)
         
         # Check the result
