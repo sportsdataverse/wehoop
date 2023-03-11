@@ -18,7 +18,7 @@ wnba_pbp <- function(game_id,
                      version = "v2", 
                      ...){
   
-  if(version=="v2"){
+  if(version == "v2"){
     endpoint <- wnba_endpoint('playbyplayv2')
   } else {
     endpoint <- wnba_endpoint('playbyplay')
