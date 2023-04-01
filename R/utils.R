@@ -177,3 +177,17 @@ print.wehoop_data <- function(x,...) {
   NextMethod(print,x)
   invisible(x)
 }
+
+
+
+# rbindlist but maintain attributes of last file
+rbindlist_with_attrs <- function(dflist){
+  
+  hoopR_timestamp <- attr(dflist[[length(dflist)]], "hoopR_timestamp")
+  hoopR_type <- attr(dflist[[length(dflist)]], "hoopR_type")
+  out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
+  attr(out,"hoopR_timestamp") <- hoopR_timestamp
+  attr(out,"hoopR_type") <- hoopR_type
+  # class(out) <- c("hoopR_data","tbl_df","tbl","data.table","data.frame")
+  out
+}
