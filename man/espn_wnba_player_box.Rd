@@ -10,15 +10,17 @@ espn_wnba_player_box(game_id)
 \item{game_id}{Game ID}
 }
 \value{
-Returns a player boxscore data frame\tabular{ll}{
+Returns a player boxscore data frame
+
+\strong{Player}\tabular{ll}{
    col_name \tab types \cr
    game_id \tab integer \cr
    season \tab integer \cr
    season_type \tab integer \cr
    game_date \tab Date \cr
-   athlete_id \tab character \cr
+   athlete_id \tab integer \cr
    athlete_display_name \tab character \cr
-   team_id \tab character \cr
+   team_id \tab integer \cr
    team_name \tab character \cr
    team_location \tab character \cr
    team_short_display_name \tab character \cr
@@ -58,7 +60,7 @@ Returns a player boxscore data frame\tabular{ll}{
    team_alternate_color \tab character \cr
    home_away \tab character \cr
    team_winner \tab logical \cr
-   team_score \tab character \cr
+   team_score \tab integer \cr
    opponent_team_id \tab integer \cr
    opponent_team_name \tab character \cr
    opponent_team_location \tab character \cr
@@ -67,7 +69,7 @@ Returns a player boxscore data frame\tabular{ll}{
    opponent_team_logo \tab character \cr
    opponent_team_color \tab character \cr
    opponent_team_alternate_color \tab character \cr
-   opponent_team_score \tab character \cr
+   opponent_team_score \tab integer \cr
 }
 }
 \description{

@@ -18,10 +18,10 @@ espn_wnba_team_stats(team_id, year, season_type = "regular", total = FALSE)
 \value{
 Returns a tibble with the team stats data\tabular{ll}{
    col_name \tab types \cr
-   team_id \tab character \cr
+   team_id \tab integer \cr
    team_guid \tab character \cr
    team_uid \tab character \cr
-   team_sdr \tab character \cr
+   team_sdr \tab integer \cr
    team_slug \tab character \cr
    team_location \tab character \cr
    team_name \tab character \cr

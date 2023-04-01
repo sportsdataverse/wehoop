@@ -2,7 +2,7 @@
 % Please edit documentation in R/espn_wnba_data.R
 \name{espn_wnba_standings}
 \alias{espn_wnba_standings}
-\title{Get ESPN WNBA Standings}
+\title{\strong{Get ESPN WNBA Standings}}
 \usage{
 espn_wnba_standings(year)
 }
@@ -12,20 +12,20 @@ espn_wnba_standings(year)
 \value{
 Returns a tibble\tabular{ll}{
    col_name \tab types \cr
-   team_id \tab character \cr
+   team_id \tab integer \cr
    team \tab character \cr
-   avgpointsagainst \tab character \cr
-   avgpointsfor \tab character \cr
-   clincher \tab character \cr
-   differential \tab character \cr
-   divisionwinpercent \tab character \cr
-   gamesbehind \tab character \cr
-   leaguewinpercent \tab character \cr
-   losses \tab character \cr
-   playoffseed \tab character \cr
-   streak \tab character \cr
-   winpercent \tab character \cr
-   wins \tab character \cr
+   avgpointsagainst \tab numeric \cr
+   avgpointsfor \tab numeric \cr
+   clincher \tab numeric \cr
+   differential \tab numeric \cr
+   divisionwinpercent \tab numeric \cr
+   gamesbehind \tab numeric \cr
+   leaguewinpercent \tab numeric \cr
+   losses \tab numeric \cr
+   playoffseed \tab numeric \cr
+   streak \tab numeric \cr
+   winpercent \tab numeric \cr
+   wins \tab numeric \cr
    leaguestandings \tab character \cr
    home \tab character \cr
    road \tab character \cr
@@ -35,7 +35,7 @@ Returns a tibble\tabular{ll}{
 }
 }
 \description{
-Get ESPN WNBA Standings
+\strong{Get ESPN WNBA Standings}
 }
 \examples{
 \donttest{

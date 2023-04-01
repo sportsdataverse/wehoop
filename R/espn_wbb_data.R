@@ -17,19 +17,19 @@
 #'    |score_value               |integer   |
 #'    |wallclock                 |character |
 #'    |shooting_play             |logical   |
-#'    |type_id                   |character |
+#'    |type_id                   |integer   |
 #'    |type_text                 |character |
 #'    |period_number             |integer   |
 #'    |period_display_value      |character |
 #'    |clock_display_value       |character |
-#'    |team_id                   |character |
+#'    |team_id                   |integer   |
 #'    |coordinate_x_raw          |numeric   |
 #'    |coordinate_y_raw          |numeric   |
 #'    |coordinate_x              |numeric   |
 #'    |coordinate_y              |numeric   |
 #'    |play_id                   |character |
-#'    |athlete_id_1              |character |
-#'    |athlete_id_2              |character |
+#'    |athlete_id_1              |integer   |
+#'    |athlete_id_2              |integer   |
 #'    |home_team_id              |integer   |
 #'    |home_team_mascot          |character |
 #'    |home_team_name            |character |
@@ -126,9 +126,9 @@
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
-#'    |athlete_id                        |character |
+#'    |athlete_id                        |integer   |
 #'    |athlete_display_name              |character |
-#'    |team_id                           |character |
+#'    |team_id                           |integer   |
 #'    |team_name                         |character |
 #'    |team_location                     |character |
 #'    |team_short_display_name           |character |
@@ -166,7 +166,7 @@
 #'    |team_alternate_color              |character |
 #'    |home_away                         |character |
 #'    |team_winner                       |logical   |
-#'    |team_score                        |character |
+#'    |team_score                        |integer   |
 #'    |opponent_team_id                  |integer   |
 #'    |opponent_team_name                |character |
 #'    |opponent_team_location            |character |
@@ -175,7 +175,7 @@
 #'    |opponent_team_logo                |character |
 #'    |opponent_team_color               |character |
 #'    |opponent_team_alternate_color     |character |
-#'    |opponent_team_score               |character |
+#'    |opponent_team_score               |integer   |
 #' 
 #' @keywords WBB Game
 #' @importFrom rlang .data
@@ -402,8 +402,8 @@ espn_wbb_pbp <- function(game_id){
 #' @return Returns a team boxscore data frame
 #' 
 #'    **Team** 
-#'  
-#'  
+#'    
+#'    
 #'    |col_name                          |types     |
 #'    |:---------------------------------|:---------|
 #'    |game_id                           |integer   |
@@ -526,9 +526,9 @@ espn_wbb_team_box <- function(game_id){
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
-#'    |athlete_id                        |character |
+#'    |athlete_id                        |integer   |
 #'    |athlete_display_name              |character |
-#'    |team_id                           |character |
+#'    |team_id                           |integer   |
 #'    |team_name                         |character |
 #'    |team_location                     |character |
 #'    |team_short_display_name           |character |
@@ -566,7 +566,7 @@ espn_wbb_team_box <- function(game_id){
 #'    |team_alternate_color              |character |
 #'    |home_away                         |character |
 #'    |team_winner                       |logical   |
-#'    |team_score                        |character |
+#'    |team_score                        |integer   |
 #'    |opponent_team_id                  |integer   |
 #'    |opponent_team_name                |character |
 #'    |opponent_team_location            |character |
@@ -575,7 +575,7 @@ espn_wbb_team_box <- function(game_id){
 #'    |opponent_team_logo                |character |
 #'    |opponent_team_color               |character |
 #'    |opponent_team_alternate_color     |character |
-#'    |opponent_team_score               |character |
+#'    |opponent_team_score               |integer   |
 #' 
 #' @keywords WBB Player Box
 #' @importFrom rlang .data
@@ -642,7 +642,7 @@ espn_wbb_player_box <- function(game_id){
 #'    |athlete_uid              |character |
 #'    |athlete_guid             |character |
 #'    |athlete_type             |character |
-#'    |sdr                      |character |
+#'    |sdr                      |integer   |
 #'    |first_name               |character |
 #'    |last_name                |character |
 #'    |full_name                |character |
@@ -657,7 +657,7 @@ espn_wbb_player_box <- function(game_id){
 #'    |headshot_href            |character |
 #'    |headshot_alt             |character |
 #'    |jersey                   |character |
-#'    |position_id              |character |
+#'    |position_id              |integer   |
 #'    |position_name            |character |
 #'    |position_display_name    |character |
 #'    |position_abbreviation    |character |
@@ -667,7 +667,7 @@ espn_wbb_player_box <- function(game_id){
 #'    |experience_display_value |character |
 #'    |experience_abbreviation  |character |
 #'    |active                   |logical   |
-#'    |status_id                |character |
+#'    |status_id                |integer   |
 #'    |status_name              |character |
 #'    |status_type              |character |
 #'    |status_abbreviation      |character |
@@ -676,10 +676,10 @@ espn_wbb_player_box <- function(game_id){
 #'    |did_not_play             |logical   |
 #'    |display_name             |character |
 #'    |ejected                  |logical   |
-#'    |team_id                  |character |
+#'    |team_id                  |integer   |
 #'    |team_guid                |character |
 #'    |team_uid                 |character |
-#'    |team_sdr                 |character |
+#'    |team_sdr                 |integer   |
 #'    |team_slug                |character |
 #'    |team_location            |character |
 #'    |team_name                |character |
@@ -693,7 +693,7 @@ espn_wbb_player_box <- function(game_id){
 #'    |is_all_star              |logical   |
 #'    |logo_href                |character |
 #'    |logo_dark_href           |character |
-#'    |game_id                  |numeric   |
+#'    |game_id                  |integer   |
 #'    |order                    |integer   |
 #'    |home_away                |character |
 #'    |winner                   |logical   |
@@ -913,6 +913,14 @@ espn_wbb_game_rosters <- function(game_id) {
           "position_href",
           "statistics_href"
         ))) %>%
+        dplyr::mutate_at(c(
+          "game_id",
+          "athlete_id",
+          "team_id",
+          "position_id",
+          "status_id",
+          "sdr",
+          "team_sdr"), as.integer) %>%
         make_wehoop_data("ESPN WBB Game Roster Information from ESPN.com",Sys.time())
       
       
@@ -947,7 +955,7 @@ espn_wbb_game_rosters <- function(game_id) {
 #'    |conference_uid        |character |
 #'    |conference_name       |character |
 #'    |conference_logo       |character |
-#'    |parent_group_id       |character |
+#'    |parent_group_id       |integer   |
 #'    |conference_id         |integer   |
 #'    
 #' @importFrom jsonlite fromJSON
@@ -962,7 +970,7 @@ espn_wbb_game_rosters <- function(game_id) {
 espn_wbb_conferences <- function(){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-
+  
   tryCatch(
     expr = {
       play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences?seasontype=2"
@@ -981,7 +989,8 @@ espn_wbb_conferences <- function(){
         dplyr::filter(!(.data$group_id %in% c(0,50))) %>%
         dplyr::mutate(
           group_id = as.integer(.data$group_id),
-          conference_id = .data$group_id) %>%
+          conference_id = .data$group_id,
+          parent_group_id = as.integer(.data$parent_group_id)) %>%
         dplyr::rename(dplyr::any_of(c(
           "conference_short_name" = "short_name",
           "conference_uid" = "uid",
@@ -1026,7 +1035,7 @@ espn_wbb_conferences <- function(){
 #'    |conference_uid        |character |
 #'    |conference_name       |character |
 #'    |conference_logo       |character |
-#'    |parent_group_id       |character |
+#'    |parent_group_id       |integer   |
 #'    |conference_id         |integer   |
 #' 
 #' @keywords WBB Teams
@@ -1045,7 +1054,7 @@ espn_wbb_conferences <- function(){
 espn_wbb_teams <- function(year = most_recent_wbb_season()){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-
+  
   
   tryCatch(
     expr = {
@@ -1163,6 +1172,9 @@ espn_wbb_teams <- function(year = most_recent_wbb_season()){
       teams <- teams %>%
         dplyr::left_join(conference_teams, by = c("team_id" = "team_id")) %>%
         dplyr::left_join(conferences, by = c("group_id" = "group_id")) %>%
+        dplyr::mutate(
+          team_id = as.integer(.data$team_id),
+          parent_group_id = as.integer(.data$parent_group_id)) %>%
         make_wehoop_data("ESPN WBB Teams Information from ESPN.com", Sys.time())
       
     },
@@ -1303,11 +1315,14 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
         )
       
       wbb_data <- wbb_data %>%
-        dplyr::mutate(
-          home_win = as.integer(.data$home_win),
-          away_win = as.integer(.data$away_win),
-          home_score = as.integer(.data$home_score),
-          away_score = as.integer(.data$away_score))
+        dplyr::mutate_at(c(
+          "game_id",
+          "home_team_id",
+          "home_win",
+          "away_team_id",
+          "away_win",
+          "home_score",
+          "away_score"), as.integer)
       wbb_data <- wbb_data %>% 
         dplyr::select(-dplyr::any_of(dplyr::starts_with("team1")),
                       -dplyr::any_of(dplyr::starts_with("team2")),
@@ -1401,7 +1416,7 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #'    |season              |integer   |
 #'    |season_type         |integer   |
 #'    |season_slug         |character |
-#'    |game_id             |character |
+#'    |game_id             |integer   |
 #'    |game_uid            |character |
 #'    |game_date           |character |
 #'    |attendance          |integer   |
@@ -1412,7 +1427,7 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #'    |home_team_name      |character |
 #'    |home_team_logo      |character |
 #'    |home_team_abb       |character |
-#'    |home_team_id        |character |
+#'    |home_team_id        |integer   |
 #'    |home_team_location  |character |
 #'    |home_team_full_name |character |
 #'    |home_team_color     |character |
@@ -1422,7 +1437,7 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #'    |away_team_name      |character |
 #'    |away_team_logo      |character |
 #'    |away_team_abb       |character |
-#'    |away_team_id        |character |
+#'    |away_team_id        |integer   |
 #'    |away_team_location  |character |
 #'    |away_team_full_name |character |
 #'    |away_team_color     |character |
@@ -1535,7 +1550,7 @@ ncaa_wbb_NET_rankings <- function(){
 #' 
 #'    |col_name                 |types     |
 #'    |:------------------------|:---------|
-#'    |id                       |character |
+#'    |id                       |integer   |
 #'    |name                     |character |
 #'    |short_name               |character |
 #'    |type                     |character |
@@ -1549,7 +1564,7 @@ ncaa_wbb_NET_rankings <- function(){
 #'    |date                     |character |
 #'    |last_updated             |character |
 #'    |record_summary           |character |
-#'    |team_id                  |character |
+#'    |team_id                  |integer   |
 #'    |team_uid                 |character |
 #'    |team_location            |character |
 #'    |team_name                |character |
@@ -1628,6 +1643,10 @@ espn_wbb_rankings <- function(){
       ranks <- ranks %>% 
         dplyr::arrange(.data$name, -.data$points) %>% 
         janitor::clean_names() %>%
+        dplyr::mutate_at(c(
+          "id",
+          "team_id"
+        ), as.integer) %>% 
         make_wehoop_data("ESPN WBB Rankings Information from ESPN.com",Sys.time())
     },
     error = function(e) {
@@ -1651,79 +1670,79 @@ espn_wbb_rankings <- function(){
 #' 
 #'    |col_name                          |types     |
 #'    |:---------------------------------|:---------|
-#'    |team_id                           |character |
+#'    |team_id                           |integer   |
 #'    |team                              |character |
-#'    |avgpointsagainst                  |character |
-#'    |avgpointsfor                      |character |
-#'    |gamesbehind                       |character |
-#'    |leaguewinpercent                  |character |
-#'    |losses                            |character |
-#'    |playoffseed                       |character |
-#'    |pointsagainst                     |character |
-#'    |pointsfor                         |character |
-#'    |streak                            |character |
-#'    |winpercent                        |character |
-#'    |wins                              |character |
+#'    |avgpointsagainst                  |numeric   |
+#'    |avgpointsfor                      |numeric   |
+#'    |gamesbehind                       |numeric   |
+#'    |leaguewinpercent                  |numeric   |
+#'    |losses                            |numeric   |
+#'    |playoffseed                       |numeric   |
+#'    |pointsagainst                     |numeric   |
+#'    |pointsfor                         |numeric   |
+#'    |streak                            |numeric   |
+#'    |winpercent                        |numeric   |
+#'    |wins                              |numeric   |
 #'    |total                             |character |
-#'    |home_avgpointsagainst             |character |
-#'    |home_avgpointsfor                 |character |
-#'    |home_gamesbehind                  |character |
-#'    |home_leaguewinpercent             |character |
-#'    |home_losses                       |character |
-#'    |home_playoffseed                  |character |
-#'    |home_pointsagainst                |character |
-#'    |home_pointsfor                    |character |
-#'    |home_streak                       |character |
-#'    |home_winpercent                   |character |
-#'    |home_wins                         |character |
+#'    |home_avgpointsagainst             |numeric   |
+#'    |home_avgpointsfor                 |numeric   |
+#'    |home_gamesbehind                  |numeric   |
+#'    |home_leaguewinpercent             |numeric   |
+#'    |home_losses                       |numeric   |
+#'    |home_playoffseed                  |numeric   |
+#'    |home_pointsagainst                |numeric   |
+#'    |home_pointsfor                    |numeric   |
+#'    |home_streak                       |numeric   |
+#'    |home_winpercent                   |numeric   |
+#'    |home_wins                         |numeric   |
 #'    |home                              |character |
-#'    |road_avgpointsagainst             |character |
-#'    |road_avgpointsfor                 |character |
-#'    |road_gamesbehind                  |character |
-#'    |road_leaguewinpercent             |character |
-#'    |road_losses                       |character |
-#'    |road_playoffseed                  |character |
-#'    |road_pointsagainst                |character |
-#'    |road_pointsfor                    |character |
-#'    |road_streak                       |character |
-#'    |road_winpercent                   |character |
-#'    |road_wins                         |character |
+#'    |road_avgpointsagainst             |numeric   |
+#'    |road_avgpointsfor                 |numeric   |
+#'    |road_gamesbehind                  |numeric   |
+#'    |road_leaguewinpercent             |numeric   |
+#'    |road_losses                       |numeric   |
+#'    |road_playoffseed                  |numeric   |
+#'    |road_pointsagainst                |numeric   |
+#'    |road_pointsfor                    |numeric   |
+#'    |road_streak                       |numeric   |
+#'    |road_winpercent                   |numeric   |
+#'    |road_wins                         |numeric   |
 #'    |road                              |character |
-#'    |vsaprankedteams_avgpointsagainst  |character |
-#'    |vsaprankedteams_avgpointsfor      |character |
-#'    |vsaprankedteams_gamesbehind       |character |
-#'    |vsaprankedteams_leaguewinpercent  |character |
-#'    |vsaprankedteams_losses            |character |
-#'    |vsaprankedteams_playoffseed       |character |
-#'    |vsaprankedteams_pointsagainst     |character |
-#'    |vsaprankedteams_pointsfor         |character |
-#'    |vsaprankedteams_streak            |character |
-#'    |vsaprankedteams_winpercent        |character |
-#'    |vsaprankedteams_wins              |character |
+#'    |vsaprankedteams_avgpointsagainst  |numeric   |
+#'    |vsaprankedteams_avgpointsfor      |numeric   |
+#'    |vsaprankedteams_gamesbehind       |numeric   |
+#'    |vsaprankedteams_leaguewinpercent  |numeric   |
+#'    |vsaprankedteams_losses            |numeric   |
+#'    |vsaprankedteams_playoffseed       |numeric   |
+#'    |vsaprankedteams_pointsagainst     |numeric   |
+#'    |vsaprankedteams_pointsfor         |numeric   |
+#'    |vsaprankedteams_streak            |numeric   |
+#'    |vsaprankedteams_winpercent        |numeric   |
+#'    |vsaprankedteams_wins              |numeric   |
 #'    |vsaprankedteams                   |character |
-#'    |vsusarankedteams_avgpointsagainst |character |
-#'    |vsusarankedteams_avgpointsfor     |character |
-#'    |vsusarankedteams_gamesbehind      |character |
-#'    |vsusarankedteams_leaguewinpercent |character |
-#'    |vsusarankedteams_losses           |character |
-#'    |vsusarankedteams_playoffseed      |character |
-#'    |vsusarankedteams_pointsagainst    |character |
-#'    |vsusarankedteams_pointsfor        |character |
-#'    |vsusarankedteams_streak           |character |
-#'    |vsusarankedteams_winpercent       |character |
-#'    |vsusarankedteams_wins             |character |
+#'    |vsusarankedteams_avgpointsagainst |numeric   |
+#'    |vsusarankedteams_avgpointsfor     |numeric   |
+#'    |vsusarankedteams_gamesbehind      |numeric   |
+#'    |vsusarankedteams_leaguewinpercent |numeric   |
+#'    |vsusarankedteams_losses           |numeric   |
+#'    |vsusarankedteams_playoffseed      |numeric   |
+#'    |vsusarankedteams_pointsagainst    |numeric   |
+#'    |vsusarankedteams_pointsfor        |numeric   |
+#'    |vsusarankedteams_streak           |numeric   |
+#'    |vsusarankedteams_winpercent       |numeric   |
+#'    |vsusarankedteams_wins             |numeric   |
 #'    |vsusarankedteams                  |character |
-#'    |vsconf_avgpointsagainst           |character |
-#'    |vsconf_avgpointsfor               |character |
-#'    |vsconf_gamesbehind                |character |
-#'    |vsconf_leaguewinpercent           |character |
-#'    |vsconf_losses                     |character |
-#'    |vsconf_playoffseed                |character |
-#'    |vsconf_pointsagainst              |character |
-#'    |vsconf_pointsfor                  |character |
-#'    |vsconf_streak                     |character |
-#'    |vsconf_winpercent                 |character |
-#'    |vsconf_wins                       |character |
+#'    |vsconf_avgpointsagainst           |numeric   |
+#'    |vsconf_avgpointsfor               |numeric   |
+#'    |vsconf_gamesbehind                |numeric   |
+#'    |vsconf_leaguewinpercent           |numeric   |
+#'    |vsconf_losses                     |numeric   |
+#'    |vsconf_playoffseed                |numeric   |
+#'    |vsconf_pointsagainst              |numeric   |
+#'    |vsconf_pointsfor                  |numeric   |
+#'    |vsconf_streak                     |numeric   |
+#'    |vsconf_winpercent                 |numeric   |
+#'    |vsconf_wins                       |numeric   |
 #'    |vsconf                            |character |
 #' 
 #' @keywords WBB Standings
@@ -1796,6 +1815,77 @@ espn_wbb_standings <- function(year){
       #joining the 2 dataframes together to create a standings table
       
       standings <- cbind(teams, standings_data) %>%
+        dplyr::mutate(team_id = as.integer(.data$team_id)) 
+      
+      standings <- standings %>%
+        dplyr::mutate_at(c(
+          "avgpointsagainst",
+          "avgpointsfor",
+          "gamesbehind",
+          "leaguewinpercent",
+          "losses",
+          "playoffseed",
+          "pointsagainst",
+          "pointsfor",
+          "streak",
+          "winpercent",
+          "wins",
+          "home_avgpointsagainst",
+          "home_avgpointsfor",
+          "home_gamesbehind",
+          "home_leaguewinpercent",
+          "home_losses",
+          "home_playoffseed",
+          "home_pointsagainst",
+          "home_pointsfor",
+          "home_streak",
+          "home_winpercent",
+          "home_wins",
+          "road_avgpointsagainst",
+          "road_avgpointsfor",
+          "road_gamesbehind",
+          "road_leaguewinpercent",
+          "road_losses",
+          "road_playoffseed",
+          "road_pointsagainst",
+          "road_pointsfor",
+          "road_streak",
+          "road_winpercent",
+          "road_wins",
+          "vsaprankedteams_avgpointsagainst",
+          "vsaprankedteams_avgpointsfor",
+          "vsaprankedteams_gamesbehind",
+          "vsaprankedteams_leaguewinpercent",
+          "vsaprankedteams_losses",
+          "vsaprankedteams_playoffseed",
+          "vsaprankedteams_pointsagainst",
+          "vsaprankedteams_pointsfor",
+          "vsaprankedteams_streak",
+          "vsaprankedteams_winpercent",
+          "vsaprankedteams_wins",
+          "vsusarankedteams_avgpointsagainst",
+          "vsusarankedteams_avgpointsfor",
+          "vsusarankedteams_gamesbehind",
+          "vsusarankedteams_leaguewinpercent",
+          "vsusarankedteams_losses",
+          "vsusarankedteams_playoffseed",
+          "vsusarankedteams_pointsagainst",
+          "vsusarankedteams_pointsfor",
+          "vsusarankedteams_streak",
+          "vsusarankedteams_winpercent",
+          "vsusarankedteams_wins",
+          "vsconf_avgpointsagainst",
+          "vsconf_avgpointsfor",
+          "vsconf_gamesbehind",
+          "vsconf_leaguewinpercent",
+          "vsconf_losses",
+          "vsconf_playoffseed",
+          "vsconf_pointsagainst",
+          "vsconf_pointsfor",
+          "vsconf_streak",
+          "vsconf_winpercent",
+          "vsconf_wins"
+        ), as.numeric) %>% 
         make_wehoop_data("ESPN WBB Standings Information from ESPN.com",Sys.time())
     },
     error = function(e) {
@@ -1826,10 +1916,10 @@ espn_wbb_standings <- function(year){
 #' 
 #'    |col_name                                        |types     |
 #'    |:-----------------------------------------------|:---------|
-#'    |team_id                                         |character |
+#'    |team_id                                         |integer   |
 #'    |team_guid                                       |character |
 #'    |team_uid                                        |character |
-#'    |team_sdr                                        |character |
+#'    |team_sdr                                        |integer   |
 #'    |team_slug                                       |character |
 #'    |team_location                                   |character |
 #'    |team_name                                       |character |
@@ -1925,7 +2015,12 @@ espn_wbb_standings <- function(year){
 #'   try(espn_wbb_team_stats(team_id = 52, year = 2020))
 #' }
 
-espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALSE){
+espn_wbb_team_stats <- function(
+    team_id, 
+    year, 
+    season_type = 'regular', 
+    total = FALSE
+){
   if (!(tolower(season_type) %in% c("regular","postseason"))) {
     # Check if season_type is appropriate, if not regular
     cli::cli_abort("Enter valid season_type: regular or postseason")
@@ -2033,6 +2128,9 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
         dplyr::bind_cols(df)
       
       df <- df %>%
+        dplyr::mutate_at(c(
+          "team_id",
+          "team_sdr"), as.integer) %>%
         make_wehoop_data("ESPN WBB Team Season Stats from ESPN.com",Sys.time())
       
     },
@@ -2061,11 +2159,11 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
 #' 
 #'    |col_name                                        |types     |
 #'    |:-----------------------------------------------|:---------|
-#'    |athlete_id                                      |character |
+#'    |athlete_id                                      |integer   |
 #'    |athlete_uid                                     |character |
 #'    |athlete_guid                                    |character |
 #'    |athlete_type                                    |character |
-#'    |sdr                                             |character |
+#'    |sdr                                             |integer   |
 #'    |first_name                                      |character |
 #'    |last_name                                       |character |
 #'    |full_name                                       |character |
@@ -2080,7 +2178,7 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
 #'    |headshot_href                                   |character |
 #'    |headshot_alt                                    |character |
 #'    |jersey                                          |character |
-#'    |position_id                                     |character |
+#'    |position_id                                     |integer   |
 #'    |position_name                                   |character |
 #'    |position_display_name                           |character |
 #'    |position_abbreviation                           |character |
@@ -2090,7 +2188,7 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
 #'    |experience_display_value                        |character |
 #'    |experience_abbreviation                         |character |
 #'    |active                                          |logical   |
-#'    |status_id                                       |character |
+#'    |status_id                                       |integer   |
 #'    |status_name                                     |character |
 #'    |status_type                                     |character |
 #'    |status_abbreviation                             |character |
@@ -2170,10 +2268,10 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
 #'    |offensive_two_point_field_goal_pct              |numeric   |
 #'    |offensive_shooting_efficiency                   |numeric   |
 #'    |offensive_scoring_efficiency                    |numeric   |
-#'    |team_id                                         |character |
+#'    |team_id                                         |integer   |
 #'    |team_guid                                       |character |
 #'    |team_uid                                        |character |
-#'    |team_sdr                                        |character |
+#'    |team_sdr                                        |integer   |
 #'    |team_slug                                       |character |
 #'    |team_location                                   |character |
 #'    |team_name                                       |character |
@@ -2193,7 +2291,12 @@ espn_wbb_team_stats <- function(team_id, year, season_type='regular', total=FALS
 #'   try(espn_wbb_player_stats(athlete_id = 2984250, year = 2022))
 #' }
 
-espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total=FALSE){
+espn_wbb_player_stats <- function(
+    athlete_id, 
+    year, 
+    season_type = 'regular', 
+    total = FALSE
+){
   if (!(tolower(season_type) %in% c("regular","postseason"))) {
     # Check if season_type is appropriate, if not regular
     cli::cli_abort("Enter valid season_type: regular or postseason")
@@ -2330,6 +2433,13 @@ espn_wbb_player_stats <- function(athlete_id, year, season_type='regular', total
         dplyr::bind_cols(df) %>% 
         dplyr::bind_cols(team_df)
       df <- df %>%
+        dplyr::mutate_at(c(
+          "athlete_id",
+          "team_id",
+          "position_id",
+          "status_id",
+          "sdr",
+          "team_sdr"), as.integer) %>%
         make_wehoop_data("ESPN WBB Player Season Stats from ESPN.com",Sys.time())
       
     },
@@ -2523,7 +2633,12 @@ helper_espn_wbb_pbp <- function(resp){
       season = season,
       season_type = season_type,
       game_date = game_date) %>%
-    janitor::clean_names() %>%
+    janitor::clean_names() %>% 
+    dplyr::mutate_at(c(
+      "type_id",
+      "team_id", 
+      "athlete_id_1",
+      "athlete_id_2"), as.integer) %>%
     make_wehoop_data("ESPN WBB Play-by-Play Information from ESPN.com", Sys.time())
   
   return(plays_df)
@@ -2971,7 +3086,13 @@ helper_espn_wbb_player_box <- function(resp){
           "opponent_team_color",
           "opponent_team_alternate_color",
           "opponent_team_score"
-        ))) %>%
+        ))) %>% 
+        dplyr::mutate_at(c(
+          "athlete_id",
+          "team_id",
+          "team_score",
+          "opponent_team_score"
+        ), as.integer) %>%
         make_wehoop_data("ESPN WBB Player Box Information from ESPN.com", Sys.time())
     }
   }

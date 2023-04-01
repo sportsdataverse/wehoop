@@ -153,7 +153,7 @@ NULL
 
 # Functions for custom class
 # turn a data.frame into a tibble/wehoop_data
-make_wehoop_data <- function(df,type,timestamp){
+make_wehoop_data <- function(df, type, timestamp){
   out <- df %>%
     tidyr::as_tibble()
   

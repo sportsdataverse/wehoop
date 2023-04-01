@@ -17,20 +17,20 @@
 #'    |score_value               |integer   |
 #'    |wallclock                 |character |
 #'    |shooting_play             |logical   |
-#'    |type_id                   |character |
+#'    |type_id                   |integer   |
 #'    |type_text                 |character |
 #'    |period_number             |integer   |
 #'    |period_display_value      |character |
 #'    |clock_display_value       |character |
-#'    |team_id                   |character |
+#'    |team_id                   |integer   |
 #'    |coordinate_x_raw          |numeric   |
 #'    |coordinate_y_raw          |numeric   |
 #'    |coordinate_x              |numeric   |
 #'    |coordinate_y              |numeric   |
 #'    |play_id                   |character |
-#'    |athlete_id_1              |character |
-#'    |athlete_id_2              |character |
-#'    |athlete_id_3              |character |
+#'    |athlete_id_1              |integer   |
+#'    |athlete_id_2              |integer   |
+#'    |athlete_id_3              |integer   |
 #'    |home_team_id              |integer   |
 #'    |home_team_mascot          |character |
 #'    |home_team_name            |character |
@@ -127,9 +127,9 @@
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
-#'    |athlete_id                        |character |
+#'    |athlete_id                        |integer   |
 #'    |athlete_display_name              |character |
-#'    |team_id                           |character |
+#'    |team_id                           |integer   |
 #'    |team_name                         |character |
 #'    |team_location                     |character |
 #'    |team_short_display_name           |character |
@@ -169,7 +169,7 @@
 #'    |team_alternate_color              |character |
 #'    |home_away                         |character |
 #'    |team_winner                       |logical   |
-#'    |team_score                        |character |
+#'    |team_score                        |integer   |
 #'    |opponent_team_id                  |integer   |
 #'    |opponent_team_name                |character |
 #'    |opponent_team_location            |character |
@@ -178,7 +178,7 @@
 #'    |opponent_team_logo                |character |
 #'    |opponent_team_color               |character |
 #'    |opponent_team_alternate_color     |character |
-#'    |opponent_team_score               |character |
+#'    |opponent_team_score               |integer   |
 #' 
 #' @keywords WNBA Game
 #' @importFrom rlang .data
@@ -273,6 +273,9 @@ espn_wnba_game_all <- function(game_id){
 #' @param game_id Game ID
 #' @return Returns a play-by-play data frame
 #' 
+#'    **Plays** 
+#'    
+#'    
 #'    |col_name                  |types     |
 #'    |:-------------------------|:---------|
 #'    |id                        |character |
@@ -284,20 +287,20 @@ espn_wnba_game_all <- function(game_id){
 #'    |score_value               |integer   |
 #'    |wallclock                 |character |
 #'    |shooting_play             |logical   |
-#'    |type_id                   |character |
+#'    |type_id                   |integer   |
 #'    |type_text                 |character |
 #'    |period_number             |integer   |
 #'    |period_display_value      |character |
 #'    |clock_display_value       |character |
-#'    |team_id                   |character |
+#'    |team_id                   |integer   |
 #'    |coordinate_x_raw          |numeric   |
 #'    |coordinate_y_raw          |numeric   |
 #'    |coordinate_x              |numeric   |
 #'    |coordinate_y              |numeric   |
 #'    |play_id                   |character |
-#'    |athlete_id_1              |character |
-#'    |athlete_id_2              |character |
-#'    |athlete_id_3              |character |
+#'    |athlete_id_1              |integer   |
+#'    |athlete_id_2              |integer   |
+#'    |athlete_id_3              |integer   |
 #'    |home_team_id              |integer   |
 #'    |home_team_mascot          |character |
 #'    |home_team_name            |character |
@@ -325,7 +328,7 @@ espn_wnba_game_all <- function(game_id){
 #'    |game_id                   |integer   |
 #'    |season                    |integer   |
 #'    |season_type               |integer   |
-#'    |game_date                 |Date      | 
+#'    |game_date                 |Date      |
 #' 
 #' @keywords WNBA PBP
 #' @importFrom rlang .data
@@ -384,6 +387,9 @@ espn_wnba_pbp <- function(game_id){
 #' @param game_id Game ID
 #' @return Returns a team boxscore data frame
 #' 
+#'    **Team** 
+#'    
+#'    
 #'    |col_name                          |types     |
 #'    |:---------------------------------|:---------|
 #'    |game_id                           |integer   |
@@ -493,15 +499,18 @@ espn_wnba_team_box <- function(game_id){
 #' @param game_id Game ID
 #' @return Returns a player boxscore data frame
 #' 
+#'    **Player** 
+#'    
+#'    
 #'    |col_name                          |types     |
 #'    |:---------------------------------|:---------|
 #'    |game_id                           |integer   |
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
-#'    |athlete_id                        |character |
+#'    |athlete_id                        |integer   |
 #'    |athlete_display_name              |character |
-#'    |team_id                           |character |
+#'    |team_id                           |integer   |
 #'    |team_name                         |character |
 #'    |team_location                     |character |
 #'    |team_short_display_name           |character |
@@ -541,7 +550,7 @@ espn_wnba_team_box <- function(game_id){
 #'    |team_alternate_color              |character |
 #'    |home_away                         |character |
 #'    |team_winner                       |logical   |
-#'    |team_score                        |character |
+#'    |team_score                        |integer   |
 #'    |opponent_team_id                  |integer   |
 #'    |opponent_team_name                |character |
 #'    |opponent_team_location            |character |
@@ -550,7 +559,7 @@ espn_wnba_team_box <- function(game_id){
 #'    |opponent_team_logo                |character |
 #'    |opponent_team_color               |character |
 #'    |opponent_team_alternate_color     |character |
-#'    |opponent_team_score               |character |
+#'    |opponent_team_score               |integer   |
 #' 
 #' @keywords WNBA Player Box
 #' @importFrom rlang .data
@@ -615,7 +624,7 @@ espn_wnba_player_box <- function(game_id){
 #'    |athlete_uid             |character |
 #'    |athlete_guid            |character |
 #'    |athlete_type            |character |
-#'    |sdr                     |character |
+#'    |sdr                     |integer   |
 #'    |first_name              |character |
 #'    |last_name               |character |
 #'    |full_name               |character |
@@ -631,7 +640,7 @@ espn_wnba_player_box <- function(game_id){
 #'    |headshot_href           |character |
 #'    |headshot_alt            |character |
 #'    |jersey                  |character |
-#'    |position_id             |character |
+#'    |position_id             |integer   |
 #'    |position_name           |character |
 #'    |position_display_name   |character |
 #'    |position_abbreviation   |character |
@@ -639,7 +648,7 @@ espn_wnba_player_box <- function(game_id){
 #'    |linked                  |logical   |
 #'    |years                   |integer   |
 #'    |active                  |logical   |
-#'    |status_id               |character |
+#'    |status_id               |integer   |
 #'    |status_name             |character |
 #'    |status_type             |character |
 #'    |status_abbreviation     |character |
@@ -652,10 +661,10 @@ espn_wnba_player_box <- function(game_id){
 #'    |display_name            |character |
 #'    |reason                  |character |
 #'    |ejected                 |logical   |
-#'    |team_id                 |character |
+#'    |team_id                 |integer   |
 #'    |team_guid               |character |
 #'    |team_uid                |character |
-#'    |team_sdr                |character |
+#'    |team_sdr                |integer   |
 #'    |team_slug               |character |
 #'    |team_location           |character |
 #'    |team_name               |character |
@@ -670,7 +679,7 @@ espn_wnba_player_box <- function(game_id){
 #'    |logo_dark_href          |character |
 #'    |logos_href_2            |character |
 #'    |logos_href_3            |character |
-#'    |game_id                 |numeric   |
+#'    |game_id                 |integer   |
 #'    |order                   |integer   |
 #'    |home_away               |character |
 #'    |winner                  |logical   |
@@ -683,7 +692,6 @@ espn_wnba_player_box <- function(game_id){
 #'    |hand_display_value      |character |
 #'    |citizenship             |character |
 #'    
-#' 
 #' @keywords WNBA Game Roster
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -906,6 +914,14 @@ espn_wnba_game_rosters <- function(game_id) {
           "position_href",
           "roster_href",
           "statistics_href"))) %>%
+        dplyr::mutate_at(c(
+          "game_id",
+          "athlete_id",
+          "team_id",
+          "position_id",
+          "status_id",
+          "sdr",
+          "team_sdr"), as.integer) %>%
         make_wehoop_data("ESPN WNBA Game Roster Information from ESPN.com",Sys.time())
       
     },
@@ -934,7 +950,7 @@ espn_wnba_game_rosters <- function(game_id) {
 #' 
 #'    |col_name        |types     |
 #'    |:---------------|:---------|
-#'    |team_id         |character |
+#'    |team_id         |integer   |
 #'    |team            |character |
 #'    |mascot          |character |
 #'    |display_name    |character |
@@ -1003,12 +1019,13 @@ espn_wnba_teams <- function(){
       "alternate_color" = "alternateColor",
       "short_name" = "shortDisplayName",
       "display_name" = "displayName") %>%
+    dplyr::mutate(team_id = as.integer(.data$team_id)) %>%
     make_wehoop_data("ESPN WNBA Teams Information from ESPN.com",Sys.time())
   
   return(wnba_teams)
 }
 
-#' Get WNBA schedule for a specific year/date from ESPN's API
+#' **Get WNBA schedule for a specific year/date from ESPN's API**
 #'
 #' @param season Either numeric or character
 #' @author Saiem Gilani.
@@ -1021,7 +1038,7 @@ espn_wnba_teams <- function(){
 #'    |season              |integer   |
 #'    |season_type         |integer   |
 #'    |season_slug         |character |
-#'    |game_id             |character |
+#'    |game_id             |integer   |
 #'    |game_uid            |character |
 #'    |game_date           |character |
 #'    |attendance          |integer   |
@@ -1032,7 +1049,7 @@ espn_wnba_teams <- function(){
 #'    |home_team_name      |character |
 #'    |home_team_logo      |character |
 #'    |home_team_abb       |character |
-#'    |home_team_id        |character |
+#'    |home_team_id        |integer   |
 #'    |home_team_location  |character |
 #'    |home_team_full_name |character |
 #'    |home_team_color     |character |
@@ -1042,7 +1059,7 @@ espn_wnba_teams <- function(){
 #'    |away_team_name      |character |
 #'    |away_team_logo      |character |
 #'    |away_team_abb       |character |
-#'    |away_team_id        |character |
+#'    |away_team_id        |integer   |
 #'    |away_team_location  |character |
 #'    |away_team_full_name |character |
 #'    |away_team_color     |character |
@@ -1182,11 +1199,14 @@ espn_wnba_scoreboard <- function(season){
         )
       
       wnba_data <- wnba_data %>%
-        dplyr::mutate(
-          home_win = as.integer(.data$home_win),
-          away_win = as.integer(.data$away_win),
-          home_score = as.integer(.data$home_score),
-          away_score = as.integer(.data$away_score))
+        dplyr::mutate_at(c(
+          "game_id",
+          "home_team_id",
+          "home_win",
+          "away_team_id",
+          "away_win",
+          "home_score",
+          "away_score"), as.integer)
       wnba_data <- wnba_data %>% 
         dplyr::select(-dplyr::any_of(dplyr::starts_with("team1")),
                       -dplyr::any_of(dplyr::starts_with("team2")),
@@ -1220,7 +1240,7 @@ espn_wnba_scoreboard <- function(season){
   )
 }
 
-#' Get ESPN WNBA Standings
+#' **Get ESPN WNBA Standings**
 #'
 #' @author Geoff Hutchinson
 #' @param year Either numeric or character (YYYY)
@@ -1228,20 +1248,20 @@ espn_wnba_scoreboard <- function(season){
 #' 
 #'    |col_name           |types     |
 #'    |:------------------|:---------|
-#'    |team_id            |character |
+#'    |team_id            |integer   |
 #'    |team               |character |
-#'    |avgpointsagainst   |character |
-#'    |avgpointsfor       |character |
-#'    |clincher           |character |
-#'    |differential       |character |
-#'    |divisionwinpercent |character |
-#'    |gamesbehind        |character |
-#'    |leaguewinpercent   |character |
-#'    |losses             |character |
-#'    |playoffseed        |character |
-#'    |streak             |character |
-#'    |winpercent         |character |
-#'    |wins               |character |
+#'    |avgpointsagainst   |numeric   |
+#'    |avgpointsfor       |numeric   |
+#'    |clincher           |numeric   |
+#'    |differential       |numeric   |
+#'    |divisionwinpercent |numeric   |
+#'    |gamesbehind        |numeric   |
+#'    |leaguewinpercent   |numeric   |
+#'    |losses             |numeric   |
+#'    |playoffseed        |numeric   |
+#'    |streak             |numeric   |
+#'    |winpercent         |numeric   |
+#'    |wins               |numeric   |
 #'    |leaguestandings    |character |
 #'    |home               |character |
 #'    |road               |character |
@@ -1319,6 +1339,21 @@ espn_wnba_standings <- function(year){
       #joining the 2 dataframes together to create a standings table
       
       standings <- cbind(teams, standings_data) %>%
+        dplyr::mutate(team_id = as.integer(.data$team_id)) %>%
+        dplyr::mutate_at(c(
+          "avgpointsagainst",
+          "avgpointsfor",
+          "clincher",
+          "differential",
+          "divisionwinpercent",
+          "gamesbehind",
+          "leaguewinpercent",
+          "losses",
+          "playoffseed",
+          "streak",
+          "winpercent",
+          "wins"
+        ), as.numeric) %>% 
         make_wehoop_data("ESPN WNBA Standings Information from ESPN.com",Sys.time())
     },
     error = function(e) {
@@ -1352,10 +1387,10 @@ utils::globalVariables(c("where"))
 #' 
 #'    |col_name                                         |types     |
 #'    |:------------------------------------------------|:---------|
-#'    |team_id                                          |character |
+#'    |team_id                                          |integer   |
 #'    |team_guid                                        |character |
 #'    |team_uid                                         |character |
-#'    |team_sdr                                         |character |
+#'    |team_sdr                                         |integer   |
 #'    |team_slug                                        |character |
 #'    |team_location                                    |character |
 #'    |team_name                                        |character |
@@ -1587,6 +1622,9 @@ espn_wnba_team_stats <- function(
       df <- team_df %>% 
         dplyr::bind_cols(df)
       df <- df %>%
+        dplyr::mutate_at(c(
+          "team_id",
+          "team_sdr"), as.integer) %>%
         make_wehoop_data("ESPN WNBA Team Season Stats from ESPN.com",Sys.time())
       
     },
@@ -1614,11 +1652,11 @@ espn_wnba_team_stats <- function(
 #' 
 #'    |col_name                                         |types     |
 #'    |:------------------------------------------------|:---------|
-#'    |athlete_id                                       |character |
+#'    |athlete_id                                       |integer   |
 #'    |athlete_uid                                      |character |
 #'    |athlete_guid                                     |character |
 #'    |athlete_type                                     |character |
-#'    |sdr                                              |character |
+#'    |sdr                                              |integer   |
 #'    |first_name                                       |character |
 #'    |last_name                                        |character |
 #'    |full_name                                        |character |
@@ -1633,7 +1671,7 @@ espn_wnba_team_stats <- function(
 #'    |slug                                             |character |
 #'    |headshot_href                                    |character |
 #'    |headshot_alt                                     |character |
-#'    |position_id                                      |character |
+#'    |position_id                                      |integer   |
 #'    |position_name                                    |character |
 #'    |position_display_name                            |character |
 #'    |position_abbreviation                            |character |
@@ -1641,7 +1679,7 @@ espn_wnba_team_stats <- function(
 #'    |linked                                           |logical   |
 #'    |years                                            |integer   |
 #'    |active                                           |logical   |
-#'    |status_id                                        |character |
+#'    |status_id                                        |integer   |
 #'    |status_name                                      |character |
 #'    |status_type                                      |character |
 #'    |status_abbreviation                              |character |
@@ -1742,10 +1780,10 @@ espn_wnba_team_stats <- function(
 #'    |offensive_avg48offensive_rebounds                |numeric   |
 #'    |offensive_avg48assists                           |numeric   |
 #'    |offensive_avg48turnovers                         |numeric   |
-#'    |team_id                                          |character |
+#'    |team_id                                          |integer   |
 #'    |team_guid                                        |character |
 #'    |team_uid                                         |character |
-#'    |team_sdr                                         |character |
+#'    |team_sdr                                         |integer   |
 #'    |team_slug                                        |character |
 #'    |team_location                                    |character |
 #'    |team_name                                        |character |
@@ -1764,7 +1802,12 @@ espn_wnba_team_stats <- function(
 #'   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 #' }
 
-espn_wnba_player_stats <- function(athlete_id, year, season_type='regular', total=FALSE){
+espn_wnba_player_stats <- function(
+    athlete_id, 
+    year, 
+    season_type = 'regular', 
+    total = FALSE
+){
   if (!(tolower(season_type) %in% c("regular","postseason"))) {
     # Check if season_type is appropriate, if not regular
     cli::cli_abort("Enter valid season_type: regular or postseason")
@@ -1901,6 +1944,13 @@ espn_wnba_player_stats <- function(athlete_id, year, season_type='regular', tota
         dplyr::bind_cols(df) %>% 
         dplyr::bind_cols(team_df)
       df <- df %>%
+        dplyr::mutate_at(c(
+          "athlete_id",
+          "team_id",
+          "position_id",
+          "status_id",
+          "sdr",
+          "team_sdr"), as.integer) %>% 
         make_wehoop_data("ESPN WNBA Player Season Stats from ESPN.com",Sys.time())
       
     },
@@ -2097,7 +2147,13 @@ helper_espn_wnba_pbp <- function(resp){
       season = season,
       season_type = season_type,
       game_date = game_date) %>%
-    janitor::clean_names() %>%
+    janitor::clean_names() %>% 
+    dplyr::mutate_at(c(
+      "type_id",
+      "team_id", 
+      "athlete_id_1",
+      "athlete_id_2", 
+      "athlete_id_3"), as.integer) %>%
     make_wehoop_data("ESPN WNBA Play-by-Play Information from ESPN.com", Sys.time())
   
   return(plays_df)
@@ -2548,7 +2604,13 @@ helper_espn_wnba_player_box <- function(resp){
           "opponent_team_color",
           "opponent_team_alternate_color",
           "opponent_team_score"
-        ))) %>%
+        ))) %>% 
+        dplyr::mutate_at(c(
+          "athlete_id",
+          "team_id",
+          "team_score",
+          "opponent_team_score"
+          ), as.integer) %>%
         make_wehoop_data("ESPN WNBA Player Box Information from ESPN.com", Sys.time())
     }
   }

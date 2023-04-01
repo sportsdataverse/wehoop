@@ -10,7 +10,9 @@ espn_wnba_team_box(game_id)
 \item{game_id}{Game ID}
 }
 \value{
-Returns a team boxscore data frame\tabular{ll}{
+Returns a team boxscore data frame
+
+\strong{Team}\tabular{ll}{
    col_name \tab types \cr
    game_id \tab integer \cr
    season \tab integer \cr

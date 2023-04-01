@@ -9,7 +9,7 @@ espn_wnba_teams()
 \value{
 Returns a tibble\tabular{ll}{
    col_name \tab types \cr
-   team_id \tab character \cr
+   team_id \tab integer \cr
    team \tab character \cr
    mascot \tab character \cr
    display_name \tab character \cr

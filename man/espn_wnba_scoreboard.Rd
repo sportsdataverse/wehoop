@@ -2,7 +2,7 @@
 % Please edit documentation in R/espn_wnba_data.R
 \name{espn_wnba_scoreboard}
 \alias{espn_wnba_scoreboard}
-\title{Get WNBA schedule for a specific year/date from ESPN's API}
+\title{\strong{Get WNBA schedule for a specific year/date from ESPN's API}}
 \usage{
 espn_wnba_scoreboard(season)
 }
@@ -17,7 +17,7 @@ Returns a tibble\tabular{ll}{
    season \tab integer \cr
    season_type \tab integer \cr
    season_slug \tab character \cr
-   game_id \tab character \cr
+   game_id \tab integer \cr
    game_uid \tab character \cr
    game_date \tab character \cr
    attendance \tab integer \cr
@@ -28,7 +28,7 @@ Returns a tibble\tabular{ll}{
    home_team_name \tab character \cr
    home_team_logo \tab character \cr
    home_team_abb \tab character \cr
-   home_team_id \tab character \cr
+   home_team_id \tab integer \cr
    home_team_location \tab character \cr
    home_team_full_name \tab character \cr
    home_team_color \tab character \cr
@@ -38,7 +38,7 @@ Returns a tibble\tabular{ll}{
    away_team_name \tab character \cr
    away_team_logo \tab character \cr
    away_team_abb \tab character \cr
-   away_team_id \tab character \cr
+   away_team_id \tab integer \cr
    away_team_location \tab character \cr
    away_team_full_name \tab character \cr
    away_team_color \tab character \cr
@@ -48,7 +48,7 @@ Returns a tibble\tabular{ll}{
 }
 }
 \description{
-Get WNBA schedule for a specific year/date from ESPN's API
+\strong{Get WNBA schedule for a specific year/date from ESPN's API}
 }
 \examples{
 # Get schedule from date 2022-08-31
