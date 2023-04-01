@@ -45,7 +45,7 @@ pacman::p_load_current_gh("sportsdataverse/wehoop", dependencies = TRUE, update 
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2021) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-`r wehoop::most_recent_wnba_season()`) ~ 1-2 minutes**
 ```{r wnba_load_pbp_readme}
 
 tictoc::tic()
@@ -59,7 +59,7 @@ tictoc::toc()
 glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games.")
 ```
 
-### **Women's college basketball full play-by-play seasons (2004-2021) ~ 2-3 minutes**
+### **Women's college basketball full play-by-play seasons (2004-`r wehoop::most_recent_wbb_season()`) ~ 2-3 minutes**
 ```{r wbb_load_pbp_readme}
 
 tictoc::tic()
