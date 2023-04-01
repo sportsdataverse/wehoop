@@ -4,7 +4,7 @@ or writes it into a db using some forwarded arguments in the dots"><title>Load w
 or writes it into a db using some forwarded arguments in the dots"><meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/themes/wehoop_gh.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@saiemgilani"><meta name="twitter:site" content="@sportsdataverse"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--></head><body>
+<![endif]--><script defer data-domain="wehoop.sportsdataverse.org" src="https://plausible.io/js/plausible.js"></script></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
@@ -124,7 +124,7 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Load wehoop women's college basketball schedule</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/R/wbb_pbp.R" class="external-link"><code>R/wbb_pbp.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/R/load_wbb.R" class="external-link"><code>R/load_wbb.R</code></a></small>
       <div class="d-none name"><code>load_wbb_schedule.Rd</code></div>
     </div>
 
@@ -178,11 +178,11 @@ the season data into a database (used by <code><a href="update_wbb_db.html">upda
 <span class="r-out co"><span class="r-pr">#&gt;</span>         id uid   date  attendance time_valid neutral_site conference_competition</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       TRUE         FALSE                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       TRUE         FALSE                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       TRUE         FALSE                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       FALSE        FALSE                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…      <span style="text-decoration: underline;">19</span>288 TRUE       TRUE         FALSE                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       TRUE         FALSE                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       FALSE        FALSE                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…          0 TRUE       FALSE        FALSE                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…       <span style="text-decoration: underline;">7</span>229 TRUE       FALSE        FALSE                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…       <span style="text-decoration: underline;">4</span>155 TRUE       FALSE        FALSE                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…       <span style="text-decoration: underline;">8</span>466 TRUE       TRUE         FALSE                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…      <span style="text-decoration: underline;">11</span>144 TRUE       TRUE         FALSE                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  4.02<span style="color: #949494;">e</span>8 s:40… 2023…       <span style="text-decoration: underline;">3</span>788 TRUE       FALSE        FALSE                 </span>

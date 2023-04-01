@@ -193,6 +193,24 @@
     <loc>https://wehoop.sportsdataverse.org/reference/game_rotation.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_team_box.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_team_box.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/homepageleaders.html</loc>
   </url>
   <url>

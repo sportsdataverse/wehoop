@@ -29,7 +29,7 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><script defer data-domain="wehoop.sportsdataverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -185,8 +185,8 @@
 <strong>Quick Start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <div class="section level3">
-<h3 id="wnba-full-play-by-play-seasons-2002-2021--1-2-minutes">
-<strong>WNBA full play-by-play seasons (2002-2021) ~ 1-2 minutes</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2021--1-2-minutes"></a>
+<h3 id="wnba-full-play-by-play-seasons-2002-2022--1-2-minutes">
+<strong>WNBA full play-by-play seasons (2002-2022) ~ 1-2 minutes</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2022--1-2-minutes"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -194,13 +194,13 @@
 <span>  <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 2.22 sec elapsed</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 0.94 sec elapsed</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 92964 rows of WNBA play-by-play data from 241 games.</span></span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 93166 rows of WNBA play-by-play data from 241 games.</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="womens-college-basketball-full-play-by-play-seasons-2004-2021--2-3-minutes">
-<strong>Women’s college basketball full play-by-play seasons (2004-2021) ~ 2-3 minutes</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-play-by-play-seasons-2004-2021--2-3-minutes"></a>
+<h3 id="womens-college-basketball-full-play-by-play-seasons-2004-2023--2-3-minutes">
+<strong>Women’s college basketball full play-by-play seasons (2004-2023) ~ 2-3 minutes</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-full-play-by-play-seasons-2004-2023--2-3-minutes"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -208,9 +208,9 @@
 <span>  <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 16.72 sec elapsed</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 14.53 sec elapsed</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 1489442 rows of women's college basketball play-by-play data from 4493 games.</span></span></code></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 1883014 rows of women's college basketball play-by-play data from 5700 games.</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
