@@ -7,7 +7,19 @@
 espn_wnba_teams()
 }
 \value{
-Returns a tibble
+Returns a tibble\tabular{ll}{
+   col_name \tab types \cr
+   team_id \tab character \cr
+   team \tab character \cr
+   mascot \tab character \cr
+   display_name \tab character \cr
+   short_name \tab character \cr
+   abbreviation \tab character \cr
+   color \tab character \cr
+   alternate_color \tab character \cr
+   logo \tab character \cr
+   logo_dark \tab character \cr
+}
 }
 \description{
 Get ESPN's WNBA team names and ids

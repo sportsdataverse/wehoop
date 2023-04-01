@@ -74,14 +74,14 @@ request_with_proxy <- function(url, ..., params=list(),
   )
   if (length(params) >= 1) {
     url <- httr::modify_url(url, query = params)
-    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(10))
+    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(15))
     
     json <- res$response %>% 
       httr::content(as = "text", encoding = "UTF-8") %>% 
       jsonlite::fromJSON()
     
   } else {
-    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(10))
+    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(15))
 
     json <- res$response %>% 
       httr::content(as = "text", encoding = "UTF-8") %>% 

@@ -7,7 +7,18 @@
 ncaa_wbb_NET_rankings()
 }
 \value{
-Returns a tibble
+Returns a tibble\tabular{ll}{
+   col_name \tab types \cr
+   rank \tab integer \cr
+   previous \tab integer \cr
+   school \tab character \cr
+   conference \tab character \cr
+   record \tab character \cr
+   road \tab character \cr
+   neutral \tab character \cr
+   home \tab character \cr
+   non_div_i \tab character \cr
+}
 }
 \description{
 Get Women's college basketball NET rankings for the current date from the NCAA website

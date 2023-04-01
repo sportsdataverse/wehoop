@@ -2,6 +2,7 @@
 test_that("ESPN - WBB Player Box", {
   skip_on_cran()
   x <- espn_wbb_player_box(game_id = 401276115)
+  
   cols <- c(
     "game_id",
     "season",
@@ -11,6 +12,7 @@ test_that("ESPN - WBB Player Box", {
     "athlete_display_name",
     "team_id",
     "team_name",
+    "team_location",
     "team_short_display_name",
     "minutes",
     "field_goals_made",
@@ -37,10 +39,25 @@ test_that("ESPN - WBB Player Box", {
     "athlete_headshot_href",
     "athlete_position_name",
     "athlete_position_abbreviation",
+    "team_display_name",
+    "team_uid",
+    "team_slug",
     "team_logo",
     "team_abbreviation",
     "team_color",
-    "team_alternate_color"
+    "team_alternate_color",
+    "home_away",
+    "team_winner",
+    "team_score",
+    "opponent_team_id",
+    "opponent_team_name",
+    "opponent_team_location",
+    "opponent_team_display_name",
+    "opponent_team_abbreviation",
+    "opponent_team_logo",
+    "opponent_team_color",
+    "opponent_team_alternate_color",
+    "opponent_team_score"
   )
   
   expect_equal(sort(colnames(x)), sort(cols))

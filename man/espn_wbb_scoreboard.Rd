@@ -10,7 +10,42 @@ espn_wbb_scoreboard(season)
 \item{season}{Either numeric or character}
 }
 \value{
-Returns a tibble
+Returns a tibble\tabular{ll}{
+   col_name \tab types \cr
+   matchup \tab character \cr
+   matchup_short \tab character \cr
+   season \tab integer \cr
+   season_type \tab integer \cr
+   season_slug \tab character \cr
+   game_id \tab character \cr
+   game_uid \tab character \cr
+   game_date \tab character \cr
+   attendance \tab integer \cr
+   status_name \tab character \cr
+   broadcast_market \tab character \cr
+   broadcast_name \tab character \cr
+   start_date \tab character \cr
+   home_team_name \tab character \cr
+   home_team_logo \tab character \cr
+   home_team_abb \tab character \cr
+   home_team_id \tab character \cr
+   home_team_location \tab character \cr
+   home_team_full_name \tab character \cr
+   home_team_color \tab character \cr
+   home_score \tab integer \cr
+   home_win \tab integer \cr
+   home_record \tab character \cr
+   away_team_name \tab character \cr
+   away_team_logo \tab character \cr
+   away_team_abb \tab character \cr
+   away_team_id \tab character \cr
+   away_team_location \tab character \cr
+   away_team_full_name \tab character \cr
+   away_team_color \tab character \cr
+   away_score \tab integer \cr
+   away_win \tab integer \cr
+   away_record \tab character \cr
+}
 }
 \description{
 \strong{Get ESPN women's college basketball schedule for a specific year}

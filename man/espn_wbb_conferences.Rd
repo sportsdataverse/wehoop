@@ -7,7 +7,16 @@
 espn_wbb_conferences()
 }
 \value{
-Returns a tibble
+Returns a tibble\tabular{ll}{
+   col_name \tab types \cr
+   group_id \tab integer \cr
+   conference_short_name \tab character \cr
+   conference_uid \tab character \cr
+   conference_name \tab character \cr
+   conference_logo \tab character \cr
+   parent_group_id \tab character \cr
+   conference_id \tab integer \cr
+}
 }
 \description{
 Get women's college basketball conferences

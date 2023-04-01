@@ -10,7 +10,76 @@ espn_wbb_game_rosters(game_id)
 \item{game_id}{Game ID}
 }
 \value{
-A game rosters data frame
+A game rosters data frame\tabular{ll}{
+   col_name \tab types \cr
+   athlete_id \tab integer \cr
+   athlete_uid \tab character \cr
+   athlete_guid \tab character \cr
+   athlete_type \tab character \cr
+   sdr \tab character \cr
+   first_name \tab character \cr
+   last_name \tab character \cr
+   full_name \tab character \cr
+   athlete_display_name \tab character \cr
+   short_name \tab character \cr
+   height \tab integer \cr
+   display_height \tab character \cr
+   birth_place_city \tab character \cr
+   birth_place_state \tab character \cr
+   birth_place_country \tab character \cr
+   slug \tab character \cr
+   headshot_href \tab character \cr
+   headshot_alt \tab character \cr
+   jersey \tab character \cr
+   position_id \tab character \cr
+   position_name \tab character \cr
+   position_display_name \tab character \cr
+   position_abbreviation \tab character \cr
+   position_leaf \tab logical \cr
+   linked \tab logical \cr
+   experience_years \tab integer \cr
+   experience_display_value \tab character \cr
+   experience_abbreviation \tab character \cr
+   active \tab logical \cr
+   status_id \tab character \cr
+   status_name \tab character \cr
+   status_type \tab character \cr
+   status_abbreviation \tab character \cr
+   starter \tab logical \cr
+   valid \tab logical \cr
+   did_not_play \tab logical \cr
+   display_name \tab character \cr
+   ejected \tab logical \cr
+   team_id \tab character \cr
+   team_guid \tab character \cr
+   team_uid \tab character \cr
+   team_sdr \tab character \cr
+   team_slug \tab character \cr
+   team_location \tab character \cr
+   team_name \tab character \cr
+   team_nickname \tab character \cr
+   team_abbreviation \tab character \cr
+   team_display_name \tab character \cr
+   team_short_display_name \tab character \cr
+   team_color \tab character \cr
+   team_alternate_color \tab character \cr
+   is_active \tab logical \cr
+   is_all_star \tab logical \cr
+   logo_href \tab character \cr
+   logo_dark_href \tab character \cr
+   game_id \tab numeric \cr
+   order \tab integer \cr
+   home_away \tab character \cr
+   winner \tab logical \cr
+   roster_href \tab character \cr
+   hand_type \tab character \cr
+   hand_abbreviation \tab character \cr
+   hand_display_value \tab character \cr
+   age \tab integer \cr
+   date_of_birth \tab character \cr
+   weight \tab integer \cr
+   display_weight \tab character \cr
+}
 }
 \description{
 \strong{Get ESPN women's college basketball game rosters}

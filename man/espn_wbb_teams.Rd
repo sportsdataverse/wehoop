@@ -4,10 +4,35 @@
 \alias{espn_wbb_teams}
 \title{Get ESPN women's college basketball team names and ids}
 \usage{
-espn_wbb_teams()
+espn_wbb_teams(year = most_recent_wbb_season())
+}
+\arguments{
+\item{year}{Either numeric or character (YYYY)}
 }
 \value{
-Returns a teams infomation data frame
+Returns a teams infomation data frame\tabular{ll}{
+   col_name \tab types \cr
+   team_id \tab integer \cr
+   abbreviation \tab character \cr
+   display_name \tab character \cr
+   short_name \tab character \cr
+   mascot \tab character \cr
+   nickname \tab character \cr
+   team \tab character \cr
+   color \tab character \cr
+   alternate_color \tab character \cr
+   logo \tab character \cr
+   logo_dark \tab character \cr
+   href \tab character \cr
+   conference_url \tab character \cr
+   group_id \tab integer \cr
+   conference_short_name \tab character \cr
+   conference_uid \tab character \cr
+   conference_name \tab character \cr
+   conference_logo \tab character \cr
+   parent_group_id \tab character \cr
+   conference_id \tab integer \cr
+}
 }
 \description{
 Get ESPN women's college basketball team names and ids

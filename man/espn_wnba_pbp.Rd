@@ -10,7 +10,60 @@ espn_wnba_pbp(game_id)
 \item{game_id}{Game ID}
 }
 \value{
-Returns a play-by-play data frame
+Returns a play-by-play data frame\tabular{ll}{
+   col_name \tab types \cr
+   id \tab character \cr
+   sequence_number \tab character \cr
+   text \tab character \cr
+   away_score \tab integer \cr
+   home_score \tab integer \cr
+   scoring_play \tab logical \cr
+   score_value \tab integer \cr
+   wallclock \tab character \cr
+   shooting_play \tab logical \cr
+   type_id \tab character \cr
+   type_text \tab character \cr
+   period_number \tab integer \cr
+   period_display_value \tab character \cr
+   clock_display_value \tab character \cr
+   team_id \tab character \cr
+   coordinate_x_raw \tab numeric \cr
+   coordinate_y_raw \tab numeric \cr
+   coordinate_x \tab numeric \cr
+   coordinate_y \tab numeric \cr
+   play_id \tab character \cr
+   athlete_id_1 \tab character \cr
+   athlete_id_2 \tab character \cr
+   athlete_id_3 \tab character \cr
+   home_team_id \tab integer \cr
+   home_team_mascot \tab character \cr
+   home_team_name \tab character \cr
+   home_team_abbrev \tab character \cr
+   home_team_logo \tab character \cr
+   home_team_logo_dark \tab character \cr
+   home_team_full_name \tab character \cr
+   home_team_color \tab character \cr
+   home_team_alternate_color \tab character \cr
+   home_team_score \tab integer \cr
+   home_team_winner \tab logical \cr
+   home_team_record \tab character \cr
+   away_team_id \tab integer \cr
+   away_team_mascot \tab character \cr
+   away_team_name \tab character \cr
+   away_team_abbrev \tab character \cr
+   away_team_logo \tab character \cr
+   away_team_logo_dark \tab character \cr
+   away_team_full_name \tab character \cr
+   away_team_color \tab character \cr
+   away_team_alternate_color \tab character \cr
+   away_team_score \tab integer \cr
+   away_team_winner \tab logical \cr
+   away_team_record \tab character \cr
+   game_id \tab integer \cr
+   season \tab integer \cr
+   season_type \tab integer \cr
+   game_date \tab Date \cr
+}
 }
 \description{
 Get ESPN's WNBA play by play data

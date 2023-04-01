@@ -1,6 +1,16 @@
 
-cols <- c("team_id", "team", "mascot", "display_name", "short_name", 
-          "abbreviation", "color", "alternate_color", "logo", "logo_dark")
+cols <- c(
+  "team_id",
+  "team",
+  "mascot",
+  "display_name",
+  "short_name",
+  "abbreviation",
+  "color",
+  "alternate_color",
+  "logo",
+  "logo_dark"
+)
 
 test_that("ESPN - WNBA Teams", {
   skip_on_cran()

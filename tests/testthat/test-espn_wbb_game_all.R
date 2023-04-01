@@ -7,23 +7,25 @@ test_that("ESPN - WBB Play-by-Play", {
   x3 <- x[[3]]
   
   cols_x1 <- c(
-    "shooting_play",
+    "id",
     "sequence_number",
+    "text",
+    "away_score",
     "home_score",
     "scoring_play",
-    "away_score",
-    "id",
-    "text",
     "score_value",
-    "period_display_value",
-    "period_number",
-    "coordinate_x",
-    "coordinate_y",
-    "clock_display_value",
-    "team_id",
+    "wallclock",
+    "shooting_play",
     "type_id",
     "type_text",
-    "wallclock",
+    "period_number",
+    "period_display_value",
+    "clock_display_value",
+    "team_id",
+    "coordinate_x_raw",
+    "coordinate_y_raw",
+    "coordinate_x",
+    "coordinate_y",
     "play_id",
     "athlete_id_1",
     "athlete_id_2",
@@ -56,6 +58,7 @@ test_that("ESPN - WBB Play-by-Play", {
     "season_type",
     "game_date"
   )
+  
   cols_x2 <- c(
     "game_id",
     "season",
@@ -110,6 +113,7 @@ test_that("ESPN - WBB Play-by-Play", {
     "opponent_team_alternate_color",
     "opponent_team_logo"
   )
+  
   cols_x3 <- c(
     "game_id",
     "season",
@@ -119,6 +123,7 @@ test_that("ESPN - WBB Play-by-Play", {
     "athlete_display_name",
     "team_id",
     "team_name",
+    "team_location",
     "team_short_display_name",
     "minutes",
     "field_goals_made",
@@ -145,11 +150,27 @@ test_that("ESPN - WBB Play-by-Play", {
     "athlete_headshot_href",
     "athlete_position_name",
     "athlete_position_abbreviation",
+    "team_display_name",
+    "team_uid",
+    "team_slug",
     "team_logo",
     "team_abbreviation",
     "team_color",
-    "team_alternate_color"
+    "team_alternate_color",
+    "home_away",
+    "team_winner",
+    "team_score",
+    "opponent_team_id",
+    "opponent_team_name",
+    "opponent_team_location",
+    "opponent_team_display_name",
+    "opponent_team_abbreviation",
+    "opponent_team_logo",
+    "opponent_team_color",
+    "opponent_team_alternate_color",
+    "opponent_team_score"
   )
+  
   expect_equal(sort(colnames(x$Plays)),sort(cols_x1))
   expect_s3_class(x$Plays, "data.frame")
   expect_equal(sort(colnames(x$Team)), sort(cols_x2))

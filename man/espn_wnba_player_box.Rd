@@ -10,7 +10,65 @@ espn_wnba_player_box(game_id)
 \item{game_id}{Game ID}
 }
 \value{
-Returns a player boxscore data frame
+Returns a player boxscore data frame\tabular{ll}{
+   col_name \tab types \cr
+   game_id \tab integer \cr
+   season \tab integer \cr
+   season_type \tab integer \cr
+   game_date \tab Date \cr
+   athlete_id \tab character \cr
+   athlete_display_name \tab character \cr
+   team_id \tab character \cr
+   team_name \tab character \cr
+   team_location \tab character \cr
+   team_short_display_name \tab character \cr
+   minutes \tab numeric \cr
+   field_goals_made \tab integer \cr
+   field_goals_attempted \tab integer \cr
+   three_point_field_goals_made \tab integer \cr
+   three_point_field_goals_attempted \tab integer \cr
+   free_throws_made \tab integer \cr
+   free_throws_attempted \tab integer \cr
+   offensive_rebounds \tab integer \cr
+   defensive_rebounds \tab integer \cr
+   rebounds \tab integer \cr
+   assists \tab integer \cr
+   steals \tab integer \cr
+   blocks \tab integer \cr
+   turnovers \tab integer \cr
+   fouls \tab integer \cr
+   plus_minus \tab character \cr
+   points \tab integer \cr
+   starter \tab logical \cr
+   ejected \tab logical \cr
+   did_not_play \tab logical \cr
+   reason \tab character \cr
+   active \tab logical \cr
+   athlete_jersey \tab character \cr
+   athlete_short_name \tab character \cr
+   athlete_headshot_href \tab character \cr
+   athlete_position_name \tab character \cr
+   athlete_position_abbreviation \tab character \cr
+   team_display_name \tab character \cr
+   team_uid \tab character \cr
+   team_slug \tab character \cr
+   team_logo \tab character \cr
+   team_abbreviation \tab character \cr
+   team_color \tab character \cr
+   team_alternate_color \tab character \cr
+   home_away \tab character \cr
+   team_winner \tab logical \cr
+   team_score \tab character \cr
+   opponent_team_id \tab integer \cr
+   opponent_team_name \tab character \cr
+   opponent_team_location \tab character \cr
+   opponent_team_display_name \tab character \cr
+   opponent_team_abbreviation \tab character \cr
+   opponent_team_logo \tab character \cr
+   opponent_team_color \tab character \cr
+   opponent_team_alternate_color \tab character \cr
+   opponent_team_score \tab character \cr
+}
 }
 \description{
 Get ESPN's WNBA player box data

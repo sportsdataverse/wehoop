@@ -10,7 +10,29 @@ espn_wnba_standings(year)
 \item{year}{Either numeric or character (YYYY)}
 }
 \value{
-Returns a tibble
+Returns a tibble\tabular{ll}{
+   col_name \tab types \cr
+   team_id \tab character \cr
+   team \tab character \cr
+   avgpointsagainst \tab character \cr
+   avgpointsfor \tab character \cr
+   clincher \tab character \cr
+   differential \tab character \cr
+   divisionwinpercent \tab character \cr
+   gamesbehind \tab character \cr
+   leaguewinpercent \tab character \cr
+   losses \tab character \cr
+   playoffseed \tab character \cr
+   streak \tab character \cr
+   winpercent \tab character \cr
+   wins \tab character \cr
+   leaguestandings \tab character \cr
+   home \tab character \cr
+   road \tab character \cr
+   vsdiv \tab character \cr
+   vsconf \tab character \cr
+   lasttengames \tab character \cr
+}
 }
 \description{
 Get ESPN WNBA Standings
