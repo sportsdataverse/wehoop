@@ -177,9 +177,22 @@ Returns a tibble with the player stats data\tabular{ll}{
   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 }
 }
+\seealso{
+Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_game_all}()},
+\code{\link{espn_wnba_game_rosters}()},
+\code{\link{espn_wnba_pbp}()},
+\code{\link{espn_wnba_player_box}()},
+\code{\link{espn_wnba_scoreboard}()},
+\code{\link{espn_wnba_standings}()},
+\code{\link{espn_wnba_team_box}()},
+\code{\link{espn_wnba_team_stats}()},
+\code{\link{espn_wnba_teams}()}
+}
 \author{
 Saiem Gilani
 }
+\concept{ESPN WNBA Functions}
 \keyword{Player}
 \keyword{Stats}
 \keyword{WNBA}

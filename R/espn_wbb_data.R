@@ -177,13 +177,14 @@
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_score               |integer   |
 #' 
-#' @keywords WBB Game
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WBB Game
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_game_all(game_id = 401276115))
@@ -341,13 +342,14 @@ espn_wbb_game_all <- function(game_id){
 #'    |season_type               |integer   |
 #'    |game_date                 |Date      |
 #' 
-#' @keywords WBB PBP
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WBB PBP
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_pbp(game_id = 401498717))
@@ -459,13 +461,14 @@ espn_wbb_pbp <- function(game_id){
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_logo                |character |
 #' 
-#' @keywords WBB Team Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WBB Team Box
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_team_box(game_id = 401276115))
@@ -577,13 +580,14 @@ espn_wbb_team_box <- function(game_id){
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_score               |integer   |
 #' 
-#' @keywords WBB Player Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WBB Player Box
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_player_box(game_id = 401276115))
@@ -706,12 +710,13 @@ espn_wbb_player_box <- function(game_id){
 #'    |weight                   |integer   |
 #'    |display_weight           |character |
 #' 
-#' @keywords WBB Game Roster
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WBB Game Roster
+#' @family ESPN WBB Functions
 #'
 #' @examples
 #' \donttest{
@@ -963,6 +968,8 @@ espn_wbb_game_rosters <- function(game_id) {
 #' @importFrom dplyr select
 #' @import rvest
 #' @export
+#' @keywords WBB Conferences
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_conferences())
@@ -1038,13 +1045,14 @@ espn_wbb_conferences <- function(){
 #'    |parent_group_id       |integer   |
 #'    |conference_id         |integer   |
 #' 
-#' @keywords WBB Teams
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows row_number group_by mutate as_tibble ungroup
 #' @importFrom tidyr unnest unnest_wider everything pivot_wider
 #' @import rvest
 #' @export
+#' @keywords WBB Teams
+#' @family ESPN WBB Functions
 #'
 #' @examples
 #' \donttest{
@@ -1453,6 +1461,8 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #' @importFrom purrr map2_dfr possibly quietly
 #' @import rvest
 #' @export
+#' @keywords WBB Scoreboard
+#' @family ESPN WBB Functions
 #' @examples
 #'
 #' # Get schedule from date 2022-11-15
@@ -1511,6 +1521,8 @@ utils::globalVariables(c("where"))
 #' @importFrom dplyr %>% as_tibble
 #' @import rvest
 #' @export
+#' @keywords NCAA WBB NET Rankings
+#' @family NCAA WBB Functions
 #' @examples
 #' # Get current NCAA NET rankings
 #' \donttest{
@@ -1592,6 +1604,8 @@ ncaa_wbb_NET_rankings <- function(){
 #' @importFrom tidyr unnest
 #' @import rvest
 #' @export
+#' @keywords WBB Rankings
+#' @family ESPN WBB Functions
 #' @examples
 #' # Get current AP and Coaches Poll rankings
 #' \donttest{
@@ -1745,12 +1759,13 @@ espn_wbb_rankings <- function(){
 #'    |vsconf_wins                       |numeric   |
 #'    |vsconf                            |character |
 #' 
-#' @keywords WBB Standings
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr select rename
 #' @importFrom tidyr pivot_wider
 #' @export
+#' @keywords WBB Standings
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_standings(2021))
@@ -1907,11 +1922,6 @@ espn_wbb_standings <- function(year){
 #' @param year Year
 #' @param season_type (character, default: regular): Season type - regular or postseason
 #' @param total (boolean, default: FALSE): Totals
-#' @keywords WBB Team Stats
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
-#' @export
 #' @return Returns a tibble with the team stats data
 #' 
 #'    |col_name                                        |types     |
@@ -2010,6 +2020,12 @@ espn_wbb_standings <- function(year){
 #'    |offensive_shooting_efficiency                   |numeric   |
 #'    |offensive_scoring_efficiency                    |numeric   |
 #'
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows
+#' @importFrom tidyr unnest unnest_wider everything
+#' @export
+#' @keywords WBB Team Stats
+#' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_team_stats(team_id = 52, year = 2020))
@@ -2153,8 +2169,6 @@ espn_wbb_team_stats <- function(
 #' @param year Year
 #' @param season_type (character, default: regular): Season type - regular or postseason
 #' @param total (boolean, default: FALSE): Totals
-#' @keywords WBB Player Stats
-#' @export
 #' @return Returns a tibble with the player stats data
 #' 
 #'    |col_name                                        |types     |
@@ -2285,6 +2299,10 @@ espn_wbb_team_stats <- function(
 #'    |team_is_all_star                                |logical   |
 #'    |logo_href                                       |character |
 #'    |logo_dark_href                                  |character |
+#'    
+#' @export
+#' @keywords WBB Player Stats
+#' @family ESPN WBB Functions
 #'
 #' @examples
 #' \donttest{

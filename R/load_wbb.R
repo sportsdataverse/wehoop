@@ -74,7 +74,7 @@ NULL
 #' \donttest{
 #'   try(load_wbb_pbp())
 #' }
-load_wbb_pbp <- function(seasons = most_recent_wbb_season(),...,
+load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
                          dbConnection = NULL, tablename = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -82,7 +82,7 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(),...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if(isTRUE(seasons)) seasons <- 2004:most_recent_wbb_season()
+  if (isTRUE(seasons)) seasons <- 2004:most_recent_wbb_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2004,
@@ -131,7 +131,7 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
   loader <- rds_from_url
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  if(isTRUE(seasons)) seasons <- 2006:most_recent_wbb_season()
+  if (isTRUE(seasons)) seasons <- 2006:most_recent_wbb_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2006,
@@ -180,7 +180,7 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
   loader <- rds_from_url
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  if(isTRUE(seasons)) seasons <- 2003:most_recent_wbb_season()
+  if (isTRUE(seasons)) seasons <- 2003:most_recent_wbb_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2003,
@@ -231,7 +231,7 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
   loader <- rds_from_url
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  if(isTRUE(seasons)) seasons <- 2002:most_recent_wbb_season()
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wbb_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2002,
@@ -258,7 +258,7 @@ load_wbb_games <- function(){
   .url <- "https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wbb/wbb_games_in_data_repo.csv"
   dat <- csv_from_url(.url)
   # close(con)
-  return (dat)
+  return(dat)
 }
 
 
@@ -357,7 +357,7 @@ update_wbb_db <- function(dbdir = ".",
   missing <- get_missing_wbb_games(completed_games, connection, tblname)
   
   # rebuild db if number of missing games is too large
-  if(length(missing) > 100) {
+  if (length(missing) > 100) {
     build_wbb_db(tblname, connection, show_message = FALSE, rebuild = as.numeric(unique(stringr::str_sub(missing, 1, 4))))
     missing <- get_missing_wbb_games(completed_games, connection, tblname)
   }
@@ -398,7 +398,7 @@ build_wbb_db <- function(tblname = "wehoop_wbb_pbp", db_conn, rebuild = FALSE, s
     usethis::ui_todo("{my_time()} | Starting download of {length(seasons)} seasons between {min(seasons)} and {max(seasons)}...")
   } else if (is.numeric(rebuild) & all(rebuild %in% valid_seasons$season)) {
     string <- paste0(rebuild, collapse = ", ")
-    if (show_message){usethis::ui_todo("{my_time()} | Purging {string} season(s) from the data table {usethis::ui_value(tblname)} in your connected database...")}
+    if (show_message) {usethis::ui_todo("{my_time()} | Purging {string} season(s) from the data table {usethis::ui_value(tblname)} in your connected database...")}
     DBI::dbExecute(db_conn, glue::glue_sql("DELETE FROM {`tblname`} WHERE season IN ({vals*})", vals = rebuild, .con = db_conn))
     seasons <- valid_seasons %>% dplyr::filter(.data$season %in% rebuild) %>% dplyr::pull("season")
     usethis::ui_todo("{my_time()} | Starting download of the {string} season(s)...")

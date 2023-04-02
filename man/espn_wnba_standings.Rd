@@ -42,8 +42,21 @@ Returns a tibble\tabular{ll}{
   try(espn_wnba_standings(year = 2021))
 }
 }
+\seealso{
+Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_game_all}()},
+\code{\link{espn_wnba_game_rosters}()},
+\code{\link{espn_wnba_pbp}()},
+\code{\link{espn_wnba_player_box}()},
+\code{\link{espn_wnba_player_stats}()},
+\code{\link{espn_wnba_scoreboard}()},
+\code{\link{espn_wnba_team_box}()},
+\code{\link{espn_wnba_team_stats}()},
+\code{\link{espn_wnba_teams}()}
+}
 \author{
 Geoff Hutchinson
 }
+\concept{ESPN WNBA Functions}
 \keyword{Standings}
 \keyword{WNBA}

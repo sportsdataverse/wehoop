@@ -32,3 +32,8 @@ Get Women's college basketball NET rankings for the current date from the NCAA w
 \author{
 Saiem Gilani
 }
+\concept{NCAA WBB Functions}
+\keyword{NCAA}
+\keyword{NET}
+\keyword{Rankings}
+\keyword{WBB}

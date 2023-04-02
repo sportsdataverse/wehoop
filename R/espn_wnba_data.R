@@ -180,13 +180,14 @@
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_score               |integer   |
 #' 
-#' @keywords WNBA Game
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WNBA Game
+#' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_game_all(game_id = 401244185))
@@ -330,13 +331,14 @@ espn_wnba_game_all <- function(game_id){
 #'    |season_type               |integer   |
 #'    |game_date                 |Date      |
 #' 
-#' @keywords WNBA PBP
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WNBA PBP
+#' @family ESPN WNBA Functions
 #' @examples
 #' 
 #' \donttest{
@@ -445,13 +447,14 @@ espn_wnba_pbp <- function(game_id){
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_logo                |character |
 #' 
-#' @keywords WNBA Team Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WNBA Team Box
+#' @family ESPN WNBA Functions
 #' @examples
 #' 
 #' \donttest{
@@ -561,13 +564,14 @@ espn_wnba_team_box <- function(game_id){
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_score               |integer   |
 #' 
-#' @keywords WNBA Player Box
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WNBA Player Box
+#' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_player_box(game_id = 401244185))
@@ -692,12 +696,13 @@ espn_wnba_player_box <- function(game_id){
 #'    |hand_display_value      |character |
 #'    |citizenship             |character |
 #'    
-#' @keywords WNBA Game Roster
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
 #' @importFrom tidyr unnest unnest_wider everything
 #' @import rvest
 #' @export
+#' @keywords WNBA Game Roster
+#' @family ESPN WNBA Functions
 #'
 #' @examples
 #' \donttest{
@@ -945,7 +950,6 @@ espn_wnba_game_rosters <- function(game_id) {
 
 #' Get ESPN's WNBA team names and ids
 #' @author Saiem Gilani
-#' @keywords WNBA Teams
 #' @return Returns a tibble
 #' 
 #'    |col_name        |types     |
@@ -967,6 +971,8 @@ espn_wnba_game_rosters <- function(game_id) {
 #' @importFrom tidyr unnest unnest_wider everything pivot_wider
 #' @import rvest
 #' @export
+#' @keywords WNBA Teams
+#' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_teams())
@@ -1075,6 +1081,8 @@ espn_wnba_teams <- function(){
 #' @importFrom glue glue
 #' @import rvest
 #' @export
+#' @keywords WNBA Scoreboard
+#' @family ESPN WNBA Functions
 #' @examples
 #' # Get schedule from date 2022-08-31
 #' \donttest{
@@ -1269,12 +1277,13 @@ espn_wnba_scoreboard <- function(season){
 #'    |vsconf             |character |
 #'    |lasttengames       |character |
 #' 
-#' @keywords WNBA Standings
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr select rename
 #' @importFrom tidyr pivot_wider
 #' @importFrom data.table rbindlist
+#' @keywords WNBA Standings
+#' @family ESPN WNBA Functions
 #' @export
 #' @examples
 #' \donttest{
@@ -1378,11 +1387,6 @@ utils::globalVariables(c("where"))
 #' @param year Year
 #' @param season_type (character, default: regular): Season type - regular or postseason
 #' @param total (boolean, default: FALSE): Totals
-#' @keywords WNBA Team Stats
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr filter select rename bind_cols bind_rows
-#' @importFrom tidyr unnest unnest_wider everything
-#' @export
 #' @return Returns a tibble with the team stats data
 #' 
 #'    |col_name                                         |types     |
@@ -1501,6 +1505,13 @@ utils::globalVariables(c("where"))
 #'    |offensive_avg48offensive_rebounds                |numeric   |
 #'    |offensive_avg48assists                           |numeric   |
 #'    |offensive_avg48turnovers                         |numeric   |
+#'    
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows
+#' @importFrom tidyr unnest unnest_wider everything
+#' @export
+#' @keywords WNBA Team Stats
+#' @family ESPN WNBA Functions
 #'
 #' @examples
 #' \donttest{
@@ -1646,8 +1657,6 @@ espn_wnba_team_stats <- function(
 #' @param year Year
 #' @param season_type (character, default: regular): Season type - regular or postseason
 #' @param total (boolean, default: FALSE): Totals
-#' @keywords WNBA Player Stats
-#' @export
 #' @return Returns a tibble with the player stats data
 #' 
 #'    |col_name                                         |types     |
@@ -1796,6 +1805,10 @@ espn_wnba_team_stats <- function(
 #'    |team_is_all_star                                 |logical   |
 #'    |logo_href                                        |character |
 #'    |logo_dark_href                                   |character |
+#'    
+#' @export
+#' @keywords WNBA Player Stats
+#' @family ESPN WNBA Functions
 #'
 #' @examples
 #' \donttest{

@@ -77,9 +77,22 @@ Get ESPN's WNBA team box data
    try(espn_wnba_team_box(game_id = 401244185))
 }
 }
+\seealso{
+Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_game_all}()},
+\code{\link{espn_wnba_game_rosters}()},
+\code{\link{espn_wnba_pbp}()},
+\code{\link{espn_wnba_player_box}()},
+\code{\link{espn_wnba_player_stats}()},
+\code{\link{espn_wnba_scoreboard}()},
+\code{\link{espn_wnba_standings}()},
+\code{\link{espn_wnba_team_stats}()},
+\code{\link{espn_wnba_teams}()}
+}
 \author{
 Saiem Gilani
 }
+\concept{ESPN WNBA Functions}
 \keyword{Box}
 \keyword{Team}
 \keyword{WNBA}

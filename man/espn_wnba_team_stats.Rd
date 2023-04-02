@@ -142,9 +142,22 @@ Returns a tibble with the team stats data\tabular{ll}{
   try(espn_wnba_team_stats(team_id = 18, year = 2020))
 }
 }
+\seealso{
+Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_game_all}()},
+\code{\link{espn_wnba_game_rosters}()},
+\code{\link{espn_wnba_pbp}()},
+\code{\link{espn_wnba_player_box}()},
+\code{\link{espn_wnba_player_stats}()},
+\code{\link{espn_wnba_scoreboard}()},
+\code{\link{espn_wnba_standings}()},
+\code{\link{espn_wnba_team_box}()},
+\code{\link{espn_wnba_teams}()}
+}
 \author{
 Saiem Gilani
 }
+\concept{ESPN WNBA Functions}
 \keyword{Stats}
 \keyword{Team}
 \keyword{WNBA}

@@ -61,7 +61,7 @@ NULL
 #' \donttest{
 #'   try(load_wnba_pbp())
 #' }
-load_wnba_pbp <- function(seasons = most_recent_wnba_season(),...,
+load_wnba_pbp <- function(seasons = most_recent_wnba_season(), ...,
                          dbConnection = NULL, tablename = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -71,7 +71,7 @@ load_wnba_pbp <- function(seasons = most_recent_wnba_season(),...,
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if(isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2002,
@@ -121,7 +121,7 @@ load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if(isTRUE(seasons)) seasons <- 2003:most_recent_wnba_season()
+  if (isTRUE(seasons)) seasons <- 2003:most_recent_wnba_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2003,
@@ -168,7 +168,7 @@ load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if(isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2002,
@@ -218,7 +218,7 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if(isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2002,
@@ -246,7 +246,7 @@ load_wnba_games <- function(){
   con <- url(.url)
   dat <- utils::read.csv(con)
   # close(con)
-  return (dat)
+  return(dat)
 }
 
 #' @name update_wnba_db
@@ -344,7 +344,7 @@ update_wnba_db <- function(dbdir = ".",
   missing <- get_missing_wnba_games(completed_games, connection, tblname)
   
   # rebuild db if number of missing games is too large
-  if(length(missing) > 100) {
+  if (length(missing) > 100) {
     build_wnba_db(tblname, connection, show_message = FALSE, rebuild = as.numeric(unique(stringr::str_sub(missing, 1, 4))))
     missing <- get_missing_wnba_games(completed_games, connection, tblname)
   }
@@ -385,7 +385,7 @@ build_wnba_db <- function(tblname = "wehoop_wnba_pbp", db_conn, rebuild = FALSE,
     usethis::ui_todo("{my_time()} | Starting download of {length(seasons)} seasons between {min(seasons)} and {max(seasons)}...")
   } else if (is.numeric(rebuild) & all(rebuild %in% valid_seasons$season)) {
     string <- paste0(rebuild, collapse = ", ")
-    if (show_message){usethis::ui_todo("{my_time()} | Purging {string} season(s) from the data table {usethis::ui_value(tblname)} in your connected database...")}
+    if (show_message) {usethis::ui_todo("{my_time()} | Purging {string} season(s) from the data table {usethis::ui_value(tblname)} in your connected database...")}
     DBI::dbExecute(db_conn, glue::glue_sql("DELETE FROM {`tblname`} WHERE season IN ({vals*})", vals = rebuild, .con = db_conn))
     seasons <- valid_seasons %>% dplyr::filter(.data$season %in% rebuild) %>% dplyr::pull("season")
     usethis::ui_todo("{my_time()} | Starting download of the {string} season(s)...")
