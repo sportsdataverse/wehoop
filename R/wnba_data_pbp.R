@@ -70,7 +70,7 @@ NULL
 #' @family WNBA PBP Functions
 #' @details
 #' ```r
-#'  wnba_data_pbp(game_id = "1022200034")
+#'   wnba_data_pbp(game_id = "1022200034")
 #' ```
 wnba_data_pbp <- function(game_id = "1022200034",
                           ...){

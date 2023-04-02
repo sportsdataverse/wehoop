@@ -73,7 +73,7 @@ Event Message Types (event_type):
 \strong{Get WNBA Data API Play-by-Play}
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_data_pbp(game_id = "1022200034")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_data_pbp(game_id = "1022200034")
 }\if{html}{\out{</div>}}
 }
 \author{
