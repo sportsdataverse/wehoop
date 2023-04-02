@@ -1,9 +1,9 @@
 #' **Get WNBA Stats API League Hustle Stats Player**
-#' @name hustle_p
+#' @name wnba_leaguehustlestatsplayer
 NULL
 #' @title
 #' **Get WNBA Stats API League Hustle Stats Player**
-#' @rdname hustle_p
+#' @rdname wnba_leaguehustlestatsplayer
 #' @author Saiem Gilani
 #' @param college college
 #' @param conference conference
@@ -33,83 +33,120 @@ NULL
 #' @param weight weight
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: HustleStatsPlayer
+#' 
+#'    **HustleStatsPlayer** 
+#'    
+#'    
+#'    |col_name                      |types     |
+#'    |:-----------------------------|:---------|
+#'    |PLAYER_ID                     |character |
+#'    |PLAYER_NAME                   |character |
+#'    |TEAM_ID                       |character |
+#'    |TEAM_ABBREVIATION             |character |
+#'    |AGE                           |character |
+#'    |G                             |character |
+#'    |MIN                           |character |
+#'    |CONTESTED_SHOTS               |character |
+#'    |CONTESTED_SHOTS_2PT           |character |
+#'    |CONTESTED_SHOTS_3PT           |character |
+#'    |DEFLECTIONS                   |character |
+#'    |CHARGES_DRAWN                 |character |
+#'    |SCREEN_ASSISTS                |character |
+#'    |SCREEN_AST_PTS                |character |
+#'    |OFF_LOOSE_BALLS_RECOVERED     |character |
+#'    |DEF_LOOSE_BALLS_RECOVERED     |character |
+#'    |LOOSE_BALLS_RECOVERED         |character |
+#'    |PCT_LOOSE_BALLS_RECOVERED_OFF |character |
+#'    |PCT_LOOSE_BALLS_RECOVERED_DEF |character |
+#'    |OFF_BOXOUTS                   |character |
+#'    |DEF_BOXOUTS                   |character |
+#'    |BOX_OUT_PLAYER_TEAM_REBS      |character |
+#'    |BOX_OUT_PLAYER_REBS           |character |
+#'    |BOX_OUTS                      |character |
+#'    |PCT_BOX_OUTS_OFF              |character |
+#'    |PCT_BOX_OUTS_DEF              |character |
+#'    |PCT_BOX_OUTS_TEAM_REB         |character |
+#'    |PCT_BOX_OUTS_REB              |character |
+#' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Hustle Functions
+#' @details
+#' ```r
+#'  wnba_leaguehustlestatsplayer(league_id = '10')
+#'  wnba_leaguehustlestatsplayer(league_id = '10', team_id = '1611661324')
+#' ```
 wnba_leaguehustlestatsplayer <- function(
-  college='',
-  conference = '',
-  country = '',
-  date_from = '',
-  date_to = '',
-  division = '',
-  draft_pick = '',
-  draft_year = '',
-  height = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  po_round='',
-  per_mode='Totals',
-  player_experience='',
-  player_position='',
-  season='2022',
-  season_segment='',
-  season_type='Regular Season',
-  team_id='',
-  vs_conference='',
-  vs_division='',
-  weight='',
-  ...){
-  season_type <- gsub(' ','+',season_type)
+    college = '',
+    conference = '',
+    country = '',
+    date_from = '',
+    date_to = '',
+    division = '',
+    draft_pick = '',
+    draft_year = '',
+    height = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'Totals',
+    player_experience = '',
+    player_position = '',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    weight = '',
+    ...){
+  
+  # Intentional
+  # season_type <- gsub(' ','+',season_type)
   version <- "leaguehustlestatsplayer"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?College=", college,
-                     "&Conference=", conference,
-                     "&Country=", country,
-                     "&DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&Division=", division,
-                     "&DraftPick=", draft_pick,
-                     "&DraftYear=", draft_year,
-                     "&Height=", height,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&PlayerExperience=",player_experience,
-                     "&PlayerPosition=", player_position,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&Weight=", weight)
+  params <- list(
+    College = college,
+    Conference = conference,
+    Country = country,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    DraftPick = draft_pick,
+    DraftYear = draft_year,
+    Height = height,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    PlayerExperience = player_experience,
+    PlayerPosition = player_position,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    Weight = weight
+  )
   
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+      
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -124,11 +161,11 @@ wnba_leaguehustlestatsplayer <- function(
 }
 
 #' **Get WNBA Stats API League Hustle Stats Player Leaders**
-#' @name hustle_pl
+#' @name wnba_leaguehustlestatsplayerleaders
 NULL
 #' @title
 #' **Get WNBA Stats API League Hustle Stats Player Leaders**
-#' @rdname hustle_pl
+#' @rdname wnba_leaguehustlestatsplayerleaders
 #' @author Saiem Gilani
 #' @param college college
 #' @param conference conference
@@ -157,84 +194,167 @@ NULL
 #' @param vs_division vs_division
 #' @param weight weight
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return Returns a named list of data frames: PlayerChargesDrawnLeaders, PlayerContestedShotsLeaders, PlayerDeflectionsLeaders, PlayerLooseBallLeaders, PlayerScreenAssistLeaders, Table5
+#' @return Returns a named list of data frames: PlayerChargesDrawnLeaders, 
+#' PlayerContestedShotsLeaders, PlayerDeflectionsLeaders, PlayerLooseBallLeaders, 
+#' PlayerScreenAssistLeaders, Table5
+#' 
+#'    **PlayerContestedShotsLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |PLAYER_ID         |character |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |AGE               |character |
+#'    |RANK              |character |
+#'    |CONTESTED_SHOTS   |character |
+#'    
+#'    **PlayerChargesDrawnLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |PLAYER_ID         |character |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |AGE               |character |
+#'    |RANK              |character |
+#'    |CHARGES_DRAWN     |character |
+#'    
+#'    **PlayerDeflectionsLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |PLAYER_ID         |character |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |AGE               |character |
+#'    |RANK              |character |
+#'    |DEFLECTIONS       |character |
+#'    
+#'    **PlayerLooseBallLeaders** 
+#'    
+#'    
+#'    |col_name              |types     |
+#'    |:---------------------|:---------|
+#'    |PLAYER_ID             |character |
+#'    |PLAYER_NAME           |character |
+#'    |TEAM_ID               |character |
+#'    |TEAM_ABBREVIATION     |character |
+#'    |AGE                   |character |
+#'    |RANK                  |character |
+#'    |LOOSE_BALLS_RECOVERED |character |
+#'    
+#'    **PlayerScreenAssistLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |PLAYER_ID         |character |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |AGE               |character |
+#'    |RANK              |character |
+#'    |SCREEN_ASSISTS    |character |
+#'    
+#'    **Table5** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |PLAYER_ID         |character |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |AGE               |character |
+#'    |RANK              |character |
+#'    |BOX_OUTS          |character |
+#' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Hustle Functions
+#' @details
+#' ```r
+#'   wnba_leaguehustlestatsplayerleaders(league_id = '10')
+#' ```
 wnba_leaguehustlestatsplayerleaders <- function(
-  college='',
-  conference = '',
-  country = '',
-  date_from = '',
-  date_to = '',
-  division = '',
-  draft_pick = '',
-  draft_year = '',
-  height = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  po_round='',
-  per_mode='Totals',
-  player_experience='',
-  player_position='',
-  season='2020',
-  season_segment='',
-  season_type='Regular Season',
-  team_id='',
-  vs_conference='',
-  vs_division='',
-  weight='',
-  ...){
-  season_type <- gsub(' ','+',season_type)
+    college = '',
+    conference = '',
+    country = '',
+    date_from = '',
+    date_to = '',
+    division = '',
+    draft_pick = '',
+    draft_year = '',
+    height = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'Totals',
+    player_experience = '',
+    player_position = '',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    weight = '',
+    ...){
+  
+  # Intentional
+  # season_type <- gsub(' ','+',season_type)
   version <- "leaguehustlestatsplayerleaders"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?College=", college,
-                     "&Conference=", conference,
-                     "&Country=", country,
-                     "&DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&Division=", division,
-                     "&DraftPick=", draft_pick,
-                     "&DraftYear=", draft_year,
-                     "&Height=", height,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&PlayerExperience=",player_experience,
-                     "&PlayerPosition=", player_position,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&Weight=", weight)
+  params <- list(
+    College = college,
+    Conference = conference,
+    Country = country,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    DraftPick = draft_pick,
+    DraftYear = draft_year,
+    Height = height,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    PlayerExperience = player_experience,
+    PlayerPosition = player_position,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    Weight = weight
+  )
   
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+      
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle stats player leaders data available for {season}!"))
@@ -248,11 +368,11 @@ wnba_leaguehustlestatsplayerleaders <- function(
 }
 
 #' **Get WNBA Stats API League Hustle Stats Team**
-#' @name hustle_t
+#' @name wnba_leaguehustlestatsteam
 NULL
 #' @title
 #' **Get WNBA Stats API League Hustle Stats Team**
-#' @rdname hustle_t
+#' @rdname wnba_leaguehustlestatsteam
 #' @author Saiem Gilani
 #' @param college college
 #' @param conference conference
@@ -282,83 +402,112 @@ NULL
 #' @param weight weight
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: HustleStatsTeam
+#' 
+#'    **HustleStatsTeam** 
+#'    
+#'    
+#'    |col_name                      |types     |
+#'    |:-----------------------------|:---------|
+#'    |TEAM_ID                       |character |
+#'    |TEAM_NAME                     |character |
+#'    |MIN                           |character |
+#'    |CONTESTED_SHOTS               |character |
+#'    |CONTESTED_SHOTS_2PT           |character |
+#'    |CONTESTED_SHOTS_3PT           |character |
+#'    |DEFLECTIONS                   |character |
+#'    |CHARGES_DRAWN                 |character |
+#'    |SCREEN_ASSISTS                |character |
+#'    |SCREEN_AST_PTS                |character |
+#'    |OFF_LOOSE_BALLS_RECOVERED     |character |
+#'    |DEF_LOOSE_BALLS_RECOVERED     |character |
+#'    |LOOSE_BALLS_RECOVERED         |character |
+#'    |PCT_LOOSE_BALLS_RECOVERED_OFF |character |
+#'    |PCT_LOOSE_BALLS_RECOVERED_DEF |character |
+#'    |OFF_BOXOUTS                   |character |
+#'    |DEF_BOXOUTS                   |character |
+#'    |BOX_OUTS                      |character |
+#'    |PCT_BOX_OUTS_OFF              |character |
+#'    |PCT_BOX_OUTS_DEF              |character |
+#' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Hustle Functions
+#' @details
+#' ```r
+#'  wnba_leaguehustlestatsteam(league_id = '10')
+#' ```
 wnba_leaguehustlestatsteam <- function(
-  college='',
-  conference = '',
-  country = '',
-  date_from = '',
-  date_to = '',
-  division = '',
-  draft_pick = '',
-  draft_year = '',
-  height = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  po_round='',
-  per_mode='Totals',
-  player_experience='',
-  player_position='',
-  season='2020',
-  season_segment='',
-  season_type='Regular Season',
-  team_id='',
-  vs_conference='',
-  vs_division='',
-  weight='',
-  ...){
-  season_type <- gsub(' ','+',season_type)
+    college = '',
+    conference = '',
+    country = '',
+    date_from = '',
+    date_to = '',
+    division = '',
+    draft_pick = '',
+    draft_year = '',
+    height = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'Totals',
+    player_experience = '',
+    player_position = '',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    weight = '',
+    ...){
+  
+  # Intentional
+  # season_type <- gsub(' ','+',season_type)
   version <- "leaguehustlestatsteam"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?College=", college,
-                     "&Conference=", conference,
-                     "&Country=", country,
-                     "&DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&Division=", division,
-                     "&DraftPick=", draft_pick,
-                     "&DraftYear=", draft_year,
-                     "&Height=", height,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&PlayerExperience=",player_experience,
-                     "&PlayerPosition=", player_position,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&Weight=", weight)
+  params <- list(
+    College = college,
+    Conference = conference,
+    Country = country,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    DraftPick = draft_pick,
+    DraftYear = draft_year,
+    Height = height,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    PlayerExperience = player_experience,
+    PlayerPosition = player_position,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    Weight = weight
+  )
   
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+      
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle team stats data available for {season}!"))
@@ -371,11 +520,11 @@ wnba_leaguehustlestatsteam <- function(
   return(df_list)
 }
 #' **Get WNBA Stats API League Hustle Stats Team Leaders**
-#' @name hustle_tl
+#' @name wnba_leaguehustlestatsteamleaders
 NULL
 #' @title
 #' **Get WNBA Stats API League Hustle Stats Team Leaders**
-#' @rdname hustle_tl
+#' @rdname wnba_leaguehustlestatsteamleaders
 #' @author Saiem Gilani
 #' @param college college
 #' @param conference conference
@@ -404,84 +553,166 @@ NULL
 #' @param vs_division vs_division
 #' @param weight weight
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return Returns a named list of data frames: Table5, Table6, TeamChargesDrawnLeaders, TeamContestedShotsLeaders, TeamDeflectionsLeaders,  TeamLooseBallLeaders, TeamScreenAssistLeaders
+#' @return Returns a named list of data frames: Table5, Table6, TeamChargesDrawnLeaders, 
+#' TeamContestedShotsLeaders, TeamDeflectionsLeaders,  
+#' TeamLooseBallLeaders, TeamScreenAssistLeaders
+#' 
+#'    **TeamContestedShotsLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |RANK              |character |
+#'    |CONTESTED_SHOTS   |character |
+#'    
+#'    **TeamChargesDrawnLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |RANK              |character |
+#'    |CHARGES_DRAWN     |character |
+#'    
+#'    **TeamDeflectionsLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |RANK              |character |
+#'    |DEFLECTIONS       |character |
+#'    
+#'    **TeamLooseBallLeaders** 
+#'    
+#'    
+#'    |col_name              |types     |
+#'    |:---------------------|:---------|
+#'    |TEAM_ID               |character |
+#'    |TEAM_NAME             |character |
+#'    |TEAM_ABBREVIATION     |character |
+#'    |RANK                  |character |
+#'    |LOOSE_BALLS_RECOVERED |character |
+#'    
+#'    **TeamScreenAssistLeaders** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |RANK              |character |
+#'    |SCREEN_ASSISTS    |character |
+#'    
+#'    **Table5** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |RANK              |character |
+#'    |BOX_OUTS          |character |
+#'    
+#'    **Table6** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |RANK              |character |
+#'    |BOX_OUTS          |character |
+#' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Hustle Functions
+#' @details
+#' ```r
+#'   wnba_leaguehustlestatsteamleaders(league_id = '10')
+#' ```
 wnba_leaguehustlestatsteamleaders <- function(
-  college='',
-  conference = '',
-  country = '',
-  date_from = '',
-  date_to = '',
-  division = '',
-  draft_pick = '',
-  draft_year = '',
-  height = '',
-  last_n_games=0,
-  league_id='10',
-  location='',
-  month=0,
-  opponent_team_id=0,
-  outcome='',
-  po_round='',
-  per_mode='Totals',
-  player_experience='',
-  player_position='',
-  season='2020',
-  season_segment='',
-  season_type='Regular Season',
-  team_id='',
-  vs_conference='',
-  vs_division='',
-  weight='',
-  ...){
-  season_type <- gsub(' ','+',season_type)
+    college = '',
+    conference = '',
+    country = '',
+    date_from = '',
+    date_to = '',
+    division = '',
+    draft_pick = '',
+    draft_year = '',
+    height = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'Totals',
+    player_experience = '',
+    player_position = '',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    weight = '',
+    ...){
+  
+  # intentional
+  # season_type <- gsub(' ','+',season_type)
   version <- "leaguehustlestatsteamleaders"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?College=", college,
-                     "&Conference=", conference,
-                     "&Country=", country,
-                     "&DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&Division=", division,
-                     "&DraftPick=", draft_pick,
-                     "&DraftYear=", draft_year,
-                     "&Height=", height,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&PlayerExperience=",player_experience,
-                     "&PlayerPosition=", player_position,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&Weight=", weight)
+  params <- list(
+    College = college,
+    Conference = conference,
+    Country = country,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    DraftPick = draft_pick,
+    DraftYear = draft_year,
+    Height = height,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    PlayerExperience = player_experience,
+    PlayerPosition = player_position,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    Weight = weight
+  )
   
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+      
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle team stats leaders data available for {season}!"))

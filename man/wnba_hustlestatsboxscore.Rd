@@ -97,6 +97,12 @@ Other WNBA Boxscore Functions:
 \code{\link{wnba_boxscoretraditionalv2}()},
 \code{\link{wnba_boxscoreusagev2}()},
 \code{\link{wnba_gamerotation}()}
+
+Other WNBA Hustle Functions: 
+\code{\link{wnba_leaguehustlestatsplayerleaders}()},
+\code{\link{wnba_leaguehustlestatsplayer}()},
+\code{\link{wnba_leaguehustlestatsteamleaders}()},
+\code{\link{wnba_leaguehustlestatsteam}()}
 }
 \author{
 Saiem Gilani

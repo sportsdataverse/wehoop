@@ -1,9 +1,9 @@
 #' **Get WNBA Stats API Franchise Leaders**
-#' @name franchiseleaders
+#' @name wnba_franchiseleaders
 NULL
 #' @title
 #' **Get WNBA Stats API Franchise Leaders**
-#' @rdname franchiseleaders
+#' @rdname wnba_franchiseleaders
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param team_id team_id
@@ -192,11 +192,11 @@ wnba_franchiseleaderswrank <- function(
 
 
 #' **Get WNBA Stats API Franchise Players**
-#' @name franchiseplayers
+#' @name wnba_franchiseplayers
 NULL
 #' @title
 #' **Get WNBA Stats API Franchise Players**
-#' @rdname franchiseplayers
+#' @rdname wnba_franchiseplayers
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param per_mode per_mode
@@ -289,11 +289,11 @@ wnba_franchiseplayers <- function(
 
 
 #' **Get WNBA Stats API Franchise History**
-#' @name franchisehistory
+#' @name wnba_franchisehistory
 NULL
 #' @title
 #' **Get WNBA Stats API Franchise History**
-#' @rdname franchisehistory
+#' @rdname wnba_franchisehistory
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param ... Additional arguments passed to an underlying function like httr.

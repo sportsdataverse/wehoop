@@ -454,7 +454,7 @@ wnba_draftcombinespotshooting <- function(
 
 #' @title
 #' **Get WNBA Stats API Draft History**
-#' @rdname dhistory
+#' @rdname wnba_drafthistory
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param college college

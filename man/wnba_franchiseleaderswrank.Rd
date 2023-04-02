@@ -90,9 +90,9 @@ Returns a named list of data frames: FranchiseLeaderswRank
 }
 \seealso{
 Other WNBA Franchise Functions: 
-\code{\link{franchisehistory}},
-\code{\link{franchiseleaders}},
-\code{\link{franchiseplayers}}
+\code{\link{wnba_franchisehistory}()},
+\code{\link{wnba_franchiseleaders}()},
+\code{\link{wnba_franchiseplayers}()}
 }
 \author{
 Saiem Gilani

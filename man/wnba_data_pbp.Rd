@@ -76,6 +76,11 @@ Event Message Types (event_type):
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_data_pbp(game_id = "1022200034")
 }\if{html}{\out{</div>}}
 }
+\seealso{
+Other WNBA PBP Functions: 
+\code{\link{wnba_live_pbp}()},
+\code{\link{wnba_pbp}()}
+}
 \author{
 Saiem Gilani
 }

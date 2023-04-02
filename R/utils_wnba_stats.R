@@ -95,6 +95,10 @@ request_with_proxy <- function(url,
   return(json)
 }
 
+wnba_live_endpoint <- function(endpoint){
+  base_url = glue::glue('https://cdn.wnba.com/static/json/liveData/{endpoint}')
+  return(base_url)
+}
 
 wnba_endpoint <- function(endpoint){
   all_endpoints = c(
