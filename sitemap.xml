@@ -55,24 +55,6 @@
     <loc>https://wehoop.sportsdataverse.org/reference/csv_from_url.html</loc>
   </url>
   <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/dboard.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/dcombine_anthro.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/dcombine_drill.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/dcombine_nsshooting.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/dcombine_sshooting.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/dcombine_stats.html</loc>
-  </url>
-  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/dhistory.html</loc>
   </url>
   <url>
@@ -482,6 +464,27 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_draftboard.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_draftcombinedrillresults.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_draftcombinenonstationaryshooting.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_draftcombineplayeranthro.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_draftcombinespotshooting.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_franchiseleaderswrank.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_gamerotation.html</loc>
