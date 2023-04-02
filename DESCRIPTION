@@ -17,6 +17,7 @@ Imports:
     glue,
     janitor,
     jsonlite,
+    lubridate,
     magrittr,
     purrr (>= 0.3.0),
     progressr (>= 0.6.0),
