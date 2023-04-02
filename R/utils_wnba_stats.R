@@ -48,13 +48,17 @@
 #' @description
 #' This is a thin wrapper on httr::RETRY
 #' @param url Request url
-#' @param ... passed to httr::RETRY
 #' @param params list of params
+#' @param origin Origin url
+#' @param referer Referer url
+#' @param ... passed to httr::RETRY
 #' @keywords internal
 #' @import rvest
-request_with_proxy <- function(url, ..., params=list(),
+request_with_proxy <- function(url,
+                               params = list(),
                                origin = "https://stats.wnba.com",
-                               referer="https://www.wnba.com/"){
+                               referer="https://www.wnba.com/",
+                               ...){
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$proxy
   headers <- dots$headers
@@ -73,18 +77,18 @@ request_with_proxy <- function(url, ..., params=list(),
     `Cache-Control` = 'no-cache'
   )
   if (length(params) >= 1) {
-    url <- httr::modify_url(url, query = params)
-    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(15))
+    url <- httr::modify_url({{url}}, query = params)
+    res <- rvest::session(url = url, ...,  httr::add_headers(.headers = headers), httr::timeout(60))
     
-    json <- res$response %>% 
-      httr::content(as = "text", encoding = "UTF-8") %>% 
+    json <- res$response %>%
+      httr::content(as = "text", encoding = "UTF-8") %>%
       jsonlite::fromJSON()
     
   } else {
-    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(15))
-
-    json <- res$response %>% 
-      httr::content(as = "text", encoding = "UTF-8") %>% 
+    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(60))
+    
+    json <- res$response %>%
+      httr::content(as = "text", encoding = "UTF-8") %>%
       jsonlite::fromJSON()
   }
   
@@ -225,6 +229,35 @@ wnba_endpoint <- function(endpoint){
   )
   base_url = glue::glue('https://stats.wnba.com/stats/{endpoint}')
   return(base_url)
+}
+
+
+wnba_stats_map_result_sets <- function(resp) {
+  if ("resultSets" %in% names(resp)) {
+    df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
+      data <- resp$resultSets$rowSet[[x]] %>%
+        data.frame(stringsAsFactors = F) %>%
+        dplyr::as_tibble()
+      
+      json_names <- resp$resultSets$headers[[x]]
+      colnames(data) <- json_names
+      return(data)
+    })
+    names(df_list) <- resp$resultSets$name
+    return(df_list)
+  } else {
+    df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
+      data <- resp$resultSet$rowSet[[x]] %>%
+        data.frame(stringsAsFactors = F) %>%
+        dplyr::as_tibble()
+      
+      json_names <- resp$resultSet$headers[[x]]
+      colnames(data) <- json_names
+      return(data)
+    })
+    names(df_list) <- resp$resultSet$name
+    return(df_list)
+  }
 }
 
 
