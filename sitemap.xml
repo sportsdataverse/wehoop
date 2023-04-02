@@ -40,30 +40,6 @@
     <loc>https://wehoop.sportsdataverse.org/reference/assists.html</loc>
   </url>
   <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_advv2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_ffv2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_miscv2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_pt_v2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_scoringv2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_summaryv2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_tradv2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/bs_usagev2.html</loc>
-  </url>
-  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/check_status.html</loc>
   </url>
   <url>
@@ -77,18 +53,6 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/csv_from_url.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/cumestatsplayer.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/cumestatsplayergames.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/cumestatsteam.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/cumestatsteamgames.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/dboard.html</loc>
@@ -190,9 +154,6 @@
     <loc>https://wehoop.sportsdataverse.org/reference/franchiseplayers.html</loc>
   </url>
   <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/game_rotation.html</loc>
-  </url>
-  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.html</loc>
   </url>
   <url>
@@ -215,9 +176,6 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/homepagev2.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/hustle_bs.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/hustle_p.html</loc>
@@ -487,7 +445,49 @@
     <loc>https://wehoop.sportsdataverse.org/reference/wehoop-package.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscoreadvancedv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscorefourfactorsv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscorescoringv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev2.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayer.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayergames.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_cumestatsteam.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_cumestatsteamgames.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_gamerotation.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_teams.html</loc>
