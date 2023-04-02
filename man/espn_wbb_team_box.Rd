@@ -66,6 +66,7 @@ Returns a team boxscore data frame
    opponent_team_color \tab character \cr
    opponent_team_alternate_color \tab character \cr
    opponent_team_logo \tab character \cr
+   opponent_team_score \tab integer \cr
 }
 }
 \description{

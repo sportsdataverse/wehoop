@@ -55,7 +55,8 @@ test_that("ESPN - WNBA Team Box", {
     "opponent_team_short_display_name",
     "opponent_team_color",
     "opponent_team_alternate_color",
-    "opponent_team_logo"
+    "opponent_team_logo",
+    "opponent_team_score"
   )
   
   expect_equal(sort(colnames(x)), sort(cols))

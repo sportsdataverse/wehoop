@@ -117,6 +117,7 @@
 #'    |opponent_team_color               |character |
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_logo                |character |
+#'    |opponent_team_score               |integer   |
 #'    
 #'    **Player** 
 #'    
@@ -342,7 +343,7 @@ espn_wnba_game_all <- function(game_id){
 #' @examples
 #' 
 #' \donttest{
-#'   try(espn_wnba_pbp(game_id = 401455681))
+#'    try(espn_wnba_pbp(game_id = 401455681))
 #' }
 espn_wnba_pbp <- function(game_id){
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
@@ -446,6 +447,7 @@ espn_wnba_pbp <- function(game_id){
 #'    |opponent_team_color               |character |
 #'    |opponent_team_alternate_color     |character |
 #'    |opponent_team_logo                |character |
+#'    |opponent_team_score               |integer   |
 #' 
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -2250,6 +2252,11 @@ helper_espn_wnba_team_box <- function(resp){
       statistics_df_1$opponent.team.color <- teams_box_score_df[["team.color"]][[2]]
       statistics_df_1$opponent.team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[2]]
       statistics_df_1$opponent.team.logo <- teams_box_score_df[["team.logo"]][[2]]
+      statistics_df_1$opponent.team.score <- ifelse(
+        as.integer(teams_box_score_df[["team.id"]][1]) == as.integer(homeAway1_team.id),
+        as.integer(homeAway2_team.score),
+        as.integer(homeAway1_team.score)
+      )
       
       # Assigning values to the correct data frame rows - 2
       statistics_df_2$team.homeAway <- ifelse(
@@ -2289,6 +2296,11 @@ helper_espn_wnba_team_box <- function(resp){
       statistics_df_2$opponent.team.color <- teams_box_score_df[["team.color"]][[1]]
       statistics_df_2$opponent.team.alternateColor <- teams_box_score_df[["team.alternateColor"]][[1]]
       statistics_df_2$opponent.team.logo <- teams_box_score_df[["team.logo"]][[1]]
+      statistics_df_2$opponent.team.score <- ifelse(
+        as.integer(teams_box_score_df[["team.id"]][2]) == as.integer(homeAway2_team.id),
+        as.integer(homeAway1_team.score),
+        as.integer(homeAway2_team.score)
+      )
       
       complete_statistics_df <- statistics_df_1 %>%
         dplyr::bind_rows(statistics_df_2)

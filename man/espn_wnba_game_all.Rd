@@ -122,6 +122,7 @@ A named list of dataframes: Plays, Team, Player
    opponent_team_color \tab character \cr
    opponent_team_alternate_color \tab character \cr
    opponent_team_logo \tab character \cr
+   opponent_team_score \tab integer \cr
 }
 
 
