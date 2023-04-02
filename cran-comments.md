@@ -6,6 +6,7 @@ This is a minor release that:
 * ```espn_wbb_game_rosters()``` function added.
 * ```espn_wnba_game_rosters()``` function added.
 * ```wnba_teams()``` function added. 
+* ```wnba_franchiseleaderswrank()``` function added. 
 * Add proxy rlang dots option for passing httr::use_proxy() option to wnba_stats_*() functions
 
 ## R CMD check results

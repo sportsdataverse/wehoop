@@ -16,12 +16,45 @@ wnba_franchiseleaders(league_id = "10", team_id = "1611661324", ...)
 }
 \value{
 Returns a named list of data frames: FranchiseLeaders
+
+\strong{FranchiseLeaders}\tabular{ll}{
+   col_name \tab types \cr
+   TEAM_ID \tab character \cr
+   PTS \tab character \cr
+   PTS_PERSON_ID \tab character \cr
+   PTS_PLAYER \tab character \cr
+   AST \tab character \cr
+   AST_PERSON_ID \tab character \cr
+   AST_PLAYER \tab character \cr
+   REB \tab character \cr
+   REB_PERSON_ID \tab character \cr
+   REB_PLAYER \tab character \cr
+   BLK \tab character \cr
+   BLK_PERSON_ID \tab character \cr
+   BLK_PLAYER \tab character \cr
+   STL \tab character \cr
+   STL_PERSON_ID \tab character \cr
+   STL_PLAYER \tab character \cr
+}
 }
 \description{
 \strong{Get WNBA Stats API Franchise Leaders}
 
 \strong{Get WNBA Stats API Franchise Leaders}
 }
+\details{
+\href{https://stats.wnba.com/team/1611661324/franchise-leaders}{Franchise Leaders}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_franchiseleaders(league_id = '10', team_id = '1611661324')
+}\if{html}{\out{</div>}}
+}
+\seealso{
+Other WNBA Franchise Functions: 
+\code{\link{franchisehistory}},
+\code{\link{franchiseplayers}},
+\code{\link{wnba_franchiseleaderswrank}()}
+}
 \author{
 Saiem Gilani
 }
+\concept{WNBA Franchise Functions}

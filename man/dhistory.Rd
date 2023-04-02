@@ -10,7 +10,7 @@ wnba_drafthistory(
   overall_pick = "",
   round_pick = "",
   round_num = "",
-  season = "2019",
+  season = most_recent_wnba_season() - 1,
   team_id = "",
   top_x = "",
   ...
@@ -37,10 +37,42 @@ wnba_drafthistory(
 }
 \value{
 Returns a named list of data frames: DraftHistory
+
+\strong{DraftHistory}\tabular{ll}{
+   col_name \tab types \cr
+   PERSON_ID \tab character \cr
+   PLAYER_NAME \tab character \cr
+   SEASON \tab character \cr
+   ROUND_NUMBER \tab character \cr
+   ROUND_PICK \tab character \cr
+   OVERALL_PICK \tab character \cr
+   DRAFT_TYPE \tab character \cr
+   TEAM_ID \tab character \cr
+   TEAM_CITY \tab character \cr
+   TEAM_NAME \tab character \cr
+   TEAM_ABBREVIATION \tab character \cr
+   ORGANIZATION \tab character \cr
+   ORGANIZATION_TYPE \tab character \cr
+   PLAYER_PROFILE_FLAG \tab character \cr
+}
 }
 \description{
 \strong{Get WNBA Stats API Draft History}
 }
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_drafthistory(season = most_recent_wnba_season() - 1)
+}\if{html}{\out{</div>}}
+}
+\seealso{
+Other WNBA Draft Functions: 
+\code{\link{wnba_draftboard}()},
+\code{\link{wnba_draftcombinedrillresults}()},
+\code{\link{wnba_draftcombinenonstationaryshooting}()},
+\code{\link{wnba_draftcombineplayeranthro}()},
+\code{\link{wnba_draftcombinespotshooting}()},
+\code{\link{wnba_draftcombinestats}()}
+}
 \author{
 Saiem Gilani
 }
+\concept{WNBA Draft Functions}

@@ -9,7 +9,7 @@ wnba_franchiseplayers(
   league_id = "10",
   per_mode = "Totals",
   season_type = "Regular Season",
-  team_id = "1611661324",
+  team_id = "1611661319",
   ...
 )
 }
@@ -26,12 +26,56 @@ wnba_franchiseplayers(
 }
 \value{
 Returns a named list of data frames: FranchisePlayers
+
+\strong{FranchisePlayers}\tabular{ll}{
+   col_name \tab types \cr
+   LEAGUE_ID \tab character \cr
+   TEAM_ID \tab character \cr
+   TEAM \tab character \cr
+   PERSON_ID \tab character \cr
+   PLAYER \tab character \cr
+   SEASON_TYPE \tab character \cr
+   ACTIVE_WITH_TEAM \tab character \cr
+   GP \tab character \cr
+   FGM \tab character \cr
+   FGA \tab character \cr
+   FG_PCT \tab character \cr
+   FG3M \tab character \cr
+   FG3A \tab character \cr
+   FG3_PCT \tab character \cr
+   FTM \tab character \cr
+   FTA \tab character \cr
+   FT_PCT \tab character \cr
+   OREB \tab character \cr
+   DREB \tab character \cr
+   REB \tab character \cr
+   AST \tab character \cr
+   PF \tab character \cr
+   STL \tab character \cr
+   TOV \tab character \cr
+   BLK \tab character \cr
+   PTS \tab character \cr
+}
 }
 \description{
 \strong{Get WNBA Stats API Franchise Players}
 
 \strong{Get WNBA Stats API Franchise Players}
 }
+\details{
+\href{https://stats.wnba.com/team/1611661319/franchise-leaders/}{Franchise Players}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_franchiseplayers(league_id = '10', team_id = '1611661319')
+ wnba_franchiseplayers(league_id = '10', season_type = 'Playoffs', team_id = '1611661319')
+}\if{html}{\out{</div>}}
+}
+\seealso{
+Other WNBA Franchise Functions: 
+\code{\link{franchisehistory}},
+\code{\link{franchiseleaders}},
+\code{\link{wnba_franchiseleaderswrank}()}
+}
 \author{
 Saiem Gilani
 }
+\concept{WNBA Franchise Functions}

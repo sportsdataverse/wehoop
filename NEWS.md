@@ -1,6 +1,7 @@
 # **wehoop 1.8.0**
 * Add proxy rlang dots option for passing httr::use_proxy() option to wnba_stats_*() functions
 * Improved output for ```espn_wbb_team_box()```, ```espn_wbb_player_box()```, ```espn_wnba_team_box()```, ```espn_wnba_player_box()```
+* ```wnba_franchiseleaderswrank()``` function added. 
 
 # **wehoop 1.7.0**
 * ```espn_wbb_game_rosters()``` function added.

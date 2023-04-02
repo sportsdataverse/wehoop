@@ -373,27 +373,22 @@ wnba_cumestatsteam <- function(
   # season_type <- gsub(' ','+',season_type)
   version <- "cumestatsteam"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?GameIDs=",game_ids,
-                     "&LeagueID=",league_id,
-                     "&Season=",season,
-                     "&SeasonType=",season_type,
-                     "&TeamID=",team_id)
+  params <- list(
+    GameIDs = game_ids,
+    LeagueID = league_id,
+    Season = season,
+    SeasonType = season_type,
+    TeamID = team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+      
+      df_list <- wnba_stats_map_result_sets(resp)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no cumulative team stats data available for {team_id}!"))
@@ -459,32 +454,28 @@ wnba_cumestatsteamgames <- function(
   # season_type <- gsub(' ','+',season_type)
   version <- "cumestatsteamgames"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?LeagueID=", league_id,
-                     "&Location=", location,
-                     "&Outcome=", outcome,
-                     "&Season=", season,
-                     "&SeasonID=", season_id,
-                     "&SeasonType=", season_type,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&VsTeamID=", vs_team_id)
+  params <- list(
+    LeagueID = league_id,
+    Location = location,
+    Outcome = outcome,
+    Season = season,
+    SeasonID = season_id,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    VsTeamID = vs_team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+      
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no cumulative team game stats data available for {team_id}!"))
