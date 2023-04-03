@@ -2890,8 +2890,8 @@ helper_espn_wbb_team_box <- function(resp) {
           tidyr::everything()) %>%
         make_wehoop_data("ESPN WBB Team Box Information from ESPN.com", Sys.time())
     }
+    return(team_box_score)
   }
-  return(team_box_score)
 }
 
 #'  **Parse ESPN WBB Player Box, helper function**
@@ -3153,7 +3153,7 @@ helper_espn_wbb_player_box <- function(resp){
         ), as.integer) %>%
         make_wehoop_data("ESPN WBB Player Box Information from ESPN.com", Sys.time())
     }
+    return(player_box_score)
   }
-  return(player_box_score)
 }
 
