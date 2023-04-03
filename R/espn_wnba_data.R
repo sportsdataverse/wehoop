@@ -2008,7 +2008,8 @@ helper_espn_wnba_pbp <- function(resp){
     homeTeamLogoDark = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][2]
     homeTeamFullName = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][1]
     homeTeamColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][1]
-    homeTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][1]
+    homeTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]] %>%
+      purrr::pluck(1, .default = NA_character_)
     homeTeamScore = as.integer(game_json[['header']][['competitions']][['competitors']][[1]][['score']][1])
     homeTeamWinner = game_json[['header']][['competitions']][['competitors']][[1]][['winner']][1]
     homeTeamRecord = game_json[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][1]
@@ -2020,7 +2021,8 @@ helper_espn_wnba_pbp <- function(resp){
     awayTeamLogoDark = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][2]
     awayTeamFullName = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][2]
     awayTeamColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][2]
-    awayTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][2]
+    awayTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]] %>%
+      purrr::pluck(2, .default = NA_character_)
     awayTeamScore = as.integer(game_json[['header']][['competitions']][['competitors']][[1]][['score']][2])
     awayTeamWinner = game_json[['header']][['competitions']][['competitors']][[1]][['winner']][2]
     awayTeamRecord = game_json[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][2]
@@ -2060,7 +2062,8 @@ helper_espn_wnba_pbp <- function(resp){
     awayTeamLogoDark = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[1]][['href']][2]
     awayTeamFullName = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][1]
     awayTeamColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][1]
-    awayTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][1]
+    awayTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]] %>%
+      purrr::pluck(1, .default = NA_character_)
     awayTeamScore = as.integer(game_json[['header']][['competitions']][['competitors']][[1]][['score']][1])
     awayTeamWinner = game_json[['header']][['competitions']][['competitors']][[1]][['winner']][1]
     awayTeamRecord = game_json[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][1]
@@ -2072,7 +2075,8 @@ helper_espn_wnba_pbp <- function(resp){
     homeTeamLogoDark = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']][2]
     homeTeamFullName = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]][2]
     homeTeamColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["color"]][2]
-    homeTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]][2]
+    homeTeamAlternateColor = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["alternateColor"]] %>%
+      purrr::pluck(2, .default = NA_character_)
     homeTeamScore = as.integer(game_json[['header']][['competitions']][['competitors']][[1]][['score']][2])
     homeTeamWinner = game_json[['header']][['competitions']][['competitors']][[1]][['winner']][2]
     homeTeamRecord = game_json[['header']][['competitions']][['competitors']][[1]][['record']][[1]][['summary']][2]
@@ -2192,13 +2196,12 @@ helper_espn_wnba_pbp <- function(resp){
     dplyr::mutate(dplyr::across(dplyr::any_of(c(
       "athlete_id_1",
       "athlete_id_2",
-      "athlete_id_3"
+      "athlete_id_3",
+      "type_id",
+      "team_id"
     )), ~as.integer(.x)))
   
   plays_df <- plays %>%
-    dplyr::mutate_at(c(
-      "type_id",
-      "team_id"), as.integer) %>%
     make_wehoop_data("ESPN WNBA Play-by-Play Information from ESPN.com", Sys.time())
   
   return(plays_df)
