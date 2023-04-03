@@ -88,7 +88,7 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
             seasons >= 2004,
             seasons <= most_recent_wbb_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wbb/pbp/rds/play_by_play_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_pbp/play_by_play_", seasons, ".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -137,7 +137,7 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
             seasons >= 2006,
             seasons <= most_recent_wbb_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wbb/team_box/rds/team_box_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_boxscores/team_box_", seasons, ".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -186,7 +186,7 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
             seasons >= 2003,
             seasons <= most_recent_wbb_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wbb/player_box/rds/player_box_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_boxscores/player_box_", seasons, ".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -237,7 +237,7 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
             seasons >= 2002,
             seasons <= most_recent_wbb_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wbb/schedules/rds/wbb_schedule_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_schedules/wbb_schedule_", seasons, ".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
