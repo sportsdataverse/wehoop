@@ -213,57 +213,82 @@ espn_wnba_game_all <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   
-  plays_df <- data.frame()
-  team_box_score <- data.frame()
-  player_box_score <- data.frame()
-  
   #---- Play-by-Play ------
   tryCatch(
     expr = {
       
       plays_df <- helper_espn_wnba_pbp(resp)
       
+      if (is.null(plays_df)) {
+        message(glue::glue("{Sys.time()}: No play-by-play data for {game_id} available!"))
+      }
+      
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"))
+      message(
+        glue::glue(
+          "{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"
+        )
+      )
     },
     warning = function(w) {
+      
     },
     finally = {
+      
     }
   )
-  
   #---- Team Box ------
   tryCatch(
     expr = {
       
       team_box_score <- helper_espn_wnba_team_box(resp)
       
+      if (is.null(team_box_score)) {
+        message(glue::glue("{Sys.time()}: No team box score data for {game_id} available!"))
+      }
+      
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
+      message(
+        glue::glue(
+          "{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"
+        )
+      )
     },
     warning = function(w) {
+      
     },
     finally = {
+      
     }
   )
-  
   #---- Player Box ------
   tryCatch(
     expr = {
       
       player_box_score <- helper_espn_wnba_player_box(resp)
       
+      if (is.null(player_box_score)) {
+        message(glue::glue("{Sys.time()}: No player box score data for {game_id} available!"))
+      }
+      
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
+      message(
+        glue::glue(
+          "{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"
+        )
+      )
     },
     warning = function(w) {
+      
     },
     finally = {
+      
     }
   )
+  
   
   pbp <- c(list(plays_df), list(team_box_score), list(player_box_score))
   names(pbp) <- c("Plays", "Team", "Player")
@@ -364,12 +389,15 @@ espn_wnba_pbp <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   
-  plays_df <- data.frame()
   #---- Play-by-Play ------
   tryCatch(
     expr = {
       
       plays_df <- helper_espn_wnba_pbp(resp)
+      
+      if (is.null(plays_df)) {
+        return(message(glue::glue("{Sys.time()}: No play-by-play data for {game_id} available!")))
+      }
       
     },
     error = function(e) {
@@ -480,12 +508,15 @@ espn_wnba_team_box <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   
-  team_box_score <- data.frame()
   #---- Team Box ------
   tryCatch(
     expr = {
       
       team_box_score <- helper_espn_wnba_team_box(resp)
+      
+      if (is.null(team_box_score)) {
+        return(message(glue::glue("{Sys.time()}: No team box score data for {game_id} available!")))
+      }
       
     },
     error = function(e) {
@@ -597,13 +628,15 @@ espn_wnba_player_box <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   
-  
-  player_box_score <- data.frame()
   #---- Player Box ------
   tryCatch(
     expr = {
       
       player_box_score <- helper_espn_wnba_player_box(resp)
+      
+      if (is.null(player_box_score)) {
+        return(message(glue::glue("{Sys.time()}: No player box score data for {game_id} available!")))
+      }
       
     },
     error = function(e) {

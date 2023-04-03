@@ -210,15 +210,15 @@ espn_wbb_game_all <- function(game_id){
   resp <- res %>%
     httr::content(as = "text", encoding = "UTF-8")
   
-  plays_df <- data.frame()
-  team_box_score <- data.frame()
-  player_box_score <- data.frame()
-  
   #---- Play-by-Play ------
   tryCatch(
     expr = {
       
       plays_df <- helper_espn_wbb_pbp(resp)
+      
+      if (is.null(plays_df)) {
+        message(glue::glue("{Sys.time()}: No play-by-play data for {game_id} available!"))
+      }
       
     },
     error = function(e) {
@@ -241,6 +241,10 @@ espn_wbb_game_all <- function(game_id){
       
       team_box_score <- helper_espn_wbb_team_box(resp)
       
+      if (is.null(team_box_score)) {
+        message(glue::glue("{Sys.time()}: No team box score data for {game_id} available!"))
+      }
+      
     },
     error = function(e) {
       message(
@@ -262,6 +266,10 @@ espn_wbb_game_all <- function(game_id){
       
       player_box_score <- helper_espn_wbb_player_box(resp)
       
+      if (is.null(player_box_score)) {
+        message(glue::glue("{Sys.time()}: No player box score data for {game_id} available!"))
+      }
+      
     },
     error = function(e) {
       message(
@@ -277,6 +285,7 @@ espn_wbb_game_all <- function(game_id){
       
     }
   )
+  
   pbp <- c(list(plays_df), list(team_box_score), list(player_box_score))
   names(pbp) <- c("Plays", "Team", "Player")
   return(pbp)
@@ -372,7 +381,6 @@ espn_wbb_pbp <- function(game_id){
   # Check the result
   check_status(res)
   
-  plays_df <- data.frame()
   tryCatch(
     expr = {
       
@@ -380,6 +388,10 @@ espn_wbb_pbp <- function(game_id){
         httr::content(as = "text", encoding = "UTF-8")
       
       plays_df <- helper_espn_wbb_pbp(resp)
+      
+      if (is.null(plays_df)) {
+        return(message(glue::glue("{Sys.time()}: No play-by-play data for {game_id} available!")))
+      }
       
     },
     error = function(e) {
@@ -491,13 +503,16 @@ espn_wbb_team_box <- function(game_id){
   # Check the result
   check_status(res)
   
-  team_box_score <- data.frame()
   tryCatch(
     expr = {
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       
       team_box_score <- helper_espn_wbb_team_box(resp)
+      
+      if (is.null(team_box_score)) {
+        return(message(glue::glue("{Sys.time()}: No team box score data for {game_id} available!")))
+      }
       
     },
     error = function(e) {
@@ -610,13 +625,16 @@ espn_wbb_player_box <- function(game_id){
   # Check the result
   check_status(res)
   
-  player_box_score <- data.frame()
   tryCatch(
     expr = {
       resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8")
       
       player_box_score <- helper_espn_wbb_player_box(resp)
+      
+      if (is.null(player_box_score)) {
+        return(message(glue::glue("{Sys.time()}: No player box score data for {game_id} available!")))
+      }
       
     },
     error = function(e) {
