@@ -154,6 +154,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb_NET_rankings.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/progressively.html</loc>
   </url>
   <url>
@@ -163,82 +166,10 @@
     <loc>https://wehoop.sportsdataverse.org/reference/request_with_proxy.html</loc>
   </url>
   <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/t_details.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/t_est_metr.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/t_gamelog.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/t_gamelogs.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/t_vs_p.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/t_yby_stats.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbyclutch.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbygamesplits.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbygeneralsplits.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbylastngames.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbyopponent.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbyshootingsplits.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbyteamperformance.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tbyyearoveryear.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/teamdashlineups.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/teaminfo.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tg_streak.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/thist_leaders.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tp.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tp_onoff_det.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/tp_onoffsummary.html</loc>
-  </url>
-  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/update_wbb_db.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/update_wnba_db.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/videodetails.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/videoevents.html</loc>
-  </url>
-  <url>
-    <loc>https://wehoop.sportsdataverse.org/reference/videostatus.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wehoop-package.html</loc>
@@ -538,9 +469,84 @@
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_shotchartlineupdetail.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygamesplits.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygeneralsplits.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbylastngames.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyopponent.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyshootingsplits.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyteamperformance.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyyearoveryear.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashlineups.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdetails.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamestimatedmetrics.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamgamelog.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamgamelogs.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamgamestreakfinder.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamhistoricalleaders.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamplayeronoffdetails.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamplayeronoffsummary.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_teams.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamvsplayer.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_videodetails.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_videoevents.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_videostatus.html</loc>
   </url>
 </urlset>
