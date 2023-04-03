@@ -1121,6 +1121,7 @@ espn_wnba_teams <- function(){
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest_wider unchop hoist
 #' @importFrom glue glue
+#' @importFrom lubridate with_tz ymd_hm
 #' @import rvest
 #' @export
 #' @keywords WNBA Scoreboard
@@ -2031,6 +2032,7 @@ espn_wnba_player_stats <- function(
 #'  **Parse ESPN WNBA PBP, helper function**
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
+#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wnba_pbp <- function(resp){
   
@@ -2309,6 +2311,7 @@ helper_espn_wnba_pbp <- function(resp){
 #'  **Parse ESPN WNBA Team Box, helper function**
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
+#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wnba_team_box <- function(resp){
   
@@ -2522,6 +2525,7 @@ helper_espn_wnba_team_box <- function(resp){
 #'  **Parse ESPN WNBA Player Box, helper function**
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
+#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wnba_player_box <- function(resp){
   

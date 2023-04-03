@@ -1493,6 +1493,7 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #' @importFrom tidyr unnest_wider unchop hoist
 #' @importFrom glue glue
 #' @importFrom purrr map2_dfr possibly quietly
+#' @importFrom lubridate with_tz ymd_hm
 #' @import rvest
 #' @export
 #' @keywords WBB Scoreboard
@@ -2458,6 +2459,7 @@ espn_wbb_player_stats <- function(
 #'  **Parse ESPN WBB PBP, helper function**
 #' @param resp Response object from the ESPN WBB game summary endpoint
 #' @return Returns a tibble
+#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wbb_pbp <- function(resp){
   game_json <- resp %>%
@@ -2733,6 +2735,7 @@ helper_espn_wbb_pbp <- function(resp){
 #'  **Parse ESPN WBB Team Box, helper function**
 #' @param resp Response object from the ESPN WBB game summary endpoint
 #' @return Returns a tibble
+#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wbb_team_box <- function(resp) {
   game_json <- resp %>%
@@ -2944,6 +2947,7 @@ helper_espn_wbb_team_box <- function(resp) {
 #'  **Parse ESPN WBB Player Box, helper function**
 #' @param resp Response object from the ESPN WBB game summary endpoint
 #' @return Returns a tibble
+#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wbb_player_box <- function(resp){
   game_json <- resp %>%
