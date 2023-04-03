@@ -2451,8 +2451,9 @@ helper_espn_wnba_team_box <- function(resp){
           "team_winner")),
           tidyr::everything()) %>%
         make_wehoop_data("ESPN WNBA Team Box Information from ESPN.com", Sys.time())
+      
+      return(team_box_score)
     }
-    return(team_box_score)
   }
 }
 
@@ -2716,7 +2717,8 @@ helper_espn_wnba_player_box <- function(resp){
           "opponent_team_score"
         ), as.integer) %>%
         make_wehoop_data("ESPN WNBA Player Box Information from ESPN.com", Sys.time())
+      
+      return(player_box_score)
     }
-    return(player_box_score)
   }
 }
