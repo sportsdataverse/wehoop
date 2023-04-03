@@ -24,7 +24,19 @@
 * ```wnba_franchiseleaderswrank()``` function added. 
 * ```wnba_leaderstiles()``` function added. 
 * ```wnba_leagueleaders()``` function added. 
+* ```wnba_videodetailsasset()``` function added.
 * ```wnba_infographicfanduelplayer()``` function added.
+
+### **Other Functions Added**
+
+- ```ncaa_wbb_teams()``` function added.
+
+### **Proxy Capability Added and Other Notes**
+
+- Add rlang dots option for passing ```httr::use_proxy()``` option to `wnba_*()` functions
+- Returns documentation added for all working WNBA Stats API endpoints and ESPN functions
+- Tests added for all working WNBA Stats API endpoints and ESPN functions, over 1000 tests when
+  run locally
 
 # **wehoop 1.8.0**
 

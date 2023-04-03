@@ -1503,59 +1503,6 @@ espn_wbb_scoreboard <- function(season) {
 #' @import utils
 utils::globalVariables(c("where"))
 
-#' Get Women's college basketball NET rankings for the current date from the NCAA website
-#'
-#' @author Saiem Gilani
-#' @return Returns a tibble
-#' 
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |rank       |integer   |
-#'    |previous   |integer   |
-#'    |school     |character |
-#'    |conference |character |
-#'    |record     |character |
-#'    |road       |character |
-#'    |neutral    |character |
-#'    |home       |character |
-#'    |non_div_i  |character |
-#' 
-#' @importFrom dplyr %>% as_tibble
-#' @import rvest
-#' @export
-#' @keywords NCAA WBB NET Rankings
-#' @family NCAA WBB Functions
-#' @examples
-#' # Get current NCAA NET rankings
-#' \donttest{
-#'   try(ncaa_wbb_NET_rankings())
-#' }
-
-ncaa_wbb_NET_rankings <- function(){
-  
-  
-  NET_url <- "https://www.ncaa.com/rankings/basketball-women/d1/ncaa-womens-basketball-net-rankings"
-  tryCatch(
-    expr = {
-      x <- (NET_url %>%
-              xml2::read_html() %>%
-              rvest::html_nodes("table"))[[1]] %>%
-        rvest::html_table(fill = TRUE) %>%
-        dplyr::as_tibble() %>% 
-        janitor::clean_names() %>%
-        make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com",Sys.time())
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
-    }
-  )
-  return(x)
-}
-
 
 #' Get women's college basketball AP and Coaches poll rankings
 #'
