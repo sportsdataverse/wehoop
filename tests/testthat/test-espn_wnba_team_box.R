@@ -8,6 +8,7 @@ test_that("ESPN - WNBA Team Box", {
     "season",
     "season_type",
     "game_date",
+    "game_date_time",
     "team_id",
     "team_uid",
     "team_slug",

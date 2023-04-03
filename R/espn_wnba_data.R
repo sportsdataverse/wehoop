@@ -59,6 +59,7 @@
 #'    |season                    |integer   |
 #'    |season_type               |integer   |
 #'    |game_date                 |Date      |
+#'    |game_date_time            |POSIXct   |
 #'    
 #'    **Team** 
 #'    
@@ -69,6 +70,7 @@
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
+#'    |game_date_time                    |POSIXct   |
 #'    |team_id                           |integer   |
 #'    |team_uid                          |character |
 #'    |team_slug                         |character |
@@ -128,6 +130,7 @@
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
+#'    |game_date_time                    |POSIXct   |
 #'    |athlete_id                        |integer   |
 #'    |athlete_display_name              |character |
 #'    |team_id                           |integer   |
@@ -356,6 +359,7 @@ espn_wnba_game_all <- function(game_id){
 #'    |season                    |integer   |
 #'    |season_type               |integer   |
 #'    |game_date                 |Date      |
+#'    |game_date_time            |POSIXct   |
 #' 
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -427,6 +431,7 @@ espn_wnba_pbp <- function(game_id){
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
+#'    |game_date_time                    |POSIXct   |
 #'    |team_id                           |integer   |
 #'    |team_uid                          |character |
 #'    |team_slug                         |character |
@@ -544,6 +549,7 @@ espn_wnba_team_box <- function(game_id){
 #'    |season                            |integer   |
 #'    |season_type                       |integer   |
 #'    |game_date                         |Date      |
+#'    |game_date_time                    |POSIXct   |
 #'    |athlete_id                        |integer   |
 #'    |athlete_display_name              |character |
 #'    |team_id                           |integer   |
@@ -1081,12 +1087,13 @@ espn_wnba_teams <- function(){
 #'    |season_slug         |character |
 #'    |game_id             |integer   |
 #'    |game_uid            |character |
-#'    |game_date           |character |
+#'    |game_date           |Date      |
 #'    |attendance          |integer   |
 #'    |status_name         |character |
 #'    |broadcast_market    |character |
 #'    |broadcast_name      |character |
 #'    |start_date          |character |
+#'    |game_date_time      |POSIXct   |
 #'    |home_team_name      |character |
 #'    |home_team_logo      |character |
 #'    |home_team_abb       |character |
@@ -1186,6 +1193,13 @@ espn_wnba_scoreboard <- function(season){
         tidyr::unnest_wider("season", names_sep = "_") %>%
         dplyr::rename("season" = "season_year") %>%
         dplyr::select(-dplyr::any_of("status")) 
+      
+      wnba_data <- wnba_data %>%
+        dplyr::mutate(
+          game_date_time = lubridate::ymd_hm(substr(.data$game_date, 1, nchar(.data$game_date) - 1)) %>%
+            lubridate::with_tz(tzone = "America/New_York"),
+          game_date = as.Date(substr(.data$game_date_time, 1, 10)))
+      
       wnba_data <- wnba_data %>% 
         tidyr::hoist(
           "competitors",
@@ -2029,7 +2043,12 @@ helper_espn_wnba_pbp <- function(resp){
     gameId <- as.integer(game_json[["header"]][["id"]])
     season <- game_json[['header']][['season']][['year']]
     season_type <- game_json[['header']][['season']][['type']]
-    game_date <- as.Date(substr(game_json[['header']][['competitions']][['date']], 0, 10))
+    game_date_time <- substr(game_json[['header']][['competitions']][['date']], 1,
+                             nchar(game_json[['header']][['competitions']][['date']]) - 1) %>%
+      lubridate::ymd_hm() %>%
+      lubridate::with_tz(tzone = "America/New_York")
+    
+    game_date <- as.Date(substr(game_date_time, 0, 10))
     
     id_vars <- data.frame()
     if (homeAway1 == "home") {
@@ -2264,7 +2283,8 @@ helper_espn_wnba_pbp <- function(resp){
         game_id = gameId,
         season = season,
         season_type = season_type,
-        game_date = game_date) %>%
+        game_date = game_date,
+        game_date_time = game_date_time) %>%
       dplyr::rename(dplyr::any_of(c(
         "athlete_id_1" = "participants_0_athlete_id",
         "athlete_id_2" = "participants_1_athlete_id",
@@ -2296,6 +2316,12 @@ helper_espn_wnba_team_box <- function(resp){
     jsonlite::fromJSON()
   
   gameId <- as.integer(game_json[["header"]][["id"]])
+  game_date_time <- substr(game_json[['header']][['competitions']][['date']], 1,
+                           nchar(game_json[['header']][['competitions']][['date']]) - 1) %>%
+    lubridate::ymd_hm() %>%
+    lubridate::with_tz(tzone = "America/New_York")
+  
+  game_date <- as.Date(substr(game_date_time, 0, 10))
   box_score_available <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
   if (box_score_available == TRUE) {
     teams_box_score_df <- game_json[["boxscore"]][["teams"]] %>%
@@ -2422,6 +2448,8 @@ helper_espn_wnba_team_box <- function(resp){
       complete_statistics_df$season_type <- game_json[["header"]][["season"]][["type"]]
       complete_statistics_df$game_date <- as.Date(substr(game_json[["header"]][["competitions"]][["date"]], 0, 10))
       complete_statistics_df$game_id <- as.integer(gameId)
+      complete_statistics_df$game_date_time <- game_date_time
+      complete_statistics_df$game_date <- game_date
       
       suppressWarnings(
         complete_statistics_df <- complete_statistics_df %>%
@@ -2468,6 +2496,7 @@ helper_espn_wnba_team_box <- function(resp){
           "season",
           "season_type",
           "game_date",
+          "game_date_time",
           "team_id",
           "team_uid",
           "team_slug",
@@ -2507,7 +2536,13 @@ helper_espn_wnba_player_box <- function(resp){
   gameId <- as.integer(game_json[["header"]][["id"]])
   season <- game_json[["header"]][["season"]][["year"]]
   season_type <- game_json[["header"]][["season"]][["type"]]
-  game_date <- as.Date(substr(game_json[["header"]][["competitions"]][["date"]], 0, 10))
+  game_date_time <- substr(game_json[['header']][['competitions']][['date']], 1,
+                           nchar(game_json[['header']][['competitions']][['date']]) - 1) %>%
+    lubridate::ymd_hm() %>%
+    lubridate::with_tz(tzone = "America/New_York")
+  
+  game_date <- as.Date(substr(game_date_time, 0, 10))
+  
   boxScoreAvailable <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
   
   boxScoreSource <- game_json[["header"]][["competitions"]][["boxscoreSource"]]
@@ -2638,7 +2673,8 @@ helper_espn_wnba_player_box <- function(resp){
           game_id = gameId,
           season = season,
           season_type = season_type,
-          game_date = game_date)
+          game_date = game_date,
+          game_date_time = game_date_time)
       
       
       teams_df <- game_json[["header"]][["competitions"]][["competitors"]][[1]]
@@ -2690,6 +2726,7 @@ helper_espn_wnba_player_box <- function(resp){
           "season",
           "season_type",
           "game_date",
+          "game_date_time",
           "athlete_id",
           "athlete_display_name",
           "team_id",

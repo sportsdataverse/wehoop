@@ -53,7 +53,8 @@ test_that("ESPN - WBB Play-by-Play", {
     "game_id",
     "season",
     "season_type",
-    "game_date"
+    "game_date",
+    "game_date_time"
   )
   
   expect_equal(sort(colnames(x)), sort(cols))

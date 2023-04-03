@@ -56,7 +56,8 @@ test_that("ESPN - WBB Play-by-Play", {
     "game_id",
     "season",
     "season_type",
-    "game_date"
+    "game_date",
+    "game_date_time"
   )
   
   cols_x2 <- c(
@@ -64,6 +65,7 @@ test_that("ESPN - WBB Play-by-Play", {
     "season",
     "season_type",
     "game_date",
+    "game_date_time",
     "team_id",
     "team_uid",
     "team_slug",
@@ -120,6 +122,7 @@ test_that("ESPN - WBB Play-by-Play", {
     "season",
     "season_type",
     "game_date",
+    "game_date_time",
     "athlete_id",
     "athlete_display_name",
     "team_id",
