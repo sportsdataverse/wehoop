@@ -46,7 +46,8 @@ Other WNBA Shooting Functions:
 \code{\link{wnba_leaguedashteamshotlocations}()},
 \code{\link{wnba_playerdashboardbyshootingsplits}()},
 \code{\link{wnba_shotchartdetail}()},
-\code{\link{wnba_shotchartlineupdetail}()}
+\code{\link{wnba_shotchartlineupdetail}()},
+\code{\link{wnba_teamdashboardbyshootingsplits}()}
 
 Other WNBA League Functions: 
 \code{\link{wnba_leaguedashlineups}()},

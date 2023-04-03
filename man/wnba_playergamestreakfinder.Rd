@@ -337,7 +337,8 @@ Other WNBA Player Functions:
 \code{\link{wnba_playervsplayer}()}
 
 Other WNBA Game Finder Functions: 
-\code{\link{wnba_leaguegamefinder}()}
+\code{\link{wnba_leaguegamefinder}()},
+\code{\link{wnba_teamgamestreakfinder}()}
 }
 \author{
 Saiem Gilani

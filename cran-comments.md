@@ -5,6 +5,7 @@ This is a minor release that:
 * Corrects urls in documentation
 * ```espn_wbb_game_rosters()``` function added.
 * ```espn_wnba_game_rosters()``` function added.
+* ```ncaa_wbb_teams()``` function added.
 * ```wnba_teams()``` function added. 
 * ```wnba_shotchartlineupdetail()``` function added.
 * ```wnba_franchiseleaderswrank()``` function added. 
@@ -23,6 +24,7 @@ This is a minor release that:
 * ```wnba_boxscorefourfactorsv3()``` function added.
 * ```wnba_boxscoreplayertrackv3()``` function added.
 * ```wnba_boxscorehustlev2()``` function added.
+
 * Add proxy rlang dots option for passing httr::use_proxy() option to wnba_stats_*() functions
 
 ## R CMD check results

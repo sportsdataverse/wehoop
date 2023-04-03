@@ -867,7 +867,8 @@ Other WNBA Player Functions:
 \code{\link{wnba_playervsplayer}()}
 
 Other WNBA Clutch Functions: 
-\code{\link{wnba_leaguedashteamclutch}()}
+\code{\link{wnba_leaguedashteamclutch}()},
+\code{\link{wnba_teamdashboardbyclutch}()}
 }
 \author{
 Saiem Gilani

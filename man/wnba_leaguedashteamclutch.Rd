@@ -195,7 +195,8 @@ Other WNBA League Functions:
 \code{\link{wnba_shotchartleaguewide}()}
 
 Other WNBA Clutch Functions: 
-\code{\link{wnba_playerdashboardbyclutch}()}
+\code{\link{wnba_playerdashboardbyclutch}()},
+\code{\link{wnba_teamdashboardbyclutch}()}
 }
 \author{
 Saiem Gilani

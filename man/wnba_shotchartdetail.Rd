@@ -132,7 +132,8 @@ Other WNBA Shooting Functions:
 \code{\link{wnba_leaguedashteamshotlocations}()},
 \code{\link{wnba_playerdashboardbyshootingsplits}()},
 \code{\link{wnba_shotchartleaguewide}()},
-\code{\link{wnba_shotchartlineupdetail}()}
+\code{\link{wnba_shotchartlineupdetail}()},
+\code{\link{wnba_teamdashboardbyshootingsplits}()}
 }
 \author{
 Saiem Gilani

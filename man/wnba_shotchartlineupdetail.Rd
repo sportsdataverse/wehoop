@@ -236,12 +236,14 @@ Other WNBA Shooting Functions:
 \code{\link{wnba_leaguedashteamshotlocations}()},
 \code{\link{wnba_playerdashboardbyshootingsplits}()},
 \code{\link{wnba_shotchartdetail}()},
-\code{\link{wnba_shotchartleaguewide}()}
+\code{\link{wnba_shotchartleaguewide}()},
+\code{\link{wnba_teamdashboardbyshootingsplits}()}
 
 Other WNBA Lineup Functions: 
 \code{\link{wnba_gamerotation}()},
 \code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_leaguelineupviz}()}
+\code{\link{wnba_leaguelineupviz}()},
+\code{\link{wnba_teamdashlineups}()}
 }
 \author{
 Saiem Gilani

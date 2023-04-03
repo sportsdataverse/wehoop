@@ -337,7 +337,8 @@ Other WNBA League Functions:
 \code{\link{wnba_shotchartleaguewide}()}
 
 Other WNBA Game Finder Functions: 
-\code{\link{wnba_playergamestreakfinder}()}
+\code{\link{wnba_playergamestreakfinder}()},
+\code{\link{wnba_teamgamestreakfinder}()}
 }
 \author{
 Saiem Gilani

@@ -2,7 +2,7 @@
 % Please edit documentation in R/wnba_stats_team.R
 \name{wnba_teams}
 \alias{wnba_teams}
-\title{\strong{Get WNBA Stats and ESPN API Teams and Logos}}
+\title{\strong{Get WNBA Stats API Teams}}
 \usage{
 wnba_teams(...)
 }
@@ -10,28 +10,66 @@ wnba_teams(...)
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-Return a tibble with the following columns:\tabular{ll}{
+Return a data frame with the following columns:\tabular{ll}{
    col_name \tab types \cr
-   LEAGUE_ID \tab numeric \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
+   league_id \tab character \cr
+   season_id \tab character \cr
+   team_id \tab character \cr
+   team_city \tab character \cr
+   team_name \tab character \cr
+   team_slug \tab character \cr
+   conference \tab character \cr
+   division \tab character \cr
+   team_abbreviation \tab character \cr
+   team_name_full \tab character \cr
+   season \tab character \cr
    espn_team_id \tab integer \cr
    team \tab character \cr
    mascot \tab character \cr
    display_name \tab character \cr
-   short_name \tab character \cr
    abbreviation \tab character \cr
    color \tab character \cr
    alternate_color \tab character \cr
    logo \tab character \cr
    logo_dark \tab character \cr
+   wnba_logo_svg \tab character \cr
 }
 }
 \description{
-\strong{Get WNBA Stats and ESPN API Teams and Logos}
+\strong{Get WNBA Stats API Teams}
 
-\strong{Get WNBA Stats and ESPN API Teams and Logos}
+\strong{Get WNBA Stats API Teams}
+}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_teams()
+}\if{html}{\out{</div>}}
+}
+\seealso{
+Other WNBA Team Functions: 
+\code{\link{wnba_leaguedashteamstats}()},
+\code{\link{wnba_teamdashboardbyclutch}()},
+\code{\link{wnba_teamdashboardbygamesplits}()},
+\code{\link{wnba_teamdashboardbygeneralsplits}()},
+\code{\link{wnba_teamdashboardbylastngames}()},
+\code{\link{wnba_teamdashboardbyopponent}()},
+\code{\link{wnba_teamdashboardbyshootingsplits}()},
+\code{\link{wnba_teamdashboardbyteamperformance}()},
+\code{\link{wnba_teamdashboardbyyearoveryear}()},
+\code{\link{wnba_teamdashlineups}()},
+\code{\link{wnba_teamdetails}()},
+\code{\link{wnba_teamestimatedmetrics}()},
+\code{\link{wnba_teamgamelogs}()},
+\code{\link{wnba_teamgamelog}()},
+\code{\link{wnba_teamgamestreakfinder}()},
+\code{\link{wnba_teamhistoricalleaders}()},
+\code{\link{wnba_teaminfocommon}()},
+\code{\link{wnba_teamplayerdashboard}()},
+\code{\link{wnba_teamplayeronoffdetails}()},
+\code{\link{wnba_teamplayeronoffsummary}()},
+\code{\link{wnba_teamvsplayer}()},
+\code{\link{wnba_teamyearbyyearstats}()}
 }
 \author{
 Saiem Gilani
 }
+\concept{WNBA Team Functions}

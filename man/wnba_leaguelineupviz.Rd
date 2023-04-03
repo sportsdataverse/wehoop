@@ -152,7 +152,8 @@ Other WNBA League Functions:
 Other WNBA Lineup Functions: 
 \code{\link{wnba_gamerotation}()},
 \code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_shotchartlineupdetail}()}
+\code{\link{wnba_shotchartlineupdetail}()},
+\code{\link{wnba_teamdashlineups}()}
 }
 \author{
 Saiem Gilani

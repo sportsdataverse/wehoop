@@ -1,58 +1,93 @@
-#' **Get WNBA Stats and ESPN API Teams and Logos**
+#' **Get WNBA Stats API Teams**
 #' @name wnba_teams
 NULL
 #' @title
-#' **Get WNBA Stats and ESPN API Teams and Logos**
+#' **Get WNBA Stats API Teams**
 #' @rdname wnba_teams
 #' @author Saiem Gilani
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return Return a tibble with the following columns:
-#' 
+#' @return Return a data frame with the following columns:
+#'
 #'    |col_name          |types     |
 #'    |:-----------------|:---------|
-#'    |LEAGUE_ID         |numeric   |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
+#'    |league_id         |character |
+#'    |season_id         |character |
+#'    |team_id           |character |
+#'    |team_city         |character |
+#'    |team_name         |character |
+#'    |team_slug         |character |
+#'    |conference        |character |
+#'    |division          |character |
+#'    |team_abbreviation |character |
+#'    |team_name_full    |character |
+#'    |season            |character |
 #'    |espn_team_id      |integer   |
 #'    |team              |character |
 #'    |mascot            |character |
 #'    |display_name      |character |
-#'    |short_name        |character |
 #'    |abbreviation      |character |
 #'    |color             |character |
 #'    |alternate_color   |character |
 #'    |logo              |character |
 #'    |logo_dark         |character |
-#'    
+#'    |wnba_logo_svg     |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'  wnba_teams()
+#' ```
 wnba_teams <- function(...){
   
   tryCatch(
     expr = {
-        x <- wnba_leaguegamelog(season = most_recent_wnba_season() - 1)$LeagueGameLog %>% 
-          dplyr::select("TEAM_ID", "TEAM_NAME","TEAM_ABBREVIATION") %>% 
-          dplyr::distinct()
-        y <- espn_wnba_teams()
-        
-        wnba_teams_df <- y %>% 
-          dplyr::left_join(x, by = c("display_name" = "TEAM_NAME"))
-        wnba_teams_df <- wnba_teams_df %>% 
-          dplyr::mutate(
-            LEAGUE_ID = 10,
-            TEAM_ID = as.integer(.data$TEAM_ID),
-            team_id = as.integer(.data$team_id)) %>% 
-          dplyr::select(
-            "LEAGUE_ID",
-            "TEAM_ID",
-            "TEAM_ABBREVIATION",
-            "espn_team_id" = "team_id",
-            tidyr::everything()
-          )
-            
-        
+      
+      standings <- wnba_leaguestandingsv3(season = most_recent_wnba_season(), ...) %>%
+        purrr::pluck("Standings")
+      
+      league_gamelog <- wnba_leaguegamelog(league_id = '10', season = most_recent_wnba_season(), ...) %>% 
+        purrr::pluck("LeagueGameLog") %>% 
+        dplyr::rename("team_name_full" = "TEAM_NAME") %>% 
+        dplyr::select(
+          "TEAM_ID",
+          "TEAM_ABBREVIATION",
+          "team_name_full") %>% 
+        dplyr::distinct()
+      
+      standings <- standings %>% 
+        dplyr::left_join(league_gamelog, by = c("TeamID" = "TEAM_ID"))
+      
+      wnba_teams <- standings %>%
+        dplyr::select(dplyr::any_of(c(
+          "LeagueID",
+          "SeasonID",
+          "TeamID",
+          "TeamCity",
+          "TeamName",
+          "TeamSlug",
+          "Conference",
+          "Division",
+          "TEAM_ABBREVIATION",
+          "team_name_full"))) %>%
+        dplyr::mutate(
+          Season = paste0('', most_recent_wnba_season())) %>%
+        dplyr::arrange(.data$team_name_full)
+      
+      espn_wnba_teams <- espn_wnba_teams() %>%
+        dplyr::rename("espn_team_id" = "team_id")
+      wnba_teams <- wnba_teams %>%
+        dplyr::left_join(espn_wnba_teams, by = c("TeamName" = "short_name"))
+      
+      wnba_teams <- wnba_teams %>%
+        dplyr::mutate(
+          espn_team_id = as.integer(.data$espn_team_id),
+          wnba_logo_svg = paste0("https://stats.wnba.com/media/img/teams/logos/", .data$TEAM_ABBREVIATION, ".svg")) %>%
+        janitor::clean_names()
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team details data for {team_id} available!"))
@@ -62,48 +97,134 @@ wnba_teams <- function(...){
     finally = {
     }
   )
-  return(wnba_teams_df)
+  return(wnba_teams)
 }
 
+
 #' **Get WNBA Stats API Team Details**
-#' @name t_details
+#' @name wnba_teamdetails
 NULL
 #' @title
 #' **Get WNBA Stats API Team Details**
-#' @rdname t_details
+#' @rdname wnba_teamdetails
 #' @author Saiem Gilani
 #' @param team_id Team ID
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamAwardsChampionships,
 #' TeamAwardsConf, TeamAwardsDiv, TeamBackground,
 #' TeamHistory, TeamHof, TeamRetired, TeamSocialSites
+#'
+#'    **TeamBackground**
+#'
+#'
+#'    |col_name           |types     |
+#'    |:------------------|:---------|
+#'    |TEAM_ID            |character |
+#'    |ABBREVIATION       |character |
+#'    |NICKNAME           |character |
+#'    |YEARFOUNDED        |character |
+#'    |CITY               |character |
+#'    |ARENA              |character |
+#'    |ARENACAPACITY      |character |
+#'    |OWNER              |character |
+#'    |GENERALMANAGER     |character |
+#'    |HEADCOACH          |character |
+#'    |DLEAGUEAFFILIATION |character |
+#'
+#'    **TeamHistory**
+#'
+#'
+#'    |col_name       |types     |
+#'    |:--------------|:---------|
+#'    |TEAM_ID        |character |
+#'    |CITY           |character |
+#'    |NICKNAME       |character |
+#'    |YEARFOUNDED    |character |
+#'    |YEARACTIVETILL |character |
+#'
+#'    **TeamSocialSites**
+#'
+#'
+#'    |col_name     |types     |
+#'    |:------------|:---------|
+#'    |ACCOUNTTYPE  |character |
+#'    |WEBSITE_LINK |character |
+#'
+#'    **TeamAwardsChampionships**
+#'
+#'
+#'    |col_name     |types     |
+#'    |:------------|:---------|
+#'    |YEARAWARDED  |character |
+#'    |OPPOSITETEAM |character |
+#'
+#'    **TeamAwardsConf**
+#'
+#'
+#'    |col_name     |types   |
+#'    |:------------|:-------|
+#'    |YEARAWARDED  |integer |
+#'    |OPPOSITETEAM |integer |
+#'
+#'    **TeamAwardsDiv**
+#'
+#'
+#'    |col_name     |types   |
+#'    |:------------|:-------|
+#'    |YEARAWARDED  |integer |
+#'    |OPPOSITETEAM |integer |
+#'
+#'    **TeamHof**
+#'
+#'
+#'    |col_name        |types     |
+#'    |:---------------|:---------|
+#'    |PLAYERID        |character |
+#'    |PLAYER          |character |
+#'    |POSITION        |character |
+#'    |JERSEY          |character |
+#'    |SEASONSWITHTEAM |character |
+#'    |YEAR            |character |
+#'
+#'    **TeamRetired**
+#'
+#'
+#'    |col_name        |types     |
+#'    |:---------------|:---------|
+#'    |PLAYERID        |character |
+#'    |PLAYER          |character |
+#'    |POSITION        |character |
+#'    |JERSEY          |character |
+#'    |SEASONSWITHTEAM |character |
+#'    |YEAR            |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-wnba_teamdetails <- function(team_id='1611661317',
-                             ...){
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'  wnba_teamdetails(team_id = '1611661328')
+#' ```
+wnba_teamdetails <- function(
+    team_id = '1611661328',
+    ...){
   
   version <- "teamdetails"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?TeamID=",team_id)
+  params <- list(
+    TeamID = team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -119,43 +240,90 @@ wnba_teamdetails <- function(team_id='1611661317',
 
 
 #' **Get WNBA Stats API Team Estimated Metrics**
-#' @name t_est_metr
+#' @name wnba_teamestimatedmetrics
 NULL
 #' @title
 #' **Get WNBA Stats API Team Estimated Metrics**
-#' @rdname t_est_metr
+#' @rdname wnba_teamestimatedmetrics
 #' @author Saiem Gilani
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamEstimatedMetrics
+#'
+#'    **TeamEstimatedMetrics**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ID           |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |E_OFF_RATING      |character |
+#'    |E_DEF_RATING      |character |
+#'    |E_NET_RATING      |character |
+#'    |E_PACE            |character |
+#'    |E_AST_RATIO       |character |
+#'    |E_OREB_PCT        |character |
+#'    |E_DREB_PCT        |character |
+#'    |E_REB_PCT         |character |
+#'    |E_TM_TOV_PCT      |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |E_OFF_RATING_RANK |character |
+#'    |E_DEF_RATING_RANK |character |
+#'    |E_NET_RATING_RANK |character |
+#'    |E_AST_RATIO_RANK  |character |
+#'    |E_OREB_PCT_RANK   |character |
+#'    |E_DREB_PCT_RANK   |character |
+#'    |E_REB_PCT_RANK    |character |
+#'    |E_TM_TOV_PCT_RANK |character |
+#'    |E_PACE_RANK       |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-wnba_teamestimatedmetrics <- function(league_id = '10',
-                                      season='2021',
-                                      season_type='Regular Season',
-                                      ...){
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'  wnba_teamestimatedmetrics()
+#' ```
+wnba_teamestimatedmetrics <- function(
+    league_id = '10',
+    season = most_recent_wnba_season(),
+    season_type = 'Regular Season',
+    ...){
   
-  season_type <- gsub(' ','+',season_type)
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamestimatedmetrics"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?LeagueID=", league_id,
-                     "&Season=",season,
-                     "&SeasonType=",season_type)
+  params <- list(
+    LeagueID = league_id,
+    Season = season,
+    SeasonType = season_type
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
         data <- resp$resultSet$rowSet %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
+          data.frame(stringsAsFactors = FALSE) %>%
+          dplyr::as_tibble()
         
         json_names <- resp$resultSet$headers
         colnames(data) <- json_names
@@ -179,59 +347,93 @@ wnba_teamestimatedmetrics <- function(league_id = '10',
 
 
 #' **Get WNBA Stats API Team Game Log**
-#' @name t_gamelog
+#' @name wnba_teamgamelog
 NULL
 #' @title
 #' **Get WNBA Stats API Team Game Log**
-#' @rdname t_gamelog
+#' @rdname wnba_teamgamelog
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param team_id Team ID
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamGameLog
+#'
+#'    **TeamGameLog**
+#'
+#'
+#'    |col_name  |types     |
+#'    |:---------|:---------|
+#'    |Team_ID   |character |
+#'    |Game_ID   |character |
+#'    |GAME_DATE |character |
+#'    |MATCHUP   |character |
+#'    |WL        |character |
+#'    |W         |character |
+#'    |L         |character |
+#'    |W_PCT     |character |
+#'    |MIN       |character |
+#'    |FGM       |character |
+#'    |FGA       |character |
+#'    |FG_PCT    |character |
+#'    |FG3M      |character |
+#'    |FG3A      |character |
+#'    |FG3_PCT   |character |
+#'    |FTM       |character |
+#'    |FTA       |character |
+#'    |FT_PCT    |character |
+#'    |OREB      |character |
+#'    |DREB      |character |
+#'    |REB       |character |
+#'    |AST       |character |
+#'    |STL       |character |
+#'    |BLK       |character |
+#'    |TOV       |character |
+#'    |PF        |character |
+#'    |PTS       |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'  wnba_teamgamelog(team_id = '1611661328')
+#' ```
 wnba_teamgamelog <- function(
     date_from = '',
     date_to = '',
     league_id = '10',
-    season='2022',
-    season_type='Regular Season',
-    team_id='1611661317',
+    season = most_recent_wnba_season(),
+    season_type = 'Regular Season',
+    team_id = '1611661328',
     ...){
   
-  season_type <- gsub(' ','+',season_type)
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamgamelog"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&LeagueID=", league_id,
-                     "&Season=",season,
-                     "&SeasonType=",season_type,
-                     "&TeamID=",team_id)
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    LeagueID = league_id,
+    Season = season,
+    SeasonType = season_type,
+    TeamID = team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
-        data <- resp$resultSet$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSet$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSet$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -247,132 +449,165 @@ wnba_teamgamelog <- function(
 
 
 #' **Get WNBA Stats API Team Game Logs**
-#' @name t_gamelogs
+#' @name wnba_teamgamelogs
 NULL
 #' @title
 #' **Get WNBA Stats API Team Game Logs**
-#' @rdname t_gamelogs
+#' @rdname wnba_teamgamelogs
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
 #' @param game_segment game_segment
 #' @param last_n_games last_n_games
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param location location
 #' @param measure_type measure_type
 #' @param month month
 #' @param opponent_team_id opponent_team_id
 #' @param outcome outcome
-#' @param pace_adjust pace adjust
-#' @param plus_minus plus_minus
 #' @param po_round po_round
 #' @param per_mode per_mode
 #' @param period period
-#' @param rank rank
+#' @param player_id Player ID
 #' @param season Season - format 2020-21
 #' @param season_segment season_segment
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
-#' @param shot_clock_range Shot Clock Range
 #' @param team_id team_id
 #' @param vs_conference vs_conference
 #' @param vs_division vs_division
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamGameLogs
+#'
+#'    **TeamGameLogs**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |SEASON_YEAR       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |GAME_ID           |character |
+#'    |GAME_DATE         |character |
+#'    |MATCHUP           |character |
+#'    |WL                |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' [Teams Game Log](https://www.nba.com/stats/team/1611661328/boxscores)
+#' ```r
+#'  wnba_teamgamelogs(team_id = '1611661328')
+#' ```
 wnba_teamgamelogs <- function(
     date_from = '',
     date_to = '',
     game_segment = '',
-    last_n_games=0,
-    league_id='10',
-    location='',
-    measure_type='Base',
-    month=0,
-    opponent_team_id=0,
-    outcome='',
-    po_round='0',
-    pace_adjust='N',
-    per_mode='Totals',
-    period=0,
-    plus_minus='N',
-    rank='N',
-    season='2022',
-    season_segment='',
-    season_type='Regular Season',
-    shot_clock_range='',
-    team_id='1611661319',
-    vs_conference='',
-    vs_division='',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    measure_type = 'Base',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'Totals',
+    period = 0,
+    player_id = '',
+    season = most_recent_wnba_season(),
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '1611661328',
+    vs_conference = '',
+    vs_division = '',
     ...){
   
-  season_type <- gsub(' ','+',season_type)
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamgamelogs"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&GameSegment=", game_segment,
-                     "&LastNGames=", last_n_games,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&MeasureType=", measure_type,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&PaceAdjust=", pace_adjust,
-                     "&PerMode=", per_mode,
-                     "&Period=", period,
-                     "&PlusMinus=", plus_minus,
-                     "&Rank=", rank,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&ShotClockRange=", shot_clock_range,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division)
-  headers <- c(
-    `Host` = 'stats.wnba.com',
-    `User-Agent` = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
-    `Accept` = 'application/json, text/plain, */*',
-    `Accept-Language` = 'en-US,en;q=0.5',
-    `Accept-Encoding` = 'gzip, deflate, br',
-    `x-nba-stats-origin` = 'stats',
-    `x-nba-stats-token` = 'true',
-    `Connection` = 'keep-alive',
-    `Referer` = paste0("https://stats.wnba.com/team/",
-                       team_id, "/boxscores-traditional/"),
-    `Pragma` = 'no-cache',
-    `Cache-Control` = 'no-cache'
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    MeasureType = measure_type,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    PlayerID = player_id,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
   )
   
   tryCatch(
     expr = {
       
-      res <-
-        httr::RETRY("GET", full_url, 
-                    ...,
-                    httr::add_headers(.headers = headers))
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      resp <- res$content %>%
-        rawToChar() %>%
-        jsonlite::fromJSON(simplifyVector = T)
-      
-      df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
-        data <- resp$resultSet$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSet$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSet$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -389,49 +624,72 @@ wnba_teamgamelogs <- function(
 
 
 #' **Get WNBA Stats API Team Historical Leaders**
-#' @name thist_leaders
+#' @name wnba_teamhistoricalleaders
 NULL
 #' @title
 #' **Get WNBA Stats API Team Historical Leaders**
-#' @rdname thist_leaders
+#' @rdname wnba_teamhistoricalleaders
 #' @author Saiem Gilani
 #' @param league_id league_id
 #' @param season_id season_id
 #' @param team_id team_id
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: CareerLeadersByTeam
+#'
+#'    **CareerLeadersByTeam**
+#'
+#'
+#'    |col_name      |types     |
+#'    |:-------------|:---------|
+#'    |TEAM_ID       |character |
+#'    |PTS           |character |
+#'    |PTS_PERSON_ID |character |
+#'    |PTS_PLAYER    |character |
+#'    |AST           |character |
+#'    |AST_PERSON_ID |character |
+#'    |AST_PLAYER    |character |
+#'    |REB           |character |
+#'    |REB_PERSON_ID |character |
+#'    |REB_PLAYER    |character |
+#'    |BLK           |character |
+#'    |BLK_PERSON_ID |character |
+#'    |BLK_PLAYER    |character |
+#'    |STL           |character |
+#'    |STL_PERSON_ID |character |
+#'    |STL_PLAYER    |character |
+#'    |SEASON_YEAR   |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'   wnba_teamhistoricalleaders(team_id = '1611661328')
+#' ```
 wnba_teamhistoricalleaders <- function(
-    league_id='10',
-    season_id='22022',
-    team_id='1611661317',
+    league_id = '10',
+    season_id = '22022',
+    team_id = '1611661328',
     ...){
   
   version <- "teamhistoricalleaders"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?LeagueID=", league_id,
-                     "&SeasonID=", season_id,
-                     "&TeamID=", team_id)
+  params <- list(
+    LeagueID = league_id,
+    SeasonID = season_id,
+    TeamID = team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -447,53 +705,101 @@ wnba_teamhistoricalleaders <- function(
 
 
 #' **Get WNBA Stats API Team Common Info**
-#' @name teaminfo
+#' @name wnba_teaminfocommon
 NULL
 #' @title
 #' **Get WNBA Stats API Team Common Info**
-#' @rdname teaminfo
+#' @rdname wnba_teaminfocommon
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '10'. Other options include '00': NBA, '20': G-League
 #' @param team_id Team ID
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return Return a named list of data frames: AvailableSeasons, TeamInfoCommon, TeamSeasonRanks
+#' @return Return a named list of data frames: AvailableSeasons, TeamInfoCommon,
+#' TeamSeasonRanks
+#'
+#'    **TeamInfoCommon**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |TEAM_ID           |character |
+#'    |SEASON_YEAR       |character |
+#'    |TEAM_CITY         |character |
+#'    |TEAM_NAME         |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_CONFERENCE   |character |
+#'    |TEAM_DIVISION     |character |
+#'    |TEAM_CODE         |character |
+#'    |TEAM_SLUG         |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |PCT               |character |
+#'    |CONF_RANK         |character |
+#'    |DIV_RANK          |character |
+#'    |MIN_YEAR          |character |
+#'    |MAX_YEAR          |character |
+#'
+#'    **TeamSeasonRanks**
+#'
+#'
+#'    |col_name     |types     |
+#'    |:------------|:---------|
+#'    |LEAGUE_ID    |character |
+#'    |SEASON_ID    |character |
+#'    |TEAM_ID      |character |
+#'    |PTS_RANK     |character |
+#'    |PTS_PG       |character |
+#'    |REB_RANK     |character |
+#'    |REB_PG       |character |
+#'    |AST_RANK     |character |
+#'    |AST_PG       |character |
+#'    |OPP_PTS_RANK |character |
+#'    |OPP_PTS_PG   |character |
+#'
+#'    **AvailableSeasons**
+#'
+#'
+#'    |col_name  |types     |
+#'    |:---------|:---------|
+#'    |SEASON_ID |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'   wnba_teaminfocommon(team_id = '1611661328')
+#' ```
 wnba_teaminfocommon <- function(
     league_id = '10',
-    season='2022',
-    season_type='Regular Season',
-    team_id='1611661317',
+    season = most_recent_wnba_season(),
+    season_type = 'Regular Season',
+    team_id = '1611661328',
     ...){
   
-  season_type <- gsub(' ','+',season_type)
+  # Intentionally not commented out
+  season_type <- gsub(' ', '+', season_type)
   version <- "teaminfocommon"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?&LeagueID=", league_id,
-                     "&Season=",season,
-                     "&SeasonType=",season_type,
-                     "&TeamID=",team_id)
+  params <- list(
+    LeagueID = league_id,
+    Season = season,
+    SeasonType = season_type,
+    TeamID = team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
-        data <- resp$resultSet$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSet$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSet$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -510,11 +816,11 @@ wnba_teaminfocommon <- function(
 
 
 #' **Get WNBA Stats API Team Player On/Off Details**
-#' @name tp_onoff_det
+#' @name wnba_teamplayeronoffdetails
 NULL
 #' @title
 #' **Get WNBA Stats API Team Player On/Off Details**
-#' @rdname tp_onoff_det
+#' @rdname wnba_teamplayeronoffdetails
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
@@ -542,78 +848,273 @@ NULL
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: OverallTeamPlayerOnOffDetails,
 #' PlayersOffCourtTeamPlayerOnOffDetails, PlayersOnCourtTeamPlayerOnOffDetails
+#'
+#'    **OverallTeamPlayerOnOffDetails**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |GROUP_VALUE       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
+#'    **PlayersOnCourtTeamPlayerOnOffDetails**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
+#'    **PlayersOffCourtTeamPlayerOnOffDetails**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'  wnba_teamplayeronoffdetails(team_id = '1611661328')
+#' ```
 wnba_teamplayeronoffdetails <- function(
     date_from = '',
     date_to = '',
     game_segment = '',
-    last_n_games=0,
-    league_id='10',
-    location='',
-    measure_type='Base',
-    month=0,
-    opponent_team_id=0,
-    outcome='',
-    pace_adjust='N',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    measure_type = 'Base',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    pace_adjust = 'N',
     plus_minus = 'N',
-    po_round='',
-    per_mode='Totals',
-    period=0,
+    po_round = '',
+    per_mode = 'Totals',
+    period = 0,
     rank = 'N',
-    season='2022',
-    season_segment='',
-    season_type='Regular Season',
-    shot_clock_range='',
-    team_id='1611661317',
-    vs_conference='',
-    vs_division='',
+    season = most_recent_wnba_season(),
+    season_segment = '',
+    season_type = 'Regular Season',
+    shot_clock_range = '',
+    team_id = '1611661328',
+    vs_conference = '',
+    vs_division = '',
     ...){
-  season_type <- gsub(' ','+',season_type)
+  
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamplayeronoffdetails"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&GameSegment=", game_segment,
-                     "&LastNGames=", last_n_games,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&MeasureType=", measure_type,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PaceAdjust=", pace_adjust,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&Period=", period,
-                     "&PlusMinus=", plus_minus,
-                     "&Rank=", rank,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&ShotClockRange=",shot_clock_range,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division)
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    MeasureType = measure_type,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PaceAdjust = pace_adjust,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    PlusMinus = plus_minus,
+    Rank = rank,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    ShotClockRange = shot_clock_range,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -629,11 +1130,11 @@ wnba_teamplayeronoffdetails <- function(
 
 
 #' **Get WNBA Stats API Team Player On/Off Summary**
-#' @name tp_onoffsummary
+#' @name wnba_teamplayeronoffsummary
 NULL
 #' @title
 #' **Get WNBA Stats API Team Player On/Off Summary**
-#' @rdname tp_onoffsummary
+#' @rdname wnba_teamplayeronoffsummary
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
@@ -661,78 +1162,182 @@ NULL
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: OverallTeamPlayerOnOffSummary,
 #' PlayersOffCourtTeamPlayerOnOffSummary, PlayersOnCourtTeamPlayerOnOffSummary
+#'
+#'    **OverallTeamPlayerOnOffSummary**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |GROUP_VALUE       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
+#'    **PlayersOnCourtTeamPlayerOnOffSummary**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GP                |character |
+#'    |MIN               |character |
+#'    |PLUS_MINUS        |character |
+#'    |OFF_RATING        |character |
+#'    |DEF_RATING        |character |
+#'    |NET_RATING        |character |
+#'
+#'    **PlayersOffCourtTeamPlayerOnOffSummary**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GP                |character |
+#'    |MIN               |character |
+#'    |PLUS_MINUS        |character |
+#'    |OFF_RATING        |character |
+#'    |DEF_RATING        |character |
+#'    |NET_RATING        |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'   wnba_teamplayeronoffsummary(team_id = '1611661328')
+#' ```
 wnba_teamplayeronoffsummary <- function(
     date_from = '',
     date_to = '',
     game_segment = '',
-    last_n_games=0,
-    league_id='10',
-    location='',
-    measure_type='Base',
-    month=0,
-    opponent_team_id=0,
-    outcome='',
-    pace_adjust='N',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    measure_type = 'Base',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    pace_adjust = 'N',
     plus_minus = 'N',
-    po_round='',
-    per_mode='Totals',
-    period=0,
+    po_round = '',
+    per_mode = 'Totals',
+    period = 0,
     rank = 'N',
-    season='2022',
-    season_segment='',
-    season_type='Regular Season',
-    shot_clock_range='',
-    team_id='1611661317',
-    vs_conference='',
-    vs_division='',
+    season = most_recent_wnba_season(),
+    season_segment = '',
+    season_type = 'Regular Season',
+    shot_clock_range = '',
+    team_id = '1611661328',
+    vs_conference = '',
+    vs_division = '',
     ...){
-  season_type <- gsub(' ','+',season_type)
+  
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamplayeronoffsummary"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&GameSegment=", game_segment,
-                     "&LastNGames=", last_n_games,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&MeasureType=", measure_type,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PaceAdjust=", pace_adjust,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&Period=", period,
-                     "&PlusMinus=", plus_minus,
-                     "&Rank=", rank,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&ShotClockRange=",shot_clock_range,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division)
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    MeasureType = measure_type,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PaceAdjust = pace_adjust,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    PlusMinus = plus_minus,
+    Rank = rank,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    ShotClockRange = shot_clock_range,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team player on off summary data for {team_id} available!"))
@@ -748,11 +1353,11 @@ wnba_teamplayeronoffsummary <- function(
 
 
 #' **Get WNBA Stats API Team Player Dashboard**
-#' @name tp
+#' @name wnba_teamplayerdashboard
 NULL
 #' @title
 #' **Get WNBA Stats API Team Player Dashboard**
-#' @rdname tp
+#' @rdname wnba_teamplayerdashboard
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
@@ -779,78 +1384,213 @@ NULL
 #' @param vs_division vs_division
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: PlayersSeasonTotals, TeamOverall
+#'
+#'    **TeamOverall**
+#'
+#'
+#'    |col_name        |types     |
+#'    |:---------------|:---------|
+#'    |GROUP_SET       |character |
+#'    |TEAM_ID         |character |
+#'    |TEAM_NAME       |character |
+#'    |GROUP_VALUE     |character |
+#'    |GP              |character |
+#'    |W               |character |
+#'    |L               |character |
+#'    |W_PCT           |character |
+#'    |MIN             |character |
+#'    |FGM             |character |
+#'    |FGA             |character |
+#'    |FG_PCT          |character |
+#'    |FG3M            |character |
+#'    |FG3A            |character |
+#'    |FG3_PCT         |character |
+#'    |FTM             |character |
+#'    |FTA             |character |
+#'    |FT_PCT          |character |
+#'    |OREB            |character |
+#'    |DREB            |character |
+#'    |REB             |character |
+#'    |AST             |character |
+#'    |TOV             |character |
+#'    |STL             |character |
+#'    |BLK             |character |
+#'    |BLKA            |character |
+#'    |PF              |character |
+#'    |PFD             |character |
+#'    |PTS             |character |
+#'    |PLUS_MINUS      |character |
+#'    |GP_RANK         |character |
+#'    |W_RANK          |character |
+#'    |L_RANK          |character |
+#'    |W_PCT_RANK      |character |
+#'    |MIN_RANK        |character |
+#'    |FGM_RANK        |character |
+#'    |FGA_RANK        |character |
+#'    |FG_PCT_RANK     |character |
+#'    |FG3M_RANK       |character |
+#'    |FG3A_RANK       |character |
+#'    |FG3_PCT_RANK    |character |
+#'    |FTM_RANK        |character |
+#'    |FTA_RANK        |character |
+#'    |FT_PCT_RANK     |character |
+#'    |OREB_RANK       |character |
+#'    |DREB_RANK       |character |
+#'    |REB_RANK        |character |
+#'    |AST_RANK        |character |
+#'    |TOV_RANK        |character |
+#'    |STL_RANK        |character |
+#'    |BLK_RANK        |character |
+#'    |BLKA_RANK       |character |
+#'    |PF_RANK         |character |
+#'    |PFD_RANK        |character |
+#'    |PTS_RANK        |character |
+#'    |PLUS_MINUS_RANK |character |
+#'
+#'    **PlayersSeasonTotals**
+#'
+#'
+#'    |col_name              |types     |
+#'    |:---------------------|:---------|
+#'    |GROUP_SET             |character |
+#'    |PLAYER_ID             |character |
+#'    |PLAYER_NAME           |character |
+#'    |NICKNAME              |character |
+#'    |GP                    |character |
+#'    |W                     |character |
+#'    |L                     |character |
+#'    |W_PCT                 |character |
+#'    |MIN                   |character |
+#'    |FGM                   |character |
+#'    |FGA                   |character |
+#'    |FG_PCT                |character |
+#'    |FG3M                  |character |
+#'    |FG3A                  |character |
+#'    |FG3_PCT               |character |
+#'    |FTM                   |character |
+#'    |FTA                   |character |
+#'    |FT_PCT                |character |
+#'    |OREB                  |character |
+#'    |DREB                  |character |
+#'    |REB                   |character |
+#'    |AST                   |character |
+#'    |TOV                   |character |
+#'    |STL                   |character |
+#'    |BLK                   |character |
+#'    |BLKA                  |character |
+#'    |PF                    |character |
+#'    |PFD                   |character |
+#'    |PTS                   |character |
+#'    |PLUS_MINUS            |character |
+#'    |NBA_FANTASY_PTS       |character |
+#'    |DD2                   |character |
+#'    |TD3                   |character |
+#'    |WNBA_FANTASY_PTS      |character |
+#'    |GP_RANK               |character |
+#'    |W_RANK                |character |
+#'    |L_RANK                |character |
+#'    |W_PCT_RANK            |character |
+#'    |MIN_RANK              |character |
+#'    |FGM_RANK              |character |
+#'    |FGA_RANK              |character |
+#'    |FG_PCT_RANK           |character |
+#'    |FG3M_RANK             |character |
+#'    |FG3A_RANK             |character |
+#'    |FG3_PCT_RANK          |character |
+#'    |FTM_RANK              |character |
+#'    |FTA_RANK              |character |
+#'    |FT_PCT_RANK           |character |
+#'    |OREB_RANK             |character |
+#'    |DREB_RANK             |character |
+#'    |REB_RANK              |character |
+#'    |AST_RANK              |character |
+#'    |TOV_RANK              |character |
+#'    |STL_RANK              |character |
+#'    |BLK_RANK              |character |
+#'    |BLKA_RANK             |character |
+#'    |PF_RANK               |character |
+#'    |PFD_RANK              |character |
+#'    |PTS_RANK              |character |
+#'    |PLUS_MINUS_RANK       |character |
+#'    |NBA_FANTASY_PTS_RANK  |character |
+#'    |DD2_RANK              |character |
+#'    |TD3_RANK              |character |
+#'    |WNBA_FANTASY_PTS_RANK |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'   wnba_teamplayerdashboard(team_id = '1611661328')
+#' ```
 wnba_teamplayerdashboard <- function(
     date_from = '',
     date_to = '',
     game_segment = '',
-    last_n_games=0,
-    league_id='10',
-    location='',
-    measure_type='Base',
-    month=0,
-    opponent_team_id=0,
-    outcome='',
-    pace_adjust='N',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    measure_type = 'Base',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    pace_adjust = 'N',
     plus_minus = 'N',
-    po_round='',
-    per_mode='Totals',
-    period=0,
+    po_round = '',
+    per_mode = 'Totals',
+    period = 0,
     rank = 'N',
-    season='2022',
-    season_segment='',
-    season_type='Regular Season',
-    shot_clock_range='',
-    team_id='1611661317',
-    vs_conference='',
-    vs_division='',
+    season = most_recent_wnba_season(),
+    season_segment = '',
+    season_type = 'Regular Season',
+    shot_clock_range = '',
+    team_id = '1611661328',
+    vs_conference = '',
+    vs_division = '',
     ...){
-  season_type <- gsub(' ','+',season_type)
+  
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamplayerdashboard"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&GameSegment=", game_segment,
-                     "&LastNGames=", last_n_games,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&MeasureType=", measure_type,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PaceAdjust=", pace_adjust,
-                     "&PORound=", po_round,
-                     "&PerMode=", per_mode,
-                     "&Period=", period,
-                     "&PlusMinus=", plus_minus,
-                     "&Rank=", rank,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&ShotClockRange=",shot_clock_range,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division)
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    MeasureType = measure_type,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PaceAdjust = pace_adjust,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    PlusMinus = plus_minus,
+    Rank = rank,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    ShotClockRange = shot_clock_range,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team player dashboard data for {team_id} available!"))
@@ -866,53 +1606,94 @@ wnba_teamplayerdashboard <- function(
 
 
 #' **Get WNBA Stats API Team Year by Year Stats**
-#' @name t_yby_stats
+#' @name wnba_teamyearbyyearstats
 NULL
 #' @title
 #' **Get WNBA Stats API Team Year by Year Stats**
-#' @rdname t_yby_stats
+#' @rdname wnba_teamyearbyyearstats
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param per_mode Per Mode
 #' @param team_id Team ID
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamStats
+#'
+#'    **TeamStats**
+#'
+#'
+#'    |col_name              |types     |
+#'    |:---------------------|:---------|
+#'    |TEAM_ID               |character |
+#'    |TEAM_CITY             |character |
+#'    |TEAM_NAME             |character |
+#'    |YEAR                  |character |
+#'    |GP                    |character |
+#'    |WINS                  |character |
+#'    |LOSSES                |character |
+#'    |WIN_PCT               |character |
+#'    |CONF_RANK             |character |
+#'    |DIV_RANK              |character |
+#'    |PO_WINS               |character |
+#'    |PO_LOSSES             |character |
+#'    |CONF_COUNT            |character |
+#'    |DIV_COUNT             |character |
+#'    |NBA_FINALS_APPEARANCE |character |
+#'    |FGM                   |character |
+#'    |FGA                   |character |
+#'    |FG_PCT                |character |
+#'    |FG3M                  |character |
+#'    |FG3A                  |character |
+#'    |FG3_PCT               |character |
+#'    |FTM                   |character |
+#'    |FTA                   |character |
+#'    |FT_PCT                |character |
+#'    |OREB                  |character |
+#'    |DREB                  |character |
+#'    |REB                   |character |
+#'    |AST                   |character |
+#'    |PF                    |character |
+#'    |STL                   |character |
+#'    |TOV                   |character |
+#'    |BLK                   |character |
+#'    |PTS                   |character |
+#'    |PTS_RANK              |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'  wnba_teamyearbyyearstats(team_id = '1611661328')
+#' ```
 wnba_teamyearbyyearstats <- function(
     league_id = '10',
     per_mode = 'Totals',
     season_type = 'Regular Season',
-    team_id = '1611661317',
+    team_id = '1611661328',
     ...){
   
-  season_type <- gsub(' ','+',season_type)
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamyearbyyearstats"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?LeagueID=", league_id,
-                     "&PerMode=",per_mode,
-                     "&SeasonType=",season_type,
-                     "&TeamID=", team_id)
+  params <- list(
+    LeagueID = league_id,
+    PerMode = per_mode,
+    SeasonType = season_type,
+    TeamID = team_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSet$name), function(x){
-        data <- resp$resultSet$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSet$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSet$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -929,11 +1710,11 @@ wnba_teamyearbyyearstats <- function(
 
 
 #' **Get WNBA Stats API Team vs Player**
-#' @name t_vs_p
+#' @name wnba_teamvsplayer
 NULL
 #' @title
 #' **Get WNBA Stats API Team vs Player**
-#' @rdname t_vs_p
+#' @rdname wnba_teamvsplayer
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
@@ -964,83 +1745,376 @@ NULL
 #' @return Return a named list of data frames: OnOffCourt, Overall, ShotAreaOffCourt,
 #' ShotAreaOnCourt, ShotAreaOverall, ShotDistanceOffCourt, ShotDistanceOnCourt,
 #' ShotDistanceOverall, vsPlayerOverall
+#'
+#'    **Overall**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |GROUP_VALUE       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
+#'    **vsPlayerOverall**
+#'
+#'
+#'    |col_name              |types     |
+#'    |:---------------------|:---------|
+#'    |GROUP_SET             |character |
+#'    |GROUP_VALUE           |character |
+#'    |PLAYER_ID             |character |
+#'    |GP                    |character |
+#'    |W                     |character |
+#'    |L                     |character |
+#'    |W_PCT                 |character |
+#'    |MIN                   |character |
+#'    |FGM                   |character |
+#'    |FGA                   |character |
+#'    |FG_PCT                |character |
+#'    |FG3M                  |character |
+#'    |FG3A                  |character |
+#'    |FG3_PCT               |character |
+#'    |FTM                   |character |
+#'    |FTA                   |character |
+#'    |FT_PCT                |character |
+#'    |OREB                  |character |
+#'    |DREB                  |character |
+#'    |REB                   |character |
+#'    |AST                   |character |
+#'    |TOV                   |character |
+#'    |STL                   |character |
+#'    |BLK                   |character |
+#'    |BLKA                  |character |
+#'    |PF                    |character |
+#'    |PFD                   |character |
+#'    |PTS                   |character |
+#'    |PLUS_MINUS            |character |
+#'    |NBA_FANTASY_PTS       |character |
+#'    |DD2                   |character |
+#'    |TD3                   |character |
+#'    |WNBA_FANTASY_PTS      |character |
+#'    |GP_RANK               |character |
+#'    |W_RANK                |character |
+#'    |L_RANK                |character |
+#'    |W_PCT_RANK            |character |
+#'    |MIN_RANK              |character |
+#'    |FGM_RANK              |character |
+#'    |FGA_RANK              |character |
+#'    |FG_PCT_RANK           |character |
+#'    |FG3M_RANK             |character |
+#'    |FG3A_RANK             |character |
+#'    |FG3_PCT_RANK          |character |
+#'    |FTM_RANK              |character |
+#'    |FTA_RANK              |character |
+#'    |FT_PCT_RANK           |character |
+#'    |OREB_RANK             |character |
+#'    |DREB_RANK             |character |
+#'    |REB_RANK              |character |
+#'    |AST_RANK              |character |
+#'    |TOV_RANK              |character |
+#'    |STL_RANK              |character |
+#'    |BLK_RANK              |character |
+#'    |BLKA_RANK             |character |
+#'    |PF_RANK               |character |
+#'    |PFD_RANK              |character |
+#'    |PTS_RANK              |character |
+#'    |PLUS_MINUS_RANK       |character |
+#'    |NBA_FANTASY_PTS_RANK  |character |
+#'    |DD2_RANK              |character |
+#'    |TD3_RANK              |character |
+#'    |WNBA_FANTASY_PTS_RANK |character |
+#'
+#'    **OnOffCourt**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GP                |character |
+#'    |W                 |character |
+#'    |L                 |character |
+#'    |W_PCT             |character |
+#'    |MIN               |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'    |FG3M              |character |
+#'    |FG3A              |character |
+#'    |FG3_PCT           |character |
+#'    |FTM               |character |
+#'    |FTA               |character |
+#'    |FT_PCT            |character |
+#'    |OREB              |character |
+#'    |DREB              |character |
+#'    |REB               |character |
+#'    |AST               |character |
+#'    |TOV               |character |
+#'    |STL               |character |
+#'    |BLK               |character |
+#'    |BLKA              |character |
+#'    |PF                |character |
+#'    |PFD               |character |
+#'    |PTS               |character |
+#'    |PLUS_MINUS        |character |
+#'    |GP_RANK           |character |
+#'    |W_RANK            |character |
+#'    |L_RANK            |character |
+#'    |W_PCT_RANK        |character |
+#'    |MIN_RANK          |character |
+#'    |FGM_RANK          |character |
+#'    |FGA_RANK          |character |
+#'    |FG_PCT_RANK       |character |
+#'    |FG3M_RANK         |character |
+#'    |FG3A_RANK         |character |
+#'    |FG3_PCT_RANK      |character |
+#'    |FTM_RANK          |character |
+#'    |FTA_RANK          |character |
+#'    |FT_PCT_RANK       |character |
+#'    |OREB_RANK         |character |
+#'    |DREB_RANK         |character |
+#'    |REB_RANK          |character |
+#'    |AST_RANK          |character |
+#'    |TOV_RANK          |character |
+#'    |STL_RANK          |character |
+#'    |BLK_RANK          |character |
+#'    |BLKA_RANK         |character |
+#'    |PF_RANK           |character |
+#'    |PFD_RANK          |character |
+#'    |PTS_RANK          |character |
+#'    |PLUS_MINUS_RANK   |character |
+#'
+#'    **ShotDistanceOverall**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |GROUP_VALUE       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'
+#'    **ShotDistanceOnCourt**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GROUP_VALUE       |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'
+#'    **ShotDistanceOffCourt**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GROUP_VALUE       |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'
+#'    **ShotAreaOverall**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |GROUP_VALUE       |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'
+#'    **ShotAreaOnCourt**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GROUP_VALUE       |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'
+#'    **ShotAreaOffCourt**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |GROUP_SET         |character |
+#'    |TEAM_ID           |character |
+#'    |TEAM_ABBREVIATION |character |
+#'    |TEAM_NAME         |character |
+#'    |VS_PLAYER_ID      |character |
+#'    |VS_PLAYER_NAME    |character |
+#'    |COURT_STATUS      |character |
+#'    |GROUP_VALUE       |character |
+#'    |FGM               |character |
+#'    |FGA               |character |
+#'    |FG_PCT            |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @details
+#' ```r
+#'   wnba_teamvsplayer(team_id = '1611661328', vs_player_id = '1628932')
+#' ```
 wnba_teamvsplayer <- function(
     date_from = '',
     date_to = '',
     game_segment = '',
-    last_n_games=0,
-    league_id='10',
-    location='',
-    measure_type='Base',
-    month=0,
-    opponent_team_id=0,
-    outcome='',
-    po_round='',
-    pace_adjust='N',
-    per_mode='Totals',
-    period=0,
-    player_id='',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    measure_type = 'Base',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    pace_adjust = 'N',
+    per_mode = 'Totals',
+    period = 0,
+    player_id = '',
     plus_minus = 'N',
     rank = 'N',
-    season='2022',
-    season_segment='',
-    season_type='Regular Season',
-    shot_clock_range='',
-    team_id='1611661317',
-    vs_conference='',
-    vs_division='',
-    vs_player_id='202250',
+    season = most_recent_wnba_season(),
+    season_segment = '',
+    season_type = 'Regular Season',
+    shot_clock_range = '',
+    team_id = '1611661328',
+    vs_conference = '',
+    vs_division = '',
+    vs_player_id = '1628932',
     ...){
-  season_type <- gsub(' ','+',season_type)
+  
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamvsplayer"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&GameSegment=", game_segment,
-                     "&LastNGames=", last_n_games,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&MeasureType=", measure_type,
-                     "&Month=", month,
-                     "&OpponentTeamID=", opponent_team_id,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&PaceAdjust=", pace_adjust,
-                     "&PerMode=", per_mode,
-                     "&Period=", period,
-                     "&PlayerID=", player_id,
-                     "&PlusMinus=", plus_minus,
-                     "&Rank=", rank,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&ShotClockRange=",shot_clock_range,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&VsPlayerID=", vs_player_id)
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    MeasureType = measure_type,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PaceAdjust = pace_adjust,
+    PerMode = per_mode,
+    Period = period,
+    PlayerID = player_id,
+    PlusMinus = plus_minus,
+    Rank = rank,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    ShotClockRange = shot_clock_range,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    VsPlayerID = vs_player_id
+  )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
       
     },
     error = function(e) {
@@ -1059,11 +2133,11 @@ wnba_teamvsplayer <- function(
 
 
 #' **Get WNBA Stats API Team Game Streak Finder**
-#' @name tg_streak
+#' @name wnba_teamgamestreakfinder
 NULL
 #' @title
 #' **Get WNBA Stats API Team Game Streak Finder**
-#' @rdname tg_streak
+#' @rdname wnba_teamgamestreakfinder
 #' @author Saiem Gilani
 #' @param active_streaks_only active_streaks_only
 #' @param active_teams_only active_teams_only
@@ -1255,410 +2329,429 @@ NULL
 #' @param wrs_opp_tov wrs_opp_tov
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: TeamGameStreakFinderParametersResults
+#'
+#'    **TeamGameStreakFinderParametersResults**
+#'
+#'
+#'    |col_name     |types     |
+#'    |:------------|:---------|
+#'    |TEAM_NAME    |character |
+#'    |TEAM_ID      |character |
+#'    |GAMESTREAK   |character |
+#'    |STARTDATE    |character |
+#'    |ENDDATE      |character |
+#'    |ACTIVESTREAK |character |
+#'    |NUMSEASONS   |character |
+#'    |LASTSEASON   |character |
+#'    |FIRSTSEASON  |character |
+#'    |ABBREVIATION |character |
+#'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
+#' @family WNBA Team Functions
+#' @family WNBA Game Finder Functions
+#' @details
+#' ```r
+#'  wnba_teamgamestreakfinder()
+#' ```
 
 wnba_teamgamestreakfinder <- function(
-    active_streaks_only='',
-    active_teams_only='',
-    btr_opp_ast='',
-    btr_opp_blk='',
-    btr_opp_dreb='',
-    btr_opp_fg3a='',
-    btr_opp_fg3m='',
-    btr_opp_fg3_pct='',
-    btr_opp_fga='',
-    btr_opp_fgm='',
-    btr_opp_fg_pct='',
-    btr_opp_fta='',
-    btr_opp_ftm='',
-    btr_opp_ft_pct='',
-    btr_opp_oreb='',
-    btr_opp_pf='',
-    btr_opp_pts='',
-    btr_opp_pts2nd_chance='',
-    btr_opp_pts_fb='',
-    btr_opp_pts_off_tov='',
-    btr_opp_pts_paint='',
-    btr_opp_reb='',
-    btr_opp_stl='',
-    btr_opp_tov='',
+    active_streaks_only = '',
+    active_teams_only = '',
+    btr_opp_ast = '',
+    btr_opp_blk = '',
+    btr_opp_dreb = '',
+    btr_opp_fg3a = '',
+    btr_opp_fg3m = '',
+    btr_opp_fg3_pct = '',
+    btr_opp_fga = '',
+    btr_opp_fgm = '',
+    btr_opp_fg_pct = '',
+    btr_opp_fta = '',
+    btr_opp_ftm = '',
+    btr_opp_ft_pct = '',
+    btr_opp_oreb = '',
+    btr_opp_pf = '',
+    btr_opp_pts = '',
+    btr_opp_pts2nd_chance = '',
+    btr_opp_pts_fb = '',
+    btr_opp_pts_off_tov = '',
+    btr_opp_pts_paint = '',
+    btr_opp_reb = '',
+    btr_opp_stl = '',
+    btr_opp_tov = '',
     conference = '',
     date_from = '',
     date_to = '',
     division = '',
-    et_ast='',
-    et_blk='',
-    et_dd='',
-    et_dreb='',
-    et_fg3a='',
-    et_fg3m='',
-    et_fg3_pct='',
-    et_fga='',
-    et_fgm='',
-    et_fg_pct='',
-    et_fta='',
-    et_ftm='',
-    et_ft_pct='',
-    et_minutes='',
-    eq_opp_pts2nd_chance='',
-    eq_opp_pts_fb='',
-    eq_opp_pts_off_tov='',
-    eq_opp_pts_paint='',
-    et_oreb='',
-    et_pf='',
-    et_pts='',
-    eq_pts2nd_chance='',
-    eq_pts_fb='',
-    eq_pts_off_tov='',
-    eq_pts_paint='',
-    et_reb='',
-    et_stl='',
-    et_td='',
-    et_tov='',
-    game_id='',
-    gt_ast='',
-    gt_blk='',
-    gt_dd='',
-    gt_dreb='',
-    gt_fg3a='',
-    gt_fg3m='',
-    gt_fg3_pct='',
-    gt_fga='',
-    gt_fgm='',
-    gt_fg_pct='',
-    gt_fta='',
-    gt_ftm='',
-    gt_ft_pct='',
-    gt_minutes='',
-    gt_opp_ast='',
-    gt_opp_blk='',
-    gt_opp_dreb='',
-    gt_opp_fg3a='',
-    gt_opp_fg3m='',
-    gt_opp_fg3_pct='',
-    gt_opp_fga='',
-    gt_opp_fgm='',
-    gt_opp_fg_pct='',
-    gt_opp_fta='',
-    gt_opp_ftm='',
-    gt_opp_ft_pct='',
-    gt_opp_oreb='',
-    gt_opp_pf='',
-    gt_opp_pts='',
-    gt_opp_pts2nd_chance='',
-    gt_opp_pts_fb='',
-    gt_opp_pts_off_tov='',
-    gt_opp_pts_paint='',
-    gt_opp_reb='',
-    gt_opp_stl='',
-    gt_opp_tov='',
-    gt_oreb='',
-    gt_pf='',
-    gt_pts='',
-    gt_pts2nd_chance='',
-    gt_pts_fb='',
-    gt_pts_off_tov='',
-    gt_pts_paint='',
-    gt_reb='',
-    gt_stl='',
-    gt_td='',
-    gt_tov='',
-    lstreak='',
-    league_id='10',
-    location='',
-    lt_ast='',
-    lt_blk='',
-    lt_dd='',
-    lt_dreb='',
-    lt_fg3a='',
-    lt_fg3m='',
-    lt_fg3_pct='',
-    lt_fga='',
-    lt_fgm='',
-    lt_fg_pct='',
-    lt_fta='',
-    lt_ftm='',
-    lt_ft_pct='',
-    lt_minutes='',
-    lt_opp_ast='',
-    lt_opp_blk='',
-    lt_opp_dreb='',
-    lt_opp_fg3a='',
-    lt_opp_fg3m='',
-    lt_opp_fg3_pct='',
-    lt_opp_fga='',
-    lt_opp_fgm='',
-    lt_opp_fg_pct='',
-    lt_opp_fta='',
-    lt_opp_ftm='',
-    lt_opp_ft_pct='',
-    lt_opp_oreb='',
-    lt_opp_pf='',
-    lt_opp_pts='',
-    lt_opp_pts2nd_chance='',
-    lt_opp_pts_fb='',
-    lt_opp_pts_off_tov='',
-    lt_opp_pts_paint='',
-    lt_opp_reb='',
-    lt_opp_stl='',
-    lt_opp_tov='',
-    lt_oreb='',
-    lt_pf='',
-    lt_pts='',
-    lt_pts2nd_chance='',
-    lt_pts_fb='',
-    lt_pts_off_tov='',
-    lt_pts_paint='',
-    lt_reb='',
-    lt_stl='',
-    lt_td='',
-    lt_tov='',
-    min_games='',
-    outcome='',
-    po_round='',
-    season='2022',
-    season_segment='',
-    season_type='Regular Season',
-    team_id='',
-    vs_conference='',
-    vs_division='',
-    vs_team_id='',
-    wstreak='',
-    wrs_opp_ast='',
-    wrs_opp_blk='',
-    wrs_opp_dreb='',
-    wrs_opp_fg3a='',
-    wrs_opp_fg3m='',
-    wrs_opp_fg3_pct='',
-    wrs_opp_fga='',
-    wrs_opp_fgm='',
-    wrs_opp_fg_pct='',
-    wrs_opp_fta='',
-    wrs_opp_ftm='',
-    wrs_opp_ft_pct='',
-    wrs_opp_oreb='',
-    wrs_opp_pf='',
-    wrs_opp_pts='',
-    wrs_opp_pts2nd_chance='',
-    wrs_opp_pts_fb='',
-    wrs_opp_pts_off_tov='',
-    wrs_opp_pts_paint='',
-    wrs_opp_reb='',
-    wrs_opp_stl='',
-    wrs_opp_tov='',
+    et_ast = '',
+    et_blk = '',
+    et_dd = '',
+    et_dreb = '',
+    et_fg3a = '',
+    et_fg3m = '',
+    et_fg3_pct = '',
+    et_fga = '',
+    et_fgm = '',
+    et_fg_pct = '',
+    et_fta = '',
+    et_ftm = '',
+    et_ft_pct = '',
+    et_minutes = '',
+    eq_opp_pts2nd_chance = '',
+    eq_opp_pts_fb = '',
+    eq_opp_pts_off_tov = '',
+    eq_opp_pts_paint = '',
+    et_oreb = '',
+    et_pf = '',
+    et_pts = '',
+    eq_pts2nd_chance = '',
+    eq_pts_fb = '',
+    eq_pts_off_tov = '',
+    eq_pts_paint = '',
+    et_reb = '',
+    et_stl = '',
+    et_td = '',
+    et_tov = '',
+    game_id = '',
+    gt_ast = '',
+    gt_blk = '',
+    gt_dd = '',
+    gt_dreb = '',
+    gt_fg3a = '',
+    gt_fg3m = '',
+    gt_fg3_pct = '',
+    gt_fga = '',
+    gt_fgm = '',
+    gt_fg_pct = '',
+    gt_fta = '',
+    gt_ftm = '',
+    gt_ft_pct = '',
+    gt_minutes = '',
+    gt_opp_ast = '',
+    gt_opp_blk = '',
+    gt_opp_dreb = '',
+    gt_opp_fg3a = '',
+    gt_opp_fg3m = '',
+    gt_opp_fg3_pct = '',
+    gt_opp_fga = '',
+    gt_opp_fgm = '',
+    gt_opp_fg_pct = '',
+    gt_opp_fta = '',
+    gt_opp_ftm = '',
+    gt_opp_ft_pct = '',
+    gt_opp_oreb = '',
+    gt_opp_pf = '',
+    gt_opp_pts = '',
+    gt_opp_pts2nd_chance = '',
+    gt_opp_pts_fb = '',
+    gt_opp_pts_off_tov = '',
+    gt_opp_pts_paint = '',
+    gt_opp_reb = '',
+    gt_opp_stl = '',
+    gt_opp_tov = '',
+    gt_oreb = '',
+    gt_pf = '',
+    gt_pts = '',
+    gt_pts2nd_chance = '',
+    gt_pts_fb = '',
+    gt_pts_off_tov = '',
+    gt_pts_paint = '',
+    gt_reb = '',
+    gt_stl = '',
+    gt_td = '',
+    gt_tov = '',
+    lstreak = '',
+    league_id = '10',
+    location = '',
+    lt_ast = '',
+    lt_blk = '',
+    lt_dd = '',
+    lt_dreb = '',
+    lt_fg3a = '',
+    lt_fg3m = '',
+    lt_fg3_pct = '',
+    lt_fga = '',
+    lt_fgm = '',
+    lt_fg_pct = '',
+    lt_fta = '',
+    lt_ftm = '',
+    lt_ft_pct = '',
+    lt_minutes = '',
+    lt_opp_ast = '',
+    lt_opp_blk = '',
+    lt_opp_dreb = '',
+    lt_opp_fg3a = '',
+    lt_opp_fg3m = '',
+    lt_opp_fg3_pct = '',
+    lt_opp_fga = '',
+    lt_opp_fgm = '',
+    lt_opp_fg_pct = '',
+    lt_opp_fta = '',
+    lt_opp_ftm = '',
+    lt_opp_ft_pct = '',
+    lt_opp_oreb = '',
+    lt_opp_pf = '',
+    lt_opp_pts = '',
+    lt_opp_pts2nd_chance = '',
+    lt_opp_pts_fb = '',
+    lt_opp_pts_off_tov = '',
+    lt_opp_pts_paint = '',
+    lt_opp_reb = '',
+    lt_opp_stl = '',
+    lt_opp_tov = '',
+    lt_oreb = '',
+    lt_pf = '',
+    lt_pts = '',
+    lt_pts2nd_chance = '',
+    lt_pts_fb = '',
+    lt_pts_off_tov = '',
+    lt_pts_paint = '',
+    lt_reb = '',
+    lt_stl = '',
+    lt_td = '',
+    lt_tov = '',
+    min_games = '',
+    outcome = '',
+    po_round = '',
+    season = most_recent_wnba_season(),
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    vs_team_id = '',
+    wstreak = '',
+    wrs_opp_ast = '',
+    wrs_opp_blk = '',
+    wrs_opp_dreb = '',
+    wrs_opp_fg3a = '',
+    wrs_opp_fg3m = '',
+    wrs_opp_fg3_pct = '',
+    wrs_opp_fga = '',
+    wrs_opp_fgm = '',
+    wrs_opp_fg_pct = '',
+    wrs_opp_fta = '',
+    wrs_opp_ftm = '',
+    wrs_opp_ft_pct = '',
+    wrs_opp_oreb = '',
+    wrs_opp_pf = '',
+    wrs_opp_pts = '',
+    wrs_opp_pts2nd_chance = '',
+    wrs_opp_pts_fb = '',
+    wrs_opp_pts_off_tov = '',
+    wrs_opp_pts_paint = '',
+    wrs_opp_reb = '',
+    wrs_opp_stl = '',
+    wrs_opp_tov = '',
     ...){
-  season_type <- gsub(' ','+',season_type)
+  
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
   version <- "teamgamestreakfinder"
   endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
   
-  full_url <- paste0(endpoint,
-                     "?ActiveStreaksOnly", active_streaks_only,
-                     "&ActiveTeamsOnly=", active_teams_only,
-                     "&BtrOPPAST=", btr_opp_ast,
-                     "&BtrOPPBLK=", btr_opp_blk,
-                     "&BtrOPPDREB=", btr_opp_dreb,
-                     "&BtrOPPFG3A=", btr_opp_fg3a,
-                     "&BtrOPPFG3M=", btr_opp_fg3m,
-                     "&BtrOPPFG3PCT=", btr_opp_fg3_pct,
-                     "&BtrOPPFGA=", btr_opp_fga,
-                     "&BtrOPPFGM=", btr_opp_fgm,
-                     "&BtrOPPFG_PCT=", btr_opp_fg_pct,
-                     "&BtrOPPFTA=", btr_opp_fta,
-                     "&BtrOPPFTM=", btr_opp_ftm,
-                     "&BtrOPPFT_PCT=", btr_opp_ft_pct,
-                     "&BtrOPPOREB=", btr_opp_oreb,
-                     "&BtrOPPPF=", btr_opp_pf,
-                     "&BtrOPPPTS=", btr_opp_pts,
-                     "&BtrOPPPTS2NDCHANCE=", btr_opp_pts2nd_chance,
-                     "&BtrOPPPTSFB=", btr_opp_pts_fb,
-                     "&BtrOPPPTSOFFTOV=", btr_opp_pts_off_tov,
-                     "&BtrOPPPTSPAINT=", btr_opp_pts_paint,
-                     "&BtrOPPREB=", btr_opp_reb,
-                     "&BtrOPPSTL=", btr_opp_stl,
-                     "&BtrOPPTOV=", btr_opp_tov,
-                     "&Conference=", conference,
-                     "&DateFrom=", date_from,
-                     "&DateTo=", date_to,
-                     "&Division=", division,
-                     "&EqAST=", et_ast,
-                     "&EqBLK=", et_blk,
-                     "&EqDD=", et_dd,
-                     "&EqDREB=", et_dreb,
-                     "&EqFG3A=", et_fg3a,
-                     "&EqFG3M=", et_fg3m,
-                     "&EqFG3_PCT=", et_fg3_pct,
-                     "&EqFGA=", et_fga,
-                     "&EqFGM=", et_fgm,
-                     "&EqFG_PCT=", et_fg_pct,
-                     "&EqFTA=", et_fta,
-                     "&EqFTM=", et_ftm,
-                     "&EqFT_PCT=", et_ft_pct,
-                     "&EqMINUTES=", et_minutes,
-                     "&EqOPPPTS2NDCHANCE=", eq_opp_pts2nd_chance,
-                     "&EqOPPPTSFB=", eq_opp_pts_fb,
-                     "&EqOPPPTSOFFTOV=", eq_opp_pts_off_tov,
-                     "&EqOPPPTSPAINT=", eq_opp_pts_paint,
-                     "&EqOREB=", et_oreb,
-                     "&EqPF=", et_pf,
-                     "&EqPTS=", et_pts,
-                     "&EqPTS2NDCHANCE=", eq_pts2nd_chance,
-                     "&EqPTSFB=", eq_pts_fb,
-                     "&EqPTSOFFTOV=", eq_pts_off_tov,
-                     "&EqPTSPAINT=", eq_pts_paint,
-                     "&EqREB=", et_reb,
-                     "&EqSTL=", et_stl,
-                     "&EqTD=", et_td,
-                     "&EqTOV=", et_tov,
-                     "&GameID=", game_id,
-                     "&GtAST=", gt_ast,
-                     "&GtBLK=", gt_blk,
-                     "&GtDD=", gt_dd,
-                     "&GtDREB=", gt_dreb,
-                     "&GtFG3A=", gt_fg3a,
-                     "&GtFG3M=", gt_fg3m,
-                     "&GtFG3_PCT=", gt_fg3_pct,
-                     "&GtFGA=", gt_fga,
-                     "&GtFGM=", gt_fgm,
-                     "&GtFG_PCT=", gt_fg_pct,
-                     "&GtFTA=", gt_fta,
-                     "&GtFTM=", gt_ftm,
-                     "&GtFT_PCT=", gt_ft_pct,
-                     "&GtMINUTES=", gt_minutes,
-                     "&GtOPPAST=", gt_opp_ast,
-                     "&GtOPPBLK=", gt_opp_blk,
-                     "&GtOPPDREB=", gt_opp_dreb,
-                     "&GtOPPFG3A=", gt_opp_fg3a,
-                     "&GtOPPFG3M=", gt_opp_fg3m,
-                     "&GtOPPFG3PCT=", gt_opp_fg3_pct,
-                     "&GtOPPFGA=", gt_opp_fga,
-                     "&GtOPPFGM=", gt_opp_fgm,
-                     "&GtOPPFG_PCT=", gt_opp_fg_pct,
-                     "&GtOPPFTA=", gt_opp_fta,
-                     "&GtOPPFTM=", gt_opp_ftm,
-                     "&GtOPPFT_PCT=", gt_opp_ft_pct,
-                     "&GtOPPOREB=", gt_opp_oreb,
-                     "&GtOPPPF=", gt_opp_pf,
-                     "&GtOPPPTS=", gt_opp_pts,
-                     "&GtOPPPTS2NDCHANCE=", gt_opp_pts2nd_chance,
-                     "&GtOPPPTSFB=", gt_opp_pts_fb,
-                     "&GtOPPPTSOFFTOV=", gt_opp_pts_off_tov,
-                     "&GtOPPPTSPAINT=", gt_opp_pts_paint,
-                     "&GtOPPREB=", gt_opp_reb,
-                     "&GtOPPSTL=", gt_opp_stl,
-                     "&GtOPPTOV=", gt_opp_tov,
-                     "&GtOREB=", gt_oreb,
-                     "&GtPF=", gt_pf,
-                     "&GtPTS=", gt_pts,
-                     "&GtPTS2NDCHANCE=", gt_pts2nd_chance,
-                     "&GtPTSFB=", gt_pts_fb,
-                     "&GtPTSOFFTOV=", gt_pts_off_tov,
-                     "&GtPTSPAINT=", gt_pts_paint,
-                     "&GtREB=", gt_reb,
-                     "&GtSTL=", gt_stl,
-                     "&GtTD=", gt_td,
-                     "&GtTOV=", gt_tov,
-                     "&LeagueID=", league_id,
-                     "&Location=", location,
-                     "&LStreak=", lstreak,
-                     "&LtAST=", lt_ast,
-                     "&LtBLK=", lt_blk,
-                     "&LtDD=", lt_dd,
-                     "&LtDREB=", lt_dreb,
-                     "&LtFG3A=", lt_fg3a,
-                     "&LtFG3M=", lt_fg3m,
-                     "&LtFG3_PCT=", lt_fg3_pct,
-                     "&LtFGA=", lt_fga,
-                     "&LtFGM=", lt_fgm,
-                     "&LtFG_PCT=", lt_fg_pct,
-                     "&LtFTA=", lt_fta,
-                     "&LtFTM=", lt_ftm,
-                     "&LtFT_PCT=", lt_ft_pct,
-                     "&LtMINUTES=", lt_minutes,
-                     "&LtOPPAST=", lt_opp_ast,
-                     "&LtOPPBLK=", lt_opp_blk,
-                     "&LtOPPDREB=", lt_opp_dreb,
-                     "&LtOPPFG3A=", lt_opp_fg3a,
-                     "&LtOPPFG3M=", lt_opp_fg3m,
-                     "&LtOPPFG3PCT=", lt_opp_fg3_pct,
-                     "&LtOPPFGA=", lt_opp_fga,
-                     "&LtOPPFGM=", lt_opp_fgm,
-                     "&LtOPPFG_PCT=", lt_opp_fg_pct,
-                     "&LtOPPFTA=", lt_opp_fta,
-                     "&LtOPPFTM=", lt_opp_ftm,
-                     "&LtOPPFT_PCT=", lt_opp_ft_pct,
-                     "&LtOPPOREB=", lt_opp_oreb,
-                     "&LtOPPPF=", lt_opp_pf,
-                     "&LtOPPPTS=", lt_opp_pts,
-                     "&LtOPPPTS2NDCHANCE=", lt_opp_pts2nd_chance,
-                     "&LtOPPPTSFB=", lt_opp_pts_fb,
-                     "&LtOPPPTSOFFTOV=", lt_opp_pts_off_tov,
-                     "&LtOPPPTSPAINT=", lt_opp_pts_paint,
-                     "&LtOPPREB=", lt_opp_reb,
-                     "&LtOPPSTL=", lt_opp_stl,
-                     "&LtOPPTOV=", lt_opp_tov,
-                     "&LtOREB=", lt_oreb,
-                     "&LtPF=", lt_pf,
-                     "&LtPTS=", lt_pts,
-                     "&LtPTS2NDCHANCE=", lt_pts2nd_chance,
-                     "&LtPTSFB=", lt_pts_fb,
-                     "&LtPTSOFFTOV=", lt_pts_off_tov,
-                     "&LtPTSPAINT=", lt_pts_paint,
-                     "&LtREB=", lt_reb,
-                     "&LtSTL=", lt_stl,
-                     "&LtTD=", lt_td,
-                     "&LtTOV=", lt_tov,
-                     "&MinGames=", min_games,
-                     "&Outcome=", outcome,
-                     "&PORound=", po_round,
-                     "&Season=", season,
-                     "&SeasonSegment=", season_segment,
-                     "&SeasonType=", season_type,
-                     "&TeamID=", team_id,
-                     "&VsConference=", vs_conference,
-                     "&VsDivision=", vs_division,
-                     "&VsTeamID=", vs_team_id,
-                     "&WStreak=", wstreak,
-                     "&WrsOPPAST=", wrs_opp_ast,
-                     "&WrsOPPBLK=", wrs_opp_blk,
-                     "&WrsOPPDREB=", wrs_opp_dreb,
-                     "&WrsOPPFG3A=", wrs_opp_fg3a,
-                     "&WrsOPPFG3M=", wrs_opp_fg3m,
-                     "&WrsOPPFG3PCT=", wrs_opp_fg3_pct,
-                     "&WrsOPPFGA=", wrs_opp_fga,
-                     "&WrsOPPFGM=", wrs_opp_fgm,
-                     "&WrsOPPFG_PCT=", wrs_opp_fg_pct,
-                     "&WrsOPPFTA=", wrs_opp_fta,
-                     "&WrsOPPFTM=", wrs_opp_ftm,
-                     "&WrsOPPFT_PCT=", wrs_opp_ft_pct,
-                     "&WrsOPPOREB=", wrs_opp_oreb,
-                     "&WrsOPPPF=", wrs_opp_pf,
-                     "&WrsOPPPTS=", wrs_opp_pts,
-                     "&WrsOPPPTS2NDCHANCE=", wrs_opp_pts2nd_chance,
-                     "&WrsOPPPTSFB=", wrs_opp_pts_fb,
-                     "&WrsOPPPTSOFFTOV=", wrs_opp_pts_off_tov,
-                     "&WrsOPPPTSPAINT=", wrs_opp_pts_paint,
-                     "&WrsOPPREB=", wrs_opp_reb,
-                     "&WrsOPPSTL=", wrs_opp_stl,
-                     "&WrsOPPTOV=", wrs_opp_tov
+  params <- list(
+    ActiveStreaksOnly = active_streaks_only,
+    ActiveTeamsOnly = active_teams_only,
+    BtrOPPAST = btr_opp_ast,
+    BtrOPPBLK = btr_opp_blk,
+    BtrOPPDREB = btr_opp_dreb,
+    BtrOPPFG3A = btr_opp_fg3a,
+    BtrOPPFG3M = btr_opp_fg3m,
+    BtrOPPFG3PCT = btr_opp_fg3_pct,
+    BtrOPPFGA = btr_opp_fga,
+    BtrOPPFGM = btr_opp_fgm,
+    BtrOPPFG_PCT = btr_opp_fg_pct,
+    BtrOPPFTA = btr_opp_fta,
+    BtrOPPFTM = btr_opp_ftm,
+    BtrOPPFT_PCT = btr_opp_ft_pct,
+    BtrOPPOREB = btr_opp_oreb,
+    BtrOPPPF = btr_opp_pf,
+    BtrOPPPTS = btr_opp_pts,
+    BtrOPPPTS2NDCHANCE = btr_opp_pts2nd_chance,
+    BtrOPPPTSFB = btr_opp_pts_fb,
+    BtrOPPPTSOFFTOV = btr_opp_pts_off_tov,
+    BtrOPPPTSPAINT = btr_opp_pts_paint,
+    BtrOPPREB = btr_opp_reb,
+    BtrOPPSTL = btr_opp_stl,
+    BtrOPPTOV = btr_opp_tov,
+    Conference = conference,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    EqAST = et_ast,
+    EqBLK = et_blk,
+    EqDD = et_dd,
+    EqDREB = et_dreb,
+    EqFG3A = et_fg3a,
+    EqFG3M = et_fg3m,
+    EqFG3_PCT = et_fg3_pct,
+    EqFGA = et_fga,
+    EqFGM = et_fgm,
+    EqFG_PCT = et_fg_pct,
+    EqFTA = et_fta,
+    EqFTM = et_ftm,
+    EqFT_PCT = et_ft_pct,
+    EqMINUTES = et_minutes,
+    EqOPPPTS2NDCHANCE = eq_opp_pts2nd_chance,
+    EqOPPPTSFB = eq_opp_pts_fb,
+    EqOPPPTSOFFTOV = eq_opp_pts_off_tov,
+    EqOPPPTSPAINT = eq_opp_pts_paint,
+    EqOREB = et_oreb,
+    EqPF = et_pf,
+    EqPTS = et_pts,
+    EqPTS2NDCHANCE = eq_pts2nd_chance,
+    EqPTSFB = eq_pts_fb,
+    EqPTSOFFTOV = eq_pts_off_tov,
+    EqPTSPAINT = eq_pts_paint,
+    EqREB = et_reb,
+    EqSTL = et_stl,
+    EqTD = et_td,
+    EqTOV = et_tov,
+    GameID = game_id,
+    GtAST = gt_ast,
+    GtBLK = gt_blk,
+    GtDD = gt_dd,
+    GtDREB = gt_dreb,
+    GtFG3A = gt_fg3a,
+    GtFG3M = gt_fg3m,
+    GtFG3_PCT = gt_fg3_pct,
+    GtFGA = gt_fga,
+    GtFGM = gt_fgm,
+    GtFG_PCT = gt_fg_pct,
+    GtFTA = gt_fta,
+    GtFTM = gt_ftm,
+    GtFT_PCT = gt_ft_pct,
+    GtMINUTES = gt_minutes,
+    GtOPPAST = gt_opp_ast,
+    GtOPPBLK = gt_opp_blk,
+    GtOPPDREB = gt_opp_dreb,
+    GtOPPFG3A = gt_opp_fg3a,
+    GtOPPFG3M = gt_opp_fg3m,
+    GtOPPFG3PCT = gt_opp_fg3_pct,
+    GtOPPFGA = gt_opp_fga,
+    GtOPPFGM = gt_opp_fgm,
+    GtOPPFG_PCT = gt_opp_fg_pct,
+    GtOPPFTA = gt_opp_fta,
+    GtOPPFTM = gt_opp_ftm,
+    GtOPPFT_PCT = gt_opp_ft_pct,
+    GtOPPOREB = gt_opp_oreb,
+    GtOPPPF = gt_opp_pf,
+    GtOPPPTS = gt_opp_pts,
+    GtOPPPTS2NDCHANCE = gt_opp_pts2nd_chance,
+    GtOPPPTSFB = gt_opp_pts_fb,
+    GtOPPPTSOFFTOV = gt_opp_pts_off_tov,
+    GtOPPPTSPAINT = gt_opp_pts_paint,
+    GtOPPREB = gt_opp_reb,
+    GtOPPSTL = gt_opp_stl,
+    GtOPPTOV = gt_opp_tov,
+    GtOREB = gt_oreb,
+    GtPF = gt_pf,
+    GtPTS = gt_pts,
+    GtPTS2NDCHANCE = gt_pts2nd_chance,
+    GtPTSFB = gt_pts_fb,
+    GtPTSOFFTOV = gt_pts_off_tov,
+    GtPTSPAINT = gt_pts_paint,
+    GtREB = gt_reb,
+    GtSTL = gt_stl,
+    GtTD = gt_td,
+    GtTOV = gt_tov,
+    LeagueID = league_id,
+    Location = location,
+    LStreak = lstreak,
+    LtAST = lt_ast,
+    LtBLK = lt_blk,
+    LtDD = lt_dd,
+    LtDREB = lt_dreb,
+    LtFG3A = lt_fg3a,
+    LtFG3M = lt_fg3m,
+    LtFG3_PCT = lt_fg3_pct,
+    LtFGA = lt_fga,
+    LtFGM = lt_fgm,
+    LtFG_PCT = lt_fg_pct,
+    LtFTA = lt_fta,
+    LtFTM = lt_ftm,
+    LtFT_PCT = lt_ft_pct,
+    LtMINUTES = lt_minutes,
+    LtOPPAST = lt_opp_ast,
+    LtOPPBLK = lt_opp_blk,
+    LtOPPDREB = lt_opp_dreb,
+    LtOPPFG3A = lt_opp_fg3a,
+    LtOPPFG3M = lt_opp_fg3m,
+    LtOPPFG3PCT = lt_opp_fg3_pct,
+    LtOPPFGA = lt_opp_fga,
+    LtOPPFGM = lt_opp_fgm,
+    LtOPPFG_PCT = lt_opp_fg_pct,
+    LtOPPFTA = lt_opp_fta,
+    LtOPPFTM = lt_opp_ftm,
+    LtOPPFT_PCT = lt_opp_ft_pct,
+    LtOPPOREB = lt_opp_oreb,
+    LtOPPPF = lt_opp_pf,
+    LtOPPPTS = lt_opp_pts,
+    LtOPPPTS2NDCHANCE = lt_opp_pts2nd_chance,
+    LtOPPPTSFB = lt_opp_pts_fb,
+    LtOPPPTSOFFTOV = lt_opp_pts_off_tov,
+    LtOPPPTSPAINT = lt_opp_pts_paint,
+    LtOPPREB = lt_opp_reb,
+    LtOPPSTL = lt_opp_stl,
+    LtOPPTOV = lt_opp_tov,
+    LtOREB = lt_oreb,
+    LtPF = lt_pf,
+    LtPTS = lt_pts,
+    LtPTS2NDCHANCE = lt_pts2nd_chance,
+    LtPTSFB = lt_pts_fb,
+    LtPTSOFFTOV = lt_pts_off_tov,
+    LtPTSPAINT = lt_pts_paint,
+    LtREB = lt_reb,
+    LtSTL = lt_stl,
+    LtTD = lt_td,
+    LtTOV = lt_tov,
+    MinGames = min_games,
+    Outcome = outcome,
+    PORound = po_round,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    VsTeamID = vs_team_id,
+    WStreak = wstreak,
+    WrsOPPAST = wrs_opp_ast,
+    WrsOPPBLK = wrs_opp_blk,
+    WrsOPPDREB = wrs_opp_dreb,
+    WrsOPPFG3A = wrs_opp_fg3a,
+    WrsOPPFG3M = wrs_opp_fg3m,
+    WrsOPPFG3PCT = wrs_opp_fg3_pct,
+    WrsOPPFGA = wrs_opp_fga,
+    WrsOPPFGM = wrs_opp_fgm,
+    WrsOPPFG_PCT = wrs_opp_fg_pct,
+    WrsOPPFTA = wrs_opp_fta,
+    WrsOPPFTM = wrs_opp_ftm,
+    WrsOPPFT_PCT = wrs_opp_ft_pct,
+    WrsOPPOREB = wrs_opp_oreb,
+    WrsOPPPF = wrs_opp_pf,
+    WrsOPPPTS = wrs_opp_pts,
+    WrsOPPPTS2NDCHANCE = wrs_opp_pts2nd_chance,
+    WrsOPPPTSFB = wrs_opp_pts_fb,
+    WrsOPPPTSOFFTOV = wrs_opp_pts_off_tov,
+    WrsOPPPTSPAINT = wrs_opp_pts_paint,
+    WrsOPPREB = wrs_opp_reb,
+    WrsOPPSTL = wrs_opp_stl,
+    WrsOPPTOV = wrs_opp_tov
   )
+  
   tryCatch(
     expr = {
-      resp <- request_with_proxy(url = full_url, ...)
       
+      resp <- request_with_proxy(url = full_url, params = params, ...)
       
-      df_list <- purrr::map(1:length(resp$resultSets$name), function(x){
-        data <- resp$resultSets$rowSet[[x]] %>%
-          data.frame(stringsAsFactors = F) %>%
-          as_tibble()
-        
-        json_names <- resp$resultSets$headers[[x]]
-        colnames(data) <- json_names
-        return(data)
-      })
-      names(df_list) <- resp$resultSets$name
+      df_list <- wnba_stats_map_result_sets(resp)
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team streak finder data for the given parameters available!"))
@@ -1670,4 +2763,5 @@ wnba_teamgamestreakfinder <- function(
   )
   return(df_list)
 }
+
 
