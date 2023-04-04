@@ -121,6 +121,8 @@ navbar:
         href: https://cfbplotR.sportsdataverse.org/
       - text: mlbplotR
         href: https://camdenk.github.io/mlbplotR/
+      - text: softballR
+        href: https://github.com/sportsdataverse/softballR/
       - text: cfb4th
         href: https://cfb4th.sportsdataverse.org/
       - text: nwslR
@@ -153,7 +155,9 @@ navbar:
       icon: "fas fa-database"
       text: " Data"
       menu:
-      - text: "Data Repository"
+      - text: "SDV Data Releases"
+        href: https://github.com/sportsdataverse/sportsdataverse-data/releases
+      - text: "wehoop Data Repository"
         href: https://github.com/sportsdataverse/wehoop-data
     twitter:
       icon: "fab fa-twitter fa-lg"
