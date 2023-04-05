@@ -2985,6 +2985,7 @@ helper_espn_wbb_player_box <- function(resp){
   )
   if (boxScoreAvailable == TRUE &&
       length(players_box_score_df[["statistics"]][[1]][["athletes"]][[1]]) > 1 &&
+      length(players_box_score_df[["statistics"]][[1]][["athletes"]][[1]][["stats"]][[1]]) > 1 &&
       !is.na(valid_stats)) {
     players_df <- players_box_score_df %>%
       tidyr::unnest("statistics") %>%
