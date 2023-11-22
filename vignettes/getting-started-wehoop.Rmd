@@ -58,7 +58,7 @@ pacman::p_load(wehoop, dplyr, glue, tictoc, progressr)
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2022) ~ 30-60 seconds**
+### **WNBA full play-by-play seasons (2002-`r wehoop::most_recent_wnba_season()`) ~ 30-60 seconds**
 ```{r load_wnba_pbp_2002_2021, warning = FALSE}
 
 tictoc::tic()
@@ -72,7 +72,7 @@ glue::glue("{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(
 dplyr::glimpse(wnba_pbp)
 ```
 
-### **WNBA full team box score seasons (2003-2022) ~ 5-30 seconds**
+### **WNBA full team box score seasons (2003-`r wehoop::most_recent_wnba_season()`) ~ 5-30 seconds**
 ```{r load_wnba_team_2003_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
@@ -85,7 +85,7 @@ glue::glue("{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(u
 dplyr::glimpse(wnba_team_box)
 ```
 
-### **WNBA full player box score seasons (2002-2022) ~ 5-30 seconds**
+### **WNBA full player box score seasons (2002-`r wehoop::most_recent_wnba_season()`) ~ 5-30 seconds**
 ```{r load_wnba_player_2002_2021, warning = FALSE}
 tictoc::tic()
 progressr::with_progress({
@@ -96,7 +96,7 @@ length(unique(wnba_player_box$game_id))
 nrow(wnba_player_box)
 ```
 
-### **Women's college basketball full play-by-play seasons (2004-2022) ~ 45-90 seconds**
+### **Women's college basketball full play-by-play seasons (2004-`r wehoop::most_recent_wbb_season()`) ~ 45-90 seconds**
 
 ```{r load_wbb_pbp_2004_2021, warning = FALSE}
 tictoc::tic()
@@ -108,7 +108,7 @@ length(unique(wbb_pbp$game_id))
 nrow(wbb_pbp)
 ```
 
-### **Women's college basketball full team box score seasons (2006-2022) ~ 5-30 seconds**
+### **Women's college basketball full team box score seasons (2006-`r wehoop::most_recent_wbb_season()`) ~ 5-30 seconds**
 
 ```{r load_wbb_team_2006_2021, warning = FALSE}
 tictoc::tic()
@@ -120,7 +120,7 @@ length(unique(wbb_team_box$game_id))
 nrow(wbb_team_box)
 ```
 
-### **Women's college basketball full player box score seasons (2006-2022) ~ 5-30 seconds**
+### **Women's college basketball full player box score seasons (2006-`r wehoop::most_recent_wbb_season()`) ~ 5-30 seconds**
 
 ```{r load_wbb_player_2006_2021, warning = FALSE}
 tictoc::tic()
