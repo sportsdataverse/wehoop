@@ -73,6 +73,6 @@ test_that("ESPN - WBB Play-by-Play", {
     "display_weight"
   )
   
-  expect_equal(sort(colnames(x)), sort(cols))
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

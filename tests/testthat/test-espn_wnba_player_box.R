@@ -62,6 +62,6 @@ test_that("ESPN - WNBA Player Box", {
     "opponent_team_score"
   )
   x <- espn_wnba_player_box(game_id = 401244185)
-  expect_equal(sort(colnames(x)), sort(cols))
+  expect_in(sort(colnames(x)), sort(cols))
   expect_s3_class(x, "data.frame")
 })

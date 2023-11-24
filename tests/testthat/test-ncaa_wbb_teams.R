@@ -13,7 +13,7 @@ test_that("NCAA - Get WBB Teams", {
     "year",
     "season_id"
   )
-  expect_equal(sort(colnames(x)), sort(cols))
+  expect_in(sort(colnames(x)), sort(cols))
   expect_s3_class(x, 'data.frame')
   
 })

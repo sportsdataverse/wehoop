@@ -1,9 +1,10 @@
 test_that("WNBA Shotchart Lineup Detail", {
+  
   skip_on_cran()
   skip_on_ci()
   
   x <- wnba_shotchartlineupdetail(group_id = '-100720-202250-204319-1627668-1628931-', 
-                                  season = most_recent_wnba_season())
+                                  season = 2022)
   
   
   cols_x1 <- c(

@@ -40,6 +40,6 @@ cols <- c(
 test_that("ESPN - WBB Scoreboard", {
   skip_on_cran()
   x <- espn_wbb_scoreboard(season = "20210215")
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

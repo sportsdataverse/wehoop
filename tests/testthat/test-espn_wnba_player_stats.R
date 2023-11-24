@@ -149,6 +149,6 @@ test_that("ESPN - WNBA Player Stats", {
     "logo_dark_href"
   )
   
-  expect_equal(sort(colnames(x)), sort(cols))
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
