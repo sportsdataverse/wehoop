@@ -1,3 +1,8 @@
+# **wehoop 2.0.0**
+
+* ```load_wnba_*()``` functions now use `sportsdataverse-data` releases url instead of `wehoop-data` repository URL
+* ```load_wbb_*()``` functions now use `sportsdataverse-data` releases url instead of `wehoop-data` repository URL
+
 # **wehoop 1.9.0**
 
 ### **WNBA Stats API Live Endpoints**
