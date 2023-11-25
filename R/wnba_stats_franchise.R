@@ -347,7 +347,7 @@ NULL
 #' @export
 #' @family WNBA Franchise Functions
 #' @details
-#' [Franchise History](https://www.wnba.com/stats/history)
+#' [Franchise History](https://stats.wnba.com/history/)
 #' ```r
 #'   wnba_franchisehistory(league_id = '10')
 #' ```

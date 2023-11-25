@@ -197,7 +197,7 @@ NULL
 #' @export
 #' @family WNBA Player Functions
 #' @details
-#' [Player Awards](https://www.wnba.com/stats/player/2544/career)
+#' [Player Awards](https://stats.wnba.com/player/1628932/career/)
 #' ```r
 #'  wnba_playerawards(player_id = '1628932')
 #' ```

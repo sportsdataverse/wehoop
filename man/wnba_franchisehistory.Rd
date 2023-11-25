@@ -59,7 +59,7 @@ Returns a named list of data frames: DefunctTeams, FranchiseHistory
 \strong{Get WNBA Stats API Franchise History}
 }
 \details{
-\href{https://www.wnba.com/stats/history}{Franchise History}
+\href{https://stats.wnba.com/history/}{Franchise History}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_franchisehistory(league_id = '10')
 }\if{html}{\out{</div>}}

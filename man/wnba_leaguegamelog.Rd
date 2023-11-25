@@ -80,7 +80,7 @@ Return a named list of data frames: LeagueGameLog
 \strong{Get WNBA Stats API League Game Log}
 }
 \details{
-\href{https://stats.wnba.com/players/boxscores-traditional}{Player/Team Boxscores}
+\href{https://stats.wnba.com/players/boxscores-traditional/}{Player/Team Boxscores}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_leaguegamelog(league_id = '10', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}

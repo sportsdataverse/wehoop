@@ -58,7 +58,7 @@ NULL
 #' @export
 #' @family WNBA League Functions
 #' @details
-#' [Player/Team Boxscores](https://stats.wnba.com/players/boxscores-traditional)
+#' [Player/Team Boxscores](https://stats.wnba.com/players/boxscores-traditional/)
 #' ```r
 #'   wnba_leaguegamelog(league_id = '10', season = most_recent_wnba_season() - 1)
 #' ```
