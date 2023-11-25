@@ -34,6 +34,9 @@
     <loc>https://wehoop.sportsdataverse.org/reference/csv_from_url.html</loc>
   </url>
   <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/dot-players_on_court.html</loc>
+  </url>
+  <url>
     <loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.html</loc>
   </url>
   <url>
@@ -374,6 +377,9 @@
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://wehoop.sportsdataverse.org/reference/wnba_pbps.html</loc>
   </url>
   <url>
     <loc>https://wehoop.sportsdataverse.org/reference/wnba_playerawards.html</loc>
