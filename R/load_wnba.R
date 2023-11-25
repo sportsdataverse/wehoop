@@ -249,10 +249,13 @@ load_wnba_games <- function(){
   return(dat)
 }
 
+#' **Build/update wehoop WNBA play-by-play database**
 #' @name update_wnba_db
-#' @aliases update_wnba_db wnba_db wnba wnba_pbp_db
+NULL
+
 #' @title 
-#' **Update or create a wehoop play-by-play database**
+#' **Update or create a wehoop WNBA play-by-play database**
+#' @rdname update_wnba_db
 #' @description update_wnba_db() updates or creates a database with `wehoop`
 #' play by play data of all completed and available games since 2002.
 #'
@@ -267,15 +270,16 @@ load_wnba_games <- function(){
 #' by play data table either for the whole wehoop era (with `force_rebuild = TRUE`)
 #' or just for specified seasons (e.g. `force_rebuild = c(2019, 2020)`).
 #' Please note the following behavior:
-#' \itemize{
-#'  \item{`force_rebuild = TRUE`}{: The data table with the name `tblname`
+#' 
+#'  - `force_rebuild = TRUE`: The data table with the name `tblname`
 #'   will be removed completely and rebuilt from scratch. This is helpful when
-#'   new columns are added during the Off-Season.}
-#'  \item{`force_rebuild = c(2019, 2020)`}{: The data table with the name `tblname`
+#'   new columns are added during the Off-Season.
+#'  - `force_rebuild = c(2019, 2020)`: The data table with the name `tblname`
 #'  will be preserved and only rows from the 2019 and 2020 seasons will be
 #'  deleted and re-added. This is intended to be used for ongoing seasons because
-#'  ESPN's data provider can make changes to the underlying data during the week.}
-#' }
+#'  ESPN's data provider can make changes to the underlying data during the week.
+#'  
+#' 
 #'
 #' The parameter `db_connection` is intended for advanced users who want
 #' to use other DBI drivers, such as MariaDB, Postgres or odbc. Please note that
