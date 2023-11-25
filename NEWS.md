@@ -2,6 +2,7 @@
 
 * ```load_wnba_*()``` functions now use `sportsdataverse-data` releases url instead of `wehoop-data` repository URL
 * ```load_wbb_*()``` functions now use `sportsdataverse-data` releases url instead of `wehoop-data` repository URL
+* ```wnba_pbp()``` function and new ```wnba_pbps()``` function added with `on_court` (default `TRUE`) parameter to return on court players for each play event
 
 # **wehoop 1.9.0**
 

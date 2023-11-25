@@ -84,6 +84,7 @@ Returns a data frame: PlayByPlay\tabular{ll}{
 \seealso{
 Other WNBA PBP Functions: 
 \code{\link{wnba_data_pbp}()},
+\code{\link{wnba_pbps}()},
 \code{\link{wnba_pbp}()}
 
 Other WNBA Live Functions: 

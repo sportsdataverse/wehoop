@@ -14,6 +14,7 @@ This is a minor release that:
 * ```wnba_infographicfanduelplayer()``` function added.
 * ```wnba_live_pbp()``` function added.
 * ```wnba_live_boxscore()``` function added.
+* ```wnba_pbps()``` function added.
 * ```wnba_todays_scoreboard()``` function added.
 * ```wnba_scoreboardv3()``` function added.
 * ```wnba_boxscoretraditionalv3()``` function added.

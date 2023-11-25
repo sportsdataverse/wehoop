@@ -79,6 +79,7 @@ Event Message Types (event_type):
 \seealso{
 Other WNBA PBP Functions: 
 \code{\link{wnba_live_pbp}()},
+\code{\link{wnba_pbps}()},
 \code{\link{wnba_pbp}()}
 }
 \author{
