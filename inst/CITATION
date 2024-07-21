@@ -8,7 +8,7 @@ citEntry(entry = "Misc",
          as.person("Saiem Gilani"),
          as.person("Geoff Hutchinson")),
          title = "wehoop: The SportsDataverse's R Package for Women's Basketball Data.",
-         url = c("http://dx.doi.org/10.32614/CRAN.package.wehoop"),
+         url = c("http://doi.org/10.32614/CRAN.package.wehoop"),
          DOI = c("10.32614/cran.package.wehoop"),
          journal = "CRAN: Contributed Packages",
          publisher = "The R Foundation",
@@ -16,6 +16,6 @@ citEntry(entry = "Misc",
          note = note,
          textVersion = paste(
     "Saiem Gilani and Geoff Hutchinson. wehoop: The SportsDataverse's R Package for Women's Basketball Data.",
-    "Retrieved from http://dx.doi.org/10.32614/CRAN.package.wehoop"
+    "Retrieved from http://doi.org/10.32614/CRAN.package.wehoop"
   )
 )

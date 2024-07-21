@@ -58,7 +58,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.16 sec elapsed
+    ## 1.08 sec elapsed
 
     ## 58334 rows of WNBA play-by-play data from 150 games.
 
@@ -72,7 +72,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 6.3 sec elapsed
+    ## 6.55 sec elapsed
 
     ## 1908679 rows of women's college basketball play-by-play data from 5779 games.
 
@@ -116,7 +116,7 @@ BibTex Citation
 ``` bibtex
 @misc{hutchinson_gilani_2021_wehoop,
   title = {wehoop: Access Women’s Basketball Play by Play Data},
-  url = {http://dx.doi.org/10.32614/CRAN.package.wehoop},
+  url = {http://doi.org/10.32614/CRAN.package.wehoop},
   DOI = {10.32614/cran.package.wehoop},
   journal = {CRAN: Contributed Packages},
   publisher = {The R Foundation},

@@ -111,7 +111,7 @@ BibTex Citation
 ```bibtex
 @misc{hutchinson_gilani_2021_wehoop,
   title = {wehoop: Access Women’s Basketball Play by Play Data},
-  url = {http://dx.doi.org/10.32614/CRAN.package.wehoop},
+  url = {http://doi.org/10.32614/CRAN.package.wehoop},
   DOI = {10.32614/cran.package.wehoop},
   journal = {CRAN: Contributed Packages},
   publisher = {The R Foundation},
