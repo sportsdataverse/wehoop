@@ -91,8 +91,10 @@ wnba_teams <- function(...){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team details data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -229,8 +231,10 @@ wnba_teamdetails <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team details data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -334,8 +338,10 @@ wnba_teamestimatedmetrics <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team estimated metrics data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -438,8 +444,10 @@ wnba_teamgamelog <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team game log data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -612,8 +620,10 @@ wnba_teamgamelogs <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team game logs for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -694,8 +704,10 @@ wnba_teamhistoricalleaders <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team historical leaders data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -768,8 +780,8 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
-#' @family WNBA Team Functions
 #' @details
 #' ```r
 #'   wnba_teaminfocommon(team_id = '1611661328')
@@ -780,6 +792,7 @@ wnba_teaminfocommon <- function(
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
+  cli::cli_warn("As of v2.1.0, `wnba_teaminfocommon()` is deprecated due to changes from the WNBA Stats API.\nPlease use `wnba_teamdetails()` instead.")
   
   # Intentionally not commented out
   season_type <- gsub(' ', '+', season_type)
@@ -804,13 +817,14 @@ wnba_teaminfocommon <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team common info data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
   )
-  return(df_list)
 }
 
 
@@ -1119,8 +1133,10 @@ wnba_teamplayeronoffdetails <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team player on off details data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1341,8 +1357,10 @@ wnba_teamplayeronoffsummary <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team player on off summary data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1594,8 +1612,10 @@ wnba_teamplayerdashboard <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team player dashboard data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1698,8 +1718,10 @@ wnba_teamyearbyyearstats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team year-by-year stats data for {team_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2119,8 +2141,10 @@ wnba_teamvsplayer <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team vs player data for {team_id} and {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2755,8 +2779,10 @@ wnba_teamgamestreakfinder <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team streak finder data for the given parameters available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
