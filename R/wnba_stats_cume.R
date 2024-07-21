@@ -146,8 +146,10 @@ wnba_cumestatsplayer <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no cumulative player stats data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -231,8 +233,10 @@ wnba_cumestatsplayergames <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no cumulative player game stats data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -392,8 +396,10 @@ wnba_cumestatsteam <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no cumulative team stats data available for {team_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -479,8 +485,10 @@ wnba_cumestatsteamgames <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no cumulative team game stats data available for {team_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

@@ -102,8 +102,10 @@ wnba_leaguegamelog <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league game log data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -261,8 +263,10 @@ wnba_leaguestandingsv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league standings v3 data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -610,8 +614,10 @@ wnba_leaguegamefinder <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league game finder data available for the given parameters!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

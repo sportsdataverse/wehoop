@@ -145,8 +145,10 @@ wnba_data_pbp <- function(game_id = "1022200034",
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

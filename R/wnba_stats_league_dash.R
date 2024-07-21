@@ -167,8 +167,10 @@ wnba_leaguedashplayerbiostats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player bio stats data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -410,8 +412,10 @@ wnba_leaguedashplayerclutch <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player clutch stats data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -642,8 +646,10 @@ wnba_leaguedashplayerstats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player stats data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -855,8 +861,10 @@ wnba_leaguedashplayershotlocations <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player shot locations data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1066,8 +1074,10 @@ wnba_leaguedashteamclutch <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard team clutch data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1262,8 +1272,10 @@ wnba_leaguedashteamstats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard team stats data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1449,8 +1461,10 @@ wnba_leaguedashteamshotlocations <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard team shot location data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

@@ -864,8 +864,10 @@ wnba_playerdashboardbyclutch <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player dashboard by clutch splits data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1326,8 +1328,10 @@ wnba_playerdashboardbygamesplits <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player dashboard by game splits data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1925,8 +1929,10 @@ wnba_playerdashboardbygeneralsplits <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard by general splits data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2456,8 +2462,10 @@ wnba_playerdashboardbylastngames <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard by last n games data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2850,8 +2858,10 @@ wnba_playerdashboardbyopponent <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard by opponent data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -3248,8 +3258,10 @@ wnba_playerdashboardbyshootingsplits <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard by shooting splits data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -3648,8 +3660,10 @@ wnba_playerdashboardbyteamperformance <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard by team performance data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -3910,8 +3924,10 @@ wnba_playerdashboardbyyearoveryear <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard year-over-year data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

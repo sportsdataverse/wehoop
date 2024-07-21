@@ -176,8 +176,10 @@ wnba_videodetailsasset <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no video detail assets data available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -362,8 +364,10 @@ wnba_videodetails <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no video details data available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -424,8 +428,10 @@ wnba_videoevents <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no video events data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -499,8 +505,10 @@ wnba_videostatus <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no video status data for {game_date} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

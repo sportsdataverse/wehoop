@@ -151,8 +151,10 @@ wnba_leaguehustlestatsplayer <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle player stats data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -358,8 +360,10 @@ wnba_leaguehustlestatsplayerleaders <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle stats player leaders data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -511,8 +515,10 @@ wnba_leaguehustlestatsteam <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle team stats data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -716,8 +722,10 @@ wnba_leaguehustlestatsteamleaders <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league hustle team stats leaders data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
