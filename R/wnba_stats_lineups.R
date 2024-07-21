@@ -121,11 +121,11 @@ wnba_fantasywidget <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no fantasy widget data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no fantasy widget data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -315,11 +315,11 @@ wnba_leaguedashlineups <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard lineups data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard lineups data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -479,11 +479,11 @@ wnba_leaguelineupviz <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league lineup viz data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league lineup viz data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -662,11 +662,11 @@ wnba_leagueplayerondetails <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league player on/off details data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league player on/off details data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -776,11 +776,11 @@ wnba_leagueseasonmatchups <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league season matchups data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league season matchups data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

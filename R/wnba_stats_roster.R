@@ -68,11 +68,11 @@ wnba_commonallplayers <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or common all players data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common all players data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -185,11 +185,11 @@ wnba_commonplayerinfo <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or common player info data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common player info data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -254,11 +254,11 @@ wnba_commonplayoffseries <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or common playoff series data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common playoff series data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -351,11 +351,11 @@ wnba_commonteamroster <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or common team roster data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common team roster data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

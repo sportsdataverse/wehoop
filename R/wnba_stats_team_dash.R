@@ -774,11 +774,11 @@ wnba_teamdashboardbyclutch <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by clutch data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by clutch data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -1198,11 +1198,11 @@ wnba_teamdashboardbygamesplits <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by game splits data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by game splits data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -1689,11 +1689,11 @@ wnba_teamdashboardbygeneralsplits <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by general splits data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by general splits data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -2174,11 +2174,11 @@ wnba_teamdashboardbylastngames <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no teamdashboard by last n games data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no teamdashboard by last n games data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -2538,11 +2538,11 @@ wnba_teamdashboardbyopponent <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by opponent data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by opponent data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -2917,11 +2917,11 @@ wnba_teamdashboardbyshootingsplits <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by shooting splits data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by shooting splits data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -3286,11 +3286,11 @@ wnba_teamdashboardbyteamperformance <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by team performance data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by team performance data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -3528,11 +3528,11 @@ wnba_teamdashboardbyyearoveryear <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by year-over-year data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by year-over-year data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -3781,11 +3781,11 @@ wnba_teamdashlineups <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard by lineups data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard by lineups data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

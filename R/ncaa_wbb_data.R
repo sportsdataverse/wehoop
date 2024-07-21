@@ -42,11 +42,11 @@ ncaa_wbb_NET_rankings <- function(){
         make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no NET rankings available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -196,11 +196,11 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

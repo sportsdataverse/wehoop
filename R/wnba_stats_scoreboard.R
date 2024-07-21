@@ -121,11 +121,11 @@ wnba_schedule <- function(
         )
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league schedule data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league schedule data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -314,11 +314,11 @@ wnba_scoreboard <- function(
   #     
   #   },
   #   error = function(e) {
-  #     message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data for {game_date} available!"))
-  #     message(glue::glue("Error:\n{e}"))
+  #     cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoreboard data for {game_date} available!")
+  #     cli::cli_alert_danger("Error:\n{e}")
   #   },
   #   warning = function(w) {
-  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #     cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
   #   },
   #   finally = {
   #   }
@@ -534,11 +534,11 @@ wnba_scoreboardv2 <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboardv2 data for {game_date} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoreboardv2 data for {game_date} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -717,11 +717,11 @@ wnba_scoreboardv3 <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard v3 data for {game_date} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoreboard v3 data for {game_date} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -841,11 +841,11 @@ wnba_todays_scoreboard <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no today's scoreboard data for {game_date} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no today's scoreboard data for {game_date} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

@@ -263,11 +263,11 @@ wnba_alltimeleadersgrids <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no all-time leaders grid data for {league_id} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no all-time leaders grid data for {league_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -347,11 +347,11 @@ wnba_assistleaders <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no assist leaders data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no assist leaders data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -415,11 +415,11 @@ wnba_assisttracker <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no assist tracker data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no assist tracker data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -538,11 +538,11 @@ wnba_homepageleaders <- function(
   #     
   #   },
   #   error = function(e) {
-  #     message(glue::glue("{Sys.time()}: Invalid arguments or no homepage leaders data for {season} available!"))
-  #     message(glue::glue("Error:\n{e}"))
+  #     cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no homepage leaders data for {season} available!")
+  #     cli::cli_alert_danger("Error:\n{e}")
   #   },
   #   warning = function(w) {
-  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #     cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
   #   },
   #   finally = {
   #   }
@@ -705,11 +705,11 @@ wnba_homepagev2 <- function(
   #     
   #   },
   #   error = function(e) {
-  #     message(glue::glue("{Sys.time()}: Invalid arguments or no homepage v2 data for {season} available!\n{e}"))
-  #     message(glue::glue("Error:\n{e}"))
+  #     cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no homepage v2 data for {season} available!")
+  #     cli::cli_alert_danger("Error:\n{e}")
   #   },
   #   warning = function(w) {
-  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #     cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
   #   },
   #   finally = {
   #   }
@@ -1340,11 +1340,11 @@ wnba_homepagewidget <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no homepage widget data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no homepage widget data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -1464,11 +1464,11 @@ wnba_leaderstiles <- function(
   #     
   #   },
   #   error = function(e) {
-  #     message(glue::glue("{Sys.time()}: Invalid arguments or no leaders tiles data for {season} available!"))
-  #     message(glue::glue("Error:\n{e}"))
+  #     cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no leaders tiles data for {season} available!")
+  #     cli::cli_alert_danger("Error:\n{e}")
   #   },
   #   warning = function(w) {
-  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #     cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
   #   },
   #   finally = {
   #   }
@@ -1582,11 +1582,11 @@ wnba_leagueleaders <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league leaders data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league leaders data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -1656,7 +1656,7 @@ wnba_leagueleaders <- function(
 #       
 #     },
 #     error = function(e) {
-#       message(glue::glue("{Sys.time()}: Invalid arguments or no defense hub data for {season} available!"))
+#       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no defense hub data for {season} available!")
 #     },
 #     warning = function(w) {
 #     },
