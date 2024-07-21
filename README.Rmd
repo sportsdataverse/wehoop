@@ -110,9 +110,13 @@ To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org) R package in publ
 BibTex Citation
 ```bibtex
 @misc{hutchinson_gilani_2021_wehoop,
-  author = {Saiem Gilani and Geoff Hutchinson},
-  title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
-  url = {https://wehoop.sportsdataverse.org},
-  year = {2021}
+  title = {wehoop: Access Women’s Basketball Play by Play Data},
+  url = {http://dx.doi.org/10.32614/CRAN.package.wehoop},
+  DOI = {10.32614/cran.package.wehoop},
+  journal = {CRAN: Contributed Packages},
+  publisher = {The R Foundation},
+  author = {Gilani,  Saiem and Hutchinson,  Geoffery},
+  year = {2021},
+  month = nov 
 }
 ```

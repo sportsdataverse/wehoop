@@ -48,7 +48,7 @@ pacman::p_load_current_gh("sportsdataverse/wehoop", dependencies = TRUE, update 
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2023) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2024) ~ 1-2 minutes**
 
 ``` r
 tictoc::tic()
@@ -58,9 +58,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.39 sec elapsed
+    ## 1.16 sec elapsed
 
-    ## 102191 rows of WNBA play-by-play data from 262 games.
+    ## 58334 rows of WNBA play-by-play data from 150 games.
 
 ### **Women’s college basketball full play-by-play seasons (2004-2024) ~ 2-3 minutes**
 
@@ -72,9 +72,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.7 sec elapsed
+    ## 6.3 sec elapsed
 
-    ## 328507 rows of women's college basketball play-by-play data from 959 games.
+    ## 1908679 rows of women's college basketball play-by-play data from 5779 games.
 
 ## **Documentation**
 
@@ -115,9 +115,13 @@ BibTex Citation
 
 ``` bibtex
 @misc{hutchinson_gilani_2021_wehoop,
-  author = {Saiem Gilani and Geoff Hutchinson},
-  title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
-  url = {https://wehoop.sportsdataverse.org},
-  year = {2021}
+  title = {wehoop: Access Women’s Basketball Play by Play Data},
+  url = {http://dx.doi.org/10.32614/CRAN.package.wehoop},
+  DOI = {10.32614/cran.package.wehoop},
+  journal = {CRAN: Contributed Packages},
+  publisher = {The R Foundation},
+  author = {Gilani,  Saiem and Hutchinson,  Geoffery},
+  year = {2021},
+  month = nov 
 }
 ```
