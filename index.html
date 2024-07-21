@@ -152,8 +152,8 @@
 <strong>Quick Start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <div class="section level3">
-<h3 id="wnba-full-play-by-play-seasons-2002-2023--1-2-minutes">
-<strong>WNBA full play-by-play seasons (2002-2023) ~ 1-2 minutes</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2023--1-2-minutes"></a>
+<h3 id="wnba-full-play-by-play-seasons-2002-2024--1-2-minutes">
+<strong>WNBA full play-by-play seasons (2002-2024) ~ 1-2 minutes</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2024--1-2-minutes"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -161,9 +161,9 @@
 <span>  <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">## 1.39 sec elapsed</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">## 1.16 sec elapsed</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="do">## 102191 rows of WNBA play-by-play data from 262 games.</span></span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="do">## 58334 rows of WNBA play-by-play data from 150 games.</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="womens-college-basketball-full-play-by-play-seasons-2004-2024--2-3-minutes">
@@ -175,9 +175,9 @@
 <span>  <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## 1.7 sec elapsed</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## 6.3 sec elapsed</span></span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="do">## 328507 rows of women's college basketball play-by-play data from 959 games.</span></span></code></pre></div>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="do">## 1908679 rows of women's college basketball play-by-play data from 5779 games.</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -220,11 +220,15 @@
 <p>To cite the <a href="https://wehoop.sportsdataverse.org"><strong><code>wehoop</code></strong></a> R package in publications, use:</p>
 <p>BibTex Citation</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">hutchinson_gilani_2021_wehoop</span>,</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="dt">author</span> = {Saiem Gilani and Geoff Hutchinson},</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="dt">title</span> = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://wehoop.sportsdataverse.org},</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="dt">year</span> = {2021}</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="dt">title</span> = {wehoop: Access Women’s Basketball Play by Play Data},</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="dt">url</span> = {http://dx.doi.org/10.32614/CRAN.package.wehoop},</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="dt">DOI</span> = {10.32614/cran.package.wehoop},</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="dt">journal</span> = {CRAN: Contributed Packages},</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="dt">publisher</span> = {The R Foundation},</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="dt">author</span> = {Gilani,  Saiem and Hutchinson,  Geoffery},</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  <span class="dt">year</span> = {2021},</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="dt">month</span> = <span class="st">nov</span> </span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 
