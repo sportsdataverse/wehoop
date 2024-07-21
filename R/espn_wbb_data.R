@@ -2097,7 +2097,8 @@ espn_wbb_team_stats <- function(
               "logos.rel..dark.",
               "logos.lastUpdated.1",
               "X.ref",
-              "X.ref.1"))) %>% 
+              "X.ref.1",
+              "X.ref.2"))) %>% 
         janitor::clean_names() 
       colnames(team_df)[1:15] <- paste0("team_",colnames(team_df)[1:15])
       
