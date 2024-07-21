@@ -108,8 +108,10 @@ wnba_playerindex <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player index data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -151,8 +153,10 @@ wnba_playerheadshot <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player headshot for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -223,8 +227,10 @@ wnba_playerawards <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player awards data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -318,8 +324,10 @@ wnba_playercareerbycollege <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player careers by college data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -501,8 +509,10 @@ wnba_playercareerbycollegerollup <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player careers by college rollup data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -826,8 +836,10 @@ wnba_playercareerstats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player career stats data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -917,8 +929,10 @@ wnba_infographicfanduelplayer <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no FanDuel player infographic data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1186,8 +1200,10 @@ wnba_playerfantasyprofile <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player fantasy profile data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1293,8 +1309,10 @@ wnba_playerfantasyprofilebargraph <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player fantasy profile bar graph data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1401,8 +1419,10 @@ wnba_playerestimatedmetrics <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player estimated metrics data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1503,8 +1523,10 @@ wnba_playergamelog <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player game log data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1688,8 +1710,10 @@ wnba_playergamelogs <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player game logs data for {player_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2023,8 +2047,10 @@ wnba_playergamestreakfinder <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player streak finder data available for the parameters selected!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2108,8 +2134,10 @@ wnba_playernextngames <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player next n games data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2544,8 +2572,10 @@ wnba_playerprofilev2 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player profile v2 data available for {player_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2861,8 +2891,10 @@ wnba_playervsplayer <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player vs player data unavailable for the parameters selected!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -3044,8 +3076,10 @@ wnba_playercompare <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or player comparison data unavailable for the parameters selected!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

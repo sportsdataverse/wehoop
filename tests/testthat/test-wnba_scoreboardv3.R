@@ -26,6 +26,8 @@ test_that("WNBA Scoreboard V3", {
     "game_clock",
     "regulation_periods",
     "series_game_number",
+    "game_label",
+    "game_sub_label",
     "series_text",
     "if_necessary",
     "series_conference",

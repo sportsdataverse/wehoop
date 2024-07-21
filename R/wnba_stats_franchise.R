@@ -66,8 +66,10 @@ wnba_franchiseleaders <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no franchise leaders data available for {team_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -181,8 +183,10 @@ wnba_franchiseleaderswrank <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no franchise players data available for {team_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -278,8 +282,10 @@ wnba_franchiseplayers <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no franchise players data available for {team_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -373,8 +379,10 @@ wnba_franchisehistory <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no franchise history data available for {team_id}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

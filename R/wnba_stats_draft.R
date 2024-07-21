@@ -112,8 +112,10 @@ wnba_draftboard <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft board data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -220,8 +222,10 @@ wnba_draftcombinestats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft combine stats data available for {season_year}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -276,8 +280,10 @@ wnba_draftcombinedrillresults <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft combine drill results data available for {season_year}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -332,8 +338,10 @@ wnba_draftcombinenonstationaryshooting <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft combine stationary shooting data available for {season_year}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -388,8 +396,10 @@ wnba_draftcombineplayeranthro <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft combine player anthropological data available for {season_year}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -443,8 +453,10 @@ wnba_draftcombinespotshooting <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft combine spot shooting data available for {season_year}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -533,8 +545,10 @@ wnba_drafthistory <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no draft history data available for {season}!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

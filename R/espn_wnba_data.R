@@ -233,9 +233,10 @@ espn_wnba_game_all <- function(game_id){
           "{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"
         )
       )
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
-      
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
       
@@ -258,9 +259,10 @@ espn_wnba_game_all <- function(game_id){
           "{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"
         )
       )
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
-      
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
       
@@ -283,9 +285,10 @@ espn_wnba_game_all <- function(game_id){
           "{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"
         )
       )
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
-      
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
       
@@ -406,8 +409,10 @@ espn_wnba_pbp <- function(game_id){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -526,8 +531,10 @@ espn_wnba_team_box <- function(game_id){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -647,8 +654,10 @@ espn_wnba_player_box <- function(game_id){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -977,9 +986,10 @@ espn_wnba_game_rosters <- function(game_id) {
           "{Sys.time()}: Invalid arguments or no game roster data for {game_id} available!"
         )
       )
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
-      
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
       
@@ -1290,8 +1300,10 @@ espn_wnba_scoreboard <- function(season){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1417,8 +1429,10 @@ espn_wnba_standings <- function(year){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no standings data available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1691,8 +1705,10 @@ espn_wnba_team_stats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}:Invalid arguments or no team season stats data available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2019,8 +2035,10 @@ espn_wnba_player_stats <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}:Invalid arguments or no player season stats data available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

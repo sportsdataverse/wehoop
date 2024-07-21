@@ -264,8 +264,10 @@ wnba_alltimeleadersgrids <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no all-time leaders grid data for {league_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -346,8 +348,10 @@ wnba_assistleaders <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no assist leaders data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -412,8 +416,10 @@ wnba_assisttracker <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no assist tracker data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -486,8 +492,8 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
-#' @family WNBA Leaders Functions
 #' @details
 #' ```r
 #'   wnba_homepageleaders(league_id = '10', player_or_team = "Player")
@@ -503,41 +509,44 @@ wnba_homepageleaders <- function(
     stat_category = 'Points',
     ...){
   
-  player_scope <- gsub(' ','+',player_scope)
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  stat_category <- gsub(' ','+',stat_category)
-  version <- "homepageleaders"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
+  cli::cli_alert_danger("As of v2.1.0, `wnba_homepageleaders()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
-  params <- list(
-    GameScope =  game_scope,
-    LeagueID = league_id,
-    PlayerOrTeam = player_or_team,
-    PlayerScope = player_scope,
-    Season = season,
-    SeasonType = season_type,
-    StatCategory = stat_category
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no homepage leaders data for {season} available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+  # player_scope <- gsub(' ','+',player_scope)
+  # # Intentional
+  # # season_type <- gsub(' ','+',season_type)
+  # stat_category <- gsub(' ','+',stat_category)
+  # version <- "homepageleaders"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   GameScope =  game_scope,
+  #   LeagueID = league_id,
+  #   PlayerOrTeam = player_or_team,
+  #   PlayerScope = player_scope,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   StatCategory = stat_category
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no homepage leaders data for {season} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 
@@ -650,8 +659,8 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
-#' @family WNBA Leaders Functions
 #' @details
 #' ```r
 #'  wnba_homepagev2(league_id = '10', player_or_team = "Player")
@@ -667,43 +676,682 @@ wnba_homepagev2 <- function(
     season_type = 'Regular Season',
     stat_type = 'Traditional',
     ...){
+  cli::cli_alert_danger("As of v2.1.0, `wnba_homepagev2()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
-  player_scope <- gsub(' ','+',player_scope)
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  stat_type <- gsub(' ','+',stat_type)
-  version <- "homepagev2"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
+  # player_scope <- gsub(' ','+',player_scope)
+  # # Intentional
+  # # season_type <- gsub(' ','+',season_type)
+  # stat_type <- gsub(' ','+',stat_type)
+  # version <- "homepagev2"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   GameScope = game_scope,
+  #   LeagueID = league_id,
+  #   PlayerOrTeam = player_or_team,
+  #   PlayerScope = player_scope,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   StatType = stat_type
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no homepage v2 data for {season} available!\n{e}"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
+}
+
+
+#' **Get WNBA Stats API Homepage Widget Leaders**
+#' @name wnba_homepagewidget
+NULL
+#' @title
+#' **Get WNBA Stats API Homepage Widget Leaders**
+#' @rdname wnba_homepagewidget
+#' @author Saiem Gilani
+#' @param player_or_team Player or Team
+#' @param ... Additional arguments passed to an underlying function like httr.
+#' @return Returns, for current season, a named list of data frames: PTS, REB, AST, 
+#' BLK, STL, FG_PCT, FG3M, FG3_PCT, FANTASY_POINTS, TOTAL_PTS,
+#'  TOTAL_REB, TOTAL_AST, ALL_TIME_TD3, TD3, GAME_FG3M, 
+#'  GAME_PTS, GAME_AST, GAME_STL, GAME_BLK, PCT_PTS_3PT,
+#'   PCT_PTS_2PT, PCT_PTS_2PT_MR
+#'
+#'    **PTS** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |PTS               |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **REB** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |REB               |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **AST** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |AST               |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **BLK** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |BLK               |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **STL** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |STL               |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **FG_PCT** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |FG_PCT            |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **FG3M** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |FG3M              |integer   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **FG3_PCT** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |RANK              |integer   |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |FG3_PCT           |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **FANTASY_POINTS** 
+#'    
+#'    
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |title             |character |
+#'    |deep_link         |character |
+#'    |name              |character |
+#'    |timestamp         |character |
+#'    |season            |character |
+#'    |seasontype        |character |
+#'    |permode           |character |
+#'    |PLAYER_ID         |integer   |
+#'    |PLAYER_NAME       |character |
+#'    |TEAM_ID           |integer   |
+#'    |TEAM_ABBREVIATION |character |
+#'    |FANTASY_POINTS    |numeric   |
+#'    |FIRST_NAME        |character |
+#'    |NICKNAME          |character |
+#'    |LAST_NAME         |character |
+#'    |JERSEY_NUM        |character |
+#'    |POSITION          |character |
+#'    
+#'    **TOTAL_PTS** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |PTS                    |integer   |
+#'    
+#'    **TOTAL_REB** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |REB                    |integer   |
+#'    
+#'    **TOTAL_AST** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |AST                    |integer   |
+#'    
+#'    **ALL_TIME_TD3** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |TD3                    |integer   |
+#'    
+#'    **TD3** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |SEASON_YEAR            |character |
+#'    |TD3                    |integer   |
+#'    
+#'    **GAME_FG3M** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |FG3M                   |integer   |
+#'    |GAME_ID                |character |
+#'    
+#'    **GAME_PTS** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |PTS                    |integer   |
+#'    |GAME_ID                |character |
+#'    
+#'    **GAME_AST** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |AST                    |integer   |
+#'    |GAME_ID                |character |
+#'    
+#'    **GAME_STL** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |STL                    |integer   |
+#'    |GAME_ID                |character |
+#'    
+#'    **GAME_BLK** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |BLK                    |integer   |
+#'    |GAME_ID                |character |
+#'    
+#'    **PCT_PTS_3PT** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |PCT_PTS_3PT            |numeric   |
+#'    
+#'    **PCT_PTS_2PT** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |PCT_PTS_2PT            |numeric   |
+#'    
+#'    **PCT_PTS_2PT_MR** 
+#'    
+#'    
+#'    |col_name               |types     |
+#'    |:----------------------|:---------|
+#'    |title                  |character |
+#'    |deep_link              |character |
+#'    |name                   |character |
+#'    |timestamp              |character |
+#'    |permode                |character |
+#'    |season                 |character |
+#'    |seasontype             |character |
+#'    |PLAYER_ID              |integer   |
+#'    |PLAYER_NAME            |character |
+#'    |PLAYER_NAME_LAST_FIRST |character |
+#'    |NICKNAME               |character |
+#'    |TEAM_ID                |integer   |
+#'    |TEAM_ABBREVIATION      |character |
+#'    |TEAM_NAME              |character |
+#'    |PCT_PTS_2PT_MR         |numeric   |
+#'
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
+#' @import rvest
+#' @export
+#' @family WNBA Leaders Functions
+#' @details
+#' ```r
+#'  wnba_homepagewidget(player_or_team = "Player")
+#'  wnba_homepagewidget(player_or_team = "Team")
+#' ```
+
+wnba_homepagewidget <- function(
+    player_or_team = 'Player',
+    ...){
+  
+  full_url <- "https://stats.wnba.com/js/data/widgets/home_season.json"
   
   params <- list(
-    GameScope = game_scope,
-    LeagueID = league_id,
-    PlayerOrTeam = player_or_team,
-    PlayerScope = player_scope,
-    Season = season,
-    SeasonType = season_type,
-    StatType = stat_type
+    
   )
   
   tryCatch(
     expr = {
       
-      resp <- request_with_proxy(url = full_url, params = params, ...)
+      resp <- httr::RETRY("GET", url = full_url,
+                          httr::add_headers(.headers = wnba_headers_params())
+      )
+      json <- resp$content %>%
+        rawToChar() %>%
+        jsonlite::fromJSON(simplifyVector = T) 
       
-      df_list <- wnba_stats_map_result_sets(resp)
+      
+      categories <- json$items %>%
+        as_tibble()
+      
+      categories$items[[1]][1,] %>% 
+        tidyr::unnest("playerstats")
+      players_df_list <- purrr::map(1:nrow(categories$items[[1]]), function(x){
+        df <- categories$items[[1]][x,] %>% 
+          tidyr::unnest("playerstats") %>%
+          data.frame(stringsAsFactors = F) %>%
+          as_tibble()
+        return(df)
+      })
+      players_df_list_names <- categories$items[[1]]$name
+      names(players_df_list) <- players_df_list_names
+      players_df_list <- players_df_list[sapply(players_df_list, function(x) nrow(x) > 0)]
+      
+      players_df_list_ext <- purrr::map(1:nrow(categories$items[[3]]), function(x){
+        df <- categories$items[[3]][x,] %>% 
+          tidyr::unnest("playerstats") %>%
+          data.frame(stringsAsFactors = F) %>%
+          as_tibble() %>% 
+          dplyr::select(-dplyr::any_of(c("teamstats")))
+        return(df)
+      })
+      player_df_list_ext_names <- categories$items[[3]]$name
+      season_df_list_ext_names <- c(
+        "TOTAL_PTS",
+        "TOTAL_REB",
+        "TOTAL_AST",
+        "ALL_TIME_TD3",
+        "TD3",
+        "GAME_FG3M",
+        "GAME_PTS",
+        "PCT_PTS_3PT_PER_GAME",
+        "GAME_AST",
+        "GAME_AST",
+        "GAME_STL",
+        "GAME_BLK",
+        "GAME_FG3M",
+        "PCT_PTS_3PT",
+        "PCT_PTS_3PT",
+        "PCT_PTS_2PT",
+        "PCT_PTS_2PT",
+        "PCT_PTS_2PT_MR",
+        "PCT_PTS_2PT_MR"
+      )
+      names(players_df_list_ext) <- season_df_list_ext_names
+      players_df_list_ext <- players_df_list_ext[sapply(players_df_list_ext, function(x) nrow(x) > 0)]
+      
+      players_df_list_final <- c(players_df_list, players_df_list_ext)
+      
+      players_df_list_final <- players_df_list_final[sapply(players_df_list_final, function(x) nrow(x) > 0)]
+      
+      
+      teams_df_list <- purrr::map(1:nrow(categories$items[[2]]), function(x){
+        df <- categories$items[[2]][x,] %>% 
+          tidyr::unnest("teamstats") %>%
+          data.frame(stringsAsFactors = F) %>%
+          as_tibble()
+        
+        return(df)
+      })
+      teams_df_list_names <- categories$items[[2]]$name
+      names(teams_df_list) <- teams_df_list_names
+      teams_df_list <- teams_df_list[sapply(teams_df_list, function(x) nrow(x) > 0)]
+
+      teams_df_list_ext <- purrr::map(1:nrow(categories$items[[3]]), function(x){
+        df <- categories$items[[3]][x,] %>% 
+          tidyr::unnest("teamstats") %>%
+          data.frame(stringsAsFactors = F) %>%
+          as_tibble() %>% 
+          dplyr::select(-dplyr::any_of(c("playerstats")))
+        return(df)
+      })
+      
+      names(teams_df_list_ext) <- season_df_list_ext_names
+      teams_df_list_ext <- teams_df_list_ext[sapply(teams_df_list_ext, function(x) nrow(x) > 0)]
+      
+      teams_df_list_final <- c(teams_df_list, teams_df_list_ext)
+      teams_df_list_final <- teams_df_list_final[sapply(teams_df_list_final, function(x) nrow(x) > 0)]
+      
+      if(tolower(player_or_team) == "player"){
+        df_list <- players_df_list_final
+      } else if(tolower(player_or_team) == "team"){
+        df_list <- teams_df_list_final
+      }
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no homepage v2 data for {season} available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no homepage widget data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
   )
   return(df_list)
 }
+
 
 
 #' **Get WNBA Stats API Leaders Tiles**
@@ -771,8 +1419,8 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
-#' @family WNBA Leaders Functions
 #' @details
 #' ```r
 #'   wnba_leaderstiles(league_id = '10', player_or_team = "Player")
@@ -788,41 +1436,43 @@ wnba_leaderstiles <- function(
     season_type = 'Regular Season',
     stat = 'PTS',
     ...){
+  cli::cli_alert_danger("As of v2.1.0, `wnba_leaderstiles()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
-  player_scope <- gsub(' ','+',player_scope)
-  # season_type <- gsub(' ','+',season_type)
-  stat <- gsub(' ','+',stat)
-  version <- "leaderstiles"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    GameScope = game_scope,
-    LeagueID = league_id,
-    PlayerOrTeam = player_or_team,
-    PlayerScope = player_scope,
-    Season = season,
-    SeasonType = season_type,
-    Stat = stat
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no leaders tiles data for {season} available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+  # player_scope <- gsub(' ','+',player_scope)
+  # # season_type <- gsub(' ','+',season_type)
+  # stat <- gsub(' ','+',stat)
+  # version <- "leaderstiles"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   GameScope = game_scope,
+  #   LeagueID = league_id,
+  #   PlayerOrTeam = player_or_team,
+  #   PlayerScope = player_scope,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   Stat = stat
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no leaders tiles data for {season} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 
@@ -933,8 +1583,10 @@ wnba_leagueleaders <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league leaders data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

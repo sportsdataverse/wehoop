@@ -43,8 +43,10 @@ ncaa_wbb_NET_rankings <- function(){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no NET rankings available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -195,6 +197,10 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      message(glue::glue("Error:\n{e}"))
+    },
+    warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

@@ -89,7 +89,6 @@ Other WNBA Team Functions:
 \code{\link{wnba_teamgamelogs}()},
 \code{\link{wnba_teamgamestreakfinder}()},
 \code{\link{wnba_teamhistoricalleaders}()},
-\code{\link{wnba_teaminfocommon}()},
 \code{\link{wnba_teamplayerdashboard}()},
 \code{\link{wnba_teamplayeronoffdetails}()},
 \code{\link{wnba_teamplayeronoffsummary}()},

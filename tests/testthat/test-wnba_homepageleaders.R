@@ -1,6 +1,7 @@
 test_that("WNBA Home Page Leaders", {
   skip_on_cran()
   skip_on_ci()
+  skip("Skip this test due to deprecation")
   
   x <- wnba_homepageleaders(league_id = "10")
   

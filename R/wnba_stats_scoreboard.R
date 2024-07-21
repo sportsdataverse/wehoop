@@ -105,6 +105,9 @@ wnba_schedule <- function(
       }))
       games$season <- league_sched$seasonYear
       games$league_id <- league_sched$leagueId
+      
+      games <- games %>% 
+        dplyr::as_tibble()
       games <- games %>%
         dplyr::mutate(
           season_type_id = substr(.data$game_id, 3, 3),
@@ -114,13 +117,15 @@ wnba_schedule <- function(
             .data$season_type_id == 3 ~ "All-Star",
             .data$season_type_id == 4 ~ "Playoffs",
             .data$season_type_id == 5 ~ "Play-In Game"),
-          game_date = lubridate::ymd(substring(.data$game_date,1,10)))
-      
+          game_date = lubridate::mdy(substring(.data$game_date,1,10)),
+        )
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no league schedule data for {season} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -286,36 +291,38 @@ wnba_scoreboard <- function(
     game_date = '2022-07-20',
     day_offset = 0,
     ...){
+  cli::cli_alert_danger("As of v2.1.0, `wnba_scoreboard()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_scoreboardv3()` instead.")
   
-  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
-  on.exit(options(old))
-  
-  version <- "scoreboard"
-  full_url <- wnba_endpoint(version)
-  
-  params <- list(
-    LeagueID = league_id,
-    GameDate = game_date,
-    DayOffset = day_offset
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data for {game_date} available!"))
-    },
-    warning = function(w) {
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+  # old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  # on.exit(options(old))
+  # 
+  # version <- "scoreboard"
+  # full_url <- wnba_endpoint(version)
+  # 
+  # params <- list(
+  #   LeagueID = league_id,
+  #   GameDate = game_date,
+  #   DayOffset = day_offset
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data for {game_date} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 
@@ -528,8 +535,10 @@ wnba_scoreboardv2 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboardv2 data for {game_date} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -709,8 +718,10 @@ wnba_scoreboardv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard v3 data for {game_date} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -831,8 +842,10 @@ wnba_todays_scoreboard <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no today's scoreboard data for {game_date} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

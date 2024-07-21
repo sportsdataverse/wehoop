@@ -43,6 +43,26 @@
     
   }
 
+wnba_headers_params <- function(
+    origin = "https://stats.wnba.com",
+    referer="https://www.wnba.com/"){
+  headers <- c(
+    `Host` = 'stats.wnba.com',
+    `User-Agent` = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
+    `Accept` = 'application/json, text/plain, */*',
+    `Accept-Language` = 'en-US,en;q=0.5',
+    `Accept-Encoding` = 'gzip, deflate, br',
+    `x-nba-stats-origin` = 'stats',
+    `x-nba-stats-token` = 'true',
+    `Connection` = 'keep-alive',
+    `Origin` = origin,
+    `Referer` = referer,
+    `Pragma` = 'no-cache',
+    `Cache-Control` = 'no-cache'
+  )
+  return(headers)
+}
+
 #' @title
 #' **Retry http request with proxy**
 #' @description

@@ -475,8 +475,10 @@ wnba_boxscoretraditionalv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no traditional boxscore v3 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -793,8 +795,10 @@ wnba_boxscoreadvancedv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no advanced boxscore v3 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1070,8 +1074,10 @@ wnba_boxscoremiscv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no misc boxscore v3 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1359,8 +1365,10 @@ wnba_boxscorescoringv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no scoring boxscore v3 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1621,8 +1629,10 @@ wnba_boxscorefourfactorsv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no four factors boxscore v3 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -1928,8 +1938,10 @@ wnba_boxscoreplayertrackv3 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no player tracking boxscore v3 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2208,8 +2220,10 @@ wnba_boxscorehustlev2 <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no hustle stats boxscore v2 data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }
@@ -2314,8 +2328,10 @@ wnba_gamerotation <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no game rotation data for {game_id} available!"))
+      message(glue::glue("Error:\n{e}"))
     },
     warning = function(w) {
+      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
     },
     finally = {
     }

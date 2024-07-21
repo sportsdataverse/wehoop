@@ -1,3 +1,11 @@
+# **wehoop 2.1.0**
+* ```wnba_homepagewidget()``` function added to replace the following homepage functions being deprecated.
+* ```wnba_homepageleaders()``` function deprecated due to WNBA Stats API deprecation.
+* ```wnba_homepagev2()``` function deprecated due to WNBA Stats API deprecation.
+* ```wnba_leaderstiles()``` function deprecated due to WNBA Stats API deprecation.
+* ```wnba_scoreboard()``` function deprecated due to WNBA Stats API deprecation (use ```wnba_scoreboardv3()```).
+* ```wnba_teaminfocommon()``` function deprecated due to WNBA Stats API deprecation (use ```wnba_teamdetails()```).
+
 # **wehoop 2.0.0**
 
 * ```load_wnba_*()``` functions now use `sportsdataverse-data` releases url instead of `wehoop-data` repository URL
