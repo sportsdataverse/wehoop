@@ -792,7 +792,7 @@ wnba_teaminfocommon <- function(
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
-  cli::cli_warn("As of v2.1.0, `wnba_teaminfocommon()` is deprecated due to changes from the WNBA Stats API.\nPlease use `wnba_teamdetails()` instead.")
+  cli::cli_alert_danger("As of v2.1.0, `wnba_teaminfocommon()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_teamdetails()` instead.")
   
   # Intentionally not commented out
   season_type <- gsub(' ', '+', season_type)

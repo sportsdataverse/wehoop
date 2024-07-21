@@ -509,7 +509,7 @@ wnba_homepageleaders <- function(
     stat_category = 'Points',
     ...){
   
-  cli::cli_warn("As of v2.1.0, `wnba_homepageleaders()` is deprecated due to changes from the WNBA Stats API.\nPlease use `wnba_homepagewidget()` instead.")
+  cli::cli_alert_danger("As of v2.1.0, `wnba_homepageleaders()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
   player_scope <- gsub(' ','+',player_scope)
   # Intentional
@@ -676,7 +676,7 @@ wnba_homepagev2 <- function(
     season_type = 'Regular Season',
     stat_type = 'Traditional',
     ...){
-  cli::cli_warn("As of v2.1.0, `wnba_homepagev2()` is deprecated due to changes from the WNBA Stats API.\nPlease use `wnba_homepagewidget()` instead.")
+  cli::cli_alert_danger("As of v2.1.0, `wnba_homepagev2()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
   player_scope <- gsub(' ','+',player_scope)
   # Intentional
@@ -1436,7 +1436,7 @@ wnba_leaderstiles <- function(
     season_type = 'Regular Season',
     stat = 'PTS',
     ...){
-  cli::cli_warn("As of v2.1.0, `wnba_leaderstiles()` is deprecated due to changes from the WNBA Stats API.\nPlease use `wnba_homepagewidget()` instead.")
+  cli::cli_alert_danger("As of v2.1.0, `wnba_leaderstiles()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
   player_scope <- gsub(' ','+',player_scope)
   # season_type <- gsub(' ','+',season_type)

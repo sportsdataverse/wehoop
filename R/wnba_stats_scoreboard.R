@@ -291,7 +291,7 @@ wnba_scoreboard <- function(
     game_date = '2022-07-20',
     day_offset = 0,
     ...){
-  cli::cli_warn("As of v2.1.0, `wnba_scoreboard()` is deprecated due to changes from the WNBA Stats API.\nPlease use `wnba_scoreboardv3()` instead.")
+  cli::cli_alert_danger("As of v2.1.0, `wnba_scoreboard()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_scoreboardv3()` instead.")
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
