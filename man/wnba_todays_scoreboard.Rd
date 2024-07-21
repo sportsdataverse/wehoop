@@ -79,8 +79,7 @@ Return a data frame with the following columns:\tabular{ll}{
 Other WNBA Schedule Functions: 
 \code{\link{wnba_schedule}()},
 \code{\link{wnba_scoreboardv2}()},
-\code{\link{wnba_scoreboardv3}()},
-\code{\link{wnba_scoreboard}()}
+\code{\link{wnba_scoreboardv3}()}
 
 Other WNBA Live Functions: 
 \code{\link{wnba_live_pbp}()}

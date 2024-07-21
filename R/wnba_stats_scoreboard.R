@@ -281,7 +281,7 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Schedule Functions
+#' @keywords internal
 #' @details
 #' ```r
 #'  wnba_scoreboard(league_id = '10', game_date = '2022-07-20')

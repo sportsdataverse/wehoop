@@ -155,14 +155,7 @@ GameHeader, LastMeeting, LineScore, SeriesStandings, WestConfStandingsByDay
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_scoreboard(league_id = '10', game_date = '2022-07-20')
 }\if{html}{\out{</div>}}
 }
-\seealso{
-Other WNBA Schedule Functions: 
-\code{\link{wnba_schedule}()},
-\code{\link{wnba_scoreboardv2}()},
-\code{\link{wnba_scoreboardv3}()},
-\code{\link{wnba_todays_scoreboard}()}
-}
 \author{
 Saiem Gilani
 }
-\concept{WNBA Schedule Functions}
+\keyword{internal}

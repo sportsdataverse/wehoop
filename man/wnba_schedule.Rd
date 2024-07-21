@@ -78,7 +78,6 @@ Returns a tibble with the following columns:\tabular{ll}{
 Other WNBA Schedule Functions: 
 \code{\link{wnba_scoreboardv2}()},
 \code{\link{wnba_scoreboardv3}()},
-\code{\link{wnba_scoreboard}()},
 \code{\link{wnba_todays_scoreboard}()}
 }
 \author{
