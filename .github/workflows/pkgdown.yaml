@@ -37,7 +37,6 @@ jobs:
           extra-packages: |
             any::pkgdown
             any::animation
-            any::cfbfastR
             any::fastRhockey
             any::ggimage
             any::hoopR
