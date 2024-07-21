@@ -1,7 +1,7 @@
 test_that("WNBA Team Info Common", {
   skip_on_cran()
   skip_on_ci()
-  
+  skip("Skip this test due to deprecation")
   x <- wnba_teaminfocommon(team_id = "1611661328",
                            season = most_recent_wnba_season())
   

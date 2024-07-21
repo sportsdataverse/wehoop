@@ -1,6 +1,7 @@
 test_that("WNBA Scoreboard", {
   skip_on_cran()
   skip_on_ci()
+  skip("Skip this test due to deprecation")
   
   x <- wnba_scoreboard(league_id = "10", game_date = "2022-07-20")
   

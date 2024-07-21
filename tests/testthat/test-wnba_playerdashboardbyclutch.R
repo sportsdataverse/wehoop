@@ -2,7 +2,7 @@ test_that("WNBA Player Dashboard by Clutch", {
   skip_on_cran()
   skip_on_ci()
   
-  x <- wnba_playerdashboardbyclutch(player_id = "202250", season = most_recent_wnba_season() - 1)
+  x <- wnba_playerdashboardbyclutch(player_id = "1629477", season = most_recent_wnba_season() - 1)
   
   cols_x1 <- c(
     "GROUP_SET",

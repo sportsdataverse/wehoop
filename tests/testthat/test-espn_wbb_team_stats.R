@@ -20,6 +20,13 @@ test_that("ESPN - WBB Team Stats", {
     "team_is_all_star",
     "logo_href",
     "logo_dark_href",
+    "defensive_blocks",
+    "defensive_defensive_rebounds",
+    "defensive_steals",
+    "defensive_turnover_points",
+    "defensive_avg_defensive_rebounds",
+    "defensive_avg_blocks",
+    "defensive_avg_steals",
     "general_disqualifications",
     "general_flagrant_fouls",
     "general_fouls",
@@ -64,6 +71,7 @@ test_that("ESPN - WBB Team Stats", {
     "offensive_three_point_field_goals_made",
     "offensive_team_turnovers",
     "offensive_total_turnovers",
+    "offensive_second_chance_points",
     "offensive_fast_break_points",
     "offensive_avg_field_goals_made",
     "offensive_avg_field_goals_attempted",
@@ -88,14 +96,7 @@ test_that("ESPN - WBB Team Stats", {
     "offensive_avg_two_point_field_goals_attempted",
     "offensive_two_point_field_goal_pct",
     "offensive_shooting_efficiency",
-    "offensive_scoring_efficiency",
-    "defensive_blocks",
-    "defensive_defensive_rebounds",
-    "defensive_steals",
-    "defensive_turnover_points",
-    "defensive_avg_defensive_rebounds",
-    "defensive_avg_blocks",
-    "defensive_avg_steals"
+    "offensive_scoring_efficiency"
   )
   
   expect_in(sort(colnames(x)), sort(cols))
