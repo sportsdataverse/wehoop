@@ -300,7 +300,6 @@ Other WNBA Team Functions:
 \code{\link{wnba_teamgamelog}()},
 \code{\link{wnba_teamgamestreakfinder}()},
 \code{\link{wnba_teamhistoricalleaders}()},
-\code{\link{wnba_teaminfocommon}()},
 \code{\link{wnba_teamplayerdashboard}()},
 \code{\link{wnba_teamplayeronoffsummary}()},
 \code{\link{wnba_teams}()},

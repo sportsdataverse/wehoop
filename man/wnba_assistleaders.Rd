@@ -56,9 +56,7 @@ Returns a named list of data frames: AssistLeaders
 Other WNBA Leaders Functions: 
 \code{\link{wnba_alltimeleadersgrids}()},
 \code{\link{wnba_assisttracker}()},
-\code{\link{wnba_homepageleaders}()},
-\code{\link{wnba_homepagev2}()},
-\code{\link{wnba_leaderstiles}()},
+\code{\link{wnba_homepagewidget}()},
 \code{\link{wnba_leagueleaders}()}
 }
 \author{

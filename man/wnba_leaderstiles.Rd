@@ -85,16 +85,7 @@ LeadersTiles, LowSeasonHigh,
   wnba_leaderstiles(league_id = '10', player_or_team = "Team")
 }\if{html}{\out{</div>}}
 }
-\seealso{
-Other WNBA Leaders Functions: 
-\code{\link{wnba_alltimeleadersgrids}()},
-\code{\link{wnba_assistleaders}()},
-\code{\link{wnba_assisttracker}()},
-\code{\link{wnba_homepageleaders}()},
-\code{\link{wnba_homepagev2}()},
-\code{\link{wnba_leagueleaders}()}
-}
 \author{
 Saiem Gilani
 }
-\concept{WNBA Leaders Functions}
+\keyword{internal}

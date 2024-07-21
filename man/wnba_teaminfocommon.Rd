@@ -78,32 +78,7 @@ TeamSeasonRanks
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teaminfocommon(team_id = '1611661328')
 }\if{html}{\out{</div>}}
 }
-\seealso{
-Other WNBA Team Functions: 
-\code{\link{wnba_leaguedashteamstats}()},
-\code{\link{wnba_teamdashboardbyclutch}()},
-\code{\link{wnba_teamdashboardbygamesplits}()},
-\code{\link{wnba_teamdashboardbygeneralsplits}()},
-\code{\link{wnba_teamdashboardbylastngames}()},
-\code{\link{wnba_teamdashboardbyopponent}()},
-\code{\link{wnba_teamdashboardbyshootingsplits}()},
-\code{\link{wnba_teamdashboardbyteamperformance}()},
-\code{\link{wnba_teamdashboardbyyearoveryear}()},
-\code{\link{wnba_teamdashlineups}()},
-\code{\link{wnba_teamdetails}()},
-\code{\link{wnba_teamestimatedmetrics}()},
-\code{\link{wnba_teamgamelogs}()},
-\code{\link{wnba_teamgamelog}()},
-\code{\link{wnba_teamgamestreakfinder}()},
-\code{\link{wnba_teamhistoricalleaders}()},
-\code{\link{wnba_teamplayerdashboard}()},
-\code{\link{wnba_teamplayeronoffdetails}()},
-\code{\link{wnba_teamplayeronoffsummary}()},
-\code{\link{wnba_teams}()},
-\code{\link{wnba_teamvsplayer}()},
-\code{\link{wnba_teamyearbyyearstats}()}
-}
 \author{
 Saiem Gilani
 }
-\concept{WNBA Team Functions}
+\keyword{internal}
