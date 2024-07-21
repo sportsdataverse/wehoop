@@ -511,42 +511,42 @@ wnba_homepageleaders <- function(
   
   cli::cli_alert_danger("As of v2.1.0, `wnba_homepageleaders()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
-  player_scope <- gsub(' ','+',player_scope)
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  stat_category <- gsub(' ','+',stat_category)
-  version <- "homepageleaders"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    GameScope =  game_scope,
-    LeagueID = league_id,
-    PlayerOrTeam = player_or_team,
-    PlayerScope = player_scope,
-    Season = season,
-    SeasonType = season_type,
-    StatCategory = stat_category
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no homepage leaders data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
-    },
-    warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
-    },
-    finally = {
-    }
-  )
+  # player_scope <- gsub(' ','+',player_scope)
+  # # Intentional
+  # # season_type <- gsub(' ','+',season_type)
+  # stat_category <- gsub(' ','+',stat_category)
+  # version <- "homepageleaders"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   GameScope =  game_scope,
+  #   LeagueID = league_id,
+  #   PlayerOrTeam = player_or_team,
+  #   PlayerScope = player_scope,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   StatCategory = stat_category
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no homepage leaders data for {season} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 
@@ -678,42 +678,42 @@ wnba_homepagev2 <- function(
     ...){
   cli::cli_alert_danger("As of v2.1.0, `wnba_homepagev2()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
-  player_scope <- gsub(' ','+',player_scope)
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  stat_type <- gsub(' ','+',stat_type)
-  version <- "homepagev2"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    GameScope = game_scope,
-    LeagueID = league_id,
-    PlayerOrTeam = player_or_team,
-    PlayerScope = player_scope,
-    Season = season,
-    SeasonType = season_type,
-    StatType = stat_type
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no homepage v2 data for {season} available!\n{e}"))
-      message(glue::glue("Error:\n{e}"))
-    },
-    warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
-    },
-    finally = {
-    }
-  )
+  # player_scope <- gsub(' ','+',player_scope)
+  # # Intentional
+  # # season_type <- gsub(' ','+',season_type)
+  # stat_type <- gsub(' ','+',stat_type)
+  # version <- "homepagev2"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   GameScope = game_scope,
+  #   LeagueID = league_id,
+  #   PlayerOrTeam = player_or_team,
+  #   PlayerScope = player_scope,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   StatType = stat_type
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no homepage v2 data for {season} available!\n{e}"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 
@@ -1438,41 +1438,41 @@ wnba_leaderstiles <- function(
     ...){
   cli::cli_alert_danger("As of v2.1.0, `wnba_leaderstiles()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_homepagewidget()` instead.")
   
-  player_scope <- gsub(' ','+',player_scope)
-  # season_type <- gsub(' ','+',season_type)
-  stat <- gsub(' ','+',stat)
-  version <- "leaderstiles"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    GameScope = game_scope,
-    LeagueID = league_id,
-    PlayerOrTeam = player_or_team,
-    PlayerScope = player_scope,
-    Season = season,
-    SeasonType = season_type,
-    Stat = stat
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no leaders tiles data for {season} available!"))
-      message(glue::glue("Error:\n{e}"))
-    },
-    warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
-    },
-    finally = {
-    }
-  )
+  # player_scope <- gsub(' ','+',player_scope)
+  # # season_type <- gsub(' ','+',season_type)
+  # stat <- gsub(' ','+',stat)
+  # version <- "leaderstiles"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   GameScope = game_scope,
+  #   LeagueID = league_id,
+  #   PlayerOrTeam = player_or_team,
+  #   PlayerScope = player_scope,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   Stat = stat
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no leaders tiles data for {season} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 

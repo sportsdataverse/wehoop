@@ -794,37 +794,37 @@ wnba_teaminfocommon <- function(
     ...){
   cli::cli_alert_danger("As of v2.1.0, `wnba_teaminfocommon()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_teamdetails()` instead.")
   
-  # Intentionally not commented out
-  season_type <- gsub(' ', '+', season_type)
-  version <- "teaminfocommon"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    LeagueID = league_id,
-    Season = season,
-    SeasonType = season_type,
-    TeamID = team_id
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team common info data for {team_id} available!"))
-      message(glue::glue("Error:\n{e}"))
-    },
-    warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
-    },
-    finally = {
-    }
-  )
+  # # Intentionally not commented out
+  # season_type <- gsub(' ', '+', season_type)
+  # version <- "teaminfocommon"
+  # endpoint <- wnba_endpoint(version)
+  # full_url <- endpoint
+  # 
+  # params <- list(
+  #   LeagueID = league_id,
+  #   Season = season,
+  #   SeasonType = season_type,
+  #   TeamID = team_id
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no team common info data for {team_id} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 

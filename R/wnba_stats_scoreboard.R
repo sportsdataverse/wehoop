@@ -293,36 +293,36 @@ wnba_scoreboard <- function(
     ...){
   cli::cli_alert_danger("As of v2.1.0, `wnba_scoreboard()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_scoreboardv3()` instead.")
   
-  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
-  on.exit(options(old))
-  
-  version <- "scoreboard"
-  full_url <- wnba_endpoint(version)
-  
-  params <- list(
-    LeagueID = league_id,
-    GameDate = game_date,
-    DayOffset = day_offset
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data for {game_date} available!"))
-      message(glue::glue("Error:\n{e}"))
-    },
-    warning = function(w) {
-      message(glue::glue("{Sys.time()}: Warning:\n{w}"))
-    },
-    finally = {
-    }
-  )
+  # old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  # on.exit(options(old))
+  # 
+  # version <- "scoreboard"
+  # full_url <- wnba_endpoint(version)
+  # 
+  # params <- list(
+  #   LeagueID = league_id,
+  #   GameDate = game_date,
+  #   DayOffset = day_offset
+  # )
+  # 
+  # tryCatch(
+  #   expr = {
+  #     
+  #     resp <- request_with_proxy(url = full_url, params = params, ...)
+  #     
+  #     df_list <- wnba_stats_map_result_sets(resp)
+  #     
+  #   },
+  #   error = function(e) {
+  #     message(glue::glue("{Sys.time()}: Invalid arguments or no scoreboard data for {game_date} available!"))
+  #     message(glue::glue("Error:\n{e}"))
+  #   },
+  #   warning = function(w) {
+  #     message(glue::glue("{Sys.time()}: Warning:\n{w}"))
+  #   },
+  #   finally = {
+  #   }
+  # )
 }
 
 
