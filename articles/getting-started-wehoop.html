@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Getting started with using &lt;code&gt;wehoop&lt;/code&gt; and women's basketball data.">
 <title>Getting Started with wehoop • wehoop</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -15,31 +14,29 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Getting Started with wehoop">
+<meta name="description" content="Getting started with using &lt;code&gt;wehoop&lt;/code&gt; and women's basketball data.">
 <meta property="og:description" content="Getting started with using &lt;code&gt;wehoop&lt;/code&gt; and women's basketball data.">
 <meta property="og:image" content="https://github.com/sportsdataverse/wehoop-data/blob/main/themes/wehoop_gh.png?raw=true">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@saiemgilani">
 <meta name="twitter:site" content="@sportsdataverse">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><script defer data-domain="wehoop.sportsdataverse.org" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="wehoop.sportsdataverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.1.0</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,112 +44,76 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--funcs">
-    <span class="fas fa fas fa-code"></span>
-     
-     Funcs
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
-    <a class="dropdown-item" href="../reference/index.html">Function Index</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown--funcs" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-code"></span>  Funcs</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--funcs">
+<li><a class="dropdown-item" href="../reference/index.html">Function Index</a></li>
+  </ul>
 </li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--articles">
-    <span class="fas fa fas fa-book-reader"></span>
-     
-     Articles
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--articles">
-    <a class="dropdown-item" href="../articles/index.html">Vignettes</a>
-    <a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting started</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown--articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span>  Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--articles">
+<li><a class="dropdown-item" href="../articles/index.html">Vignettes</a></li>
+    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting started</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="nav-link" href="../news/index.html">
-    <span class="fas fa fas fa-newspaper"></span>
-     
-    News
-  </a>
+<li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span> News</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--sdv">
+<li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
+    <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a></li>
+    <li><a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a></li>
+    <li><a class="dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a></li>
+    <li><a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a></li>
+    <li><a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a></li>
+    <li><a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a></li>
+    <li><a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a></li>
+    <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a></li>
+    <li><a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a></li>
+    <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a></li>
+    <li><a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a></li>
+    <li><a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a></li>
+    <li><a class="external-link dropdown-item" href="https://camdenk.github.io/mlbplotR/">mlbplotR</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/softballR/">softballR</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a></li>
+    <li><a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a></li>
+    <li><a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a></li>
+    <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
+    <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
+    <li><a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a></li>
+  </ul>
 </li>
 <li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--sdv">
-    <span class="fas fa fas fa-project-diagram"></span>
-     
-     SDV
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--sdv">
-    <a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a>
-    <div class="dropdown-divider"></div>
-    <h6 class="dropdown-header" data-toc-skip>R Packages</h6>
-    <a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a>
-    <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
-    <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
-    <a class="dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
-    <a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a>
-    <a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a>
-    <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
-    <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
-    <a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a>
-    <a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a>
-    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
-    <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
-    <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
-    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
-    <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
-    <a class="external-link dropdown-item" href="https://camdenk.github.io/mlbplotR/">mlbplotR</a>
-    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/softballR/">softballR</a>
-    <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a>
-    <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
-    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
-    <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
-    <div class="dropdown-divider"></div>
-    <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
-    <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
-    <a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a>
-    <a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a>
-    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a>
-    <a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a>
-    <div class="dropdown-divider"></div>
-    <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
-    <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
-    <a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a>
-  </div>
-</li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--data">
-    <span class="fas fa fas fa-database"></span>
-     
-     Data
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--data">
-    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a>
-    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--data">
+<li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
+  </ul>
 </li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="external-link nav-link" href="http://twitter.com/saiemgilani">
-    <span class="fab fa fab fa-twitter fa-lg"></span>
-     
-  </a>
-</li>
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/sportsdataverse/wehoop/">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/saiemgilani"><span class="fa fab fa-twitter fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/sportsdataverse/wehoop/"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -168,7 +129,7 @@
 </h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/HEAD/vignettes/getting-started-wehoop.Rmd" class="external-link"><code>vignettes/getting-started-wehoop.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/main/vignettes/getting-started-wehoop.Rmd" class="external-link"><code>vignettes/getting-started-wehoop.Rmd</code></a></small>
       <div class="d-none name"><code>getting-started-wehoop.Rmd</code></div>
     </div>
 
@@ -235,9 +196,9 @@ and follow the directions for installation.</li>
 <strong>Quick Start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h3>
 <div class="section level4">
-<h4 id="wnba-full-play-by-play-seasons-2002-2023-30-60-seconds">
-<strong>WNBA full play-by-play seasons (2002-2023) ~ 30-60
-seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2023-30-60-seconds"></a>
+<h4 id="wnba-full-play-by-play-seasons-2002-2024-30-60-seconds">
+<strong>WNBA full play-by-play seasons (2002-2024) ~ 30-60
+seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-play-seasons-2002-2024-30-60-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -245,83 +206,83 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-play-by-p
 <span>  <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 1.137 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 1.066 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## 13.91 sec elapsed</span></span>
 <span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from {length(unique(wnba_pbp$game_id))} games."</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 102191 rows of WNBA play-by-play data from 262 games.</span></span></code></pre>
+<pre><code><span><span class="co">## 58334 rows of WNBA play-by-play data from 150 games.</span></span></code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## 1782985 rows of WNBA play-by-play data from 4674 games.</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Rows: 102,191</span></span>
+<pre><code><span><span class="co">## Rows: 58,334</span></span>
 <span><span class="co">## Columns: 62</span></span>
 <span><span class="co">## $ game_play_number                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,…</span></span>
-<span><span class="co">## $ id                              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4015785744, 4015785747, 4015785749, 40…</span></span>
-<span><span class="co">## $ sequence_number                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 4, 7, 9, 10, 11, 13, 14, 15, 16, 17, 1…</span></span>
-<span><span class="co">## $ type_id                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 615, 110, 90, 120, 92, 92, 155, 143, 1…</span></span>
-<span><span class="co">## $ type_text                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Jumpball", "Driving Layup Shot", "Out…</span></span>
-<span><span class="co">## $ text                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "A'ja Wilson vs. Jonquel Jones (Alysha…</span></span>
-<span><span class="co">## $ away_score                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 7,…</span></span>
-<span><span class="co">## $ home_score                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3,…</span></span>
+<span><span class="co">## $ id                              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4016204584, 4016204587, 4016204589, 40…</span></span>
+<span><span class="co">## $ sequence_number                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 4, 7, 9, 10, 11, 12, 13, 14, 15, 16, 1…</span></span>
+<span><span class="co">## $ type_id                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 615, 92, 144, 155, 131, 155, 131, 155,…</span></span>
+<span><span class="co">## $ type_text                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Jumpball", "Jump Shot", "Driving Floa…</span></span>
+<span><span class="co">## $ text                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "A'ja Wilson vs. Jonquel Jones (Diana …</span></span>
+<span><span class="co">## $ away_score                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6,…</span></span>
+<span><span class="co">## $ home_score                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</span></span>
 <span><span class="co">## $ period_number                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
 <span><span class="co">## $ period_display_value            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1st Quarter", "1st Quarter", "1st Qua…</span></span>
-<span><span class="co">## $ clock_display_value             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "10:00", "9:38", "9:17", "8:54", "8:40…</span></span>
-<span><span class="co">## $ scoring_play                    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, TRUE, FALSE, TRUE, TRUE, FALSE,…</span></span>
-<span><span class="co">## $ score_value                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 2, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 3,…</span></span>
-<span><span class="co">## $ team_id                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 17, 17, 9, 17, 9, 17, 9, 9, 17, 17, 9,…</span></span>
-<span><span class="co">## $ athlete_id_1                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3149391, 3149391, 981, 924, 2593770, 3…</span></span>
-<span><span class="co">## $ athlete_id_2                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2999101, 3888043, NA, NA, 981, NA, NA,…</span></span>
-<span><span class="co">## $ athlete_id_3                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 924, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
-<span><span class="co">## $ wallclock                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-10-19T00:09:06Z", "2023-10-19T00…</span></span>
-<span><span class="co">## $ shooting_play                   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, …</span></span>
-<span><span class="co">## $ coordinate_x_raw                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748340, 23, 13, 24, 2, 40, 40, 27,…</span></span>
-<span><span class="co">## $ coordinate_y_raw                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748365, 3, 2, 3, 0, 21, 21, 2, 2, …</span></span>
-<span><span class="co">## $ game_id                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 401578574, 401578574, 401578574, 40157…</span></span>
-<span><span class="co">## $ season                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2023, 2023, 2023, 2023, 2023, 2023, 20…</span></span>
-<span><span class="co">## $ season_type                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,…</span></span>
-<span><span class="co">## $ home_team_id                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,…</span></span>
-<span><span class="co">## $ home_team_name                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "New York", "New York", "New York", "N…</span></span>
-<span><span class="co">## $ home_team_mascot                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Liberty", "Liberty", "Liberty", "Libe…</span></span>
-<span><span class="co">## $ home_team_abbrev                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "NY", "NY", "NY", "NY", "NY", "NY", "N…</span></span>
-<span><span class="co">## $ home_team_name_alt              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "New York", "New York", "New York", "N…</span></span>
-<span><span class="co">## $ away_team_id                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 17, 17, 17, 17, 17, 17, 17, 17, 17, 17…</span></span>
-<span><span class="co">## $ away_team_name                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Las Vegas", "Las Vegas", "Las Vegas",…</span></span>
-<span><span class="co">## $ away_team_mascot                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Aces", "Aces", "Aces", "Aces", "Aces"…</span></span>
-<span><span class="co">## $ away_team_abbrev                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LV", "LV", "LV", "LV", "LV", "LV", "L…</span></span>
-<span><span class="co">## $ away_team_name_alt              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Las Vegas", "Las Vegas", "Las Vegas",…</span></span>
+<span><span class="co">## $ clock_display_value             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "10:00", "9:48", "9:31", "9:29", "9:07…</span></span>
+<span><span class="co">## $ scoring_play                    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, TRUE, FALSE, FALSE, FALSE, FALS…</span></span>
+<span><span class="co">## $ score_value                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,…</span></span>
+<span><span class="co">## $ team_id                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 97, 97, 96, 97, 97, 96, 96, 97, 97, 96…</span></span>
+<span><span class="co">## $ athlete_id_1                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3149391, 585, 2999101, 2998928, 298786…</span></span>
+<span><span class="co">## $ athlete_id_2                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2999101, 2529122, NA, NA, NA, NA, NA, …</span></span>
+<span><span class="co">## $ athlete_id_3                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 585, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
+<span><span class="co">## $ wallclock                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2024-07-21T00:44:59Z", "2024-07-21T00…</span></span>
+<span><span class="co">## $ shooting_play                   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, TRUE, TRUE, FALSE, TRUE, FALSE,…</span></span>
+<span><span class="co">## $ coordinate_x_raw                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748340, 5, 41, 41, 18, 18, 5, 5, 1…</span></span>
+<span><span class="co">## $ coordinate_y_raw                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748365, 15, 10, 10, 12, 12, 13, 13…</span></span>
+<span><span class="co">## $ game_id                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 401620458, 401620458, 401620458, 40162…</span></span>
+<span><span class="co">## $ season                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2024, 2024, 2024, 2024, 2024, 2024, 20…</span></span>
+<span><span class="co">## $ season_type                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…</span></span>
+<span><span class="co">## $ home_team_id                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 96, 96, 96, 96, 96, 96, 96, 96, 96, 96…</span></span>
+<span><span class="co">## $ home_team_name                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team WNBA", "Team WNBA",…</span></span>
+<span><span class="co">## $ home_team_mascot                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team WNBA", "Team WNBA",…</span></span>
+<span><span class="co">## $ home_team_abbrev                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WNBASTARS", "WNBASTARS", "WNBASTARS",…</span></span>
+<span><span class="co">## $ home_team_name_alt              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team WNBA", "Team WNBA",…</span></span>
+<span><span class="co">## $ away_team_id                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 97, 97, 97, 97, 97, 97, 97, 97, 97, 97…</span></span>
+<span><span class="co">## $ away_team_name                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team USA", "Team USA", "T…</span></span>
+<span><span class="co">## $ away_team_mascot                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team USA", "Team USA", "T…</span></span>
+<span><span class="co">## $ away_team_abbrev                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "USA", "USA", "USA", "USA", "USA", "US…</span></span>
+<span><span class="co">## $ away_team_name_alt              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team USA", "Team USA", "T…</span></span>
 <span><span class="co">## $ game_spread                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5…</span></span>
 <span><span class="co">## $ home_favorite                   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TR…</span></span>
 <span><span class="co">## $ game_spread_available           <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, FALSE, FALSE, FALSE, FALSE, FAL…</span></span>
 <span><span class="co">## $ home_team_spread                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5…</span></span>
 <span><span class="co">## $ qtr                             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
-<span><span class="co">## $ time                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "10:00", "9:38", "9:17", "8:54", "8:40…</span></span>
-<span><span class="co">## $ clock_minutes                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 10, 9, 9, 8, 8, 8, 8, 8, 8, 8, 7, 7, 7…</span></span>
-<span><span class="co">## $ clock_seconds                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 38, 17, 54, 40, 26, 25, 19, 18, 13,…</span></span>
+<span><span class="co">## $ time                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "10:00", "9:48", "9:31", "9:29", "9:07…</span></span>
+<span><span class="co">## $ clock_minutes                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 10, 9, 9, 9, 9, 9, 8, 8, 8, 8, 8, 8, 8…</span></span>
+<span><span class="co">## $ clock_seconds                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 48, 31, 29, 7, 1, 49, 44, 34, 32, 2…</span></span>
 <span><span class="co">## $ home_timeout_called             <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, FALSE, FALSE, FALSE, FALSE, FAL…</span></span>
 <span><span class="co">## $ away_timeout_called             <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, FALSE, FALSE, FALSE, FALSE, FAL…</span></span>
 <span><span class="co">## $ half                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
 <span><span class="co">## $ game_half                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
 <span><span class="co">## $ lead_qtr                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
 <span><span class="co">## $ lead_half                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
-<span><span class="co">## $ start_quarter_seconds_remaining <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 600, 578, 557, 534, 520, 506, 505, 499…</span></span>
-<span><span class="co">## $ start_half_seconds_remaining    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1200, 1178, 1157, 1134, 1120, 1106, 11…</span></span>
-<span><span class="co">## $ start_game_seconds_remaining    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2400, 2378, 2357, 2334, 2320, 2306, 23…</span></span>
-<span><span class="co">## $ end_quarter_seconds_remaining   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 600, 557, 534, 520, 506, 505, 499, 498…</span></span>
-<span><span class="co">## $ end_half_seconds_remaining      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1200, 1157, 1134, 1120, 1106, 1105, 10…</span></span>
-<span><span class="co">## $ end_game_seconds_remaining      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2400, 2357, 2334, 2320, 2306, 2305, 22…</span></span>
+<span><span class="co">## $ start_quarter_seconds_remaining <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 600, 588, 571, 569, 547, 541, 529, 524…</span></span>
+<span><span class="co">## $ start_half_seconds_remaining    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1200, 1188, 1171, 1169, 1147, 1141, 11…</span></span>
+<span><span class="co">## $ start_game_seconds_remaining    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2400, 2388, 2371, 2369, 2347, 2341, 23…</span></span>
+<span><span class="co">## $ end_quarter_seconds_remaining   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 600, 571, 569, 547, 541, 529, 524, 514…</span></span>
+<span><span class="co">## $ end_half_seconds_remaining      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1200, 1171, 1169, 1147, 1141, 1129, 11…</span></span>
+<span><span class="co">## $ end_game_seconds_remaining      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2400, 2371, 2369, 2347, 2341, 2329, 23…</span></span>
 <span><span class="co">## $ period                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
 <span><span class="co">## $ lag_qtr                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
 <span><span class="co">## $ lag_half                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
-<span><span class="co">## $ coordinate_x                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748406.75, -38.75, 39.75, -38.75, …</span></span>
-<span><span class="co">## $ coordinate_y                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748365, -2, 12, -1, 23, 15, -15, -…</span></span>
-<span><span class="co">## $ game_date                       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2023-10-18, 2023-10-18, 2023-10-18, 2…</span></span>
-<span><span class="co">## $ game_date_time                  <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2023-10-18 20:00:00, 2023-10-18 20:00…</span></span>
+<span><span class="co">## $ coordinate_x                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748406.75, -26.75, 31.75, -31.75, …</span></span>
+<span><span class="co">## $ coordinate_y                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -214748365, -20, -16, 16, -7, 7, 20, -…</span></span>
+<span><span class="co">## $ game_date                       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2024-07-20, 2024-07-20, 2024-07-20, 2…</span></span>
+<span><span class="co">## $ game_date_time                  <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2024-07-20 20:30:00, 2024-07-20 20:30…</span></span>
 <span><span class="co">## $ type_abbreviation               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span></code></pre>
 </div>
 <div class="section level4">
-<h4 id="wnba-full-team-box-score-seasons-2003-2023-5-30-seconds">
-<strong>WNBA full team box score seasons (2003-2023) ~ 5-30
-seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-team-box-score-seasons-2003-2023-5-30-seconds"></a>
+<h4 id="wnba-full-team-box-score-seasons-2003-2024-5-30-seconds">
+<strong>WNBA full team box score seasons (2003-2024) ~ 5-30
+seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-team-box-score-seasons-2003-2024-5-30-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -330,76 +291,76 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-team-box-
 <span><span class="op">}</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.514 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.652 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games."</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 524 rows of WNBA team boxscore data from 262 games.</span></span></code></pre>
+<pre><code><span><span class="co">## 300 rows of WNBA team boxscore data from 150 games.</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_team_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Rows: 524</span></span>
+<pre><code><span><span class="co">## Rows: 300</span></span>
 <span><span class="co">## Columns: 57</span></span>
-<span><span class="co">## $ game_id                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 401578574, 401578574, 401578573, 401…</span></span>
-<span><span class="co">## $ season                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2023, 2023, 2023, 2023, 2023, 2023, …</span></span>
-<span><span class="co">## $ season_type                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, …</span></span>
-<span><span class="co">## $ game_date                         <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2023-10-18, 2023-10-18, 2023-10-15,…</span></span>
-<span><span class="co">## $ game_date_time                    <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2023-10-18 20:00:00, 2023-10-18 20:…</span></span>
-<span><span class="co">## $ team_id                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 17, 9, 17, 9, 9, 17, 9, 17, 9, 18, 1…</span></span>
-<span><span class="co">## $ team_uid                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "s:40~l:59~t:17", "s:40~l:59~t:9", "…</span></span>
-<span><span class="co">## $ team_slug                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "las-vegas-aces", "new-york-liberty"…</span></span>
-<span><span class="co">## $ team_location                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Las Vegas", "New York", "Las Vegas"…</span></span>
-<span><span class="co">## $ team_name                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Aces", "Liberty", "Aces", "Liberty"…</span></span>
-<span><span class="co">## $ team_abbreviation                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LV", "NY", "LV", "NY", "NY", "LV", …</span></span>
-<span><span class="co">## $ team_display_name                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Las Vegas Aces", "New York Liberty"…</span></span>
-<span><span class="co">## $ team_short_display_name           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Aces", "Liberty", "Aces", "Liberty"…</span></span>
-<span><span class="co">## $ team_color                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ce1141", "86cebc", "ce1141", "86ceb…</span></span>
-<span><span class="co">## $ team_alternate_color              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "b4975a", "000000", "b4975a", "00000…</span></span>
+<span><span class="co">## $ game_id                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 401620458, 401620458, 401620365, 401…</span></span>
+<span><span class="co">## $ season                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2024, 2024, 2024, 2024, 2024, 2024, …</span></span>
+<span><span class="co">## $ season_type                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …</span></span>
+<span><span class="co">## $ game_date                         <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2024-07-20, 2024-07-20, 2024-07-17,…</span></span>
+<span><span class="co">## $ game_date_time                    <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2024-07-20 20:30:00, 2024-07-20 20:…</span></span>
+<span><span class="co">## $ team_id                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 97, 96, 5, 3, 20, 8, 19, 17, 18, 9, …</span></span>
+<span><span class="co">## $ team_uid                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "s:40~l:59~t:97", "s:40~l:59~t:96", …</span></span>
+<span><span class="co">## $ team_slug                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "team-usa", "team-wnba", "indiana-fe…</span></span>
+<span><span class="co">## $ team_location                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team WNBA", "Indiana", …</span></span>
+<span><span class="co">## $ team_name                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team WNBA", "Fever", "W…</span></span>
+<span><span class="co">## $ team_abbreviation                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "USA", "WNBASTARS", "IND", "DAL", "A…</span></span>
+<span><span class="co">## $ team_display_name                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team WNBA", "Indiana Fe…</span></span>
+<span><span class="co">## $ team_short_display_name           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team USA", "Team WNBA", "Fever", "W…</span></span>
 <span><span class="co">## $ team_logo                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://a.espncdn.com/i/teamlogos/w…</span></span>
 <span><span class="co">## $ team_home_away                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "away", "home", "away", "home", "awa…</span></span>
-<span><span class="co">## $ team_score                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 70, 69, 73, 87, 76, 104, 82, 99, 87,…</span></span>
-<span><span class="co">## $ team_winner                       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> TRUE, FALSE, FALSE, TRUE, FALSE, TRU…</span></span>
-<span><span class="co">## $ assists                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18, 19, 13, 28, 19, 31, 17, 21, 22, …</span></span>
-<span><span class="co">## $ blocks                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 5, 0, 8, 4, 1, 3, 5, 6, 6, 4, 4, …</span></span>
-<span><span class="co">## $ defensive_rebounds                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 32, 30, 26, 31, 22, 32, 24, 30, 31, …</span></span>
-<span><span class="co">## $ fast_break_points                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "4", "17", "2", "12", "3", "11", "11…</span></span>
-<span><span class="co">## $ field_goal_pct                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 41.8, 36.1, 33.3, 52.4, 36.1, 52.9, …</span></span>
-<span><span class="co">## $ field_goals_made                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 28, 26, 23, 33, 26, 37, 32, 35, 28, …</span></span>
-<span><span class="co">## $ field_goals_attempted             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 67, 72, 69, 63, 72, 70, 69, 64, 68, …</span></span>
+<span><span class="co">## $ team_score                        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 109, 117, 93, 101, 79, 86, 93, 85, 7…</span></span>
+<span><span class="co">## $ team_winner                       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE, TRUE, FALSE, TRUE, FALSE, TRU…</span></span>
+<span><span class="co">## $ assists                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 34, 31, 26, 28, 18, 25, 20, 17, 17, …</span></span>
+<span><span class="co">## $ blocks                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 3, 7, 4, 4, 2, 2, 7, 4, 4, 6, 3, …</span></span>
+<span><span class="co">## $ defensive_rebounds                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 34, 29, 26, 23, 28, 21, 28, 23, 23, …</span></span>
+<span><span class="co">## $ fast_break_points                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "10", "16", "14", "22", "11", "18", …</span></span>
+<span><span class="co">## $ field_goal_pct                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 50.6, 50.0, 53.5, 51.3, 49.2, 38.7, …</span></span>
+<span><span class="co">## $ field_goals_made                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 41, 44, 38, 39, 29, 29, 35, 31, 28, …</span></span>
+<span><span class="co">## $ field_goals_attempted             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 81, 88, 71, 76, 59, 75, 72, 66, 66, …</span></span>
 <span><span class="co">## $ flagrant_fouls                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span></span>
-<span><span class="co">## $ fouls                             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 14, 12, 14, 16, 15, 18, 18, 16, 11, …</span></span>
-<span><span class="co">## $ free_throw_pct                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 81.8, 66.7, 87.0, 50.0, 72.7, 100.0,…</span></span>
-<span><span class="co">## $ free_throws_made                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 9, 8, 20, 8, 16, 17, 9, 20, 21, 3, 1…</span></span>
-<span><span class="co">## $ free_throws_attempted             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 11, 12, 23, 16, 22, 17, 13, 23, 25, …</span></span>
-<span><span class="co">## $ largest_lead                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7", "12", "1", "17", "0", "32", "8"…</span></span>
-<span><span class="co">## $ offensive_rebounds                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 6, 9, 8, 4, 13, 8, 6, 4, 11, 7, 5, 1…</span></span>
-<span><span class="co">## $ points_in_paint                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "44", "24", "30", "34", "30", "32", …</span></span>
-<span><span class="co">## $ steals                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 7, 5, 7, 4, 4, 7, 6, 7, 5, 7, 6, 9, …</span></span>
-<span><span class="co">## $ team_turnovers                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2, 0, 2, 0, 0, 2, 0, 0, 1, 0, 1, 1, …</span></span>
-<span><span class="co">## $ technical_fouls                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, …</span></span>
-<span><span class="co">## $ three_point_field_goal_pct        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 23.8, 34.6, 31.8, 43.3, 22.9, 44.8, …</span></span>
-<span><span class="co">## $ three_point_field_goals_made      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5, 9, 7, 13, 8, 13, 9, 9, 10, 11, 6,…</span></span>
-<span><span class="co">## $ three_point_field_goals_attempted <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 21, 26, 22, 30, 35, 29, 29, 22, 22, …</span></span>
-<span><span class="co">## $ total_rebounds                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 38, 39, 34, 35, 35, 40, 30, 34, 42, …</span></span>
-<span><span class="co">## $ total_technical_fouls             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, …</span></span>
-<span><span class="co">## $ total_turnovers                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 15, 13, 13, 11, 10, 11, 11, 11, 13, …</span></span>
-<span><span class="co">## $ turnover_points                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "14", "15", "14", "13", "13", "14", …</span></span>
-<span><span class="co">## $ turnovers                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 13, 13, 11, 11, 10, 9, 11, 11, 12, 1…</span></span>
-<span><span class="co">## $ opponent_team_id                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 9, 17, 9, 17, 17, 9, 17, 9, 18, 9, 3…</span></span>
-<span><span class="co">## $ opponent_team_uid                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "s:40~l:59~t:9", "s:40~l:59~t:17", "…</span></span>
-<span><span class="co">## $ opponent_team_slug                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "new-york-liberty", "las-vegas-aces"…</span></span>
-<span><span class="co">## $ opponent_team_location            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "New York", "Las Vegas", "New York",…</span></span>
-<span><span class="co">## $ opponent_team_name                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Liberty", "Aces", "Liberty", "Aces"…</span></span>
-<span><span class="co">## $ opponent_team_abbreviation        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "NY", "LV", "NY", "LV", "LV", "NY", …</span></span>
-<span><span class="co">## $ opponent_team_display_name        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "New York Liberty", "Las Vegas Aces"…</span></span>
-<span><span class="co">## $ opponent_team_short_display_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Liberty", "Aces", "Liberty", "Aces"…</span></span>
-<span><span class="co">## $ opponent_team_color               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "86cebc", "ce1141", "86cebc", "ce114…</span></span>
-<span><span class="co">## $ opponent_team_alternate_color     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "000000", "b4975a", "000000", "b4975…</span></span>
+<span><span class="co">## $ fouls                             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 13, 13, 15, 18, 19, 16, 16, 14, 15, …</span></span>
+<span><span class="co">## $ free_throw_pct                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 93.8, 85.0, 64.7, 77.8, 76.2, 73.9, …</span></span>
+<span><span class="co">## $ free_throws_made                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 15, 17, 11, 14, 16, 17, 19, 18, 16, …</span></span>
+<span><span class="co">## $ free_throws_attempted             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 16, 20, 17, 18, 21, 23, 22, 22, 22, …</span></span>
+<span><span class="co">## $ largest_lead                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "6", "20", "6", "16", "7", "7", "21"…</span></span>
+<span><span class="co">## $ offensive_rebounds                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 9, 9, 9, 6, 5, 11, 7, 3, 8, 6, 12, 1…</span></span>
+<span><span class="co">## $ points_in_paint                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "50", "52", "62", "50", "38", "26", …</span></span>
+<span><span class="co">## $ steals                            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 8, 14, 2, 10, 5, 10, 9, 11, 11, 10, …</span></span>
+<span><span class="co">## $ team_turnovers                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 1, 1, 1, 2, 1, 1, 1, 3, 1, 1, …</span></span>
+<span><span class="co">## $ technical_fouls                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, …</span></span>
+<span><span class="co">## $ three_point_field_goal_pct        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 36.4, 33.3, 24.0, 45.0, 33.3, 36.7, …</span></span>
+<span><span class="co">## $ three_point_field_goals_made      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 12, 12, 6, 9, 5, 11, 4, 5, 2, 11, 7,…</span></span>
+<span><span class="co">## $ three_point_field_goals_attempted <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 33, 36, 25, 20, 15, 30, 13, 18, 18, …</span></span>
+<span><span class="co">## $ total_rebounds                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 43, 38, 35, 29, 33, 32, 35, 26, 31, …</span></span>
+<span><span class="co">## $ total_technical_fouls             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, …</span></span>
+<span><span class="co">## $ total_turnovers                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 14, 8, 18, 11, 17, 9, 14, 13, 14, 21…</span></span>
+<span><span class="co">## $ turnover_points                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "15", "10", "28", "17", "15", "8", "…</span></span>
+<span><span class="co">## $ turnovers                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 14, 8, 17, 10, 16, 7, 13, 12, 13, 18…</span></span>
+<span><span class="co">## $ opponent_team_id                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 96, 97, 3, 5, 8, 20, 17, 19, 9, 18, …</span></span>
+<span><span class="co">## $ opponent_team_uid                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "s:40~l:59~t:96", "s:40~l:59~t:97", …</span></span>
+<span><span class="co">## $ opponent_team_slug                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "team-wnba", "team-usa", "dallas-win…</span></span>
+<span><span class="co">## $ opponent_team_location            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team USA", "Dallas", "…</span></span>
+<span><span class="co">## $ opponent_team_name                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team USA", "Wings", "F…</span></span>
+<span><span class="co">## $ opponent_team_abbreviation        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WNBASTARS", "USA", "DAL", "IND", "M…</span></span>
+<span><span class="co">## $ opponent_team_display_name        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team USA", "Dallas Win…</span></span>
+<span><span class="co">## $ opponent_team_short_display_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Team WNBA", "Team USA", "Wings", "F…</span></span>
 <span><span class="co">## $ opponent_team_logo                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://a.espncdn.com/i/teamlogos/w…</span></span>
-<span><span class="co">## $ opponent_team_score               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 69, 70, 87, 73, 104, 76, 99, 82, 84,…</span></span></code></pre>
+<span><span class="co">## $ opponent_team_score               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 117, 109, 101, 93, 86, 79, 85, 93, 8…</span></span>
+<span><span class="co">## $ team_color                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "002d62", "002b5c", "e31837"…</span></span>
+<span><span class="co">## $ team_alternate_color              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "e03a3e", "c4d600", "5091cc"…</span></span>
+<span><span class="co">## $ opponent_team_color               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "002b5c", "002d62", "266092"…</span></span>
+<span><span class="co">## $ opponent_team_alternate_color     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "c4d600", "e03a3e", "79bc43"…</span></span></code></pre>
 </div>
 <div class="section level4">
-<h4 id="wnba-full-player-box-score-seasons-2002-2023-5-30-seconds">
-<strong>WNBA full player box score seasons (2002-2023) ~ 5-30
-seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-box-score-seasons-2002-2023-5-30-seconds"></a>
+<h4 id="wnba-full-player-box-score-seasons-2002-2024-5-30-seconds">
+<strong>WNBA full player box score seasons (2002-2024) ~ 5-30
+seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-box-score-seasons-2002-2024-5-30-seconds"></a>
 </h4>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -407,13 +368,13 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-bo
 <span>  <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.35 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.664 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 262</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 150</span></span></code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 5796</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3352</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-play-by-play-seasons-2004-2024-45-90-seconds">
@@ -426,13 +387,13 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-bo
 <span>  <span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_pbp.html">load_wbb_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 2.244 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 10.915 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 959</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 5779</span></span></code></pre>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 328507</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 1908679</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-team-box-score-seasons-2006-2024-5-30-seconds">
@@ -445,13 +406,13 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-bo
 <span>  <span class="va">wbb_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_team_box.html">load_wbb_team_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.424 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.843 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 997</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 5898</span></span></code></pre>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 1994</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 11796</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="womens-college-basketball-full-player-box-score-seasons-2006-2024-5-30-seconds">
@@ -464,13 +425,13 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-bo
 <span>  <span class="va">wbb_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_player_box.html">load_wbb_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.57 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 1.829 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 999</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 5898</span></span></code></pre>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 28488</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 167412</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -484,28 +445,26 @@ seconds</strong><a class="anchor" aria-label="anchor" href="#wnba-full-player-bo
 <a href="https://github.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@hutchngo"></a></p></li>
 </ul>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://twitter.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
+  <p>Developed by <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://twitter.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
