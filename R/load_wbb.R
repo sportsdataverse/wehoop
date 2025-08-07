@@ -255,7 +255,7 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
 
 # load games file
 load_wbb_games <- function(){
-  .url <- "https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/wbb/wbb_games_in_data_repo.csv"
+  .url <- "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_schedules/wbb_games_in_data_repo.csv"
   dat <- csv_from_url(.url)
   # close(con)
   return(dat)
