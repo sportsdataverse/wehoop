@@ -2,6 +2,7 @@ test_that("WNBA Video Details Asset", {
   skip()
   skip_on_cran()
   skip_on_ci()
+  skip("Skip this test due to deprecation")
   
   x <- wnba_videodetailsasset(player_id = '1627668', team_id = '1611661328')
   

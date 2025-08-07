@@ -1,6 +1,7 @@
 test_that("WNBA Boxscore Hustle Stats", {
   skip_on_cran()
   skip_on_ci()
+  skip("Skip this test due to deprecation")
   x <- wnba_hustlestatsboxscore(game_id = "1022200034")
   
   cols_x1 <- c(

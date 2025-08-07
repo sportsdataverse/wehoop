@@ -1,6 +1,7 @@
 test_that("WNBA Draft Board", {
   skip_on_cran()
   skip_on_ci()
+  skip("Skip this test due to deprecation")
   x <- wnba_draftboard(season = most_recent_wnba_season() - 1)
   
   cols_x1 <- c(
