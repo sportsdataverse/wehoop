@@ -1011,7 +1011,6 @@ espn_wbb_conferences <- function(){
         httr::content(as = "text", encoding = "UTF-8")
       
       conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
-        dplyr::select(-"subGroups") %>%
         janitor::clean_names() %>%
         dplyr::filter(!(.data$group_id %in% c(0,50))) %>%
         dplyr::mutate(
