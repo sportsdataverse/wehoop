@@ -930,9 +930,11 @@ wnba_playerdashptpass  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking passing data available for {player_id}!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player dashboard player-tracking passing data available for {player_id}!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -999,9 +1001,11 @@ wnba_playerdashptreb  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking rebounding data available for {player_id}!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player dashboard player-tracking rebounding data available for {player_id}!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -1068,9 +1072,11 @@ wnba_playerdashptshotdefend  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking shot defense data available for {player_id}!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player dashboard player-tracking shot defense data available for {player_id}!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -1137,9 +1143,11 @@ wnba_playerdashptshots  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking shots data available for {player_id}!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player dashboard player-tracking shots data available for {player_id}!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

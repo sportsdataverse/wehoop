@@ -263,9 +263,11 @@ wnba_leaguedashptdefend <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player-tracking player defense data for {season} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player-tracking player defense data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -358,9 +360,11 @@ wnba_leaguedashptstats <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player-tracking stats data for {season} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player-tracking stats data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -433,9 +437,11 @@ wnba_leaguedashptteamdefend <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player-tracking team defensive stats data for {season} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player-tracking team defensive stats data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

@@ -839,9 +839,11 @@ wnba_teamdashptpass  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard player-tracking passing data for {team_id} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard player-tracking passing data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -906,9 +908,11 @@ wnba_teamdashptreb  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard player-tracking rebounding data for {team_id} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard player-tracking rebounding data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
@@ -973,9 +977,11 @@ wnba_teamdashptshots  <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team dashboard player-tracking shooting data for {team_id} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team dashboard player-tracking shooting data for {team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

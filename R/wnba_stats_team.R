@@ -330,9 +330,11 @@ wnba_teamandplayersvsplayers <- function(
       df_list <- wnba_stats_map_result_sets(resp)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team and players vs players data for {team_id} vs {vs_team_id} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team and players vs players data for {team_id} vs {vs_team_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }

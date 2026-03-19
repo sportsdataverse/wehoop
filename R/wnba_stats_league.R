@@ -835,9 +835,11 @@ wnba_leaguestandings <- function(
 
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no league standings data for {season} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league standings data for {season} available!")
+      cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
     }
