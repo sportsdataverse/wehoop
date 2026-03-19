@@ -242,6 +242,104 @@ wnba_teamdetails <- function(
   return(df_list)
 }
 
+wnba_teamandplayersvsplayers <- function(
+    team_id,
+    vs_team_id,
+    player_id1,
+    player_id2,
+    player_id3,
+    player_id4,
+    player_id5,
+    vs_player_id1,
+    vs_player_id2,
+    vs_player_id3,
+    vs_player_id4,
+    vs_player_id5,
+    season = most_recent_wnba_season() - 1,
+    season_type = "Regular Season",
+    measure_type = "Base",
+    per_mode = "Totals",
+    plus_minus = "N",
+    pace_adjust = "N",
+    rank = "N",
+    league_id = "10",
+    last_n_games = 0,
+    month = 0,
+    opponent_team_id = 0,
+    period = 0,
+    conference = "",
+    date_from = "",
+    date_to = "",
+    division = "",
+    game_segment = "",
+    location = "",
+    outcome = "",
+    season_segment = "",
+    shot_clock_range = "",
+    vs_conference = "",
+    vs_division = "",
+    ...) {
+  season_type <- gsub(" ", "+", season_type)
+  version <- "teamandplayersvsplayers"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    TeamID = team_id,
+    VsTeamID = vs_team_id,
+    PlayerID1 = player_id1,
+    PlayerID2 = player_id2,
+    PlayerID3 = player_id3,
+    PlayerID4 = player_id4,
+    PlayerID5 = player_id5,
+    VsPlayerID1 = vs_player_id1,
+    VsPlayerID2 = vs_player_id2,
+    VsPlayerID3 = vs_player_id3,
+    VsPlayerID4 = vs_player_id4,
+    VsPlayerID5 = vs_player_id5,
+    Season = season,
+    SeasonType = season_type,
+    MeasureType = measure_type,
+    PerMode = per_mode,
+    PlusMinus = plus_minus,
+    PaceAdjust = pace_adjust,
+    Rank = rank,
+    LeagueID = league_id,
+    LastNGames = last_n_games,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Period = period,
+    Conference = conference,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    GameSegment = game_segment,
+    Location = location,
+    Outcome = outcome,
+    SeasonSegment = season_segment,
+    ShotClockRange = shot_clock_range,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+
+  df_list <- list()
+  tryCatch(
+    expr = {
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team and players vs players data for {team_id} vs {vs_team_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
 
 #' **Get WNBA Stats API Team Estimated Metrics**
 #' @name wnba_teamestimatedmetrics
@@ -2789,5 +2887,4 @@ wnba_teamgamestreakfinder <- function(
   )
   return(df_list)
 }
-
 

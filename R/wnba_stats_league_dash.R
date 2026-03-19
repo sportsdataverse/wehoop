@@ -178,6 +178,271 @@ wnba_leaguedashplayerbiostats <- function(
   return(df_list)
 }
 
+wnba_leaguedashptdefend <- function(
+    college = '',
+    conference = '',
+    country = '',
+    date_from = '',
+    date_to = '',
+    defense_category = 'Overall',
+    division = '',
+    draft_pick = '',
+    draft_year = '',
+    game_segment = '',
+    height = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'Totals',
+    period = '',
+    player_experience = '',
+    player_id = '',
+    player_position = '',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    starter_bench = '',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    weight = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "leaguedashptdefend"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    College = college,
+    Conference = conference,
+    Country = country,
+    DateFrom = date_from,
+    DateTo = date_to,
+    DefenseCategory = defense_category,
+    Division = division,
+    DraftPick = draft_pick,
+    DraftYear = draft_year,
+    GameSegment = game_segment,
+    Height = height,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    PlayerExperience = player_experience,
+    PlayerID = player_id,
+    PlayerPosition = player_position,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    StarterBench = starter_bench,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    Weight = weight
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player-tracking player defense data for {season} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+wnba_leaguedashptstats <- function(
+    college = '',
+    conference = '',
+    country = '',
+    date_from = '',
+    date_to = '',
+    division = '',
+    draft_pick = '',
+    draft_year = '',
+    game_scope = '',
+    height = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'PerGame',
+    period = '',
+    player_experience = '',
+    player_or_team = 'Player',
+    player_position = '',
+    pt_measure_type = 'Drives',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    starter_bench = '',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    weight = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "leaguedashptstats"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    College = college,
+    Conference = conference,
+    Country = country,
+    DateFrom = date_from,
+    DateTo = date_to,
+    Division = division,
+    DraftPick = draft_pick,
+    DraftYear = draft_year,
+    GameScope = game_scope,
+    Height = height,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    PlayerExperience = player_experience,
+    PlayerOrTeam = player_or_team,
+    PlayerPosition = player_position,
+    PtMeasureType = pt_measure_type,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    StarterBench = starter_bench,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division,
+    Weight = weight
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player-tracking stats data for {season} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+wnba_leaguedashptteamdefend <- function(
+    conference = '',
+    date_from = '',
+    date_to = '',
+    defense_category = 'Overall',
+    division = '',
+    game_segment = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    po_round = '',
+    per_mode = 'PerGame',
+    period = '',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '',
+    vs_conference = '',
+    vs_division = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "leaguedashptteamdefend"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    Conference = conference,
+    DateFrom = date_from,
+    DateTo = date_to,
+    DefenseCategory = defense_category,
+    Division = division,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PORound = po_round,
+    PerMode = per_mode,
+    Period = period,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no league dashboard player-tracking team defensive stats data for {season} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
 #' **Get WNBA Stats API League Dashboard by Player Clutch Splits**
 #' @name wnba_leaguedashplayerclutch
 NULL
@@ -1471,4 +1736,3 @@ wnba_leaguedashteamshotlocations <- function(
   )
   return(df_list)
 }
-

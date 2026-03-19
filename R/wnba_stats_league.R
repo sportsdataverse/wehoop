@@ -803,3 +803,44 @@ wnba_leaguegamefinder <- function(
 #    )
 #    return(df_list)
 #  }
+
+wnba_leaguestandings <- function(
+    league_id = '10',
+    season = most_recent_wnba_season() - 1,
+    season_type = 'Regular Season',
+    season_year = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ','+',season_type)
+  version <- "leaguestandings"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    LeagueID = league_id,
+    Season = season,
+    SeasonType = season_type,
+    SeasonYear = season_year
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no league standings data for {season} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}

@@ -875,6 +875,278 @@ wnba_playerdashboardbyclutch <- function(
   return(df_list)
 }
 
+wnba_playerdashptpass  <- function(
+    date_from = '',
+    date_to = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    per_mode = 'Totals',
+    player_id = '1628932',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '0',
+    vs_conference = '',
+    vs_division = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "playerdashptpass"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PerMode = per_mode,
+    PlayerID = player_id,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking passing data available for {player_id}!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+wnba_playerdashptreb  <- function(
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    per_mode = 'Totals',
+    period = 0,
+    player_id = '1628932',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '0',
+    vs_conference = '',
+    vs_division = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "playerdashptreb"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PerMode = per_mode,
+    Period = period,
+    PlayerID = player_id,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking rebounding data available for {player_id}!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+wnba_playerdashptshotdefend  <- function(
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    per_mode = 'Totals',
+    period = 0,
+    player_id = '1628932',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '0',
+    vs_conference = '',
+    vs_division = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "playerdashptshotdefend"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PerMode = per_mode,
+    Period = period,
+    PlayerID = player_id,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking shot defense data available for {player_id}!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+wnba_playerdashptshots  <- function(
+    date_from = '',
+    date_to = '',
+    game_segment = '',
+    last_n_games = 0,
+    league_id = '10',
+    location = '',
+    month = 0,
+    opponent_team_id = 0,
+    outcome = '',
+    per_mode = 'Totals',
+    period = 0,
+    player_id = '1628932',
+    season = most_recent_wnba_season() - 1,
+    season_segment = '',
+    season_type = 'Regular Season',
+    team_id = '0',
+    vs_conference = '',
+    vs_division = '',
+    ...){
+
+  # Intentional
+  # season_type <- gsub(' ', '+', season_type)
+  version <- "playerdashptshots"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    DateFrom = date_from,
+    DateTo = date_to,
+    GameSegment = game_segment,
+    LastNGames = last_n_games,
+    LeagueID = league_id,
+    Location = location,
+    Month = month,
+    OpponentTeamID = opponent_team_id,
+    Outcome = outcome,
+    PerMode = per_mode,
+    Period = period,
+    PlayerID = player_id,
+    Season = season,
+    SeasonSegment = season_segment,
+    SeasonType = season_type,
+    TeamID = team_id,
+    VsConference = vs_conference,
+    VsDivision = vs_division
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player dashboard player-tracking shots data available for {player_id}!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
 
 #' **Get WNBA Stats API Player Dashboard by Game Splits**
 #' @name wnba_playerdashboardbygamesplits
