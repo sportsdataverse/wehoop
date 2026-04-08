@@ -1,0 +1,862 @@
+# Package index
+
+## wehoop Data
+
+### WNBA Data Functions
+
+Functions exported by wehoop to access the wehoop-data repository’s WNBA
+Data
+
+- [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  :
+
+  **Load wehoop WNBA play-by-play**
+
+- [`load_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_box.md)
+  :
+
+  **Load wehoop WNBA team box scores**
+
+- [`load_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_box.md)
+  :
+
+  **Load wehoop WNBA player box scores**
+
+- [`load_wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule.md)
+  :
+
+  **Load wehoop WNBA schedules**
+
+- [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
+  :
+
+  **Build/update wehoop WNBA play-by-play database**
+
+### Women’s College Basketball Data Functions
+
+Functions exported by wehoop to access the wehoop-data repository’s
+Women’s College Basketball Data
+
+- [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  :
+
+  **Load wehoop women's college basketball play-by-play**
+
+- [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md)
+  :
+
+  **Load wehoop women's college basketball team box scores**
+
+- [`load_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_box.md)
+  :
+
+  **Load wehoop women's college basketball player box scores**
+
+- [`load_wbb_schedule()`](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule.md)
+  :
+
+  **Load wehoop women's college basketball schedule**
+
+- [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md)
+  :
+
+  **Build/update wehoop WBB play-by-play database**
+
+## ESPN Data
+
+### Women’s College Basketball Data Functions
+
+Functions exported by wehoop to access ESPN’s Women’s College Basketball
+Data
+
+- [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
+  : Get women's college basketball conferences
+
+- [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
+  : Get ESPN women's college basketball game data (play-by-play, team
+  and player box)
+
+- [`espn_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_rosters.md)
+  :
+
+  **Get ESPN women's college basketball game rosters**
+
+- [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+  : Get ESPN women's college basketball play by play data
+
+- [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.md)
+  : Get ESPN women's college basketball player box
+
+- [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md)
+  :
+
+  **Get ESPN women's college basketball player stats data**
+
+- [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md)
+  : Get women's college basketball AP and Coaches poll rankings
+
+- [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md)
+  :
+
+  **Get ESPN women's college basketball schedule for a specific year**
+
+- [`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md)
+  : Get ESPN women's college basketball standings
+
+- [`espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.md)
+  : Get ESPN women's college basketball team box data
+
+- [`espn_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_stats.md)
+  :
+
+  **Get ESPN women's college basketball team stats data**
+
+- [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)
+  : Get ESPN women's college basketball team names and ids
+
+### WNBA Data Functions
+
+Functions exported by wehoop to access ESPN’s WNBA Data
+
+- [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+  : Get ESPN's WNBA game data (play-by-play, team and player box)
+
+- [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_rosters.md)
+  :
+
+  **Get ESPN WNBA game rosters**
+
+- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+  : Get ESPN's WNBA play by play data
+
+- [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md)
+  : Get ESPN's WNBA player box data
+
+- [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md)
+  :
+
+  **Get ESPN WNBA player stats data**
+
+- [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md)
+  :
+
+  **Get WNBA schedule for a specific year/date from ESPN's API**
+
+- [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md)
+  :
+
+  **Get ESPN WNBA Standings**
+
+- [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
+  : Get ESPN's WNBA team box data
+
+- [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md)
+  :
+
+  **Get ESPN WNBA team stats data**
+
+- [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)
+  : Get ESPN's WNBA team names and ids
+
+## NCAA Data
+
+### NCAA Data Functions
+
+Functions exported by wehoop to access NCAA Women’s College Basketball
+Data
+
+- [`ncaa_wbb_NET_rankings()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_NET_rankings.md)
+  : Get Women's college basketball NET rankings for the current date
+  from the NCAA website
+
+- [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
+  :
+
+  **Scrape NCAA Women's Baskebtall Teams (Division I, II, and III)**
+
+## WNBA Stats Data
+
+### WNBA Stats Data Functions
+
+Functions exported by wehoop to access WNBA Stats API Data
+
+- [`wnba_alltimeleadersgrids()`](https://wehoop.sportsdataverse.org/reference/wnba_alltimeleadersgrids.md)
+  :
+
+  **Get WNBA Stats API All-time Leaders Grid**
+
+- [`wnba_assistleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_assistleaders.md)
+  :
+
+  **Get WNBA Stats API Assist Leaders**
+
+- [`wnba_assisttracker()`](https://wehoop.sportsdataverse.org/reference/wnba_assisttracker.md)
+  :
+
+  **Get WNBA Stats API Assist Tracker**
+
+- [`wnba_boxscoreadvancedv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreadvancedv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Advanced V2**
+
+- [`wnba_boxscoreadvancedv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreadvancedv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Advanced V3**
+
+- [`wnba_boxscorefourfactorsv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorefourfactorsv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Four Factors V2**
+
+- [`wnba_boxscorefourfactorsv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorefourfactorsv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Four Factors V3**
+
+- [`wnba_boxscorehustlev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorehustlev2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Hustle V2**
+
+- [`wnba_boxscoremiscv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Misc V2**
+
+- [`wnba_boxscoremiscv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Misc V3**
+
+- [`wnba_boxscoreplayertrackv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Player Tracking V2**
+
+- [`wnba_boxscoreplayertrackv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Player Tracking V3**
+
+- [`wnba_boxscorescoringv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorescoringv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Scoring V2**
+
+- [`wnba_boxscorescoringv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorescoringv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Scoring V3**
+
+- [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Summary V2**
+
+- [`wnba_boxscoretraditionalv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Traditional V2**
+
+- [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Traditional V3**
+
+- [`wnba_boxscoreusagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev2.md)
+  :
+
+  **Get WNBA Stats API Boxscore Usage V2**
+
+- [`wnba_commonallplayers()`](https://wehoop.sportsdataverse.org/reference/wnba_commonallplayers.md)
+  :
+
+  **Get WNBA Stats API All Players**
+
+- [`wnba_commonplayerinfo()`](https://wehoop.sportsdataverse.org/reference/wnba_commonplayerinfo.md)
+  :
+
+  **Get WNBA Stats API Player Info**
+
+- [`wnba_commonplayoffseries()`](https://wehoop.sportsdataverse.org/reference/wnba_commonplayoffseries.md)
+  :
+
+  **Get WNBA Stats API Playoff Series**
+
+- [`wnba_commonteamroster()`](https://wehoop.sportsdataverse.org/reference/wnba_commonteamroster.md)
+  :
+
+  **Get WNBA Stats API Team Roster**
+
+- [`wnba_cumestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayer.md)
+  :
+
+  **Get WNBA Stats API Cumulative Player Stats**
+
+- [`wnba_cumestatsplayergames()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayergames.md)
+  :
+
+  **Get WNBA Stats API Cumulative Player Game Stats**
+
+- [`wnba_cumestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsteam.md)
+  :
+
+  **Get WNBA Stats API Cumulative Team Stats**
+
+- [`wnba_cumestatsteamgames()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsteamgames.md)
+  :
+
+  **Get WNBA Stats API Cumulative Team Game Stats**
+
+- [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md)
+  :
+
+  **Get WNBA Data API Play-by-Play**
+
+- [`wnba_draftboard()`](https://wehoop.sportsdataverse.org/reference/wnba_draftboard.md)
+  :
+
+  **Get WNBA Stats API Draft Board**
+
+- [`wnba_draftcombinedrillresults()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinedrillresults.md)
+  :
+
+  **Get WNBA Stats API Draft Combine Drill Results**
+
+- [`wnba_draftcombinenonstationaryshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinenonstationaryshooting.md)
+  :
+
+  **Get WNBA Stats API Draft Combine Non-Stationary Shooting**
+
+- [`wnba_draftcombineplayeranthro()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombineplayeranthro.md)
+  :
+
+  **Get WNBA Stats API Draft Combine Player Anthropological
+  Measurements**
+
+- [`wnba_draftcombinespotshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinespotshooting.md)
+  :
+
+  **Get WNBA Stats API Draft Combine - Spot Shooting**
+
+- [`wnba_draftcombinestats()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.md)
+  :
+
+  **Get WNBA Stats API Draft Combine Stats**
+
+- [`wnba_drafthistory()`](https://wehoop.sportsdataverse.org/reference/wnba_drafthistory.md)
+  :
+
+  **Get WNBA Stats API Draft History**
+
+- [`wnba_fantasywidget()`](https://wehoop.sportsdataverse.org/reference/wnba_fantasywidget.md)
+  :
+
+  **Get WNBA Stats API Fantasy Widget**
+
+- [`wnba_franchisehistory()`](https://wehoop.sportsdataverse.org/reference/wnba_franchisehistory.md)
+  :
+
+  **Get WNBA Stats API Franchise History**
+
+- [`wnba_franchiseleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_franchiseleaders.md)
+  :
+
+  **Get WNBA Stats API Franchise Leaders**
+
+- [`wnba_franchiseleaderswrank()`](https://wehoop.sportsdataverse.org/reference/wnba_franchiseleaderswrank.md)
+  :
+
+  **Get WNBA Stats API Franchise Leaders with Rank**
+
+- [`wnba_franchiseplayers()`](https://wehoop.sportsdataverse.org/reference/wnba_franchiseplayers.md)
+  :
+
+  **Get WNBA Stats API Franchise Players**
+
+- [`wnba_gamerotation()`](https://wehoop.sportsdataverse.org/reference/wnba_gamerotation.md)
+  :
+
+  **Get WNBA Stats API Game Rotation**
+
+- [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md)
+  :
+
+  **Get WNBA Stats API Homepage Widget Leaders**
+
+- [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md)
+  :
+
+  **Get WNBA Stats API Hustle Stats Boxscore**
+
+- [`wnba_infographicfanduelplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_infographicfanduelplayer.md)
+  :
+
+  **Get WNBA Stats API FanDuel Player Infographic**
+
+- [`wnba_leaguedashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashlineups.md)
+  :
+
+  **Get WNBA Stats API League Dashboard Lineups**
+
+- [`wnba_leaguedashplayerbiostats()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerbiostats.md)
+  :
+
+  **Get WNBA Stats API League Dashboard Player Biographical Stats**
+
+- [`wnba_leaguedashplayerclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerclutch.md)
+  :
+
+  **Get WNBA Stats API League Dashboard by Player Clutch Splits**
+
+- [`wnba_leaguedashplayershotlocations()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayershotlocations.md)
+  :
+
+  **Get WNBA Stats API League Dashboard Player Shot Locations**
+
+- [`wnba_leaguedashplayerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerstats.md)
+  :
+
+  **Get WNBA Stats API League Dashboard Player Stats**
+
+- [`wnba_leaguedashteamclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashteamclutch.md)
+  :
+
+  **Get WNBA Stats API League Dashboard by Team Clutch Splits**
+
+- [`wnba_leaguedashteamshotlocations()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashteamshotlocations.md)
+  :
+
+  **Get WNBA Stats API League Dashboard Team Shot Locations**
+
+- [`wnba_leaguedashteamstats()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashteamstats.md)
+  :
+
+  **Get WNBA Stats API League Dashboard Team Stats**
+
+- [`wnba_leaguegamefinder()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguegamefinder.md)
+  :
+
+  **Get WNBA Stats API League Game Streak Finder**
+
+- [`wnba_leaguegamelog()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguegamelog.md)
+  :
+
+  **Get WNBA Stats API League Game Log**
+
+- [`wnba_leaguehustlestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md)
+  :
+
+  **Get WNBA Stats API League Hustle Stats Player**
+
+- [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayerleaders.md)
+  :
+
+  **Get WNBA Stats API League Hustle Stats Player Leaders**
+
+- [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteam.md)
+  :
+
+  **Get WNBA Stats API League Hustle Stats Team**
+
+- [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteamleaders.md)
+  :
+
+  **Get WNBA Stats API League Hustle Stats Team Leaders**
+
+- [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md)
+  :
+
+  **Get WNBA Stats API League Leaders**
+
+- [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md)
+  :
+
+  **Get WNBA Stats API League Lineup Visual Data**
+
+- [`wnba_leagueplayerondetails()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueplayerondetails.md)
+  :
+
+  **Get WNBA Stats API League Player On/Off Details**
+
+- [`wnba_leagueseasonmatchups()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueseasonmatchups.md)
+  :
+
+  **Get WNBA Stats API League Season Matchups**
+
+- [`wnba_leaguestandingsv3()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguestandingsv3.md)
+  :
+
+  **Get WNBA Stats API League Standings V3**
+
+- [`wnba_live_boxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_live_boxscore.md)
+  :
+
+  **Get WNBA Stats API Live Boxscore**
+
+- [`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md)
+  :
+
+  **Get WNBA Stats API Live play-by-play**
+
+- [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
+  :
+
+  **Get WNBA Stats API play-by-play**
+
+- [`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md)
+  :
+
+  **Get WNBA Stats API play-by-play (Multiple Games)**
+
+- [`wnba_playerawards()`](https://wehoop.sportsdataverse.org/reference/wnba_playerawards.md)
+  :
+
+  **Get WNBA Stats API Player Awards**
+
+- [`wnba_playercareerbycollege()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollege.md)
+  :
+
+  **Get WNBA Stats API Player Career By College**
+
+- [`wnba_playercareerbycollegerollup()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollegerollup.md)
+  :
+
+  **Get WNBA Stats API Player Career By College Rollup**
+
+- [`wnba_playercareerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerstats.md)
+  :
+
+  **Get WNBA Stats API Player Career Stats**
+
+- [`wnba_playercompare()`](https://wehoop.sportsdataverse.org/reference/wnba_playercompare.md)
+  :
+
+  **Get WNBA Stats API Player Compare**
+
+- [`wnba_playerdashboardbyclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by Clutch Splits**
+
+- [`wnba_playerdashboardbygamesplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbygamesplits.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by Game Splits**
+
+- [`wnba_playerdashboardbygeneralsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbygeneralsplits.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by General Splits**
+
+- [`wnba_playerdashboardbylastngames()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbylastngames.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by Last N Games**
+
+- [`wnba_playerdashboardbyopponent()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyopponent.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by Opponent**
+
+- [`wnba_playerdashboardbyshootingsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyshootingsplits.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by Shooting Splits**
+
+- [`wnba_playerdashboardbyteamperformance()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyteamperformance.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard by Team Performance**
+
+- [`wnba_playerdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyyearoveryear.md)
+  :
+
+  **Get WNBA Stats API Player Dashboard Year over Year**
+
+- [`wnba_playerestimatedmetrics()`](https://wehoop.sportsdataverse.org/reference/wnba_playerestimatedmetrics.md)
+  :
+
+  **Get WNBA Stats API Player Estimated Metrics**
+
+- [`wnba_playerfantasyprofile()`](https://wehoop.sportsdataverse.org/reference/wnba_playerfantasyprofile.md)
+  :
+
+  **Get WNBA Stats API Player Fantasy Profile**
+
+- [`wnba_playerfantasyprofilebargraph()`](https://wehoop.sportsdataverse.org/reference/wnba_playerfantasyprofilebargraph.md)
+  :
+
+  **Get WNBA Stats API Player Fantasy Profile Bar Graph**
+
+- [`wnba_playergamelog()`](https://wehoop.sportsdataverse.org/reference/wnba_playergamelog.md)
+  :
+
+  **Get WNBA Stats API Player Game Log**
+
+- [`wnba_playergamelogs()`](https://wehoop.sportsdataverse.org/reference/wnba_playergamelogs.md)
+  :
+
+  **Get WNBA Stats API Player Game Logs**
+
+- [`wnba_playergamestreakfinder()`](https://wehoop.sportsdataverse.org/reference/wnba_playergamestreakfinder.md)
+  :
+
+  **Get WNBA Stats API Player Game Streak Finder**
+
+- [`wnba_playerheadshot()`](https://wehoop.sportsdataverse.org/reference/wnba_playerheadshot.md)
+  :
+
+  **Get WNBA Stats API Player Head-shot**
+
+- [`wnba_playerindex()`](https://wehoop.sportsdataverse.org/reference/wnba_playerindex.md)
+  :
+
+  **Get WNBA Stats API Player Index**
+
+- [`wnba_playernextngames()`](https://wehoop.sportsdataverse.org/reference/wnba_playernextngames.md)
+  :
+
+  **Get WNBA Stats API Player Next N Games**
+
+- [`wnba_playerprofilev2()`](https://wehoop.sportsdataverse.org/reference/wnba_playerprofilev2.md)
+  :
+
+  **Get WNBA Stats API Player Profile V2**
+
+- [`wnba_playervsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_playervsplayer.md)
+  :
+
+  **Get WNBA Stats API Player vs Player**
+
+- [`wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule.md)
+  :
+
+  **Get WNBA Stats API Season Schedule**
+
+- [`wnba_scoreboardv2()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboardv2.md)
+  :
+
+  **Get WNBA Stats API Scoreboard V2**
+
+- [`wnba_scoreboardv3()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboardv3.md)
+  :
+
+  **Get WNBA Stats API Scoreboard V3**
+
+- [`wnba_shotchartdetail()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartdetail.md)
+  :
+
+  **Get WNBA Stats API Shot Chart Detail**
+
+- [`wnba_shotchartleaguewide()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartleaguewide.md)
+  :
+
+  **Get WNBA Stats API Shot Chart League-Wide**
+
+- [`wnba_shotchartlineupdetail()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartlineupdetail.md)
+  :
+
+  **Get WNBA Stats API Shot Chart for Lineups**
+
+- [`wnba_teamdashboardbyclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by Clutch Splits**
+
+- [`wnba_teamdashboardbygamesplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygamesplits.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by Game Splits**
+
+- [`wnba_teamdashboardbygeneralsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygeneralsplits.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by General Splits**
+
+- [`wnba_teamdashboardbylastngames()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbylastngames.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by Last N Games**
+
+- [`wnba_teamdashboardbyopponent()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyopponent.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by Opponent**
+
+- [`wnba_teamdashboardbyshootingsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyshootingsplits.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by Shooting Splits**
+
+- [`wnba_teamdashboardbyteamperformance()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyteamperformance.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard by Team Performance**
+
+- [`wnba_teamdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyyearoveryear.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard Year over Year**
+
+- [`wnba_teamdashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashlineups.md)
+  :
+
+  **Get WNBA Stats API Team Dashboard - Lineups**
+
+- [`wnba_teamdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdetails.md)
+  :
+
+  **Get WNBA Stats API Team Details**
+
+- [`wnba_teamestimatedmetrics()`](https://wehoop.sportsdataverse.org/reference/wnba_teamestimatedmetrics.md)
+  :
+
+  **Get WNBA Stats API Team Estimated Metrics**
+
+- [`wnba_teamgamelog()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamelog.md)
+  :
+
+  **Get WNBA Stats API Team Game Log**
+
+- [`wnba_teamgamelogs()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamelogs.md)
+  :
+
+  **Get WNBA Stats API Team Game Logs**
+
+- [`wnba_teamgamestreakfinder()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamestreakfinder.md)
+  :
+
+  **Get WNBA Stats API Team Game Streak Finder**
+
+- [`wnba_teamhistoricalleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_teamhistoricalleaders.md)
+  :
+
+  **Get WNBA Stats API Team Historical Leaders**
+
+- [`wnba_teamplayerdashboard()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.md)
+  :
+
+  **Get WNBA Stats API Team Player Dashboard**
+
+- [`wnba_teamplayeronoffdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayeronoffdetails.md)
+  :
+
+  **Get WNBA Stats API Team Player On/Off Details**
+
+- [`wnba_teamplayeronoffsummary()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayeronoffsummary.md)
+  :
+
+  **Get WNBA Stats API Team Player On/Off Summary**
+
+- [`wnba_teams()`](https://wehoop.sportsdataverse.org/reference/wnba_teams.md)
+  :
+
+  **Get WNBA Stats API Teams**
+
+- [`wnba_teamvsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_teamvsplayer.md)
+  :
+
+  **Get WNBA Stats API Team vs Player**
+
+- [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md)
+  :
+
+  **Get WNBA Stats API Team Year by Year Stats**
+
+- [`wnba_todays_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.md)
+  :
+
+  **Get WNBA Stats API Today's Scoreboard**
+
+- [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md)
+  :
+
+  **Get WNBA Stats API Video Details**
+
+- [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md)
+  :
+
+  **Get WNBA Stats API Video Details**
+
+- [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
+  :
+
+  **Get WNBA Stats API Video Events**
+
+- [`wnba_videostatus()`](https://wehoop.sportsdataverse.org/reference/wnba_videostatus.md)
+  :
+
+  **Get WNBA Stats API Video Status**
+
+### wehoop Helper Functions
+
+Internal functions used by wehoop
+
+- [`check_status()`](https://wehoop.sportsdataverse.org/reference/check_status.md)
+  : Check Status function
+
+- [`csv_from_url()`](https://wehoop.sportsdataverse.org/reference/csv_from_url.md)
+  :
+
+  **Load .csv / .csv.gz file from a remote connection**
+
+- [`rds_from_url()`](https://wehoop.sportsdataverse.org/reference/rds_from_url.md)
+  :
+
+  **Load .rds file from a remote connection**
+
+- [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md)
+  :
+
+  **Most Recent Women's College Basketball Season**
+
+- [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
+  :
+
+  **Most Recent WNBA Season**
+
+- [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
+  : Progressively
+
+- [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
+  :
+
+  **Retry http request with proxy**
+
+- [`helper_espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.md)
+  :
+
+  **Parse ESPN WBB PBP, helper function**
+
+- [`helper_espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_team_box.md)
+  :
+
+  **Parse ESPN WBB Team Box, helper function**
+
+- [`helper_espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_player_box.md)
+  :
+
+  **Parse ESPN WBB Player Box, helper function**
+
+- [`helper_espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_pbp.md)
+  :
+
+  **Parse ESPN WNBA PBP, helper function**
+
+- [`helper_espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_team_box.md)
+  :
+
+  **Parse ESPN WNBA Team Box, helper function**
+
+- [`helper_espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_player_box.md)
+  :
+
+  **Parse ESPN WNBA Player Box, helper function**
+
+- [`.players_on_court`](https://wehoop.sportsdataverse.org/reference/dot-players_on_court.md)
+  :
+
+  **Add players on court in WNBA Stats API play-by-play**
