@@ -24,16 +24,16 @@ You can install the released version of
 [GitHub](https://github.com/sportsdataverse/wehoop) with:
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("sportsdataverse/wehoop", dependencies = TRUE, update = TRUE)
+pak::pak("sportsdataverse/wehoop")
 ```
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2024) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2025) ~ 1-2 minutes**
 
 ``` r
 tictoc::tic()
@@ -44,12 +44,12 @@ tictoc::toc()
 ```
 
 ``` R
-## 1.08 sec elapsed
+## 0.86 sec elapsed
 
-## 58334 rows of WNBA play-by-play data from 150 games.
+## 87618 rows of WNBA play-by-play data from 223 games.
 ```
 
-### **Women’s college basketball full play-by-play seasons (2004-2024) ~ 2-3 minutes**
+### **Women’s college basketball full play-by-play seasons (2004-2025) ~ 2-3 minutes**
 
 ``` r
 tictoc::tic()
@@ -60,9 +60,9 @@ tictoc::toc()
 ```
 
 ``` R
-## 6.55 sec elapsed
+## 8.72 sec elapsed
 
-## 1908679 rows of women's college basketball play-by-play data from 5779 games.
+## 1973907 rows of women's college basketball play-by-play data from 5473 games.
 ```
 
 ## **Documentation**
@@ -78,17 +78,22 @@ Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
 ## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://twitter.com/SportsDataverse)
+
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop/stargazers/)
 
 # **Our Authors**
 
-- Saiem Gilani (@saiemgilani)  
+- [Saiem Gilani](https://twitter.com/saiemgilani)
 
+[![@SaiemGilani](https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani)](https://twitter.com/saiemgilani)
 [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
 
-- Geoff Hutchinson (@HutchNGo)  
+- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)
 
+[![@HutchNGo](https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/HutchNGo)
 [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
 
 ## **Citations**

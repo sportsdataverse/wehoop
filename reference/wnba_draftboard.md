@@ -7,14 +7,14 @@
 ## Usage
 
 ``` r
-wnba_draftboard(season = most_recent_wnba_season() - 1, ...)
+wnba_draftboard(season = most_recent_wnba_season(), ...)
 ```
 
 ## Arguments
 
 - season:
 
-  season
+  Draft year as numeric or character (e.g. `2026`).
 
 - ...:
 
@@ -22,70 +22,49 @@ wnba_draftboard(season = most_recent_wnba_season() - 1, ...)
 
 ## Value
 
-Returns a named list of data frames: teams,draft_info, picks
+Returns a named list of tibbles: `board`, `picks`.
 
-**teams**
+**board**
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| id            | integer   |
-| external-id   | character |
-| slug          | character |
-| name          | character |
-| city          | character |
-| state         | character |
-| url           | character |
-| primarycolor  | character |
-| seconarycolor | character |
-
-**draft_info**
-
-|                       |           |
-|-----------------------|-----------|
-| col_name              | types     |
-| draft_status          | character |
-| draft_modified        | integer   |
-| draft_title           | character |
-| draft_show_players    | character |
-| draft_id              | integer   |
-| draft_url             | character |
-| draft_location        | character |
-| sponsor_logo          | character |
-| header_image          | character |
-| sponsor_link          | character |
-| draft_date            | character |
-| draft_time_hh         | character |
-| draft_time_mm         | character |
-| draft_time_am         | character |
-| draft_time_tz         | character |
-| draft_round_1_channel | character |
-| draft_round_2_channel | character |
-| draft_round_3_channel | character |
-| draft_interval        | character |
+|              |           |
+|--------------|-----------|
+| col_name     | types     |
+| draft_id     | integer   |
+| title        | character |
+| season       | integer   |
+| status       | character |
+| on_the_clock | character |
+| draft_date   | character |
+| modified     | character |
 
 **picks**
 
-|                 |           |
-|-----------------|-----------|
-| col_name        | types     |
-| team            | character |
-| details         | character |
-| player_name     | character |
-| player_id       | integer   |
-| player_college  | character |
-| player_position | character |
-| player_ppg      | character |
-| player_rpg      | character |
-| player_apg      | character |
-| player_fg       | character |
-| player_headshot | character |
-| player_url      | character |
-| round           | integer   |
+|                  |           |
+|------------------|-----------|
+| col_name         | types     |
+| round            | integer   |
+| pick             | integer   |
+| team_id          | integer   |
+| team_external_id | integer   |
+| team_name        | character |
+| prospect_id      | integer   |
+| first_name       | character |
+| last_name        | character |
+| position         | character |
+| country          | character |
+| college          | character |
+| ppg              | character |
+| rpg              | character |
+| apg              | character |
+| spg              | character |
+| bpg              | character |
+| fg_pct           | character |
+| description      | character |
+| headshot_url     | character |
 
 ## Details
 
-      wnba_draftboard(season = most_recent_wnba_season() - 1)
+      wnba_draftboard(season = most_recent_wnba_season())
 
 ## See also
 

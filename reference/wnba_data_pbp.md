@@ -86,8 +86,9 @@ Event Message Types (event_type):
 
 Other WNBA PBP Functions:
 [`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md),
+[`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md),
 [`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md),
-[`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
+[`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md)
 
 ## Author
 

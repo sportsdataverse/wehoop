@@ -103,8 +103,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wnba_player_box(game_id = 401244185))
-#> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 2.1.0 ──
-#> ℹ Data updated: 2026-04-08 11:13:54 UTC
+#> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-04-14 04:27:30 UTC
 #> # A tibble: 25 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>

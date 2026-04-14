@@ -35,8 +35,8 @@ Return a list of tibbles: videoUrls, playlist
 ## See also
 
 Other WNBA Video Functions:
-[`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md),
 [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md),
+[`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md),
 [`wnba_videostatus()`](https://wehoop.sportsdataverse.org/reference/wnba_videostatus.md)
 
 ## Author

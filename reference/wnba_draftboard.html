@@ -9,7 +9,7 @@ Get WNBA Stats API Draft Board"><meta property="og:image" content="https://raw.g
 
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +93,7 @@ Get WNBA Stats API Draft Board"><meta property="og:image" content="https://raw.g
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">wnba_draftboard</span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">wnba_draftboard</span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -101,7 +101,7 @@ Get WNBA Stats API Draft Board"><meta property="og:image" content="https://raw.g
 
 
 <dl><dt id="arg-season">season<a class="anchor" aria-label="anchor" href="#arg-season"></a></dt>
-<dd><p>season</p></dd>
+<dd><p>Draft year as numeric or character (e.g. <code>2026</code>).</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -110,11 +110,11 @@ Get WNBA Stats API Draft Board"><meta property="og:image" content="https://raw.g
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a named list of data frames: teams,draft_info, picks</p>
-<p><strong>teams</strong></p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>id</td><td>integer</td></tr><tr><td>external-id</td><td>character</td></tr><tr><td>slug</td><td>character</td></tr><tr><td>name</td><td>character</td></tr><tr><td>city</td><td>character</td></tr><tr><td>state</td><td>character</td></tr><tr><td>url</td><td>character</td></tr><tr><td>primarycolor</td><td>character</td></tr><tr><td>seconarycolor</td><td>character</td></tr></table><p><strong>draft_info</strong></p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>draft_status</td><td>character</td></tr><tr><td>draft_modified</td><td>integer</td></tr><tr><td>draft_title</td><td>character</td></tr><tr><td>draft_show_players</td><td>character</td></tr><tr><td>draft_id</td><td>integer</td></tr><tr><td>draft_url</td><td>character</td></tr><tr><td>draft_location</td><td>character</td></tr><tr><td>sponsor_logo</td><td>character</td></tr><tr><td>header_image</td><td>character</td></tr><tr><td>sponsor_link</td><td>character</td></tr><tr><td>draft_date</td><td>character</td></tr><tr><td>draft_time_hh</td><td>character</td></tr><tr><td>draft_time_mm</td><td>character</td></tr><tr><td>draft_time_am</td><td>character</td></tr><tr><td>draft_time_tz</td><td>character</td></tr><tr><td>draft_round_1_channel</td><td>character</td></tr><tr><td>draft_round_2_channel</td><td>character</td></tr><tr><td>draft_round_3_channel</td><td>character</td></tr><tr><td>draft_interval</td><td>character</td></tr></table><p><strong>picks</strong></p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>team</td><td>character</td></tr><tr><td>details</td><td>character</td></tr><tr><td>player_name</td><td>character</td></tr><tr><td>player_id</td><td>integer</td></tr><tr><td>player_college</td><td>character</td></tr><tr><td>player_position</td><td>character</td></tr><tr><td>player_ppg</td><td>character</td></tr><tr><td>player_rpg</td><td>character</td></tr><tr><td>player_apg</td><td>character</td></tr><tr><td>player_fg</td><td>character</td></tr><tr><td>player_headshot</td><td>character</td></tr><tr><td>player_url</td><td>character</td></tr><tr><td>round</td><td>integer</td></tr></table></div>
+    <p>Returns a named list of tibbles: <code>board</code>, <code>picks</code>.</p>
+<p><strong>board</strong></p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>draft_id</td><td>integer</td></tr><tr><td>title</td><td>character</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>status</td><td>character</td></tr><tr><td>on_the_clock</td><td>character</td></tr><tr><td>draft_date</td><td>character</td></tr><tr><td>modified</td><td>character</td></tr></table><p><strong>picks</strong></p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>round</td><td>integer</td></tr><tr><td>pick</td><td>integer</td></tr><tr><td>team_id</td><td>integer</td></tr><tr><td>team_external_id</td><td>integer</td></tr><tr><td>team_name</td><td>character</td></tr><tr><td>prospect_id</td><td>integer</td></tr><tr><td>first_name</td><td>character</td></tr><tr><td>last_name</td><td>character</td></tr><tr><td>position</td><td>character</td></tr><tr><td>country</td><td>character</td></tr><tr><td>college</td><td>character</td></tr><tr><td>ppg</td><td>character</td></tr><tr><td>rpg</td><td>character</td></tr><tr><td>apg</td><td>character</td></tr><tr><td>spg</td><td>character</td></tr><tr><td>bpg</td><td>character</td></tr><tr><td>fg_pct</td><td>character</td></tr><tr><td>description</td><td>character</td></tr><tr><td>headshot_url</td><td>character</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p></p><div class="sourceCode r"><pre><code><span>  <span class="fu"><a href="../reference/wnba_draftboard.html">wnba_draftboard</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code></pre><p></p></div>
+    <p></p><div class="sourceCode r"><pre><code><span>  <span class="fu"><a href="../reference/wnba_draftboard.html">wnba_draftboard</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

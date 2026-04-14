@@ -40,12 +40,11 @@ package.
 ### **Install** [**`wehoop`**](https://saiemgilani.github.io/wehoop/)
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak')){
+  install.packages('pak')
 }
-
-pacman::p_load(wehoop, dplyr, glue, tictoc, progressr)
+pak::pkg_install(c("wehoop", "dplyr", "glue", "progressr", "tictoc"))
 ```
 
 ### **Quick Start**
@@ -60,7 +59,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.092 sec elapsed
+    ## 1.109 sec elapsed
 
 ``` r
 ## 13.91 sec elapsed
@@ -150,7 +149,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.299 sec elapsed
+    ## 0.394 sec elapsed
 
 ``` r
 glue::glue("{nrow(wnba_team_box)} rows of WNBA team boxscore data from {length(unique(wnba_team_box$game_id))} games.")
@@ -232,7 +231,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.343 sec elapsed
+    ## 0.419 sec elapsed
 
 ``` r
 length(unique(wnba_player_box$game_id))
@@ -256,7 +255,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 15.548 sec elapsed
+    ## 15.438 sec elapsed
 
 ``` r
 length(unique(wbb_pbp$game_id))
@@ -280,7 +279,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.38 sec elapsed
+    ## 0.459 sec elapsed
 
 ``` r
 length(unique(wbb_team_box$game_id))
@@ -304,7 +303,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.239 sec elapsed
+    ## 1.333 sec elapsed
 
 ``` r
 length(unique(wbb_player_box$game_id))
@@ -321,9 +320,9 @@ nrow(wbb_player_box)
 ## **Our Authors**
 
 - [Saiem Gilani](https://twitter.com/saiemgilani)  
-  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge)](https://twitter.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&logo=x&style=for-the-badge)](https://twitter.com/saiemgilani)
   [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
 
-- [Geoff Hutchinson](https://twitter.com/hutchngo)  
-  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge)](https://twitter.com/hutchngo)
+- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)  
+  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/hutchngo)
   [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)

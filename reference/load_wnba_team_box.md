@@ -45,7 +45,7 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_wnba_team_box())
-#> ──────────────────────────────────────────────────────────────── wehoop 2.1.0 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 624 × 57
 #>      game_id season season_type game_date  game_date_time      team_id team_uid 
 #>        <int>  <int>       <int> <date>     <dttm>                <int> <chr>    

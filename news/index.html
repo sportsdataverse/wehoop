@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">wehoop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,6 +84,66 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="3.0.0" id="wehoop-300"><strong>wehoop 3.0.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-300"></a></h2>
+<div class="section level4">
+<h4 id="wnba-stats-api-v3-endpoints-added-3-0-0"><strong>WNBA Stats API V3 Endpoints Added</strong><a class="anchor" aria-label="anchor" href="#wnba-stats-api-v3-endpoints-added-3-0-0"></a></h4>
+<ul><li>
+<code><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3()</a></code> function added. V3 play-by-play endpoint wrapper, plus a V3-to-V2 compatibility pipeline used by <code><a href="../reference/wnba_pbp.html">wnba_pbp()</a></code> (via <code><a href="../reference/dot-v3_to_v2_format_wnba.html">.v3_to_v2_format_wnba()</a></code>, <code><a href="../reference/dot-build_player_roster_wnba.html">.build_player_roster_wnba()</a></code>, <code><a href="../reference/dot-players_on_court_v3_wnba.html">.players_on_court_v3_wnba()</a></code>) that retains V2-compatible columns while adding V3-only columns (<code>x_legacy</code>, <code>y_legacy</code>, <code>shot_distance</code>, <code>shot_result</code>, <code>is_field_goal</code>, <code>points_total</code>, <code>shot_value</code>).</li>
+<li>
+<code><a href="../reference/wnba_boxscoresummaryv3.html">wnba_boxscoresummaryv3()</a></code> function added.</li>
+<li>
+<code><a href="../reference/wnba_boxscoreusagev3.html">wnba_boxscoreusagev3()</a></code> function added.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="wnba-time-calculation-fix-3-0-0"><strong>WNBA Time Calculation Fix</strong><a class="anchor" aria-label="anchor" href="#wnba-time-calculation-fix-3-0-0"></a></h4>
+<ul><li>
+<code><a href="../reference/dot-players_on_court.html">.players_on_court()</a></code> — corrected quarter-length math to use 10-minute WNBA quarters (600 seconds/quarter, 2400 seconds of regulation) rather than the NBA 12-minute quarter constants.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="data-loaders-3-0-0"><strong>Data Loaders</strong><a class="anchor" aria-label="anchor" href="#data-loaders-3-0-0"></a></h4>
+<ul><li>
+<code><a href="../reference/update_wnba_db.html">update_wnba_db()</a></code> function updated to use <code>sportsdataverse-data</code> releases url instead of <code>wehoop-data</code> repository URL</li>
+<li>
+<code><a href="../reference/update_wbb_db.html">update_wbb_db()</a></code> function updated to use <code>sportsdataverse-data</code> releases url instead of <code>wehoop-data</code> repository URL</li>
+</ul></div>
+<div class="section level4">
+<h4 id="restored-functionality-3-0-0"><strong>Restored Functionality</strong><a class="anchor" aria-label="anchor" href="#restored-functionality-3-0-0"></a></h4>
+<ul><li>
+<code><a href="../reference/wnba_draftboard.html">wnba_draftboard()</a></code> — rewritten against the new upstream endpoint <code>https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board</code>. The old <code>wnba.com/wp-json/api/v1/get_draft_board</code> endpoint stopped serving data; the replacement returns a tidied named list of two tibbles — <code>board</code> (draft metadata) and <code>picks</code> (one row per pick with team, prospect, career stats, and headshot URL). See <code><a href="../reference/wnba_draftboard.html">?wnba_draftboard</a></code> for the column schema.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="bug-fixes-3-0-0"><strong>Bug Fixes</strong><a class="anchor" aria-label="anchor" href="#bug-fixes-3-0-0"></a></h4>
+<ul><li>
+<code><a href="../reference/espn_wbb_conferences.html">espn_wbb_conferences()</a></code> — ESPN dropped the <code>subGroups</code> column from its scoreboard-conferences response; the function now uses <code>dplyr::select(-dplyr::any_of("subGroups"))</code> so new column drops no longer break the call. Also initializes <code>conferences &lt;- NULL</code> before the <code>tryCatch</code> so a transient error surfaces a <code>cli_alert_danger</code> instead of <code>object 'conferences' not found</code>.</li>
+<li>
+<code><a href="../reference/ncaa_wbb_NET_rankings.html">ncaa_wbb_NET_rankings()</a></code> — the NCAA.com rankings table now exposes <code>Conf</code>/<code>Prev</code>/<code>Quad 1..4</code> headers; after <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html" class="external-link">janitor::clean_names()</a></code> these land as <code>conf</code>/<code>prev</code>/<code>quad_1..4</code>, breaking the documented schema. The function now renames <code>conf → conference</code> and <code>prev → previous</code> via <code>dplyr::rename(dplyr::any_of(...))</code> so existing consumers keep working while the new <code>quad_*</code> columns ride along untouched.</li>
+<li>
+<strong>Return-value initialization pattern</strong> — swept ~124 WNBA and ESPN wrappers that <code>return(df_list)</code> (or returned other vars assigned only inside <code>tryCatch(expr = ...)</code>) without initializing the return value first. When the API errored, callers saw <code>object 'df_list' not found</code> instead of the intended <code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_danger</a></code> + empty-list fallback. Each wrapper now initializes its return variable before <code>tryCatch</code>, so errors degrade gracefully to an empty list / NULL. Affected files: <code>R/wnba_stats_boxscore.R</code>, <code>R/wnba_stats_boxscore_v3.R</code>, <code>R/wnba_stats_cume.R</code>, <code>R/wnba_stats_draft.R</code>, <code>R/wnba_stats_franchise.R</code>, <code>R/wnba_stats_leaders.R</code>, <code>R/wnba_stats_league.R</code>, <code>R/wnba_stats_league_dash.R</code>, <code>R/wnba_stats_lineups.R</code>, <code>R/wnba_stats_pbp.R</code>, <code>R/wnba_stats_player.R</code>, <code>R/wnba_stats_player_dash.R</code>, <code>R/wnba_stats_roster.R</code>, <code>R/wnba_stats_scoreboard.R</code>, <code>R/wnba_stats_shotchart.R</code>, <code>R/wnba_stats_team.R</code>, <code>R/wnba_stats_team_dash.R</code>, <code>R/wnba_stats_video.R</code>, <code>R/espn_wbb_data.R</code>, <code>R/espn_wnba_data.R</code>, <code>R/wnba_data_pbp.R</code>.</li>
+<li>
+<code><a href="../reference/wnba_data_pbp.html">wnba_data_pbp()</a></code> — added <code>plays_df &lt;- data.frame()</code> init so HTTP/2 stream errors from <code>data.wnba.com</code> return an empty data frame with a <code>cli_alert_danger</code> rather than <code>object 'plays_df' not found</code>.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="test-suite-hardening-3-0-0"><strong>Test Suite Hardening</strong><a class="anchor" aria-label="anchor" href="#test-suite-hardening-3-0-0"></a></h4>
+<ul><li>Flipped <strong>394</strong> column assertions from strict <code>expect_equal(sort(colnames(x)), sort(cols))</code> to subset checks <code>expect_in(sort(cols), sort(colnames(x)))</code> across <strong>115</strong> test files — per the CLAUDE.md guidance, WNBA / ESPN APIs add columns without removing old ones, and the strict checks were brittle.</li>
+<li>Injected <code>skip("No rows returned from endpoint at test time")</code> guards into <strong>114</strong> test files so tests which access <code>x[[1]]</code> degrade gracefully to a skip (rather than a subscript-out-of-bounds error) when the upstream endpoint errors or returns empty.</li>
+<li>Cleaned stale column names out of expected <code>cols</code> lists where ESPN renamed/removed columns (<code>jersey</code>, <code>active</code>, <code>team_x_ref_2</code>, <code>team_is_all_star</code>, <code>Team_ID</code> → <code>TEAM_ID</code>).</li>
+<li>Added per-element null/empty-column check helpers to <code>test-wnba_teamvsplayer.R</code> and <code>test-wnba_playerdashboardbyclutch.R</code> so tests tolerate the WNBA Stats API returning fewer result-set elements than the test expects.</li>
+<li>Added <code>tools/</code> directory (excluded from the package build via <code>.Rbuildignore</code>) containing the one-off R scripts used to apply the above sweeps: <code>patch_df_list_init.R</code>, <code>patch_return_var_init.R</code>, <code>flip_expect_equal_cols.R</code>, <code>inject_skip_guard.R</code>.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="deprecations-slated-for-removal-3-0-0"><strong>Deprecations (slated for 3.1.0 removal)</strong><a class="anchor" aria-label="anchor" href="#deprecations-slated-for-removal-3-0-0"></a></h4>
+<p>The following functions wrap WNBA Stats API endpoints that are no longer returning data. They are marked <code>@keywords internal</code>, their bodies have been replaced with <code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_danger()</a></code> stubs, and their tests are skipped with <code>"Skip this test due to deprecation"</code>. They remain exported for one release but will be removed in <code>wehoop 3.1.0</code>:</p>
+<ul><li><code><a href="../reference/wnba_boxscorehustlev2.html">wnba_boxscorehustlev2()</a></code></li>
+<li><code><a href="../reference/wnba_hustlestatsboxscore.html">wnba_hustlestatsboxscore()</a></code></li>
+<li><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsplayer()</a></code></li>
+<li><code><a href="../reference/wnba_leaguehustlestatsplayerleaders.html">wnba_leaguehustlestatsplayerleaders()</a></code></li>
+<li><code><a href="../reference/wnba_leaguehustlestatsteam.html">wnba_leaguehustlestatsteam()</a></code></li>
+<li><code><a href="../reference/wnba_leaguehustlestatsteamleaders.html">wnba_leaguehustlestatsteamleaders()</a></code></li>
+<li><code><a href="../reference/wnba_videodetails.html">wnba_videodetails()</a></code></li>
+<li><code><a href="../reference/wnba_videodetailsasset.html">wnba_videodetailsasset()</a></code></li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.1.0" id="wehoop-210"><strong>wehoop 2.1.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-210"></a></h2><p class="text-muted">CRAN release: 2024-07-21</p>
 <ul><li>
 <code><a href="../reference/wnba_homepagewidget.html">wnba_homepagewidget()</a></code> function added to replace the following homepage functions being deprecated.</li>
@@ -131,7 +191,7 @@
 <li>
 <code><a href="../reference/wnba_boxscorescoringv3.html">wnba_boxscorescoringv3()</a></code> function added.</li>
 <li>
-<code>wnba_boxscoreusagev3()</code> function added.</li>
+<code><a href="../reference/wnba_boxscoreusagev3.html">wnba_boxscoreusagev3()</a></code> function added.</li>
 <li>
 <code><a href="../reference/wnba_boxscorefourfactorsv3.html">wnba_boxscorefourfactorsv3()</a></code> function added.</li>
 <li>

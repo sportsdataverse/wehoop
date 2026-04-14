@@ -20,7 +20,7 @@ wnba_shotchartlineupdetail(
   division = "",
   end_period = "10",
   end_range = "28800",
-  group_id = "-100720-202250-204319-1627668-1628931-",
+  group_id = "-1628899-1629481-1630096-1631019-1642784-",
   game_event_id = "",
   game_id = "",
   game_segment = "",
@@ -54,7 +54,7 @@ wnba_shotchartlineupdetail(
   start_period = "1",
   start_range = "0",
   starter_bench = "",
-  team_id = "1611661328",
+  team_id = "1611661321",
   vs_conference = "",
   vs_division = "",
   vs_player_id1 = "",
@@ -345,7 +345,7 @@ ShotChartLineupLeagueAverage
 
 ## Details
 
-     wnba_shotchartlineupdetail(group_id = '-100720-202250-204319-1627668-1628931-', season = most_recent_wnba_season())
+     wnba_shotchartlineupdetail(group_id = '-1628899-1629481-1630096-1631019-1642784-', opponent_team_id = '1611661324', season = most_recent_wnba_season())
 
 ## See also
 

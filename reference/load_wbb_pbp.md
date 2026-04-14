@@ -292,7 +292,7 @@ A dataframe with 55 columns:
 ``` r
 # \donttest{
   try(load_wbb_pbp())
-#> ──────────────────────────────────────────────────────────────── wehoop 2.1.0 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 2,824,090 × 62
 #>    game_play_number      id sequence_number type_id type_text   text  away_score
 #>               <int>   <dbl>           <int>   <int> <chr>       <chr>      <int>

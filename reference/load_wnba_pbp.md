@@ -233,7 +233,7 @@ A dataframe with 42 columns
 ``` r
 # \donttest{
   try(load_wnba_pbp())
-#> ──────────────────────────────────────────────────────────────── wehoop 2.1.0 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 121,342 × 62
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>

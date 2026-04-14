@@ -7,7 +7,7 @@
 ## Usage
 
 ``` r
-wnba_pbp(game_id, on_court = TRUE, version = "v2", p, ...)
+wnba_pbp(game_id, on_court = TRUE, version = "v3", p = NULL, ...)
 ```
 
 ## Arguments
@@ -22,7 +22,9 @@ wnba_pbp(game_id, on_court = TRUE, version = "v2", p, ...)
 
 - version:
 
-  Play-by-play version ("v2" available from 2016-17 onwards)
+  Play-by-play version - `"v3"` (default) or `"v2"`. V3 returns richer
+  data with shot coordinates, shot values, and V3 action types. V2 is
+  available from 2016-17 onwards.
 
 - p:
 
@@ -90,4 +92,5 @@ Returns a data frame: PlayByPlay
 Other WNBA PBP Functions:
 [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md),
 [`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md),
-[`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md)
+[`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md),
+[`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md)

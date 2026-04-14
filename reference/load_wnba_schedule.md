@@ -45,7 +45,7 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_wnba_schedule())
-#> ──────────────────────────────────────────────────────────────── wehoop 2.1.0 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 312 × 77
 #>         id uid   date  attendance time_valid neutral_site conference_competition
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 

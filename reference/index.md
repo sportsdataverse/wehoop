@@ -215,11 +215,6 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Boxscore Four Factors V3**
 
-- [`wnba_boxscorehustlev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorehustlev2.md)
-  :
-
-  **Get WNBA Stats API Boxscore Hustle V2**
-
 - [`wnba_boxscoremiscv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv2.md)
   :
 
@@ -255,6 +250,11 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Boxscore Summary V2**
 
+- [`wnba_boxscoresummaryv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Summary V3**
+
 - [`wnba_boxscoretraditionalv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md)
   :
 
@@ -269,6 +269,11 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API Boxscore Usage V2**
+
+- [`wnba_boxscoreusagev3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Usage V3**
 
 - [`wnba_commonallplayers()`](https://wehoop.sportsdataverse.org/reference/wnba_commonallplayers.md)
   :
@@ -386,11 +391,6 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Homepage Widget Leaders**
 
-- [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md)
-  :
-
-  **Get WNBA Stats API Hustle Stats Boxscore**
-
 - [`wnba_infographicfanduelplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_infographicfanduelplayer.md)
   :
 
@@ -446,26 +446,6 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API League Game Log**
 
-- [`wnba_leaguehustlestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Player**
-
-- [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayerleaders.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Player Leaders**
-
-- [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteam.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Team**
-
-- [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteamleaders.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Team Leaders**
-
 - [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md)
   :
 
@@ -510,6 +490,11 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API play-by-play (Multiple Games)**
+
+- [`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md)
+  :
+
+  **Get WNBA Stats API Play-by-Play V3**
 
 - [`wnba_playerawards()`](https://wehoop.sportsdataverse.org/reference/wnba_playerawards.md)
   :
@@ -770,16 +755,6 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API Today's Scoreboard**
-
-- [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md)
-  :
-
-  **Get WNBA Stats API Video Details**
-
-- [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md)
-  :
-
-  **Get WNBA Stats API Video Details**
 
 - [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
   :

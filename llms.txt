@@ -24,16 +24,16 @@ You can install the released version of
 [GitHub](https://github.com/sportsdataverse/wehoop) with:
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("sportsdataverse/wehoop", dependencies = TRUE, update = TRUE)
+pak::pak("sportsdataverse/wehoop")
 ```
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2024) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2025) ~ 1-2 minutes**
 
 ``` r
 tictoc::tic()
@@ -44,12 +44,12 @@ tictoc::toc()
 ```
 
 ``` R
-## 1.08 sec elapsed
+## 0.86 sec elapsed
 
-## 58334 rows of WNBA play-by-play data from 150 games.
+## 87618 rows of WNBA play-by-play data from 223 games.
 ```
 
-### **Women’s college basketball full play-by-play seasons (2004-2024) ~ 2-3 minutes**
+### **Women’s college basketball full play-by-play seasons (2004-2025) ~ 2-3 minutes**
 
 ``` r
 tictoc::tic()
@@ -60,9 +60,9 @@ tictoc::toc()
 ```
 
 ``` R
-## 6.55 sec elapsed
+## 8.72 sec elapsed
 
-## 1908679 rows of women's college basketball play-by-play data from 5779 games.
+## 1973907 rows of women's college basketball play-by-play data from 5473 games.
 ```
 
 ## **Documentation**
@@ -78,17 +78,22 @@ Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
 ## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://twitter.com/SportsDataverse)
+
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop/stargazers/)
 
 # **Our Authors**
 
-- Saiem Gilani (@saiemgilani)  
+- [Saiem Gilani](https://twitter.com/saiemgilani)
 
+[![@SaiemGilani](https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani)](https://twitter.com/saiemgilani)
 [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
 
-- Geoff Hutchinson (@HutchNGo)  
+- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)
 
+[![@HutchNGo](https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/HutchNGo)
 [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
 
 ## **Citations**
@@ -328,11 +333,6 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Boxscore Four Factors V3**
 
-- [`wnba_boxscorehustlev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorehustlev2.md)
-  :
-
-  **Get WNBA Stats API Boxscore Hustle V2**
-
 - [`wnba_boxscoremiscv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv2.md)
   :
 
@@ -368,6 +368,11 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Boxscore Summary V2**
 
+- [`wnba_boxscoresummaryv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Summary V3**
+
 - [`wnba_boxscoretraditionalv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md)
   :
 
@@ -382,6 +387,11 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API Boxscore Usage V2**
+
+- [`wnba_boxscoreusagev3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev3.md)
+  :
+
+  **Get WNBA Stats API Boxscore Usage V3**
 
 - [`wnba_commonallplayers()`](https://wehoop.sportsdataverse.org/reference/wnba_commonallplayers.md)
   :
@@ -499,11 +509,6 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Homepage Widget Leaders**
 
-- [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md)
-  :
-
-  **Get WNBA Stats API Hustle Stats Boxscore**
-
 - [`wnba_infographicfanduelplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_infographicfanduelplayer.md)
   :
 
@@ -559,26 +564,6 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API League Game Log**
 
-- [`wnba_leaguehustlestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Player**
-
-- [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayerleaders.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Player Leaders**
-
-- [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteam.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Team**
-
-- [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteamleaders.md)
-  :
-
-  **Get WNBA Stats API League Hustle Stats Team Leaders**
-
 - [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md)
   :
 
@@ -623,6 +608,11 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API play-by-play (Multiple Games)**
+
+- [`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md)
+  :
+
+  **Get WNBA Stats API Play-by-Play V3**
 
 - [`wnba_playerawards()`](https://wehoop.sportsdataverse.org/reference/wnba_playerawards.md)
   :
@@ -883,16 +873,6 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API Today's Scoreboard**
-
-- [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md)
-  :
-
-  **Get WNBA Stats API Video Details**
-
-- [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md)
-  :
-
-  **Get WNBA Stats API Video Details**
 
 - [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
   :

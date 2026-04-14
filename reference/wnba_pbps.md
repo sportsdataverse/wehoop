@@ -10,7 +10,7 @@
 wnba_pbps(
   game_ids = NULL,
   on_court = TRUE,
-  version = "v2",
+  version = "v3",
   nest_data = FALSE,
   ...
 )
@@ -28,7 +28,9 @@ wnba_pbps(
 
 - version:
 
-  Play-by-play version ("v2" available from 2016-17 onwards)
+  Play-by-play version - `"v3"` (default) or `"v2"`. V3 returns richer
+  data with shot coordinates, shot values, and V3 action types. V2 is
+  available from 2016-17 onwards.
 
 - nest_data:
 
@@ -108,7 +110,8 @@ Returns a data frame: PlayByPlay
 Other WNBA PBP Functions:
 [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md),
 [`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md),
-[`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
+[`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md),
+[`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md)
 
 ## Author
 
