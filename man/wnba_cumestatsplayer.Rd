@@ -129,8 +129,8 @@ Return a named list of data frames: GameByGameStats, TotalPlayerStats
 \seealso{
 Other WNBA Cume Functions: 
 \code{\link{wnba_cumestatsplayergames}()},
-\code{\link{wnba_cumestatsteamgames}()},
-\code{\link{wnba_cumestatsteam}()}
+\code{\link{wnba_cumestatsteam}()},
+\code{\link{wnba_cumestatsteamgames}()}
 }
 \author{
 Saiem Gilani

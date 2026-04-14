@@ -99,13 +99,14 @@ Other WNBA Boxscore Functions:
 \code{\link{wnba_gamerotation}()}
 
 Other WNBA Hustle Functions: 
-\code{\link{wnba_leaguehustlestatsplayerleaders}()},
 \code{\link{wnba_leaguehustlestatsplayer}()},
-\code{\link{wnba_leaguehustlestatsteamleaders}()},
-\code{\link{wnba_leaguehustlestatsteam}()}
+\code{\link{wnba_leaguehustlestatsplayerleaders}()},
+\code{\link{wnba_leaguehustlestatsteam}()},
+\code{\link{wnba_leaguehustlestatsteamleaders}()}
 }
 \author{
 Saiem Gilani
 }
 \concept{WNBA Boxscore Functions}
 \concept{WNBA Hustle Functions}
+\keyword{internal}

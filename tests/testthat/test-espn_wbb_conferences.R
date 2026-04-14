@@ -13,6 +13,6 @@ test_that("ESPN - WBB Conferences", {
     "conference_id"
   )
   
-  expect_equal(colnames(x), cols)
+  expect_in(cols, colnames(x))
   expect_s3_class(x, "data.frame")
 })

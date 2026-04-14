@@ -59,8 +59,8 @@ Returns a named list of data frames: CumeStatsPlayerGames
 \seealso{
 Other WNBA Cume Functions: 
 \code{\link{wnba_cumestatsplayer}()},
-\code{\link{wnba_cumestatsteamgames}()},
-\code{\link{wnba_cumestatsteam}()}
+\code{\link{wnba_cumestatsteam}()},
+\code{\link{wnba_cumestatsteamgames}()}
 }
 \author{
 Saiem Gilani

@@ -71,6 +71,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Hustle Functions
 #' @details
@@ -106,60 +107,8 @@ wnba_leaguehustlestatsplayer <- function(
     vs_division = '',
     weight = '',
     ...){
-  
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  version <- "leaguehustlestatsplayer"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    College = college,
-    Conference = conference,
-    Country = country,
-    DateFrom = date_from,
-    DateTo = date_to,
-    Division = division,
-    DraftPick = draft_pick,
-    DraftYear = draft_year,
-    Height = height,
-    LeagueID = league_id,
-    Location = location,
-    Month = month,
-    OpponentTeamID = opponent_team_id,
-    Outcome = outcome,
-    PORound = po_round,
-    PerMode = per_mode,
-    PlayerExperience = player_experience,
-    PlayerPosition = player_position,
-    Season = season,
-    SeasonSegment = season_segment,
-    SeasonType = season_type,
-    TeamID = team_id,
-    VsConference = vs_conference,
-    VsDivision = vs_division,
-    Weight = weight
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league hustle player stats data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsplayer()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsplayer` endpoint no longer returns data.")
 }
 
 #' **Get WNBA Stats API League Hustle Stats Player Leaders**
@@ -281,6 +230,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Hustle Functions
 #' @details
@@ -315,60 +265,8 @@ wnba_leaguehustlestatsplayerleaders <- function(
     vs_division = '',
     weight = '',
     ...){
-  
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  version <- "leaguehustlestatsplayerleaders"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    College = college,
-    Conference = conference,
-    Country = country,
-    DateFrom = date_from,
-    DateTo = date_to,
-    Division = division,
-    DraftPick = draft_pick,
-    DraftYear = draft_year,
-    Height = height,
-    LeagueID = league_id,
-    Location = location,
-    Month = month,
-    OpponentTeamID = opponent_team_id,
-    Outcome = outcome,
-    PORound = po_round,
-    PerMode = per_mode,
-    PlayerExperience = player_experience,
-    PlayerPosition = player_position,
-    Season = season,
-    SeasonSegment = season_segment,
-    SeasonType = season_type,
-    TeamID = team_id,
-    VsConference = vs_conference,
-    VsDivision = vs_division,
-    Weight = weight
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league hustle stats player leaders data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsplayerleaders()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsplayerleaders` endpoint no longer returns data.")
 }
 
 #' **Get WNBA Stats API League Hustle Stats Team**
@@ -436,6 +334,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Hustle Functions
 #' @details
@@ -470,61 +369,10 @@ wnba_leaguehustlestatsteam <- function(
     vs_division = '',
     weight = '',
     ...){
-  
-  # Intentional
-  # season_type <- gsub(' ','+',season_type)
-  version <- "leaguehustlestatsteam"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    College = college,
-    Conference = conference,
-    Country = country,
-    DateFrom = date_from,
-    DateTo = date_to,
-    Division = division,
-    DraftPick = draft_pick,
-    DraftYear = draft_year,
-    Height = height,
-    LeagueID = league_id,
-    Location = location,
-    Month = month,
-    OpponentTeamID = opponent_team_id,
-    Outcome = outcome,
-    PORound = po_round,
-    PerMode = per_mode,
-    PlayerExperience = player_experience,
-    PlayerPosition = player_position,
-    Season = season,
-    SeasonSegment = season_segment,
-    SeasonType = season_type,
-    TeamID = team_id,
-    VsConference = vs_conference,
-    VsDivision = vs_division,
-    Weight = weight
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league hustle team stats data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsteam()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsteam` endpoint no longer returns data.")
 }
+
 #' **Get WNBA Stats API League Hustle Stats Team Leaders**
 #' @name wnba_leaguehustlestatsteamleaders
 NULL
@@ -643,6 +491,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Hustle Functions
 #' @details
@@ -677,58 +526,6 @@ wnba_leaguehustlestatsteamleaders <- function(
     vs_division = '',
     weight = '',
     ...){
-  
-  # intentional
-  # season_type <- gsub(' ','+',season_type)
-  version <- "leaguehustlestatsteamleaders"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    College = college,
-    Conference = conference,
-    Country = country,
-    DateFrom = date_from,
-    DateTo = date_to,
-    Division = division,
-    DraftPick = draft_pick,
-    DraftYear = draft_year,
-    Height = height,
-    LeagueID = league_id,
-    Location = location,
-    Month = month,
-    OpponentTeamID = opponent_team_id,
-    Outcome = outcome,
-    PORound = po_round,
-    PerMode = per_mode,
-    PlayerExperience = player_experience,
-    PlayerPosition = player_position,
-    Season = season,
-    SeasonSegment = season_segment,
-    SeasonType = season_type,
-    TeamID = team_id,
-    VsConference = vs_conference,
-    VsDivision = vs_division,
-    Weight = weight
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league hustle team stats leaders data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsteamleaders()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsteamleaders` endpoint no longer returns data.")
 }

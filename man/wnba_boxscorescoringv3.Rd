@@ -180,7 +180,9 @@ Other WNBA Boxscore V3 Functions:
 \code{\link{wnba_boxscorehustlev2}()},
 \code{\link{wnba_boxscoremiscv3}()},
 \code{\link{wnba_boxscoreplayertrackv3}()},
-\code{\link{wnba_boxscoretraditionalv3}()}
+\code{\link{wnba_boxscoresummaryv3}()},
+\code{\link{wnba_boxscoretraditionalv3}()},
+\code{\link{wnba_boxscoreusagev3}()}
 }
 \author{
 Saiem Gilani

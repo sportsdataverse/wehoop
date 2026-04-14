@@ -33,6 +33,11 @@ wbb_pbp_db*
 ^\.github$
 ^man/figures
 ^README\.Rmd$
+^CLAUDE\.md$
+^\.claude$
+^\.vscode$
+^tools$
+^CONTRIBUTING\.md$
 ^md
 ^CRAN-RELEASE$
 ^\.pre-commit-config\.yaml$

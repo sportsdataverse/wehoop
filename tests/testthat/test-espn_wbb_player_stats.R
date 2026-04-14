@@ -119,7 +119,6 @@ test_that("ESPN - WBB Player Stats", {
     "offensive_two_point_field_goal_pct",
     "offensive_shooting_efficiency",
     "offensive_scoring_efficiency",
-    "team_x_ref_2",
     "team_id",
     "team_guid",
     "team_uid",

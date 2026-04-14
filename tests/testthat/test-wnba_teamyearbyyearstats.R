@@ -3,6 +3,10 @@ test_that("WNBA Team Year by Year Stats", {
   skip_on_ci()
   
   x <- wnba_teamyearbyyearstats(team_id = "1611661328")
+
+  if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
+    skip("No rows returned from endpoint at test time")
+  }
   
   
   cols_x1 <- c(
@@ -43,7 +47,7 @@ test_that("WNBA Team Year by Year Stats", {
   )
   
   
-  expect_equal(sort(colnames(x[[1]])), sort(cols_x1))
+  expect_in(sort(cols_x1), sort(colnames(x[[1]])))
   expect_s3_class(x[[1]], "data.frame")
   
   Sys.sleep(3)

@@ -221,6 +221,8 @@ wnba_teamdetails <- function(
     TeamID = team_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -319,6 +321,8 @@ wnba_teamestimatedmetrics <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -434,6 +438,8 @@ wnba_teamgamelog <- function(
     TeamID = team_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -610,6 +616,8 @@ wnba_teamgamelogs <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -694,6 +702,8 @@ wnba_teamhistoricalleaders <- function(
     TeamID = team_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1123,6 +1133,8 @@ wnba_teamplayeronoffdetails <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1347,6 +1359,8 @@ wnba_teamplayeronoffsummary <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1602,6 +1616,8 @@ wnba_teamplayerdashboard <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1708,6 +1724,8 @@ wnba_teamyearbyyearstats <- function(
     TeamID = team_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2131,6 +2149,8 @@ wnba_teamvsplayer <- function(
     VsPlayerID = vs_player_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2769,6 +2789,8 @@ wnba_teamgamestreakfinder <- function(
     WrsOPPTOV = wrs_opp_tov
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

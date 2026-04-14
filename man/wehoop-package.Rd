@@ -2,7 +2,6 @@
 % Please edit documentation in R/utils.R, R/wehoop-package.R
 \docType{package}
 \name{wehoop-package}
-\alias{wehoop}
 \alias{wehoop-package}
 \title{wehoop: Access Women's Basketball Play by Play Data}
 \description{
@@ -32,7 +31,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Saiem Gilani \email{saiem.gilani@gmail.com}
+\strong{Maintainer}: Saiem Gilani \email{saiem.gilani@gmail.com} (\href{https://orcid.org/0000-0002-7194-9067}{ORCID})
 
 Authors:
 \itemize{

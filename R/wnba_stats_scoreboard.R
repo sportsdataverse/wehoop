@@ -85,6 +85,8 @@ wnba_schedule <- function(
     Season = season
   )
   
+  games <- NULL
+
   tryCatch(
     expr = {
       
@@ -525,6 +527,8 @@ wnba_scoreboardv2 <- function(
     DayOffset = day_offset
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -664,6 +668,8 @@ wnba_scoreboardv3 <- function(
     GameDate = game_date
   )
   
+  games <- NULL
+
   tryCatch(
     expr = {
       
@@ -811,6 +817,8 @@ wnba_todays_scoreboard <- function(
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
+  games <- NULL
+
   tryCatch(
     expr = {
       full_url <- "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_10.json"

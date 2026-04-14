@@ -7,7 +7,7 @@
 wnba_pbps(
   game_ids = NULL,
   on_court = TRUE,
-  version = "v2",
+  version = "v3",
   nest_data = FALSE,
   ...
 )
@@ -17,7 +17,8 @@ wnba_pbps(
 
 \item{on_court}{IF TRUE will be added ID of players on court}
 
-\item{version}{Play-by-play version ("v2" available from 2016-17 onwards)}
+\item{version}{Play-by-play version - \code{"v3"} (default) or \code{"v2"}. V3 returns richer data
+with shot coordinates, shot values, and V3 action types. V2 is available from 2016-17 onwards.}
 
 \item{nest_data}{If TRUE returns nested data by game}
 
@@ -94,7 +95,8 @@ wnba_pbps(game_ids = y, version = "v2")
 Other WNBA PBP Functions: 
 \code{\link{wnba_data_pbp}()},
 \code{\link{wnba_live_pbp}()},
-\code{\link{wnba_pbp}()}
+\code{\link{wnba_pbp}()},
+\code{\link{wnba_playbyplayv3}()}
 }
 \author{
 Jason Lee

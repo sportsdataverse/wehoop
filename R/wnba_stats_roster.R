@@ -59,6 +59,8 @@ wnba_commonallplayers <- function(
     Season = season
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -176,6 +178,8 @@ wnba_commonplayerinfo <- function(
     PlayerID = player_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -245,6 +249,8 @@ wnba_commonplayoffseries <- function(
     SeriesID = series_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -342,6 +348,8 @@ wnba_commonteamroster <- function(
     TeamID = team_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

@@ -112,6 +112,8 @@ wnba_fantasywidget <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -306,6 +308,8 @@ wnba_leaguedashlineups <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -470,6 +474,8 @@ wnba_leaguelineupviz <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -653,6 +659,8 @@ wnba_leagueplayerondetails <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -767,6 +775,8 @@ wnba_leagueseasonmatchups <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

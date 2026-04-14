@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with wehoop"
 description: "Getting started with using <code>wehoop</code> and women's basketball data."
-author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 opengraph:
   image: 
     src: "https://github.com/sportsdataverse/wehoop-data/blob/main/themes/wehoop_gh.png?raw=true"
@@ -13,11 +13,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
-# pacman::p_load_current_gh("r-lib/pkgapi")
-# pacman::p_load_current_gh("hadley/emo")
-# library(pkgapi)
-# pkg <- pkgapi::map_package(path = "../")
-# exported <- pkg$defs %>% dplyr::filter(exported == TRUE)
 
 pkg_name <- "sportsdataverse/wehoop"
 url <- paste0("https://raw.githubusercontent.com/", pkg_name, "/main/DESCRIPTION")
@@ -48,12 +43,11 @@ I'm Saiem Gilani, one of the [authors](https://saiemgilani.github.io/wehoop/auth
 
 ## **Install** [**`wehoop`**](https://saiemgilani.github.io/wehoop/)
 ```{r install_wehoop_gs, message=FALSE,eval=FALSE}
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak')){
+  install.packages('pak')
 }
-
-pacman::p_load(wehoop, dplyr, glue, tictoc, progressr)
+pak::pkg_install(c("wehoop", "dplyr", "glue", "progressr", "tictoc"))
 ```
 
 ## **Quick Start**
@@ -136,9 +130,9 @@ nrow(wbb_player_box)
 # **Our Authors**
 
 -   [Saiem Gilani](https://twitter.com/saiemgilani)       
-<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&logo=x&style=for-the-badge" alt="@saiemgilani" /></a>
 <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
--   [Geoff Hutchinson](https://twitter.com/hutchngo)       
-<a href="https://twitter.com/hutchngo" target="blank"><img src="https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge" alt="@hutchngo" /></a>
+-   [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)       
+<a href="https://twitter.com/hutchngo" target="blank"><img src="https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge" alt="@hutchngo" /></a>
 <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>

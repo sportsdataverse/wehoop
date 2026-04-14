@@ -157,6 +157,8 @@ wnba_leaguedashplayerbiostats <- function(
     Weight = weight
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -402,6 +404,8 @@ wnba_leaguedashplayerclutch <- function(
     Weight = weight
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -636,6 +640,8 @@ wnba_leaguedashplayerstats <- function(
     Weight = weight
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -839,6 +845,8 @@ wnba_leaguedashplayershotlocations <- function(
     Weight = weight
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1064,6 +1072,8 @@ wnba_leaguedashteamclutch <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1262,6 +1272,8 @@ wnba_leaguedashteamstats <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1439,6 +1451,8 @@ wnba_leaguedashteamshotlocations <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

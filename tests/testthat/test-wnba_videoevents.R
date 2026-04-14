@@ -3,6 +3,10 @@ test_that("WNBA Video Events", {
   skip_on_ci()
   
   x <- wnba_videoevents(game_id = '1022200075', game_event_id = '10')
+
+  if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
+    skip("No rows returned from endpoint at test time")
+  }
   
   cols_x1 <- c(
     "uuid",
