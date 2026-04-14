@@ -107,8 +107,8 @@ Returns a named list of data frames: FantasyWidgetResult
 \seealso{
 Other WNBA Fantasy Functions: 
 \code{\link{wnba_infographicfanduelplayer}()},
-\code{\link{wnba_playerfantasyprofilebargraph}()},
-\code{\link{wnba_playerfantasyprofile}()}
+\code{\link{wnba_playerfantasyprofile}()},
+\code{\link{wnba_playerfantasyprofilebargraph}()}
 }
 \author{
 Saiem Gilani

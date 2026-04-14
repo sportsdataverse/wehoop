@@ -85,7 +85,9 @@ wnba_data_pbp <- function(game_id = "1022200034",
     TRUE ~ 'NBA'
   )
   full_url <- glue::glue("https://data.{league}.com/data/10s/v2015/json/mobile_teams/{league}/{season}/scores/pbp/{game_id}_full_pbp.json")
-  
+
+  plays_df <- data.frame()
+
   tryCatch(
     expr = {
       res <- httr::RETRY("GET", full_url, ...)

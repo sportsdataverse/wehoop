@@ -4,14 +4,15 @@
 \alias{wnba_pbp}
 \title{\strong{Get WNBA Stats API play-by-play}}
 \usage{
-wnba_pbp(game_id, on_court = TRUE, version = "v2", p, ...)
+wnba_pbp(game_id, on_court = TRUE, version = "v3", p = NULL, ...)
 }
 \arguments{
 \item{game_id}{Game ID}
 
 \item{on_court}{IF TRUE will be added ID of players on court}
 
-\item{version}{Play-by-play version ("v2" available from 2016-17 onwards)}
+\item{version}{Play-by-play version - \code{"v3"} (default) or \code{"v2"}. V3 returns richer data
+with shot coordinates, shot values, and V3 action types. V2 is available from 2016-17 onwards.}
 
 \item{p}{Progress bar}
 
@@ -76,6 +77,7 @@ Returns a data frame: PlayByPlay\tabular{ll}{
 Other WNBA PBP Functions: 
 \code{\link{wnba_data_pbp}()},
 \code{\link{wnba_live_pbp}()},
-\code{\link{wnba_pbps}()}
+\code{\link{wnba_pbps}()},
+\code{\link{wnba_playbyplayv3}()}
 }
 \concept{WNBA PBP Functions}

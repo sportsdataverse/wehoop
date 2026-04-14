@@ -135,6 +135,8 @@ wnba_shotchartdetail <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -206,6 +208,8 @@ wnba_shotchartleaguewide <- function(
     Season = season
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -470,6 +474,8 @@ wnba_shotchartlineupdetail <- function(
     VsTeamID = vs_team_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

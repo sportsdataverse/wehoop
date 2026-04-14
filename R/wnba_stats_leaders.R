@@ -254,6 +254,8 @@ wnba_alltimeleadersgrids <- function(
     TopX = top_x
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -338,6 +340,8 @@ wnba_assistleaders <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -406,6 +410,8 @@ wnba_assisttracker <- function(
     Season = season,
     SeasonType = season_type)
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1240,6 +1246,8 @@ wnba_homepagewidget <- function(
     
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1564,6 +1572,8 @@ wnba_leagueleaders <- function(
     StatCategory = stat_category
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

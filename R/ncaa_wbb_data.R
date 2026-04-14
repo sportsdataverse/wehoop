@@ -28,8 +28,9 @@
 #' }
 
 ncaa_wbb_NET_rankings <- function(){
-  
-  
+
+  x <- NULL
+
   NET_url <- "https://www.ncaa.com/rankings/basketball-women/d1/ncaa-womens-basketball-net-rankings"
   tryCatch(
     expr = {
@@ -37,9 +38,13 @@ ncaa_wbb_NET_rankings <- function(){
               xml2::read_html() %>%
               rvest::html_nodes("table"))[[1]] %>%
         rvest::html_table(fill = TRUE) %>%
-        dplyr::as_tibble() %>% 
+        dplyr::as_tibble() %>%
         janitor::clean_names() %>%
-        make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com",Sys.time())
+        dplyr::rename(dplyr::any_of(c(
+          "conference" = "conf",
+          "previous" = "prev"
+        ))) %>%
+        make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com", Sys.time())
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no NET rankings available!")

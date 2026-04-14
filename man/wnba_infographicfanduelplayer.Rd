@@ -69,8 +69,8 @@ Other WNBA Player Functions:
 \code{\link{wnba_leagueplayerondetails}()},
 \code{\link{wnba_leagueseasonmatchups}()},
 \code{\link{wnba_playerawards}()},
-\code{\link{wnba_playercareerbycollegerollup}()},
 \code{\link{wnba_playercareerbycollege}()},
+\code{\link{wnba_playercareerbycollegerollup}()},
 \code{\link{wnba_playercareerstats}()},
 \code{\link{wnba_playercompare}()},
 \code{\link{wnba_playerdashboardbyclutch}()},
@@ -82,10 +82,10 @@ Other WNBA Player Functions:
 \code{\link{wnba_playerdashboardbyteamperformance}()},
 \code{\link{wnba_playerdashboardbyyearoveryear}()},
 \code{\link{wnba_playerestimatedmetrics}()},
-\code{\link{wnba_playerfantasyprofilebargraph}()},
 \code{\link{wnba_playerfantasyprofile}()},
-\code{\link{wnba_playergamelogs}()},
+\code{\link{wnba_playerfantasyprofilebargraph}()},
 \code{\link{wnba_playergamelog}()},
+\code{\link{wnba_playergamelogs}()},
 \code{\link{wnba_playergamestreakfinder}()},
 \code{\link{wnba_playerheadshot}()},
 \code{\link{wnba_playerindex}()},
@@ -95,8 +95,8 @@ Other WNBA Player Functions:
 
 Other WNBA Fantasy Functions: 
 \code{\link{wnba_fantasywidget}()},
-\code{\link{wnba_playerfantasyprofilebargraph}()},
-\code{\link{wnba_playerfantasyprofile}()}
+\code{\link{wnba_playerfantasyprofile}()},
+\code{\link{wnba_playerfantasyprofilebargraph}()}
 }
 \author{
 Saiem Gilani

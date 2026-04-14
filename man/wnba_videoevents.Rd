@@ -27,8 +27,8 @@ Return a list of tibbles: videoUrls, playlist
 }
 \seealso{
 Other WNBA Video Functions: 
-\code{\link{wnba_videodetailsasset}()},
 \code{\link{wnba_videodetails}()},
+\code{\link{wnba_videodetailsasset}()},
 \code{\link{wnba_videostatus}()}
 }
 \author{

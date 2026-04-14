@@ -92,6 +92,8 @@ wnba_leaguegamelog <- function(
     Sorter = sorter
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -253,6 +255,8 @@ wnba_leaguestandingsv3 <- function(
     SeasonYear = season_year
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -604,6 +608,8 @@ wnba_leaguegamefinder <- function(
     YearsExperience = years_experience
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

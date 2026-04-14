@@ -98,6 +98,8 @@ wnba_playerindex <- function(
     Weight = weight
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -146,6 +148,8 @@ wnba_playerheadshot <- function(
   
   full_url <- paste0(endpoint, player_id,".png")
   
+  resp <- NULL
+
   tryCatch(
     expr = {
       resp <- full_url
@@ -217,6 +221,8 @@ wnba_playerawards <- function(
     PlayerID = player_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -314,6 +320,8 @@ wnba_playercareerbycollege <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -499,6 +507,8 @@ wnba_playercareerbycollegerollup <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -826,6 +836,8 @@ wnba_playercareerstats <- function(
     PlayerID = player_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -919,6 +931,8 @@ wnba_infographicfanduelplayer <- function(
     GameID = game_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1190,6 +1204,8 @@ wnba_playerfantasyprofile <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1299,6 +1315,8 @@ wnba_playerfantasyprofilebargraph <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1399,6 +1417,8 @@ wnba_playerestimatedmetrics <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1513,6 +1533,8 @@ wnba_playergamelog <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1700,6 +1722,8 @@ wnba_playergamelogs <- function(
   )
   
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2037,6 +2061,8 @@ wnba_playergamestreakfinder <- function(
     YearsExperience = years_experience
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2124,6 +2150,8 @@ wnba_playernextngames <- function(
     SeasonType = season_type
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2562,6 +2590,8 @@ wnba_playerprofilev2 <- function(
     PlayerID = player_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2881,6 +2911,8 @@ wnba_playervsplayer <- function(
     VsPlayerID = vs_player_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -3066,6 +3098,8 @@ wnba_playercompare <- function(
     VsPlayerIDList = URLencode(vs_player_id_list)
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

@@ -854,6 +854,8 @@ wnba_playerdashboardbyclutch <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1318,6 +1320,8 @@ wnba_playerdashboardbygamesplits <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1919,6 +1923,8 @@ wnba_playerdashboardbygeneralsplits <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2452,6 +2458,8 @@ wnba_playerdashboardbylastngames <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -2848,6 +2856,8 @@ wnba_playerdashboardbyopponent <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -3248,6 +3258,8 @@ wnba_playerdashboardbyshootingsplits <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -3650,6 +3662,8 @@ wnba_playerdashboardbyteamperformance <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -3914,6 +3928,8 @@ wnba_playerdashboardbyyearoveryear <- function(
     VsDivision = vs_division
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

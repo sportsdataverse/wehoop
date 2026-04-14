@@ -217,6 +217,8 @@ espn_wnba_game_all <- function(game_id){
     httr::content(as = "text", encoding = "UTF-8")
   
   #---- Play-by-Play ------
+  pbp <- NULL
+
   tryCatch(
     expr = {
       
@@ -391,6 +393,8 @@ espn_wnba_pbp <- function(game_id){
     httr::content(as = "text", encoding = "UTF-8")
   
   #---- Play-by-Play ------
+  plays_df <- NULL
+
   tryCatch(
     expr = {
       
@@ -513,6 +517,8 @@ espn_wnba_team_box <- function(game_id){
     httr::content(as = "text", encoding = "UTF-8")
   
   #---- Team Box ------
+  team_box_score <- NULL
+
   tryCatch(
     expr = {
       
@@ -636,6 +642,8 @@ espn_wnba_player_box <- function(game_id){
     httr::content(as = "text", encoding = "UTF-8")
   
   #---- Player Box ------
+  player_box_score <- NULL
+
   tryCatch(
     expr = {
       
@@ -755,6 +763,8 @@ espn_wnba_player_box <- function(game_id){
 espn_wnba_game_rosters <- function(game_id) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
+  athlete_roster_df <- NULL
+
   tryCatch(
     expr = {
       play_base_url <- paste0(
@@ -1356,6 +1366,8 @@ espn_wnba_standings <- function(year){
   
   # Check the result
   check_status(res)
+  standings <- NULL
+
   tryCatch(
     expr = {
       resp <- res %>%
