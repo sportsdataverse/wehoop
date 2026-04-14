@@ -312,6 +312,7 @@ wnba_playbyplayv3 <- function(
 
 #' **Build player roster lookup from WNBA boxscore data**
 #' @name .build_player_roster_wnba
+#' @keywords internal
 NULL
 #' @title
 #' **Build player roster lookup from WNBA boxscore data**
@@ -380,6 +381,7 @@ NULL
 
 #' **Convert V3 play-by-play to V2-compatible format (WNBA)**
 #' @name .v3_to_v2_format_wnba
+#' @keywords internal
 NULL
 #' @title
 #' **Convert V3 play-by-play to V2-compatible format (WNBA)**
@@ -921,6 +923,7 @@ NULL
 
 #' **Add players on court in WNBA Stats API V3 play-by-play**
 #' @name .players_on_court_v3_wnba
+#' @keywords internal
 NULL
 #' @title
 #' **Add players on court in WNBA Stats API V3 play-by-play**
