@@ -332,6 +332,8 @@ wnba_boxscoretraditionalv3 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -700,6 +702,8 @@ wnba_boxscoreadvancedv3 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -979,6 +983,8 @@ wnba_boxscoremiscv3 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1270,6 +1276,8 @@ wnba_boxscorescoringv3 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1534,6 +1542,8 @@ wnba_boxscorefourfactorsv3 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1843,6 +1853,8 @@ wnba_boxscoreplayertrackv3 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1938,6 +1950,507 @@ wnba_boxscoreplayertrackv3 <- function(
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player tracking boxscore v3 data for {game_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
+    },
+    warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+
+#' **Get WNBA Stats API Boxscore Usage V3**
+#' @name wnba_boxscoreusagev3
+NULL
+#' @title
+#' **Get WNBA Stats API Boxscore Usage V3**
+#' @rdname wnba_boxscoreusagev3
+#' @author Saiem Gilani
+#' @param game_id Game ID - 10-digit zero-padded ID (e.g., '1022200034')
+#' @param start_period start_period
+#' @param end_period end_period
+#' @param start_range start_range
+#' @param end_range end_range
+#' @param range_type range_type
+#' @param ... Additional arguments passed to an underlying function like httr.
+#' @return Returns a named list of data frames: home_team_player_usage, away_team_player_usage,
+#' home_team_totals_usage, away_team_totals_usage
+#'
+#'    **home_team_player_usage**
+#'
+#'
+#'    |col_name                            |types     |
+#'    |:-----------------------------------|:---------|
+#'    |game_id                             |character |
+#'    |away_team_id                        |integer   |
+#'    |home_team_id                        |integer   |
+#'    |team_id                             |integer   |
+#'    |team_name                           |character |
+#'    |team_city                           |character |
+#'    |team_tricode                        |character |
+#'    |team_slug                           |character |
+#'    |person_id                           |integer   |
+#'    |first_name                          |character |
+#'    |family_name                         |character |
+#'    |name_i                              |character |
+#'    |player_slug                         |character |
+#'    |position                            |character |
+#'    |comment                             |character |
+#'    |jersey_num                          |character |
+#'    |minutes                             |character |
+#'    |usage_percentage                    |numeric   |
+#'    |percentage_field_goals_made         |numeric   |
+#'    |percentage_field_goals_attempted    |numeric   |
+#'    |percentage_three_pointers_made      |numeric   |
+#'    |percentage_three_pointers_attempted |numeric   |
+#'    |percentage_free_throws_made         |numeric   |
+#'    |percentage_free_throws_attempted    |numeric   |
+#'    |percentage_rebounds_offensive       |numeric   |
+#'    |percentage_rebounds_defensive       |numeric   |
+#'    |percentage_rebounds_total           |numeric   |
+#'    |percentage_assists                  |numeric   |
+#'    |percentage_turnovers                |numeric   |
+#'    |percentage_steals                   |numeric   |
+#'    |percentage_blocks                   |numeric   |
+#'    |percentage_blocks_allowed           |numeric   |
+#'    |percentage_personal_fouls           |numeric   |
+#'    |percentage_personal_fouls_drawn     |numeric   |
+#'    |percentage_points                   |numeric   |
+#'
+#'    **away_team_player_usage**
+#'
+#'
+#'    |col_name                            |types     |
+#'    |:-----------------------------------|:---------|
+#'    |game_id                             |character |
+#'    |away_team_id                        |integer   |
+#'    |home_team_id                        |integer   |
+#'    |team_id                             |integer   |
+#'    |team_name                           |character |
+#'    |team_city                           |character |
+#'    |team_tricode                        |character |
+#'    |team_slug                           |character |
+#'    |person_id                           |integer   |
+#'    |first_name                          |character |
+#'    |family_name                         |character |
+#'    |name_i                              |character |
+#'    |player_slug                         |character |
+#'    |position                            |character |
+#'    |comment                             |character |
+#'    |jersey_num                          |character |
+#'    |minutes                             |character |
+#'    |usage_percentage                    |numeric   |
+#'    |percentage_field_goals_made         |numeric   |
+#'    |percentage_field_goals_attempted    |numeric   |
+#'    |percentage_three_pointers_made      |numeric   |
+#'    |percentage_three_pointers_attempted |numeric   |
+#'    |percentage_free_throws_made         |numeric   |
+#'    |percentage_free_throws_attempted    |numeric   |
+#'    |percentage_rebounds_offensive       |numeric   |
+#'    |percentage_rebounds_defensive       |numeric   |
+#'    |percentage_rebounds_total           |numeric   |
+#'    |percentage_assists                  |numeric   |
+#'    |percentage_turnovers                |numeric   |
+#'    |percentage_steals                   |numeric   |
+#'    |percentage_blocks                   |numeric   |
+#'    |percentage_blocks_allowed           |numeric   |
+#'    |percentage_personal_fouls           |numeric   |
+#'    |percentage_personal_fouls_drawn     |numeric   |
+#'    |percentage_points                   |numeric   |
+#'
+#'    **home_team_totals_usage**
+#'
+#'
+#'    |col_name                            |types     |
+#'    |:-----------------------------------|:---------|
+#'    |game_id                             |character |
+#'    |away_team_id                        |integer   |
+#'    |home_team_id                        |integer   |
+#'    |team_id                             |integer   |
+#'    |team_name                           |character |
+#'    |team_city                           |character |
+#'    |team_tricode                        |character |
+#'    |team_slug                           |character |
+#'    |minutes                             |character |
+#'    |usage_percentage                    |numeric   |
+#'    |percentage_field_goals_made         |numeric   |
+#'    |percentage_field_goals_attempted    |numeric   |
+#'    |percentage_three_pointers_made      |numeric   |
+#'    |percentage_three_pointers_attempted |numeric   |
+#'    |percentage_free_throws_made         |numeric   |
+#'    |percentage_free_throws_attempted    |numeric   |
+#'    |percentage_rebounds_offensive       |numeric   |
+#'    |percentage_rebounds_defensive       |numeric   |
+#'    |percentage_rebounds_total           |numeric   |
+#'    |percentage_assists                  |numeric   |
+#'    |percentage_turnovers                |numeric   |
+#'    |percentage_steals                   |numeric   |
+#'    |percentage_blocks                   |numeric   |
+#'    |percentage_blocks_allowed           |numeric   |
+#'    |percentage_personal_fouls           |numeric   |
+#'    |percentage_personal_fouls_drawn     |numeric   |
+#'    |percentage_points                   |numeric   |
+#'
+#'    **away_team_totals_usage**
+#'
+#'
+#'    |col_name                            |types     |
+#'    |:-----------------------------------|:---------|
+#'    |game_id                             |character |
+#'    |away_team_id                        |integer   |
+#'    |home_team_id                        |integer   |
+#'    |team_id                             |integer   |
+#'    |team_name                           |character |
+#'    |team_city                           |character |
+#'    |team_tricode                        |character |
+#'    |team_slug                           |character |
+#'    |minutes                             |character |
+#'    |usage_percentage                    |numeric   |
+#'    |percentage_field_goals_made         |numeric   |
+#'    |percentage_field_goals_attempted    |numeric   |
+#'    |percentage_three_pointers_made      |numeric   |
+#'    |percentage_three_pointers_attempted |numeric   |
+#'    |percentage_free_throws_made         |numeric   |
+#'    |percentage_free_throws_attempted    |numeric   |
+#'    |percentage_rebounds_offensive       |numeric   |
+#'    |percentage_rebounds_defensive       |numeric   |
+#'    |percentage_rebounds_total           |numeric   |
+#'    |percentage_assists                  |numeric   |
+#'    |percentage_turnovers                |numeric   |
+#'    |percentage_steals                   |numeric   |
+#'    |percentage_blocks                   |numeric   |
+#'    |percentage_blocks_allowed           |numeric   |
+#'    |percentage_personal_fouls           |numeric   |
+#'    |percentage_personal_fouls_drawn     |numeric   |
+#'    |percentage_points                   |numeric   |
+#'
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
+#' @import rvest
+#' @export
+#' @family WNBA Boxscore V3 Functions
+#' @details
+#' ```r
+#'  wnba_boxscoreusagev3(game_id = "1022200034")
+#' ```
+wnba_boxscoreusagev3 <- function(
+    game_id = "1022200034",
+    start_period = 0,
+    end_period = 14,
+    start_range = 0,
+    end_range = 0,
+    range_type = 0,
+    ...) {
+
+  version <- "boxscoreusagev3"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    EndPeriod = end_period,
+    EndRange = end_range,
+    GameID = pad_id(game_id),
+    RangeType = range_type,
+    StartPeriod = start_period,
+    StartRange = start_range
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      data <- resp %>%
+        purrr::pluck("boxScoreUsage") %>%
+        dplyr::as_tibble()
+
+      ids_df <- data %>%
+        data.frame() %>%
+        dplyr::select("gameId", "awayTeamId", "homeTeamId") %>%
+        dplyr::distinct()
+
+      home_team_data <- data %>%
+        purrr::pluck("homeTeam")
+
+      home_team_info <- data.frame(
+        team_id = home_team_data %>% purrr::pluck("teamId"),
+        team_name = home_team_data %>% purrr::pluck("teamName"),
+        team_city = home_team_data %>% purrr::pluck("teamCity"),
+        team_tricode = home_team_data %>% purrr::pluck("teamTricode"),
+        team_slug = home_team_data %>% purrr::pluck("teamSlug")
+      )
+
+      home_team_totals <- home_team_data %>%
+        purrr::pluck("statistics") %>%
+        data.frame(stringsAsFactors = F)
+
+      home_team_players <- home_team_data %>%
+        purrr::pluck("players") %>%
+        data.frame(stringsAsFactors = F) %>%
+        tidyr::unnest("statistics")
+
+      home_team_totals <- ids_df %>%
+        dplyr::bind_cols(home_team_info) %>%
+        dplyr::bind_cols(home_team_totals) %>%
+        janitor::clean_names() %>%
+        make_wehoop_data("WNBA Home Team Usage Boxscore Information from WNBA.com", Sys.time())
+
+      home_team_players <- ids_df %>%
+        dplyr::bind_cols(home_team_info) %>%
+        dplyr::bind_cols(home_team_players) %>%
+        janitor::clean_names() %>%
+        make_wehoop_data("WNBA Home Player Usage Boxscore Information from WNBA.com", Sys.time())
+
+
+      away_team_data <- data %>%
+        purrr::pluck("awayTeam")
+
+      away_team_info <- data.frame(
+        team_id = away_team_data %>% purrr::pluck("teamId"),
+        team_name = away_team_data %>% purrr::pluck("teamName"),
+        team_city = away_team_data %>% purrr::pluck("teamCity"),
+        team_tricode = away_team_data %>% purrr::pluck("teamTricode"),
+        team_slug = away_team_data %>% purrr::pluck("teamSlug")
+      )
+
+      away_team_totals <- away_team_data %>%
+        purrr::pluck("statistics") %>%
+        data.frame(stringsAsFactors = F)
+
+      away_team_players <- away_team_data %>%
+        purrr::pluck("players") %>%
+        data.frame(stringsAsFactors = F) %>%
+        tidyr::unnest("statistics")
+
+      away_team_totals <- ids_df %>%
+        dplyr::bind_cols(away_team_info) %>%
+        dplyr::bind_cols(away_team_totals) %>%
+        janitor::clean_names() %>%
+        make_wehoop_data("WNBA Away Team Usage Boxscore Information from WNBA.com", Sys.time())
+
+      away_team_players <- ids_df %>%
+        dplyr::bind_cols(away_team_info) %>%
+        dplyr::bind_cols(away_team_players) %>%
+        janitor::clean_names() %>%
+        make_wehoop_data("WNBA Away Player Usage Boxscore Information from WNBA.com", Sys.time())
+
+      df_list <- c(
+        list(home_team_players),
+        list(away_team_players),
+        list(home_team_totals),
+        list(away_team_totals)
+      )
+      names(df_list) <- c(
+        "home_team_player_usage",
+        "away_team_player_usage",
+        "home_team_totals_usage",
+        "away_team_totals_usage"
+      )
+    },
+    error = function(e) {
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no usage boxscore v3 data for {game_id} available!")
+      cli::cli_alert_danger("Error:\n{e}")
+    },
+    warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
+    },
+    finally = {
+    }
+  )
+  return(df_list)
+}
+
+
+#' **Get WNBA Stats API Boxscore Summary V3**
+#' @name wnba_boxscoresummaryv3
+NULL
+#' @title
+#' **Get WNBA Stats API Boxscore Summary V3**
+#' @rdname wnba_boxscoresummaryv3
+#' @author Saiem Gilani
+#' @param game_id Game ID - 10-digit zero-padded ID (e.g., '1022200034')
+#' @param ... Additional arguments passed to an underlying function like httr.
+#' @return Returns a named list of data frames: game_summary, game_info, arena_info,
+#' officials, line_score, inactive_players, last_five_meetings, other_stats, available_video
+#'
+#'    **game_summary**
+#'
+#'
+#'    |col_name                |types     |
+#'    |:-----------------------|:---------|
+#'    |game_date               |character |
+#'    |game_sequence           |integer   |
+#'    |game_id                 |character |
+#'    |game_status_id          |integer   |
+#'    |game_status_text        |character |
+#'    |gamecode                |character |
+#'    |home_team_id            |integer   |
+#'    |visitor_team_id         |integer   |
+#'    |season                  |character |
+#'    |live_period             |integer   |
+#'    |live_pc_time            |character |
+#'    |natl_tv_broadcaster_abbreviation |character |
+#'    |home_tv_broadcaster_abbreviation |character |
+#'    |away_tv_broadcaster_abbreviation |character |
+#'    |live_period_time_bcast  |character |
+#'    |arena_name              |character |
+#'    |wh_status               |integer   |
+#'
+#'    **line_score**
+#'
+#'
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |game_date_est     |character |
+#'    |game_sequence     |integer   |
+#'    |game_id           |character |
+#'    |team_id           |integer   |
+#'    |team_abbreviation |character |
+#'    |team_city_name    |character |
+#'    |team_name         |character |
+#'    |team_wins_losses  |character |
+#'    |pts_qtr1          |integer   |
+#'    |pts_qtr2          |integer   |
+#'    |pts_qtr3          |integer   |
+#'    |pts_qtr4          |integer   |
+#'    |pts_ot1           |integer   |
+#'    |pts               |integer   |
+#'
+#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
+#' @import rvest
+#' @export
+#' @family WNBA Boxscore V3 Functions
+#' @details
+#' ```r
+#'  wnba_boxscoresummaryv3(game_id = "1022200034")
+#' ```
+wnba_boxscoresummaryv3 <- function(
+    game_id = "1022200034",
+    ...) {
+
+  version <- "boxscoresummaryv3"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    GameID = pad_id(game_id)
+  )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      summary_data <- resp %>%
+        purrr::pluck("boxScoreSummary")
+
+      game_summary <- summary_data %>%
+        purrr::pluck("gameSummary") %>%
+        data.frame(stringsAsFactors = F) %>%
+        dplyr::as_tibble() %>%
+        janitor::clean_names() %>%
+        make_wehoop_data("WNBA Game Summary from WNBA.com", Sys.time())
+
+      game_info <- tryCatch(
+        summary_data %>%
+          purrr::pluck("gameInfo") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Game Info from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      arena_info <- tryCatch(
+        summary_data %>%
+          purrr::pluck("arenaInfo") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Arena Info from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      officials <- tryCatch(
+        summary_data %>%
+          purrr::pluck("officials") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Officials from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      line_score <- tryCatch(
+        summary_data %>%
+          purrr::pluck("lineScore") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Line Score from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      inactive_players <- tryCatch(
+        summary_data %>%
+          purrr::pluck("inactivePlayers") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Inactive Players from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      last_five_meetings <- tryCatch(
+        summary_data %>%
+          purrr::pluck("lastFiveMeetings") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Last Five Meetings from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      other_stats <- tryCatch(
+        summary_data %>%
+          purrr::pluck("otherStats") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Other Stats from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      available_video <- tryCatch(
+        summary_data %>%
+          purrr::pluck("availableVideo") %>%
+          data.frame(stringsAsFactors = F) %>%
+          dplyr::as_tibble() %>%
+          janitor::clean_names() %>%
+          make_wehoop_data("WNBA Available Video from WNBA.com", Sys.time()),
+        error = function(e) data.frame()
+      )
+
+      df_list <- list(
+        game_summary = game_summary,
+        game_info = game_info,
+        arena_info = arena_info,
+        officials = officials,
+        line_score = line_score,
+        inactive_players = inactive_players,
+        last_five_meetings = last_five_meetings,
+        other_stats = other_stats,
+        available_video = available_video
+      )
+    },
+    error = function(e) {
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no boxscore summary v3 data for {game_id} available!")
       cli::cli_alert_danger("Error:\n{e}")
     },
     warning = function(w) {
@@ -2105,6 +2618,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Boxscore V3 Functions
 #' @details
@@ -2114,121 +2628,8 @@ NULL
 wnba_boxscorehustlev2 <- function(
     game_id = "1022200034",
     ...){
-  
-  version <- "boxscorehustlev2"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    GameID = pad_id(game_id)
-  )
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      box_score_hustle <- resp %>%
-        purrr::pluck("boxScoreHustle")
-      
-      ids_df <- data.frame(
-        gameId = box_score_hustle %>% purrr::pluck("gameId"),
-        awayTeamId = box_score_hustle %>% purrr::pluck("awayTeamId"),
-        homeTeamId = box_score_hustle %>% purrr::pluck("homeTeamId")
-      )
-      
-      ids_df <- ids_df %>% 
-        dplyr::distinct()
-      
-      home_team_hustle <- box_score_hustle %>%
-        purrr::pluck("homeTeam")
-      
-      home_team_info <- data.frame(
-        team_id = home_team_hustle %>% purrr::pluck("teamId"),
-        team_name = home_team_hustle %>% purrr::pluck("teamName"),
-        team_city = home_team_hustle %>% purrr::pluck("teamCity"),
-        team_tricode = home_team_hustle %>% purrr::pluck("teamTricode"),
-        team_slug = home_team_hustle %>% purrr::pluck("teamSlug")
-      )
-      
-      home_team_totals <- home_team_hustle %>%
-        purrr::pluck("statistics") %>%
-        data.frame(stringsAsFactors = F)
-      
-      home_team_players <- home_team_hustle %>%
-        purrr::pluck("players") %>%
-        data.frame(stringsAsFactors = F) %>%
-        tidyr::unnest("statistics")
-      
-      home_team_totals <- ids_df %>%
-        dplyr::bind_cols(home_team_info) %>%
-        dplyr::bind_cols(home_team_totals) %>%
-        janitor::clean_names() %>%
-        make_wehoop_data("WNBA Home Team Hustle Boxscore Information from WNBA.com", Sys.time())
-      
-      home_team_players <- ids_df %>%
-        dplyr::bind_cols(home_team_info) %>%
-        dplyr::bind_cols(home_team_players) %>%
-        janitor::clean_names() %>%
-        make_wehoop_data("WNBA Home Player Hustle Boxscore Information from WNBA.com", Sys.time())
-      
-      away_team_hustle <- box_score_hustle %>%
-        purrr::pluck("awayTeam")
-      
-      away_team_info <- data.frame(
-        team_id = away_team_hustle %>% purrr::pluck("teamId"),
-        team_name = away_team_hustle %>% purrr::pluck("teamName"),
-        team_city = away_team_hustle %>% purrr::pluck("teamCity"),
-        team_tricode = away_team_hustle %>% purrr::pluck("teamTricode"),
-        team_slug = away_team_hustle %>% purrr::pluck("teamSlug")
-      )
-      
-      away_team_totals <- away_team_hustle %>%
-        purrr::pluck("statistics") %>%
-        data.frame(stringsAsFactors = F)
-      
-      away_team_players <- away_team_hustle %>%
-        purrr::pluck("players") %>%
-        data.frame(stringsAsFactors = F) %>%
-        tidyr::unnest("statistics")
-      
-      away_team_totals <- ids_df %>%
-        dplyr::bind_cols(away_team_info) %>%
-        dplyr::bind_cols(away_team_totals) %>%
-        janitor::clean_names() %>%
-        make_wehoop_data("WNBA Away Team Hustle Boxscore Information from WNBA.com", Sys.time())
-      
-      away_team_players <- ids_df %>%
-        dplyr::bind_cols(away_team_info) %>%
-        dplyr::bind_cols(away_team_players) %>%
-        janitor::clean_names() %>%
-        make_wehoop_data("WNBA Away Player Hustle Boxscore Information from WNBA.com", Sys.time())
-      
-      df_list <- c(
-        list(home_team_players),
-        list(away_team_players),
-        list(home_team_totals),
-        list(away_team_totals)
-      )
-      names(df_list) <- c(
-        "home_team_player_hustle",
-        "away_team_player_hustle",
-        "home_team_totals_hustle",
-        "away_team_totals_hustle"
-      )
-      
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no hustle stats boxscore v2 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_boxscorehustlev2()` is deprecated due to changes from the WNBA Stats API. The `boxscorehustlev2` endpoint no longer returns data.")
 }
 
 
@@ -2310,6 +2711,8 @@ wnba_gamerotation <- function(
     RotationStat = rotation_stat
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
