@@ -142,6 +142,8 @@ wnba_boxscoretraditionalv2 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -283,6 +285,8 @@ wnba_boxscoreadvancedv2 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -396,6 +400,8 @@ wnba_boxscorefourfactorsv2 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -516,6 +522,8 @@ wnba_boxscoremiscv2 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -642,6 +650,8 @@ wnba_boxscorescoringv2 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -774,6 +784,8 @@ wnba_boxscoreusagev2 <- function(
     StartRange = start_range
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -976,6 +988,8 @@ wnba_boxscoresummaryv2 <- function(
     GameID = pad_id(game_id)
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1097,6 +1111,8 @@ wnba_boxscoreplayertrackv2 <- function(
     GameID = pad_id(game_id)
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -1201,44 +1217,19 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Boxscore Functions
 #' @family WNBA Hustle Functions
-#' @details 
+#' @details
 #' ```r
 #'   wnba_hustlestatsboxscore(game_id = "1022200034")
 #' ```
 wnba_hustlestatsboxscore <- function(
     game_id,
     ...){
-  
-  version <- "hustlestatsboxscore"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    GameID = pad_id(game_id)
-  )
-  
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      df_list <- wnba_stats_map_result_sets(resp)
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no hustle stats boxscore data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_hustlestatsboxscore()` is deprecated due to changes from the WNBA Stats API. The `hustlestatsboxscore` endpoint no longer returns data.")
 }
 
 

@@ -6,109 +6,146 @@ NULL
 #' **Get WNBA Stats API Draft Board**
 #' @rdname wnba_draftboard
 #' @author Saiem Gilani
-#' @param season season
+#' @param season Draft year as numeric or character (e.g. `2026`).
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return Returns a named list of data frames: teams,draft_info, picks
-#' 
-#'    **teams** 
-#'    
-#'    
+#' @return Returns a named list of tibbles: `board`, `picks`.
+#'
+#'    **board**
+#'
 #'    |col_name      |types     |
 #'    |:-------------|:---------|
-#'    |id            |integer   |
-#'    |external-id   |character |
-#'    |slug          |character |
-#'    |name          |character |
-#'    |city          |character |
-#'    |state         |character |
-#'    |url           |character |
-#'    |primarycolor  |character |
-#'    |seconarycolor |character |
-#'    
-#'    **draft_info** 
-#'    
-#'    
-#'    |col_name              |types     |
-#'    |:---------------------|:---------|
-#'    |draft_status          |character |
-#'    |draft_modified        |integer   |
-#'    |draft_title           |character |
-#'    |draft_show_players    |character |
-#'    |draft_id              |integer   |
-#'    |draft_url             |character |
-#'    |draft_location        |character |
-#'    |sponsor_logo          |character |
-#'    |header_image          |character |
-#'    |sponsor_link          |character |
-#'    |draft_date            |character |
-#'    |draft_time_hh         |character |
-#'    |draft_time_mm         |character |
-#'    |draft_time_am         |character |
-#'    |draft_time_tz         |character |
-#'    |draft_round_1_channel |character |
-#'    |draft_round_2_channel |character |
-#'    |draft_round_3_channel |character |
-#'    |draft_interval        |character |
-#'    
-#'    **picks** 
-#'    
-#'    
-#'    |col_name        |types     |
-#'    |:---------------|:---------|
-#'    |team            |character |
-#'    |details         |character |
-#'    |player_name     |character |
-#'    |player_id       |integer   |
-#'    |player_college  |character |
-#'    |player_position |character |
-#'    |player_ppg      |character |
-#'    |player_rpg      |character |
-#'    |player_apg      |character |
-#'    |player_fg       |character |
-#'    |player_headshot |character |
-#'    |player_url      |character |
-#'    |round           |integer   |
-#' 
-#' @importFrom jsonlite fromJSON toJSON
-#' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
-#' @import rvest
+#'    |draft_id      |integer   |
+#'    |title         |character |
+#'    |season        |integer   |
+#'    |status        |character |
+#'    |on_the_clock  |character |
+#'    |draft_date    |character |
+#'    |modified      |character |
+#'
+#'    **picks**
+#'
+#'    |col_name         |types     |
+#'    |:----------------|:---------|
+#'    |round            |integer   |
+#'    |pick             |integer   |
+#'    |team_id          |integer   |
+#'    |team_external_id |integer   |
+#'    |team_name        |character |
+#'    |prospect_id      |integer   |
+#'    |first_name       |character |
+#'    |last_name        |character |
+#'    |position         |character |
+#'    |country          |character |
+#'    |college          |character |
+#'    |ppg              |character |
+#'    |rpg              |character |
+#'    |apg              |character |
+#'    |spg              |character |
+#'    |bpg              |character |
+#'    |fg_pct           |character |
+#'    |description      |character |
+#'    |headshot_url     |character |
+#'
+#' @importFrom jsonlite fromJSON
+#' @importFrom dplyr as_tibble
+#' @importFrom glue glue
+#' @importFrom purrr map_dfr
+#' @importFrom rlang %||%
 #' @export
 #' @family WNBA Draft Functions
 #' @details
 #' ```r
-#'   wnba_draftboard(season = most_recent_wnba_season() - 1)
+#'   wnba_draftboard(season = most_recent_wnba_season())
 #' ```
 wnba_draftboard <- function(
-    season = most_recent_wnba_season() - 1,
+    season = most_recent_wnba_season(),
     ...){
-  
-  
-  version <- "draftboard"
-  endpoint <- "https://www.wnba.com/wp-json/api/v1/get_draft_board"
-  full_url <- endpoint
-  
-  params <- list(
-    season = season
+
+  endpoint <- glue::glue(
+    "https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board"
   )
+
+  headers <- c(
+    "accept" = "*/*",
+    "accept-language" = "en-US,en;q=0.9",
+    "origin" = "https://www.wnba.com",
+    "referer" = "https://www.wnba.com/",
+    "user-agent" = paste(
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "AppleWebKit/537.36 (KHTML, like Gecko)",
+      "Chrome/146.0.0.0 Safari/537.36"
+    )
+  )
+
+  df_list <- list()
+
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", full_url, query = params, ...)
-      resp <-  res %>%
+      res <- httr::RETRY(
+        "GET", endpoint,
+        httr::add_headers(.headers = headers),
+        ...
+      )
+
+      resp <- res %>%
         httr::content(as = "text", encoding = "UTF-8") %>%
-        jsonlite::fromJSON()
-      
-      teams <- data.table::rbindlist(resp$teams) 
-      draft <- dplyr::bind_rows(resp$draft) 
-      rounds <- resp$rounds
-      rounds$draft_lineup <- NULL
-      rounds_df <- purrr::map_df(1:length(rounds),function(x){
-        rounds[[x]] %>% 
-          tidyr::unnest("player", names_sep = "_") %>% 
-          dplyr::mutate(round = x)
-      })
-      df_list <- c(list(teams),list(draft),list(rounds_df))
-      names(df_list) <- c("teams","draft_info","picks")
-      
+        jsonlite::fromJSON(simplifyDataFrame = FALSE)
+
+      board <- resp$results$board
+
+      board_df <- data.frame(
+        draft_id = as.integer(board$id %||% NA_integer_),
+        title = as.character(board$title %||% NA_character_),
+        season = as.integer(season),
+        status = as.character(board$draftInformation$status %||% NA_character_),
+        on_the_clock = as.character(board$draftInformation$onTheClock %||% NA_character_),
+        draft_date = as.character(board$draftInformation$date %||% NA_character_),
+        modified = as.character(board$modified %||% NA_character_),
+        stringsAsFactors = FALSE
+      ) %>%
+        dplyr::as_tibble() %>%
+        make_wehoop_data(
+          "WNBA Draft Board information from content-api-prod.nba.com",
+          Sys.time()
+        )
+
+      picks_df <- purrr::map_dfr(board$draftRounds, function(rnd) {
+        purrr::map_dfr(rnd$picks, function(p) {
+          career <- p$career %||% list()
+          data.frame(
+            round = as.integer(rnd$round %||% NA_integer_),
+            pick = as.integer(p$pick %||% NA_integer_),
+            team_id = as.integer(p$teamId %||% NA_integer_),
+            team_external_id = as.integer(p$teamExternalId %||% NA_integer_),
+            team_name = as.character(p$teamName %||% NA_character_),
+            prospect_id = as.integer(p$prospectId %||% NA_integer_),
+            first_name = as.character(p$firstName %||% NA_character_),
+            last_name = as.character(p$lastName %||% NA_character_),
+            position = as.character(p$position %||% NA_character_),
+            country = as.character(p$country %||% NA_character_),
+            college = as.character(p$college %||% NA_character_),
+            ppg = as.character(career$ppg %||% NA_character_),
+            rpg = as.character(career$rpg %||% NA_character_),
+            apg = as.character(career$apg %||% NA_character_),
+            spg = as.character(career$spg %||% NA_character_),
+            bpg = as.character(career$bpg %||% NA_character_),
+            fg_pct = as.character(career[["fg%"]] %||% NA_character_),
+            description = as.character(career$description %||% NA_character_),
+            headshot_url = as.character(p$headshot$url %||% NA_character_),
+            stringsAsFactors = FALSE
+          )
+        })
+      }) %>%
+        dplyr::as_tibble() %>%
+        make_wehoop_data(
+          "WNBA Draft Board picks from content-api-prod.nba.com",
+          Sys.time()
+        )
+
+      df_list <- list(
+        board = board_df,
+        picks = picks_df
+      )
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft board data available for {season}!")
@@ -117,8 +154,7 @@ wnba_draftboard <- function(
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
-    finally = {
-    }
+    finally = {}
   )
   return(df_list)
 }
@@ -212,6 +248,8 @@ wnba_draftcombinestats <- function(
     SeasonYear = season_year
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -270,6 +308,8 @@ wnba_draftcombinedrillresults <- function(
     SeasonYear = season_year
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -328,6 +368,8 @@ wnba_draftcombinenonstationaryshooting <- function(
     SeasonYear = season_year
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -386,6 +428,8 @@ wnba_draftcombineplayeranthro <- function(
     SeasonYear = season_year
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -443,6 +487,8 @@ wnba_draftcombinespotshooting <- function(
     SeasonYear = season_year
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -535,6 +581,8 @@ wnba_drafthistory <- function(
     TopX = top_x
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       

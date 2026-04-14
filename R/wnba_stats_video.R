@@ -83,6 +83,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Video Functions
 #' @details
@@ -121,70 +122,8 @@ wnba_videodetailsasset <- function(
     vs_conference = '',
     vs_division = '',
     ...){
-  
-  # Intentional
-  # season_type <- gsub(' ', '+', season_type)
-  version <- "videodetailsasset"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    AheadBehind = ahead_behind,
-    ClutchTime = clutch_time,
-    ContextFilter = context_filter,
-    ContextMeasure = context_measure,
-    DateFrom = date_from,
-    DateTo = date_to,
-    EndPeriod = end_period,
-    EndRange = end_range,
-    GameID = game_id,
-    GameSegment = game_segment,
-    LastNGames = last_n_games,
-    LeagueID = league_id,
-    Location = location,
-    Month = month,
-    OpponentTeamID = opponent_team_id,
-    Outcome = outcome,
-    Period = period,
-    PlayerID = player_id,
-    PointDiff = point_diff,
-    Position = position,
-    RangeType = range_type,
-    RookieYear = rookie_year,
-    Season = season,
-    SeasonSegment = season_segment,
-    SeasonType = season_type,
-    StartPeriod = start_period,
-    StartRange = start_range,
-    TeamID = team_id,
-    VsConference = vs_conference,
-    VsDivision = vs_division
-  )
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      videoUrls <- resp$resultSets$Meta$videoUrls %>%
-        data.frame() %>%
-        dplyr::as_tibble()
-      playlist <- resp$resultSets$playlist %>%
-        data.frame() %>%
-        dplyr::as_tibble()
-      df_list <- c(list(videoUrls), list(playlist))
-      names(df_list) <- c("videoUrls", "playlist")
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no video detail assets data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_videodetailsasset()` is deprecated due to changes from the WNBA Stats API. The `videodetailsasset` endpoint no longer returns data. Please use `wnba_videoevents()` instead.")
 }
 
 
@@ -272,6 +211,7 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
+#' @keywords internal
 #' @export
 #' @family WNBA Video Functions
 #' @details
@@ -310,69 +250,8 @@ wnba_videodetails <- function(
     vs_conference = '',
     vs_division = '',
     ...){
-  
-  # season_type <- gsub(' ', '+', season_type)
-  version <- "videodetails"
-  endpoint <- wnba_endpoint(version)
-  full_url <- endpoint
-  
-  params <- list(
-    AheadBehind = ahead_behind,
-    ClutchTime = clutch_time,
-    ContextFilter = context_filter,
-    ContextMeasure = context_measure,
-    DateFrom = date_from,
-    DateTo = date_to,
-    EndPeriod = end_period,
-    EndRange = end_range,
-    GameID = game_id,
-    GameSegment = game_segment,
-    LastNGames = last_n_games,
-    LeagueID = league_id,
-    Location = location,
-    Month = month,
-    OpponentTeamID = opponent_team_id,
-    Outcome = outcome,
-    Period = period,
-    PlayerID = player_id,
-    PointDiff = point_diff,
-    Position = position,
-    RangeType = range_type,
-    RookieYear = rookie_year,
-    Season = season,
-    SeasonSegment = season_segment,
-    SeasonType = season_type,
-    StartPeriod = start_period,
-    StartRange = start_range,
-    TeamID = team_id,
-    VsConference = vs_conference,
-    VsDivision = vs_division
-  )
-  tryCatch(
-    expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      videoUrls <- resp$resultSets$Meta$videoUrls %>%
-        data.frame() %>%
-        dplyr::as_tibble()
-      playlist <- resp$resultSets$playlist %>%
-        data.frame() %>%
-        dplyr::as_tibble()
-      df_list <- c(list(videoUrls), list(playlist))
-      names(df_list) <- c("videoUrls", "playlist")
-      
-    },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no video details data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
-    finally = {
-    }
-  )
-  return(df_list)
+
+  cli::cli_alert_danger("As of v3.0.0, `wnba_videodetails()` is deprecated due to changes from the WNBA Stats API. The `videodetails` endpoint no longer returns data. Please use `wnba_videoevents()` instead.")
 }
 
 
@@ -410,6 +289,8 @@ wnba_videoevents <- function(
     GameEventID = game_event_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
@@ -495,6 +376,8 @@ wnba_videostatus <- function(
     LeagueID = league_id
   )
   
+  df_list <- list()
+
   tryCatch(
     expr = {
       
