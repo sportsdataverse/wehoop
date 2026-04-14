@@ -62,6 +62,6 @@ test_that("ESPN - WBB Team Box", {
     "opponent_team_score"
   )
   
-  expect_in(sort(colnames(x)), sort(cols))
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

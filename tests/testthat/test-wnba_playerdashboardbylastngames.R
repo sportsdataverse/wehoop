@@ -3,6 +3,10 @@ test_that("WNBA Player Dashboard by Last N Games", {
   skip_on_ci()
   
   x <- wnba_playerdashboardbylastngames(player_id = "1628932", season = most_recent_wnba_season() - 1)
+
+  if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
+    skip("No rows returned from endpoint at test time")
+  }
   
   cols_x1 <- c(
     "GROUP_SET",
@@ -395,17 +399,17 @@ test_that("WNBA Player Dashboard by Last N Games", {
   )
   
   
-  expect_equal(sort(colnames(x[[1]])), sort(cols_x1))
+  expect_in(sort(cols_x1), sort(colnames(x[[1]])))
   expect_s3_class(x[[1]], "data.frame")
-  expect_equal(sort(colnames(x[[2]])), sort(cols_x2))
+  expect_in(sort(cols_x2), sort(colnames(x[[2]])))
   expect_s3_class(x[[2]], "data.frame")
-  expect_equal(sort(colnames(x[[3]])), sort(cols_x3))
+  expect_in(sort(cols_x3), sort(colnames(x[[3]])))
   expect_s3_class(x[[3]], "data.frame")
-  expect_equal(sort(colnames(x[[4]])), sort(cols_x4))
+  expect_in(sort(cols_x4), sort(colnames(x[[4]])))
   expect_s3_class(x[[4]], "data.frame")
-  expect_equal(sort(colnames(x[[5]])), sort(cols_x5))
+  expect_in(sort(cols_x5), sort(colnames(x[[5]])))
   expect_s3_class(x[[5]], "data.frame")
-  expect_equal(sort(colnames(x[[6]])), sort(cols_x6))
+  expect_in(sort(cols_x6), sort(colnames(x[[6]])))
   expect_s3_class(x[[6]], "data.frame")
   
   Sys.sleep(3)

@@ -57,6 +57,6 @@ test_that("ESPN - WNBA Play-by-Play", {
     "game_date_time"
   )
   
-  expect_in(sort(colnames(x)), sort(cols))
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

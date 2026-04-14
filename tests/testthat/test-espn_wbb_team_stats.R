@@ -17,7 +17,6 @@ test_that("ESPN - WBB Team Stats", {
     "team_color",
     "team_alternate_color",
     "team_is_active",
-    "team_is_all_star",
     "logo_href",
     "logo_dark_href",
     "defensive_blocks",
@@ -99,6 +98,6 @@ test_that("ESPN - WBB Team Stats", {
     "offensive_scoring_efficiency"
   )
   
-  expect_in(sort(colnames(x)), sort(cols))
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

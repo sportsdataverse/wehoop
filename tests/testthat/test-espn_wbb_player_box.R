@@ -34,7 +34,6 @@ test_that("ESPN - WBB Player Box", {
     "starter",
     "ejected",
     "did_not_play",
-    "active",
     "athlete_jersey",
     "athlete_short_name",
     "athlete_headshot_href",

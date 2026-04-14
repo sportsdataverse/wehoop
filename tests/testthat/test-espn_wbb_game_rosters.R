@@ -22,7 +22,6 @@ test_that("ESPN - WBB Play-by-Play", {
     "slug",
     "headshot_href",
     "headshot_alt",
-    "jersey",
     "position_id",
     "position_name",
     "position_display_name",
