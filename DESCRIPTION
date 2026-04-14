@@ -1,50 +1,27 @@
 Package: wehoop
 Title: Access Women's Basketball Play by Play Data
-Version: 2.1.0
-Authors@R: c(person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com',role = c('aut','cre')),
+Version: 3.0.0
+Authors@R: c(person('Saiem', 'Gilani', email = 'saiem.gilani@gmail.com',role = c('aut','cre'),
+             comment = c(ORCID = "0000-0002-7194-9067")),
              person('Geoffery','Hutchinson', email = 'geoffery.hutchinson@gmail.com', role = c('aut')))
 Description: A utility for working with women's basketball data. A scraping and aggregating interface for the WNBA Stats API <https://stats.wnba.com/> and ESPN's <https://www.espn.com> women's college basketball and WNBA statistics. It provides users with the capability to access the game play-by-plays, box scores, standings and results to analyze the data for themselves.
 License: MIT + file LICENSE
-LazyData: true
-URL: https://wehoop.sportsdataverse.org, https://github.com/sportsdataverse/wehoop
+URL: https://wehoop.sportsdataverse.org,
+        https://github.com/sportsdataverse/wehoop
 BugReports: https://github.com/sportsdataverse/wehoop/issues
 Encoding: UTF-8
-Depends: R (>= 4.0.0)
-Imports: 
-    cli (>= 3.0.0),
-    data.table (>= 1.14.0),
-    dplyr,
-    glue,
-    janitor,
-    jsonlite,
-    lubridate,
-    magrittr,
-    purrr (>= 0.3.0),
-    progressr (>= 0.6.0),
-    Rcpp (>= 1.0.7),
-    RcppParallel (>= 5.1.4),
-    rlang (>= 0.4.0),
-    rvest (>= 1.0.0),
-    stringr (>= 1.3.0),
-    tidyr (>= 1.2.0),
-    usethis (>= 1.6.0)
-Suggests: 
-    crayon (>= 1.3.4),
-    curl,
-    DBI,
-    ggplot2,
-    ggrepel,
-    httr (>= 0.5),
-    knitr,
-    lifecycle (>= 1.0.0),
-    rmarkdown,
-    RSQLite,
-    stats,
-    stringi,
-    testthat,
-    tibble (>= 3.0),
-    tictoc,
-    xml2 (>= 1.3)
-RoxygenNote: 7.2.3
+Depends: R (>= 4.1.0)
+Imports: cli (>= 3.0.0), data.table (>= 1.15.0), dplyr (>= 1.0.0), glue
+        (>= 1.4.0), janitor, jsonlite, lubridate, magrittr, purrr (>=
+        0.3.0), progressr (>= 0.6.0), Rcpp (>= 1.0.7), RcppParallel (>=
+        5.1.4), rlang (>= 0.4.10), rvest (>= 1.0.0), stringr (>=
+        1.4.0), tidyr (>= 1.2.0), usethis (>= 1.6.0)
+Suggests: arrow (>= 6.0.0), cachem (>= 1.0.0), crayon (>= 1.3.4), curl
+        (>= 4.3.0), DBI, ggplot2, ggrepel, gh (>= 1.0.0), httr (>=
+        0.5), knitr, lifecycle (>= 1.0.0), memoise (>= 2.0.0),
+        piggyback (>= 0.1.2), rmarkdown (>= 2.6.0), RSQLite, stats,
+        stringi, testthat (>= 3.0.0), tibble (>= 3.0), tictoc, xml2 (>=
+        1.3)
+RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3

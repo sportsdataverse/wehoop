@@ -10,9 +10,13 @@ downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=s
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/wehoop)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop)
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://twitter.com/SaiemGilani)
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/hutchngo)
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/sportsdataverse?label=%40SportsDataverse&logo=x&style=for-the-badge)](https://twitter.com/sportsdataverse)
 
-<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/SaiemGilani?color=blue&label=%40SaiemGilani&logo=twitter&style=for-the-badge)](https://twitter.com/SaiemGilani) -->
-<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge)](https://twitter.com/hutchngo) [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)  -->
 <!-- badges: end -->
 
 `wehoop` is an R package for working with women’s college and
@@ -39,16 +43,16 @@ You can install the released version of
 [GitHub](https://github.com/sportsdataverse/wehoop) with:
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("sportsdataverse/wehoop", dependencies = TRUE, update = TRUE)
+pak::pak("sportsdataverse/wehoop")
 ```
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2024) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2025) ~ 1-2 minutes**
 
 ``` r
 tictoc::tic()
@@ -58,11 +62,11 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.08 sec elapsed
+    ## 0.86 sec elapsed
 
-    ## 58334 rows of WNBA play-by-play data from 150 games.
+    ## 87618 rows of WNBA play-by-play data from 223 games.
 
-### **Women’s college basketball full play-by-play seasons (2004-2024) ~ 2-3 minutes**
+### **Women’s college basketball full play-by-play seasons (2004-2025) ~ 2-3 minutes**
 
 ``` r
 tictoc::tic()
@@ -72,9 +76,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 6.55 sec elapsed
+    ## 8.72 sec elapsed
 
-    ## 1908679 rows of women's college basketball play-by-play data from 5779 games.
+    ## 1973907 rows of women's college basketball play-by-play data from 5473 games.
 
 ## **Documentation**
 
@@ -89,21 +93,22 @@ Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
 ## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
-<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)  -->
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://twitter.com/SportsDataverse)
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop/stargazers/)
 
 # **Our Authors**
 
-- Saiem Gilani (@saiemgilani)  
-  <!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> -->
+- [Saiem Gilani](https://twitter.com/saiemgilani)
 
+<a href="https://twitter.com/saiemgilani" target="blank"><img  alt="@SaiemGilani" src="https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani"></a>
 <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
-- Geoff Hutchinson (@HutchNGo)  
-  <!-- <a href="https://twitter.com/HutchNGo" target="blank"><img src="https://img.shields.io/twitter/follow/HutchNGo?color=blue&label=%40hutchngo&logo=twitter&style=for-the-badge" alt="@HutchNGo" /></a> -->
+- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)
 
+<a href="https://twitter.com/HutchNGo" target="blank"><img src="https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge" alt="@HutchNGo" /></a>
 <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>
 
 ## **Citations**
