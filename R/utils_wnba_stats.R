@@ -50,7 +50,7 @@ wnba_headers_params <- function(
 }
 
 #' @title
-#' **Retry http request with proxy**
+#' **Retry http request with optional proxy**
 #' @description
 #' This is a thin wrapper on `httr2::req_retry()` via the internal
 #' `.retry_request()` helper. It applies the WNBA Stats API headers (origin,
@@ -59,13 +59,19 @@ wnba_headers_params <- function(
 #' @param params list of params
 #' @param origin Origin url
 #' @param referer Referer url
-#' @param ... currently unused (preserved for backwards compatibility with
-#'   callers that previously passed `httr::use_proxy()` etc.)
+#' @param proxy Optional proxy config. `NULL` (default) lets libcurl honor
+#'   the standard `http_proxy` / `https_proxy` / `no_proxy` environment
+#'   variables. A single URL string (e.g. `"http://host:port"`) is forwarded
+#'   to `httr2::req_proxy(url = proxy)`. A named list is spread as keyword
+#'   args into `httr2::req_proxy()` (`url`, `port`, `username`, `password`,
+#'   `auth`) for full control over authenticated proxies.
+#' @param ... currently unused (preserved for backwards compatibility).
 #' @keywords internal
 request_with_proxy <- function(url,
                                params = list(),
                                origin = "https://stats.wnba.com",
                                referer = "https://www.wnba.com/",
+                               proxy = NULL,
                                ...){
   headers <- c(
     `Host` = 'stats.wnba.com',
@@ -82,7 +88,7 @@ request_with_proxy <- function(url,
     `Cache-Control` = 'no-cache'
   )
 
-  resp <- .retry_request(url, params = params, headers = headers)
+  resp <- .retry_request(url, params = params, headers = headers, proxy = proxy)
 
   json <- resp %>%
     .resp_text() %>%

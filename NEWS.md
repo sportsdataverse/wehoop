@@ -32,7 +32,7 @@
 
 * ```wnba_playbyplayv3()``` function added. V3 play-by-play endpoint wrapper, plus a V3-to-V2 compatibility pipeline used by ```wnba_pbp()``` (via ```.v3_to_v2_format_wnba()```, ```.build_player_roster_wnba()```, ```.players_on_court_v3_wnba()```) that retains V2-compatible columns while adding V3-only columns (```x_legacy```, ```y_legacy```, ```shot_distance```, ```shot_result```, ```is_field_goal```, ```points_total```, ```shot_value```).
 * ```wnba_boxscoresummaryv3()``` function added.
-* ```wnba_boxscoreusagev3()``` function added.TTTTTTTTTTTTTTTTT
+* ```wnba_boxscoreusagev3()``` function added.
 
 ### **WNBA Time Calculation Fix**
 
@@ -102,6 +102,27 @@ Already deprecated, re-stated under the lifecycle pattern:
 * `wnba_teaminfocommon()` (2.1.0) → `wnba_teamdetails()`
 * `wnba_videodetails()` (3.0.0) → `wnba_videoevents()`
 * `wnba_videodetailsasset()` (3.0.0) → `wnba_videoevents()`
+
+### **HTTP layer**
+
+* **Restored proxy support.** When wehoop migrated from `httr` to `httr2`
+  in the V3 work, the legacy `httr::use_proxy()` plumbing was dropped
+  and `request_with_proxy()` quietly stopped honoring proxies (its
+  `...` was preserved purely for source compatibility — see the prior
+  comment "currently unused (preserved for backwards compatibility
+  with callers that previously passed `httr::use_proxy()` etc.)"). Both
+  `request_with_proxy()` and the lower-level `.retry_request()` now
+  accept a `proxy =` argument:
+    - `proxy = NULL` (default) — libcurl reads `http_proxy` /
+      `https_proxy` / `no_proxy` env vars automatically.
+    - `proxy = "http://host:port"` — string form, forwarded to
+      `httr2::req_proxy(url = ...)`.
+    - `proxy = list(url=, port=, username=, password=, auth=)` —
+      named list spread into `httr2::req_proxy()` for authenticated
+      proxies.
+  The argument threads via `...` through every wrapper, so callers can
+  do `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")`
+  without any per-function plumbing.
 
 ### **Test infrastructure**
 

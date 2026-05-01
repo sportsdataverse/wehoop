@@ -4,7 +4,13 @@
 \alias{.retry_request}
 \title{Retry an HTTP request with httr2}
 \usage{
-.retry_request(url, params = list(), headers = NULL, timeout = 60)
+.retry_request(
+  url,
+  params = list(),
+  headers = NULL,
+  timeout = 60,
+  proxy = NULL
+)
 }
 \arguments{
 \item{url}{Base request URL.}

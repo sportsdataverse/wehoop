@@ -44,6 +44,13 @@ WNBA Stats HTTP requests use `request_with_proxy()` in `utils_wnba_stats.R` whic
 - `Origin: https://stats.wnba.com`
 - `Referer: https://www.wnba.com/`
 
+Both `request_with_proxy()` and the lower-level `.retry_request()` accept a `proxy =` argument:
+- `proxy = NULL` (default) — libcurl reads `http_proxy` / `https_proxy` / `no_proxy` env vars; recommended.
+- `proxy = "http://host:port"` — string form, forwarded to `httr2::req_proxy(url = ...)`.
+- `proxy = list(url=, port=, username=, password=, auth=)` — named list spread into `req_proxy()` for authenticated proxies.
+
+Wrappers forward `proxy` via `...`, so callers can do `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")` without per-function plumbing.
+
 Shared internal helpers in `utils.R`:
 - `check_status()` for HTTP response validation
 - `make_wehoop_data()` for standardizing data frame output

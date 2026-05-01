@@ -224,7 +224,17 @@ WNBA Stats API requests use `request_with_proxy()` in `utils_wnba_stats.R` with 
 - `Origin: https://stats.wnba.com`
 - `Referer: https://www.wnba.com/`
 
-`wnba_endpoint()` builds URLs via `glue::glue('https://stats.wnba.com/stats/{endpoint}')`.
+`wnba_endpoint()` builds URLs via `paste0("https://stats.wnba.com/stats/", endpoint)`.
+
+#### Proxy support
+
+Both `request_with_proxy()` and the lower-level `.retry_request()` accept a `proxy =` argument:
+
+- `proxy = NULL` (default) — libcurl honors the standard `http_proxy` / `https_proxy` / `no_proxy` env vars automatically; nothing else needs threading. **This is the recommended path** — set the env var once in `~/.Renviron` (or the shell) and every wrapper picks it up.
+- `proxy = "http://host:port"` — passed straight to `httr2::req_proxy(url = ...)`. Use for one-off overrides.
+- `proxy = list(url = "...", port = 8080, username = "...", password = "...", auth = "basic")` — spread as keyword args into `httr2::req_proxy()` for authenticated proxies or non-default schemes.
+
+The proxy parameter threads cleanly from any user-facing wrapper through `request_with_proxy()` to `.retry_request()`, so callers can do e.g. `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")` without modifying the wrappers (the `...` argument forwards `proxy =`).
 
 ### Messaging Layer
 
