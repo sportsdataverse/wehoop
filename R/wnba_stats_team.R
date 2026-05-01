@@ -95,9 +95,7 @@ wnba_teams <- function(...){
       hint = "Invalid arguments or no team details data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -239,9 +237,7 @@ wnba_teamdetails <- function(
       hint = "Invalid arguments or no team details data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -350,9 +346,7 @@ wnba_teamestimatedmetrics <- function(
       hint = "Invalid arguments or no team estimated metrics data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -460,9 +454,7 @@ wnba_teamgamelog <- function(
       hint = "Invalid arguments or no team game log data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -640,9 +632,7 @@ wnba_teamgamelogs <- function(
       hint = "Invalid arguments or no team game logs for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -728,9 +718,7 @@ wnba_teamhistoricalleaders <- function(
       hint = "Invalid arguments or no team historical leaders data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1161,9 +1149,7 @@ wnba_teamplayeronoffdetails <- function(
       hint = "Invalid arguments or no team player on off details data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1389,9 +1375,7 @@ wnba_teamplayeronoffsummary <- function(
       hint = "Invalid arguments or no team player on off summary data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1648,9 +1632,7 @@ wnba_teamplayerdashboard <- function(
       hint = "Invalid arguments or no team player dashboard data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1758,9 +1740,7 @@ wnba_teamyearbyyearstats <- function(
       hint = "Invalid arguments or no team year-by-year stats data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2185,9 +2165,7 @@ wnba_teamvsplayer <- function(
       hint = "Invalid arguments or no team vs player data for {team_id} and {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2827,13 +2805,10 @@ wnba_teamgamestreakfinder <- function(
       hint = "Invalid arguments or no team streak finder data for the given parameters available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
   return(df_list)
 }
-
 

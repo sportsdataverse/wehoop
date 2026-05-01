@@ -52,9 +52,7 @@ ncaa_wbb_NET_rankings <- function(){
       hint = "Invalid arguments or no NET rankings available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -208,9 +206,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
       hint = "Invalid arguments provided",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

@@ -75,9 +75,7 @@ wnba_commonallplayers <- function(
       hint = "Invalid arguments or common all players data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -196,9 +194,7 @@ wnba_commonplayerinfo <- function(
       hint = "Invalid arguments or common player info data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -269,9 +265,7 @@ wnba_commonplayoffseries <- function(
       hint = "Invalid arguments or common playoff series data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -370,9 +364,7 @@ wnba_commonteamroster <- function(
       hint = "Invalid arguments or common team roster data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

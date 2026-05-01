@@ -151,9 +151,7 @@ wnba_shotchartdetail <- function(
       hint = "Invalid arguments or no shot chart detail data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -226,9 +224,7 @@ wnba_shotchartleaguewide <- function(
       hint = "Invalid arguments or no league-wide shot chart data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -494,12 +490,9 @@ wnba_shotchartlineupdetail <- function(
       hint = "Invalid arguments or no shot chart lineup data available for {season}! (group_id: {group_id})",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
   return(df_list)
 }
-

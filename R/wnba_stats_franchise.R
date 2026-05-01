@@ -72,9 +72,7 @@ wnba_franchiseleaders <- function(
       hint = "Invalid arguments or no franchise leaders data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -193,9 +191,7 @@ wnba_franchiseleaderswrank <- function(
       hint = "Invalid arguments or no franchise players data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -296,9 +292,7 @@ wnba_franchiseplayers <- function(
       hint = "Invalid arguments or no franchise players data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -397,9 +391,7 @@ wnba_franchisehistory <- function(
       hint = "Invalid arguments or no franchise history data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

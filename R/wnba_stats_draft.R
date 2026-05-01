@@ -48,7 +48,6 @@ NULL
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
-#' @importFrom glue glue
 #' @importFrom purrr map_dfr
 #' @importFrom rlang %||%
 #' @export
@@ -62,8 +61,9 @@ wnba_draftboard <- function(
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
 
-  endpoint <- glue::glue(
-    "https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board"
+  endpoint <- sprintf(
+    "https://content-api-prod.nba.com/public/1/leagues/wnba/draft/%s/board",
+    season
   )
 
   headers <- c(
@@ -149,9 +149,7 @@ wnba_draftboard <- function(
       hint = "Invalid arguments or no draft board data available for {season}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(df_list)
@@ -262,9 +260,7 @@ wnba_draftcombinestats <- function(
       hint = "Invalid arguments or no draft combine stats data available for {season_year}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -324,9 +320,7 @@ wnba_draftcombinedrillresults <- function(
       hint = "Invalid arguments or no draft combine drill results data available for {season_year}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -386,9 +380,7 @@ wnba_draftcombinenonstationaryshooting <- function(
       hint = "Invalid arguments or no draft combine stationary shooting data available for {season_year}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -448,9 +440,7 @@ wnba_draftcombineplayeranthro <- function(
       hint = "Invalid arguments or no draft combine player anthropological data available for {season_year}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -509,9 +499,7 @@ wnba_draftcombinespotshooting <- function(
       hint = "Invalid arguments or no draft combine spot shooting data available for {season_year}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -605,9 +593,7 @@ wnba_drafthistory <- function(
       hint = "Invalid arguments or no draft history data available for {season}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

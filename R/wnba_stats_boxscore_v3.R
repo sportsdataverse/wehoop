@@ -481,9 +481,7 @@ wnba_boxscoretraditionalv3 <- function(
       hint = "Invalid arguments or no traditional boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -805,9 +803,7 @@ wnba_boxscoreadvancedv3 <- function(
       hint = "Invalid arguments or no advanced boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1088,9 +1084,7 @@ wnba_boxscoremiscv3 <- function(
       hint = "Invalid arguments or no misc boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1383,9 +1377,7 @@ wnba_boxscorescoringv3 <- function(
       hint = "Invalid arguments or no scoring boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1651,9 +1643,7 @@ wnba_boxscorefourfactorsv3 <- function(
       hint = "Invalid arguments or no four factors boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1964,9 +1954,7 @@ wnba_boxscoreplayertrackv3 <- function(
       hint = "Invalid arguments or no player tracking boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2269,9 +2257,7 @@ wnba_boxscoreusagev3 <- function(
       hint = "Invalid arguments or no usage boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2469,9 +2455,7 @@ wnba_boxscoresummaryv3 <- function(
       hint = "Invalid arguments or no boxscore summary v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2751,9 +2735,7 @@ wnba_gamerotation <- function(
       hint = "Invalid arguments or no game rotation data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

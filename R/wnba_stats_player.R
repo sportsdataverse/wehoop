@@ -114,9 +114,7 @@ wnba_playerindex <- function(
       hint = "Invalid arguments or no player index data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -163,9 +161,7 @@ wnba_playerheadshot <- function(
       hint = "Invalid arguments or no player headshot for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -241,9 +237,7 @@ wnba_playerawards <- function(
       hint = "Invalid arguments or no player awards data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -342,9 +336,7 @@ wnba_playercareerbycollege <- function(
       hint = "Invalid arguments or player careers by college data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -531,9 +523,7 @@ wnba_playercareerbycollegerollup <- function(
       hint = "Invalid arguments or player careers by college rollup data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -862,9 +852,7 @@ wnba_playercareerstats <- function(
       hint = "Invalid arguments or player career stats data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -959,9 +947,7 @@ wnba_infographicfanduelplayer <- function(
       hint = "Invalid arguments or no FanDuel player infographic data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1234,9 +1220,7 @@ wnba_playerfantasyprofile <- function(
       hint = "Invalid arguments or no player fantasy profile data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1347,9 +1331,7 @@ wnba_playerfantasyprofilebargraph <- function(
       hint = "Invalid arguments or no player fantasy profile bar graph data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1461,9 +1443,7 @@ wnba_playerestimatedmetrics <- function(
       hint = "Invalid arguments or no player estimated metrics data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1569,9 +1549,7 @@ wnba_playergamelog <- function(
       hint = "Invalid arguments or no player game log data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1760,9 +1738,7 @@ wnba_playergamelogs <- function(
       hint = "Invalid arguments or no player game logs data for {player_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2101,9 +2077,7 @@ wnba_playergamestreakfinder <- function(
       hint = "Invalid arguments or no player streak finder data available for the parameters selected!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2192,9 +2166,7 @@ wnba_playernextngames <- function(
       hint = "Invalid arguments or no player next n games data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2634,9 +2606,7 @@ wnba_playerprofilev2 <- function(
       hint = "Invalid arguments or no player profile v2 data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2957,9 +2927,7 @@ wnba_playervsplayer <- function(
       hint = "Invalid arguments or player vs player data unavailable for the parameters selected!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -3146,9 +3114,7 @@ wnba_playercompare <- function(
       hint = "Invalid arguments or player comparison data unavailable for the parameters selected!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

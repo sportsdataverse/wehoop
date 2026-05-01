@@ -270,9 +270,7 @@ wnba_alltimeleadersgrids <- function(
       hint = "Invalid arguments or no all-time leaders grid data for {league_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -358,9 +356,7 @@ wnba_assistleaders <- function(
       hint = "Invalid arguments or no assist leaders data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -430,9 +426,7 @@ wnba_assisttracker <- function(
       hint = "Invalid arguments or no assist tracker data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1357,9 +1351,7 @@ wnba_homepagewidget <- function(
       hint = "Invalid arguments or no homepage widget data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1603,9 +1595,7 @@ wnba_leagueleaders <- function(
       hint = "Invalid arguments or no league leaders data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

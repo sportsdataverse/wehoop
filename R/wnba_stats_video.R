@@ -313,9 +313,7 @@ wnba_videoevents <- function(
       hint = "Invalid arguments or no video events data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -394,9 +392,7 @@ wnba_videostatus <- function(
       hint = "Invalid arguments or no video status data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

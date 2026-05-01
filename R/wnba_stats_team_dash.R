@@ -781,9 +781,7 @@ wnba_teamdashboardbyclutch <- function(
       hint = "Invalid arguments or no team dashboard by clutch data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1209,9 +1207,7 @@ wnba_teamdashboardbygamesplits <- function(
       hint = "Invalid arguments or no team dashboard by game splits data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1704,9 +1700,7 @@ wnba_teamdashboardbygeneralsplits <- function(
       hint = "Invalid arguments or no team dashboard by general splits data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2193,9 +2187,7 @@ wnba_teamdashboardbylastngames <- function(
       hint = "Invalid arguments or no teamdashboard by last n games data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2561,9 +2553,7 @@ wnba_teamdashboardbyopponent <- function(
       hint = "Invalid arguments or no team dashboard by opponent data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2944,9 +2934,7 @@ wnba_teamdashboardbyshootingsplits <- function(
       hint = "Invalid arguments or no team dashboard by shooting splits data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -3317,9 +3305,7 @@ wnba_teamdashboardbyteamperformance <- function(
       hint = "Invalid arguments or no team dashboard by team performance data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -3563,9 +3549,7 @@ wnba_teamdashboardbyyearoveryear <- function(
       hint = "Invalid arguments or no team dashboard by year-over-year data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -3820,12 +3804,9 @@ wnba_teamdashlineups <- function(
       hint = "Invalid arguments or no team dashboard by lineups data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
   return(df_list)
 }
-

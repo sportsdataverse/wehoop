@@ -173,9 +173,7 @@ wnba_leaguedashplayerbiostats <- function(
       hint = "Invalid arguments or no league dashboard player bio stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -422,9 +420,7 @@ wnba_leaguedashplayerclutch <- function(
       hint = "Invalid arguments or no league dashboard player clutch stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -660,9 +656,7 @@ wnba_leaguedashplayerstats <- function(
       hint = "Invalid arguments or no league dashboard player stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -879,9 +873,7 @@ wnba_leaguedashplayershotlocations <- function(
       hint = "Invalid arguments or no league dashboard player shot locations data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1096,9 +1088,7 @@ wnba_leaguedashteamclutch <- function(
       hint = "Invalid arguments or no league dashboard team clutch data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1298,9 +1288,7 @@ wnba_leaguedashteamstats <- function(
       hint = "Invalid arguments or no league dashboard team stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1491,12 +1479,9 @@ wnba_leaguedashteamshotlocations <- function(
       hint = "Invalid arguments or no league dashboard team shot location data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
   return(df_list)
 }
-

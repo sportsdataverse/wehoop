@@ -152,9 +152,7 @@ wnba_cumestatsplayer <- function(
       hint = "Invalid arguments or no cumulative player stats data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -243,9 +241,7 @@ wnba_cumestatsplayergames <- function(
       hint = "Invalid arguments or no cumulative player game stats data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -410,9 +406,7 @@ wnba_cumestatsteam <- function(
       hint = "Invalid arguments or no cumulative team stats data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -503,9 +497,7 @@ wnba_cumestatsteamgames <- function(
       hint = "Invalid arguments or no cumulative team game stats data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

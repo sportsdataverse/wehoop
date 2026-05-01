@@ -228,9 +228,7 @@ espn_wnba_game_all <- function(game_id){
       hint = "Could not fetch game summary for game_id = {game_id}",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 
@@ -254,9 +252,7 @@ espn_wnba_game_all <- function(game_id){
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
 
     }
@@ -277,9 +273,7 @@ espn_wnba_game_all <- function(game_id){
       hint = "Invalid arguments or no team box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
       
     }
@@ -300,9 +294,7 @@ espn_wnba_game_all <- function(game_id){
       hint = "Invalid arguments or no player box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
       
     }
@@ -424,9 +416,7 @@ espn_wnba_pbp <- function(game_id){
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -546,9 +536,7 @@ espn_wnba_team_box <- function(game_id){
       hint = "Invalid arguments or no team box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -669,9 +657,7 @@ espn_wnba_player_box <- function(game_id){
       hint = "Invalid arguments or no player box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1001,9 +987,7 @@ espn_wnba_game_rosters <- function(game_id) {
       hint = "Invalid arguments or no game roster data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
       
     }
@@ -1097,9 +1081,7 @@ espn_wnba_teams <- function(){
       hint = "Could not fetch ESPN WNBA teams",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 
@@ -1154,7 +1136,6 @@ espn_wnba_teams <- function(){
 #' @importFrom dplyr select rename any_of mutate
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest_wider unchop hoist
-#' @importFrom glue glue
 #' @importFrom lubridate with_tz ymd_hm
 #' @import rvest
 #' @export
@@ -1324,9 +1305,7 @@ espn_wnba_scoreboard <- function(season){
       hint = "Invalid arguments or no scoreboard data available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1455,9 +1434,7 @@ espn_wnba_standings <- function(year){
       hint = "Invalid arguments or no standings data available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
     
@@ -1709,7 +1686,7 @@ espn_wnba_team_stats <- function(
         tidyr::unnest("stats", names_sep = "_")
       df <- df %>%
         dplyr::mutate(
-          stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
+          stats_category_name = paste0(.data$name, "_", .data$stats_name)) %>%
         dplyr::select(
           "stats_category_name", 
           "stats_value") %>%
@@ -1733,9 +1710,7 @@ espn_wnba_team_stats <- function(
       hint = "Invalid arguments or no team season stats data available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2037,7 +2012,7 @@ espn_wnba_player_stats <- function(
         tidyr::unnest("stats", names_sep = "_")
       df <- df %>%
         dplyr::mutate(
-          stats_category_name = glue::glue("{.data$name}_{.data$stats_name}")) %>%
+          stats_category_name = paste0(.data$name, "_", .data$stats_name)) %>%
         dplyr::select(
           "stats_category_name", 
           "stats_value") %>%
@@ -2065,9 +2040,7 @@ espn_wnba_player_stats <- function(
       hint = "Invalid arguments or no player season stats data available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

@@ -128,9 +128,7 @@ wnba_schedule <- function(
       hint = "Invalid arguments or no league schedule data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -545,9 +543,7 @@ wnba_scoreboardv2 <- function(
       hint = "Invalid arguments or no scoreboardv2 data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -732,9 +728,7 @@ wnba_scoreboardv3 <- function(
       hint = "Invalid arguments or no scoreboard v3 data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -860,9 +854,7 @@ wnba_todays_scoreboard <- function(
       hint = "Invalid arguments or no today's scoreboard data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

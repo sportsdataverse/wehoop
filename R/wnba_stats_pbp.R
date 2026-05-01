@@ -1132,9 +1132,7 @@ wnba_pbp <- function(game_id,
         hint = "Invalid arguments or no V3 play-by-play data for {pad_id(game_id)} available!",
         args = .args
       ),
-      warning = function(w) {
-        cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-      },
+      warning = function(w) .report_api_warning(w, args = .args),
       finally = {
       }
     )
@@ -1240,9 +1238,7 @@ wnba_pbp <- function(game_id,
       hint = "Invalid arguments or no play-by-play data for {pad_id(game_id)} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1514,9 +1510,7 @@ wnba_live_pbp <- function(
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2067,9 +2061,7 @@ wnba_live_boxscore <- function(
       hint = "Invalid arguments or no boxscore data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

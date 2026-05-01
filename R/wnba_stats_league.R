@@ -108,9 +108,7 @@ wnba_leaguegamelog <- function(
       hint = "Invalid arguments or no league game log data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -273,9 +271,7 @@ wnba_leaguestandingsv3 <- function(
       hint = "Invalid arguments or no league standings v3 data available for {season}!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -628,9 +624,7 @@ wnba_leaguegamefinder <- function(
       hint = "Invalid arguments or no league game finder data available for the given parameters!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

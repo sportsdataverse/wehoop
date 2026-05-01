@@ -128,9 +128,7 @@ wnba_fantasywidget <- function(
       hint = "Invalid arguments or no fantasy widget data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -326,9 +324,7 @@ wnba_leaguedashlineups <- function(
       hint = "Invalid arguments or no league dashboard lineups data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -494,9 +490,7 @@ wnba_leaguelineupviz <- function(
       hint = "Invalid arguments or no league lineup viz data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -681,9 +675,7 @@ wnba_leagueplayerondetails <- function(
       hint = "Invalid arguments or no league player on/off details data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -799,9 +791,7 @@ wnba_leagueseasonmatchups <- function(
       hint = "Invalid arguments or no league season matchups data for {season} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

@@ -158,9 +158,7 @@ wnba_boxscoretraditionalv2 <- function(
       hint = "Invalid arguments or no traditional boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -303,9 +301,7 @@ wnba_boxscoreadvancedv2 <- function(
       hint = "Invalid arguments or no advanced boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -420,9 +416,7 @@ wnba_boxscorefourfactorsv2 <- function(
       hint = "Invalid arguments or no four factors boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -544,9 +538,7 @@ wnba_boxscoremiscv2 <- function(
       hint = "Invalid arguments or no miscellaneous boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -674,9 +666,7 @@ wnba_boxscorescoringv2 <- function(
       hint = "Invalid arguments or no scoring boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -810,9 +800,7 @@ wnba_boxscoreusagev2 <- function(
       hint = "Invalid arguments or no usage boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1016,9 +1004,7 @@ wnba_boxscoresummaryv2 <- function(
       hint = "Invalid arguments or no summary boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1141,9 +1127,7 @@ wnba_boxscoreplayertrackv2 <- function(
       hint = "Invalid arguments or no  player tracking boxscore v2 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-    },
+    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1247,6 +1231,5 @@ wnba_hustlestatsboxscore <- function(
 
   cli::cli_alert_danger("As of v3.0.0, `wnba_hustlestatsboxscore()` is deprecated due to changes from the WNBA Stats API. The `hustlestatsboxscore` endpoint no longer returns data.")
 }
-
 
 
