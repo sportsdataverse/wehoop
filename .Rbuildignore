@@ -42,3 +42,4 @@ wbb_pbp_db*
 ^CRAN-RELEASE$
 ^\.pre-commit-config\.yaml$
 ^CRAN-SUBMISSION$
+^\.positai$
