@@ -120,9 +120,15 @@ Already deprecated, re-stated under the lifecycle pattern:
     - `proxy = list(url=, port=, username=, password=, auth=)` —
       named list spread into `httr2::req_proxy()` for authenticated
       proxies.
-  The argument threads via `...` through every wrapper, so callers can
-  do `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")`
-  without any per-function plumbing.
+  Resolution order in `.retry_request()`: explicit `proxy =` arg →
+  `getOption("wehoop.proxy")` → libcurl env vars. The `...` thread
+  works for WNBA Stats wrappers (which forward into
+  `request_with_proxy()`); ESPN / NCAA wrappers call `.retry_request()`
+  directly without `...`, so use `options(wehoop.proxy = ...)` at the
+  top of the session to cover those without per-function plumbing.
+  Validated end-to-end: `ncaa_wbb_teams()` and `espn_wnba_game_all()`
+  both routed through an authenticated test proxy via the option
+  fallback.
 
 ### **Test infrastructure**
 

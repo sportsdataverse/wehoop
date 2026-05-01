@@ -44,12 +44,11 @@ WNBA Stats HTTP requests use `request_with_proxy()` in `utils_wnba_stats.R` whic
 - `Origin: https://stats.wnba.com`
 - `Referer: https://www.wnba.com/`
 
-Both `request_with_proxy()` and the lower-level `.retry_request()` accept a `proxy =` argument:
-- `proxy = NULL` (default) — libcurl reads `http_proxy` / `https_proxy` / `no_proxy` env vars; recommended.
-- `proxy = "http://host:port"` — string form, forwarded to `httr2::req_proxy(url = ...)`.
-- `proxy = list(url=, port=, username=, password=, auth=)` — named list spread into `req_proxy()` for authenticated proxies.
+`.retry_request()` resolves a proxy in this order: explicit `proxy =` arg → `getOption("wehoop.proxy")` → libcurl env vars (`http_proxy` / `https_proxy` / `no_proxy`).
 
-Wrappers forward `proxy` via `...`, so callers can do `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")` without per-function plumbing.
+Proxy value accepts a URL string `"http://host:port"` or a named list `list(url=, port=, username=, password=, auth=)` spread into `httr2::req_proxy()`.
+
+Per-call override (`wnba_foo(proxy = ...)`) only threads through WNBA Stats wrappers (which forward `...` to `request_with_proxy`). ESPN / NCAA / KenPom wrappers call `.retry_request()` directly without `...`, so use `options(wehoop.proxy = ...)` once at session top — that's the recommended pattern for any session that runs through a proxy.
 
 Shared internal helpers in `utils.R`:
 - `check_status()` for HTTP response validation

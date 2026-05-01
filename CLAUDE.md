@@ -228,13 +228,17 @@ WNBA Stats API requests use `request_with_proxy()` in `utils_wnba_stats.R` with 
 
 #### Proxy support
 
-Both `request_with_proxy()` and the lower-level `.retry_request()` accept a `proxy =` argument:
+`.retry_request()` resolves a proxy in this order:
 
-- `proxy = NULL` (default) — libcurl honors the standard `http_proxy` / `https_proxy` / `no_proxy` env vars automatically; nothing else needs threading. **This is the recommended path** — set the env var once in `~/.Renviron` (or the shell) and every wrapper picks it up.
-- `proxy = "http://host:port"` — passed straight to `httr2::req_proxy(url = ...)`. Use for one-off overrides.
-- `proxy = list(url = "...", port = 8080, username = "...", password = "...", auth = "basic")` — spread as keyword args into `httr2::req_proxy()` for authenticated proxies or non-default schemes.
+1. **Explicit `proxy =` argument** (caller-supplied; highest precedence).
+2. **`getOption("wehoop.proxy")`** session-level fallback — set once with `options(wehoop.proxy = ...)` and every call picks it up.
+3. **`http_proxy` / `https_proxy` / `no_proxy` environment variables** — libcurl reads these automatically when no explicit proxy is supplied.
 
-The proxy parameter threads cleanly from any user-facing wrapper through `request_with_proxy()` to `.retry_request()`, so callers can do e.g. `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")` without modifying the wrappers (the `...` argument forwards `proxy =`).
+The proxy value (whether passed or read from the option) accepts:
+- `"http://host:port"` — string form, forwarded to `httr2::req_proxy(url = ...)`.
+- `list(url = "...", port = 8080, username = "...", password = "...", auth = "basic")` — spread as keyword args into `httr2::req_proxy()` for authenticated proxies.
+
+**Per-call override** works only for wrappers that thread `...` to `request_with_proxy()` — that's every WNBA Stats API function (`wnba_*()`), e.g. `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")`. ESPN / NCAA / KenPom wrappers call `.retry_request()` directly without `...`, so for those use the `options()` fallback or env-var path. The session option is the recommended pattern when working through one proxy across many calls — it's a single line at the top of the script and it covers everything.
 
 ### Messaging Layer
 
