@@ -92,7 +92,7 @@ request_with_proxy <- function(url,
 }
 
 wnba_live_endpoint <- function(endpoint){
-  base_url = glue::glue('https://cdn.wnba.com/static/json/liveData/{endpoint}')
+  base_url = paste0("https://cdn.wnba.com/static/json/liveData/", endpoint)
   return(base_url)
 }
 
@@ -237,7 +237,7 @@ wnba_endpoint <- function(endpoint){
     'videostatus',
     'winprobabilitypbp'
   )
-  base_url = glue::glue('https://stats.wnba.com/stats/{endpoint}')
+  base_url = paste0("https://stats.wnba.com/stats/", endpoint)
   return(base_url)
 }
 
@@ -272,16 +272,14 @@ wnba_stats_map_result_sets <- function(resp) {
 
 
 pad_id <- function(id = 1012100001) {
-  zeros <-
-    10 - nchar(id)
-  
+  zeros <- 10 - nchar(id)
+
   if (zeros == 0) {
-    return(id)
+    return(as.character(id))
   }
-  
-  start <-
-    rep("0", times = zeros) %>% stringr::str_c(collapse = "")
-  glue("{start}{id}") %>% as.character()
+
+  start <- strrep("0", zeros)
+  paste0(start, id)
 }
 
 
