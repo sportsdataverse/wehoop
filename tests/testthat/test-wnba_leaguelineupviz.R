@@ -3,7 +3,9 @@ test_that("WNBA League Lineup Viz", {
   skip_on_ci()
   skip_wnba_stats_test()
   
-  x <- wnba_leaguelineupviz(league_id = "10", season = most_recent_wnba_season() - 1)
+  
+  skip("Deprecated: wnba_leaguelineupviz() now errors by design; use wnba_leaguedashlineups().")
+x <- wnba_leaguelineupviz(league_id = "10", season = most_recent_wnba_season() - 1)
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
     skip("No rows returned from endpoint at test time")

@@ -2,7 +2,9 @@ test_that("WNBA Boxscore Player Tracking V2", {
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()
-  x <- wnba_boxscoreplayertrackv2(game_id = "1022200034")
+  
+  skip("Deprecated: wnba_boxscoreplayertrackv2() now errors by design; use wnba_boxscoreplayertrackv3().")
+x <- wnba_boxscoreplayertrackv2(game_id = "1022200034")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
     skip("No rows returned from endpoint at test time")

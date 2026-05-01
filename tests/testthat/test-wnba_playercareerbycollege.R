@@ -3,7 +3,9 @@ test_that("WNBA Player Career by College", {
   skip_on_ci()
   skip_wnba_stats_test()
   
-  x <- wnba_playercareerbycollege(college = 'Florida State', 
+  
+  skip("Deprecated: wnba_playercareerbycollege() now errors by design; use wnba_playercareerbycollegerollup() or wnba_leaguedashplayerbiostats().")
+x <- wnba_playercareerbycollege(college = 'Florida State', 
                                   per_mode = 'PerGame',
                                   season = most_recent_wnba_season() - 1)
 
