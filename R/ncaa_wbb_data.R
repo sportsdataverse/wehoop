@@ -100,22 +100,22 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
   }
   
   df <- data.frame()
-  
-  headers <- httr::add_headers(.headers = .ncaa_headers())
+
+  headers <- .ncaa_headers()
   tryCatch(
     expr = {
-      
-      
+
+
       url <- paste0("http://stats.ncaa.org/team/inst_team_list?academic_year=",
                     year,
                     "&conf_id=-1",
                     "&division=", division,
                     "&sport_code=WBB")
-      
-      resp <- httr::RETRY("GET", url = {{url}}, headers, httr::timeout(15))
-      
+
+      resp <- .retry_request(url, headers = headers, timeout = 15)
+
       data_read <- resp %>%
-        httr::content(as = "text", encoding = "UTF-8") %>%
+        .resp_text() %>%
         xml2::read_html()
       
       team_urls <- data_read %>%
@@ -150,17 +150,17 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
                                  "&division=", division,
                                  "&sport_code=WBB")
         
-        resp <- httr::RETRY("GET", url = {{conf_team_urls}}, headers, httr::timeout(15))
+        resp <- .retry_request(conf_team_urls, headers = headers, timeout = 15)
         
         team_urls <- resp %>%
-          httr::content(as = "text", encoding = "UTF-8") %>%
+          .resp_text() %>%
           xml2::read_html() %>%
           rvest::html_elements("table") %>%
           rvest::html_elements("a") %>%
           rvest::html_attr("href")
         
         team_names <- resp %>%
-          httr::content(as = "text", encoding = "UTF-8") %>%
+          .resp_text() %>%
           xml2::read_html() %>%
           rvest::html_elements("table") %>%
           rvest::html_elements("a") %>%

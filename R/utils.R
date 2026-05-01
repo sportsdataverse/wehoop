@@ -114,16 +114,76 @@ most_recent_wnba_season <- function() {
 my_time <- function() strftime(Sys.time(), format = "%H:%M:%S")
 
 #' Check Status function
-#' @param res Response from API
+#' @param res Response from an httr2 request
 #' @keywords Internal
 #' @import rvest
 #'
 check_status <- function(res) {
-  
-  x = httr::status_code(res)
-  
+
+  x <- httr2::resp_status(res)
+
   if (x != 200) stop("The API returned an error", call. = FALSE)
-  
+
+}
+
+#' Retry an HTTP request with httr2
+#'
+#' Internal helper used by `request_with_proxy()` and other wrappers that
+#' previously called `httr::RETRY()`. Wraps `httr2` request building, header /
+#' query injection, timeout, and retry policy in a single call.
+#'
+#' @param url Base request URL.
+#' @param params Optional named list of query parameters.
+#' @param headers Optional named character vector of HTTP headers.
+#' @param timeout Request timeout in seconds.
+#' @return An `httr2_response` object.
+#' @keywords internal
+.retry_request <- function(url, params = list(), headers = NULL, timeout = 60) {
+  req <- httr2::request(url)
+  if (length(params) > 0) {
+    req <- req |> httr2::req_url_query(!!!params)
+  }
+  if (!is.null(headers)) {
+    req <- req |> httr2::req_headers(!!!as.list(headers))
+  }
+  req |>
+    httr2::req_timeout(timeout) |>
+    httr2::req_retry(max_tries = 3) |>
+    httr2::req_perform()
+}
+
+#' Extract response body as text
+#'
+#' Replaces the `httr::content(res, as = "text", encoding = "UTF-8")` pattern.
+#'
+#' @param resp An `httr2_response` object.
+#' @return Character string of response body.
+#' @keywords internal
+.resp_text <- function(resp) {
+  httr2::resp_body_string(resp, encoding = "UTF-8")
+}
+
+#' @title
+#' **Convert a calendar year to a WNBA / NBA season string**
+#' @description
+#' Returns a season string of the form `YYYY-YY` (e.g. `2024 -> "2024-25"`).
+#' WNBA seasons span a single calendar year, but several Stats API endpoints
+#' (and several NBA-derived endpoints used in load helpers) accept the
+#' two-year season-string form, so this helper is provided for parity with
+#' the analogous helper in the `hoopR` package.
+#' @param year a four-digit calendar year (numeric or character).
+#' @return A character season string, e.g. `"2024-25"`.
+#' @keywords Internal
+#' @export
+year_to_season <- function(year) {
+  first_year <- substr(year, 3, 4)
+  next_year <- as.numeric(first_year) + 1
+  next_year <- dplyr::case_when(
+    next_year < 10 & first_year > 0 ~ glue::glue("0{next_year}"),
+    first_year == 99 ~ "00",
+    TRUE ~ as.character(next_year)
+  )
+  return(glue::glue("{year}-{next_year}"))
 }
 
 #' @importFrom magrittr %>%

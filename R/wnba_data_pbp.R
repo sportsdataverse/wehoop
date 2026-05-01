@@ -90,13 +90,13 @@ wnba_data_pbp <- function(game_id = "1022200034",
 
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", full_url, ...)
+      res <- .retry_request(full_url)
       
       # Check the result
       check_status(res)
       
       resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8")
+        .resp_text()
       
       data <- resp %>% 
         jsonlite::fromJSON() %>% 

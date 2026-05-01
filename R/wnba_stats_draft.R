@@ -81,14 +81,10 @@ wnba_draftboard <- function(
 
   tryCatch(
     expr = {
-      res <- httr::RETRY(
-        "GET", endpoint,
-        httr::add_headers(.headers = headers),
-        ...
-      )
+      res <- .retry_request(endpoint, headers = headers)
 
       resp <- res %>%
-        httr::content(as = "text", encoding = "UTF-8") %>%
+        .resp_text() %>%
         jsonlite::fromJSON(simplifyDataFrame = FALSE)
 
       board <- resp$results$board

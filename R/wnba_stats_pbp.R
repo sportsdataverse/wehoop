@@ -1463,12 +1463,12 @@ wnba_live_pbp <- function(
   tryCatch(
     expr = {
       
-      res <- rvest::session(url = full_url, ...,  httr::timeout(60))
-      
-      resp <- res$response %>%
-        httr::content(as = "text", encoding = "UTF-8") %>%
+      res <- .retry_request(full_url)
+
+      resp <- res %>%
+        .resp_text() %>%
         jsonlite::fromJSON()
-      
+
       data <- resp %>%
         purrr::pluck("game") %>%
         purrr::pluck("actions") %>%
@@ -1910,15 +1910,15 @@ wnba_live_boxscore <- function(
   tryCatch(
     expr = {
       
-      res <- rvest::session(url = full_url, ..., httr::timeout(60))
-      
-      resp <- res$response %>%
-        httr::content(as = "text", encoding = "UTF-8") %>%
+      res <- .retry_request(full_url)
+
+      resp <- res %>%
+        .resp_text() %>%
         jsonlite::fromJSON()
-      
+
       data <- resp %>%
         purrr::pluck("game")
-      
+
       game_details <- data.frame(
         game_id = data %>% purrr::pluck("gameId"),
         game_time_local = data %>% purrr::pluck("gameTimeLocal"),

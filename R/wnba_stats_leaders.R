@@ -1251,12 +1251,10 @@ wnba_homepagewidget <- function(
   tryCatch(
     expr = {
       
-      resp <- httr::RETRY("GET", url = full_url,
-                          httr::add_headers(.headers = wnba_headers_params())
-      )
-      json <- resp$content %>%
-        rawToChar() %>%
-        jsonlite::fromJSON(simplifyVector = T) 
+      resp <- .retry_request(full_url, headers = wnba_headers_params())
+      json <- resp %>%
+        .resp_text() %>%
+        jsonlite::fromJSON(simplifyVector = TRUE)
       
       
       categories <- json$items %>%

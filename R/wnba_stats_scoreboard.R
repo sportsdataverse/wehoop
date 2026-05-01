@@ -822,10 +822,10 @@ wnba_todays_scoreboard <- function(
   tryCatch(
     expr = {
       full_url <- "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_10.json"
-      res <- rvest::session(url = full_url, ...,  httr::timeout(60))
-      
-      resp <- res$response %>%
-        httr::content(as = "text", encoding = "UTF-8") %>%
+      res <- .retry_request(full_url)
+
+      resp <- res %>%
+        .resp_text() %>%
         jsonlite::fromJSON()
       
       scoreboard <- resp %>%

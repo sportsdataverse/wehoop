@@ -21,9 +21,12 @@ request_with_proxy(
 
 \item{referer}{Referer url}
 
-\item{...}{passed to httr::RETRY}
+\item{...}{currently unused (preserved for backwards compatibility with
+callers that previously passed \code{httr::use_proxy()} etc.)}
 }
 \description{
-This is a thin wrapper on httr::RETRY
+This is a thin wrapper on \code{httr2::req_retry()} via the internal
+\code{.retry_request()} helper. It applies the WNBA Stats API headers (origin,
+referer, x-nba-stats-* tokens) and decodes the JSON response.
 }
 \keyword{internal}

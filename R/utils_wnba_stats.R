@@ -3,8 +3,8 @@
            params = list(),
            ...,
            origin = "https://stats.wnba.com",
-           referer="https://www.wnba.com/") {
-    
+           referer = "https://www.wnba.com/") {
+
     headers <- c(
       `Host` = 'stats.wnba.com',
       `User-Agent` = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36',
@@ -19,28 +19,14 @@
       `Pragma` = 'no-cache',
       `Cache-Control` = 'no-cache'
     )
-    
-    dots <- rlang::dots_list(..., .named = TRUE)
-    proxy <- dots$proxy
-    if (length(params) >= 1) {
-      
-      res <-
-        httr::RETRY("GET", url,
-                    query = params,
-                    ...,
-                    httr::add_headers(.headers = headers))
-      json <- res$content %>%
-        rawToChar() %>%
-        jsonlite::fromJSON(simplifyVector = T)
-    } else {
-      res <- rvest::html_session(url, ..., httr::add_headers(.headers = headers))
-      json <- res$response %>% 
-        httr::content(as = "text", encoding = "UTF-8") %>% 
-        jsonlite::fromJSON()
-    }
-    
+
+    res <- .retry_request(url, params = params, headers = headers)
+
+    json <- res %>%
+      .resp_text() %>%
+      jsonlite::fromJSON(simplifyVector = TRUE)
+
     return(json)
-    
   }
 
 wnba_headers_params <- function(
@@ -66,23 +52,21 @@ wnba_headers_params <- function(
 #' @title
 #' **Retry http request with proxy**
 #' @description
-#' This is a thin wrapper on httr::RETRY
+#' This is a thin wrapper on `httr2::req_retry()` via the internal
+#' `.retry_request()` helper. It applies the WNBA Stats API headers (origin,
+#' referer, x-nba-stats-* tokens) and decodes the JSON response.
 #' @param url Request url
 #' @param params list of params
 #' @param origin Origin url
 #' @param referer Referer url
-#' @param ... passed to httr::RETRY
+#' @param ... currently unused (preserved for backwards compatibility with
+#'   callers that previously passed `httr::use_proxy()` etc.)
 #' @keywords internal
-#' @import rvest
 request_with_proxy <- function(url,
                                params = list(),
                                origin = "https://stats.wnba.com",
-                               referer="https://www.wnba.com/",
+                               referer = "https://www.wnba.com/",
                                ...){
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$proxy
-  headers <- dots$headers
-  
   headers <- c(
     `Host` = 'stats.wnba.com',
     `User-Agent` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
@@ -92,26 +76,18 @@ request_with_proxy <- function(url,
     `x-nba-stats-origin` = 'stats',
     `x-nba-stats-token` = 'true',
     `Connection` = 'keep-alive',
-    `Referer` = "https://www.wnba.com/",
+    `Origin` = origin,
+    `Referer` = referer,
     `Pragma` = 'no-cache',
     `Cache-Control` = 'no-cache'
   )
-  if (length(params) >= 1) {
-    url <- httr::modify_url({{url}}, query = params)
-    res <- rvest::session(url = url, ...,  httr::add_headers(.headers = headers), httr::timeout(60))
-    
-    json <- res$response %>%
-      httr::content(as = "text", encoding = "UTF-8") %>%
-      jsonlite::fromJSON()
-    
-  } else {
-    res <- rvest::session(url = {{url}}, ..., httr::add_headers(.headers = headers), httr::timeout(60))
-    
-    json <- res$response %>%
-      httr::content(as = "text", encoding = "UTF-8") %>%
-      jsonlite::fromJSON()
-  }
-  
+
+  resp <- .retry_request(url, params = params, headers = headers)
+
+  json <- resp %>%
+    .resp_text() %>%
+    jsonlite::fromJSON()
+
   return(json)
 }
 
