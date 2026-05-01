@@ -325,7 +325,7 @@ update_wnba_db <- function(dbdir = ".",
   }
   
   if (is.null(db_connection)) {
-    connection <- DBI::dbConnect(RSQLite::SQLite(), glue::glue("{dbdir}/{dbname}"))
+    connection <- DBI::dbConnect(RSQLite::SQLite(), file.path(dbdir, dbname))
   } else {
     connection <- db_connection
   }
@@ -390,7 +390,16 @@ build_wnba_db <- function(tblname = "wehoop_wnba_pbp", db_conn, rebuild = FALSE,
   } else if (is.numeric(rebuild) & all(rebuild %in% valid_seasons$season)) {
     string <- paste0(rebuild, collapse = ", ")
     if (show_message) {usethis::ui_todo("{my_time()} | Purging {string} season(s) from the data table {usethis::ui_value(tblname)} in your connected database...")}
-    DBI::dbExecute(db_conn, glue::glue_sql("DELETE FROM {`tblname`} WHERE season IN ({vals*})", vals = rebuild, .con = db_conn))
+    DBI::dbExecute(
+      db_conn,
+      paste0(
+        "DELETE FROM ", DBI::dbQuoteIdentifier(db_conn, tblname),
+        " WHERE season IN (",
+        paste(rep("?", length(rebuild)), collapse = ", "),
+        ")"
+      ),
+      params = as.list(rebuild)
+    )
     seasons <- valid_seasons %>% dplyr::filter(.data$season %in% rebuild) %>% dplyr::pull("season")
     usethis::ui_todo("{my_time()} | Starting download of the {string} season(s)...")
   } else if (all(rebuild == "NEW")) {
