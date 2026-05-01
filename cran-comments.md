@@ -36,6 +36,16 @@ The following wrappers target WNBA Stats API endpoints that no longer return dat
 
 0 errors | 0 warnings | 0 notes
 
+On some local Windows runs, R CMD check emits the transient
+
+    N  checking for future file timestamps
+       unable to verify current time
+
+NOTE. This is caused by R's clock-skew check failing to reach
+`worldtimeapi.org` from the dev environment, not by anything in the
+package; it does not appear on win-builder / CRAN. Setting
+`_R_CHECK_SYSTEM_CLOCK_=0` suppresses it locally.
+
 ## revdepcheck results
 
 We checked 0 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.

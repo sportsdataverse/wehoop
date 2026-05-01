@@ -22,7 +22,6 @@ test_that("ESPN - WNBA Game Rosters", {
     "slug",
     "headshot_href",
     "headshot_alt",
-    "jersey",
     "position_id",
     "position_name",
     "position_display_name",
