@@ -61,25 +61,28 @@ ncaa_wbb_NET_rankings <- function(){
 
 
 #' @title **Scrape NCAA Women's Basketball Teams (Division I, II, and III)**
-#' @description Returns the list of NCAA member institutions in a given
-#' division. Sourced from the NCAA member directory API at
-#' `web3.ncaa.org/directory/api/directory/memberList`.
+#' @description Scrapes the NCAA Stats per-season team list at
+#' `http://stats.ncaa.org/team/inst_team_list?academic_year=YYYY&conf_id=-1&division=N&sport_code=WBB`.
+#' Returns one row per team for the requested season-year and division,
+#' with the per-season `season_id` and `team_id` parsed out of the
+#' `stats.ncaa.org` team URL.
 #'
-#' Note: as of v3.0.0 the legacy `stats.ncaa.org/team/inst_team_list`
-#' endpoint is blocked behind Akamai (HTTP 403 to all automated requests).
-#' This function now returns institutional membership for the current
-#' academic year regardless of the `year` argument; the argument is kept
-#' for backward compatibility and emitted as the `year` column. The old
-#' stats.ncaa.org per-season `season_id` is no longer available, so that
-#' column is `NA_character_`.
+#' **Network access:** as of v3.0.0 `stats.ncaa.org` is fronted by Akamai
+#' and returns HTTP 403 (`Reference #18.<...>`) to many residential and
+#' cloud IP ranges regardless of headers. If you hit that block, supply a
+#' proxy that egresses from a non-blocked address — pass `proxy =`
+#' directly via `...` (forwarded to `.retry_request()`), or set it once
+#' with `options(wehoop.proxy = list(url=, port=, username=, password=))`.
+#' See the wehoop CLAUDE.md / pkgdown docs for the full proxy resolution
+#' order.
 #'
 #' @param year The season for which data should be returned, in the form
-#'   of "YYYY". The directory API only exposes the current academic year,
-#'   so this argument is recorded in the `year` column but does not
-#'   affect the rows returned.
+#'   of "YYYY". Years currently available: 2002 onward.
 #' @param division Division - 1, 2, or 3.
-#' @param ... Additional arguments (unused; retained for backward
-#'   compatibility).
+#' @param ... Forwarded to the internal `.retry_request()` HTTP helper.
+#'   The most useful pass-through is `proxy =` (string `"http://host:port"`
+#'   or named list `list(url=, port=, username=, password=, auth=)`); see
+#'   `?.retry_request` for the full set of recognized arguments.
 #' @return A data frame with the following variables
 #'
 #'    |col_name      |types     |
@@ -94,10 +97,23 @@ ncaa_wbb_NET_rankings <- function(){
 #'    |season_id     |character |
 #'
 #' @import dplyr
-#' @importFrom jsonlite fromJSON
+#' @import rvest
+#' @importFrom stringr str_split
 #' @export
 #' @details
 #' ```r
+#'   ncaa_wbb_teams(year = 2025, division = 1)
+#'
+#'   # Behind a proxy (per-call):
+#'   ncaa_wbb_teams(
+#'     year = 2025, division = 1,
+#'     proxy = list(url = "http://my-proxy", port = 8080,
+#'                  username = "user", password = "pass")
+#'   )
+#'
+#'   # Or session-wide:
+#'   options(wehoop.proxy = list(url = "http://my-proxy", port = 8080,
+#'                               username = "user", password = "pass"))
 #'   ncaa_wbb_teams(year = 2025, division = 1)
 #' ```
 ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
@@ -112,51 +128,147 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
   if (year < 2002) {
     stop("you must provide a year that is equal to or greater than 2002")
   }
-  div_roman <- switch(
-    as.character(division),
-    `1` = "I", `2` = "II", `3` = "III",
-    cli::cli_abort("`division` must be 1, 2, or 3")
-  )
+
+  # Pull `proxy` (and any other recognized args) out of `...` so we can
+  # thread them into every `.retry_request()` call below. R's named-arg
+  # matching does the rest — anything not consumed is silently dropped.
+  .dots  <- list(...)
+  .proxy <- .dots$proxy
 
   df <- data.frame()
-
-  url <- paste0(
-    "https://web3.ncaa.org/directory/api/directory/memberList?type=12&division=",
-    div_roman
-  )
+  headers <- .ncaa_headers()
 
   tryCatch(
     expr = {
-      resp <- .retry_request(url, headers = .ncaa_headers(), timeout = 30)
-      raw <- jsonlite::fromJSON(.resp_text(resp), flatten = TRUE)
+      url <- paste0(
+        "http://stats.ncaa.org/team/inst_team_list?academic_year=",
+        year,
+        "&conf_id=-1",
+        "&division=", division,
+        "&sport_code=WBB"
+      )
 
-      if (!is.data.frame(raw) || nrow(raw) == 0) {
-        return(df)
+      resp <- .retry_request(url, headers = headers, timeout = 15,
+                             proxy = .proxy)
+      status <- httr2::resp_status(resp)
+      body <- .resp_text(resp)
+
+      # Bail early on Akamai's "Access Denied" page so callers see the
+      # actual cause instead of a downstream `subscript out of bounds`
+      # when the parser tries to index `.level2[[4]]` of an empty list.
+      if (status >= 400L || grepl("Access Denied|Reference #18",
+                                  body, ignore.case = TRUE)) {
+        ref <- regmatches(
+          body,
+          regexpr("Reference&#32;&#35;18\\S+|Reference #18\\S+", body)
+        )
+        cli::cli_abort(c(
+          "stats.ncaa.org returned HTTP {status} (Akamai WAF block).",
+          "i" = if (length(ref) > 0) {
+                  sprintf("WAF reference: %s", paste(ref, collapse = ", "))
+                } else "Body did not contain the standard Akamai reference token.",
+          "i" = "Provide an unblocked proxy via `proxy =` or `options(wehoop.proxy = ...)`."
+        ))
       }
 
-      df <- raw %>%
-        dplyr::filter(.data$deactive == "N",
-                      .data$division == as.integer(division)) %>%
-        dplyr::transmute(
-          team_id = as.character(.data$orgId),
-          team_name = as.character(.data$nameOfficial),
-          team_url = as.character(.data$athleticWebUrl),
-          conference_id = as.character(.data$conferenceId),
-          conference = as.character(.data$conferenceName),
-          division = as.integer(.data$division),
-          year = as.integer(year),
-          season_id = NA_character_
-        ) %>%
-        dplyr::arrange(.data$conference, .data$team_name) %>%
-        dplyr::as_tibble() %>%
-        make_wehoop_data(
-          "NCAA WBB Teams data from web3.ncaa.org/directory",
-          Sys.time()
+      data_read <- xml2::read_html(body)
+
+      .level2 <- rvest::html_elements(data_read, ".level2")
+      if (length(.level2) < 4L) {
+        cli::cli_abort(c(
+          "Expected at least 4 `.level2` blocks on the team list page; got {length(.level2)}.",
+          "i" = "stats.ncaa.org may have changed its HTML; the conference parser needs an update.",
+          "i" = "If you're seeing this from a working IP, dump the HTML and inspect the structure."
+        ))
+      }
+
+      team_urls <- data_read %>%
+        rvest::html_elements("table") %>%
+        rvest::html_elements("a") %>%
+        rvest::html_attr("href")
+
+      team_names <- data_read %>%
+        rvest::html_elements("table") %>%
+        rvest::html_elements("a") %>%
+        rvest::html_text()
+
+      conference_names <- (.level2[[4]] %>%
+        rvest::html_elements("a") %>%
+        rvest::html_text())[-1]
+
+      conference_ids <- .level2[[4]] %>%
+        rvest::html_elements("a") %>%
+        rvest::html_attr("href") %>%
+        stringr::str_extract("javascript:changeConference\\(\\d+\\)") %>%
+        stringr::str_subset("javascript:changeConference\\(\\d+\\)") %>%
+        stringr::str_extract("\\d+")
+
+      conference_df <- data.frame(
+        conference = conference_names,
+        conference_id = conference_ids
+      )
+
+      conferences_team_df <- lapply(conference_df$conference_id, function(x) {
+        conf_team_url <- paste0(
+          "http://stats.ncaa.org/team/inst_team_list?academic_year=",
+          year,
+          "&conf_id=", x,
+          "&division=", division,
+          "&sport_code=WBB"
         )
+
+        resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
+                               proxy = .proxy)
+
+        page <- resp %>%
+          .resp_text() %>%
+          xml2::read_html()
+
+        urls  <- page %>%
+          rvest::html_elements("table") %>%
+          rvest::html_elements("a") %>%
+          rvest::html_attr("href")
+        names <- page %>%
+          rvest::html_elements("table") %>%
+          rvest::html_elements("a") %>%
+          rvest::html_text()
+
+        out <- data.frame(
+          team_url = urls,
+          team_name = names,
+          division = division,
+          year = year,
+          conference_id = x,
+          stringsAsFactors = FALSE
+        ) %>%
+          dplyr::left_join(conference_df, by = c("conference_id"))
+        Sys.sleep(5)
+        return(out)
+      })
+
+      conferences_team_df <- rbindlist_with_attrs(conferences_team_df)
+
+      conferences_team_df$team_id <- conferences_team_df$team_url %>%
+        stringr::str_extract("(\\d+)\\/(\\d+)", group = 1)
+      conferences_team_df$season_id <- conferences_team_df$team_url %>%
+        stringr::str_extract("(\\d+)\\/(\\d+)", group = 2)
+
+      df <- as.data.frame(conferences_team_df) %>%
+        dplyr::select(dplyr::any_of(c(
+          "team_id",
+          "team_name",
+          "team_url",
+          "conference_id",
+          "conference",
+          "division",
+          "year",
+          "season_id"
+        ))) %>%
+        make_wehoop_data("NCAA WBB Teams data from stats.ncaa.org", Sys.time())
     },
     error = function(e) .report_api_error(
       e,
-      hint = "Could not fetch NCAA member directory for division {division}!",
+      hint = "Invalid arguments or stats.ncaa.org unreachable (try `proxy =`)!",
       args = .args
     ),
     warning = function(w) .report_api_warning(w, args = .args),

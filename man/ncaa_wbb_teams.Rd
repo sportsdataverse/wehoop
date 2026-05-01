@@ -8,14 +8,14 @@ ncaa_wbb_teams(year = most_recent_wbb_season(), division = 1, ...)
 }
 \arguments{
 \item{year}{The season for which data should be returned, in the form
-of "YYYY". The directory API only exposes the current academic year,
-so this argument is recorded in the \code{year} column but does not
-affect the rows returned.}
+of "YYYY". Years currently available: 2002 onward.}
 
 \item{division}{Division - 1, 2, or 3.}
 
-\item{...}{Additional arguments (unused; retained for backward
-compatibility).}
+\item{...}{Forwarded to the internal \code{.retry_request()} HTTP helper.
+The most useful pass-through is \verb{proxy =} (string \code{"http://host:port"}
+or named list \code{list(url=, port=, username=, password=, auth=)}); see
+\code{?.retry_request} for the full set of recognized arguments.}
 }
 \value{
 A data frame with the following variables\tabular{ll}{
@@ -31,19 +31,34 @@ A data frame with the following variables\tabular{ll}{
 }
 }
 \description{
-Returns the list of NCAA member institutions in a given
-division. Sourced from the NCAA member directory API at
-\code{web3.ncaa.org/directory/api/directory/memberList}.
+Scrapes the NCAA Stats per-season team list at
+\verb{http://stats.ncaa.org/team/inst_team_list?academic_year=YYYY&conf_id=-1&division=N&sport_code=WBB}.
+Returns one row per team for the requested season-year and division,
+with the per-season \code{season_id} and \code{team_id} parsed out of the
+\code{stats.ncaa.org} team URL.
 
-Note: as of v3.0.0 the legacy \code{stats.ncaa.org/team/inst_team_list}
-endpoint is blocked behind Akamai (HTTP 403 to all automated requests).
-This function now returns institutional membership for the current
-academic year regardless of the \code{year} argument; the argument is kept
-for backward compatibility and emitted as the \code{year} column. The old
-stats.ncaa.org per-season \code{season_id} is no longer available, so that
-column is \code{NA_character_}.
+\strong{Network access:} as of v3.0.0 \code{stats.ncaa.org} is fronted by Akamai
+and returns HTTP 403 (\code{Reference #18.<...>}) to many residential and
+cloud IP ranges regardless of headers. If you hit that block, supply a
+proxy that egresses from a non-blocked address — pass \verb{proxy =}
+directly via \code{...} (forwarded to \code{.retry_request()}), or set it once
+with \code{options(wehoop.proxy = list(url=, port=, username=, password=))}.
+See the wehoop CLAUDE.md / pkgdown docs for the full proxy resolution
+order.
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_wbb_teams(year = 2025, division = 1)
+
+  # Behind a proxy (per-call):
+  ncaa_wbb_teams(
+    year = 2025, division = 1,
+    proxy = list(url = "http://my-proxy", port = 8080,
+                 username = "user", password = "pass")
+  )
+
+  # Or session-wide:
+  options(wehoop.proxy = list(url = "http://my-proxy", port = 8080,
+                              username = "user", password = "pass"))
+  ncaa_wbb_teams(year = 2025, division = 1)
 }\if{html}{\out{</div>}}
 }
