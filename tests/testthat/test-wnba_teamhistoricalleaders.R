@@ -1,6 +1,7 @@
 test_that("WNBA Team Historical Leaders", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_teamhistoricalleaders(team_id = "1611661328")
 

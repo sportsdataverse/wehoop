@@ -1,6 +1,7 @@
 
 test_that("ESPN - WBB Team Box", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_team_box(game_id = 401276115)
   
   cols <- c(

@@ -1,6 +1,7 @@
 test_that("WNBA Video Status", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_videostatus(game_date = '2022-06-10', league_id = '10')
 

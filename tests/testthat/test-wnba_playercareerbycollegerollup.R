@@ -1,6 +1,7 @@
 test_that("WNBA Player Career by College Rollup", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_playercareerbycollegerollup(per_mode = 'Totals')
 

@@ -1,6 +1,7 @@
 test_that("WNBA Team Player On Off Summary", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_teamplayeronoffsummary(team_id = "1611661328",
                                    season = most_recent_wnba_season())

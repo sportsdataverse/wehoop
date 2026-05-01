@@ -1,6 +1,7 @@
 test_that("WNBA Team Estimated Metrics", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_teamestimatedmetrics()
 

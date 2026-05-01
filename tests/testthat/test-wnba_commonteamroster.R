@@ -1,6 +1,7 @@
 test_that("WNBA Common Team Roster", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_commonteamroster(season = most_recent_wnba_season() - 1, team_id = '1611661317')
 

@@ -1,6 +1,7 @@
 test_that("WNBA Boxscore Misc V3", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_boxscoremiscv3(game_id = "1022200034")
 

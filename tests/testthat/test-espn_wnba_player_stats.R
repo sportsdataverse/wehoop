@@ -1,6 +1,7 @@
 
 test_that("ESPN - WNBA Player Stats", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wnba_player_stats(athlete_id = 2529130, year = 2022)
   cols <- c(
     "athlete_id",

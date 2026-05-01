@@ -1,6 +1,7 @@
 test_that("WNBA Player vs Player", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_playervsplayer(player_id = '1628932', vs_player_id = '1629488')
 

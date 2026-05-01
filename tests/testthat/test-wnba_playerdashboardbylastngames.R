@@ -1,6 +1,7 @@
 test_that("WNBA Player Dashboard by Last N Games", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_playerdashboardbylastngames(player_id = "1628932", season = most_recent_wnba_season() - 1)
 

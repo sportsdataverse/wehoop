@@ -1,6 +1,7 @@
 test_that("WNBA Assist Tracker", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_assisttracker(league_id = "10")
 

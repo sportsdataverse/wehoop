@@ -90,6 +90,11 @@ Every exported function needs:
 ## Testing
 
 - Use `skip_on_cran()` and `skip_on_ci()` guards for all live API tests.
+- Add a source-specific env-var skip helper immediately after `skip_on_ci()`:
+  - `skip_wnba_stats_test()` for `test-wnba_*.R`
+  - `skip_espn_test()` for `test-espn_wbb_*.R` and `test-espn_wnba_*.R`
+  - `skip_ncaa_wbb_test()` for `test-ncaa_wbb_*.R`
+  These helpers live in `tests/testthat/helper-skip.R` and gate on env vars (`WNBA_STATS_TESTS=1`, `ESPN_TESTS=1`, `NCAA_WBB_TESTS=1`).
 - **Column assertions must always use the subset direction** — expected ⊆ actual:
   `expect_in(sort(expected_cols), sort(colnames(x)))`. WNBA and ESPN APIs add columns without removing old ones, so strict `expect_equal(sort(colnames(x)), sort(cols))` will flag on any new column. The subset direction is the only pattern that survives upstream drift.
 - **Always add a skip-if-empty guard immediately after the API call**, before any assertion that touches `x[[1]]`:
@@ -117,9 +122,14 @@ Every exported function needs:
 
 ### Environment Variables
 
-| Variable           | Description                  |
-| ------------------ | ---------------------------- |
-| `KP_USER` / `KP_PW` | KenPom credentials (if used) |
+| Variable             | Description                  | Helper                    |
+| -------------------- | ---------------------------- | ------------------------- |
+| `WNBA_STATS_TESTS=1` | Enable WNBA Stats API tests  | `skip_wnba_stats_test()`  |
+| `ESPN_TESTS=1`       | Enable ESPN API tests        | `skip_espn_test()`        |
+| `NCAA_WBB_TESTS=1`   | Enable NCAA WBB tests        | `skip_ncaa_wbb_test()`    |
+| `KP_USER` / `KP_PW`  | KenPom credentials (if used) | n/a                       |
+
+On CI, most live API tests are additionally guarded with `skip_on_ci()`. Setting env vars alone will not run those tests unless that guard is intentionally relaxed.
 
 ## Conventional Commits
 

@@ -1,5 +1,6 @@
 test_that("ESPN - WNBA Scoreboard", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wnba_scoreboard(season = "20200829")
   
   

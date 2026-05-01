@@ -1,6 +1,7 @@
 test_that("WNBA Player Profile V2", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_playerprofilev2(player_id = "1628932")
 

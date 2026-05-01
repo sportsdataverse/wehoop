@@ -4,6 +4,7 @@ cols <- c("rank", "previous", "school", "conference",
 
 test_that("NCAA - WBB NET Rankings", {
   skip_on_cran()
+  skip_ncaa_wbb_test()
   x <- ncaa_wbb_NET_rankings()
   
   expect_in(cols, colnames(x))

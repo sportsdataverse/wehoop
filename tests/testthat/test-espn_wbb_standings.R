@@ -32,6 +32,7 @@ cols <- c(
 
 test_that("ESPN - WBB Standings", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_standings(year = 2021)
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")

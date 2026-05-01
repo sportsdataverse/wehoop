@@ -1,6 +1,7 @@
 test_that("WNBA Draft History", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   x <- wnba_drafthistory(season = most_recent_wnba_season() - 1)
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {

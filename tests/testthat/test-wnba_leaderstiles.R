@@ -1,6 +1,7 @@
 test_that("WNBA Leaders Tiles", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   skip("Skip this test due to deprecation")
   
   x <- wnba_leaderstiles(league_id = "10")

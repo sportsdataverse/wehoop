@@ -1,6 +1,7 @@
 test_that("WNBA League Standings V3", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_leaguestandingsv3(league_id = "10", season = most_recent_wnba_season() - 1)
 

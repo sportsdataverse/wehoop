@@ -1,6 +1,7 @@
 # test_that("WNBA Player Next N Games", {
 #   skip_on_cran()
 #   skip_on_ci()
+skip_wnba_stats_test()
 #   
 #   x <- wnba_playernextngames(player_id = '1628932')
 #   

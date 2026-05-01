@@ -1,6 +1,7 @@
 test_that("WNBA Common Playoff Series", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 2)
 

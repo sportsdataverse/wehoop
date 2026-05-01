@@ -1,6 +1,7 @@
 test_that("WNBA Player Dashboard by Clutch", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_playerdashboardbyclutch(player_id = "1629477", season = most_recent_wnba_season() - 1)
 

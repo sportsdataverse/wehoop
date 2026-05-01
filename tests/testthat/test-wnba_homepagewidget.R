@@ -1,6 +1,7 @@
 test_that("WNBA Home Page Widget", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_homepagewidget(player_or_team = "Player")
 

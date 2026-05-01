@@ -1,6 +1,7 @@
 # test_that("WNBA Draft Combine Spot Shooting", {
 #   skip_on_cran()
 #   skip_on_ci()
+skip_wnba_stats_test()
 #   x <- wnba_draftcombinespotshooting(season_year = most_recent_wnba_season() - 1)
 #   
 #   cols_x1 <- c(

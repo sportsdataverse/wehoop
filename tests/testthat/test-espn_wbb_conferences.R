@@ -1,6 +1,7 @@
 
 test_that("ESPN - WBB Conferences", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_conferences()
   
   cols <- c(

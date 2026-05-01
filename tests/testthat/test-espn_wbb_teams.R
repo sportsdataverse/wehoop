@@ -2,6 +2,7 @@
 
 test_that("ESPN - WBB Teams", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_teams()
   
   cols <- c(

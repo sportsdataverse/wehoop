@@ -2,6 +2,7 @@
 
 test_that("ESPN - WNBA Player Box", {
   skip_on_cran()
+  skip_espn_test()
   cols <- c(
     "game_id",
     "season",

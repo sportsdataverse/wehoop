@@ -1,6 +1,7 @@
 
 test_that("ESPN - WBB Play-by-Play", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_game_rosters(game_id = 401276115)
   
   cols <- c(

@@ -1,6 +1,7 @@
 
 test_that("ESPN - WBB Play-by-Play", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_game_all(game_id = 401276115)
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {

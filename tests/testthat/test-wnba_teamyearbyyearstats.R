@@ -1,6 +1,7 @@
 test_that("WNBA Team Year by Year Stats", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_teamyearbyyearstats(team_id = "1611661328")
 

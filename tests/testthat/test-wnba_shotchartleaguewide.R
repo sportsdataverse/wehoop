@@ -1,6 +1,7 @@
 test_that("WNBA Shotchart League-Wide", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_shotchartleaguewide(league_id = '10', season = most_recent_wnba_season() - 1)
 

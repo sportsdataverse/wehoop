@@ -1,5 +1,6 @@
 test_that("ESPN - WNBA Play-by-Play", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wnba_pbp(game_id = 401244185)
   
   cols <- c(

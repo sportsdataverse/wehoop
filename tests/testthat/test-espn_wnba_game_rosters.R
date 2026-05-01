@@ -1,5 +1,6 @@
 test_that("ESPN - WNBA Game Rosters", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wnba_game_rosters(game_id = 401244185)
   
   cols <- c(

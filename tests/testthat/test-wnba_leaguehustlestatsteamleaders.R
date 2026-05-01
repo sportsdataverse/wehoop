@@ -2,6 +2,7 @@ test_that("WNBA League Hustle Stats Team Leaders", {
   skip()
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   skip("Skip this test due to deprecation")
   
   x <- wnba_leaguehustlestatsteamleaders(league_id = "10")

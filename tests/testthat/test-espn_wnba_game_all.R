@@ -1,5 +1,6 @@
 test_that("ESPN - WNBA Game all", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wnba_game_all(game_id = 401455681)
   
   cols_x1 <- c(

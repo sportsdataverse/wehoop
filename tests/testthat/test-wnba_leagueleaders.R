@@ -1,6 +1,7 @@
 test_that("WNBA League Leaders", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_leagueleaders(league_id = "10")
 

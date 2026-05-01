@@ -1,6 +1,7 @@
 test_that("WNBA Player Career by College", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_playercareerbycollege(college = 'Florida State', 
                                   per_mode = 'PerGame',

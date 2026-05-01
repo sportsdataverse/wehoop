@@ -40,6 +40,7 @@ cols <- c(
 
 test_that("ESPN - WBB Rankings", {
   skip_on_cran()
+  skip_espn_test()
   x <- espn_wbb_rankings()
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")

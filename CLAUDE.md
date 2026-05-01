@@ -251,6 +251,7 @@ All user-facing messages use `cli`:
 test_that("WNBA Endpoint Name", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()  # Requires WNBA_STATS_TESTS=1
 
   x <- wnba_function(game_id = "1022200034")
 
@@ -295,6 +296,23 @@ check_cols(2, cols_x2)
 ```
 
 See `test-wnba_teamvsplayer.R` and `test-wnba_playerdashboardbyclutch.R` for live examples.
+
+### Environment Variables for Tests
+
+Tests are gated by source-specific env-var helpers in `tests/testthat/helper-skip.R`. Each helper short-circuits unless the corresponding variable is set:
+
+| Variable             | Description                  | Helper                    |
+|----------------------|------------------------------|---------------------------|
+| `WNBA_STATS_TESTS=1` | Enable WNBA Stats API tests  | `skip_wnba_stats_test()`  |
+| `ESPN_TESTS=1`       | Enable ESPN API tests        | `skip_espn_test()`        |
+| `NCAA_WBB_TESTS=1`   | Enable NCAA WBB tests        | `skip_ncaa_wbb_test()`    |
+
+Use the source-specific helper for the endpoint under test:
+- `skip_wnba_stats_test()` for `test-wnba_*.R`
+- `skip_espn_test()` for `test-espn_wbb_*.R` and `test-espn_wnba_*.R`
+- `skip_ncaa_wbb_test()` for `test-ncaa_wbb_*.R`
+
+Note: in CI, many live API tests still include `skip_on_ci()` guards. Env vars alone do not override those guards unless tests are intentionally changed.
 
 ### Rate Limiting
 

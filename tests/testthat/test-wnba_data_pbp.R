@@ -1,6 +1,7 @@
 test_that("WNBA Data PBP", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   x <- wnba_data_pbp(game_id = "1022200034")
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {

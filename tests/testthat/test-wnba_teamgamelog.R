@@ -1,6 +1,7 @@
 test_that("WNBA Team Game Log", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_teamgamelog(team_id = "1611661328")
 

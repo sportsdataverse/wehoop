@@ -1,6 +1,7 @@
 test_that("WNBA League Dash Team Stats", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_leaguedashteamstats(league_id = "10", season = most_recent_wnba_season() - 1)
 

@@ -1,6 +1,7 @@
 test_that("WNBA Common Player Info", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_commonplayerinfo(league_id = '10', player_id = '1628932')
 

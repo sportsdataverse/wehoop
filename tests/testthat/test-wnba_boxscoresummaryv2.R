@@ -1,6 +1,7 @@
 test_that("WNBA Boxscore Summary V2", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   x <- wnba_boxscoresummaryv2(game_id = "1022200034")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {

@@ -1,6 +1,7 @@
 test_that("WNBA Cumulative Stats Player", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   x <- wnba_cumestatsplayer(game_ids = "1022200018", player_id = "204319", season = "2021-22")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {

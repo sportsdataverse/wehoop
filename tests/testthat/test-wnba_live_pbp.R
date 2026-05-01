@@ -1,6 +1,7 @@
 test_that("WNBA Live Play-by-Play", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_live_pbp(game_id = "1022200034")
   

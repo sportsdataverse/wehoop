@@ -1,6 +1,7 @@
 test_that("WNBA All-Time Leaders Grids", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
   
   x <- wnba_alltimeleadersgrids(league_id = "10")
 
