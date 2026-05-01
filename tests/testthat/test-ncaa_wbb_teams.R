@@ -2,11 +2,11 @@ test_that("NCAA - Get WBB Teams", {
   skip_on_cran()
   skip_on_ci()
   skip_ncaa_wbb_test()
-  skip("stats.ncaa.org is currently 403-blocked for automated scraping; re-enable when reachable")
   x <- ncaa_wbb_teams(year = most_recent_wbb_season(), division = 1)
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
-    skip("No rows returned from ncaa_wbb_teams() at test time")
+    fail("No rows returned from ncaa_wbb_teams() at test time")
+    return(invisible(NULL))
   }
 
   cols <- c(

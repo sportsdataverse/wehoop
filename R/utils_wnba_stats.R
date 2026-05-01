@@ -284,14 +284,26 @@ pad_id <- function(id = 1012100001) {
 
 
 .ncaa_headers <- function(url){
+  # `stats.ncaa.org` started blocking the previous Chrome/110 user-agent
+  # with HTTP 403. Bumped to a recent Chrome and added the Sec-Fetch-* and
+  # Upgrade-Insecure-Requests headers a real browser sends so the request
+  # looks like an interactive page load. Also drop the explicit `Host`
+  # entry — httr2 sets it from the URL and a duplicate trips some CDNs.
   headers <- c(
-    `Host` = 'stats.ncaa.org',
-    `User-Agent` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
-    `Accept` = 'application/json, text/html, text/plain, */*',
-    `Accept-Language` = 'en-US,en;q=0.5',
+    `User-Agent` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+    `Accept` = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    `Accept-Language` = 'en-US,en;q=0.9',
     `Accept-Encoding` = 'gzip, deflate, br',
+    `Cache-Control` = 'no-cache',
     `Pragma` = 'no-cache',
-    `Cache-Control` = 'no-cache'
+    `Upgrade-Insecure-Requests` = '1',
+    `Sec-Fetch-Dest` = 'document',
+    `Sec-Fetch-Mode` = 'navigate',
+    `Sec-Fetch-Site` = 'none',
+    `Sec-Fetch-User` = '?1',
+    `sec-ch-ua` = '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+    `sec-ch-ua-mobile` = '?0',
+    `sec-ch-ua-platform` = '"Windows"'
   )
   return(headers)
 }

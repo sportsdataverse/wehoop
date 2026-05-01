@@ -107,7 +107,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
     expr = {
 
 
-      url <- paste0("http://stats.ncaa.org/team/inst_team_list?academic_year=",
+      url <- paste0("https://stats.ncaa.org/team/inst_team_list?academic_year=",
                     year,
                     "&conf_id=-1",
                     "&division=", division,
@@ -145,7 +145,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
       conference_df <- data.frame(conference = conference_names, conference_id = conference_ids)
       
       conferences_team_df <- lapply(conference_df$conference_id, function(x){
-        conf_team_urls <- paste0("http://stats.ncaa.org/team/inst_team_list?academic_year=",
+        conf_team_urls <- paste0("https://stats.ncaa.org/team/inst_team_list?academic_year=",
                                  year,
                                  "&conf_id=", x,
                                  "&division=", division,
