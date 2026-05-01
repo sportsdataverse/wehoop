@@ -42,6 +42,7 @@ NULL
 #'  wnba_teams()
 #' ```
 wnba_teams <- function(...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   tryCatch(
     expr = {
@@ -89,10 +90,11 @@ wnba_teams <- function(...){
         janitor::clean_names()
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team details data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team details data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -212,6 +214,7 @@ NULL
 wnba_teamdetails <- function(
     team_id = '1611661328',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "teamdetails"
   endpoint <- wnba_endpoint(version)
@@ -231,10 +234,11 @@ wnba_teamdetails <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team details data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team details data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -308,6 +312,7 @@ wnba_teamestimatedmetrics <- function(
     season = most_recent_wnba_season(),
     season_type = 'Regular Season',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -340,10 +345,11 @@ wnba_teamestimatedmetrics <- function(
       names(df_list) <- resp$resultSet$name
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team estimated metrics data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team estimated metrics data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -422,6 +428,7 @@ wnba_teamgamelog <- function(
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -448,10 +455,11 @@ wnba_teamgamelog <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team game log data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team game log data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -586,6 +594,7 @@ wnba_teamgamelogs <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -626,10 +635,11 @@ wnba_teamgamelogs <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team game logs for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team game logs for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -691,6 +701,7 @@ wnba_teamhistoricalleaders <- function(
     season_id = '22022',
     team_id = '1611661328',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "teamhistoricalleaders"
   endpoint <- wnba_endpoint(version)
@@ -712,10 +723,11 @@ wnba_teamhistoricalleaders <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team historical leaders data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team historical leaders data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1100,6 +1112,7 @@ wnba_teamplayeronoffdetails <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -1143,10 +1156,11 @@ wnba_teamplayeronoffdetails <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team player on off details data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team player on off details data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1326,6 +1340,7 @@ wnba_teamplayeronoffsummary <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -1369,10 +1384,11 @@ wnba_teamplayeronoffsummary <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team player on off summary data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team player on off summary data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1583,6 +1599,7 @@ wnba_teamplayerdashboard <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -1626,10 +1643,11 @@ wnba_teamplayerdashboard <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team player dashboard data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team player dashboard data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1710,6 +1728,7 @@ wnba_teamyearbyyearstats <- function(
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -1734,10 +1753,11 @@ wnba_teamyearbyyearstats <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team year-by-year stats data for {team_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team year-by-year stats data for {team_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -2114,6 +2134,7 @@ wnba_teamvsplayer <- function(
     vs_division = '',
     vs_player_id = '1628932',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -2159,10 +2180,11 @@ wnba_teamvsplayer <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team vs player data for {team_id} and {player_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team vs player data for {team_id} and {player_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -2591,6 +2613,7 @@ wnba_teamgamestreakfinder <- function(
     wrs_opp_stl = '',
     wrs_opp_tov = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -2799,10 +2822,11 @@ wnba_teamgamestreakfinder <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team streak finder data for the given parameters available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team streak finder data for the given parameters available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

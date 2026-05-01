@@ -74,6 +74,7 @@ NULL
 #' ```
 wnba_data_pbp <- function(game_id = "1022200034",
                           ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   league_id <- substr(game_id, 1, 2)
   season_id <- substr(game_id, 4, 5)
@@ -145,10 +146,11 @@ wnba_data_pbp <- function(game_id = "1022200034",
         dplyr::select("game_id", "league", tidyr::everything()) %>%
         make_wehoop_data("WNBA Play-by-Play Information from data.WNBA.com",Sys.time())
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no play-by-play data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

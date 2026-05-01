@@ -60,6 +60,7 @@ NULL
 wnba_draftboard <- function(
     season = most_recent_wnba_season(),
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
 
   endpoint <- glue::glue(
     "https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board"
@@ -143,10 +144,11 @@ wnba_draftboard <- function(
         picks = picks_df
       )
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft board data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft board data available for {season}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -234,6 +236,7 @@ wnba_draftcombinestats <- function(
     league_id = '10',
     season_year = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "draftcombinestats"
   endpoint <- wnba_endpoint(version)
@@ -254,10 +257,11 @@ wnba_draftcombinestats <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft combine stats data available for {season_year}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft combine stats data available for {season_year}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -293,6 +297,7 @@ wnba_draftcombinedrillresults <- function(
     league_id = '10',
     season_year = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   
   version <- "draftcombinedrillresults"
@@ -314,10 +319,11 @@ wnba_draftcombinedrillresults <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft combine drill results data available for {season_year}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft combine drill results data available for {season_year}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -353,6 +359,7 @@ wnba_draftcombinenonstationaryshooting <- function(
     league_id = '10',
     season_year = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   
   version <- "draftcombinenonstationaryshooting"
@@ -374,10 +381,11 @@ wnba_draftcombinenonstationaryshooting <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft combine stationary shooting data available for {season_year}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft combine stationary shooting data available for {season_year}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -413,6 +421,7 @@ wnba_draftcombineplayeranthro <- function(
     league_id = '10',
     season_year = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   
   version <- "draftcombineplayeranthro"
@@ -434,10 +443,11 @@ wnba_draftcombineplayeranthro <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft combine player anthropological data available for {season_year}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft combine player anthropological data available for {season_year}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -472,6 +482,7 @@ wnba_draftcombinespotshooting <- function(
     league_id = '10',
     season_year = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   
   version <- "draftcombinespotshooting"
@@ -493,10 +504,11 @@ wnba_draftcombinespotshooting <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft combine spot shooting data available for {season_year}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft combine spot shooting data available for {season_year}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -560,6 +572,7 @@ wnba_drafthistory <- function(
     team_id = '',
     top_x = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   
   version <- "drafthistory"
@@ -587,10 +600,11 @@ wnba_drafthistory <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no draft history data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no draft history data available for {season}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

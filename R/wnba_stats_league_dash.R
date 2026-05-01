@@ -115,6 +115,7 @@ wnba_leaguedashplayerbiostats <- function(
     vs_division = '',
     weight = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -167,10 +168,11 @@ wnba_leaguedashplayerbiostats <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player bio stats data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard player bio stats data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -353,6 +355,7 @@ wnba_leaguedashplayerclutch <- function(
     vs_division = '',
     weight = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # ahead_behind <- gsub(' ', '+', ahead_behind)
   # clutch_time <- gsub(' ', '+', clutch_time)
@@ -414,10 +417,11 @@ wnba_leaguedashplayerclutch <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player clutch stats data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard player clutch stats data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -594,6 +598,7 @@ wnba_leaguedashplayerstats <- function(
     vs_division = '',
     weight = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -650,10 +655,11 @@ wnba_leaguedashplayerstats <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player stats data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard player stats data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -797,6 +803,7 @@ wnba_leaguedashplayershotlocations <- function(
     vs_division = '',
     weight = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # distance_range <- gsub(' ', '+', distance_range)
   # Intentional
@@ -867,10 +874,11 @@ wnba_leaguedashplayershotlocations <- function(
       })
       names(df_list) <- resp$resultSets$name
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard player shot locations data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard player shot locations data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1028,6 +1036,7 @@ wnba_leaguedashteamclutch <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # ahead_behind <- gsub(' ', '+', ahead_behind)
   # clutch_time <- gsub(' ', '+', clutch_time)
@@ -1082,10 +1091,11 @@ wnba_leaguedashteamclutch <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard team clutch data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard team clutch data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1234,6 +1244,7 @@ wnba_leaguedashteamstats <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -1282,10 +1293,11 @@ wnba_leaguedashteamstats <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard team stats data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard team stats data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1410,6 +1422,7 @@ wnba_leaguedashteamshotlocations <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # distance_range <- gsub(' ', '+', distance_range)
   # Intentional
@@ -1473,10 +1486,11 @@ wnba_leaguedashteamshotlocations <- function(
       })
       names(df_list) <- resp$resultSets$name
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league dashboard team shot location data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league dashboard team shot location data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

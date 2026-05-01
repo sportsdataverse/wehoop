@@ -120,6 +120,7 @@ wnba_cumestatsplayer <- function(
   season_type = 'Regular Season',
   team_id = '',
   ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   #intentional
   # season_type <- gsub(' ','+',season_type)
@@ -146,10 +147,11 @@ wnba_cumestatsplayer <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no cumulative player stats data available for {player_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no cumulative player stats data available for {player_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -206,6 +208,7 @@ wnba_cumestatsplayergames <- function(
   vs_division = '',
   vs_team_id = '',
   ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   #intentional
   # season_type <- gsub(' ','+',season_type)
@@ -235,10 +238,11 @@ wnba_cumestatsplayergames <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no cumulative player game stats data available for {player_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no cumulative player game stats data available for {player_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -376,6 +380,7 @@ wnba_cumestatsteam <- function(
   season_type = 'Regular Season',
   team_id = '1611661317',
   ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   #intentional
   # season_type <- gsub(' ','+',season_type)
@@ -400,10 +405,11 @@ wnba_cumestatsteam <- function(
       
       df_list <- wnba_stats_map_result_sets(resp)
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no cumulative team stats data available for {team_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no cumulative team stats data available for {team_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -461,6 +467,7 @@ wnba_cumestatsteamgames <- function(
   vs_division = '',
   vs_team_id = '',
   ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   #intentional
   # season_type <- gsub(' ','+',season_type)
@@ -491,10 +498,11 @@ wnba_cumestatsteamgames <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no cumulative team game stats data available for {team_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no cumulative team game stats data available for {team_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

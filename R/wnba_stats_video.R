@@ -279,6 +279,7 @@ wnba_videoevents <- function(
     game_id = '1022200075',
     game_event_id = '10',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "videoevents"
   endpoint <- wnba_endpoint(version)
@@ -307,10 +308,11 @@ wnba_videoevents <- function(
       names(df_list) <- c("videoUrls", "playlist")
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no video events data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no video events data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -366,6 +368,7 @@ wnba_videostatus <- function(
     game_date = '2022-06-10',
     league_id = '10',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "videostatus"
   endpoint <- wnba_endpoint(version)
@@ -386,10 +389,11 @@ wnba_videostatus <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no video status data for {game_date} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no video status data for {game_date} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

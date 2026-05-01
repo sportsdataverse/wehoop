@@ -198,6 +198,7 @@
 #' }
 
 espn_wnba_game_all <- function(game_id){
+  .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
@@ -207,39 +208,57 @@ espn_wnba_game_all <- function(game_id){
   ## game_id
   full_url <- paste0(summary_url,
                      "event=", game_id)
-  
-  res <- .retry_request(full_url)
-  
-  # Check the result
-  check_status(res)
-  
-  resp <- res %>%
-    .resp_text()
-  
-  #---- Play-by-Play ------
-  pbp <- NULL
 
+  pbp <- list(Plays = NULL, Team = NULL, Player = NULL)
+  resp <- NULL
+  plays_df <- NULL
+  team_box_score <- NULL
+  player_box_score <- NULL
+
+  #---- Fetch the summary endpoint (single outer tryCatch) -------------------
   tryCatch(
     expr = {
-      
+      res <- .retry_request(full_url)
+      check_status(res)
+      resp <- res %>%
+        .resp_text()
+    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Could not fetch game summary for game_id = {game_id}",
+      args = .args
+    ),
+    warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
+    },
+    finally = {}
+  )
+
+  if (is.null(resp)) {
+    return(pbp)
+  }
+
+  #---- Play-by-Play ------
+  tryCatch(
+    expr = {
+
       plays_df <- helper_espn_wnba_pbp(resp)
-      
+
       if (is.null(plays_df)) {
         cli::cli_alert_danger("{Sys.time()}: No play-by-play data for {game_id} available!")
       }
-      
+
     },
-    error = function(e) {
-      cli::cli_alert_danger(
-          "{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!"
-      )
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no play-by-play data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
     finally = {
-      
+
     }
   )
   #---- Team Box ------
@@ -253,12 +272,11 @@ espn_wnba_game_all <- function(game_id){
       }
       
     },
-    error = function(e) {
-      cli::cli_alert_danger(
-          "{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!"
-      )
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team box score data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -277,12 +295,11 @@ espn_wnba_game_all <- function(game_id){
       }
       
     },
-    error = function(e) {
-      cli::cli_alert_danger(
-          "{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!"
-      )
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no player box score data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -374,6 +391,7 @@ espn_wnba_game_all <- function(game_id){
 #'    try(espn_wnba_pbp(game_id = 401455681))
 #' }
 espn_wnba_pbp <- function(game_id){
+  .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
@@ -383,21 +401,17 @@ espn_wnba_pbp <- function(game_id){
   ## game_id
   full_url <- paste0(summary_url,
                      "event=", game_id)
-  
-  res <- .retry_request(full_url)
-  
-  # Check the result
-  check_status(res)
-  
-  resp <- res %>%
-    .resp_text()
-  
+
   #---- Play-by-Play ------
   plays_df <- NULL
 
   tryCatch(
     expr = {
-      
+      res <- .retry_request(full_url)
+      check_status(res)
+      resp <- res %>%
+        .resp_text()
+
       plays_df <- helper_espn_wnba_pbp(resp)
       
       if (is.null(plays_df)) {
@@ -405,10 +419,11 @@ espn_wnba_pbp <- function(game_id){
       }
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no play-by-play data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -499,6 +514,7 @@ espn_wnba_pbp <- function(game_id){
 #'    try(espn_wnba_team_box(game_id = 401244185))
 #' }
 espn_wnba_team_box <- function(game_id){
+  .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   summary_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?"
@@ -507,21 +523,17 @@ espn_wnba_team_box <- function(game_id){
   ## game_id
   full_url <- paste0(summary_url,
                      "event=", game_id)
-  
-  res <- .retry_request(full_url)
-  
-  # Check the result
-  check_status(res)
-  
-  resp <- res %>%
-    .resp_text()
-  
+
   #---- Team Box ------
   team_box_score <- NULL
 
   tryCatch(
     expr = {
-      
+      res <- .retry_request(full_url)
+      check_status(res)
+      resp <- res %>%
+        .resp_text()
+
       team_box_score <- helper_espn_wnba_team_box(resp)
       
       if (is.null(team_box_score)) {
@@ -529,10 +541,11 @@ espn_wnba_team_box <- function(game_id){
       }
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team box score data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team box score data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -624,6 +637,7 @@ espn_wnba_team_box <- function(game_id){
 #' }
 #' 
 espn_wnba_player_box <- function(game_id){
+  .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   summary_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?"
@@ -632,21 +646,17 @@ espn_wnba_player_box <- function(game_id){
   ## game_id
   full_url <- paste0(summary_url,
                      "event=", game_id)
-  
-  res <- .retry_request(full_url)
-  
-  # Check the result
-  check_status(res)
-  
-  resp <- res %>%
-    .resp_text()
-  
+
   #---- Player Box ------
   player_box_score <- NULL
 
   tryCatch(
     expr = {
-      
+      res <- .retry_request(full_url)
+      check_status(res)
+      resp <- res %>%
+        .resp_text()
+
       player_box_score <- helper_espn_wnba_player_box(resp)
       
       if (is.null(player_box_score)) {
@@ -654,10 +664,11 @@ espn_wnba_player_box <- function(game_id){
       }
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player box score data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no player box score data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -761,6 +772,7 @@ espn_wnba_player_box <- function(game_id){
 #'   try(espn_wnba_game_rosters(game_id = 401244185))
 #' }
 espn_wnba_game_rosters <- function(game_id) {
+  .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   athlete_roster_df <- NULL
@@ -984,12 +996,11 @@ espn_wnba_game_rosters <- function(game_id) {
         make_wehoop_data("ESPN WNBA Game Roster Information from ESPN.com",Sys.time())
       
     },
-    error = function(e) {
-      cli::cli_alert_danger(
-          "{Sys.time()}: Invalid arguments or no game roster data for {game_id} available!"
-      )
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no game roster data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1032,53 +1043,66 @@ espn_wnba_game_rosters <- function(game_id) {
 #' }
 
 espn_wnba_teams <- function(){
+  .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
-  res <- .retry_request(play_base_url)
-  
-  # Check the result
-  check_status(res)
-  resp <- res %>%
-    .resp_text() 
-  
-  ## Inputs
-  ## game_id
-  leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
-    dplyr::group_by(.data$id) %>%
-    tidyr::unnest_wider("logos", names_sep = "_") %>%
-    tidyr::unnest_wider("logos_href", names_sep = "_") %>%
-    dplyr::select(
-      -"logos_width",
-      -"logos_height",
-      -"logos_alt", 
-      -"logos_rel") %>%
-    dplyr::ungroup()
-  
-  wnba_teams <- leagues %>%
-    dplyr::select(
-      "id", 
-      "location", 
-      "name", 
-      "displayName", 
-      "shortDisplayName", 
-      "abbreviation", 
-      "color", 
-      "alternateColor", 
-      "logos_href_1", 
-      "logos_href_2") %>%
-    dplyr::rename(
-      "logo" = "logos_href_1",
-      "logo_dark" = "logos_href_2",
-      "mascot" = "name",
-      "team" = "location",
-      "team_id" = "id",
-      "alternate_color" = "alternateColor",
-      "short_name" = "shortDisplayName",
-      "display_name" = "displayName") %>%
-    dplyr::mutate(team_id = as.integer(.data$team_id)) %>%
-    make_wehoop_data("ESPN WNBA Teams Information from ESPN.com",Sys.time())
-  
+
+  wnba_teams <- NULL
+
+  tryCatch(
+    expr = {
+      res <- .retry_request(play_base_url)
+      check_status(res)
+      resp <- res %>%
+        .resp_text()
+
+      leagues <- jsonlite::fromJSON(resp)[["sports"]][["leagues"]][[1]][['teams']][[1]][['team']] %>%
+        dplyr::group_by(.data$id) %>%
+        tidyr::unnest_wider("logos", names_sep = "_") %>%
+        tidyr::unnest_wider("logos_href", names_sep = "_") %>%
+        dplyr::select(
+          -"logos_width",
+          -"logos_height",
+          -"logos_alt",
+          -"logos_rel") %>%
+        dplyr::ungroup()
+
+      wnba_teams <- leagues %>%
+        dplyr::select(
+          "id",
+          "location",
+          "name",
+          "displayName",
+          "shortDisplayName",
+          "abbreviation",
+          "color",
+          "alternateColor",
+          "logos_href_1",
+          "logos_href_2") %>%
+        dplyr::rename(
+          "logo" = "logos_href_1",
+          "logo_dark" = "logos_href_2",
+          "mascot" = "name",
+          "team" = "location",
+          "team_id" = "id",
+          "alternate_color" = "alternateColor",
+          "short_name" = "shortDisplayName",
+          "display_name" = "displayName") %>%
+        dplyr::mutate(team_id = as.integer(.data$team_id)) %>%
+        make_wehoop_data("ESPN WNBA Teams Information from ESPN.com", Sys.time())
+    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Could not fetch ESPN WNBA teams",
+      args = .args
+    ),
+    warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
+    },
+    finally = {}
+  )
+
   return(wnba_teams)
 }
 
@@ -1143,6 +1167,7 @@ espn_wnba_teams <- function(){
 #' }
 
 espn_wnba_scoreboard <- function(season){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # cli::cli_alert_danger("Returning data for {season}!"))
   
@@ -1159,13 +1184,11 @@ espn_wnba_scoreboard <- function(season){
   
   schedule_api <- paste0("http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?limit=1000&dates=",
                          season_dates)
-  res <- .retry_request(schedule_api)
-  
-  # Check the result
-  check_status(res)
-  
+
   tryCatch(
     expr = {
+      res <- .retry_request(schedule_api)
+      check_status(res)
       raw_sched <- res %>%
         .resp_text() %>%
         jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
@@ -1296,10 +1319,11 @@ espn_wnba_scoreboard <- function(season){
           make_wehoop_data("ESPN WNBA Scoreboard Information from ESPN.com",Sys.time())
       }
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoreboard data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no scoreboard data available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1350,6 +1374,7 @@ espn_wnba_scoreboard <- function(season){
 #'   try(espn_wnba_standings(year = 2021))
 #' }
 espn_wnba_standings <- function(year){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   standings_url <- "https://site.web.api.espn.com/apis/v2/sports/basketball/wnba/standings?region=us&lang=en&contentorigin=espn&type=0&level=1&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&"
   
@@ -1357,18 +1382,16 @@ espn_wnba_standings <- function(year){
   ## year
   full_url <- paste0(standings_url,
                      "season=", year)
-  
-  res <- .retry_request(full_url)
-  
-  # Check the result
-  check_status(res)
+
   standings <- NULL
 
   tryCatch(
     expr = {
+      res <- .retry_request(full_url)
+      check_status(res)
       resp <- res %>%
         .resp_text()
-      
+
       raw_standings <- jsonlite::fromJSON(resp)[["standings"]]
       
       #Create a dataframe of all NBA teams by extracting from the raw_standings file
@@ -1427,10 +1450,11 @@ espn_wnba_standings <- function(year){
         ), as.numeric) %>% 
         make_wehoop_data("ESPN WNBA Standings Information from ESPN.com",Sys.time())
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no standings data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no standings data available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1588,6 +1612,7 @@ espn_wnba_team_stats <- function(
     season_type = 'regular', 
     total = FALSE
 ){
+  .args <- mget(setdiff(names(formals()), "..."))
   if (!(tolower(season_type) %in% c("regular","postseason"))) {
     # Check if season_type is appropriate, if not regular
     cli::cli_abort("Enter valid season_type: regular or postseason")
@@ -1703,10 +1728,11 @@ espn_wnba_team_stats <- function(
         make_wehoop_data("ESPN WNBA Team Season Stats from ESPN.com",Sys.time())
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}:Invalid arguments or no team season stats data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team season stats data available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1887,6 +1913,7 @@ espn_wnba_player_stats <- function(
     season_type = 'regular', 
     total = FALSE
 ){
+  .args <- mget(setdiff(names(formals()), "..."))
   if (!(tolower(season_type) %in% c("regular","postseason"))) {
     # Check if season_type is appropriate, if not regular
     cli::cli_abort("Enter valid season_type: regular or postseason")
@@ -2033,10 +2060,11 @@ espn_wnba_player_stats <- function(
         make_wehoop_data("ESPN WNBA Player Season Stats from ESPN.com",Sys.time())
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}:Invalid arguments or no player season stats data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no player season stats data available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

@@ -260,6 +260,7 @@ wnba_playbyplayv3 <- function(
     start_period = 0,
     end_period = 0,
     ...) {
+  .args <- mget(setdiff(names(formals()), "..."))
   endpoint <- wnba_endpoint("playbyplayv3")
   full_url <- endpoint
 
@@ -298,9 +299,11 @@ wnba_playbyplayv3 <- function(
 
       data <- c(list(PlayByPlay = actions), list(AvailableVideo = video_available))
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no V3 play-by-play data for {pad_id(game_id)} available!")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no V3 play-by-play data for {pad_id(game_id)} available!",
+      args = .args
+    ),
     warning = function(w) {
     },
     finally = {
@@ -322,6 +325,7 @@ NULL
 #' @noRd
 #' @family WNBA PBP Functions
 .build_player_roster_wnba <- function(game_id) {
+  .args <- mget(setdiff(names(formals()), "..."))
   empty_roster <- NULL
 
   tryCatch(
@@ -361,20 +365,11 @@ NULL
       roster$team_id <- as.character(roster$team_id)
       roster
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Could not retrieve boxscore for player roster lookup.")
-      dplyr::tibble(
-        person_id = character(),
-        first_name = character(),
-        family_name = character(),
-        name_i = character(),
-        team_id = character(),
-        team_name = character(),
-        team_city = character(),
-        team_tricode = character(),
-        full_name = character()
-      )
-    }
+    error = function(e) .report_api_error(
+      e,
+      hint = "Could not retrieve boxscore for player roster lookup.",
+      args = .args
+    )
   )
 }
 
@@ -933,6 +928,7 @@ NULL
 #' @noRd
 #' @family WNBA PBP Functions
 .players_on_court_v3_wnba <- function(pbp_data) {
+  .args <- mget(setdiff(names(formals()), "..."))
   game_id <- pbp_data$game_id[1]
   if (inherits(game_id, "integer")) {
     game_id <- paste0("00", as.character(game_id))
@@ -940,10 +936,11 @@ NULL
 
   rotation <- tryCatch(
     wnba_gamerotation(game_id = game_id),
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Could not retrieve game rotation for {game_id}. On-court data will be NA.")
-      NULL
-    }
+    error = function(e) .report_api_error(
+      e,
+      hint = "Could not retrieve game rotation for {game_id}. On-court data will be NA.",
+      args = .args
+    )
   )
 
   for (i in 1:5) {
@@ -1112,6 +1109,7 @@ wnba_pbp <- function(game_id,
                      version = "v3",
                      p = NULL,
                      ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # V3 path: use the dedicated V3 endpoint and parsing
   if (version == "v3") {
@@ -1129,10 +1127,11 @@ wnba_pbp <- function(game_id,
           data <- .players_on_court_v3_wnba(data)
         }
       },
-      error = function(e) {
-        cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no V3 play-by-play data for {pad_id(game_id)} available!")
-        cli::cli_alert_danger("Error:\n{e}")
-      },
+      error = function(e) .report_api_error(
+        e,
+        hint = "Invalid arguments or no V3 play-by-play data for {pad_id(game_id)} available!",
+        args = .args
+      ),
       warning = function(w) {
         cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
       },
@@ -1236,10 +1235,11 @@ wnba_pbp <- function(game_id,
         }
       }
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no play-by-play data for {pad_id(game_id)} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no play-by-play data for {pad_id(game_id)} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1447,6 +1447,7 @@ NULL
 wnba_live_pbp <- function(
     game_id,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -1508,10 +1509,11 @@ wnba_live_pbp <- function(
       
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no play-by-play data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no play-by-play data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1894,6 +1896,7 @@ NULL
 wnba_live_boxscore <- function(
     game_id,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -2059,10 +2062,11 @@ wnba_live_boxscore <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no boxscore data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no boxscore data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

@@ -28,6 +28,7 @@
 #' }
 
 ncaa_wbb_NET_rankings <- function(){
+  .args <- mget(setdiff(names(formals()), "..."))
 
   x <- NULL
 
@@ -46,10 +47,11 @@ ncaa_wbb_NET_rankings <- function(){
         ))) %>%
         make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com", Sys.time())
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no NET rankings available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no NET rankings available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -88,6 +90,7 @@ ncaa_wbb_NET_rankings <- function(){
 #' ```
 
 ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
+  .args <- mget(setdiff(names(formals()), "..."))
   
   if (is.null(year)) {
     cli::cli_abort("Enter valid year as a number (YYYY)")
@@ -200,10 +203,11 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
         make_wehoop_data("NCAA WBB Teams data from stats.ncaa.org", Sys.time())
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments provided",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

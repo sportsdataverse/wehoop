@@ -73,6 +73,7 @@ wnba_leaguegamelog <- function(
     season_type = 'Regular Season',
     sorter = 'DATE',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -102,10 +103,11 @@ wnba_leaguegamelog <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league game log data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league game log data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -241,6 +243,7 @@ wnba_leaguestandingsv3 <- function(
     season_type = 'Regular Season',
     season_year = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ','+',season_type)
@@ -265,10 +268,11 @@ wnba_leaguestandingsv3 <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league standings v3 data available for {season}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league standings v3 data available for {season}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -511,6 +515,7 @@ wnba_leaguegamefinder <- function(
     vs_team_id = '',
     years_experience = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # season_type <- gsub(' ','+',season_type)
   version <- "leaguegamefinder"
@@ -618,10 +623,11 @@ wnba_leaguegamefinder <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league game finder data available for the given parameters!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league game finder data available for the given parameters!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

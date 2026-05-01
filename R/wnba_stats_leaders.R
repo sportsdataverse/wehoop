@@ -240,6 +240,7 @@ wnba_alltimeleadersgrids <- function(
     season_type = 'Regular Season',
     top_x = 10,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -264,10 +265,11 @@ wnba_alltimeleadersgrids <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no all-time leaders grid data for {league_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no all-time leaders grid data for {league_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -325,6 +327,7 @@ wnba_assistleaders <- function(
     season = most_recent_wnba_season() - 1,
     season_type = 'Regular Season',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ','+',season_type)
@@ -350,10 +353,11 @@ wnba_assistleaders <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no assist leaders data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no assist leaders data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -397,6 +401,7 @@ wnba_assisttracker <- function(
     season = most_recent_wnba_season() - 1,
     season_type = 'Regular Season',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ','+',season_type)
@@ -420,10 +425,11 @@ wnba_assisttracker <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no assist tracker data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no assist tracker data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1239,6 +1245,7 @@ NULL
 wnba_homepagewidget <- function(
     player_or_team = 'Player',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   full_url <- "https://stats.wnba.com/js/data/widgets/home_season.json"
   
@@ -1345,10 +1352,11 @@ wnba_homepagewidget <- function(
       }
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no homepage widget data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no homepage widget data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1552,6 +1560,7 @@ wnba_leagueleaders <- function(
     season_type = 'Regular Season',
     stat_category = 'PTS',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   scope <- gsub(' ','+',scope)
   # season_type <- gsub(' ','+',season_type)
@@ -1589,10 +1598,11 @@ wnba_leagueleaders <- function(
       names(df_list) <- resp$resultSet$name
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league leaders data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league leaders data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

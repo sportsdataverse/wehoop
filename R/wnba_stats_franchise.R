@@ -46,6 +46,7 @@ wnba_franchiseleaders <- function(
     league_id = '10',
     team_id = '1611661324',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "franchiseleaders"
   endpoint <- wnba_endpoint(version)
@@ -66,10 +67,11 @@ wnba_franchiseleaders <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no franchise leaders data available for {team_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no franchise leaders data available for {team_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -162,6 +164,7 @@ wnba_franchiseleaderswrank <- function(
     season_type = 'Regular Season',
     team_id = '1611661324',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # season_type <- gsub(' ','+',season_type)
   version <- "franchiseleaderswrank"
@@ -185,10 +188,11 @@ wnba_franchiseleaderswrank <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no franchise players data available for {team_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no franchise players data available for {team_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -262,6 +266,7 @@ wnba_franchiseplayers <- function(
     season_type = 'Regular Season',
     team_id = '1611661319',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ','+',season_type)
@@ -286,10 +291,11 @@ wnba_franchiseplayers <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no franchise players data available for {team_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no franchise players data available for {team_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -366,6 +372,7 @@ NULL
 wnba_franchisehistory <- function(
     league_id = '10',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "franchisehistory"
   endpoint <- wnba_endpoint(version)
@@ -385,10 +392,11 @@ wnba_franchisehistory <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no franchise history data available for {team_id}!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no franchise history data available for {team_id}!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

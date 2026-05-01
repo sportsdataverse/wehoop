@@ -104,6 +104,7 @@ wnba_shotchartdetail <- function(
     vs_conference = '',
     vs_division = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -145,10 +146,11 @@ wnba_shotchartdetail <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no shot chart detail data for {player_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no shot chart detail data for {player_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -198,6 +200,7 @@ wnba_shotchartleaguewide <- function(
     league_id = '10',
     season = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "shotchartleaguewide"
   endpoint <- wnba_endpoint(version)
@@ -218,10 +221,11 @@ wnba_shotchartleaguewide <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league-wide shot chart data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league-wide shot chart data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -408,6 +412,7 @@ wnba_shotchartlineupdetail <- function(
     vs_player_id5 = '',
     vs_team_id = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
@@ -484,10 +489,11 @@ wnba_shotchartlineupdetail <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no shot chart lineup data available for {season}! (group_id: {group_id})")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no shot chart lineup data available for {season}! (group_id: {group_id})",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

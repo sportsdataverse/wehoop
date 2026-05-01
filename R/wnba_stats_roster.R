@@ -48,6 +48,7 @@ wnba_commonallplayers <- function(
     league_id = '10',
     season = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "commonallplayers"
   endpoint <- wnba_endpoint(version)
@@ -69,10 +70,11 @@ wnba_commonallplayers <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common all players data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or common all players data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -167,6 +169,7 @@ wnba_commonplayerinfo <- function(
     league_id = '10',
     player_id = '1628932',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "commonplayerinfo"
   endpoint <- wnba_endpoint(version)
@@ -188,10 +191,11 @@ wnba_commonplayerinfo <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common player info data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or common player info data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -238,6 +242,7 @@ wnba_commonplayoffseries <- function(
     season = most_recent_wnba_season() - 2,
     series_id = '',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "commonplayoffseries"
   endpoint <- wnba_endpoint(version)
@@ -259,10 +264,11 @@ wnba_commonplayoffseries <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common playoff series data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or common playoff series data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -337,6 +343,7 @@ wnba_commonteamroster <- function(
     season = most_recent_wnba_season() - 1,
     team_id = '1611661317',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "commonteamroster"
   endpoint <- wnba_endpoint(version)
@@ -358,10 +365,11 @@ wnba_commonteamroster <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or common team roster data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or common team roster data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

@@ -318,6 +318,7 @@ wnba_boxscoretraditionalv3 <- function(
     end_range = 0,
     range_type = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "boxscoretraditionalv3"
   endpoint <- wnba_endpoint(version)
@@ -475,10 +476,11 @@ wnba_boxscoretraditionalv3 <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no traditional boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no traditional boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -688,6 +690,7 @@ wnba_boxscoreadvancedv3 <- function(
     end_range = 0,
     range_type = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "boxscoreadvancedv3"
   endpoint <- wnba_endpoint(version)
@@ -797,10 +800,11 @@ wnba_boxscoreadvancedv3 <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no advanced boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no advanced boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -969,6 +973,7 @@ wnba_boxscoremiscv3 <- function(
     end_range = 0,
     range_type = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "boxscoremiscv3"
   endpoint <- wnba_endpoint(version)
@@ -1078,10 +1083,11 @@ wnba_boxscoremiscv3 <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no misc boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no misc boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1262,6 +1268,7 @@ wnba_boxscorescoringv3 <- function(
     end_range = 0,
     range_type = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "boxscorescoringv3"
   endpoint <- wnba_endpoint(version)
@@ -1371,10 +1378,11 @@ wnba_boxscorescoringv3 <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoring boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no scoring boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1528,6 +1536,7 @@ wnba_boxscorefourfactorsv3 <- function(
     end_range = 0,
     range_type = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "boxscorefourfactorsv3"
   endpoint <- wnba_endpoint(version)
@@ -1637,10 +1646,11 @@ wnba_boxscorefourfactorsv3 <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no four factors boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no four factors boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -1839,6 +1849,7 @@ wnba_boxscoreplayertrackv3 <- function(
     end_range = 0,
     range_type = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "boxscoreplayertrackv3"
   endpoint <- wnba_endpoint(version)
@@ -1948,10 +1959,11 @@ wnba_boxscoreplayertrackv3 <- function(
       )
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player tracking boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no player tracking boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -2144,6 +2156,7 @@ wnba_boxscoreusagev3 <- function(
     end_range = 0,
     range_type = 0,
     ...) {
+  .args <- mget(setdiff(names(formals()), "..."))
 
   version <- "boxscoreusagev3"
   endpoint <- wnba_endpoint(version)
@@ -2251,10 +2264,11 @@ wnba_boxscoreusagev3 <- function(
         "away_team_totals_usage"
       )
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no usage boxscore v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no usage boxscore v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -2332,6 +2346,7 @@ NULL
 wnba_boxscoresummaryv3 <- function(
     game_id = "1022200034",
     ...) {
+  .args <- mget(setdiff(names(formals()), "..."))
 
   version <- "boxscoresummaryv3"
   endpoint <- wnba_endpoint(version)
@@ -2449,10 +2464,11 @@ wnba_boxscoresummaryv3 <- function(
         available_video = available_video
       )
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no boxscore summary v3 data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no boxscore summary v3 data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -2700,6 +2716,7 @@ wnba_gamerotation <- function(
     league_id = '10', 
     rotation_stat = 'PLAYER_PTS',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "gamerotation"
   endpoint <- wnba_endpoint(version)
@@ -2729,10 +2746,11 @@ wnba_gamerotation <- function(
       })
       names(df_list) <- resp$resultSets$name
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no game rotation data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no game rotation data for {game_id} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },

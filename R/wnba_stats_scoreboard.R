@@ -73,6 +73,7 @@ wnba_schedule <- function(
     league_id = '10',
     season = most_recent_wnba_season() - 1,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -122,10 +123,11 @@ wnba_schedule <- function(
           game_date = lubridate::mdy(substring(.data$game_date,1,10)),
         )
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no league schedule data for {season} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no league schedule data for {season} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -517,6 +519,7 @@ wnba_scoreboardv2 <- function(
     game_date = '2022-07-20',
     day_offset = 0,
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "scoreboardv2"
   full_url <- wnba_endpoint(version)
@@ -537,10 +540,11 @@ wnba_scoreboardv2 <- function(
       df_list <- wnba_stats_map_result_sets(resp)
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoreboardv2 data for {game_date} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no scoreboardv2 data for {game_date} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -659,6 +663,7 @@ wnba_scoreboardv3 <- function(
     league_id = '10',
     game_date = '2022-06-26',
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   version <- "scoreboardv3"
   full_url <- wnba_endpoint(version)
@@ -722,10 +727,11 @@ wnba_scoreboardv3 <- function(
         make_wehoop_data("WNBA Scoreboard V3 Information from WNBA.com", Sys.time())
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no scoreboard v3 data for {game_date} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no scoreboard v3 data for {game_date} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
@@ -813,6 +819,7 @@ NULL
 #' ```
 wnba_todays_scoreboard <- function(
     ...){
+  .args <- mget(setdiff(names(formals()), "..."))
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -848,10 +855,11 @@ wnba_todays_scoreboard <- function(
         make_wehoop_data("WNBA Today's Scoreboard Information from NBA.com", Sys.time())
       
     },
-    error = function(e) {
-      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no today's scoreboard data for {game_date} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no today's scoreboard data for {game_date} available!",
+      args = .args
+    ),
     warning = function(w) {
       cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
     },
