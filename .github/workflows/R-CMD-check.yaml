@@ -15,6 +15,13 @@ on:
 
 name: R-CMD-check
 
+permissions:
+  contents: read
+
+concurrency:
+  group: r-cmd-check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
@@ -25,7 +32,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-         # - {os: macos-latest,   r: 'release'}
+          - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
          # - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
@@ -34,6 +41,10 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      # Optional live API toggles for CI (tests still short-circuit on skip_on_ci() unless changed):
+      # WNBA_STATS_TESTS: ${{ secrets.WNBA_STATS_TESTS }}
+      # ESPN_TESTS: ${{ secrets.ESPN_TESTS }}
+      # NCAA_WBB_TESTS: ${{ secrets.NCAA_WBB_TESTS }}
 
     steps:
       - uses: actions/checkout@v4

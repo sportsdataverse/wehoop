@@ -7,6 +7,13 @@ on:
 
 name: pkgdown
 
+permissions:
+  contents: write
+
+concurrency:
+  group: pkgdown-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pkgdown:
     runs-on: ${{ matrix.config.os }}
