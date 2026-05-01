@@ -1003,7 +1003,7 @@ espn_wbb_game_rosters <- function(game_id) {
 #'   try(espn_wbb_conferences())
 #' }
 espn_wbb_conferences <- function() {
-  .args <- mget(setdiff(names(formals()), "..."))
+  .args <- .capture_args()
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
@@ -1801,7 +1801,7 @@ utils::globalVariables(c("where"))
 #' }
 
 espn_wbb_rankings <- function() {
-  .args <- mget(setdiff(names(formals()), "..."))
+  .args <- .capture_args()
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 

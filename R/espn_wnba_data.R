@@ -1027,7 +1027,7 @@ espn_wnba_game_rosters <- function(game_id) {
 #' }
 
 espn_wnba_teams <- function(){
-  .args <- mget(setdiff(names(formals()), "..."))
+  .args <- .capture_args()
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"

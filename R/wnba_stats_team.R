@@ -42,27 +42,39 @@ NULL
 #'  wnba_teams()
 #' ```
 wnba_teams <- function(...){
-  .args <- mget(setdiff(names(formals()), "..."))
-  
+  .args <- .capture_args()
+
+  result <- NULL
+
   tryCatch(
     expr = {
-      
-      standings <- wnba_leaguestandingsv3(season = most_recent_wnba_season(), ...) %>%
+      season <- most_recent_wnba_season()
+
+      standings <- wnba_leaguestandingsv3(season = season, ...) %>%
         purrr::pluck("Standings")
-      
-      league_gamelog <- wnba_leaguegamelog(league_id = '10', season = most_recent_wnba_season(), ...) %>% 
-        purrr::pluck("LeagueGameLog") %>% 
-        dplyr::rename("team_name_full" = "TEAM_NAME") %>% 
-        dplyr::select(
-          "TEAM_ID",
-          "TEAM_ABBREVIATION",
-          "team_name_full") %>% 
-        dplyr::distinct()
-      
-      standings <- standings %>% 
-        dplyr::left_join(league_gamelog, by = c("TeamID" = "TEAM_ID"))
-      
-      wnba_teams <- standings %>%
+
+      league_gamelog <- wnba_leaguegamelog(league_id = "10", season = season, ...) %>%
+        purrr::pluck("LeagueGameLog")
+
+      # Upstream sometimes returns an empty LeagueGameLog (preseason, transient
+      # API error). Skip the team-name join in that case rather than letting
+      # `dplyr::rename(TEAM_NAME = ...)` error on a missing column.
+      if (is.data.frame(league_gamelog) && nrow(league_gamelog) > 0 &&
+          all(c("TEAM_ID", "TEAM_NAME", "TEAM_ABBREVIATION") %in% colnames(league_gamelog))) {
+        league_gamelog <- league_gamelog %>%
+          dplyr::rename(dplyr::any_of(c("team_name_full" = "TEAM_NAME"))) %>%
+          dplyr::select(dplyr::any_of(c(
+            "TEAM_ID",
+            "TEAM_ABBREVIATION",
+            "team_name_full"
+          ))) %>%
+          dplyr::distinct()
+
+        standings <- standings %>%
+          dplyr::left_join(league_gamelog, by = c("TeamID" = "TEAM_ID"))
+      }
+
+      result <- standings %>%
         dplyr::select(dplyr::any_of(c(
           "LeagueID",
           "SeasonID",
@@ -74,32 +86,44 @@ wnba_teams <- function(...){
           "Division",
           "TEAM_ABBREVIATION",
           "team_name_full"))) %>%
-        dplyr::mutate(
-          Season = paste0('', most_recent_wnba_season())) %>%
-        dplyr::arrange(.data$team_name_full)
-      
-      espn_wnba_teams <- espn_wnba_teams() %>%
-        dplyr::rename("espn_team_id" = "team_id")
-      wnba_teams <- wnba_teams %>%
-        dplyr::left_join(espn_wnba_teams, by = c("TeamName" = "short_name"))
-      
-      wnba_teams <- wnba_teams %>%
-        dplyr::mutate(
-          espn_team_id = as.integer(.data$espn_team_id),
-          wnba_logo_svg = paste0("https://stats.wnba.com/media/img/teams/logos/", .data$TEAM_ABBREVIATION, ".svg")) %>%
-        janitor::clean_names()
-      
+        dplyr::mutate(Season = as.character(season))
+
+      if ("team_name_full" %in% colnames(result)) {
+        result <- dplyr::arrange(result, .data$team_name_full)
+      }
+
+      espn_teams <- espn_wnba_teams() %>%
+        dplyr::rename(dplyr::any_of(c("espn_team_id" = "team_id")))
+      if (is.data.frame(espn_teams) && nrow(espn_teams) > 0 &&
+          "short_name" %in% colnames(espn_teams)) {
+        result <- result %>%
+          dplyr::left_join(espn_teams, by = c("TeamName" = "short_name"))
+      }
+
+      if ("espn_team_id" %in% colnames(result)) {
+        result <- dplyr::mutate(result, espn_team_id = as.integer(.data$espn_team_id))
+      }
+      if ("TEAM_ABBREVIATION" %in% colnames(result)) {
+        result <- dplyr::mutate(result, wnba_logo_svg = paste0(
+          "https://stats.wnba.com/media/img/teams/logos/",
+          .data$TEAM_ABBREVIATION,
+          ".svg"
+        ))
+      } else {
+        result <- dplyr::mutate(result, wnba_logo_svg = NA_character_)
+      }
+      result <- janitor::clean_names(result)
     },
     error = function(e) .report_api_error(
       e,
-      hint = "Invalid arguments or no team details data for {team_id} available!",
+      hint = "Invalid arguments or no team details data available!",
       args = .args
     ),
     warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
-  return(wnba_teams)
+  return(result)
 }
 
 

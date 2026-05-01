@@ -28,7 +28,7 @@
 #' }
 
 ncaa_wbb_NET_rankings <- function(){
-  .args <- mget(setdiff(names(formals()), "..."))
+  .args <- .capture_args()
 
   x <- NULL
 
