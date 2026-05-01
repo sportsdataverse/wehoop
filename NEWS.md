@@ -113,9 +113,9 @@ The following functions wrap WNBA Stats API endpoints that are no longer returni
 ### **Other WNBA Stats API functions added**
 
 * ```wnba_shotchartlineupdetail()``` function added.
-* ```wnba_franchiseleaderswrank()``` function added. 
-* ```wnba_leaderstiles()``` function added. 
-* ```wnba_leagueleaders()``` function added. 
+* ```wnba_franchiseleaderswrank()``` function added.
+* ```wnba_leaderstiles()``` function added.
+* ```wnba_leagueleaders()``` function added.
 * ```wnba_videodetailsasset()``` function added.
 * ```wnba_infographicfanduelplayer()``` function added.
 
@@ -273,15 +273,15 @@ The following functions wrap WNBA Stats API endpoints that are no longer returni
 - Add returns for all the functions
 - Update a handful of field names from the scoreboard functions and to also include neutral_site and conference_competition columns for the women's college basketball scoreboard function.
 
-# **wehoop 1.1.1** 
+# **wehoop 1.1.1**
 - Change functions from ```furrr::future_map_dfr()``` functions to ```data.table::rbindlist()``` functions for loaders.
 
-# **wehoop 1.1.0** 
+# **wehoop 1.1.0**
 ### **Add schedule loaders**
 - [```wehoop::load_wbb_schedule()```](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule.html) function added
 - [```wehoop::load_wnba_schedule()```](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule.html) function added
 
-# **wehoop 1.0.0** 
+# **wehoop 1.0.0**
 ### **Add team box score loaders**
 - [```wehoop::load_wbb_team_box()```](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.html) function added
 - [```wehoop::load_wnba_team_box()```](https://wehoop.sportsdataverse.org/reference/load_wnba_team_box.html) function added
@@ -297,7 +297,7 @@ The following functions wrap WNBA Stats API endpoints that are no longer returni
 ### **Getting Started vignette**
 - [Getting started with wehoop data](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html)
 
-# **wehoop 0.9.2** 
+# **wehoop 0.9.2**
 ### **Quick fix for update db functions**
 
 ### **Dependency pruning**
@@ -333,7 +333,7 @@ This update is a non-user facing change to package dependencies to shrink the li
 * Added tests for all ESPN functions
 
 #### **Function Naming Convention Change**
-* Similarly, data and metrics sourced from ESPN will begin with `espn_` as opposed to `wbb_` or `wnba_`. 
+* Similarly, data and metrics sourced from ESPN will begin with `espn_` as opposed to `wbb_` or `wnba_`.
 * Data sourced directly from the NCAA website will start the function with `ncaa_`
 
 # **wehoop 0.2.0**
@@ -342,8 +342,8 @@ This update is a non-user facing change to package dependencies to shrink the li
 - ```wehoop::espn_wnba_team_box()```
 - ```wehoop::espn_wnba_player_box()```
 - ```wehoop::espn_wnba_pbp()```
-- ```wehoop::espn_wnba_teams()``` 
-- ```wehoop::espn_wbb_scoreboard()``` 
+- ```wehoop::espn_wnba_teams()```
+- ```wehoop::espn_wbb_scoreboard()```
 
 # **wehoop 0.1.0**
 - Added support for ESPN's play-by-play endpoints with the addition of the following functions:
@@ -351,8 +351,8 @@ This update is a non-user facing change to package dependencies to shrink the li
 - ```wehoop::espn_wbb_team_box()```
 - ```wehoop::espn_wbb_player_box()```
 - ```wehoop::espn_wbb_pbp()```
-- ```wehoop::espn_wbb_teams()``` 
-- ```wehoop::espn_wbb_conferences()``` 
-- ```wehoop::espn_wbb_scoreboard()``` 
-- ```wehoop::ncaa_wbb_NET_rankings()``` 
-- ```wehoop::espn_wbb_rankings()``` 
+- ```wehoop::espn_wbb_teams()```
+- ```wehoop::espn_wbb_conferences()```
+- ```wehoop::espn_wbb_scoreboard()```
+- ```wehoop::ncaa_wbb_NET_rankings()```
+- ```wehoop::espn_wbb_rankings()```
