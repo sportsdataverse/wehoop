@@ -45,26 +45,9 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_wnba_schedule())
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_schedule_2026.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_schedule_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 312 × 77
-#>         id uid   date  attendance time_valid neutral_site conference_competition
-#>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
-#>  1  4.02e8 s:40… 2025…      17071 TRUE       FALSE        FALSE                 
-#>  2  4.02e8 s:40… 2025…      17071 TRUE       FALSE        FALSE                 
-#>  3  4.02e8 s:40… 2025…      10404 TRUE       FALSE        FALSE                 
-#>  4  4.02e8 s:40… 2025…      10266 TRUE       FALSE        FALSE                 
-#>  5  4.02e8 s:40… 2025…      10529 TRUE       FALSE        FALSE                 
-#>  6  4.02e8 s:40… 2025…      16919 TRUE       FALSE        FALSE                 
-#>  7  4.02e8 s:40… 2025…      16022 TRUE       FALSE        FALSE                 
-#>  8  4.02e8 s:40… 2025…      15941 TRUE       FALSE        FALSE                 
-#>  9  4.02e8 s:40… 2025…      16507 TRUE       FALSE        FALSE                 
-#> 10  4.02e8 s:40… 2025…      10516 TRUE       FALSE        FALSE                 
-#> # ℹ 302 more rows
-#> # ℹ 70 more variables: play_by_play_available <lgl>, recent <lgl>,
-#> #   start_date <chr>, broadcast <chr>, highlights <chr>, notes_type <chr>,
-#> #   notes_headline <chr>, broadcast_market <chr>, broadcast_name <chr>,
-#> #   type_id <int>, type_abbreviation <chr>, venue_id <int>,
-#> #   venue_full_name <chr>, venue_address_city <chr>, venue_address_state <chr>,
-#> #   venue_indoor <lgl>, status_clock <dbl>, status_display_clock <chr>, …
+#> # A tibble: 0 × 0
 # }
 ```

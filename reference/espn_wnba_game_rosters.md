@@ -116,8 +116,8 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_game_rosters(game_id = 401244185))
 #> ── ESPN WNBA Game Roster Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-04-14 04:27:29 UTC
-#> # A tibble: 24 × 157
+#> ℹ Data updated: 2026-05-01 03:09:08 UTC
+#> # A tibble: 24 × 156
 #>    athlete_id athlete_uid  athlete_guid athlete_type    sdr first_name last_name
 #>         <int> <chr>        <chr>        <chr>         <int> <chr>      <chr>    
 #>  1        924 s:40~l:59~a… 09609790-79… basketball   2.24e6 Alysha     Clark    
@@ -131,7 +131,7 @@ Saiem Gilani
 #>  9        882 s:40~l:59~a… 0230e8a4-7b… basketball   2.28e6 Epiphanny  Prince   
 #> 10    3142250 s:40~l:59~a… 6e517eae-e6… basketball   3.14e6 Jordin     Canada   
 #> # ℹ 14 more rows
-#> # ℹ 150 more variables: full_name <chr>, athlete_display_name <chr>,
+#> # ℹ 149 more variables: full_name <chr>, athlete_display_name <chr>,
 #> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
 #> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,
 #> #   headshot_href <chr>, headshot_alt <chr>, jersey_x <chr>, position_id <int>,

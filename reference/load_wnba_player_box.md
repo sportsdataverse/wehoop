@@ -45,26 +45,9 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_wnba_player_box())
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_boxscores/player_box_2026.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_boxscores/player_box_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 7,140 × 57
-#>      game_id season season_type game_date  game_date_time      athlete_id
-#>        <int>  <int>       <int> <date>     <dttm>                   <int>
-#>  1 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    4398776
-#>  2 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    4433633
-#>  3 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    3149391
-#>  4 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    2529122
-#>  5 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    4065870
-#>  6 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    2590093
-#>  7 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    3934218
-#>  8 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    2987869
-#>  9 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    4281190
-#> 10 401820329   2025           3 2025-10-10 2025-10-10 20:00:00    2529458
-#> # ℹ 7,130 more rows
-#> # ℹ 51 more variables: athlete_display_name <chr>, team_id <int>,
-#> #   team_name <chr>, team_location <chr>, team_short_display_name <chr>,
-#> #   minutes <dbl>, field_goals_made <int>, field_goals_attempted <int>,
-#> #   three_point_field_goals_made <int>,
-#> #   three_point_field_goals_attempted <int>, free_throws_made <int>,
-#> #   free_throws_attempted <int>, offensive_rebounds <int>, …
+#> # A tibble: 0 × 0
 # }
 ```

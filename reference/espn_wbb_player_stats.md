@@ -185,7 +185,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_player_stats(athlete_id = 2984250, year = 2022))
 #> ── ESPN WBB Player Season Stats from ESPN.com ────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-04-14 04:27:15 UTC
+#> ℹ Data updated: 2026-05-01 03:09:00 UTC
 #> # A tibble: 1 × 218
 #>   athlete_id athlete_uid   athlete_guid athlete_type    sdr first_name last_name
 #>        <int> <chr>         <chr>        <chr>         <int> <chr>      <chr>    

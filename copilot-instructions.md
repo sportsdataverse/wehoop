@@ -77,13 +77,13 @@ for completion messages
 
 ## Function Naming
 
-| Data Source    | Prefix                     | Example                                                                                                                                                                                                    |
-|----------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| WNBA Stats API | `wnba_`                    | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
-| ESPN WNBA      | `espn_wnba_`               | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)                                 |
-| ESPN WBB       | `espn_wbb_`                | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)                                     |
-| NCAA WBB       | `ncaa_wbb_`                | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)                                                                                                                       |
-| Data loaders   | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md)                             |
+| Data Source | Prefix | Example |
+|----|----|----|
+| WNBA Stats API | `wnba_` | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
+| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
+| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
+| NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
+| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
 
 ## Roxygen Documentation
 
@@ -116,6 +116,7 @@ Every exported function needs:
   before any assertion that touches `x[[1]]`:
 
   ``` r
+
   x <- wnba_func(...)
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) ||
       nrow(x[[1]]) == 0) {
@@ -131,6 +132,7 @@ Every exported function needs:
   a per-index null/empty-column helper:
 
   ``` r
+
   check_cols <- function(i, cols) {
     if (length(x) < i || is.null(x[[i]]) || !is.data.frame(x[[i]]) ||
         ncol(x[[i]]) == 0) return(invisible(NULL))

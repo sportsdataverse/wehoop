@@ -206,17 +206,17 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 #> ── ESPN WNBA Player Season Stats from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-04-14 04:27:31 UTC
-#> # A tibble: 1 × 228
+#> ℹ Data updated: 2026-05-01 03:09:10 UTC
+#> # A tibble: 1 × 232
 #>   athlete_id athlete_uid   athlete_guid athlete_type    sdr first_name last_name
 #>        <int> <chr>         <chr>        <chr>         <int> <chr>      <chr>    
 #> 1    2529130 s:40~l:59~a:… 2e32f80f-85… basketball   2.53e6 Natasha    Howard   
-#> # ℹ 221 more variables: full_name <chr>, display_name <chr>, short_name <chr>,
+#> # ℹ 225 more variables: full_name <chr>, display_name <chr>, short_name <chr>,
 #> #   weight <dbl>, display_weight <chr>, height <dbl>, display_height <chr>,
 #> #   age <int>, date_of_birth <chr>, slug <chr>, headshot_href <chr>,
-#> #   headshot_alt <chr>, position_id <int>, position_name <chr>,
+#> #   headshot_alt <chr>, jersey <chr>, hand_type <chr>, hand_abbreviation <chr>,
+#> #   hand_display_value <chr>, position_id <int>, position_name <chr>,
 #> #   position_display_name <chr>, position_abbreviation <chr>,
-#> #   position_leaf <lgl>, linked <lgl>, years <int>, active <lgl>,
-#> #   status_id <int>, status_name <chr>, status_type <chr>, …
+#> #   position_leaf <lgl>, linked <lgl>, years <int>, active <lgl>, …
 # }
 ```

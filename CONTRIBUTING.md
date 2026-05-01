@@ -69,13 +69,13 @@ help you get started.
 
 ### Function Names
 
-| Data Source    | Prefix                     | Example                                                                                                                                                                                                    |
-|----------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| WNBA Stats API | `wnba_`                    | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
-| ESPN WNBA      | `espn_wnba_`               | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)                                 |
-| ESPN WBB       | `espn_wbb_`                | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)                                     |
-| NCAA WBB       | `ncaa_wbb_`                | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)                                                                                                                       |
-| Data loaders   | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md)                             |
+| Data Source | Prefix | Example |
+|----|----|----|
+| WNBA Stats API | `wnba_` | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
+| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
+| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
+| NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
+| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
 
 ### General Naming Rules
 
@@ -105,6 +105,7 @@ help you get started.
 All returned data frames must pass through:
 
 ``` r
+
 raw_data %>%
   data.frame(stringsAsFactors = FALSE) %>%
   dplyr::as_tibble() %>%
@@ -172,6 +173,7 @@ referencing AI tools.
 When writing tests for WNBA Stats API endpoints, follow this pattern:
 
 ``` r
+
 test_that("WNBA Endpoint Name", {
   skip_on_cran()
   skip_on_ci()
@@ -189,6 +191,7 @@ test_that("WNBA Endpoint Name", {
 For intermittent or empty responses:
 
 ``` r
+
 if (length(x) == 0 || is.null(x[[1]]) || nrow(x[[1]]) == 0) {
   skip("No rows returned from endpoint at test time")
 }

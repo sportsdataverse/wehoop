@@ -233,26 +233,9 @@ A dataframe with 42 columns
 ``` r
 # \donttest{
   try(load_wnba_pbp())
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 121,342 × 62
-#>    game_play_number        id sequence_number type_id type_text text  away_score
-#>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  NaLy…          0
-#>  2                2   4.02e 9               7     131 Pullup J… Kahl…          0
-#>  3                3   4.02e 9               8     155 Defensiv… Jack…          0
-#>  4                4   4.02e 9               9      95 Layup Sh… NaLy…          0
-#>  5                5   4.02e10              10     156 Offensiv… NaLy…          0
-#>  6                6   4.02e10              11     125 Layup Sh… NaLy…          2
-#>  7                7   4.02e10              12     131 Pullup J… Moni…          2
-#>  8                8   4.02e10              13      44 Shooting… Nata…          2
-#>  9                9   4.02e10              15      98 Free Thr… A'ja…          3
-#> 10               10   4.02e10              16      99 Free Thr… A'ja…          4
-#> # ℹ 121,332 more rows
-#> # ℹ 55 more variables: home_score <int>, period_number <int>,
-#> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
-#> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,
-#> #   athlete_id_3 <int>, wallclock <chr>, shooting_play <lgl>,
-#> #   coordinate_x_raw <dbl>, coordinate_y_raw <dbl>, game_id <int>,
-#> #   season <int>, season_type <int>, home_team_id <int>, …
+#> # A tibble: 0 × 0
 # }
 ```

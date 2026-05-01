@@ -16,6 +16,7 @@ You can install the CRAN version of
 [**`wehoop`**](https://CRAN.R-project.org/package=wehoop) with:
 
 ``` r
+
 install.packages("wehoop")
 ```
 
@@ -24,6 +25,7 @@ You can install the released version of
 [GitHub](https://github.com/sportsdataverse/wehoop) with:
 
 ``` r
+
 # You can install using the pak package using the following code:
 if (!requireNamespace('pak', quietly = TRUE)){
   install.packages('pak')
@@ -36,6 +38,7 @@ pak::pak("sportsdataverse/wehoop")
 ### **WNBA full play-by-play seasons (2002-2025) ~ 1-2 minutes**
 
 ``` r
+
 tictoc::tic()
 progressr::with_progress({
   wnba_pbp <- wehoop::load_wnba_pbp()
@@ -52,6 +55,7 @@ tictoc::toc()
 ### **Women’s college basketball full play-by-play seasons (2004-2025) ~ 2-3 minutes**
 
 ``` r
+
 tictoc::tic()
 progressr::with_progress({
   wbb_pbp <- wehoop::load_wbb_pbp()

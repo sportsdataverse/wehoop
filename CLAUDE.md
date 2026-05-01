@@ -52,6 +52,7 @@ When this guide differs from current repository docs, treat
 ## Build & Development Commands
 
 ``` r
+
 # Regenerate roxygen documentation + NAMESPACE
 devtools::document()
 
@@ -96,19 +97,20 @@ pkgdown::build_site()
 
 ### Function Naming
 
-| Data Source    | Prefix                     | Example                                                                                                                                                                                                    |
-|----------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| WNBA Stats API | `wnba_`                    | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
-| ESPN WNBA      | `espn_wnba_`               | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)                                 |
-| ESPN WBB       | `espn_wbb_`                | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)                                     |
-| NCAA WBB       | `ncaa_wbb_`                | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)                                                                                                                       |
-| Data loaders   | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md)                             |
+| Data Source | Prefix | Example |
+|----|----|----|
+| WNBA Stats API | `wnba_` | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
+| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
+| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
+| NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
+| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
 
 ### Function Pattern (WNBA Stats API)
 
 Every WNBA Stats API wrapper follows this pattern:
 
 ``` r
+
 #' **Get WNBA Stats API [Endpoint Name]**
 #' @name wnba_functionname
 NULL
@@ -165,6 +167,7 @@ wnba_functionname <- function(game_id = "1022200034", ...) {
 ### Data Processing Pipeline
 
 ``` r
+
 raw_data %>%
   data.frame(stringsAsFactors = FALSE) %>%
   dplyr::as_tibble() %>%
@@ -217,6 +220,7 @@ attaches `wehoop_timestamp` and `wehoop_type` attributes.
 Use `%||%` (from rlang) for null-safe defaults throughout:
 
 ``` r
+
 value <- obj$field %||% NA_character_
 ```
 
@@ -232,6 +236,7 @@ intended
 empty fallback.
 
 ``` r
+
 wnba_func <- function(...) {
   endpoint <- wnba_endpoint('foo')
   params   <- list(...)
@@ -313,6 +318,7 @@ column. The rule is: the *expected* list must be a subset of the
 *actual* columns.
 
 ``` r
+
 test_that("WNBA Endpoint Name", {
   skip_on_cran()
   skip_on_ci()
@@ -337,6 +343,7 @@ test_that("WNBA Endpoint Name", {
 **Anti-patterns to avoid**:
 
 ``` r
+
 # WRONG - flags when upstream adds a column, even though it's non-breaking
 expect_equal(sort(colnames(x[[1]])), sort(cols_x1))
 
@@ -352,6 +359,7 @@ sets than the test expects (e.g., 7 instead of 11), use an inline helper
 so individual asserts skip gracefully rather than erroring:
 
 ``` r
+
 check_cols <- function(i, cols) {
   if (length(x) < i || is.null(x[[i]]) || !is.data.frame(x[[i]]) ||
       ncol(x[[i]]) == 0) return(invisible(NULL))

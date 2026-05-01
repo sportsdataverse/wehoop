@@ -80,11 +80,11 @@ Saiem Gilani.
 # \donttest{
   try(espn_wnba_scoreboard (season = "20220831"))
 #> ── ESPN WNBA Scoreboard Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-04-14 04:27:31 UTC
+#> ℹ Data updated: 2026-05-01 03:09:10 UTC
 #> # A tibble: 2 × 37
 #>   matchup          matchup_short season season_type season_slug game_id game_uid
 #>   <chr>            <chr>          <int>       <int> <chr>         <int> <chr>   
-#> 1 Connecticut Sun… CONN @ CHI      2022           3 post-season  4.01e8 s:40~l:…
+#> 1 Connecticut Sun… CON @ CHI       2022           3 post-season  4.01e8 s:40~l:…
 #> 2 Seattle Storm a… SEA @ LV        2022           3 post-season  4.01e8 s:40~l:…
 #> # ℹ 30 more variables: game_date <date>, attendance <int>,
 #> #   play_by_play_available <lgl>, status_name <chr>, broadcast_market <chr>,
