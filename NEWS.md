@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [**wehoop 3.0.0**](#wehoop-300)
 - [**wehoop 2.1.0**](#wehoop-210)
 - [**wehoop 2.0.0**](#wehoop-200)
 - [**wehoop 1.9.0**](#wehoop-190)
