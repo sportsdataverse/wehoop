@@ -6,7 +6,8 @@ test_that("WNBA Boxscore Summary V3", {
   x <- wnba_boxscoresummaryv3(game_id = "1022200034")
 
   if (length(x) == 0 || is.null(x$game_summary) || nrow(x$game_summary) == 0) {
-    skip("No rows returned from wnba_boxscoresummaryv3() at test time")
+    fail("No rows returned from wnba_boxscoresummaryv3() at test time")
+    return(invisible(NULL))
   }
 
   expect_true("game_summary" %in% names(x))

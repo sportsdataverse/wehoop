@@ -7,7 +7,8 @@ test_that("WNBA Draft Board", {
 
   if (length(x) == 0 || is.null(x$picks) || !is.data.frame(x$picks) ||
       nrow(x$picks) == 0) {
-    skip("No rows returned from wnba_draftboard() at test time")
+    fail("No rows returned from wnba_draftboard() at test time")
+    return(invisible(NULL))
   }
 
   cols_board <- c(

@@ -6,7 +6,8 @@ test_that("WNBA All-Time Leaders Grids", {
   x <- wnba_alltimeleadersgrids(league_id = "10")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
-    skip("No rows returned from endpoint at test time")
+    fail("No rows returned from endpoint at test time")
+    return(invisible(NULL))
   }
   
   cols_x1 <- c(

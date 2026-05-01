@@ -6,7 +6,8 @@ test_that("WNBA Boxscore Four Factors V3", {
   x <- wnba_boxscorefourfactorsv3(game_id = "1022200034")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
-    skip("No rows returned from endpoint at test time")
+    fail("No rows returned from endpoint at test time")
+    return(invisible(NULL))
   }
   
   cols_x1 <- c(

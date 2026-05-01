@@ -5,7 +5,8 @@ test_that("WNBA Cumulative Stats Player Games", {
   x <- wnba_cumestatsplayergames(player_id = "204319", season = "2021-22")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
-    skip("No rows returned from endpoint at test time")
+    fail("No rows returned from endpoint at test time")
+    return(invisible(NULL))
   }
   
   cols_x1 <- c(

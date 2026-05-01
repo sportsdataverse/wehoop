@@ -4,10 +4,11 @@ test_that("WNBA Team Dashboard by Team Performance", {
   skip_wnba_stats_test()
   
   x <- wnba_teamdashboardbyteamperformance(team_id = '1611661328', 
-                                           season = most_recent_wnba_season())
+                                           season = most_recent_wnba_season() - 1)
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
-    skip("No rows returned from endpoint at test time")
+    fail("No rows returned from endpoint at test time")
+    return(invisible(NULL))
   }
   
   cols_x1 <- c(

@@ -7,7 +7,8 @@ test_that("WNBA Data PBP", {
 x <- wnba_data_pbp(game_id = "1022200034")
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
-    skip("No rows returned from wnba_data_pbp() at test time")
+    fail("No rows returned from wnba_data_pbp() at test time")
+    return(invisible(NULL))
   }
 
   cols <- c(
