@@ -11,7 +11,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '30 12 * * Fri'
+    - cron: "30 12 * * Fri"
 
 name: R-CMD-check
 
@@ -32,19 +32,19 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macos-latest,   r: 'release'}
-          - {os: windows-latest, r: 'release'}
-         # - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - { os: macos-latest, r: "release" }
+          - { os: windows-latest, r: "release" }
+          # - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+          - { os: ubuntu-latest, r: "release" }
+          - { os: ubuntu-latest, r: "oldrel-1" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
       # Optional live API toggles for CI (tests still short-circuit on skip_on_ci() unless changed):
-      # WNBA_STATS_TESTS: ${{ secrets.WNBA_STATS_TESTS }}
-      # ESPN_TESTS: ${{ secrets.ESPN_TESTS }}
-      # NCAA_WBB_TESTS: ${{ secrets.NCAA_WBB_TESTS }}
+      WNBA_STATS_TESTS: ${{ secrets.WNBA_STATS_TESTS }}
+      ESPN_TESTS: ${{ secrets.ESPN_TESTS }}
+      NCAA_WBB_TESTS: ${{ secrets.NCAA_WBB_TESTS }}
 
     steps:
       - uses: actions/checkout@v4
