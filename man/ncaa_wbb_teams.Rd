@@ -2,16 +2,20 @@
 % Please edit documentation in R/ncaa_wbb_data.R
 \name{ncaa_wbb_teams}
 \alias{ncaa_wbb_teams}
-\title{\strong{Scrape NCAA Women's Baskebtall Teams (Division I, II, and III)}}
+\title{\strong{Scrape NCAA Women's Basketball Teams (Division I, II, and III)}}
 \usage{
 ncaa_wbb_teams(year = most_recent_wbb_season(), division = 1, ...)
 }
 \arguments{
-\item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2002 onward.}
+\item{year}{The season for which data should be returned, in the form
+of "YYYY". The directory API only exposes the current academic year,
+so this argument is recorded in the \code{year} column but does not
+affect the rows returned.}
 
-\item{division}{Division - 1, 2, 3}
+\item{division}{Division - 1, 2, or 3.}
 
-\item{...}{Additional arguments passed to an underlying function like httr.}
+\item{...}{Additional arguments (unused; retained for backward
+compatibility).}
 }
 \value{
 A data frame with the following variables\tabular{ll}{
@@ -27,9 +31,19 @@ A data frame with the following variables\tabular{ll}{
 }
 }
 \description{
-This function allows the user to obtain NCAA teams by year and division
+Returns the list of NCAA member institutions in a given
+division. Sourced from the NCAA member directory API at
+\code{web3.ncaa.org/directory/api/directory/memberList}.
+
+Note: as of v3.0.0 the legacy \code{stats.ncaa.org/team/inst_team_list}
+endpoint is blocked behind Akamai (HTTP 403 to all automated requests).
+This function now returns institutional membership for the current
+academic year regardless of the \code{year} argument; the argument is kept
+for backward compatibility and emitted as the \code{year} column. The old
+stats.ncaa.org per-season \code{season_id} is no longer available, so that
+column is \code{NA_character_}.
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_wbb_teams(year = 2023, division = 1)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_wbb_teams(year = 2025, division = 1)
 }\if{html}{\out{</div>}}
 }

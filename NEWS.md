@@ -120,9 +120,20 @@ Already deprecated, re-stated under the lifecycle pattern:
   the WNBA off-season window. `wnba_teams()` and standings tests still
   track the live season because that's what they're meant to verify.
 * Bumped `.ncaa_headers()` user-agent to Chrome 130 and added the
-  `Sec-Fetch-*` / `sec-ch-ua-*` headers a real browser sends; switched
-  `ncaa_wbb_teams()` from `http://stats.ncaa.org` to `https://`.
-  Re-enables the previously skipped `test-ncaa_wbb_teams.R` test.
+  `Sec-Fetch-*` / `sec-ch-ua-*` headers a real browser sends.
+* Rewrote `ncaa_wbb_teams()` against
+  `https://web3.ncaa.org/directory/api/directory/memberList?type=12&division=<I/II/III>`.
+  The legacy `stats.ncaa.org/team/inst_team_list` endpoint started
+  returning HTTP 403 to all automated requests behind Akamai; the
+  member-directory API is open and returns the full division roster in
+  a single call (366 D1 / 306 D2 / 429 D3 schools as of 2026), so the
+  function no longer fans out N+1 requests per conference. Caveats: the
+  directory only exposes the current academic year (the `year` argument
+  is preserved for backward compatibility and emitted as the `year`
+  column but does not affect the rows returned), and the legacy
+  `stats.ncaa.org` per-season `season_id` is no longer available so
+  that column is `NA_character_`. Re-enables the previously skipped
+  `test-ncaa_wbb_teams.R` test.
 
 
 # **wehoop 2.1.0**

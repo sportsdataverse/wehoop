@@ -60,11 +60,26 @@ ncaa_wbb_NET_rankings <- function(){
 }
 
 
-#' @title **Scrape NCAA Women's Baskebtall Teams (Division I, II, and III)**
-#' @description This function allows the user to obtain NCAA teams by year and division
-#' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2002 onward.
-#' @param division Division - 1, 2, 3
-#' @param ... Additional arguments passed to an underlying function like httr.
+#' @title **Scrape NCAA Women's Basketball Teams (Division I, II, and III)**
+#' @description Returns the list of NCAA member institutions in a given
+#' division. Sourced from the NCAA member directory API at
+#' `web3.ncaa.org/directory/api/directory/memberList`.
+#'
+#' Note: as of v3.0.0 the legacy `stats.ncaa.org/team/inst_team_list`
+#' endpoint is blocked behind Akamai (HTTP 403 to all automated requests).
+#' This function now returns institutional membership for the current
+#' academic year regardless of the `year` argument; the argument is kept
+#' for backward compatibility and emitted as the `year` column. The old
+#' stats.ncaa.org per-season `season_id` is no longer available, so that
+#' column is `NA_character_`.
+#'
+#' @param year The season for which data should be returned, in the form
+#'   of "YYYY". The directory API only exposes the current academic year,
+#'   so this argument is recorded in the `year` column but does not
+#'   affect the rows returned.
+#' @param division Division - 1, 2, or 3.
+#' @param ... Additional arguments (unused; retained for backward
+#'   compatibility).
 #' @return A data frame with the following variables
 #'
 #'    |col_name      |types     |
@@ -79,17 +94,15 @@ ncaa_wbb_NET_rankings <- function(){
 #'    |season_id     |character |
 #'
 #' @import dplyr
-#' @import rvest
-#' @importFrom stringr str_split
+#' @importFrom jsonlite fromJSON
 #' @export
 #' @details
 #' ```r
-#'   ncaa_wbb_teams(year = 2023, division = 1)
+#'   ncaa_wbb_teams(year = 2025, division = 1)
 #' ```
-
 ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
-  .args <- mget(setdiff(names(formals()), "..."))
-  
+  .args <- .capture_args()
+
   if (is.null(year)) {
     cli::cli_abort("Enter valid year as a number (YYYY)")
   }
@@ -97,118 +110,57 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
     cli::cli_abort("Enter valid division as a number: 1, 2, 3")
   }
   if (year < 2002) {
-    stop('you must provide a year that is equal to or greater than 2002')
+    stop("you must provide a year that is equal to or greater than 2002")
   }
-  
+  div_roman <- switch(
+    as.character(division),
+    `1` = "I", `2` = "II", `3` = "III",
+    cli::cli_abort("`division` must be 1, 2, or 3")
+  )
+
   df <- data.frame()
 
-  headers <- .ncaa_headers()
+  url <- paste0(
+    "https://web3.ncaa.org/directory/api/directory/memberList?type=12&division=",
+    div_roman
+  )
+
   tryCatch(
     expr = {
+      resp <- .retry_request(url, headers = .ncaa_headers(), timeout = 30)
+      raw <- jsonlite::fromJSON(.resp_text(resp), flatten = TRUE)
 
+      if (!is.data.frame(raw) || nrow(raw) == 0) {
+        return(df)
+      }
 
-      url <- paste0("https://stats.ncaa.org/team/inst_team_list?academic_year=",
-                    year,
-                    "&conf_id=-1",
-                    "&division=", division,
-                    "&sport_code=WBB")
-
-      resp <- .retry_request(url, headers = headers, timeout = 15)
-
-      data_read <- resp %>%
-        .resp_text() %>%
-        xml2::read_html()
-      
-      team_urls <- data_read %>%
-        rvest::html_elements("table") %>%
-        rvest::html_elements("a") %>%
-        rvest::html_attr("href")
-      
-      team_names <- data_read %>%
-        rvest::html_elements("table") %>%
-        rvest::html_elements("a") %>%
-        rvest::html_text()
-      
-      conference_names <- ((data_read %>%
-                              rvest::html_elements(".level2"))[[4]] %>%
-                             rvest::html_elements("a") %>%
-                             rvest::html_text())[-1]
-      
-      conference_ids <- (data_read %>%
-                           rvest::html_elements(".level2"))[[4]] %>%
-        rvest::html_elements("a") %>%
-        rvest::html_attr("href") %>%
-        stringr::str_extract("javascript:changeConference\\(\\d+\\)") %>%
-        stringr::str_subset("javascript:changeConference\\(\\d+\\)") %>%
-        stringr::str_extract("\\d+")
-      
-      conference_df <- data.frame(conference = conference_names, conference_id = conference_ids)
-      
-      conferences_team_df <- lapply(conference_df$conference_id, function(x){
-        conf_team_urls <- paste0("https://stats.ncaa.org/team/inst_team_list?academic_year=",
-                                 year,
-                                 "&conf_id=", x,
-                                 "&division=", division,
-                                 "&sport_code=WBB")
-        
-        resp <- .retry_request(conf_team_urls, headers = headers, timeout = 15)
-        
-        team_urls <- resp %>%
-          .resp_text() %>%
-          xml2::read_html() %>%
-          rvest::html_elements("table") %>%
-          rvest::html_elements("a") %>%
-          rvest::html_attr("href")
-        
-        team_names <- resp %>%
-          .resp_text() %>%
-          xml2::read_html() %>%
-          rvest::html_elements("table") %>%
-          rvest::html_elements("a") %>%
-          rvest::html_text()
-        
-        data <- data.frame(team_url = team_urls,
-                           team_name = team_names,
-                           division = division,
-                           year = year,
-                           conference_id = x)
-        data <- data %>%
-          dplyr::left_join(conference_df, by = c("conference_id"))
-        Sys.sleep(5)
-        return(data)
-      })
-      
-      conferences_team_df <- rbindlist_with_attrs(conferences_team_df)
-      
-      conferences_team_df$team_id <- conferences_team_df$team_url %>%
-        stringr::str_extract("(\\d+)\\/(\\d+)", group = 1)
-      
-      conferences_team_df$season_id <- conferences_team_df$team_url %>%
-        stringr::str_extract("(\\d+)\\/(\\d+)", group = 2)
-      
-      df <- as.data.frame(conferences_team_df)
-      
-      df <- df %>%
-        dplyr::select(dplyr::any_of(c(
-          "team_id",
-          "team_name",
-          "team_url",
-          "conference_id",
-          "conference",
-          "division",
-          "year",
-          "season_id"))) %>%
-        make_wehoop_data("NCAA WBB Teams data from stats.ncaa.org", Sys.time())
-      
+      df <- raw %>%
+        dplyr::filter(.data$deactive == "N",
+                      .data$division == as.integer(division)) %>%
+        dplyr::transmute(
+          team_id = as.character(.data$orgId),
+          team_name = as.character(.data$nameOfficial),
+          team_url = as.character(.data$athleticWebUrl),
+          conference_id = as.character(.data$conferenceId),
+          conference = as.character(.data$conferenceName),
+          division = as.integer(.data$division),
+          year = as.integer(year),
+          season_id = NA_character_
+        ) %>%
+        dplyr::arrange(.data$conference, .data$team_name) %>%
+        dplyr::as_tibble() %>%
+        make_wehoop_data(
+          "NCAA WBB Teams data from web3.ncaa.org/directory",
+          Sys.time()
+        )
     },
     error = function(e) .report_api_error(
       e,
-      hint = "Invalid arguments provided",
+      hint = "Could not fetch NCAA member directory for division {division}!",
       args = .args
     ),
     warning = function(w) .report_api_warning(w, args = .args),
-    finally = {
-    }
+    finally = {}
   )
   return(df)
 }
