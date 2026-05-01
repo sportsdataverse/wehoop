@@ -32,7 +32,7 @@
 
 * ```wnba_playbyplayv3()``` function added. V3 play-by-play endpoint wrapper, plus a V3-to-V2 compatibility pipeline used by ```wnba_pbp()``` (via ```.v3_to_v2_format_wnba()```, ```.build_player_roster_wnba()```, ```.players_on_court_v3_wnba()```) that retains V2-compatible columns while adding V3-only columns (```x_legacy```, ```y_legacy```, ```shot_distance```, ```shot_result```, ```is_field_goal```, ```points_total```, ```shot_value```).
 * ```wnba_boxscoresummaryv3()``` function added.
-* ```wnba_boxscoreusagev3()``` function added.
+* ```wnba_boxscoreusagev3()``` function added.TTTTTTTTTTTTTTTTT
 
 ### **WNBA Time Calculation Fix**
 
@@ -62,18 +62,67 @@
 * Added per-element null/empty-column check helpers to `test-wnba_teamvsplayer.R` and `test-wnba_playerdashboardbyclutch.R` so tests tolerate the WNBA Stats API returning fewer result-set elements than the test expects.
 * Added `tools/` directory (excluded from the package build via `.Rbuildignore`) containing the one-off R scripts used to apply the above sweeps: `patch_df_list_init.R`, `patch_return_var_init.R`, `flip_expect_equal_cols.R`, `inject_skip_guard.R`.
 
-### **Deprecations (slated for 3.1.0 removal)**
+### **Deprecations (lifecycle, slated for 3.1.0 removal)**
 
-The following functions wrap WNBA Stats API endpoints that are no longer returning data. They are marked `@keywords internal`, their bodies have been replaced with `cli::cli_alert_danger()` stubs, and their tests are skipped with `"Skip this test due to deprecation"`. They remain exported for one release but will be removed in `wehoop 3.1.0`:
+Adds `lifecycle` to `Imports` and migrates every existing
+`cli::cli_alert_danger()` deprecation stub to `lifecycle::deprecate_stop()`,
+matching the style used in `hoopR`. Calling any of these functions now
+errors with a structured `lifecycleDeprecatedError` that names a
+replacement (or, where none exists, an explanation). Their tests skip
+with a `"Deprecated: <fn>() now errors by design; use <replacement>."`
+message before the function call.
 
-* ```wnba_boxscorehustlev2()```
-* ```wnba_hustlestatsboxscore()```
-* ```wnba_leaguehustlestatsplayer()```
-* ```wnba_leaguehustlestatsplayerleaders()```
-* ```wnba_leaguehustlestatsteam()```
-* ```wnba_leaguehustlestatsteamleaders()```
-* ```wnba_videodetails()```
-* ```wnba_videodetailsasset()```
+Newly deprecated in 3.0.0 — endpoints returned `<!DOCTYPE html>` (HTTP
+404 / maintenance page) at test time:
+
+* `wnba_boxscoreplayertrackv2()` → `wnba_boxscoreplayertrackv3()`
+* `wnba_data_pbp()` → `wnba_pbp()` (the `data.wnba.com` mobile_teams feed
+  is unstable; HTTP/2 stream errors are routine)
+* `wnba_leaguelineupviz()` → details only; nearest substitute is
+  `wnba_leaguedashlineups()`
+* `wnba_playercareerbycollege()` → details only; consider
+  `wnba_playercareerbycollegerollup()` or `wnba_leaguedashplayerbiostats()`
+* `wnba_teamgamestreakfinder()` → `wnba_teamgamelogs()`
+* `wnba_teamhistoricalleaders()` → `wnba_franchiseleaders()`
+* `wnba_teamyearbyyearstats()` → details only; consider
+  `wnba_franchisehistory()` or `wnba_teamdashboardbyyearoveryear()`
+
+Already deprecated, re-stated under the lifecycle pattern:
+
+* `wnba_boxscorehustlev2()` (3.0.0) — endpoint dead, no replacement
+* `wnba_hustlestatsboxscore()` (3.0.0) — endpoint dead, no replacement
+* `wnba_leaguehustlestatsplayer()` (3.0.0) — endpoint dead, no replacement
+* `wnba_leaguehustlestatsplayerleaders()` (3.0.0) — endpoint dead, no replacement
+* `wnba_leaguehustlestatsteam()` (3.0.0) — endpoint dead, no replacement
+* `wnba_leaguehustlestatsteamleaders()` (3.0.0) — endpoint dead, no replacement
+* `wnba_homepageleaders()` (2.1.0) → `wnba_homepagewidget()`
+* `wnba_homepagev2()` (2.1.0) → `wnba_homepagewidget()`
+* `wnba_leaderstiles()` (2.1.0) → `wnba_homepagewidget()`
+* `wnba_scoreboard()` (2.1.0) → `wnba_scoreboardv3()`
+* `wnba_teaminfocommon()` (2.1.0) → `wnba_teamdetails()`
+* `wnba_videodetails()` (3.0.0) → `wnba_videoevents()`
+* `wnba_videodetailsasset()` (3.0.0) → `wnba_videoevents()`
+
+### **Test infrastructure**
+
+* **Empty / NULL responses now FAIL the test instead of silently
+  SKIPping.** The earlier `skip("No rows returned from endpoint at
+  test time")` guard was hiding regressions: when an upstream endpoint
+  starts returning HTML (404 / maintenance) or breaks in some other
+  silent way, the test should flag it. Converted all 117 such guards
+  across `tests/testthat/test-*.R` from `skip(...)` to `fail(...) +
+  return(invisible(NULL))` so the test surfaces a FAIL count for
+  follow-up. Deprecation skips and the env-gated `skip_*_test()` /
+  `skip_on_cran()` / `skip_on_ci()` helpers are unchanged.
+* Pinned 16 `wnba_team*` test files from `most_recent_wnba_season()` to
+  `most_recent_wnba_season() - 1` so the team-stats endpoints have a
+  known-completed season to query and don't degenerate to "no rows" in
+  the WNBA off-season window. `wnba_teams()` and standings tests still
+  track the live season because that's what they're meant to verify.
+* Bumped `.ncaa_headers()` user-agent to Chrome 130 and added the
+  `Sec-Fetch-*` / `sec-ch-ua-*` headers a real browser sends; switched
+  `ncaa_wbb_teams()` from `http://stats.ncaa.org` to `https://`.
+  Re-enables the previously skipped `test-ncaa_wbb_teams.R` test.
 
 
 # **wehoop 2.1.0**
