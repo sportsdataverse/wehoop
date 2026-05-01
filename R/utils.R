@@ -164,13 +164,53 @@ check_status <- function(res) {
   httr2::resp_body_string(resp, encoding = "UTF-8")
 }
 
+#' Minimal brace-template interpolator
+#'
+#' Replaces `{expr}` tokens in `template` by evaluating `expr` in `envir`.
+#' Used in `.report_api_error()` / `.report_api_warning()` so callers can
+#' write hints like `"No data for {game_id}"` and have `{game_id}` resolve
+#' against the function's frame at the call-site.
+#'
+#' Per-token failures (unbound name, parse error) leave the literal
+#' `{expr}` in place rather than erroring, so partial interpolation still
+#' produces a useful message.
+#'
+#' @param template character(1).
+#' @param envir environment to evaluate expressions against.
+#' @return character(1).
+#' @keywords internal
+.interp_braces <- function(template, envir = parent.frame()) {
+  if (length(template) != 1L || !is.character(template) || is.na(template)) {
+    return(as.character(template))
+  }
+  m <- gregexpr("\\{([^{}]+)\\}", template, perl = TRUE)[[1]]
+  if (length(m) == 1L && m[1] == -1L) return(template)
+  starts <- as.integer(m)
+  lens <- attr(m, "match.length")
+  out <- character(0)
+  pos <- 1L
+  for (i in seq_along(starts)) {
+    s <- starts[i]; l <- lens[i]
+    if (s > pos) out <- c(out, substr(template, pos, s - 1L))
+    expr <- substr(template, s + 1L, s + l - 2L)
+    val <- tryCatch(
+      paste(as.character(eval(parse(text = expr), envir = envir)), collapse = ""),
+      error = function(.e) substr(template, s, s + l - 1L)
+    )
+    out <- c(out, val)
+    pos <- s + l
+  }
+  if (pos <= nchar(template)) out <- c(out, substr(template, pos, nchar(template)))
+  paste(out, collapse = "")
+}
+
 #' Report an API-call error with full context
 #'
 #' Internal helper that standardizes the message every WNBA / ESPN / NCAA
 #' wrapper emits inside its `tryCatch(error = ...)` block. Always emits, in
 #' order:
 #'
-#' 1. A timestamped friendly hint (glue-interpolated by `cli::cli_alert_danger()`),
+#' 1. A timestamped friendly hint (brace-interpolated against the caller env),
 #' 2. A dump of the function call's arguments,
 #' 3. The actual error message (`conditionMessage(e)`).
 #'
@@ -179,9 +219,10 @@ check_status <- function(res) {
 #' `.report_api_error(e, hint = "...", args = .args)` from the error handler.
 #'
 #' @param e error condition (the `e` from `function(e)` in `tryCatch`).
-#' @param hint character. A glue-interpolated friendly message (interpolated
-#'   in the *caller's* environment, so `{game_id}`-style references resolve
-#'   against the function's formals). If `NULL`, defaults to "Request failed".
+#' @param hint character. A friendly message with optional `{name}` tokens
+#'   that resolve against the *caller's* environment (so `{game_id}` etc.
+#'   pull from the wrapper's formals). If `NULL`, defaults to "Request
+#'   failed".
 #' @param args optional named list of caller arguments to dump (typically
 #'   `mget(setdiff(names(formals()), "..."))` captured at function entry).
 #' @return Invisibly `NULL`. Called for its side effects.
@@ -190,10 +231,7 @@ check_status <- function(res) {
   caller_env <- parent.frame()
 
   hint_text <- if (!is.null(hint)) {
-    tryCatch(
-      glue::glue(hint, .envir = caller_env),
-      error = function(.e) hint
-    )
+    .interp_braces(hint, envir = caller_env)
   } else {
     "Request failed"
   }
@@ -217,6 +255,49 @@ check_status <- function(res) {
   invisible(NULL)
 }
 
+#' Report an API-call warning with full context
+#'
+#' Mirrors `.report_api_error()` but for `tryCatch(warning = ...)` handlers.
+#' Emits, in order:
+#'
+#' 1. A timestamped friendly hint (brace-interpolated against the caller env),
+#' 2. A dump of the function call's arguments,
+#' 3. The actual warning message (`conditionMessage(w)`).
+#'
+#' @param w warning condition (the `w` from `function(w)` in `tryCatch`).
+#' @param hint character. Same semantics as `.report_api_error()`'s `hint`.
+#'   If `NULL`, defaults to "Request emitted a warning".
+#' @param args optional named list of caller arguments to dump.
+#' @return Invisibly `NULL`. Called for its side effects.
+#' @keywords internal
+.report_api_warning <- function(w, hint = NULL, args = list()) {
+  caller_env <- parent.frame()
+
+  hint_text <- if (!is.null(hint)) {
+    .interp_braces(hint, envir = caller_env)
+  } else {
+    "Request emitted a warning"
+  }
+
+  cli::cli_alert_warning("{Sys.time()}: {hint_text}")
+
+  if (length(args) > 0) {
+    args_str <- paste0(
+      names(args), " = ",
+      vapply(args, function(a) {
+        s <- tryCatch(deparse(a, width.cutoff = 60)[1],
+                      error = function(...) "<?>")
+        if (nchar(s) > 60) paste0(substr(s, 1, 60), "...") else s
+      }, character(1)),
+      collapse = ", "
+    )
+    cli::cli_alert_warning("Args: {args_str}")
+  }
+
+  cli::cli_alert_warning("Warning: {conditionMessage(w)}")
+  invisible(NULL)
+}
+
 #' @title
 #' **Convert a calendar year to a WNBA / NBA season string**
 #' @description
@@ -233,11 +314,11 @@ year_to_season <- function(year) {
   first_year <- substr(year, 3, 4)
   next_year <- as.numeric(first_year) + 1
   next_year <- dplyr::case_when(
-    next_year < 10 & first_year > 0 ~ glue::glue("0{next_year}"),
+    next_year < 10 & first_year > 0 ~ paste0("0", next_year),
     first_year == 99 ~ "00",
     TRUE ~ as.character(next_year)
   )
-  return(glue::glue("{year}-{next_year}"))
+  return(paste0(year, "-", next_year))
 }
 
 #' @importFrom magrittr %>%
