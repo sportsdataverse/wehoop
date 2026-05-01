@@ -37,9 +37,9 @@ template:
       
 authors:
   Saiem Gilani:
-    href: https://twitter.com/saiemgilani
+    href: https://x.com/saiemgilani
   Geoffery Hutchinson:
-    href: https://twitter.com/hutchngo
+    href: https://x.com/hutchngo
 
 
 home:
@@ -160,8 +160,8 @@ navbar:
       - text: "wehoop Data Repository"
         href: https://github.com/sportsdataverse/wehoop-data
     twitter:
-      icon: "fab fa-twitter fa-lg"
-      href: http://twitter.com/saiemgilani
+      icon: "fab fa-x-twitter fa-lg"
+      href: https://x.com/saiemgilani
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/sportsdataverse/wehoop/

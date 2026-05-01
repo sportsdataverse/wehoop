@@ -10,12 +10,12 @@ downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=s
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/wehoop)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop)
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://twitter.com/SaiemGilani)
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/hutchngo)
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/sportsdataverse?label=%40SportsDataverse&logo=x&style=for-the-badge)](https://twitter.com/sportsdataverse)
+[![X
+Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://x.com/SaiemGilani)
+[![X
+Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
+[![X
+Follow](https://img.shields.io/twitter/follow/sportsdataverse?label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/sportsdataverse)
 
 <!-- badges: end -->
 
@@ -91,24 +91,24 @@ website](https://wehoop.sportsdataverse.org).
 [**Full News on
 Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
-## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
 
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://twitter.com/SportsDataverse)
+[![X
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://x.com/SportsDataverse)
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop/stargazers/)
 
 # **Our Authors**
 
-- [Saiem Gilani](https://twitter.com/saiemgilani)
+- [Saiem Gilani](https://x.com/saiemgilani)
 
-<a href="https://twitter.com/saiemgilani" target="blank"><img  alt="@SaiemGilani" src="https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani"></a>
+<a href="https://x.com/saiemgilani" target="blank"><img  alt="@SaiemGilani" src="https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani"></a>
 <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
-- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)
+- [Geoff Hutchinson - RIP](https://x.com/hutchngo)
 
-<a href="https://twitter.com/HutchNGo" target="blank"><img src="https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge" alt="@HutchNGo" /></a>
+<a href="https://x.com/HutchNGo" target="blank"><img src="https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge" alt="@HutchNGo" /></a>
 <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>
 
 ## **Citations**
