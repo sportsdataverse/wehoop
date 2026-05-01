@@ -1,0 +1,19 @@
+---
+title: "WNBA Stats API Parameter Descriptions"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  comment = "#>"
+)
+with_dt <- requireNamespace("DT")
+```
+
+```{r eval = with_dt}
+DT::datatable(wehoop::parameter_descriptions, options = list(scrollX = TRUE, pageLength = 25), filter = "top", rownames = FALSE)
+```
+
+```{r eval = !with_dt}
+knitr::kable(wehoop::parameter_descriptions)
+```
