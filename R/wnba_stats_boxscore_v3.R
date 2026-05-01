@@ -2629,7 +2629,13 @@ wnba_boxscorehustlev2 <- function(
     game_id = "1022200034",
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_boxscorehustlev2()` is deprecated due to changes from the WNBA Stats API. The `boxscorehustlev2` endpoint no longer returns data.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_boxscorehustlev2()",
+    details = "The `boxscorehustlev2` endpoint no longer returns data."
+  )
 }
 
 

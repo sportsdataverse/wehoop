@@ -305,7 +305,13 @@ wnba_playercareerbycollege <- function(
     season_type = 'Regular Season',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_playercareerbycollege()",
+    details = "No direct replacement is available in wehoop for this unstable endpoint. Consider using `wnba_playercareerbycollegerollup()` or `wnba_leaguedashplayerbiostats()` for aggregated career stats by college instead."
+  )
+
   # college <- gsub(' ', '+', college)
   # Intentional
   # season_type <- gsub(' ', '+', season_type)

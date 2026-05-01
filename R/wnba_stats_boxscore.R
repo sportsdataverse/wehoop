@@ -1103,7 +1103,13 @@ wnba_boxscoreplayertrackv2 <- function(
   game_id,
   ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_boxscoreplayertrackv2()",
+    with = "wnba_boxscoreplayertrackv3()"
+  )
+
   version <- "boxscoreplayertrackv2"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
@@ -1229,7 +1235,12 @@ wnba_hustlestatsboxscore <- function(
     game_id,
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_hustlestatsboxscore()` is deprecated due to changes from the WNBA Stats API. The `hustlestatsboxscore` endpoint no longer returns data.")
-}
+  .args <- .capture_args()
 
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_hustlestatsboxscore()",
+    details = "The `hustlestatsboxscore` endpoint no longer returns data."
+  )
+}
 

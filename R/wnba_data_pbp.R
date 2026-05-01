@@ -75,7 +75,14 @@ NULL
 wnba_data_pbp <- function(game_id = "1022200034",
                           ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_data_pbp()",
+    with = "wnba_pbp()",
+    details = "The `data.wnba.com` mobile_teams play-by-play feed is unstable (HTTP/2 stream errors are routine). Use `wnba_pbp()` (which wraps the WNBA Stats API V3 endpoint) for play-by-play instead."
+  )
+
   league_id <- substr(game_id, 1, 2)
   season_id <- substr(game_id, 4, 5)
   season <- ifelse(substr(season_id,1,1) == "9", paste0('19', season_id), paste0('20', season_id))

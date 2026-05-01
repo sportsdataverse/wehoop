@@ -438,7 +438,13 @@ wnba_leaguelineupviz <- function(
     vs_division = '',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_leaguelineupviz()",
+    details = "The `leaguelineupviz` endpoint no longer returns stable data. Use `wnba_leaguedashlineups()` for league-wide lineup statistics instead."
+  )
+
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
   version <- "leaguelineupviz"

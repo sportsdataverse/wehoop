@@ -108,7 +108,13 @@ wnba_leaguehustlestatsplayer <- function(
     weight = '',
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsplayer()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsplayer` endpoint no longer returns data.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_leaguehustlestatsplayer()",
+    details = "The `leaguehustlestatsplayer` endpoint no longer returns data."
+  )
 }
 
 #' **Get WNBA Stats API League Hustle Stats Player Leaders**
@@ -266,7 +272,13 @@ wnba_leaguehustlestatsplayerleaders <- function(
     weight = '',
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsplayerleaders()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsplayerleaders` endpoint no longer returns data.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_leaguehustlestatsplayerleaders()",
+    details = "The `leaguehustlestatsplayerleaders` endpoint no longer returns data."
+  )
 }
 
 #' **Get WNBA Stats API League Hustle Stats Team**
@@ -370,7 +382,13 @@ wnba_leaguehustlestatsteam <- function(
     weight = '',
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsteam()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsteam` endpoint no longer returns data.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_leaguehustlestatsteam()",
+    details = "The `leaguehustlestatsteam` endpoint no longer returns data."
+  )
 }
 
 #' **Get WNBA Stats API League Hustle Stats Team Leaders**
@@ -527,5 +545,11 @@ wnba_leaguehustlestatsteamleaders <- function(
     weight = '',
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_leaguehustlestatsteamleaders()` is deprecated due to changes from the WNBA Stats API. The `leaguehustlestatsteamleaders` endpoint no longer returns data.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_leaguehustlestatsteamleaders()",
+    details = "The `leaguehustlestatsteamleaders` endpoint no longer returns data."
+  )
 }

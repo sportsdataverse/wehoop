@@ -123,7 +123,13 @@ wnba_videodetailsasset <- function(
     vs_division = '',
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_videodetailsasset()` is deprecated due to changes from the WNBA Stats API. The `videodetailsasset` endpoint no longer returns data. Please use `wnba_videoevents()` instead.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_videodetailsasset()",
+    with = "wnba_videoevents()"
+  )
 }
 
 
@@ -251,7 +257,13 @@ wnba_videodetails <- function(
     vs_division = '',
     ...){
 
-  cli::cli_alert_danger("As of v3.0.0, `wnba_videodetails()` is deprecated due to changes from the WNBA Stats API. The `videodetails` endpoint no longer returns data. Please use `wnba_videoevents()` instead.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_videodetails()",
+    with = "wnba_videoevents()"
+  )
 }
 
 

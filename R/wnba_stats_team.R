@@ -716,7 +716,13 @@ wnba_teamhistoricalleaders <- function(
     team_id = '1611661328',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_teamhistoricalleaders()",
+    with = "wnba_franchiseleaders()"
+  )
+
   version <- "teamhistoricalleaders"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
@@ -826,7 +832,13 @@ wnba_teaminfocommon <- function(
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
-  cli::cli_alert_danger("As of v2.1.0, `wnba_teaminfocommon()` is deprecated due to changes from the WNBA Stats API. Please use `wnba_teamdetails()` instead.")
+  .args <- .capture_args()
+
+  lifecycle::deprecate_stop(
+    when = "2.1.0",
+    what = "wnba_teaminfocommon()",
+    with = "wnba_teamdetails()"
+  )
   
   # # Intentionally not commented out
   # season_type <- gsub(' ', '+', season_type)
@@ -1735,7 +1747,13 @@ wnba_teamyearbyyearstats <- function(
     team_id = '1611661328',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_teamyearbyyearstats()",
+    details = "No direct replacement is available in wehoop for this unstable endpoint. Consider using `wnba_franchisehistory()` for franchise-level history or season-level dashboards (`wnba_teamdashboardbyyearoveryear()`) for year-over-year team stats."
+  )
+
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
   version <- "teamyearbyyearstats"
@@ -2616,7 +2634,13 @@ wnba_teamgamestreakfinder <- function(
     wrs_opp_tov = '',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_teamgamestreakfinder()",
+    with = "wnba_teamgamelogs()"
+  )
+
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
   version <- "teamgamestreakfinder"
@@ -2835,4 +2859,3 @@ wnba_teamgamestreakfinder <- function(
   )
   return(df_list)
 }
-
