@@ -1,5 +1,8 @@
 ---
-output: github_document
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
 ---
 
 # wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px"/></a>
@@ -115,6 +118,6 @@ BibTex Citation
   publisher = {The R Foundation},
   author = {Gilani,  Saiem and Hutchinson,  Geoffery},
   year = {2021},
-  month = nov 
+  month = nov
 }
 ```

@@ -1,3 +1,30 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [**wehoop 2.1.0**](#wehoop-210)
+- [**wehoop 2.0.0**](#wehoop-200)
+- [**wehoop 1.9.0**](#wehoop-190)
+- [**wehoop 1.8.0**](#wehoop-180)
+- [**wehoop 1.7.0**](#wehoop-170)
+- [**wehoop 1.6.0**](#wehoop-160)
+- [**wehoop 1.5.0**](#wehoop-150)
+- [~106 WNBA Stats API functions added](#106-wnba-stats-api-functions-added)
+- [Adds 4 ESPN WBB and WNBA functions](#adds-4-espn-wbb-and-wnba-functions)
+- [**wehoop 1.2.1**](#wehoop-121)
+- [**wehoop 1.2.0**](#wehoop-120)
+- [**wehoop 1.1.1**](#wehoop-111)
+- [**wehoop 1.1.0**](#wehoop-110)
+- [**wehoop 1.0.0**](#wehoop-100)
+- [**wehoop 0.9.2**](#wehoop-092)
+- [**wehoop 0.9.1**](#wehoop-091)
+- [**wehoop 0.9.0**](#wehoop-090)
+- [**wehoop 0.3.0**](#wehoop-030)
+- [**wehoop 0.2.0**](#wehoop-020)
+- [**wehoop 0.1.0**](#wehoop-010)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # **wehoop 3.0.0**
 
 ### **WNBA Stats API V3 Endpoints Added**
