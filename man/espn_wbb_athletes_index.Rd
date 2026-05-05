@@ -44,9 +44,10 @@ A single \code{wehoop_data} tibble with one row per athlete.\tabular{ll}{
 
 \strong{Get ESPN Women's College Basketball Athletes Index}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_athletes_index(season = 2025, limit = 100)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_athletes_index(season = 2025, limit = 50)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

@@ -84,7 +84,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.31 sec elapsed
+    ## 0.3 sec elapsed
 
     ## Warning: Unknown or uninitialised column: `game_id`.
 
@@ -100,7 +100,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 10.41 sec elapsed
+    ## 10.58 sec elapsed
 
     ## 2824090 rows of women's college basketball play-by-play data from 6011 games.
 
@@ -109,6 +109,15 @@ tictoc::toc()
 For more information on the package and function reference, please see
 the [**`wehoop`** documentation
 website](https://wehoop.sportsdataverse.org).
+
+`wehoop` 3.0.0 ships **80 ESPN basketball endpoint wrappers** (39
+`espn_wbb_*` + 41 `espn_wnba_*`) covering reference and catalog data,
+team detail, athlete coverage, event-level enrichments (odds, win
+probability, officials, broadcasts), WNBA-only artifacts (draft, free
+agents, transactions), and league-wide catalogs. See the [ESPN
+basketball endpoints
+vignette](https://wehoop.sportsdataverse.org/articles/espn-endpoints.html)
+for a full walkthrough.
 
 ## **Breaking Changes**
 

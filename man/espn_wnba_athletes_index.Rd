@@ -43,9 +43,10 @@ A single \code{wehoop_data} tibble with one row per athlete.\tabular{ll}{
 
 \strong{Get ESPN WNBA Athletes Index}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_athletes_index(season = 2025, limit = 50)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_athletes_index(season = 2025, limit = 50)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

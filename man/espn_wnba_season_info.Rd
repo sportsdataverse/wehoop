@@ -42,9 +42,10 @@ auto-resolved -- use targeted endpoint functions for details.
 
 \strong{Get ESPN WNBA Season Info}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_season_info(season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_season_info(season = 2025)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

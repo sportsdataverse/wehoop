@@ -43,10 +43,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_leaders(season = 2025, season_type = 2)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_leaders(season = 2025, season_type = 2)
+#' }
 espn_wbb_leaders <- function(season      = most_recent_wbb_season(),
                               season_type = 2,
                               ...) {
@@ -91,10 +91,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_venues()
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_venues()
+#' }
 espn_wbb_venues <- function(...) {
   .espn_basketball_venues(
     league = "womens-college-basketball",
@@ -134,10 +134,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_coaches(season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_coaches(season = 2025)
+#' }
 espn_wbb_coaches <- function(season = most_recent_wbb_season(),
                               ...) {
   .espn_basketball_coaches(
@@ -186,10 +186,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_athletes_index(season = 2025, limit = 100)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_athletes_index(season = 2025, limit = 50)
+#' }
 espn_wbb_athletes_index <- function(season = most_recent_wbb_season(),
                                      active = TRUE,
                                      limit  = 25000L,
@@ -232,10 +232,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_seasons()
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_seasons()
+#' }
 espn_wbb_seasons <- function(...) {
   .espn_basketball_seasons(
     league = "womens-college-basketball",
@@ -287,10 +287,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_season_info(season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_season_info(season = 2025)
+#' }
 espn_wbb_season_info <- function(season = most_recent_wbb_season(),
                                   ...) {
   .espn_basketball_season_info(

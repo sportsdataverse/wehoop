@@ -38,9 +38,11 @@ block with season-type entries (pre-season, regular, post). Uses
 \code{getOption("wehoop.proxy")} or \code{http_proxy}/\code{https_proxy} environment
 variables for proxy configuration (per-call proxy override is not
 supported for ESPN wrappers).
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_calendar(season = 2025)
-}\if{html}{\out{</div>}}
+}
+\examples{
+\donttest{
+  espn_wbb_calendar(season = 2025)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

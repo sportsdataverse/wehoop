@@ -32,6 +32,20 @@ The following wrappers target WNBA Stats API endpoints that no longer return dat
 * Flipped 394 strict column assertions in 115 test files to the subset direction (`expect_in(expected_cols, actual_cols)`) so upstream column additions no longer fail the test suite.
 * Injected skip-if-empty guards in 114 test files so transient API failures degrade to `skip("No rows returned from endpoint at test time")` instead of cascading into assertion failures.
 
+### ESPN endpoint expansion
+
+* Adds 58 new ESPN basketball endpoint wrappers (27 `espn_wbb_*`,
+  31 `espn_wnba_*`) covering reference and catalog data, team detail,
+  athlete coverage, event-level enrichments (odds, win probability,
+  officials, broadcasts), WNBA-only artifacts (draft, free agents,
+  transactions), and league-wide catalogs (leaders, venues, coaches,
+  athletes index, season metadata). Internal helpers in
+  `R/espn_basketball_*_helpers.R` keep WBB and WNBA implementations
+  DRY. New vignette `vignettes/espn-endpoints.Rmd` documents the
+  full surface; the pkgdown reference index has been split into
+  per-domain subsections so the rendered nav scales for the new
+  surface (80 ESPN wrappers total, up from 22).
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
@@ -45,6 +59,34 @@ NOTE. This is caused by R's clock-skew check failing to reach
 `worldtimeapi.org` from the dev environment, not by anything in the
 package; it does not appear on win-builder / CRAN. Setting
 `_R_CHECK_SYSTEM_CLOCK_=0` suppresses it locally.
+
+## Documentation conventions
+
+Per the project's long-standing convention, executable code samples for
+many wrappers appear inside the `@details` section as fenced markdown
+code blocks. The 58 net-new ESPN wrappers added in this release also
+carry standard `@examples \donttest{...}` blocks; the live-API examples
+are marked `\donttest{}` because every wrapper requires network access
+to ESPN, the WNBA Stats API, or NCAA.com, and the responses depend on
+the current season state. The 141 pre-existing wrappers retain the
+historical `@details`-only example pattern accepted in `wehoop` 2.x;
+no functional change to those is included in this release.
+
+## URL check note
+
+`urlchecker::url_check()` reports HTTP 403 ("Forbidden") for several
+`https://x.com/<user>` profile links in `README.md`. These pages render
+correctly in browsers; X (Twitter) blocks anonymous bot traffic with a
+403 response, so the URLs are reachable for end users but appear broken
+to automated checkers. They have been left unchanged.
+
+`R CMD check --as-cran` may emit a "CRAN incoming feasibility" NOTE
+listing 2-3 `https://www.nba.com/stats/...` or `https://www.wnba.com/standings/...`
+URLs as "(possibly) invalid" with `libcurl error code 92: HTTP/2 stream
+... was not closed cleanly: INTERNAL_ERROR`. These URLs are reachable in
+browsers and from CRAN's win-builder; the failure is a transient HTTP/2
+stream error caused by NBA / WNBA edge servers terminating libcurl
+streams in some dev environments. The URLs have been retained as-is.
 
 ## revdepcheck results
 

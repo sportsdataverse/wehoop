@@ -2,10 +2,21 @@
 % Please edit documentation in R/utils.R
 \name{most_recent_wbb_season}
 \alias{most_recent_wbb_season}
-\title{\strong{Most Recent Women's College Basketball Season}}
+\title{Most Recent Women's College Basketball Season}
 \usage{
 most_recent_wbb_season()
 }
+\value{
+An integer giving the season-ending year (e.g. \code{2025} for the
+2024-25 season).
+}
 \description{
-\strong{Most Recent Women's College Basketball Season}
+Returns the most recent women's college basketball season year as an
+integer based on the current system date. The NCAA WBB season spans two
+calendar years; this helper rolls over to the next season starting in
+October. For example, calls made on 2025-11-15 return \code{2026}, while
+calls made on 2025-03-15 return \code{2025}.
+}
+\examples{
+most_recent_wbb_season()
 }

@@ -22,9 +22,10 @@ stat labels returned by ESPN and will vary by season and player.
 
 \strong{Get ESPN WNBA Athlete Gamelog}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

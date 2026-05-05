@@ -38,9 +38,10 @@ A single tibble with one row per athlete.\tabular{ll}{
 
 \strong{Get ESPN Women's College Basketball Team Roster}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_team_roster(team_id = 2509, season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_team_roster(team_id = "2509", season = 2025)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

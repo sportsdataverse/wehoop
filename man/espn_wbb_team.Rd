@@ -73,9 +73,10 @@ A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},
 
 \strong{Get ESPN Women's College Basketball Team Detail}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_team(team_id = 2509, season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_team(team_id = "2509", season = 2025)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

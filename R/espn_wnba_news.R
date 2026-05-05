@@ -30,9 +30,10 @@ NULL
 #' Retrieve ESPN WNBA news. Uses `getOption("wehoop.proxy")` or
 #' `http_proxy`/`https_proxy` environment variables for proxy configuration
 #' (per-call proxy override is not supported for ESPN wrappers).
-#' ```r
-#'  espn_wnba_news(limit = 10)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_news(limit = 5)
+#' }
 espn_wnba_news <- function(limit = 50) {
   .args <- mget(setdiff(names(formals()), "..."))
   .espn_basketball_news(league = "wnba", limit = limit)
@@ -74,9 +75,10 @@ NULL
 #' `getOption("wehoop.proxy")` or `http_proxy`/`https_proxy` environment
 #' variables for proxy configuration (per-call proxy override is not
 #' supported for ESPN wrappers).
-#' ```r
-#'  espn_wnba_team_news(team_id = 17, limit = 10)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_team_news(team_id = "17", limit = 5)
+#' }
 espn_wnba_team_news <- function(team_id, limit = 25) {
   .args <- mget(setdiff(names(formals()), "..."))
   .espn_basketball_team_news(

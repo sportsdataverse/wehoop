@@ -32,9 +32,11 @@ Returns a tibble of news articles.\tabular{ll}{
 Retrieve ESPN WNBA news. Uses \code{getOption("wehoop.proxy")} or
 \code{http_proxy}/\code{https_proxy} environment variables for proxy configuration
 (per-call proxy override is not supported for ESPN wrappers).
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_news(limit = 10)
-}\if{html}{\out{</div>}}
+}
+\examples{
+\donttest{
+  espn_wnba_news(limit = 5)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

@@ -34,9 +34,10 @@ A tibble with one row per play-level win-probability entry.\tabular{ll}{
 
 \strong{Get ESPN Women's College Basketball Event Win Probabilities}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_event_probabilities(event_id = "401736171", limit = 200)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_event_probabilities(event_id = "401735229", limit = 50)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

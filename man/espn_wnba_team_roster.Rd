@@ -38,9 +38,10 @@ A single tibble with one row per athlete.\tabular{ll}{
 
 \strong{Get ESPN WNBA Team Roster}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_team_roster(team_id = 17, season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_team_roster(team_id = "17", season = 2025)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

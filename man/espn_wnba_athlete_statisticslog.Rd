@@ -31,9 +31,10 @@ statistical entry in the core-v2 statistics log, with \code{event_ref} and
 
 \strong{Get ESPN WNBA Athlete Statisticslog}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

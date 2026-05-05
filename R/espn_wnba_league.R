@@ -43,10 +43,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_leaders(season = 2025, season_type = 2)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_leaders(season = 2024, season_type = 2)
+#' }
 espn_wnba_leaders <- function(season      = most_recent_wnba_season(),
                                season_type = 2,
                                ...) {
@@ -91,10 +91,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_venues()
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_venues()
+#' }
 espn_wnba_venues <- function(...) {
   .espn_basketball_venues(
     league = "wnba",
@@ -134,10 +134,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_coaches(season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_coaches(season = 2025)
+#' }
 espn_wnba_coaches <- function(season = most_recent_wnba_season(),
                                ...) {
   .espn_basketball_coaches(
@@ -185,10 +185,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athletes_index(season = 2025, limit = 50)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athletes_index(season = 2025, limit = 50)
+#' }
 espn_wnba_athletes_index <- function(season = most_recent_wnba_season(),
                                       active = TRUE,
                                       limit  = 5000L,
@@ -231,10 +231,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_seasons()
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_seasons()
+#' }
 espn_wnba_seasons <- function(...) {
   .espn_basketball_seasons(
     league = "wnba",
@@ -286,10 +286,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_season_info(season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_season_info(season = 2025)
+#' }
 espn_wnba_season_info <- function(season = most_recent_wnba_season(),
                                    ...) {
   .espn_basketball_season_info(

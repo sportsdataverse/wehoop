@@ -73,9 +73,10 @@ A named list of data frames: \code{Bio}, \code{Team}, \code{Position},
 
 \strong{Get ESPN WNBA Athlete Info}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_athlete_info(athlete_id = "3149391")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_athlete_info(athlete_id = "3149391")
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

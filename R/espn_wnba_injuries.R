@@ -35,10 +35,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_injuries(season = most_recent_wnba_season())
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_injuries()
+#' }
 espn_wnba_injuries <- function(season = most_recent_wnba_season(), ...) {
   .espn_basketball_league_injuries(
     league = "wnba",
@@ -84,10 +84,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_team_injuries(team_id = "17")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_team_injuries(team_id = "17")
+#' }
 espn_wnba_team_injuries <- function(team_id, ...) {
   .espn_basketball_team_injuries(
     league  = "wnba",

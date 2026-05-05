@@ -41,9 +41,11 @@ Calls the ESPN site-v2 endpoint
 \verb{https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/transactions?season=\{year\}&limit=\{limit\}}.
 Releases have a \code{NULL} \code{to_team_id}; those are stored as \code{NA}. Returns an
 empty tibble rather than erroring when no transactions are available.
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  espn_wnba_transactions(season = 2025, limit = 100)
-}\if{html}{\out{</div>}}
+}
+\examples{
+\donttest{
+  espn_wnba_transactions(season = 2025, limit = 10)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

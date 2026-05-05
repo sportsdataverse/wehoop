@@ -76,10 +76,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_team(team_id = 17, season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_team(team_id = "17", season = 2025)
+#' }
 espn_wnba_team <- function(team_id,
                             season = most_recent_wnba_season(),
                             ...) {
@@ -130,10 +130,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_team_roster(team_id = 17, season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_team_roster(team_id = "17", season = 2025)
+#' }
 espn_wnba_team_roster <- function(team_id,
                                    season = most_recent_wnba_season(),
                                    ...) {
@@ -192,10 +192,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_team_schedule(team_id = 17, season = 2025, season_type = 2)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_team_schedule(team_id = "17", season = 2025)
+#' }
 espn_wnba_team_schedule <- function(team_id,
                                      season      = most_recent_wnba_season(),
                                      season_type = 2,
@@ -241,10 +241,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_team_leaders(team_id = 17, season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_team_leaders(team_id = "17", season = 2025)
+#' }
 espn_wnba_team_leaders <- function(team_id,
                                     season = most_recent_wnba_season(),
                                     ...) {

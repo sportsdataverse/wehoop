@@ -38,9 +38,10 @@ injuries.
 
 \strong{Get ESPN WNBA Team Injuries}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_team_injuries(team_id = "17")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_team_injuries(team_id = "17")
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

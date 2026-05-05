@@ -37,9 +37,10 @@ injuries.
 
 \strong{Get ESPN Women's College Basketball Team Injuries}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_team_injuries(team_id = "2509")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_team_injuries(team_id = "2509")
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

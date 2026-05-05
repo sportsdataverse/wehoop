@@ -35,9 +35,11 @@ Retrieve ESPN women's college basketball news for a specific team. Uses
 \code{getOption("wehoop.proxy")} or \code{http_proxy}/\code{https_proxy} environment
 variables for proxy configuration (per-call proxy override is not
 supported for ESPN wrappers).
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_team_news(team_id = 2509, limit = 10)
-}\if{html}{\out{</div>}}
+}
+\examples{
+\donttest{
+  espn_wbb_team_news(team_id = "2509", limit = 5)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

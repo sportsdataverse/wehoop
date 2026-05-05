@@ -29,9 +29,10 @@ A tibble with one row per official assigned to the game.\tabular{ll}{
 
 \strong{Get ESPN Women's College Basketball Event Officials}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_event_officials(event_id = "401736171")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_event_officials(event_id = "401735229")
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

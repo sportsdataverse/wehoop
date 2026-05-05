@@ -35,9 +35,10 @@ NULL
 #' entries (pre-season, regular, post). Uses `getOption("wehoop.proxy")` or
 #' `http_proxy`/`https_proxy` environment variables for proxy configuration
 #' (per-call proxy override is not supported for ESPN wrappers).
-#' ```r
-#'  espn_wnba_calendar(season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_calendar(season = 2025)
+#' }
 espn_wnba_calendar <- function(season = most_recent_wnba_season()) {
   .args <- mget(setdiff(names(formals()), "..."))
   .espn_basketball_calendar(

@@ -2,7 +2,7 @@ Package: wehoop
 Title: Access Women's Basketball Play by Play Data
 Version: 3.0.0
 Authors@R: c(
-    person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre"),
+    person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-7194-9067")),
     person("Geoffery", "Hutchinson", , "geoffery.hutchinson@gmail.com", role = "aut")
   )

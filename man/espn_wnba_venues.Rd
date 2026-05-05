@@ -30,9 +30,10 @@ A single \code{wehoop_data} tibble with one row per venue.\tabular{ll}{
 
 \strong{Get ESPN WNBA Venues}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_venues()
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_venues()
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

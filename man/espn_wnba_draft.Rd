@@ -39,9 +39,11 @@ Calls the ESPN core-v2 endpoint
 Paginates over all pages (capped at 20 pages) and returns a single flat
 tibble. Outside the draft window, or for historical seasons with no ESPN
 draft data, the function returns an empty tibble rather than erroring.
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  espn_wnba_draft(season = 2025)
-}\if{html}{\out{</div>}}
+}
+\examples{
+\donttest{
+  espn_wnba_draft(season = 2024)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

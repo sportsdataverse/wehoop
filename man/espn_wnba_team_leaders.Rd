@@ -31,9 +31,10 @@ A single long-format tibble (one row per category-rank-athlete).\tabular{ll}{
 
 \strong{Get ESPN WNBA Team Leaders}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_team_leaders(team_id = 17, season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_team_leaders(team_id = "17", season = 2025)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

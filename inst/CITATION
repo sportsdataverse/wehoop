@@ -1,21 +1,23 @@
-year <- sprintf("%s", sub("-.*", "", meta$Date))
+year <- if (!is.null(meta$Date)) sub("-.*", "", meta$Date) else format(Sys.Date(), "%Y")
 note <- sprintf("R package version %s", meta$Version)
 
-citHeader("To cite the wehoop R package in publications, use:")
-
-citEntry(entry = "Misc",
-         author = personList(
-         as.person("Saiem Gilani"),
-         as.person("Geoff Hutchinson")),
-         title = "wehoop: The SportsDataverse's R Package for Women's Basketball Data.",
-         url = c("https://doi.org/10.32614/CRAN.package.wehoop"),
-         DOI = c("10.32614/cran.package.wehoop"),
-         journal = "CRAN: Contributed Packages",
-         publisher = "The R Foundation",
-         year = year,
-         note = note,
-         textVersion = paste(
-    "Saiem Gilani and Geoff Hutchinson. wehoop: The SportsDataverse's R Package for Women's Basketball Data.",
+bibentry(
+  bibtype     = "Misc",
+  header      = "To cite the wehoop R package in publications, use:",
+  title       = "wehoop: The SportsDataverse's R Package for Women's Basketball Data.",
+  author      = c(
+    person("Saiem", "Gilani"),
+    person("Geoff", "Hutchinson")
+  ),
+  url         = "https://doi.org/10.32614/CRAN.package.wehoop",
+  doi         = "10.32614/cran.package.wehoop",
+  journal     = "CRAN: Contributed Packages",
+  publisher   = "The R Foundation",
+  year        = year,
+  note        = note,
+  textVersion = paste(
+    "Saiem Gilani and Geoff Hutchinson.",
+    "wehoop: The SportsDataverse's R Package for Women's Basketball Data.",
     "Retrieved from https://doi.org/10.32614/CRAN.package.wehoop"
   )
 )

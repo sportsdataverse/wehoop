@@ -39,9 +39,11 @@ Calls the ESPN core-v2 endpoint
 \verb{https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/\{year\}/freeagents}.
 Outside the free-agent window the endpoint typically returns an empty list;
 the function returns an empty tibble rather than erroring in that case.
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  espn_wnba_freeagents(season = 2025)
-}\if{html}{\out{</div>}}
+}
+\examples{
+\donttest{
+  espn_wnba_freeagents(season = 2025)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

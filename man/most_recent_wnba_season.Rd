@@ -2,10 +2,19 @@
 % Please edit documentation in R/utils.R
 \name{most_recent_wnba_season}
 \alias{most_recent_wnba_season}
-\title{\strong{Most Recent WNBA Season}}
+\title{Most Recent WNBA Season}
 \usage{
 most_recent_wnba_season()
 }
+\value{
+An integer giving the WNBA season year (e.g. \code{2025}).
+}
 \description{
-\strong{Most Recent WNBA Season}
+Returns the most recent WNBA season year as an integer based on the
+current system date. The WNBA season runs from May through October
+within a single calendar year; this helper rolls forward to the new
+season starting in May.
+}
+\examples{
+most_recent_wnba_season()
 }

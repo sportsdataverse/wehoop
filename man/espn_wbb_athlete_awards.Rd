@@ -29,9 +29,10 @@ returned.\tabular{ll}{
 
 \strong{Get ESPN Women's College Basketball Athlete Awards}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_athlete_awards(athlete_id = "4432755")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_athlete_awards(athlete_id = "4432755")
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

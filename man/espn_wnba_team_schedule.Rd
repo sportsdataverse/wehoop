@@ -52,9 +52,10 @@ A single tibble with one row per event.\tabular{ll}{
 
 \strong{Get ESPN WNBA Team Schedule}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_team_schedule(team_id = 17, season = 2025, season_type = 2)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_team_schedule(team_id = "17", season = 2025)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

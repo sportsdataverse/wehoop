@@ -40,10 +40,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_event_odds(event_id = "401736171")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_odds(event_id = "401736171")
+#' }
 espn_wnba_event_odds <- function(event_id, ...) {
   .espn_basketball_event_odds(
     league   = "wnba",
@@ -87,10 +87,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_event_probabilities(event_id = "401736171", limit = 200)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_probabilities(event_id = "401736171", limit = 50)
+#' }
 espn_wnba_event_probabilities <- function(event_id, limit = 200, ...) {
   .espn_basketball_event_probabilities(
     league   = "wnba",
@@ -131,10 +131,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_event_officials(event_id = "401736171")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_officials(event_id = "401736171")
+#' }
 espn_wnba_event_officials <- function(event_id, ...) {
   .espn_basketball_event_officials(
     league   = "wnba",
@@ -176,10 +176,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_event_broadcasts(event_id = "401736171")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_broadcasts(event_id = "401736171")
+#' }
 espn_wnba_event_broadcasts <- function(event_id, ...) {
   .espn_basketball_event_broadcasts(
     league   = "wnba",

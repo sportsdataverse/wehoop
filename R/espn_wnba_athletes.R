@@ -78,10 +78,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_info(athlete_id = "3149391")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_info(athlete_id = "3149391")
+#' }
 espn_wnba_athlete_info <- function(athlete_id, ...) {
   .espn_basketball_athlete_info(
     league     = "wnba",
@@ -147,10 +147,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_overview(athlete_id = "3149391", season = 2024)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_overview(athlete_id = "3149391", season = 2024)
+#' }
 espn_wnba_athlete_overview <- function(athlete_id,
                                        season = most_recent_wnba_season(),
                                        ...) {
@@ -187,10 +187,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
+#' }
 espn_wnba_athlete_stats <- function(athlete_id,
                                     season = most_recent_wnba_season(),
                                     ...) {
@@ -224,10 +224,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
+#' }
 espn_wnba_athlete_gamelog <- function(athlete_id,
                                       season = most_recent_wnba_season(),
                                       ...) {
@@ -262,10 +262,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_splits(athlete_id = "3149391", season = 2024)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_splits(athlete_id = "3149391", season = 2024)
+#' }
 espn_wnba_athlete_splits <- function(athlete_id,
                                      season = most_recent_wnba_season(),
                                      ...) {
@@ -308,10 +308,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
+#' }
 espn_wnba_athlete_eventlog <- function(athlete_id,
                                        season = most_recent_wnba_season(),
                                        ...) {
@@ -354,10 +354,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_awards(athlete_id = "3149391")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_awards(athlete_id = "3149391")
+#' }
 espn_wnba_athlete_awards <- function(athlete_id, ...) {
   .espn_basketball_athlete_awards(
     league     = "wnba",
@@ -394,10 +394,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WNBA Functions
-#' @details
-#' ```r
-#'  espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
+#' }
 espn_wnba_athlete_statisticslog <- function(athlete_id,
                                             season = most_recent_wnba_season(),
                                             ...) {

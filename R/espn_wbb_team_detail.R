@@ -76,10 +76,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_team(team_id = 2509, season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_team(team_id = "2509", season = 2025)
+#' }
 espn_wbb_team <- function(team_id,
                            season = most_recent_wbb_season(),
                            ...) {
@@ -130,10 +130,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_team_roster(team_id = 2509, season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_team_roster(team_id = "2509", season = 2025)
+#' }
 espn_wbb_team_roster <- function(team_id,
                                   season = most_recent_wbb_season(),
                                   ...) {
@@ -192,10 +192,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_team_schedule(team_id = 2509, season = 2025, season_type = 2)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_team_schedule(team_id = "2509", season = 2025)
+#' }
 espn_wbb_team_schedule <- function(team_id,
                                     season      = most_recent_wbb_season(),
                                     season_type = 2,
@@ -241,10 +241,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_team_leaders(team_id = 2509, season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_team_leaders(team_id = "2509", season = 2025)
+#' }
 espn_wbb_team_leaders <- function(team_id,
                                    season = most_recent_wbb_season(),
                                    ...) {

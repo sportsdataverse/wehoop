@@ -47,10 +47,10 @@ NULL
 #' Paginates over all pages (capped at 20 pages) and returns a single flat
 #' tibble. Outside the draft window, or for historical seasons with no ESPN
 #' draft data, the function returns an empty tibble rather than erroring.
-#'
-#' ```r
-#'   espn_wnba_draft(season = 2025)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_draft(season = 2024)
+#' }
 espn_wnba_draft <- function(season = most_recent_wnba_season(), ...) {
   .args <- mget(setdiff(names(formals()), "..."))
 
@@ -247,10 +247,10 @@ NULL
 #' `https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/freeagents`.
 #' Outside the free-agent window the endpoint typically returns an empty list;
 #' the function returns an empty tibble rather than erroring in that case.
-#'
-#' ```r
+#' @examples
+#' \donttest{
 #'   espn_wnba_freeagents(season = 2025)
-#' ```
+#' }
 espn_wnba_freeagents <- function(season = most_recent_wnba_season(), ...) {
   .args <- mget(setdiff(names(formals()), "..."))
 
@@ -420,10 +420,10 @@ NULL
 #' `https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/transactions?season={year}&limit={limit}`.
 #' Releases have a `NULL` `to_team_id`; those are stored as `NA`. Returns an
 #' empty tibble rather than erroring when no transactions are available.
-#'
-#' ```r
-#'   espn_wnba_transactions(season = 2025, limit = 100)
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wnba_transactions(season = 2025, limit = 10)
+#' }
 espn_wnba_transactions <- function(
     season = most_recent_wnba_season(),
     limit  = 100,

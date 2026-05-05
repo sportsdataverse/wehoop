@@ -26,9 +26,10 @@ A single \code{wehoop_data} tibble with one row per season.\tabular{ll}{
 
 \strong{Get ESPN WNBA Seasons}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_seasons()
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_seasons()
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

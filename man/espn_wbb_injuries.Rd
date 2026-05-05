@@ -40,9 +40,10 @@ injury data is typically sparse; the function returns an empty tibble
 
 \strong{Get ESPN Women's College Basketball Injuries}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_injuries(season = most_recent_wbb_season())
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_injuries()
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

@@ -39,9 +39,10 @@ Returns an empty tibble (zero rows) when no injuries are reported.
 
 \strong{Get ESPN WNBA Injuries}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_injuries(season = most_recent_wnba_season())
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_injuries()
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

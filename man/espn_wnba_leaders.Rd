@@ -39,9 +39,10 @@ pair.\tabular{ll}{
 
 \strong{Get ESPN WNBA League Leaders}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_leaders(season = 2025, season_type = 2)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_leaders(season = 2024, season_type = 2)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

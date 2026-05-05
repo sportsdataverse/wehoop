@@ -22,9 +22,10 @@ stat labels returned by ESPN and will vary by season and player.
 
 \strong{Get ESPN Women's College Basketball Athlete Gamelog}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_athlete_gamelog(athlete_id = "4432755", season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_athlete_gamelog(athlete_id = "4432755", season = 2025)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

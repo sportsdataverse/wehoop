@@ -30,9 +30,10 @@ A single \code{wehoop_data} tibble with one row per coach.\tabular{ll}{
 
 \strong{Get ESPN Women's College Basketball Coaches}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wbb_coaches(season = 2025)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wbb_coaches(season = 2025)
+}
 }
 \seealso{
 Other ESPN WBB Functions: 

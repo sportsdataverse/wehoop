@@ -36,10 +36,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_injuries(season = most_recent_wbb_season())
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_injuries()
+#' }
 espn_wbb_injuries <- function(season = most_recent_wbb_season(), ...) {
   .espn_basketball_league_injuries(
     league = "womens-college-basketball",
@@ -84,10 +84,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN WBB Functions
-#' @details
-#' ```r
-#'  espn_wbb_team_injuries(team_id = "2509")
-#' ```
+#' @examples
+#' \donttest{
+#'   espn_wbb_team_injuries(team_id = "2509")
+#' }
 espn_wbb_team_injuries <- function(team_id, ...) {
   .espn_basketball_team_injuries(
     league  = "womens-college-basketball",

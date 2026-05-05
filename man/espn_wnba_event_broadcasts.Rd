@@ -31,9 +31,10 @@ A tibble with one row per broadcast outlet for the game.\tabular{ll}{
 
 \strong{Get ESPN WNBA Event Broadcasts}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_event_broadcasts(event_id = "401736171")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_event_broadcasts(event_id = "401736171")
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

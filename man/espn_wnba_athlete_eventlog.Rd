@@ -30,9 +30,10 @@ are NOT resolved. Similarly, \code{event_ref}, \code{competition_ref}, and
 
 \strong{Get ESPN WNBA Athlete Eventlog}
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
+}
 }
 \seealso{
 Other ESPN WNBA Functions: 

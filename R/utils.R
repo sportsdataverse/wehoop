@@ -89,8 +89,18 @@ custom_mode <- function(x, na.rm = TRUE) {
 }
 
 
-#' @title
-#' **Most Recent Women's College Basketball Season**
+#' Most Recent Women's College Basketball Season
+#'
+#' Returns the most recent women's college basketball season year as an
+#' integer based on the current system date. The NCAA WBB season spans two
+#' calendar years; this helper rolls over to the next season starting in
+#' October. For example, calls made on 2025-11-15 return `2026`, while
+#' calls made on 2025-03-15 return `2025`.
+#'
+#' @return An integer giving the season-ending year (e.g. `2025` for the
+#'   2024-25 season).
+#' @examples
+#' most_recent_wbb_season()
 #' @export
 most_recent_wbb_season <- function() {
   ifelse(
@@ -100,8 +110,16 @@ most_recent_wbb_season <- function() {
   )
 }
 
-#' @title
-#' **Most Recent WNBA Season**
+#' Most Recent WNBA Season
+#'
+#' Returns the most recent WNBA season year as an integer based on the
+#' current system date. The WNBA season runs from May through October
+#' within a single calendar year; this helper rolls forward to the new
+#' season starting in May.
+#'
+#' @return An integer giving the WNBA season year (e.g. `2025`).
+#' @examples
+#' most_recent_wnba_season()
 #' @export
 most_recent_wnba_season <- function() {
   ifelse(
