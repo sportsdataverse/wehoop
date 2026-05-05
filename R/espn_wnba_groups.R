@@ -1,0 +1,85 @@
+# espn_wnba_groups.R
+# Phase 6 -- WNBA parity: espn_wnba_conferences()
+# Mirrors espn_wbb_conferences() using the WNBA scoreboard-conferences endpoint.
+
+#' **Get ESPN WNBA Conferences**
+#' @name espn_wnba_conferences
+NULL
+#' @title
+#' **Get ESPN WNBA Conferences**
+#' @rdname espn_wnba_conferences
+#' @author Saiem Gilani
+#' @return A `wehoop_data` tibble with one row per conference:
+#'
+#'    |col_name              |types     |
+#'    |:---------------------|:---------|
+#'    |group_id              |integer   |
+#'    |conference_short_name |character |
+#'    |conference_uid        |character |
+#'    |conference_name       |character |
+#'    |conference_logo       |character |
+#'    |parent_group_id       |integer   |
+#'    |conference_id         |integer   |
+#'
+#' @importFrom jsonlite fromJSON
+#' @importFrom janitor clean_names
+#' @importFrom dplyr select filter mutate rename
+#' @import rvest
+#' @export
+#' @keywords WNBA Conferences
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   try(espn_wnba_conferences())
+#' }
+espn_wnba_conferences <- function() {
+  .args <- .capture_args()
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+
+  conferences <- NULL
+
+  tryCatch(
+    expr = {
+      play_base_url <- paste0(
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba",
+        "/scoreboard/conferences?seasontype=2"
+      )
+
+      res <- .retry_request(play_base_url)
+
+      check_status(res)
+
+      resp <- res %>%
+        .resp_text()
+
+      conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
+        dplyr::select(-dplyr::any_of("subGroups")) %>%
+        janitor::clean_names() %>%
+        dplyr::filter(!(.data$group_id %in% c(0, 50))) %>%
+        dplyr::mutate(
+          group_id        = as.integer(.data$group_id),
+          conference_id   = .data$group_id,
+          parent_group_id = as.integer(.data$parent_group_id)
+        ) %>%
+        dplyr::rename(dplyr::any_of(c(
+          "conference_short_name" = "short_name",
+          "conference_uid"        = "uid",
+          "conference_name"       = "name",
+          "conference_logo"       = "logo"
+        ))) %>%
+        make_wehoop_data(
+          "ESPN WNBA Conferences Information from ESPN.com",
+          Sys.time()
+        )
+    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no conferences info available!",
+      args = .args
+    ),
+    warning = function(w) .report_api_warning(w, args = .args),
+    finally = {}
+  )
+  return(conferences)
+}
