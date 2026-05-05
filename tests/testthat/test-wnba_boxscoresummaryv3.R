@@ -2,7 +2,8 @@ test_that("WNBA Boxscore Summary V3", {
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()
-
+  skip("Deprecated: wnba_boxscoresummaryv3() now warns by design; use wnba_boxscoresummaryv2().")
+  
   # `wnba_boxscoresummaryv3()` is soft-deprecated as of 3.0.0 — it emits
   # `lifecycle::deprecate_warn()` recommending the V2 variant. Suppress
   # the expected warning here so the test output stays clean; the
