@@ -4,8 +4,9 @@ test_that("WNBA Shotchart Lineup Detail", {
   skip_on_ci()
   skip_wnba_stats_test()
   
-  x <- wnba_shotchartlineupdetail(group_id = '-100720-202250-204319-1627668-1628931-', 
-                                  season = 2022)
+  x <- wnba_shotchartlineupdetail(group_id = '-204324-1627700-1628276-1628922-1642288-', 
+                                  team_id = 1611661320,
+                                  season = 2025)
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
     fail("No rows returned from endpoint at test time")
