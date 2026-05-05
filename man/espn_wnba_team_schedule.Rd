@@ -58,7 +58,18 @@ A single tibble with one row per event.\tabular{ll}{
 }
 \seealso{
 Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_athlete_awards}()},
+\code{\link{espn_wnba_athlete_eventlog}()},
+\code{\link{espn_wnba_athlete_gamelog}()},
+\code{\link{espn_wnba_athlete_info}()},
+\code{\link{espn_wnba_athlete_overview}()},
+\code{\link{espn_wnba_athlete_splits}()},
+\code{\link{espn_wnba_athlete_statisticslog}()},
+\code{\link{espn_wnba_athlete_stats}()},
 \code{\link{espn_wnba_calendar}()},
+\code{\link{espn_wnba_conferences}()},
+\code{\link{espn_wnba_draft}()},
+\code{\link{espn_wnba_freeagents}()},
 \code{\link{espn_wnba_game_all}()},
 \code{\link{espn_wnba_game_rosters}()},
 \code{\link{espn_wnba_injuries}()},
@@ -75,7 +86,8 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_team_news}()},
 \code{\link{espn_wnba_team_roster}()},
 \code{\link{espn_wnba_team_stats}()},
-\code{\link{espn_wnba_teams}()}
+\code{\link{espn_wnba_teams}()},
+\code{\link{espn_wnba_transactions}()}
 }
 \author{
 Saiem Gilani

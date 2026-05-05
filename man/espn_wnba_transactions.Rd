@@ -47,6 +47,14 @@ empty tibble rather than erroring when no transactions are available.
 }
 \seealso{
 Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_athlete_awards}()},
+\code{\link{espn_wnba_athlete_eventlog}()},
+\code{\link{espn_wnba_athlete_gamelog}()},
+\code{\link{espn_wnba_athlete_info}()},
+\code{\link{espn_wnba_athlete_overview}()},
+\code{\link{espn_wnba_athlete_splits}()},
+\code{\link{espn_wnba_athlete_statisticslog}()},
+\code{\link{espn_wnba_athlete_stats}()},
 \code{\link{espn_wnba_calendar}()},
 \code{\link{espn_wnba_conferences}()},
 \code{\link{espn_wnba_draft}()},
