@@ -28,6 +28,11 @@
 
 # **wehoop 3.0.0**
 
+### **ESPN endpoint expansion**
+
+* feat: add ESPN news + calendar endpoint wrappers — `espn_wbb_news()`, `espn_wnba_news()`, `espn_wbb_team_news()`, `espn_wnba_team_news()`, `espn_wbb_calendar()`, `espn_wnba_calendar()`. League-level and team-level news feeds (site-v2 `/news`) plus scoreboard calendar blocks (site-v2 `/scoreboard?dates={season}`) parsed into tidy tibbles. Shared internal helpers (`.espn_basketball_news()`, `.espn_basketball_team_news()`, `.espn_basketball_calendar()`) keep WBB and WNBA DRY.
+* feat: add ESPN injury endpoint wrappers — `espn_wbb_injuries()`, `espn_wnba_injuries()`, `espn_wbb_team_injuries()`, `espn_wnba_team_injuries()`. League-wide and team-scoped injury feeds (site-v2 `/injuries` and `/teams/{id}/injuries`) parsed into flat tidy tibbles. Note: WBB injury data is typically sparse on ESPN; both league and team variants return an empty tibble (rather than erroring) when no injuries are reported. The `season` parameter on the league-wide functions is attached as a constant output column for downstream joins (ESPN's injury endpoint does not accept a server-side season filter). Shared internal helpers (`.espn_basketball_league_injuries()`, `.espn_basketball_team_injuries()`) keep WBB and WNBA DRY.
+
 ### **WNBA Stats API V3 Endpoints Added**
 
 * ```wnba_playbyplayv3()``` function added. V3 play-by-play endpoint wrapper, plus a V3-to-V2 compatibility pipeline used by ```wnba_pbp()``` (via ```.v3_to_v2_format_wnba()```, ```.build_player_roster_wnba()```, ```.players_on_court_v3_wnba()```) that retains V2-compatible columns while adding V3-only columns (```x_legacy```, ```y_legacy```, ```shot_distance```, ```shot_result```, ```is_field_goal```, ```points_total```, ```shot_value```).
