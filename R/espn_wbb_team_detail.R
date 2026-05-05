@@ -18,7 +18,7 @@ NULL
 #'   recent WBB season.
 #' @param ... Additional arguments; currently unused but retained for
 #'   forward compatibility. Proxy configuration should use
-#'   `options(wehoop.proxy = ...)` — see `?wehoop` for details.
+#'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A named list of data frames: `Info`, `Record`, `NextEvent`,
 #'   `StandingSummary`, `Coaches`.
 #'

@@ -251,7 +251,7 @@
             headshot <- as.character(ath[["headshot"]][["href"]] %||% NA_character_)
           }
 
-          # Nested: links — take first href
+          # Nested: links -- take first href
           link_web <- NA_character_
           if (!is.null(ath[["links"]]) && is.list(ath[["links"]])) {
             first_link <- tryCatch({

@@ -11,7 +11,7 @@ test_that("ESPN - WBB Injuries (league-wide)", {
   expect_true(is.data.frame(x) || is.null(x))
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0L) {
-    skip("No injury rows returned for WBB at test time (expected — WBB injuries are typically sparse on ESPN)")
+    skip("No injury rows returned for WBB at test time (expected -- WBB injuries are typically sparse on ESPN)")
   }
 
   cols <- c(

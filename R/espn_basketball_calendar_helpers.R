@@ -1,4 +1,4 @@
-#' Internal helper — ESPN basketball calendar
+#' Internal helper -- ESPN basketball calendar
 #'
 #' Fetches the schedule calendar for an ESPN basketball league and returns a
 #' tidy tibble of calendar entries. This is the single implementation shared by

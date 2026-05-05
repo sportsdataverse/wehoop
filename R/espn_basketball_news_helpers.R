@@ -1,4 +1,4 @@
-#' Internal helper — ESPN basketball league news
+#' Internal helper -- ESPN basketball league news
 #'
 #' Fetches the top-level news feed for an ESPN basketball league and returns a
 #' tidy tibble of articles. This is the single implementation shared by
@@ -114,7 +114,7 @@
 }
 
 
-#' Internal helper — ESPN basketball team news
+#' Internal helper -- ESPN basketball team news
 #'
 #' Fetches the news feed for a specific team in an ESPN basketball league and
 #' returns a tidy tibble of articles. This is the single implementation shared

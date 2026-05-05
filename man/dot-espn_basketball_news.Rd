@@ -2,7 +2,7 @@
 % Please edit documentation in R/espn_basketball_news_helpers.R
 \name{.espn_basketball_news}
 \alias{.espn_basketball_news}
-\title{Internal helper — ESPN basketball league news}
+\title{Internal helper -- ESPN basketball league news}
 \usage{
 .espn_basketball_news(league, limit = 50, ...)
 }

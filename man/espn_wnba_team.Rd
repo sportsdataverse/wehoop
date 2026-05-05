@@ -14,7 +14,7 @@ recent WNBA season.}
 
 \item{...}{Additional arguments; currently unused but retained for
 forward compatibility. Proxy configuration should use
-\code{options(wehoop.proxy = ...)} — see \code{?wehoop} for details.}
+\code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
 }
 \value{
 A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/espn_basketball_calendar_helpers.R
 \name{.espn_basketball_calendar}
 \alias{.espn_basketball_calendar}
-\title{Internal helper — ESPN basketball calendar}
+\title{Internal helper -- ESPN basketball calendar}
 \usage{
 .espn_basketball_calendar(league, season, ...)
 }

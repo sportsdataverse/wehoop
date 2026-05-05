@@ -4,7 +4,7 @@ test_that("ESPN - WBB Team Injuries", {
   skip_on_ci()
   skip_espn_test()
 
-  # UConn (team_id = 2509) is a large program — most likely to have
+  # UConn (team_id = 2509) is a large program -- most likely to have
   # populated injury data when any WBB data is available.
   x <- espn_wbb_team_injuries(team_id = "2509")
 
@@ -12,7 +12,7 @@ test_that("ESPN - WBB Team Injuries", {
   expect_true(is.data.frame(x) || is.null(x))
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0L) {
-    skip("No injury rows returned for WBB team 2509 at test time (expected — WBB injuries are typically sparse on ESPN)")
+    skip("No injury rows returned for WBB team 2509 at test time (expected -- WBB injuries are typically sparse on ESPN)")
   }
 
   cols <- c(
