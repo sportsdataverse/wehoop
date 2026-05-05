@@ -14,8 +14,7 @@ test_that("ESPN - WNBA Athlete Stats", {
   # All returned elements should be data frames
   for (slot_name in names(x)) {
     if (!is.null(x[[slot_name]])) {
-      expect_s3_class(x[[slot_name]], "data.frame",
-                      info = paste0("slot '", slot_name, "' is not a data.frame"))
+      expect_s3_class(x[[slot_name]], "data.frame")
     }
   }
 

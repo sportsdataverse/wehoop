@@ -188,9 +188,13 @@
     league,
     "/teams/",
     team_id,
-    "/roster?season=",
-    season
+    "/roster"
   )
+  # ESPN returns an empty athletes list when ?season=YYYY is appended to the
+  # roster endpoint -- it only serves the current/most recent roster. We keep
+  # the `season` parameter for API symmetry and attach it as an output column
+  # below, but do not pass it on the URL.
+  invisible(season)
 
   tryCatch(
     expr = {
@@ -558,9 +562,12 @@
     league,
     "/teams/",
     team_id,
-    "/leaders?season=",
-    season
+    "/leaders"
   )
+  # ESPN's leaders endpoint does not honor `?season=YYYY`; it serves the
+  # current season's leaders. Kept as a parameter for API symmetry, attached
+  # as a column on the result below.
+  invisible(season)
 
   tryCatch(
     expr = {

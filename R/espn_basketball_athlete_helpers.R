@@ -913,10 +913,10 @@
 
       if (is.data.frame(items_raw) && nrow(items_raw) > 0) {
         keep_cols <- c("season", "award_id", "id", "name", "displayName",
-                       "description", "date", "type")
+                       "description", "date", "type", "$ref")
         avail <- intersect(keep_cols, colnames(items_raw))
         award_df <- items_raw[avail] %>%
-          data.frame(stringsAsFactors = FALSE)
+          data.frame(stringsAsFactors = FALSE, check.names = FALSE)
 
         # Normalize to canonical column names
         if ("id" %in% colnames(award_df) && !"award_id" %in% colnames(award_df)) {
@@ -925,10 +925,27 @@
         if ("displayName" %in% colnames(award_df) && !"name" %in% colnames(award_df)) {
           award_df[["name"]] <- award_df[["displayName"]]
         }
+        # Surface $ref URLs (core-v2 often returns ref-only payloads) without
+        # auto-resolving them. NA-fill canonical columns so the output schema
+        # is stable.
+        n <- nrow(award_df)
+        ref_url <- if ("$ref" %in% colnames(items_raw)) {
+          as.character(items_raw[["$ref"]])
+        } else {
+          rep(NA_character_, n)
+        }
+        canonical <- data.frame(
+          season      = if ("season" %in% colnames(award_df)) as.character(award_df[["season"]]) else rep(NA_character_, n),
+          award_id    = if ("award_id" %in% colnames(award_df)) as.character(award_df[["award_id"]]) else rep(NA_character_, n),
+          name        = if ("name" %in% colnames(award_df)) as.character(award_df[["name"]]) else rep(NA_character_, n),
+          description = if ("description" %in% colnames(award_df)) as.character(award_df[["description"]]) else rep(NA_character_, n),
+          date        = if ("date" %in% colnames(award_df)) as.character(award_df[["date"]]) else rep(NA_character_, n),
+          type        = if ("type" %in% colnames(award_df)) as.character(award_df[["type"]]) else rep(NA_character_, n),
+          ref_url     = ref_url,
+          stringsAsFactors = FALSE
+        )
 
-        result <- award_df %>%
-          dplyr::select(dplyr::any_of(c("season", "award_id", "name",
-                                        "description", "date", "type"))) %>%
+        result <- canonical %>%
           dplyr::as_tibble() %>%
           janitor::clean_names() %>%
           make_wehoop_data(

@@ -185,14 +185,137 @@ reference:
       - '`load_wbb_schedule`'
       - '`update_wbb_db`'
   - title: ESPN Data
-  - subtitle: Women's College Basketball Data Functions
-    desc: Functions exported by wehoop to access ESPN's Women's College Basketball Data
+  - subtitle: WBB -- Game data
+    desc: Per-game endpoints for women's college basketball (play-by-play, box scores, rosters)
     contents:
-      - starts_with("espn_wbb_")
-  - subtitle: WNBA Data Functions
-    desc: Functions exported by wehoop to access ESPN's WNBA Data
+      - espn_wbb_game_all
+      - espn_wbb_pbp
+      - espn_wbb_team_box
+      - espn_wbb_player_box
+      - espn_wbb_game_rosters
+  - subtitle: WBB -- Reference & catalog
+    desc: League-level reference data for women's college basketball
     contents:
-      - starts_with("espn_wnba_")
+      - espn_wbb_news
+      - espn_wbb_team_news
+      - espn_wbb_calendar
+      - espn_wbb_conferences
+      - espn_wbb_teams
+      - espn_wbb_scoreboard
+      - espn_wbb_rankings
+      - espn_wbb_standings
+      - espn_wbb_injuries
+  - subtitle: WBB -- Team detail
+    desc: Single-team endpoints for women's college basketball
+    contents:
+      - espn_wbb_team
+      - espn_wbb_team_roster
+      - espn_wbb_team_schedule
+      - espn_wbb_team_leaders
+      - espn_wbb_team_injuries
+      - espn_wbb_team_stats
+  - subtitle: WBB -- Athlete coverage
+    desc: Per-athlete endpoints for women's college basketball
+    contents:
+      - espn_wbb_athlete_info
+      - espn_wbb_athlete_overview
+      - espn_wbb_athlete_stats
+      - espn_wbb_athlete_gamelog
+      - espn_wbb_athlete_splits
+      - espn_wbb_athlete_eventlog
+      - espn_wbb_athlete_awards
+      - espn_wbb_athlete_statisticslog
+      - espn_wbb_player_stats
+  - subtitle: WBB -- Event detail
+    desc: Per-event enrichments (odds, win probability, officials, broadcasts)
+    contents:
+      - espn_wbb_event_odds
+      - espn_wbb_event_probabilities
+      - espn_wbb_event_officials
+      - espn_wbb_event_broadcasts
+  - subtitle: WBB -- League catalogs
+    desc: League-wide catalogs and indexes for women's college basketball
+    contents:
+      - espn_wbb_leaders
+      - espn_wbb_venues
+      - espn_wbb_coaches
+      - espn_wbb_athletes_index
+      - espn_wbb_seasons
+      - espn_wbb_season_info
+  - subtitle: WBB -- Helpers
+    desc: Internal parsers exported for advanced use
+    contents:
+      - helper_espn_wbb_pbp
+      - helper_espn_wbb_team_box
+      - helper_espn_wbb_player_box
+  - subtitle: WNBA -- Game data
+    desc: Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
+    contents:
+      - espn_wnba_game_all
+      - espn_wnba_pbp
+      - espn_wnba_team_box
+      - espn_wnba_player_box
+      - espn_wnba_game_rosters
+  - subtitle: WNBA -- Reference & catalog
+    desc: League-level reference data for the WNBA
+    contents:
+      - espn_wnba_news
+      - espn_wnba_team_news
+      - espn_wnba_calendar
+      - espn_wnba_conferences
+      - espn_wnba_teams
+      - espn_wnba_scoreboard
+      - espn_wnba_standings
+      - espn_wnba_injuries
+  - subtitle: WNBA -- Team detail
+    desc: Single-team endpoints for the WNBA
+    contents:
+      - espn_wnba_team
+      - espn_wnba_team_roster
+      - espn_wnba_team_schedule
+      - espn_wnba_team_leaders
+      - espn_wnba_team_injuries
+      - espn_wnba_team_stats
+  - subtitle: WNBA -- Athlete coverage
+    desc: Per-athlete endpoints for the WNBA
+    contents:
+      - espn_wnba_athlete_info
+      - espn_wnba_athlete_overview
+      - espn_wnba_athlete_stats
+      - espn_wnba_athlete_gamelog
+      - espn_wnba_athlete_splits
+      - espn_wnba_athlete_eventlog
+      - espn_wnba_athlete_awards
+      - espn_wnba_athlete_statisticslog
+      - espn_wnba_player_stats
+  - subtitle: WNBA -- Event detail
+    desc: Per-event enrichments (odds, win probability, officials, broadcasts)
+    contents:
+      - espn_wnba_event_odds
+      - espn_wnba_event_probabilities
+      - espn_wnba_event_officials
+      - espn_wnba_event_broadcasts
+  - subtitle: WNBA -- League catalogs
+    desc: League-wide catalogs and indexes for the WNBA
+    contents:
+      - espn_wnba_leaders
+      - espn_wnba_venues
+      - espn_wnba_coaches
+      - espn_wnba_athletes_index
+      - espn_wnba_seasons
+      - espn_wnba_season_info
+  - subtitle: WNBA -- Transactions, draft, free agency
+    desc: WNBA-only player movement endpoints
+    contents:
+      - espn_wnba_draft
+      - espn_wnba_freeagents
+      - espn_wnba_transactions
+  - subtitle: WNBA -- Helpers
+    desc: Internal parsers exported for advanced use
+    contents:
+      - helper_espn_wnba_pbp
+      - helper_espn_wnba_team_box
+      - helper_espn_wnba_player_box
   - title: NCAA Data
   - subtitle: NCAA Data Functions
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
@@ -214,10 +337,4 @@ reference:
       - '`most_recent_wnba_season`'
       - '`progressively`'
       - '`request_with_proxy`'
-      - '`helper_espn_wbb_pbp`'
-      - '`helper_espn_wbb_team_box`'
-      - '`helper_espn_wbb_player_box`'
-      - '`helper_espn_wnba_pbp`'
-      - '`helper_espn_wnba_team_box`'
-      - '`helper_espn_wnba_player_box`'
       - '`.players_on_court`'

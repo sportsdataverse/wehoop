@@ -38,13 +38,16 @@
 
   result <- NULL
 
+  # core-v2 leaders endpoint. The web-common-v3 statistics/byathlete URL the
+  # gist documents does not exist for WNBA / WBB basketball -- it 404s. The
+  # core-v2 path is shape-compatible (categories[] -> leaders[] with athlete
+  # and team as $ref URLs) and is what ESPN's own UI calls.
   url <- paste0(
-    "https://site.web.api.espn.com/apis/common/v3/sports/basketball/",
+    "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
     league,
-    "/statistics/byathlete?category=points&sort=points%3Adesc",
-    "&season=", season,
-    "&seasontype=", season_type,
-    "&limit=200"
+    "/seasons/", season,
+    "/types/", season_type,
+    "/leaders"
   )
 
   tryCatch(
@@ -98,18 +101,54 @@
         if (!is.null(ldf[["displayValue"]])) display_val <- as.character(ldf[["displayValue"]])
         if (!is.null(ldf[["rank"]])) rank_col <- as.integer(ldf[["rank"]])
 
-        if (!is.null(ldf[["athlete"]]) && is.data.frame(ldf[["athlete"]])) {
-          ath <- ldf[["athlete"]]
-          athlete_id   <- as.character(ath[["id"]] %||% NA_character_)
-          athlete_name <- as.character(
-            ath[["displayName"]] %||% ath[["fullName"]] %||% NA_character_
-          )
+        # core-v2 returns athlete/team as $ref URLs only, no inline data.
+        # Extract IDs from the URL pattern: .../athletes/{id}?...
+        extract_id_from_ref <- function(refs, kind) {
+          if (is.null(refs)) return(rep(NA_character_, n_rows))
+          ref_chr <- if (is.data.frame(refs)) {
+            as.character(refs[["$ref"]] %||% rep(NA_character_, n_rows))
+          } else if (is.list(refs)) {
+            vapply(refs, function(r) {
+              if (is.list(r)) as.character(r[["$ref"]] %||% NA_character_)
+              else if (is.character(r)) r else NA_character_
+            }, character(1))
+          } else if (is.character(refs)) {
+            refs
+          } else {
+            rep(NA_character_, n_rows)
+          }
+          pat <- paste0("/", kind, "/(\\d+)")
+          out <- rep(NA_character_, length(ref_chr))
+          m <- regmatches(ref_chr, regexec(pat, ref_chr))
+          out <- vapply(m, function(x) if (length(x) >= 2) x[[2]] else NA_character_,
+                        character(1))
+          out
         }
 
-        if (!is.null(ldf[["team"]]) && is.data.frame(ldf[["team"]])) {
+        if (!is.null(ldf[["athlete"]])) {
+          ath <- ldf[["athlete"]]
+          # Inline athlete data (legacy web-common-v3 shape)
+          if (is.data.frame(ath) && "id" %in% colnames(ath)) {
+            athlete_id   <- as.character(ath[["id"]] %||% NA_character_)
+            athlete_name <- as.character(
+              ath[["displayName"]] %||% ath[["fullName"]] %||% NA_character_
+            )
+          } else {
+            # Ref-only athlete (core-v2 shape)
+            athlete_id   <- extract_id_from_ref(ath, "athletes")
+            athlete_name <- rep(NA_character_, n_rows)
+          }
+        }
+
+        if (!is.null(ldf[["team"]])) {
           tm <- ldf[["team"]]
-          team_id     <- as.character(tm[["id"]] %||% NA_character_)
-          team_abbrev <- as.character(tm[["abbreviation"]] %||% NA_character_)
+          if (is.data.frame(tm) && "id" %in% colnames(tm)) {
+            team_id     <- as.character(tm[["id"]] %||% NA_character_)
+            team_abbrev <- as.character(tm[["abbreviation"]] %||% NA_character_)
+          } else {
+            team_id     <- extract_id_from_ref(tm, "teams")
+            team_abbrev <- rep(NA_character_, n_rows)
+          }
         }
 
         rows[[i]] <- data.frame(
@@ -408,16 +447,15 @@
 
   result <- NULL
 
-  active_str <- tolower(as.character(active))
-
+  # The `active` query parameter is NOT supported for basketball leagues
+  # (ESPN responds 400 "'active' query param not supported for sport/league").
+  # We accept it for API symmetry with other sports but ignore it on the wire.
   base_url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
     league,
     "/seasons/",
     season,
-    "/athletes?active=",
-    active_str,
-    "&limit=100"
+    "/athletes?limit=100"
   )
 
   tryCatch(
@@ -442,23 +480,46 @@
         items    <- raw[["items"]]
 
         if (!is.null(items) && is.data.frame(items) && nrow(items) > 0) {
-          n_rows      <- nrow(items)
-          athlete_id  <- as.character(items[["id"]] %||% NA_character_)
-          full_name   <- as.character(items[["fullName"]] %||% NA_character_)
-          jersey      <- as.character(items[["jersey"]] %||% NA_character_)
-          status_col  <- rep(NA_character_, n_rows)
-          link_col    <- rep(NA_character_, n_rows)
-          position    <- rep(NA_character_, n_rows)
-          team_id     <- rep(NA_character_, n_rows)
-          headshot    <- rep(NA_character_, n_rows)
+          n_rows <- nrow(items)
 
-          if (!is.null(items[["status"]]) && is.data.frame(items[["status"]])) {
+          # Detect ref-only payload (core-v2 default): items has only $ref.
+          # Extract athlete_id from the URL and surface ref_url so users can
+          # follow up with espn_{league}_athlete_info() for full bio data.
+          ref_url <- if ("$ref" %in% colnames(items)) {
+            as.character(items[["$ref"]])
+          } else {
+            rep(NA_character_, n_rows)
+          }
+
+          athlete_id <- if ("id" %in% colnames(items)) {
+            as.character(items[["id"]])
+          } else {
+            m <- regmatches(ref_url, regexec("/athletes/(\\d+)", ref_url))
+            vapply(m, function(x) if (length(x) >= 2) x[[2]] else NA_character_,
+                   character(1))
+          }
+
+          full_name <- if ("fullName" %in% colnames(items)) {
+            as.character(items[["fullName"]])
+          } else {
+            rep(NA_character_, n_rows)
+          }
+
+          jersey <- if ("jersey" %in% colnames(items)) {
+            as.character(items[["jersey"]])
+          } else {
+            rep(NA_character_, n_rows)
+          }
+
+          status_col <- rep(NA_character_, n_rows)
+          if ("status" %in% colnames(items) && is.data.frame(items[["status"]])) {
             status_col <- as.character(
-              items[["status"]][["type"]] %||% NA_character_
+              items[["status"]][["type"]] %||% rep(NA_character_, n_rows)
             )
           }
 
-          if (!is.null(items[["links"]]) && is.list(items[["links"]])) {
+          link_col <- ref_url  # default to ref_url; override if links column present
+          if ("links" %in% colnames(items) && is.list(items[["links"]])) {
             link_col <- vapply(items[["links"]], function(lnk) {
               if (is.data.frame(lnk) && "href" %in% colnames(lnk) &&
                   nrow(lnk) > 0) {
@@ -469,19 +530,24 @@
             }, character(1))
           }
 
-          if (!is.null(items[["position"]]) && is.data.frame(items[["position"]])) {
+          position <- rep(NA_character_, n_rows)
+          if ("position" %in% colnames(items) && is.data.frame(items[["position"]])) {
             position <- as.character(
-              items[["position"]][["abbreviation"]] %||% NA_character_
+              items[["position"]][["abbreviation"]] %||% rep(NA_character_, n_rows)
             )
           }
 
-          if (!is.null(items[["team"]]) && is.data.frame(items[["team"]])) {
-            team_id <- as.character(items[["team"]][["id"]] %||% NA_character_)
+          team_id <- rep(NA_character_, n_rows)
+          if ("team" %in% colnames(items) && is.data.frame(items[["team"]])) {
+            team_id <- as.character(
+              items[["team"]][["id"]] %||% rep(NA_character_, n_rows)
+            )
           }
 
-          if (!is.null(items[["headshot"]]) && is.data.frame(items[["headshot"]])) {
+          headshot <- rep(NA_character_, n_rows)
+          if ("headshot" %in% colnames(items) && is.data.frame(items[["headshot"]])) {
             headshot <- as.character(
-              items[["headshot"]][["href"]] %||% NA_character_
+              items[["headshot"]][["href"]] %||% rep(NA_character_, n_rows)
             )
           }
 
@@ -494,6 +560,7 @@
             headshot   = headshot,
             status     = status_col,
             link       = link_col,
+            ref_url    = ref_url,
             stringsAsFactors = FALSE
           )
           all_rows[[page_idx]] <- page_df
