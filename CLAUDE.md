@@ -98,7 +98,9 @@ pkgdown::build_site()
 
 ### Function Pattern (WNBA Stats API)
 
-Every WNBA Stats API wrapper follows this pattern:
+WNBA Stats API and NCAA wrappers historically use the
+`@details`-with-fenced-code-block pattern for runnable examples.
+Example:
 
 ``` r
 
@@ -154,6 +156,75 @@ wnba_functionname <- function(game_id = "1022200034", ...) {
   return(df_list)
 }
 ```
+
+The `@details`-with-code-block style applies **only** to WNBA Stats API
+and NCAA wrappers, where it’s preserved for backward compatibility with
+the legacy 2.x documentation surface.
+
+### Function Pattern (ESPN)
+
+ESPN wrappers (`espn_wbb_*`, `espn_wnba_*`) use the standard
+CRAN-conforming `@examples` block instead. Live-API examples are wrapped
+in `\donttest{}` so `R CMD check` does not hit ESPN during routine
+checking, but they are still exercised under `--run-donttest`. Do
+**not** mix the two styles – ESPN wrappers should never carry an
+`@details` code-block example.
+
+``` r
+
+#' **Get ESPN [Endpoint Name]**
+#' @name espn_wbb_functionname
+NULL
+#' @title
+#' **Get ESPN [Endpoint Name]**
+#' @rdname espn_wbb_functionname
+#' @author Saiem Gilani
+#' @param team_id ESPN team identifier (character or numeric).
+#' @param season Season year. Defaults to `most_recent_wbb_season()`.
+#' @param ... Reserved for forward compatibility. Per-call proxy override is
+#'   not supported for ESPN wrappers; use `getOption("wehoop.proxy")` or the
+#'   `http_proxy`/`https_proxy` environment variables.
+#' @return A `wehoop_data` tibble with one row per ... .
+#'
+#'    |col_name |types     |
+#'    |:--------|:---------|
+#'    |column1  |character |
+#'
+#' @importFrom jsonlite fromJSON
+#' @importFrom dplyr select as_tibble any_of
+#' @importFrom janitor clean_names
+#' @export
+#' @family ESPN WBB Functions
+#' @examples
+#' \donttest{
+#'   espn_wbb_functionname(team_id = "2509", season = 2025)
+#' }
+espn_wbb_functionname <- function(team_id,
+                                   season = most_recent_wbb_season(),
+                                   ...) {
+  .espn_basketball_functionname(
+    league  = "womens-college-basketball",
+    team_id = team_id,
+    season  = season,
+    ...
+  )
+}
+```
+
+ESPN public wrappers are thin shims over internal helpers in
+`R/espn_basketball_*_helpers.R` that take a `league` argument (`"wnba"`
+or `"womens-college-basketball"`). The helpers do the actual HTTP call +
+parsing; the public functions just fix the league slug. This keeps the
+WBB/WNBA pair DRY – one bugfix to the helper propagates to both public
+wrappers.
+
+ESPN wrappers use the ESPN-side reporters
+`.report_api_error(e, hint, args)` and `.report_api_warning(w, args)`
+(from `R/utils.R`), captured at function entry with
+`.args <- mget(setdiff(names(formals()), "..."))` (or
+`.args <- .capture_args()` for argless wrappers). Do NOT use raw
+[`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
+– that is the WNBA Stats convention.
 
 ### Data Processing Pipeline
 

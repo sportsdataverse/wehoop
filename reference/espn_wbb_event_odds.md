@@ -43,10 +43,6 @@ ESPN does not carry NCAA basketball betting lines).
 | away_team_odds_open  | numeric   |
 | away_team_odds_close | numeric   |
 
-## Details
-
-     espn_wbb_event_odds(event_id = "401736171")
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -92,3 +88,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_event_odds(event_id = "401735229")
+#> ✖ 2026-05-05 23:25:05.355483: Failed to retrieve ESPN womens-college-basketball event odds for event_id=401735229
+#> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

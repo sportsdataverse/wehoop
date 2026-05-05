@@ -54,10 +54,6 @@ A single `wehoop_data` tibble with one row per athlete.
 | status     | character |
 | link       | character |
 
-## Details
-
-     espn_wnba_athletes_index(season = 2025, limit = 50)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -105,3 +101,28 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athletes_index(season = 2025, limit = 50)
+#> Fetching page 1 of 1 for wnba athletes (season=2025)...
+#> ── ESPN WNBA Athletes Index from ESPN.com ────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 50 × 9
+#>    athlete_id full_name jersey position team_id headshot status link     ref_url
+#>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>    <chr>  
+#>  1 924        NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  2 2529047    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  3 3904577    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  4 3906949    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  5 3913881    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  6 4336633    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  7 4399415    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  8 4433730    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  9 4433790    NA        NA     NA       NA      NA       NA     http://… http:/…
+#> 10 4433807    NA        NA     NA       NA      NA       NA     http://… http:/…
+#> # ℹ 40 more rows
+# }
+```

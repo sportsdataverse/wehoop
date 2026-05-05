@@ -44,10 +44,6 @@ an empty tibble (zero rows) when the team has no reported injuries.
 | short_comment | character |
 | long_comment  | character |
 
-## Details
-
-     espn_wnba_team_injuries(team_id = "17")
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -95,3 +91,11 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_team_injuries(team_id = "17")
+# }
+```

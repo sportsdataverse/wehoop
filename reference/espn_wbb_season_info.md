@@ -50,10 +50,6 @@ functions for details.
 | count    | integer   |
 | ref      | character |
 
-## Details
-
-     espn_wbb_season_info(season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -99,3 +95,53 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_season_info(season = 2025)
+#> $Info
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Info from ESPN.com ──── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:15 UTC
+#> # A tibble: 1 × 6
+#>    year start_date        end_date          display_name type_id type_name 
+#>   <int> <chr>             <chr>             <chr>        <chr>   <chr>     
+#> 1  2025 2024-07-13T07:00Z 2025-04-09T06:59Z 2024-25      3       Postseason
+#> 
+#> $Types
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Types from ESPN.com ─── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:15 UTC
+#> # A tibble: 1 × 2
+#>   count ref                                                                     
+#>   <int> <chr>                                                                   
+#> 1     4 http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-col…
+#> 
+#> $Athletes
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Athletes from ESPN.com ────────────────
+#> ℹ Data updated: 2026-05-05 23:25:15 UTC
+#> # A tibble: 1 × 2
+#>   count ref                                                                     
+#>   <int> <chr>                                                                   
+#> 1    NA http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-col…
+#> 
+#> $Coaches
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Coaches from ESPN.com ─────────────────
+#> ℹ Data updated: 2026-05-05 23:25:15 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Teams
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Teams from ESPN.com ─── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:15 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Awards
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Awards from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:15 UTC
+#> # A tibble: 1 × 2
+#>   count ref                                                                     
+#>   <int> <chr>                                                                   
+#> 1    NA http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-col…
+#> 
+# }
+```

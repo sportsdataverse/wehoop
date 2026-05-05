@@ -43,10 +43,6 @@ A tibble with one row per play-level win-probability entry.
 | secs_to_end_of_period | numeric   |
 | secs_to_end_of_game   | numeric   |
 
-## Details
-
-     espn_wbb_event_probabilities(event_id = "401736171", limit = 200)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -92,3 +88,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_event_probabilities(event_id = "401735229", limit = 50)
+#> ✖ 2026-05-05 23:25:05.90248: Failed to retrieve ESPN womens-college-basketball event probabilities for event_id=401735229
+#> ✖ Args: league = "womens-college-basketball", event_id = "401735229", limit = 50
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

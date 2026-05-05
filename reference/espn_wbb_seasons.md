@@ -31,10 +31,6 @@ A single `wehoop_data` tibble with one row per season.
 | display_name      | character |
 | season_type_count | integer   |
 
-## Details
-
-     espn_wbb_seasons()
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -80,3 +76,17 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_seasons()
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Seasons from ESPN.com ──────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:16 UTC
+#> # A tibble: 1 × 5
+#>   season start_date end_date display_name season_type_count
+#>    <int> <chr>      <chr>    <chr>                    <int>
+#> 1     NA NA         NA       NA                          NA
+# }
+```

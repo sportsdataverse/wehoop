@@ -117,7 +117,6 @@ Get ESPN Women's College Basketball Team News"><meta property="og:image" content
 <code>getOption("wehoop.proxy")</code> or <code>http_proxy</code>/<code>https_proxy</code> environment
 variables for proxy configuration (per-call proxy override is not
 supported for ESPN wrappers).</p>
-<p></p><div class="sourceCode r"><pre><code><span> <span class="fu"><a href="../reference/espn_wbb_team_news.html">espn_wbb_team_news</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -166,6 +165,16 @@ supported for ESPN wrappers).</p>
     <p>Saiem Gilani</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="fu">espn_wbb_team_news</span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">"2509"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Team News (team_id=2509) from ESPN.com ───────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-05 23:25:19 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

@@ -36,10 +36,6 @@ A tibble with one row per official assigned to the game.
 | position_type | character |
 | order         | integer   |
 
-## Details
-
-     espn_wbb_event_officials(event_id = "401736171")
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -85,3 +81,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_event_officials(event_id = "401735229")
+#> ✖ 2026-05-05 23:25:05.618991: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
+#> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

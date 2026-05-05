@@ -40,8 +40,6 @@ Retrieve ESPN women's college basketball news. Uses
 variables for proxy configuration (per-call proxy override is not
 supported for ESPN wrappers).
 
-     espn_wbb_news(limit = 10)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -87,3 +85,21 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_news(limit = 5)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:11 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  4.87e7 Head… Auriemm… "UConn coa… 2026-05-… FALSE   NA     https:/… 54       
+#> 2  4.69e7 Story Final 2… "USC keeps… 2026-05-… FALSE   Shane… https:/… 54       
+#> 3  4.86e7 Story Women's… "South Car… 2026-04-… FALSE   Charl… https:/… 54       
+#> 4  4.86e7 Media Mad Dog… "Chris \"M… 2026-04-… FALSE   NA     https:/… 41       
+#> 5  4.86e7 Media Why Jay… "Jay Willi… 2026-04-… FALSE   NA     https:/… 41       
+# }
+```

@@ -85,10 +85,6 @@ A named list of data frames: `Bio`, `Team`, `Position`, `Status`,
 | round     | character |
 | selection | character |
 
-## Details
-
-     espn_wbb_athlete_info(athlete_id = "4432755")
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -134,3 +130,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_athlete_info(athlete_id = "4432755")
+#> ✖ 2026-05-05 23:25:00.206314: Failed to retrieve ESPN womens-college-basketball athlete info for athlete_id=4432755
+#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755"
+#> ✖ Error: The API returned an error
+#> list()
+# }
+```

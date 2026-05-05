@@ -38,10 +38,6 @@ A tibble with one row per broadcast outlet for the game.
 | lang            | character |
 | region          | character |
 
-## Details
-
-     espn_wnba_event_broadcasts(event_id = "401736171")
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -89,3 +85,20 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_event_broadcasts(event_id = "401736171")
+#> ── ESPN WNBA Event Broadcasts (event_id=401736171) from ESPN.com ───────────────
+#> ℹ Data updated: 2026-05-05 23:25:29 UTC
+#> # A tibble: 3 × 10
+#>   event_id  broadcast_id type_id type_short_name      type_long_name   market_id
+#>   <chr>     <chr>        <chr>   <chr>                <chr>            <chr>    
+#> 1 401736171 NA           1       TV                   Television       1        
+#> 2 401736171 NA           6       Subscription Package Subscription Pa… 3        
+#> 3 401736171 NA           1       TV                   Television       2        
+#> # ℹ 4 more variables: market_type <chr>, names <chr>, lang <chr>, region <chr>
+# }
+```

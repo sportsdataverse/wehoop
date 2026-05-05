@@ -55,10 +55,6 @@ A single `wehoop_data` tibble with one row per athlete.
 | status     | character |
 | link       | character |
 
-## Details
-
-     espn_wbb_athletes_index(season = 2025, limit = 100)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -104,3 +100,28 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_athletes_index(season = 2025, limit = 50)
+#> Fetching page 1 of 1 for womens-college-basketball athletes (season=2025)...
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athletes Index from ESPN.com ─────────────────
+#> ℹ Data updated: 2026-05-05 23:25:01 UTC
+#> # A tibble: 50 × 9
+#>    athlete_id full_name jersey position team_id headshot status link     ref_url
+#>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>    <chr>  
+#>  1 8941       NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  2 19319      NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  3 19747      NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  4 19748      NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  5 19749      NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  6 19750      NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  7 2331675    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  8 2331676    NA        NA     NA       NA      NA       NA     http://… http:/…
+#>  9 2331677    NA        NA     NA       NA      NA       NA     http://… http:/…
+#> 10 2331678    NA        NA     NA       NA      NA       NA     http://… http:/…
+#> # ℹ 40 more rows
+# }
+```

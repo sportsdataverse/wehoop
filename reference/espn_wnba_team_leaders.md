@@ -40,10 +40,6 @@ A single long-format tibble (one row per category-rank-athlete).
 | value        | numeric   |
 | rank         | integer   |
 
-## Details
-
-     espn_wnba_team_leaders(team_id = 17, season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -91,3 +87,12 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_team_leaders(team_id = "17", season = 2025)
+#> # A tibble: 0 × 0
+# }
+```

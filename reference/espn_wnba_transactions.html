@@ -125,7 +125,6 @@ forward compatibility. Proxy configuration should use
 <code>https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/transactions?season={year}&amp;limit={limit}</code>.
 Releases have a <code>NULL</code> <code>to_team_id</code>; those are stored as <code>NA</code>. Returns an
 empty tibble rather than erroring when no transactions are available.</p>
-<p></p><div class="sourceCode r"><pre><code><span>  <span class="fu"><a href="../reference/espn_wnba_transactions.html">espn_wnba_transactions</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -176,6 +175,29 @@ empty tibble rather than erroring when no transactions are available.</p>
     <p>Saiem Gilani</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="fu">espn_wnba_transactions</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Transactions from ESPN.com ──────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-05 23:25:43 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    transaction_id date         type  description team_id athlete_id athlete_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #BB0000;">NA</span>             2025-09-18T… <span style="color: #BB0000;">NA</span>    Released h… 9       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #BB0000;">NA</span>             2025-09-06T… <span style="color: #BB0000;">NA</span>    Signed G V… 129689  <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #BB0000;">NA</span>             2025-09-06T… <span style="color: #BB0000;">NA</span>    Signed F/C… 11      <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #BB0000;">NA</span>             2025-09-06T… <span style="color: #BB0000;">NA</span>    Signed C J… 9       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #BB0000;">NA</span>             2025-09-06T… <span style="color: #BB0000;">NA</span>    Signed F E… 6       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #BB0000;">NA</span>             2025-09-05T… <span style="color: #BB0000;">NA</span>    Released G… 3       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>             2025-09-04T… <span style="color: #BB0000;">NA</span>    Released G… 5       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #BB0000;">NA</span>             2025-09-04T… <span style="color: #BB0000;">NA</span>    Released C… 3       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #BB0000;">NA</span>             2025-09-03T… <span style="color: #BB0000;">NA</span>    Released C… 129689  <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #BB0000;">NA</span>             2025-09-01T… <span style="color: #BB0000;">NA</span>    Released G… 5       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: from_team_id &lt;chr&gt;, to_team_id &lt;chr&gt;</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

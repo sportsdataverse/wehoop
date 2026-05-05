@@ -39,10 +39,6 @@ returned as character columns.
 | team_ref        | character |
 | statistics_ref  | character |
 
-## Details
-
-     espn_wbb_athlete_eventlog(athlete_id = "4432755", season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -88,3 +84,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_athlete_eventlog(athlete_id = "4432755", season = 2025)
+#> ✖ 2026-05-05 23:24:59.206811: Failed to retrieve ESPN womens-college-basketball athlete eventlog for athlete_id=4432755, season=2025
+#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755", season = 2025
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

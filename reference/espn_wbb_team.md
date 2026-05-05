@@ -86,10 +86,6 @@ A named list of data frames: `Info`, `Record`, `NextEvent`,
 | last_name  | character |
 | experience | integer   |
 
-## Details
-
-     espn_wbb_team(team_id = 2509, season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -135,3 +131,50 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_team(team_id = "2509", season = 2025)
+#> $Info
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Info from ESPN.com ────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:17 UTC
+#> # A tibble: 1 × 13
+#>   id    uid    slug  abbreviation display_name short_display_name name  nickname
+#>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
+#> 1 2509  s:40~… purd… PUR          Purdue Boil… Purdue             Boil… Purdue  
+#> # ℹ 5 more variables: location <chr>, color <chr>, alternate_color <chr>,
+#> #   logo <chr>, logo_dark <chr>
+#> 
+#> $Record
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Record from ESPN.com ──── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:17 UTC
+#> # A tibble: 3 × 4
+#>   description    type  summary stats        
+#>   <chr>          <chr> <chr>   <list>       
+#> 1 Overall Record total 13-17   <df [20 × 2]>
+#> 2 Home Record    home  11-6    <df [20 × 2]>
+#> 3 Away Record    road  2-10    <df [20 × 2]>
+#> 
+#> $NextEvent
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Next Event from ESPN.com ────────────────
+#> ℹ Data updated: 2026-05-05 23:25:17 UTC
+#> # A tibble: 1 × 4
+#>   id        date              name                                short_name
+#>   <chr>     <chr>             <chr>                               <chr>     
+#> 1 401851368 2026-03-05T01:30Z Purdue Boilermakers at Oregon Ducks PUR VS ORE
+#> 
+#> $StandingSummary
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Standing Summary from ESPN.com ──────────
+#> ℹ Data updated: 2026-05-05 23:25:17 UTC
+#> # A tibble: 1 × 1
+#>   standing_summary
+#>   <chr>           
+#> 1 14th in Big Ten 
+#> 
+#> $Coaches
+#> data frame with 0 columns and 0 rows
+#> 
+# }
+```

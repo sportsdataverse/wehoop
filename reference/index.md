@@ -1156,14 +1156,10 @@ Internal functions used by wehoop
   **Load .rds file from a remote connection**
 
 - [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md)
-  :
-
-  **Most Recent Women's College Basketball Season**
+  : Most Recent Women's College Basketball Season
 
 - [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
-  :
-
-  **Most Recent WNBA Season**
+  : Most Recent WNBA Season
 
 - [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
   : Progressively

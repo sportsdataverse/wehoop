@@ -46,8 +46,6 @@ regular, post). Uses `getOption("wehoop.proxy")` or
 `http_proxy`/`https_proxy` environment variables for proxy configuration
 (per-call proxy override is not supported for ESPN wrappers).
 
-     espn_wbb_calendar(season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -93,3 +91,29 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_calendar(season = 2025)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Calendar from ESPN.com ─────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:04 UTC
+#> # A tibble: 116 × 12
+#>    season season_type season_type_label season_start_date season_end_date  
+#>    <chr>  <chr>       <chr>             <chr>             <chr>            
+#>  1 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  2 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  3 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  4 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  5 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  6 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  7 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  8 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#>  9 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> 10 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> # ℹ 106 more rows
+#> # ℹ 7 more variables: calendar_type <chr>, label <chr>, alternate_label <chr>,
+#> #   detail <chr>, value <chr>, start_date <chr>, end_date <chr>
+# }
+```

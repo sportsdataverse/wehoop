@@ -39,10 +39,6 @@ returned as character columns.
 | team_ref        | character |
 | statistics_ref  | character |
 
-## Details
-
-     espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -90,3 +86,15 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
+#> ✖ 2026-05-05 23:25:24.544471: Failed to retrieve ESPN wnba athlete eventlog for athlete_id=3149391, season=2024
+#> ✖ Args: league = "wnba", athlete_id = "3149391", season = 2024
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

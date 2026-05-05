@@ -30,10 +30,6 @@ A single long-format tibble. When data are present, columns include at
 minimum `category` and `split_name`, plus per-stat columns driven by
 ESPN labels.
 
-## Details
-
-     espn_wnba_athlete_splits(athlete_id = "3149391", season = 2024)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -81,3 +77,12 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_splits(athlete_id = "3149391", season = 2024)
+#> # A tibble: 0 × 0
+# }
+```

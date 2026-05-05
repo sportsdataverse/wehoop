@@ -30,10 +30,6 @@ A single long-format tibble. When data are present, columns include at
 minimum `category` and `split_name`, plus per-stat columns driven by
 ESPN labels.
 
-## Details
-
-     espn_wbb_athlete_splits(athlete_id = "4432755", season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -79,3 +75,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_athlete_splits(athlete_id = "4432755", season = 2025)
+#> ✖ 2026-05-05 23:25:00.722315: Failed to retrieve ESPN womens-college-basketball athlete splits for athlete_id=4432755, season=2025
+#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755", season = 2025
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

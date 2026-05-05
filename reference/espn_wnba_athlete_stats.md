@@ -32,10 +32,6 @@ Actual names are driven by the ESPN response; additional categories may
 appear. Each tibble has columns depending on the category returned by
 ESPN.
 
-## Details
-
-     espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -83,3 +79,86 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
+#> $`Regular Season Averages`
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 8 × 5
+#>   team_id team_slug      season$year $displayName stats      position
+#>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
+#> 1 17      las-vegas-aces        2018 2018         <chr [18]> C       
+#> 2 17      las-vegas-aces        2019 2019         <chr [18]> C       
+#> 3 17      las-vegas-aces        2020 2020         <chr [18]> C       
+#> 4 17      las-vegas-aces        2021 2021         <chr [18]> C       
+#> 5 17      las-vegas-aces        2022 2022         <chr [18]> C       
+#> 6 17      las-vegas-aces        2023 2023         <chr [18]> C       
+#> 7 17      las-vegas-aces        2024 2024         <chr [18]> C       
+#> 8 17      las-vegas-aces        2025 2025         <chr [18]> C       
+#> 
+#> $`Regular Season Totals`
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 8 × 5
+#>   team_id team_slug      season$year $displayName stats      position
+#>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
+#> 1 17      las-vegas-aces        2018 2018         <chr [15]> C       
+#> 2 17      las-vegas-aces        2019 2019         <chr [15]> C       
+#> 3 17      las-vegas-aces        2020 2020         <chr [15]> C       
+#> 4 17      las-vegas-aces        2021 2021         <chr [15]> C       
+#> 5 17      las-vegas-aces        2022 2022         <chr [15]> C       
+#> 6 17      las-vegas-aces        2023 2023         <chr [15]> C       
+#> 7 17      las-vegas-aces        2024 2024         <chr [15]> C       
+#> 8 17      las-vegas-aces        2025 2025         <chr [15]> C       
+#> 
+#> $`Regular Season Misc Totals`
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 8 × 5
+#>   team_id team_slug      season$year $displayName stats      position
+#>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
+#> 1 17      las-vegas-aces        2018 2018         <chr [10]> C       
+#> 2 17      las-vegas-aces        2019 2019         <chr [10]> C       
+#> 3 17      las-vegas-aces        2020 2020         <chr [10]> C       
+#> 4 17      las-vegas-aces        2021 2021         <chr [10]> C       
+#> 5 17      las-vegas-aces        2022 2022         <chr [10]> C       
+#> 6 17      las-vegas-aces        2023 2023         <chr [10]> C       
+#> 7 17      las-vegas-aces        2024 2024         <chr [10]> C       
+#> 8 17      las-vegas-aces        2025 2025         <chr [10]> C       
+#> 
+#> $General
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Offensive
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Defensive
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Rebounding
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Shooting
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Misc
+#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 0 × 0
+#> 
+# }
+```

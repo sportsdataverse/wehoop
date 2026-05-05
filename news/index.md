@@ -156,6 +156,38 @@
   [`.espn_basketball_seasons()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_seasons.md),
   [`.espn_basketball_season_info()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_info.md)
   in `R/espn_basketball_league_helpers.R`) keep WBB and WNBA DRY.
+- docs: add `vignettes/espn-endpoints.Rmd` covering all 80 ESPN
+  basketball wrappers across the six expansion phases (existing 22 + 58
+  new). Reorganize the pkgdown reference index into 14 per-domain ESPN
+  subsections so the rendered nav scales for the new surface.
+
+#### **CRAN preparation**
+
+- Add `cph` (copyright holder) role to `Saiem Gilani` in `Authors@R`
+  (CRAN strict requirement).
+- Bump `LICENSE` and `LICENSE.md` copyright year from 2020 to 2026.
+- Add full roxygen blocks (description, `@return`, `@examples`) to
+  [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md)
+  and
+  [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md),
+  which had been title/`@export`-only.
+- Add `@examples \donttest{}` blocks to all 58 new ESPN endpoint
+  wrappers (Phase 1-6 expansion). Live-API examples are wrapped in
+  `\donttest{}` so they do not run during routine `R CMD check` but are
+  still exercised under `--run-donttest`. The redundant `@details`
+  code-block samples were removed from these 58 functions; the legacy
+  `@details`-with-code-block convention is retained for the WNBA Stats
+  API (`wnba_*`) and NCAA (`ncaa_wbb_*`) wrappers per the project’s
+  documentation conventions in `CLAUDE.md`.
+- Modernize `inst/CITATION`: replace deprecated
+  [`citEntry()`](https://rdrr.io/r/utils/citEntry.html) /
+  [`personList()`](https://rdrr.io/r/utils/personList.html) with
+  [`bibentry()`](https://rdrr.io/r/utils/bibentry.html) /
+  `c(person(), ...)` (R 4.x deprecation cleanup).
+- Add `parameter_descriptions` (dataset) and `year_to_season` (utility)
+  to `_pkgdown.yml` reference index so
+  [`pkgdown::check_pkgdown()`](https://pkgdown.r-lib.org/reference/check_pkgdown.html)
+  passes (resolves the gh-pages deploy failure).
 
 #### **WNBA Stats API V3 Endpoints Added**
 

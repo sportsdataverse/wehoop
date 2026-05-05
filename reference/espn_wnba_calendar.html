@@ -115,7 +115,6 @@ scoreboard response contains a <code>leagues[[1]]$calendar</code> block with sea
 entries (pre-season, regular, post). Uses <code>getOption("wehoop.proxy")</code> or
 <code>http_proxy</code>/<code>https_proxy</code> environment variables for proxy configuration
 (per-call proxy override is not supported for ESPN wrappers).</p>
-<p></p><div class="sourceCode r"><pre><code><span> <span class="fu"><a href="../reference/espn_wnba_calendar.html">espn_wnba_calendar</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -166,6 +165,31 @@ entries (pre-season, regular, post). Uses <code>getOption("wehoop.proxy")</code>
     <p>Saiem Gilani</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="fu">espn_wnba_calendar</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Calendar from ESPN.com ──────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-05 23:25:28 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 126 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type season_type_label season_start_date season_end_date  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2025   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>                2025-04-14T07:00Z 2025-10-20T06:59Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 116 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: calendar_type &lt;chr&gt;, label &lt;chr&gt;, alternate_label &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   detail &lt;chr&gt;, value &lt;chr&gt;, start_date &lt;chr&gt;, end_date &lt;chr&gt;</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

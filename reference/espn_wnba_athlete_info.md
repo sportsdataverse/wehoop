@@ -85,10 +85,6 @@ A named list of data frames: `Bio`, `Team`, `Position`, `Status`,
 | round     | character |
 | selection | character |
 
-## Details
-
-     espn_wnba_athlete_info(athlete_id = "3149391")
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -136,3 +132,15 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_info(athlete_id = "3149391")
+#> ✖ 2026-05-05 23:25:25.315118: Failed to retrieve ESPN wnba athlete info for athlete_id=3149391
+#> ✖ Args: league = "wnba", athlete_id = "3149391"
+#> ✖ Error: The API returned an error
+#> list()
+# }
+```

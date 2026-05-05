@@ -47,10 +47,6 @@ A single tibble with one row per athlete.
 | team_id         | character |
 | season          | integer   |
 
-## Details
-
-     espn_wnba_team_roster(team_id = 17, season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -98,3 +94,30 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_team_roster(team_id = "17", season = 2025)
+#> ── ESPN WNBA Team Roster from ESPN.com ───────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:40 UTC
+#> # A tibble: 12 × 15
+#>    athlete_id full_name jersey position_abbrev position_name height weight age  
+#>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
+#>  1 4565501    Janiah B… 2      F               Forward       "6' 4… 185 l… 22   
+#>  2 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
+#>  3 4280892    Chennedy… 23     G               Guard         "5' 9… 143 l… 27   
+#>  4 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 27   
+#>  5 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
+#>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
+#>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 33   
+#>  8 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 25   
+#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 31   
+#> 10 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 29   
+#> 11 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 29   
+#> 12 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
+#> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
+#> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
+# }
+```

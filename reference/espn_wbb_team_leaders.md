@@ -40,10 +40,6 @@ A single long-format tibble (one row per category-rank-athlete).
 | value        | numeric   |
 | rank         | integer   |
 
-## Details
-
-     espn_wbb_team_leaders(team_id = 2509, season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -89,3 +85,12 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_team_leaders(team_id = "2509", season = 2025)
+#> # A tibble: 0 × 0
+# }
+```

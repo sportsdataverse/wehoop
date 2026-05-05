@@ -48,8 +48,6 @@ Paginates over all pages (capped at 20 pages) and returns a single flat
 tibble. Outside the draft window, or for historical seasons with no ESPN
 draft data, the function returns an empty tibble rather than erroring.
 
-      espn_wnba_draft(season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -97,3 +95,14 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_draft(season = 2024)
+#> ── ESPN WNBA Draft Picks from ESPN.com ───────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:29 UTC
+#> # A tibble: 0 × 0
+# }
+```

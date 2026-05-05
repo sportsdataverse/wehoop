@@ -29,10 +29,6 @@ espn_wnba_athlete_gamelog(athlete_id, season = most_recent_wnba_season(), ...)
 A single tibble with one row per game. Column names reflect the stat
 labels returned by ESPN and will vary by season and player.
 
-## Details
-
-     espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -80,3 +76,27 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
+#> ── ESPN WNBA Athlete Gamelog from ESPN.com ───────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:24 UTC
+#> # A tibble: 46 × 1
+#>    event_id 
+#>    <chr>    
+#>  1 401724941
+#>  2 401724940
+#>  3 401724939
+#>  4 401724938
+#>  5 401721262
+#>  6 401721256
+#>  7 401620451
+#>  8 401620445
+#>  9 401620437
+#> 10 401620432
+#> # ℹ 36 more rows
+# }
+```

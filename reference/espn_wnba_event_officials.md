@@ -36,10 +36,6 @@ A tibble with one row per official assigned to the game.
 | position_type | character |
 | order         | integer   |
 
-## Details
-
-     espn_wnba_event_officials(event_id = "401736171")
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -87,3 +83,20 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_event_officials(event_id = "401736171")
+#> ── ESPN WNBA Event Officials (event_id=401736171) from ESPN.com ────────────────
+#> ℹ Data updated: 2026-05-05 23:25:29 UTC
+#> # A tibble: 3 × 8
+#>   event_id  official_id full_name         display_name position_id position_name
+#>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        
+#> 1 401736171 7671        Michael Price     Michael Pri… 40          Referee      
+#> 2 401736171 52044       Fatou Cissoko-St… Fatou Cisso… 40          Referee      
+#> 3 401736171 4879757     Jason Alabanza    Jason Alaba… 40          Referee      
+#> # ℹ 2 more variables: position_type <chr>, order <int>
+# }
+```

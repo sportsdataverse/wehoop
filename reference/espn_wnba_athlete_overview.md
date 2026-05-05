@@ -69,10 +69,6 @@ A named list of data frames: `Statistics`, `NextGame`, `Last5Games`,
 | col_name | types     |
 | (varies) | character |
 
-## Details
-
-     espn_wnba_athlete_overview(athlete_id = "3149391", season = 2024)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -120,3 +116,57 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_overview(athlete_id = "3149391", season = 2024)
+#> $Statistics
+#> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ───────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:25 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $NextGame
+#> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ─────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:25 UTC
+#> # A tibble: 1 × 4
+#>   id    date  name  short_name
+#>   <chr> <chr> <chr> <chr>     
+#> 1 NA    NA    NA    NA        
+#> 
+#> $Last5Games
+#> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ───────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:25 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Headlines
+#> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:25 UTC
+#> # A tibble: 13 × 5
+#>    headline                                   description published byline type 
+#>    <chr>                                      <chr>       <chr>     <chr>  <chr>
+#>  1 WNBA GM survey picks Bueckers as player t… "The annua… 2026-05-… Micha… Head…
+#>  2 WNBA 2026 season preview: Team rankings, … "Where do … 2026-05-… Micha… Story
+#>  3 Athletes at the 2026 Met Gala              "Check out… 2026-05-… NA     Media
+#>  4 Met Gala 2026: Venus Williams, Alysa Liu … "Stars fro… 2026-05-… ESPN   Story
+#>  5 2026 Met Gala: Venus Williams, A'ja Wilso… "Venus Wil… 2026-05-… Charl… Story
+#>  6 A'ja Wilson scores 18 points for the Aces  "A'ja Wils… 2026-05-… NA     Media
+#>  7 Dallas Wings vs. Las Vegas Aces - Game Hi… "Watch the… 2026-05-… NA     Media
+#>  8 A'ja Wilson gets the huge block for the A… "A'ja Wils… 2026-05-… NA     Media
+#>  9 A'ja Wilson with the bucket                "A'ja Wils… 2026-05-… NA     Media
+#> 10 WNBA player rankings: The top 50 players … "From form… 2026-05-… Micha… Story
+#> 11 Aces media day 2026: A'ja Wilson unveils … "The four-… 2026-04-… Kalan… Story
+#> 12 A'ja Wilson? Caitlin Clark? Who to take w… "You're on… 2026-04-… Eric … Story
+#> 13 Ranking every WNBA team's offseason, free… "How did t… 2026-04-… Micha… Story
+#> 
+#> $FantasyOutlook
+#> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ───── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:25 UTC
+#> # A tibble: 1 × 1
+#>   outlook
+#>   <chr>  
+#> 1 NA     
+#> 
+# }
+```

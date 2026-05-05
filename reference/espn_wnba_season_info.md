@@ -50,10 +50,6 @@ functions for details.
 | count    | integer   |
 | ref      | character |
 
-## Details
-
-     espn_wnba_season_info(season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -101,3 +97,50 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_season_info(season = 2025)
+#> $Info
+#> ── ESPN WNBA Season Info from ESPN.com ───────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 1 × 6
+#>    year start_date        end_date          display_name type_id type_name     
+#>   <int> <chr>             <chr>             <chr>        <chr>   <chr>         
+#> 1  2025 2025-04-14T07:00Z 2025-10-20T06:59Z 2025         2       Regular Season
+#> 
+#> $Types
+#> ── ESPN WNBA Season Types from ESPN.com ──────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 1 × 2
+#>   count ref                                                                     
+#>   <int> <chr>                                                                   
+#> 1     4 http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seaso…
+#> 
+#> $Athletes
+#> ── ESPN WNBA Season Athletes from ESPN.com ───────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Coaches
+#> ── ESPN WNBA Season Coaches from ESPN.com ────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Teams
+#> ── ESPN WNBA Season Teams from ESPN.com ──────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Awards
+#> ── ESPN WNBA Season Awards from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 1 × 2
+#>   count ref                                                                     
+#>   <int> <chr>                                                                   
+#> 1    NA http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seaso…
+#> 
+# }
+```

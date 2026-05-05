@@ -35,10 +35,6 @@ data, in which case an empty tibble with canonical columns is returned.
 | date        | character |
 | type        | character |
 
-## Details
-
-     espn_wnba_athlete_awards(athlete_id = "3149391")
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -86,3 +82,27 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_awards(athlete_id = "3149391")
+#> ── ESPN WNBA Athlete Awards from ESPN.com ────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:24 UTC
+#> # A tibble: 22 × 7
+#>    season award_id name  description date  type  ref_url                        
+#>    <chr>  <chr>    <chr> <chr>       <chr> <chr> <chr>                          
+#>  1 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  2 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  3 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  4 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  5 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  6 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  7 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  8 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#>  9 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#> 10 NA     NA       NA    NA          NA    NA    http://sports.core.api.espn.co…
+#> # ℹ 12 more rows
+# }
+```

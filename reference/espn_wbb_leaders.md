@@ -47,10 +47,6 @@ A single `wehoop_data` tibble with one row per category-athlete pair.
 | rank          | integer   |
 | display_value | character |
 
-## Details
-
-     espn_wbb_leaders(season = 2025, season_type = 2)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -96,3 +92,29 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_leaders(season = 2025, season_type = 2)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Leaders from ESPN.com ──────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:10 UTC
+#> # A tibble: 350 × 11
+#>    season season_type category      abbreviation athlete_id athlete_name team_id
+#>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
+#>  1   2025           2 pointsPerGame PTS          5247335    NA           2179   
+#>  2   2025           2 pointsPerGame PTS          4903679    NA           3141   
+#>  3   2025           2 pointsPerGame PTS          5180981    NA           112702 
+#>  4   2025           2 pointsPerGame PTS          5254897    NA           2225   
+#>  5   2025           2 pointsPerGame PTS          5188152    NA           2036   
+#>  6   2025           2 pointsPerGame PTS          5247503    NA           507    
+#>  7   2025           2 pointsPerGame PTS          5247764    NA           2202   
+#>  8   2025           2 pointsPerGame PTS          5184789    NA           2161   
+#>  9   2025           2 pointsPerGame PTS          5114898    NA           2008   
+#> 10   2025           2 pointsPerGame PTS          5117248    NA           2339   
+#> # ℹ 340 more rows
+#> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
+#> #   display_value <chr>
+# }
+```

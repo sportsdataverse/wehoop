@@ -86,10 +86,6 @@ A named list of data frames: `Info`, `Record`, `NextEvent`,
 | last_name  | character |
 | experience | integer   |
 
-## Details
-
-     espn_wnba_team(team_id = 17, season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -137,3 +133,50 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_team(team_id = "17", season = 2025)
+#> $Info
+#> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:39 UTC
+#> # A tibble: 1 × 12
+#>   id    uid    slug  abbreviation display_name short_display_name name  location
+#>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
+#> 1 17    s:40~… las-… LV           Las Vegas A… Aces               Aces  Las Veg…
+#> # ℹ 4 more variables: color <chr>, alternate_color <chr>, logo <chr>,
+#> #   logo_dark <chr>
+#> 
+#> $Record
+#> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:39 UTC
+#> # A tibble: 3 × 4
+#>   description    type  summary stats        
+#>   <chr>          <chr> <chr>   <list>       
+#> 1 Overall Record total 1-1     <df [20 × 2]>
+#> 2 Home Record    home  1-0     <df [5 × 2]> 
+#> 3 Away Record    road  0-1     <df [5 × 2]> 
+#> 
+#> $NextEvent
+#> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:39 UTC
+#> # A tibble: 1 × 4
+#>   id        date              name                              short_name
+#>   <chr>     <chr>             <chr>                             <chr>     
+#> 1 401856894 2026-05-09T19:30Z Phoenix Mercury at Las Vegas Aces PHX @ LV  
+#> 
+#> $StandingSummary
+#> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:39 UTC
+#> # A tibble: 1 × 1
+#>   standing_summary                  
+#>   <chr>                             
+#> 1 6th in Western Conference Division
+#> 
+#> $Coaches
+#> data frame with 0 columns and 0 rows
+#> 
+# }
+```

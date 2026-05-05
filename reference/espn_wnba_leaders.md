@@ -47,10 +47,6 @@ A single `wehoop_data` tibble with one row per category-athlete pair.
 | rank          | integer   |
 | display_value | character |
 
-## Details
-
-     espn_wnba_leaders(season = 2025, season_type = 2)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -98,3 +94,29 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_leaders(season = 2024, season_type = 2)
+#> ── ESPN WNBA Leaders from ESPN.com ───────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:34 UTC
+#> # A tibble: 375 × 11
+#>    season season_type category      abbreviation athlete_id athlete_name team_id
+#>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
+#>  1   2024           2 pointsPerGame PTS          3149391    NA           17     
+#>  2   2024           2 pointsPerGame PTS          3904577    NA           3      
+#>  3   2024           2 pointsPerGame PTS          2998938    NA           11     
+#>  4   2024           2 pointsPerGame PTS          2998928    NA           9      
+#>  5   2024           2 pointsPerGame PTS          3917450    NA           8      
+#>  6   2024           2 pointsPerGame PTS          2987869    NA           17     
+#>  7   2024           2 pointsPerGame PTS          4433403    NA           5      
+#>  8   2024           2 pointsPerGame PTS          3142191    NA           5      
+#>  9   2024           2 pointsPerGame PTS          4066533    NA           9      
+#> 10   2024           2 pointsPerGame PTS          3065570    NA           6      
+#> # ℹ 365 more rows
+#> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
+#> #   display_value <chr>
+# }
+```

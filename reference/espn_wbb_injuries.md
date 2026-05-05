@@ -48,10 +48,6 @@ rows) when no injuries are reported.
 | long_comment  | character |
 | season        | integer   |
 
-## Details
-
-     espn_wbb_injuries(season = most_recent_wbb_season())
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -97,3 +93,11 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_injuries()
+# }
+```

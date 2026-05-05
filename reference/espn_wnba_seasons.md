@@ -31,10 +31,6 @@ A single `wehoop_data` tibble with one row per season.
 | display_name      | character |
 | season_type_count | integer   |
 
-## Details
-
-     espn_wnba_seasons()
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -82,3 +78,17 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_seasons()
+#> ── ESPN WNBA Seasons from ESPN.com ───────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:38 UTC
+#> # A tibble: 1 × 5
+#>   season start_date end_date display_name season_type_count
+#>    <int> <chr>      <chr>    <chr>                    <int>
+#> 1     NA NA         NA       NA                          NA
+# }
+```

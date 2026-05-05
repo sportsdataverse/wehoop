@@ -49,8 +49,6 @@ Outside the free-agent window the endpoint typically returns an empty
 list; the function returns an empty tibble rather than erroring in that
 case.
 
-      espn_wnba_freeagents(season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -98,3 +96,15 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_freeagents(season = 2025)
+#> ✖ 2026-05-05 23:25:30.537103: Failed to retrieve ESPN WNBA free agents for season 2025
+#> ✖ Args: season = 2025
+#> ✖ Error: The API returned an error
+#> data frame with 0 columns and 0 rows
+# }
+```

@@ -47,10 +47,6 @@ A single tibble with one row per athlete.
 | team_id         | character |
 | season          | integer   |
 
-## Details
-
-     espn_wbb_team_roster(team_id = 2509, season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -96,3 +92,31 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_team_roster(team_id = "2509", season = 2025)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Roster from ESPN.com ──── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:19 UTC
+#> # A tibble: 13 × 15
+#>    athlete_id full_name jersey position_abbrev position_name height weight age  
+#>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
+#>  1 5311737    Carley B… 24     G               Guard         "5' 7… NA     NA   
+#>  2 5106182    Tara Daye 44     G               Guard         "5' 1… NA     NA   
+#>  3 5107710    Taylor F… 5      G               Guard         "5' 8… NA     NA   
+#>  4 5311739    Avery Go… 55     F               Forward       "6' 7… NA     NA   
+#>  5 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
+#>  6 5311736    Hila Kar… 8      G               Guard         "5' 8… NA     NA   
+#>  7 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
+#>  8 4433438    Madison … 33     G               Guard         "6' 1… NA     NA   
+#>  9 5240041    Lana McC… 35     F               Forward       "6' 4… NA     NA   
+#> 10 5240040    Kendall … 22     F               Forward       "6' 3… NA     NA   
+#> 11 5239064    Kiki Smi… 23     G               Guard         "5' 7… NA     NA   
+#> 12 5243531    Nya Smith 3      G               Guard         "5' 9… NA     NA   
+#> 13 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
+#> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
+#> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
+# }
+```

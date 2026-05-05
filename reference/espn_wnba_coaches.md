@@ -37,10 +37,6 @@ A single `wehoop_data` tibble with one row per coach.
 | experience | integer   |
 | team_id    | character |
 
-## Details
-
-     espn_wnba_coaches(season = 2025)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -88,3 +84,29 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_coaches(season = 2025)
+#> ── ESPN WNBA Coaches from ESPN.com ───────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:28 UTC
+#> # A tibble: 13 × 6
+#>    coach_id first_name last_name full_name experience team_id
+#>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  
+#>  1 NA       NA         NA        NA                NA NA     
+#>  2 NA       NA         NA        NA                NA NA     
+#>  3 NA       NA         NA        NA                NA NA     
+#>  4 NA       NA         NA        NA                NA NA     
+#>  5 NA       NA         NA        NA                NA NA     
+#>  6 NA       NA         NA        NA                NA NA     
+#>  7 NA       NA         NA        NA                NA NA     
+#>  8 NA       NA         NA        NA                NA NA     
+#>  9 NA       NA         NA        NA                NA NA     
+#> 10 NA       NA         NA        NA                NA NA     
+#> 11 NA       NA         NA        NA                NA NA     
+#> 12 NA       NA         NA        NA                NA NA     
+#> 13 NA       NA         NA        NA                NA NA     
+# }
+```

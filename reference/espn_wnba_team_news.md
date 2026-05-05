@@ -44,8 +44,6 @@ Retrieve ESPN WNBA news for a specific team. Uses
 variables for proxy configuration (per-call proxy override is not
 supported for ESPN wrappers).
 
-     espn_wnba_team_news(team_id = 17, limit = 10)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -93,3 +91,14 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_team_news(team_id = "17", limit = 5)
+#> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:40 UTC
+#> # A tibble: 0 × 0
+# }
+```

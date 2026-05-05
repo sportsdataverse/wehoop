@@ -44,10 +44,6 @@ an empty tibble (zero rows) when the team has no reported injuries.
 | short_comment | character |
 | long_comment  | character |
 
-## Details
-
-     espn_wbb_team_injuries(team_id = "2509")
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -93,3 +89,11 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_team_injuries(team_id = "2509")
+# }
+```

@@ -42,10 +42,6 @@ A tibble with one row per odds provider.
 | away_team_odds_open  | numeric   |
 | away_team_odds_close | numeric   |
 
-## Details
-
-     espn_wnba_event_odds(event_id = "401736171")
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -93,3 +89,21 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_event_odds(event_id = "401736171")
+#> ── ESPN WNBA Event Odds (event_id=401736171) from ESPN.com ───── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:29 UTC
+#> # A tibble: 2 × 12
+#>   event_id  provider_id provider_name  details over_under spread home_money_line
+#>   <chr>     <chr>       <chr>          <chr>        <dbl>  <dbl>           <int>
+#> 1 401736171 58          ESPN BET       LV -8.5       168.   -8.5              NA
+#> 2 401736171 59          ESPN Bet - Li… LA -4.5       192.    4.5              NA
+#> # ℹ 5 more variables: away_money_line <int>, home_team_odds_open <dbl>,
+#> #   home_team_odds_close <dbl>, away_team_odds_open <dbl>,
+#> #   away_team_odds_close <dbl>
+# }
+```

@@ -41,10 +41,6 @@ endpoints.
 | event_ref      | character |
 | statistics_ref | character |
 
-## Details
-
-     espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
-
 ## See also
 
 Other ESPN WNBA Functions:
@@ -92,3 +88,17 @@ Other ESPN WNBA Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
+#> ── ESPN WNBA Athlete Statisticslog from ESPN.com ─────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-05 23:25:26 UTC
+#> # A tibble: 1 × 2
+#>   season$`$ref`                                                       statistics
+#>   <chr>                                                               <list>    
+#> 1 http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/… <df>      
+# }
+```

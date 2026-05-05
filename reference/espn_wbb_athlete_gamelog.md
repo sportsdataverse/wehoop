@@ -29,10 +29,6 @@ espn_wbb_athlete_gamelog(athlete_id, season = most_recent_wbb_season(), ...)
 A single tibble with one row per game. Column names reflect the stat
 labels returned by ESPN and will vary by season and player.
 
-## Details
-
-     espn_wbb_athlete_gamelog(athlete_id = "4432755", season = 2025)
-
 ## See also
 
 Other ESPN WBB Functions:
@@ -78,3 +74,15 @@ Other ESPN WBB Functions:
 ## Author
 
 Saiem Gilani
+
+## Examples
+
+``` r
+# \donttest{
+  espn_wbb_athlete_gamelog(athlete_id = "4432755", season = 2025)
+#> ✖ 2026-05-05 23:24:59.663016: Failed to retrieve ESPN womens-college-basketball athlete gamelog for athlete_id=4432755, season=2025
+#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755", season = 2025
+#> ✖ Error: The API returned an error
+#> NULL
+# }
+```

@@ -11,7 +11,6 @@
 - [Messaging Layer](#messaging-layer)
 - [Function Naming](#function-naming)
 - [Roxygen Documentation](#roxygen-documentation)
-- [Testing](#testing)
 
 ## Project Context
 
@@ -112,9 +111,32 @@ Every exported function needs:
   each data frame returned
 - `@importFrom` for specific function imports
 - `@export`
-- `@family` for grouping in pkgdown (e.g., “WNBA PBP Functions”, “WNBA
-  Boxscore V3 Functions”)
-- `@details` with runnable example code block
+- `@family` for grouping in pkgdown (e.g., “WNBA PBP Functions”, “ESPN
+  WBB Functions”)
+- A runnable example, formatted per source family:
+  - **ESPN wrappers** (`espn_wbb_*`, `espn_wnba_*`): use a standard
+    `@examples` block wrapped in `\donttest{}` (live-API examples). Do
+    NOT add `@details` code blocks.
+
+    ``` r
+
+    #' @examples
+    #' \donttest{
+    #'   espn_wbb_team_roster(team_id = "2509", season = 2025)
+    #' }
+    ```
+
+  - **WNBA Stats API and NCAA wrappers** (`wnba_*`, `ncaa_wbb_*`):
+    preserve the legacy `@details`-with-fenced-code-block convention
+    from wehoop 2.x for backward compatibility.
+
+    ``` r
+
+    #' @details
+    #' ```r
+    #'  wnba_functionname(game_id = "1022200034")
+    #' ```
+    ```
 
 ## Testing
 
