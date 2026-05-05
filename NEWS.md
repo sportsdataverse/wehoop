@@ -101,7 +101,23 @@ Already deprecated, re-stated under the lifecycle pattern:
 * `wnba_scoreboard()` (2.1.0) → `wnba_scoreboardv3()`
 * `wnba_teaminfocommon()` (2.1.0) → `wnba_teamdetails()`
 * `wnba_videodetails()` (3.0.0) → `wnba_videoevents()`
+* `wnba_playerprofilev2()` (3.0.0) → `wnba_playercareerstats()`. The
+  upstream `playerprofilev2` endpoint still returns the named-list
+  shape but every `SeasonTotals*` and `CareerTotals*` table comes back
+  zero-row in 2025 (verified against multiple active players).
+  `wnba_playercareerstats()` exposes the same career totals.
 * `wnba_videodetailsasset()` (3.0.0) → `wnba_videoevents()`
+
+Soft warning (lifecycle::deprecate_warn) — function still runs but
+recommends a replacement; will escalate to `deprecate_stop` if the
+upstream endpoint isn't restored:
+
+* `wnba_boxscoresummaryv3()` → `wnba_boxscoresummaryv2()`. The V3
+  endpoint still answers 200 OK with the full schema, but the core
+  result sets (`game_summary`, `line_score`, `inactive_players`,
+  `other_stats`, `available_video`, `game_info`, `arena_info`) come
+  back zero-row in 2025; only `officials` and `last_five_meetings`
+  populate. The V2 variant still returns full data.
 
 ### **HTTP layer**
 

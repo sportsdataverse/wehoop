@@ -2586,7 +2586,14 @@ wnba_playerprofilev2 <- function(
     player_id = '1628932',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_stop(
+    when = "3.0.0",
+    what = "wnba_playerprofilev2()",
+    with = "wnba_playercareerstats()",
+    details = "The `playerprofilev2` endpoint still returns the named-list shape but every `SeasonTotals*` and `CareerTotals*` result set is empty (verified against multiple active players in 2025). `wnba_playercareerstats()` exposes the same career totals and is in active use."
+  )
+
   version <- "playerprofilev2"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint

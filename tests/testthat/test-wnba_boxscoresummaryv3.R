@@ -3,7 +3,12 @@ test_that("WNBA Boxscore Summary V3", {
   skip_on_ci()
   skip_wnba_stats_test()
 
-  x <- wnba_boxscoresummaryv3(game_id = "1022200034")
+  # `wnba_boxscoresummaryv3()` is soft-deprecated as of 3.0.0 — it emits
+  # `lifecycle::deprecate_warn()` recommending the V2 variant. Suppress
+  # the expected warning here so the test output stays clean; the
+  # downstream "no rows returned" check still fails loudly if the V3
+  # endpoint is genuinely broken.
+  x <- suppressWarnings(wnba_boxscoresummaryv3(game_id = "1012600004"))
 
   if (length(x) == 0 || is.null(x$game_summary) || nrow(x$game_summary) == 0) {
     fail("No rows returned from wnba_boxscoresummaryv3() at test time")

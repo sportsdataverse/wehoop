@@ -2334,6 +2334,13 @@ wnba_boxscoresummaryv3 <- function(
     ...) {
   .args <- mget(setdiff(names(formals()), "..."))
 
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "wnba_boxscoresummaryv3()",
+    with = "wnba_boxscoresummaryv2()",
+    details = "The V3 boxscore-summary endpoint still returns the full named-list shape but the core tables (`game_summary`, `line_score`, `inactive_players`, `other_stats`, `available_video`, `game_info`, `arena_info`) come back zero-row in 2025; only `officials` and `last_five_meetings` populate. The V2 endpoint still returns full data. This is a soft warning -- the call still proceeds -- and is slated to escalate to `lifecycle::deprecate_stop()` if the upstream V3 endpoint isn't restored."
+  )
+
   version <- "boxscoresummaryv3"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint

@@ -2,8 +2,9 @@ test_that("WNBA Player Profile V2", {
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()
-  
-  x <- wnba_playerprofilev2(player_id = "1628932")
+  skip("Deprecated: wnba_playerprofilev2() now errors by design; use wnba_playercareerstats().")
+
+  x <- wnba_playerprofilev2(player_id = "203400")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
     fail("No rows returned from endpoint at test time")
