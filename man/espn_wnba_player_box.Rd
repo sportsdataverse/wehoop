@@ -92,17 +92,26 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_athlete_splits}()},
 \code{\link{espn_wnba_athlete_statisticslog}()},
 \code{\link{espn_wnba_athlete_stats}()},
+\code{\link{espn_wnba_athletes_index}()},
 \code{\link{espn_wnba_calendar}()},
+\code{\link{espn_wnba_coaches}()},
 \code{\link{espn_wnba_conferences}()},
 \code{\link{espn_wnba_draft}()},
+\code{\link{espn_wnba_event_broadcasts}()},
+\code{\link{espn_wnba_event_odds}()},
+\code{\link{espn_wnba_event_officials}()},
+\code{\link{espn_wnba_event_probabilities}()},
 \code{\link{espn_wnba_freeagents}()},
 \code{\link{espn_wnba_game_all}()},
 \code{\link{espn_wnba_game_rosters}()},
 \code{\link{espn_wnba_injuries}()},
+\code{\link{espn_wnba_leaders}()},
 \code{\link{espn_wnba_news}()},
 \code{\link{espn_wnba_pbp}()},
 \code{\link{espn_wnba_player_stats}()},
 \code{\link{espn_wnba_scoreboard}()},
+\code{\link{espn_wnba_season_info}()},
+\code{\link{espn_wnba_seasons}()},
 \code{\link{espn_wnba_standings}()},
 \code{\link{espn_wnba_team}()},
 \code{\link{espn_wnba_team_box}()},
@@ -113,7 +122,8 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_team_schedule}()},
 \code{\link{espn_wnba_team_stats}()},
 \code{\link{espn_wnba_teams}()},
-\code{\link{espn_wnba_transactions}()}
+\code{\link{espn_wnba_transactions}()},
+\code{\link{espn_wnba_venues}()}
 }
 \author{
 Saiem Gilani

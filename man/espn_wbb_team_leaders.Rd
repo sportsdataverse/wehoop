@@ -45,17 +45,26 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_athlete_splits}()},
 \code{\link{espn_wbb_athlete_statisticslog}()},
 \code{\link{espn_wbb_athlete_stats}()},
+\code{\link{espn_wbb_athletes_index}()},
 \code{\link{espn_wbb_calendar}()},
+\code{\link{espn_wbb_coaches}()},
 \code{\link{espn_wbb_conferences}()},
+\code{\link{espn_wbb_event_broadcasts}()},
+\code{\link{espn_wbb_event_odds}()},
+\code{\link{espn_wbb_event_officials}()},
+\code{\link{espn_wbb_event_probabilities}()},
 \code{\link{espn_wbb_game_all}()},
 \code{\link{espn_wbb_game_rosters}()},
 \code{\link{espn_wbb_injuries}()},
+\code{\link{espn_wbb_leaders}()},
 \code{\link{espn_wbb_news}()},
 \code{\link{espn_wbb_pbp}()},
 \code{\link{espn_wbb_player_box}()},
 \code{\link{espn_wbb_player_stats}()},
 \code{\link{espn_wbb_rankings}()},
 \code{\link{espn_wbb_scoreboard}()},
+\code{\link{espn_wbb_season_info}()},
+\code{\link{espn_wbb_seasons}()},
 \code{\link{espn_wbb_standings}()},
 \code{\link{espn_wbb_team}()},
 \code{\link{espn_wbb_team_box}()},
@@ -64,7 +73,8 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_team_roster}()},
 \code{\link{espn_wbb_team_schedule}()},
 \code{\link{espn_wbb_team_stats}()},
-\code{\link{espn_wbb_teams}()}
+\code{\link{espn_wbb_teams}()},
+\code{\link{espn_wbb_venues}()}
 }
 \author{
 Saiem Gilani
