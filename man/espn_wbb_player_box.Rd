@@ -81,15 +81,24 @@ Get ESPN women's college basketball player box
 }
 \seealso{
 Other ESPN WBB Functions: 
+\code{\link{espn_wbb_calendar}()},
 \code{\link{espn_wbb_conferences}()},
 \code{\link{espn_wbb_game_all}()},
 \code{\link{espn_wbb_game_rosters}()},
+\code{\link{espn_wbb_injuries}()},
+\code{\link{espn_wbb_news}()},
 \code{\link{espn_wbb_pbp}()},
 \code{\link{espn_wbb_player_stats}()},
 \code{\link{espn_wbb_rankings}()},
 \code{\link{espn_wbb_scoreboard}()},
 \code{\link{espn_wbb_standings}()},
+\code{\link{espn_wbb_team}()},
 \code{\link{espn_wbb_team_box}()},
+\code{\link{espn_wbb_team_injuries}()},
+\code{\link{espn_wbb_team_leaders}()},
+\code{\link{espn_wbb_team_news}()},
+\code{\link{espn_wbb_team_roster}()},
+\code{\link{espn_wbb_team_schedule}()},
 \code{\link{espn_wbb_team_stats}()},
 \code{\link{espn_wbb_teams}()}
 }

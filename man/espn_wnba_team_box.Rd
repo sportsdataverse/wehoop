@@ -81,13 +81,22 @@ Get ESPN's WNBA team box data
 }
 \seealso{
 Other ESPN WNBA Functions: 
+\code{\link{espn_wnba_calendar}()},
 \code{\link{espn_wnba_game_all}()},
 \code{\link{espn_wnba_game_rosters}()},
+\code{\link{espn_wnba_injuries}()},
+\code{\link{espn_wnba_news}()},
 \code{\link{espn_wnba_pbp}()},
 \code{\link{espn_wnba_player_box}()},
 \code{\link{espn_wnba_player_stats}()},
 \code{\link{espn_wnba_scoreboard}()},
 \code{\link{espn_wnba_standings}()},
+\code{\link{espn_wnba_team}()},
+\code{\link{espn_wnba_team_injuries}()},
+\code{\link{espn_wnba_team_leaders}()},
+\code{\link{espn_wnba_team_news}()},
+\code{\link{espn_wnba_team_roster}()},
+\code{\link{espn_wnba_team_schedule}()},
 \code{\link{espn_wnba_team_stats}()},
 \code{\link{espn_wnba_teams}()}
 }
