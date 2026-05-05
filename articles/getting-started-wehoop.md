@@ -61,7 +61,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.171 sec elapsed
+    ## 0.147 sec elapsed
 
 ``` r
 
@@ -92,7 +92,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.178 sec elapsed
+    ## 0.138 sec elapsed
 
 ``` r
 
@@ -120,7 +120,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.163 sec elapsed
+    ## 0.142 sec elapsed
 
 ``` r
 
@@ -147,7 +147,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 14.501 sec elapsed
+    ## 15.849 sec elapsed
 
 ``` r
 
@@ -174,7 +174,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.364 sec elapsed
+    ## 0.387 sec elapsed
 
 ``` r
 
@@ -201,7 +201,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.071 sec elapsed
+    ## 1.241 sec elapsed
 
 ``` r
 
@@ -219,10 +219,10 @@ nrow(wbb_player_box)
 
 ## **Our Authors**
 
-- [Saiem Gilani](https://twitter.com/saiemgilani)  
-  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&logo=x&style=for-the-badge)](https://twitter.com/saiemgilani)
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
   [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
 
-- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)  
-  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/hutchngo)
+- [Geoff Hutchinson - RIP](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
   [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)

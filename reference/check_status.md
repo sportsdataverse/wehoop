@@ -12,4 +12,4 @@ check_status(res)
 
 - res:
 
-  Response from API
+  Response from an httr2 request

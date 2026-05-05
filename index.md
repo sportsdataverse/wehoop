@@ -1,5 +1,16 @@
 # wehoop
 
+- [wehoop](#wehoop-)
+  [![](https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png)](https://wehoop.sportsdataverse.org)
+  - [**Installation**](#installation)
+  - [**Quick Start**](#quick-start)
+  - [**Documentation**](#documentation)
+  - [**Breaking Changes**](#breaking-changes)
+  - [Follow the SportsDataverse (@SportsDataverse) on X and star this
+    repo](#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo)
+- [**Our Authors**](#our-authors)
+  - [**Citations**](#citations)
+
 `wehoop` is an R package for working with women’s college and
 professional basketball data. The package has functions to access **live
 play by play and box score** data from ESPN with shot locations when
@@ -35,7 +46,7 @@ pak::pak("sportsdataverse/wehoop")
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2025) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2026) ~ 1-2 minutes**
 
 ``` r
 
@@ -43,16 +54,31 @@ tictoc::tic()
 progressr::with_progress({
   wnba_pbp <- wehoop::load_wnba_pbp()
 })
+```
+
+``` R
+## Warning in readRDS(con): cannot open URL
+## 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds':
+## HTTP status was '404 Not Found'
+
+## Warning: Failed to readRDS from
+## <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds>
+```
+
+``` r
+
 tictoc::toc()
 ```
 
 ``` R
-## 0.86 sec elapsed
+## 0.31 sec elapsed
 
-## 87618 rows of WNBA play-by-play data from 223 games.
+## Warning: Unknown or uninitialised column: `game_id`.
+
+## 0 rows of WNBA play-by-play data from 0 games.
 ```
 
-### **Women’s college basketball full play-by-play seasons (2004-2025) ~ 2-3 minutes**
+### **Women’s college basketball full play-by-play seasons (2004-2026) ~ 2-3 minutes**
 
 ``` r
 
@@ -64,9 +90,9 @@ tictoc::toc()
 ```
 
 ``` R
-## 8.72 sec elapsed
+## 10.41 sec elapsed
 
-## 1973907 rows of women's college basketball play-by-play data from 5473 games.
+## 2824090 rows of women's college basketball play-by-play data from 6011 games.
 ```
 
 ## **Documentation**
@@ -80,24 +106,24 @@ website](https://wehoop.sportsdataverse.org).
 [**Full News on
 Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
-## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
 
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://twitter.com/SportsDataverse)
+[![X
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://x.com/SportsDataverse)
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop/stargazers/)
 
 # **Our Authors**
 
-- [Saiem Gilani](https://twitter.com/saiemgilani)
+- [Saiem Gilani](https://x.com/saiemgilani)
 
-[![@SaiemGilani](https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani)](https://twitter.com/saiemgilani)
+[![@SaiemGilani](https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani)](https://x.com/saiemgilani)
 [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
 
-- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)
+- [Geoff Hutchinson - RIP](https://x.com/hutchngo)
 
-[![@HutchNGo](https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/HutchNGo)
+[![@HutchNGo](https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/HutchNGo)
 [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
 
 ## **Citations**
@@ -116,6 +142,6 @@ BibTex Citation
   publisher = {The R Foundation},
   author = {Gilani,  Saiem and Hutchinson,  Geoffery},
   year = {2021},
-  month = nov 
+  month = nov
 }
 ```

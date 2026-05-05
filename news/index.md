@@ -2,6 +2,161 @@
 
 ## **wehoop 3.0.0**
 
+#### **ESPN endpoint expansion**
+
+- feat: add ESPN news + calendar endpoint wrappers —
+  [`espn_wbb_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_news.md),
+  [`espn_wnba_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_news.md),
+  [`espn_wbb_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_news.md),
+  [`espn_wnba_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_news.md),
+  [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
+  [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md).
+  League-level and team-level news feeds (site-v2 `/news`) plus
+  scoreboard calendar blocks (site-v2 `/scoreboard?dates={season}`)
+  parsed into tidy tibbles. Shared internal helpers
+  ([`.espn_basketball_news()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_news.md),
+  [`.espn_basketball_team_news()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team_news.md),
+  [`.espn_basketball_calendar()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_calendar.md))
+  keep WBB and WNBA DRY.
+- feat: add ESPN injury endpoint wrappers —
+  [`espn_wbb_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_injuries.md),
+  [`espn_wnba_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_injuries.md),
+  [`espn_wbb_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_injuries.md),
+  [`espn_wnba_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_injuries.md).
+  League-wide and team-scoped injury feeds (site-v2 `/injuries` and
+  `/teams/{id}/injuries`) parsed into flat tidy tibbles. Note: WBB
+  injury data is typically sparse on ESPN; both league and team variants
+  return an empty tibble (rather than erroring) when no injuries are
+  reported. The `season` parameter on the league-wide functions is
+  attached as a constant output column for downstream joins (ESPN’s
+  injury endpoint does not accept a server-side season filter). Shared
+  internal helpers
+  ([`.espn_basketball_league_injuries()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_league_injuries.md),
+  [`.espn_basketball_team_injuries()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team_injuries.md))
+  keep WBB and WNBA DRY.
+- feat: add ESPN team-detail endpoint wrappers —
+  [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md),
+  [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md),
+  [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_roster.md),
+  [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md),
+  [`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md),
+  [`espn_wnba_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_schedule.md),
+  [`espn_wbb_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_leaders.md),
+  [`espn_wnba_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_leaders.md).
+  Single-team info (named list: `Info`, `Record`, `NextEvent`,
+  `StandingSummary`, `Coaches`), roster (one row per athlete with
+  position, height, weight, headshot), schedule (one row per event with
+  opponent, venue, broadcast, result), and statistical leaders (long
+  format per category-rank-athlete) via site-v2 `/teams/{id}`,
+  `/teams/{id}/roster`, `/teams/{id}/schedule`, and
+  `/teams/{id}/leaders`. Shared internal helpers
+  ([`.espn_basketball_team()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team.md),
+  [`.espn_basketball_team_roster()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team_roster.md),
+  [`.espn_basketball_team_schedule()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team_schedule.md),
+  [`.espn_basketball_team_leaders()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team_leaders.md)
+  in `R/espn_basketball_team_helpers.R`) keep WBB and WNBA DRY.
+- feat: add ESPN athlete coverage endpoint wrappers –
+  [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
+  [`espn_wnba_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_info.md),
+  [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
+  [`espn_wnba_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_overview.md),
+  [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
+  [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md),
+  [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md),
+  [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md),
+  [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md),
+  [`espn_wnba_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_splits.md),
+  [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
+  [`espn_wnba_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.md),
+  [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
+  [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md),
+  [`espn_wbb_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_statisticslog.md),
+  [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md).
+  Athlete bio/team/position/status/college/draft info (site-v2), season
+  overview and last-5-games (web-common-v3), per-category stats as named
+  list (web-common-v3), game-by-game log (web-common-v3), long-format
+  splits (web-common-v3), per-event log with ref URLs as character
+  columns (core-v2), awards (core-v2, sparse/often empty), and
+  statistics log (core-v2). The awards endpoint returns an empty tibble
+  with canonical columns when no data exist. The eventlog
+  `statistics.$ref` URLs are returned as a `statistics_ref` character
+  column and are not auto-resolved. Shared internal helpers
+  ([`.espn_basketball_athlete_info()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_info.md),
+  [`.espn_basketball_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_overview.md),
+  [`.espn_basketball_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_stats.md),
+  [`.espn_basketball_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_gamelog.md),
+  [`.espn_basketball_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_splits.md),
+  [`.espn_basketball_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_eventlog.md),
+  [`.espn_basketball_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_awards.md),
+  [`.espn_basketball_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_statisticslog.md)
+  in `R/espn_basketball_athlete_helpers.R`) keep WBB and WNBA DRY.
+- feat: add WNBA-only ESPN endpoint wrappers (Phase 4 + Phase 6) –
+  [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md),
+  [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
+  [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
+  [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md).
+  [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md)
+  paginates the core-v2 `/seasons/{year}/draft` endpoint (up to 20
+  pages) and returns a flat tibble of picks (round, pick, overall, team,
+  athlete, position, college).
+  [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md)
+  wraps core-v2 `/seasons/{year}/freeagents` and returns an empty tibble
+  outside the free-agent window.
+  [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md)
+  wraps site-v2 `/transactions?season={year}&limit={limit}` with
+  null-safe `to_team_id` for release transactions.
+  [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md)
+  mirrors
+  [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
+  using the WNBA scoreboard-conferences endpoint (site-v2
+  `/scoreboard/conferences?seasontype=2`) with the same column shape and
+  `dplyr::select(-dplyr::any_of("subGroups"))` drift guard.
+- feat: add ESPN event-detail endpoint wrappers (Phase 3) –
+  [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md),
+  [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
+  [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md),
+  [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+  [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md),
+  [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
+  [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
+  [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md).
+  Game-level odds (one row per provider; WBB typically empty), paginated
+  play-level win probabilities (core-v2 `/probabilities` with internal
+  page loop capped at 50 pages, respects `limit` parameter), per-game
+  officials, and broadcast outlets. All via core-v2
+  `/events/{id}/competitions/{id}/`. Shared internal helpers
+  ([`.espn_basketball_event_odds()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_event_odds.md),
+  [`.espn_basketball_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_event_probabilities.md),
+  [`.espn_basketball_event_officials()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_event_officials.md),
+  [`.espn_basketball_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_event_broadcasts.md)
+  in `R/espn_basketball_event_helpers.R`) keep WBB and WNBA DRY.
+- feat: add ESPN league-wide catalog endpoint wrappers (Phase 5) –
+  [`espn_wbb_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_leaders.md),
+  [`espn_wnba_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_leaders.md),
+  [`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md),
+  [`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md),
+  [`espn_wbb_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coaches.md),
+  [`espn_wnba_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coaches.md),
+  [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
+  [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
+  [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md),
+  [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md),
+  [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md),
+  [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md).
+  League leaders (web-common-v3 statistics/byathlete), venue catalog,
+  coach roster, athlete index (paginated with progress messages; WBB
+  default limit 25000, WNBA 5000), season list, and single-season info
+  parsed into tidy tibbles. `$ref` components in season info are
+  returned as character columns and not auto-resolved. Shared internal
+  helpers
+  ([`.espn_basketball_leaders()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_leaders.md),
+  [`.espn_basketball_venues()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_venues.md),
+  [`.espn_basketball_coaches()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_coaches.md),
+  [`.espn_basketball_athletes_index()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athletes_index.md),
+  [`.espn_basketball_seasons()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_seasons.md),
+  [`.espn_basketball_season_info()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_info.md)
+  in `R/espn_basketball_league_helpers.R`) keep WBB and WNBA DRY.
+
 #### **WNBA Stats API V3 Endpoints Added**
 
 - [`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md)
@@ -113,24 +268,184 @@
   above sweeps: `patch_df_list_init.R`, `patch_return_var_init.R`,
   `flip_expect_equal_cols.R`, `inject_skip_guard.R`.
 
-#### **Deprecations (slated for 3.1.0 removal)**
+#### **Deprecations (lifecycle, slated for 3.1.0 removal)**
 
-The following functions wrap WNBA Stats API endpoints that are no longer
-returning data. They are marked `@keywords internal`, their bodies have
-been replaced with
+Adds `lifecycle` to `Imports` and migrates every existing
 [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
-stubs, and their tests are skipped with
-`"Skip this test due to deprecation"`. They remain exported for one
-release but will be removed in `wehoop 3.1.0`:
+deprecation stub to
+[`lifecycle::deprecate_stop()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html),
+matching the style used in `hoopR`. Calling any of these functions now
+errors with a structured `lifecycleDeprecatedError` that names a
+replacement (or, where none exists, an explanation). Their tests skip
+with a `"Deprecated: <fn>() now errors by design; use <replacement>."`
+message before the function call.
+
+Newly deprecated in 3.0.0 — endpoints returned `<!DOCTYPE html>` (HTTP
+404 / maintenance page) at test time:
+
+- [`wnba_boxscoreplayertrackv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md)
+  →
+  [`wnba_boxscoreplayertrackv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv3.md)
+- [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md)
+  →
+  [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
+  (the `data.wnba.com` mobile_teams feed is unstable; HTTP/2 stream
+  errors are routine)
+- [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md)
+  → details only; nearest substitute is
+  [`wnba_leaguedashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashlineups.md)
+- [`wnba_playercareerbycollege()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollege.md)
+  → details only; consider
+  [`wnba_playercareerbycollegerollup()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollegerollup.md)
+  or
+  [`wnba_leaguedashplayerbiostats()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerbiostats.md)
+- [`wnba_teamgamestreakfinder()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamestreakfinder.md)
+  →
+  [`wnba_teamgamelogs()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamelogs.md)
+- [`wnba_teamhistoricalleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_teamhistoricalleaders.md)
+  →
+  [`wnba_franchiseleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_franchiseleaders.md)
+- [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md)
+  → details only; consider
+  [`wnba_franchisehistory()`](https://wehoop.sportsdataverse.org/reference/wnba_franchisehistory.md)
+  or
+  [`wnba_teamdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyyearoveryear.md)
+
+Already deprecated, re-stated under the lifecycle pattern:
 
 - [`wnba_boxscorehustlev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorehustlev2.md)
+  (3.0.0) — endpoint dead, no replacement
 - [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md)
+  (3.0.0) — endpoint dead, no replacement
 - [`wnba_leaguehustlestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md)
+  (3.0.0) — endpoint dead, no replacement
 - [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayerleaders.md)
+  (3.0.0) — endpoint dead, no replacement
 - [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteam.md)
+  (3.0.0) — endpoint dead, no replacement
 - [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteamleaders.md)
+  (3.0.0) — endpoint dead, no replacement
+- [`wnba_homepageleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_homepageleaders.md)
+  (2.1.0) →
+  [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md)
+- [`wnba_homepagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagev2.md)
+  (2.1.0) →
+  [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md)
+- [`wnba_leaderstiles()`](https://wehoop.sportsdataverse.org/reference/wnba_leaderstiles.md)
+  (2.1.0) →
+  [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md)
+- [`wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboard.md)
+  (2.1.0) →
+  [`wnba_scoreboardv3()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboardv3.md)
+- [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md)
+  (2.1.0) →
+  [`wnba_teamdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdetails.md)
 - [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md)
+  (3.0.0) →
+  [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
+- [`wnba_playerprofilev2()`](https://wehoop.sportsdataverse.org/reference/wnba_playerprofilev2.md)
+  (3.0.0) →
+  [`wnba_playercareerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerstats.md).
+  The upstream `playerprofilev2` endpoint still returns the named-list
+  shape but every `SeasonTotals*` and `CareerTotals*` table comes back
+  zero-row in 2025 (verified against multiple active players).
+  [`wnba_playercareerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerstats.md)
+  exposes the same career totals.
 - [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md)
+  (3.0.0) →
+  [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
+
+Soft warning (lifecycle::deprecate_warn) — function still runs but
+recommends a replacement; will escalate to `deprecate_stop` if the
+upstream endpoint isn’t restored:
+
+- [`wnba_boxscoresummaryv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv3.md)
+  →
+  [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2.md).
+  The V3 endpoint still answers 200 OK with the full schema, but the
+  core result sets (`game_summary`, `line_score`, `inactive_players`,
+  `other_stats`, `available_video`, `game_info`, `arena_info`) come back
+  zero-row in 2025; only `officials` and `last_five_meetings` populate.
+  The V2 variant still returns full data.
+
+#### **HTTP layer**
+
+- **Restored proxy support.** When wehoop migrated from `httr` to
+  `httr2` in the V3 work, the legacy
+  [`httr::use_proxy()`](https://httr.r-lib.org/reference/use_proxy.html)
+  plumbing was dropped and
+  [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
+  quietly stopped honoring proxies (its `...` was preserved purely for
+  source compatibility — see the prior comment “currently unused
+  (preserved for backwards compatibility with callers that previously
+  passed
+  [`httr::use_proxy()`](https://httr.r-lib.org/reference/use_proxy.html)
+  etc.)”). Both
+  [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
+  and the lower-level
+  [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+  now accept a `proxy =` argument:
+  - `proxy = NULL` (default) — libcurl reads `http_proxy` /
+    `https_proxy` / `no_proxy` env vars automatically.
+  - `proxy = "http://host:port"` — string form, forwarded to
+    `httr2::req_proxy(url = ...)`.
+  - `proxy = list(url=, port=, username=, password=, auth=)` — named
+    list spread into
+    [`httr2::req_proxy()`](https://httr2.r-lib.org/reference/req_proxy.html)
+    for authenticated proxies. Resolution order in
+    [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md):
+    explicit `proxy =` arg → `getOption("wehoop.proxy")` → libcurl env
+    vars. The `...` thread works for WNBA Stats wrappers (which forward
+    into
+    [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md));
+    ESPN / NCAA wrappers call
+    [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+    directly without `...`, so use `options(wehoop.proxy = ...)` at the
+    top of the session to cover those without per-function plumbing.
+    Validated end-to-end:
+    [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
+    and
+    [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+    both routed through an authenticated test proxy via the option
+    fallback.
+
+#### **Test infrastructure**
+
+- **Empty / NULL responses now FAIL the test instead of silently
+  SKIPping.** The earlier
+  `skip("No rows returned from endpoint at test time")` guard was hiding
+  regressions: when an upstream endpoint starts returning HTML (404 /
+  maintenance) or breaks in some other silent way, the test should flag
+  it. Converted all 117 such guards across `tests/testthat/test-*.R`
+  from `skip(...)` to `fail(...) + return(invisible(NULL))` so the test
+  surfaces a FAIL count for follow-up. Deprecation skips and the
+  env-gated `skip_*_test()` / `skip_on_cran()` / `skip_on_ci()` helpers
+  are unchanged.
+- Pinned 16 `wnba_team*` test files from
+  [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
+  to `most_recent_wnba_season() - 1` so the team-stats endpoints have a
+  known-completed season to query and don’t degenerate to “no rows” in
+  the WNBA off-season window.
+  [`wnba_teams()`](https://wehoop.sportsdataverse.org/reference/wnba_teams.md)
+  and standings tests still track the live season because that’s what
+  they’re meant to verify.
+- Bumped `.ncaa_headers()` user-agent to Chrome 130 and added the
+  `Sec-Fetch-*` / `sec-ch-ua-*` headers a real browser sends.
+- [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
+  keeps its legacy `stats.ncaa.org/team/inst_team_list` scrape
+  (per-season per-division team list with `season_id` populated), and
+  now threads the `proxy =` argument from `...` through to
+  [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+  at the top level. `stats.ncaa.org` is fronted by Akamai and returns
+  HTTP 403
+  (`Reference `[`#18`](https://github.com/sportsdataverse/wehoop/issues/18)`.<...>`)
+  to many residential and cloud IP ranges; pass a proxy that egresses
+  from a non-blocked address — either per-call
+  (`ncaa_wbb_teams(year, division, proxy = list(url=, port=, username=, password=))`)
+  or session-wide (`options(wehoop.proxy = list(...))`). See the
+  `Network access` section of
+  [`?ncaa_wbb_teams`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
+  for the full resolution order.
 
 ## **wehoop 2.1.0**
 

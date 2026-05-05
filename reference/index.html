@@ -70,7 +70,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
   </ul></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/saiemgilani"><span class="fa fab fa-twitter fa-lg"></span></a></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://x.com/saiemgilani"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/sportsdataverse/wehoop/"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
@@ -182,8 +182,8 @@
 
       <dl></dl></div><div class="section level2">
 
-      <h3 id="women-s-college-basketball-data-functions-1">Women’s College Basketball Data Functions<a class="anchor" aria-label="anchor" href="#women-s-college-basketball-data-functions-1"></a></h3>
-      <div class="section-desc"><p>Functions exported by wehoop to access ESPN’s Women’s College Basketball Data</p></div>
+      <h3 id="wbb-game-data">WBB – Game data<a class="anchor" aria-label="anchor" href="#wbb-game-data"></a></h3>
+      <div class="section-desc"><p>Per-game endpoints for women’s college basketball (play-by-play, box scores, rosters)</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -192,24 +192,10 @@
 
       <dl><dt>
 
-          <code><a href="espn_wbb_conferences.html">espn_wbb_conferences()</a></code>
-
-        </dt>
-        <dd>Get women's college basketball conferences</dd>
-
-        <dt>
-
           <code><a href="espn_wbb_game_all.html">espn_wbb_game_all()</a></code>
 
         </dt>
         <dd>Get ESPN women's college basketball game data (play-by-play, team and player box)</dd>
-
-        <dt>
-
-          <code><a href="espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code>
-
-        </dt>
-        <dd><strong>Get ESPN women's college basketball game rosters</strong></dd>
 
         <dt>
 
@@ -220,6 +206,13 @@
 
         <dt>
 
+          <code><a href="espn_wbb_team_box.html">espn_wbb_team_box()</a></code>
+
+        </dt>
+        <dd>Get ESPN women's college basketball team box data</dd>
+
+        <dt>
+
           <code><a href="espn_wbb_player_box.html">espn_wbb_player_box()</a></code>
 
         </dt>
@@ -227,17 +220,54 @@
 
         <dt>
 
-          <code><a href="espn_wbb_player_stats.html">espn_wbb_player_stats()</a></code>
+          <code><a href="espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code>
 
         </dt>
-        <dd><strong>Get ESPN women's college basketball player stats data</strong></dd>
+        <dd><strong>Get ESPN women's college basketball game rosters</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wbb-reference-catalog">WBB – Reference &amp; catalog<a class="anchor" aria-label="anchor" href="#wbb-reference-catalog"></a></h3>
+      <div class="section-desc"><p>League-level reference data for women’s college basketball</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wbb_news.html">espn_wbb_news()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WBB News</strong></dd>
 
         <dt>
 
-          <code><a href="espn_wbb_rankings.html">espn_wbb_rankings()</a></code>
+          <code><a href="espn_wbb_team_news.html">espn_wbb_team_news()</a></code>
 
         </dt>
-        <dd>Get women's college basketball AP and Coaches poll rankings</dd>
+        <dd><strong>Get ESPN WBB Team News</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_calendar.html">espn_wbb_calendar()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WBB Calendar</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_conferences.html">espn_wbb_conferences()</a></code>
+
+        </dt>
+        <dd>Get women's college basketball conferences</dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_teams.html">espn_wbb_teams()</a></code>
+
+        </dt>
+        <dd>Get ESPN women's college basketball team names and ids</dd>
 
         <dt>
 
@@ -248,6 +278,13 @@
 
         <dt>
 
+          <code><a href="espn_wbb_rankings.html">espn_wbb_rankings()</a></code>
+
+        </dt>
+        <dd>Get women's college basketball AP and Coaches poll rankings</dd>
+
+        <dt>
+
           <code><a href="espn_wbb_standings.html">espn_wbb_standings()</a></code>
 
         </dt>
@@ -255,10 +292,54 @@
 
         <dt>
 
-          <code><a href="espn_wbb_team_box.html">espn_wbb_team_box()</a></code>
+          <code><a href="espn_wbb_injuries.html">espn_wbb_injuries()</a></code>
 
         </dt>
-        <dd>Get ESPN women's college basketball team box data</dd>
+        <dd><strong>Get ESPN Women's College Basketball Injuries</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wbb-team-detail">WBB – Team detail<a class="anchor" aria-label="anchor" href="#wbb-team-detail"></a></h3>
+      <div class="section-desc"><p>Single-team endpoints for women’s college basketball</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wbb_team.html">espn_wbb_team()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Team Detail</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_team_roster.html">espn_wbb_team_roster()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Team Roster</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_team_schedule.html">espn_wbb_team_schedule()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Team Schedule</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_team_leaders.html">espn_wbb_team_leaders()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Team Leaders</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Team Injuries</strong></dd>
 
         <dt>
 
@@ -266,17 +347,200 @@
 
         </dt>
         <dd><strong>Get ESPN women's college basketball team stats data</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wbb-athlete-coverage">WBB – Athlete coverage<a class="anchor" aria-label="anchor" href="#wbb-athlete-coverage"></a></h3>
+      <div class="section-desc"><p>Per-athlete endpoints for women’s college basketball</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wbb_athlete_info.html">espn_wbb_athlete_info()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Info</strong></dd>
 
         <dt>
 
-          <code><a href="espn_wbb_teams.html">espn_wbb_teams()</a></code>
+          <code><a href="espn_wbb_athlete_overview.html">espn_wbb_athlete_overview()</a></code>
 
         </dt>
-        <dd>Get ESPN women's college basketball team names and ids</dd>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Overview</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Stats</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Gamelog</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athlete_splits.html">espn_wbb_athlete_splits()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Splits</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athlete_eventlog.html">espn_wbb_athlete_eventlog()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Eventlog</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athlete_awards.html">espn_wbb_athlete_awards()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Awards</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athlete_statisticslog.html">espn_wbb_athlete_statisticslog()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athlete Statisticslog</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_player_stats.html">espn_wbb_player_stats()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN women's college basketball player stats data</strong></dd>
       </dl></div><div class="section level2">
 
-      <h3 id="wnba-data-functions-1">WNBA Data Functions<a class="anchor" aria-label="anchor" href="#wnba-data-functions-1"></a></h3>
-      <div class="section-desc"><p>Functions exported by wehoop to access ESPN’s WNBA Data</p></div>
+      <h3 id="wbb-event-detail">WBB – Event detail<a class="anchor" aria-label="anchor" href="#wbb-event-detail"></a></h3>
+      <div class="section-desc"><p>Per-event enrichments (odds, win probability, officials, broadcasts)</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Event Odds</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_event_probabilities.html">espn_wbb_event_probabilities()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Event Win Probabilities</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_event_officials.html">espn_wbb_event_officials()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Event Officials</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_event_broadcasts.html">espn_wbb_event_broadcasts()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Event Broadcasts</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wbb-league-catalogs">WBB – League catalogs<a class="anchor" aria-label="anchor" href="#wbb-league-catalogs"></a></h3>
+      <div class="section-desc"><p>League-wide catalogs and indexes for women’s college basketball</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wbb_leaders.html">espn_wbb_leaders()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball League Leaders</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_venues.html">espn_wbb_venues()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Venues</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_coaches.html">espn_wbb_coaches()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Coaches</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_athletes_index.html">espn_wbb_athletes_index()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Athletes Index</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_seasons.html">espn_wbb_seasons()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Seasons</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wbb_season_info.html">espn_wbb_season_info()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN Women's College Basketball Season Info</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wbb-helpers">WBB – Helpers<a class="anchor" aria-label="anchor" href="#wbb-helpers"></a></h3>
+      <div class="section-desc"><p>Internal parsers exported for advanced use</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="helper_espn_wbb_pbp.html">helper_espn_wbb_pbp()</a></code>
+
+        </dt>
+        <dd><strong>Parse ESPN WBB PBP, helper function</strong></dd>
+
+        <dt>
+
+          <code><a href="helper_espn_wbb_team_box.html">helper_espn_wbb_team_box()</a></code>
+
+        </dt>
+        <dd><strong>Parse ESPN WBB Team Box, helper function</strong></dd>
+
+        <dt>
+
+          <code><a href="helper_espn_wbb_player_box.html">helper_espn_wbb_player_box()</a></code>
+
+        </dt>
+        <dd><strong>Parse ESPN WBB Player Box, helper function</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-game-data">WNBA – Game data<a class="anchor" aria-label="anchor" href="#wnba-game-data"></a></h3>
+      <div class="section-desc"><p>Per-game endpoints for the WNBA (play-by-play, box scores, rosters)</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -292,17 +556,17 @@
 
         <dt>
 
-          <code><a href="espn_wnba_game_rosters.html">espn_wnba_game_rosters()</a></code>
-
-        </dt>
-        <dd><strong>Get ESPN WNBA game rosters</strong></dd>
-
-        <dt>
-
           <code><a href="espn_wnba_pbp.html">espn_wnba_pbp()</a></code>
 
         </dt>
         <dd>Get ESPN's WNBA play by play data</dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_team_box.html">espn_wnba_team_box()</a></code>
+
+        </dt>
+        <dd>Get ESPN's WNBA team box data</dd>
 
         <dt>
 
@@ -313,10 +577,54 @@
 
         <dt>
 
-          <code><a href="espn_wnba_player_stats.html">espn_wnba_player_stats()</a></code>
+          <code><a href="espn_wnba_game_rosters.html">espn_wnba_game_rosters()</a></code>
 
         </dt>
-        <dd><strong>Get ESPN WNBA player stats data</strong></dd>
+        <dd><strong>Get ESPN WNBA game rosters</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-reference-catalog">WNBA – Reference &amp; catalog<a class="anchor" aria-label="anchor" href="#wnba-reference-catalog"></a></h3>
+      <div class="section-desc"><p>League-level reference data for the WNBA</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wnba_news.html">espn_wnba_news()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA News</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_team_news.html">espn_wnba_team_news()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Team News</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_calendar.html">espn_wnba_calendar()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Calendar</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_conferences.html">espn_wnba_conferences()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Conferences</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_teams.html">espn_wnba_teams()</a></code>
+
+        </dt>
+        <dd>Get ESPN's WNBA team names and ids</dd>
 
         <dt>
 
@@ -334,10 +642,54 @@
 
         <dt>
 
-          <code><a href="espn_wnba_team_box.html">espn_wnba_team_box()</a></code>
+          <code><a href="espn_wnba_injuries.html">espn_wnba_injuries()</a></code>
 
         </dt>
-        <dd>Get ESPN's WNBA team box data</dd>
+        <dd><strong>Get ESPN WNBA Injuries</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-team-detail">WNBA – Team detail<a class="anchor" aria-label="anchor" href="#wnba-team-detail"></a></h3>
+      <div class="section-desc"><p>Single-team endpoints for the WNBA</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wnba_team.html">espn_wnba_team()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Team Detail</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_team_roster.html">espn_wnba_team_roster()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Team Roster</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_team_schedule.html">espn_wnba_team_schedule()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Team Schedule</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_team_leaders.html">espn_wnba_team_leaders()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Team Leaders</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_team_injuries.html">espn_wnba_team_injuries()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Team Injuries</strong></dd>
 
         <dt>
 
@@ -345,13 +697,226 @@
 
         </dt>
         <dd><strong>Get ESPN WNBA team stats data</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-athlete-coverage">WNBA – Athlete coverage<a class="anchor" aria-label="anchor" href="#wnba-athlete-coverage"></a></h3>
+      <div class="section-desc"><p>Per-athlete endpoints for the WNBA</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wnba_athlete_info.html">espn_wnba_athlete_info()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Info</strong></dd>
 
         <dt>
 
-          <code><a href="espn_wnba_teams.html">espn_wnba_teams()</a></code>
+          <code><a href="espn_wnba_athlete_overview.html">espn_wnba_athlete_overview()</a></code>
 
         </dt>
-        <dd>Get ESPN's WNBA team names and ids</dd>
+        <dd><strong>Get ESPN WNBA Athlete Overview</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athlete_stats.html">espn_wnba_athlete_stats()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Stats</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athlete_gamelog.html">espn_wnba_athlete_gamelog()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Gamelog</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athlete_splits.html">espn_wnba_athlete_splits()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Splits</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athlete_eventlog.html">espn_wnba_athlete_eventlog()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Eventlog</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athlete_awards.html">espn_wnba_athlete_awards()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Awards</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athlete_statisticslog.html">espn_wnba_athlete_statisticslog()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athlete Statisticslog</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_player_stats.html">espn_wnba_player_stats()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA player stats data</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-event-detail">WNBA – Event detail<a class="anchor" aria-label="anchor" href="#wnba-event-detail"></a></h3>
+      <div class="section-desc"><p>Per-event enrichments (odds, win probability, officials, broadcasts)</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wnba_event_odds.html">espn_wnba_event_odds()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Event Odds</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_event_probabilities.html">espn_wnba_event_probabilities()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Event Win Probabilities</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_event_officials.html">espn_wnba_event_officials()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Event Officials</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_event_broadcasts.html">espn_wnba_event_broadcasts()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Event Broadcasts</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-league-catalogs">WNBA – League catalogs<a class="anchor" aria-label="anchor" href="#wnba-league-catalogs"></a></h3>
+      <div class="section-desc"><p>League-wide catalogs and indexes for the WNBA</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wnba_leaders.html">espn_wnba_leaders()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA League Leaders</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_venues.html">espn_wnba_venues()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Venues</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_coaches.html">espn_wnba_coaches()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Coaches</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_athletes_index.html">espn_wnba_athletes_index()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Athletes Index</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_seasons.html">espn_wnba_seasons()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Seasons</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_season_info.html">espn_wnba_season_info()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Season Info</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-transactions-draft-free-agency">WNBA – Transactions, draft, free agency<a class="anchor" aria-label="anchor" href="#wnba-transactions-draft-free-agency"></a></h3>
+      <div class="section-desc"><p>WNBA-only player movement endpoints</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="espn_wnba_draft.html">espn_wnba_draft()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Draft Picks</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_freeagents.html">espn_wnba_freeagents()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Free Agents</strong></dd>
+
+        <dt>
+
+          <code><a href="espn_wnba_transactions.html">espn_wnba_transactions()</a></code>
+
+        </dt>
+        <dd><strong>Get ESPN WNBA Transactions</strong></dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="wnba-helpers">WNBA – Helpers<a class="anchor" aria-label="anchor" href="#wnba-helpers"></a></h3>
+      <div class="section-desc"><p>Internal parsers exported for advanced use</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="helper_espn_wnba_pbp.html">helper_espn_wnba_pbp()</a></code>
+
+        </dt>
+        <dd><strong>Parse ESPN WNBA PBP, helper function</strong></dd>
+
+        <dt>
+
+          <code><a href="helper_espn_wnba_team_box.html">helper_espn_wnba_team_box()</a></code>
+
+        </dt>
+        <dd><strong>Parse ESPN WNBA Team Box, helper function</strong></dd>
+
+        <dt>
+
+          <code><a href="helper_espn_wnba_player_box.html">helper_espn_wnba_player_box()</a></code>
+
+        </dt>
+        <dd><strong>Parse ESPN WNBA Player Box, helper function</strong></dd>
       </dl></div><div class="section level2">
       <h2 id="ncaa-data">NCAA Data<a class="anchor" aria-label="anchor" href="#ncaa-data"></a></h2>
 
@@ -379,7 +944,7 @@
           <code><a href="ncaa_wbb_teams.html">ncaa_wbb_teams()</a></code>
 
         </dt>
-        <dd><strong>Scrape NCAA Women's Baskebtall Teams (Division I, II, and III)</strong></dd>
+        <dd><strong>Scrape NCAA Women's Basketball Teams (Division I, II, and III)</strong></dd>
       </dl></div><div class="section level2">
       <h2 id="wnba-stats-data">WNBA Stats Data<a class="anchor" aria-label="anchor" href="#wnba-stats-data"></a></h2>
 
@@ -1270,49 +1835,14 @@
           <code><a href="request_with_proxy.html">request_with_proxy()</a></code>
 
         </dt>
-        <dd><strong>Retry http request with proxy</strong></dd>
+        <dd><strong>Retry http request with optional proxy</strong></dd>
 
         <dt>
 
-          <code><a href="helper_espn_wbb_pbp.html">helper_espn_wbb_pbp()</a></code>
+          <code><a href="year_to_season.html">year_to_season()</a></code>
 
         </dt>
-        <dd><strong>Parse ESPN WBB PBP, helper function</strong></dd>
-
-        <dt>
-
-          <code><a href="helper_espn_wbb_team_box.html">helper_espn_wbb_team_box()</a></code>
-
-        </dt>
-        <dd><strong>Parse ESPN WBB Team Box, helper function</strong></dd>
-
-        <dt>
-
-          <code><a href="helper_espn_wbb_player_box.html">helper_espn_wbb_player_box()</a></code>
-
-        </dt>
-        <dd><strong>Parse ESPN WBB Player Box, helper function</strong></dd>
-
-        <dt>
-
-          <code><a href="helper_espn_wnba_pbp.html">helper_espn_wnba_pbp()</a></code>
-
-        </dt>
-        <dd><strong>Parse ESPN WNBA PBP, helper function</strong></dd>
-
-        <dt>
-
-          <code><a href="helper_espn_wnba_team_box.html">helper_espn_wnba_team_box()</a></code>
-
-        </dt>
-        <dd><strong>Parse ESPN WNBA Team Box, helper function</strong></dd>
-
-        <dt>
-
-          <code><a href="helper_espn_wnba_player_box.html">helper_espn_wnba_player_box()</a></code>
-
-        </dt>
-        <dd><strong>Parse ESPN WNBA Player Box, helper function</strong></dd>
+        <dd><strong>Convert a calendar year to a WNBA / NBA season string</strong></dd>
 
         <dt>
 
@@ -1320,13 +1850,34 @@
 
         </dt>
         <dd><strong>Add players on court in WNBA Stats API play-by-play</strong></dd>
+      </dl></div><div class="section level2">
+      <h2 id="datasets">Datasets<a class="anchor" aria-label="anchor" href="#datasets"></a></h2>
+
+
+
+      <dl></dl></div><div class="section level2">
+
+      <h3 id="bundled-reference-data">Bundled reference data<a class="anchor" aria-label="anchor" href="#bundled-reference-data"></a></h3>
+      <div class="section-desc"><p>Reference datasets shipped with the package</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="parameter_descriptions.html">parameter_descriptions</a></code>
+
+        </dt>
+        <dd><strong>WNBA Stats API Parameter Descriptions</strong> Reference table for parameters used across <code>wnba_*()</code> functions.</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://twitter.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
+  <p>Developed by <a href="https://x.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://x.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

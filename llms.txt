@@ -1,5 +1,16 @@
 # wehoop
 
+- [wehoop](#wehoop-)
+  [![](https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png)](https://wehoop.sportsdataverse.org)
+  - [**Installation**](#installation)
+  - [**Quick Start**](#quick-start)
+  - [**Documentation**](#documentation)
+  - [**Breaking Changes**](#breaking-changes)
+  - [Follow the SportsDataverse (@SportsDataverse) on X and star this
+    repo](#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo)
+- [**Our Authors**](#our-authors)
+  - [**Citations**](#citations)
+
 `wehoop` is an R package for working with women’s college and
 professional basketball data. The package has functions to access **live
 play by play and box score** data from ESPN with shot locations when
@@ -35,7 +46,7 @@ pak::pak("sportsdataverse/wehoop")
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2025) ~ 1-2 minutes**
+### **WNBA full play-by-play seasons (2002-2026) ~ 1-2 minutes**
 
 ``` r
 
@@ -43,16 +54,31 @@ tictoc::tic()
 progressr::with_progress({
   wnba_pbp <- wehoop::load_wnba_pbp()
 })
+```
+
+``` R
+## Warning in readRDS(con): cannot open URL
+## 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds':
+## HTTP status was '404 Not Found'
+
+## Warning: Failed to readRDS from
+## <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds>
+```
+
+``` r
+
 tictoc::toc()
 ```
 
 ``` R
-## 0.86 sec elapsed
+## 0.31 sec elapsed
 
-## 87618 rows of WNBA play-by-play data from 223 games.
+## Warning: Unknown or uninitialised column: `game_id`.
+
+## 0 rows of WNBA play-by-play data from 0 games.
 ```
 
-### **Women’s college basketball full play-by-play seasons (2004-2025) ~ 2-3 minutes**
+### **Women’s college basketball full play-by-play seasons (2004-2026) ~ 2-3 minutes**
 
 ``` r
 
@@ -64,9 +90,9 @@ tictoc::toc()
 ```
 
 ``` R
-## 8.72 sec elapsed
+## 10.41 sec elapsed
 
-## 1973907 rows of women's college basketball play-by-play data from 5473 games.
+## 2824090 rows of women's college basketball play-by-play data from 6011 games.
 ```
 
 ## **Documentation**
@@ -80,24 +106,24 @@ website](https://wehoop.sportsdataverse.org).
 [**Full News on
 Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
-## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
 
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://twitter.com/SportsDataverse)
+[![X
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://x.com/SportsDataverse)
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop/stargazers/)
 
 # **Our Authors**
 
-- [Saiem Gilani](https://twitter.com/saiemgilani)
+- [Saiem Gilani](https://x.com/saiemgilani)
 
-[![@SaiemGilani](https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani)](https://twitter.com/saiemgilani)
+[![@SaiemGilani](https://img.shields.io/twitter/follow/SaiemGilani?style=for-the-badge&logo=x&label=%40SaiemGilani)](https://x.com/saiemgilani)
 [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
 
-- [Geoff Hutchinson - RIP](https://twitter.com/hutchngo)
+- [Geoff Hutchinson - RIP](https://x.com/hutchngo)
 
-[![@HutchNGo](https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge)](https://twitter.com/HutchNGo)
+[![@HutchNGo](https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/HutchNGo)
 [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
 
 ## **Citations**
@@ -116,7 +142,7 @@ BibTex Citation
   publisher = {The R Foundation},
   author = {Gilani,  Saiem and Hutchinson,  Geoffery},
   year = {2021},
-  month = nov 
+  month = nov
 }
 ```
 
@@ -186,78 +212,277 @@ Women’s College Basketball Data
 
 ## ESPN Data
 
-### Women’s College Basketball Data Functions
+### WBB – Game data
 
-Functions exported by wehoop to access ESPN’s Women’s College Basketball
-Data
-
-- [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
-  : Get women's college basketball conferences
+Per-game endpoints for women’s college basketball (play-by-play, box
+scores, rosters)
 
 - [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
   : Get ESPN women's college basketball game data (play-by-play, team
   and player box)
+
+- [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+  : Get ESPN women's college basketball play by play data
+
+- [`espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.md)
+  : Get ESPN women's college basketball team box data
+
+- [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.md)
+  : Get ESPN women's college basketball player box
 
 - [`espn_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_rosters.md)
   :
 
   **Get ESPN women's college basketball game rosters**
 
-- [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
-  : Get ESPN women's college basketball play by play data
+### WBB – Reference & catalog
 
-- [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.md)
-  : Get ESPN women's college basketball player box
+League-level reference data for women’s college basketball
 
-- [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md)
+- [`espn_wbb_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_news.md)
   :
 
-  **Get ESPN women's college basketball player stats data**
+  **Get ESPN WBB News**
 
-- [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md)
-  : Get women's college basketball AP and Coaches poll rankings
+- [`espn_wbb_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_news.md)
+  :
+
+  **Get ESPN WBB Team News**
+
+- [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md)
+  :
+
+  **Get ESPN WBB Calendar**
+
+- [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
+  : Get women's college basketball conferences
+
+- [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)
+  : Get ESPN women's college basketball team names and ids
 
 - [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md)
   :
 
   **Get ESPN women's college basketball schedule for a specific year**
 
+- [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md)
+  : Get women's college basketball AP and Coaches poll rankings
+
 - [`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md)
   : Get ESPN women's college basketball standings
 
-- [`espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.md)
-  : Get ESPN women's college basketball team box data
+- [`espn_wbb_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_injuries.md)
+  :
+
+  **Get ESPN Women's College Basketball Injuries**
+
+### WBB – Team detail
+
+Single-team endpoints for women’s college basketball
+
+- [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md)
+  :
+
+  **Get ESPN Women's College Basketball Team Detail**
+
+- [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_roster.md)
+  :
+
+  **Get ESPN Women's College Basketball Team Roster**
+
+- [`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md)
+  :
+
+  **Get ESPN Women's College Basketball Team Schedule**
+
+- [`espn_wbb_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_leaders.md)
+  :
+
+  **Get ESPN Women's College Basketball Team Leaders**
+
+- [`espn_wbb_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_injuries.md)
+  :
+
+  **Get ESPN Women's College Basketball Team Injuries**
 
 - [`espn_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_stats.md)
   :
 
   **Get ESPN women's college basketball team stats data**
 
-- [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)
-  : Get ESPN women's college basketball team names and ids
+### WBB – Athlete coverage
 
-### WNBA Data Functions
+Per-athlete endpoints for women’s college basketball
 
-Functions exported by wehoop to access ESPN’s WNBA Data
+- [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Info**
+
+- [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Overview**
+
+- [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Stats**
+
+- [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Gamelog**
+
+- [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Splits**
+
+- [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Eventlog**
+
+- [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Awards**
+
+- [`espn_wbb_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_statisticslog.md)
+  :
+
+  **Get ESPN Women's College Basketball Athlete Statisticslog**
+
+- [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md)
+  :
+
+  **Get ESPN women's college basketball player stats data**
+
+### WBB – Event detail
+
+Per-event enrichments (odds, win probability, officials, broadcasts)
+
+- [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md)
+  :
+
+  **Get ESPN Women's College Basketball Event Odds**
+
+- [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md)
+  :
+
+  **Get ESPN Women's College Basketball Event Win Probabilities**
+
+- [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md)
+  :
+
+  **Get ESPN Women's College Basketball Event Officials**
+
+- [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md)
+  :
+
+  **Get ESPN Women's College Basketball Event Broadcasts**
+
+### WBB – League catalogs
+
+League-wide catalogs and indexes for women’s college basketball
+
+- [`espn_wbb_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_leaders.md)
+  :
+
+  **Get ESPN Women's College Basketball League Leaders**
+
+- [`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md)
+  :
+
+  **Get ESPN Women's College Basketball Venues**
+
+- [`espn_wbb_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coaches.md)
+  :
+
+  **Get ESPN Women's College Basketball Coaches**
+
+- [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md)
+  :
+
+  **Get ESPN Women's College Basketball Athletes Index**
+
+- [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md)
+  :
+
+  **Get ESPN Women's College Basketball Seasons**
+
+- [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md)
+  :
+
+  **Get ESPN Women's College Basketball Season Info**
+
+### WBB – Helpers
+
+Internal parsers exported for advanced use
+
+- [`helper_espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.md)
+  :
+
+  **Parse ESPN WBB PBP, helper function**
+
+- [`helper_espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_team_box.md)
+  :
+
+  **Parse ESPN WBB Team Box, helper function**
+
+- [`helper_espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_player_box.md)
+  :
+
+  **Parse ESPN WBB Player Box, helper function**
+
+### WNBA – Game data
+
+Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
 
 - [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
   : Get ESPN's WNBA game data (play-by-play, team and player box)
+
+- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+  : Get ESPN's WNBA play by play data
+
+- [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
+  : Get ESPN's WNBA team box data
+
+- [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md)
+  : Get ESPN's WNBA player box data
 
 - [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_rosters.md)
   :
 
   **Get ESPN WNBA game rosters**
 
-- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
-  : Get ESPN's WNBA play by play data
+### WNBA – Reference & catalog
 
-- [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md)
-  : Get ESPN's WNBA player box data
+League-level reference data for the WNBA
 
-- [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md)
+- [`espn_wnba_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_news.md)
   :
 
-  **Get ESPN WNBA player stats data**
+  **Get ESPN WNBA News**
+
+- [`espn_wnba_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_news.md)
+  :
+
+  **Get ESPN WNBA Team News**
+
+- [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md)
+  :
+
+  **Get ESPN WNBA Calendar**
+
+- [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md)
+  :
+
+  **Get ESPN WNBA Conferences**
+
+- [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)
+  : Get ESPN's WNBA team names and ids
 
 - [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md)
   :
@@ -269,16 +494,189 @@ Functions exported by wehoop to access ESPN’s WNBA Data
 
   **Get ESPN WNBA Standings**
 
-- [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
-  : Get ESPN's WNBA team box data
+- [`espn_wnba_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_injuries.md)
+  :
+
+  **Get ESPN WNBA Injuries**
+
+### WNBA – Team detail
+
+Single-team endpoints for the WNBA
+
+- [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md)
+  :
+
+  **Get ESPN WNBA Team Detail**
+
+- [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md)
+  :
+
+  **Get ESPN WNBA Team Roster**
+
+- [`espn_wnba_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_schedule.md)
+  :
+
+  **Get ESPN WNBA Team Schedule**
+
+- [`espn_wnba_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_leaders.md)
+  :
+
+  **Get ESPN WNBA Team Leaders**
+
+- [`espn_wnba_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_injuries.md)
+  :
+
+  **Get ESPN WNBA Team Injuries**
 
 - [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md)
   :
 
   **Get ESPN WNBA team stats data**
 
-- [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)
-  : Get ESPN's WNBA team names and ids
+### WNBA – Athlete coverage
+
+Per-athlete endpoints for the WNBA
+
+- [`espn_wnba_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_info.md)
+  :
+
+  **Get ESPN WNBA Athlete Info**
+
+- [`espn_wnba_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_overview.md)
+  :
+
+  **Get ESPN WNBA Athlete Overview**
+
+- [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md)
+  :
+
+  **Get ESPN WNBA Athlete Stats**
+
+- [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md)
+  :
+
+  **Get ESPN WNBA Athlete Gamelog**
+
+- [`espn_wnba_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_splits.md)
+  :
+
+  **Get ESPN WNBA Athlete Splits**
+
+- [`espn_wnba_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.md)
+  :
+
+  **Get ESPN WNBA Athlete Eventlog**
+
+- [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md)
+  :
+
+  **Get ESPN WNBA Athlete Awards**
+
+- [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md)
+  :
+
+  **Get ESPN WNBA Athlete Statisticslog**
+
+- [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md)
+  :
+
+  **Get ESPN WNBA player stats data**
+
+### WNBA – Event detail
+
+Per-event enrichments (odds, win probability, officials, broadcasts)
+
+- [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md)
+  :
+
+  **Get ESPN WNBA Event Odds**
+
+- [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md)
+  :
+
+  **Get ESPN WNBA Event Win Probabilities**
+
+- [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md)
+  :
+
+  **Get ESPN WNBA Event Officials**
+
+- [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md)
+  :
+
+  **Get ESPN WNBA Event Broadcasts**
+
+### WNBA – League catalogs
+
+League-wide catalogs and indexes for the WNBA
+
+- [`espn_wnba_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_leaders.md)
+  :
+
+  **Get ESPN WNBA League Leaders**
+
+- [`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md)
+  :
+
+  **Get ESPN WNBA Venues**
+
+- [`espn_wnba_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coaches.md)
+  :
+
+  **Get ESPN WNBA Coaches**
+
+- [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md)
+  :
+
+  **Get ESPN WNBA Athletes Index**
+
+- [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md)
+  :
+
+  **Get ESPN WNBA Seasons**
+
+- [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md)
+  :
+
+  **Get ESPN WNBA Season Info**
+
+### WNBA – Transactions, draft, free agency
+
+WNBA-only player movement endpoints
+
+- [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md)
+  :
+
+  **Get ESPN WNBA Draft Picks**
+
+- [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md)
+  :
+
+  **Get ESPN WNBA Free Agents**
+
+- [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md)
+  :
+
+  **Get ESPN WNBA Transactions**
+
+### WNBA – Helpers
+
+Internal parsers exported for advanced use
+
+- [`helper_espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_pbp.md)
+  :
+
+  **Parse ESPN WNBA PBP, helper function**
+
+- [`helper_espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_team_box.md)
+  :
+
+  **Parse ESPN WNBA Team Box, helper function**
+
+- [`helper_espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_player_box.md)
+  :
+
+  **Parse ESPN WNBA Player Box, helper function**
 
 ## NCAA Data
 
@@ -294,7 +692,7 @@ Data
 - [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
   :
 
-  **Scrape NCAA Women's Baskebtall Teams (Division I, II, and III)**
+  **Scrape NCAA Women's Basketball Teams (Division I, II, and III)**
 
 ## WNBA Stats Data
 
@@ -921,48 +1319,41 @@ Internal functions used by wehoop
 - [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
   :
 
-  **Retry http request with proxy**
+  **Retry http request with optional proxy**
 
-- [`helper_espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.md)
+- [`year_to_season()`](https://wehoop.sportsdataverse.org/reference/year_to_season.md)
   :
 
-  **Parse ESPN WBB PBP, helper function**
-
-- [`helper_espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_team_box.md)
-  :
-
-  **Parse ESPN WBB Team Box, helper function**
-
-- [`helper_espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_player_box.md)
-  :
-
-  **Parse ESPN WBB Player Box, helper function**
-
-- [`helper_espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_pbp.md)
-  :
-
-  **Parse ESPN WNBA PBP, helper function**
-
-- [`helper_espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_team_box.md)
-  :
-
-  **Parse ESPN WNBA Team Box, helper function**
-
-- [`helper_espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_player_box.md)
-  :
-
-  **Parse ESPN WNBA Player Box, helper function**
+  **Convert a calendar year to a WNBA / NBA season string**
 
 - [`.players_on_court`](https://wehoop.sportsdataverse.org/reference/dot-players_on_court.md)
   :
 
   **Add players on court in WNBA Stats API play-by-play**
 
+## Datasets
+
+### Bundled reference data
+
+Reference datasets shipped with the package
+
+- [`parameter_descriptions`](https://wehoop.sportsdataverse.org/reference/parameter_descriptions.md)
+  :
+
+  **WNBA Stats API Parameter Descriptions** Reference table for
+  parameters used across `wnba_*()` functions.
+
 # Articles
 
 ### All vignettes
+
+- [ESPN basketball endpoints -- WBB &
+  WNBA](https://wehoop.sportsdataverse.org/articles/espn-endpoints.md):
 
 - [Getting Started with
   wehoop](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.md):
 
   Getting started with using `wehoop` and women’s basketball data.
+
+- [WNBA Stats API Parameter
+  Descriptions](https://wehoop.sportsdataverse.org/articles/parameter-descriptions.md):

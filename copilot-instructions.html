@@ -70,7 +70,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
   </ul></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/saiemgilani"><span class="fa fab fa-twitter fa-lg"></span></a></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://x.com/saiemgilani"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/sportsdataverse/wehoop/"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
@@ -84,24 +84,16 @@
     </div>
 
 
-<ul><li>
-<a href="#wehoop-copilot-instructions">wehoop Copilot Instructions</a>
-<ul><li><a href="#project-context">Project Context</a></li>
+<p><strong>Table of Contents</strong> <em>generated with <a href="https://github.com/thlorenz/doctoc" class="external-link">DocToc</a></em></p>
+<ul><li><a href="#wehoop-copilot-instructions">wehoop Copilot Instructions</a></li>
+<li><a href="#project-context">Project Context</a></li>
 <li><a href="#repository-workflow">Repository Workflow</a></li>
 <li><a href="#code-style">Code Style</a></li>
 <li><a href="#http-layer">HTTP Layer</a></li>
 <li><a href="#messaging-layer">Messaging Layer</a></li>
 <li><a href="#function-naming">Function Naming</a></li>
 <li><a href="#roxygen-documentation">Roxygen Documentation</a></li>
-<li>
-<a href="#testing">Testing</a>
-<ul><li><a href="#environment-variables">Environment Variables</a></li>
-</ul></li>
-<li><a href="#conventional-commits">Conventional Commits</a></li>
-<li><a href="#v3-api-notes">V3 API Notes</a></li>
-<li><a href="#wnba-specific-details">WNBA-Specific Details</a></li>
-<li><a href="#common-pitfalls">Common Pitfalls</a></li>
-</ul></li>
+<li><a href="#testing">Testing</a></li>
 </ul><!-- END doctoc generated TOC please keep comment here to allow auto update --><div id="wehoop-copilot-instructions" class="section level1">
 
 <div class="section level2">
@@ -129,6 +121,9 @@
 <div class="section level2">
 <h2 id="http-layer">HTTP Layer<a class="anchor" aria-label="anchor" href="#http-layer"></a></h2>
 <p>WNBA Stats HTTP requests use <code><a href="reference/request_with_proxy.html">request_with_proxy()</a></code> in <code>utils_wnba_stats.R</code> which handles required WNBA headers: - <code>Origin: https://stats.wnba.com</code> - <code>Referer: https://www.wnba.com/</code></p>
+<p><code><a href="reference/dot-retry_request.html">.retry_request()</a></code> resolves a proxy in this order: explicit <code>proxy =</code> arg → <code>getOption("wehoop.proxy")</code> → libcurl env vars (<code>http_proxy</code> / <code>https_proxy</code> / <code>no_proxy</code>).</p>
+<p>Proxy value accepts a URL string <code>"http://host:port"</code> or a named list <code>list(url=, port=, username=, password=, auth=)</code> spread into <code><a href="https://httr2.r-lib.org/reference/req_proxy.html" class="external-link">httr2::req_proxy()</a></code>.</p>
+<p>Per-call override (<code>wnba_foo(proxy = ...)</code>) only threads through WNBA Stats wrappers (which forward <code>...</code> to <code>request_with_proxy</code>). ESPN / NCAA / KenPom wrappers call <code><a href="reference/dot-retry_request.html">.retry_request()</a></code> directly without <code>...</code>, so use <code>options(wehoop.proxy = ...)</code> once at session top — that’s the recommended pattern for any session that runs through a proxy.</p>
 <p>Shared internal helpers in <code>utils.R</code>: - <code><a href="reference/check_status.html">check_status()</a></code> for HTTP response validation - <code>make_wehoop_data()</code> for standardizing data frame output - <code>pad_id()</code> for zero-padding game IDs</p>
 <p>ESPN and live endpoints use <code><a href="https://rvest.tidyverse.org/reference/session.html" class="external-link">rvest::session()</a></code> with <code><a href="https://httr.r-lib.org/reference/timeout.html" class="external-link">httr::timeout()</a></code>.</p>
 </div>
@@ -191,6 +186,17 @@
 <div class="section level2">
 <h2 id="testing">Testing<a class="anchor" aria-label="anchor" href="#testing"></a></h2>
 <ul><li><p>Use <code>skip_on_cran()</code> and <code>skip_on_ci()</code> guards for all live API tests.</p></li>
+<li>
+<p>Add a source-specific env-var skip helper immediately after <code>skip_on_ci()</code>:</p>
+<ul><li>
+<code>skip_wnba_stats_test()</code> for <code>test-wnba_*.R</code>
+</li>
+<li>
+<code>skip_espn_test()</code> for <code>test-espn_wbb_*.R</code> and <code>test-espn_wnba_*.R</code>
+</li>
+<li>
+<code>skip_ncaa_wbb_test()</code> for <code>test-ncaa_wbb_*.R</code> These helpers live in <code>tests/testthat/helper-skip.R</code> and gate on env vars (<code>WNBA_STATS_TESTS=1</code>, <code>ESPN_TESTS=1</code>, <code>NCAA_WBB_TESTS=1</code>).</li>
+</ul></li>
 <li><p><strong>Column assertions must always use the subset direction</strong> — expected ⊆ actual: <code>expect_in(sort(expected_cols), sort(colnames(x)))</code>. WNBA and ESPN APIs add columns without removing old ones, so strict <code>expect_equal(sort(colnames(x)), sort(cols))</code> will flag on any new column. The subset direction is the only pattern that survives upstream drift.</p></li>
 <li>
 <p><strong>Always add a skip-if-empty guard immediately after the API call</strong>, before any assertion that touches <code>x[[1]]</code>:</p>
@@ -218,13 +224,25 @@
 <li><p>Test game ID: <code>"1022200034"</code> for known completed WNBA games.</p></li>
 </ul><div class="section level3">
 <h3 id="environment-variables">Environment Variables<a class="anchor" aria-label="anchor" href="#environment-variables"></a></h3>
-<table class="table"><thead><tr><th>Variable</th>
+<table class="table"><colgroup><col width="27%"><col width="38%"><col width="34%"></colgroup><thead><tr><th>Variable</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td>
+<th>Helper</th>
+</tr></thead><tbody><tr><td><code>WNBA_STATS_TESTS=1</code></td>
+<td>Enable WNBA Stats API tests</td>
+<td><code>skip_wnba_stats_test()</code></td>
+</tr><tr><td><code>ESPN_TESTS=1</code></td>
+<td>Enable ESPN API tests</td>
+<td><code>skip_espn_test()</code></td>
+</tr><tr><td><code>NCAA_WBB_TESTS=1</code></td>
+<td>Enable NCAA WBB tests</td>
+<td><code>skip_ncaa_wbb_test()</code></td>
+</tr><tr><td>
 <code>KP_USER</code> / <code>KP_PW</code>
 </td>
 <td>KenPom credentials (if used)</td>
-</tr></tbody></table></div>
+<td>n/a</td>
+</tr></tbody></table><p>On CI, most live API tests are additionally guarded with <code>skip_on_ci()</code>. Setting env vars alone will not run those tests unless that guard is intentionally relaxed.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="conventional-commits">Conventional Commits<a class="anchor" aria-label="anchor" href="#conventional-commits"></a></h2>
@@ -235,6 +253,28 @@
 <li>Keep commits logically grouped so each commit is easy to review and revert.</li>
 </ul><p><strong>Important</strong>: Never include AI agents or assistants (e.g., Claude, Copilot) as co-authors on commits. Omit all <code>Co-Authored-By</code> trailers referencing AI tools.</p>
 </div>
+<div class="section level2">
+<h2 id="documentation-maintenance">Documentation Maintenance<a class="anchor" aria-label="anchor" href="#documentation-maintenance"></a></h2>
+<p>Two regeneration steps are part of the commit workflow whenever the relevant sources change. Both are mechanical — never edit the generated regions by hand.</p>
+<ul><li>
+<p><strong>Markdown TOCs.</strong> <code>NEWS.md</code>, <code>CLAUDE.md</code>, <code>CONTRIBUTING.md</code>, <code>.github/copilot-instructions.md</code>, and <code>.github/pull_request_template.md</code> carry a doctoc-generated TOC inside marker comments. (<code>cran-comments.md</code> is intentionally excluded — it is a short CRAN-submission file.) After editing any of them, run:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">Rscript</span> tools/run_doctoc.R <span class="at">--maxlevel</span> 2 <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  NEWS.md CLAUDE.md CONTRIBUTING.md <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  .github/copilot-instructions.md .github/pull_request_template.md</span></code></pre></div>
+<p><code>tools/run_doctoc.R</code> is a no-deps R replacement for the npm <code>doctoc</code> CLI; it is idempotent and runs without Node.js. Use <code>--maxlevel 2</code> (level-3 sub-entries crowd the nav).</p>
+</li>
+<li><p><strong>README.md.</strong> Rendered from <code>README.Rmd</code> (with <code>output: github_document: { toc: true, toc_depth: 2 }</code>). After editing the Rmd, run <code>devtools::build_readme()</code> and commit <code>README.Rmd</code> + <code>README.md</code> together. Never hand-edit <code>README.md</code>.</p></li>
+<li><p><strong>DESCRIPTION.</strong> After editing <code>DESCRIPTION</code> (deps, versions, <code>Authors@R</code>, etc.), run <code><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">usethis::use_tidy_description()</a></code> to normalize field order, alphabetize <code>Imports</code>/<code>Suggests</code>, and reflow long lines. Run it even for one-line edits.</p></li>
+<li>
+<p><strong>Release notes triad — <code>NEWS.md</code> / <code>cran-comments.md</code> / <code>_pkgdown.yml</code>.</strong> Whenever you add a <code>NEWS.md</code> bullet, check the other two:</p>
+<ul><li>
+<code>NEWS.md</code> — all new bullets go under the most recent <strong>unreleased</strong> version heading (currently <code># **wehoop 3.0.0**</code>). Do NOT create a new version section ahead of release; extend the existing subsections (<code>### Bug fixes</code>, <code>### Deprecations</code>, <code>### Test infrastructure</code>, …). After the release ships the rule rolls forward to the next dev version.</li>
+<li>
+<code>cran-comments.md</code> — every user-visible / behavioral change in <code>NEWS.md</code> should be reflected in <code>cran-comments.md</code> before submission. Internal-only changes (refactors, test infra, dev tooling) can be omitted.</li>
+<li>
+<code>_pkgdown.yml</code> — new exports go in the right <code>reference:</code> section. <code>starts_with()</code> selectors auto-pick up <code>wnba_*</code> / <code>espn_*</code> / <code>ncaa_*</code> prefixes; explicitly-listed functions need a manual entry. <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code> + <code>@keywords internal</code> excludes a function from the rendered index by default.</li>
+</ul></li>
+</ul></div>
 <div class="section level2">
 <h2 id="v3-api-notes">V3 API Notes<a class="anchor" aria-label="anchor" href="#v3-api-notes"></a></h2>
 <ul><li>V3 endpoints return nested JSON – use <code><a href="https://purrr.tidyverse.org/reference/pluck.html" class="external-link">purrr::pluck()</a></code> for extraction.</li>
@@ -285,7 +325,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://twitter.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
+  <p>Developed by <a href="https://x.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://x.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

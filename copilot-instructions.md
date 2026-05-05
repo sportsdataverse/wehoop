@@ -1,19 +1,17 @@
 # wehoop Copilot Instructions
 
+**Table of Contents** *generated with
+[DocToc](https://github.com/thlorenz/doctoc)*
+
 - [wehoop Copilot Instructions](#wehoop-copilot-instructions)
-  - [Project Context](#project-context)
-  - [Repository Workflow](#repository-workflow)
-  - [Code Style](#code-style)
-  - [HTTP Layer](#http-layer)
-  - [Messaging Layer](#messaging-layer)
-  - [Function Naming](#function-naming)
-  - [Roxygen Documentation](#roxygen-documentation)
-  - [Testing](#testing)
-    - [Environment Variables](#environment-variables)
-  - [Conventional Commits](#conventional-commits)
-  - [V3 API Notes](#v3-api-notes)
-  - [WNBA-Specific Details](#wnba-specific-details)
-  - [Common Pitfalls](#common-pitfalls)
+- [Project Context](#project-context)
+- [Repository Workflow](#repository-workflow)
+- [Code Style](#code-style)
+- [HTTP Layer](#http-layer)
+- [Messaging Layer](#messaging-layer)
+- [Function Naming](#function-naming)
+- [Roxygen Documentation](#roxygen-documentation)
+- [Testing](#testing)
 
 ## Project Context
 
@@ -55,6 +53,23 @@ WNBA Stats HTTP requests use
 [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
 in `utils_wnba_stats.R` which handles required WNBA headers: -
 `Origin: https://stats.wnba.com` - `Referer: https://www.wnba.com/`
+
+[`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+resolves a proxy in this order: explicit `proxy =` arg →
+`getOption("wehoop.proxy")` → libcurl env vars (`http_proxy` /
+`https_proxy` / `no_proxy`).
+
+Proxy value accepts a URL string `"http://host:port"` or a named list
+`list(url=, port=, username=, password=, auth=)` spread into
+[`httr2::req_proxy()`](https://httr2.r-lib.org/reference/req_proxy.html).
+
+Per-call override (`wnba_foo(proxy = ...)`) only threads through WNBA
+Stats wrappers (which forward `...` to `request_with_proxy`). ESPN /
+NCAA / KenPom wrappers call
+[`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+directly without `...`, so use `options(wehoop.proxy = ...)` once at
+session top — that’s the recommended pattern for any session that runs
+through a proxy.
 
 Shared internal helpers in `utils.R`: -
 [`check_status()`](https://wehoop.sportsdataverse.org/reference/check_status.md)
@@ -105,6 +120,15 @@ Every exported function needs:
 
 - Use `skip_on_cran()` and `skip_on_ci()` guards for all live API tests.
 
+- Add a source-specific env-var skip helper immediately after
+  `skip_on_ci()`:
+
+  - `skip_wnba_stats_test()` for `test-wnba_*.R`
+  - `skip_espn_test()` for `test-espn_wbb_*.R` and `test-espn_wnba_*.R`
+  - `skip_ncaa_wbb_test()` for `test-ncaa_wbb_*.R` These helpers live in
+    `tests/testthat/helper-skip.R` and gate on env vars
+    (`WNBA_STATS_TESTS=1`, `ESPN_TESTS=1`, `NCAA_WBB_TESTS=1`).
+
 - **Column assertions must always use the subset direction** — expected
   ⊆ actual: `expect_in(sort(expected_cols), sort(colnames(x)))`. WNBA
   and ESPN APIs add columns without removing old ones, so strict
@@ -154,9 +178,16 @@ Every exported function needs:
 
 ### Environment Variables
 
-| Variable            | Description                  |
-|---------------------|------------------------------|
-| `KP_USER` / `KP_PW` | KenPom credentials (if used) |
+| Variable             | Description                  | Helper                   |
+|----------------------|------------------------------|--------------------------|
+| `WNBA_STATS_TESTS=1` | Enable WNBA Stats API tests  | `skip_wnba_stats_test()` |
+| `ESPN_TESTS=1`       | Enable ESPN API tests        | `skip_espn_test()`       |
+| `NCAA_WBB_TESTS=1`   | Enable NCAA WBB tests        | `skip_ncaa_wbb_test()`   |
+| `KP_USER` / `KP_PW`  | KenPom credentials (if used) | n/a                      |
+
+On CI, most live API tests are additionally guarded with `skip_on_ci()`.
+Setting env vars alone will not run those tests unless that guard is
+intentionally relaxed.
 
 ## Conventional Commits
 
@@ -174,6 +205,60 @@ Types: `feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `style`,
 **Important**: Never include AI agents or assistants (e.g., Claude,
 Copilot) as co-authors on commits. Omit all `Co-Authored-By` trailers
 referencing AI tools.
+
+## Documentation Maintenance
+
+Two regeneration steps are part of the commit workflow whenever the
+relevant sources change. Both are mechanical — never edit the generated
+regions by hand.
+
+- **Markdown TOCs.** `NEWS.md`, `CLAUDE.md`, `CONTRIBUTING.md`,
+  `.github/copilot-instructions.md`, and
+  `.github/pull_request_template.md` carry a doctoc-generated TOC inside
+  marker comments. (`cran-comments.md` is intentionally excluded — it is
+  a short CRAN-submission file.) After editing any of them, run:
+
+  ``` sh
+  Rscript tools/run_doctoc.R --maxlevel 2 \
+    NEWS.md CLAUDE.md CONTRIBUTING.md \
+    .github/copilot-instructions.md .github/pull_request_template.md
+  ```
+
+  `tools/run_doctoc.R` is a no-deps R replacement for the npm `doctoc`
+  CLI; it is idempotent and runs without Node.js. Use `--maxlevel 2`
+  (level-3 sub-entries crowd the nav).
+
+- **README.md.** Rendered from `README.Rmd` (with
+  `output: github_document: { toc: true, toc_depth: 2 }`). After editing
+  the Rmd, run `devtools::build_readme()` and commit `README.Rmd` +
+  `README.md` together. Never hand-edit `README.md`.
+
+- **DESCRIPTION.** After editing `DESCRIPTION` (deps, versions,
+  `Authors@R`, etc.), run
+  [`usethis::use_tidy_description()`](https://usethis.r-lib.org/reference/tidyverse.html)
+  to normalize field order, alphabetize `Imports`/`Suggests`, and reflow
+  long lines. Run it even for one-line edits.
+
+- **Release notes triad — `NEWS.md` / `cran-comments.md` /
+  `_pkgdown.yml`.** Whenever you add a `NEWS.md` bullet, check the other
+  two:
+
+  - `NEWS.md` — all new bullets go under the most recent **unreleased**
+    version heading (currently `# **wehoop 3.0.0**`). Do NOT create a
+    new version section ahead of release; extend the existing
+    subsections (`### Bug fixes`, `### Deprecations`,
+    `### Test infrastructure`, …). After the release ships the rule
+    rolls forward to the next dev version.
+  - `cran-comments.md` — every user-visible / behavioral change in
+    `NEWS.md` should be reflected in `cran-comments.md` before
+    submission. Internal-only changes (refactors, test infra, dev
+    tooling) can be omitted.
+  - `_pkgdown.yml` — new exports go in the right `reference:` section.
+    `starts_with()` selectors auto-pick up `wnba_*` / `espn_*` /
+    `ncaa_*` prefixes; explicitly-listed functions need a manual entry.
+    [`lifecycle::deprecate_stop()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html) +
+    `@keywords internal` excludes a function from the rendered index by
+    default.
 
 ## V3 API Notes
 

@@ -70,7 +70,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
   </ul></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/saiemgilani"><span class="fa fab fa-twitter fa-lg"></span></a></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://x.com/saiemgilani"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/sportsdataverse/wehoop/"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
@@ -99,17 +99,44 @@
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN WBB Functions:
+<code><a href="espn_wbb_athlete_awards.html">espn_wbb_athlete_awards()</a></code>,
+<code><a href="espn_wbb_athlete_eventlog.html">espn_wbb_athlete_eventlog()</a></code>,
+<code><a href="espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog()</a></code>,
+<code><a href="espn_wbb_athlete_info.html">espn_wbb_athlete_info()</a></code>,
+<code><a href="espn_wbb_athlete_overview.html">espn_wbb_athlete_overview()</a></code>,
+<code><a href="espn_wbb_athlete_splits.html">espn_wbb_athlete_splits()</a></code>,
+<code><a href="espn_wbb_athlete_statisticslog.html">espn_wbb_athlete_statisticslog()</a></code>,
+<code><a href="espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code>,
+<code><a href="espn_wbb_athletes_index.html">espn_wbb_athletes_index()</a></code>,
+<code><a href="espn_wbb_calendar.html">espn_wbb_calendar()</a></code>,
+<code><a href="espn_wbb_coaches.html">espn_wbb_coaches()</a></code>,
+<code><a href="espn_wbb_event_broadcasts.html">espn_wbb_event_broadcasts()</a></code>,
+<code><a href="espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code>,
+<code><a href="espn_wbb_event_officials.html">espn_wbb_event_officials()</a></code>,
+<code><a href="espn_wbb_event_probabilities.html">espn_wbb_event_probabilities()</a></code>,
 <code><a href="espn_wbb_game_all.html">espn_wbb_game_all()</a></code>,
 <code><a href="espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code>,
+<code><a href="espn_wbb_injuries.html">espn_wbb_injuries()</a></code>,
+<code><a href="espn_wbb_leaders.html">espn_wbb_leaders()</a></code>,
+<code><a href="espn_wbb_news.html">espn_wbb_news()</a></code>,
 <code><a href="espn_wbb_pbp.html">espn_wbb_pbp()</a></code>,
 <code><a href="espn_wbb_player_box.html">espn_wbb_player_box()</a></code>,
 <code><a href="espn_wbb_player_stats.html">espn_wbb_player_stats()</a></code>,
 <code><a href="espn_wbb_rankings.html">espn_wbb_rankings()</a></code>,
 <code><a href="espn_wbb_scoreboard.html">espn_wbb_scoreboard()</a></code>,
+<code><a href="espn_wbb_season_info.html">espn_wbb_season_info()</a></code>,
+<code><a href="espn_wbb_seasons.html">espn_wbb_seasons()</a></code>,
 <code><a href="espn_wbb_standings.html">espn_wbb_standings()</a></code>,
+<code><a href="espn_wbb_team.html">espn_wbb_team()</a></code>,
 <code><a href="espn_wbb_team_box.html">espn_wbb_team_box()</a></code>,
+<code><a href="espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code>,
+<code><a href="espn_wbb_team_leaders.html">espn_wbb_team_leaders()</a></code>,
+<code><a href="espn_wbb_team_news.html">espn_wbb_team_news()</a></code>,
+<code><a href="espn_wbb_team_roster.html">espn_wbb_team_roster()</a></code>,
+<code><a href="espn_wbb_team_schedule.html">espn_wbb_team_schedule()</a></code>,
 <code><a href="espn_wbb_team_stats.html">espn_wbb_team_stats()</a></code>,
-<code><a href="espn_wbb_teams.html">espn_wbb_teams()</a></code></p></div>
+<code><a href="espn_wbb_teams.html">espn_wbb_teams()</a></code>,
+<code><a href="espn_wbb_venues.html">espn_wbb_venues()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -121,7 +148,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wbb_conferences</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WBB Conferences Information from ESPN.com ────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-01 03:08:54 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-05 22:57:19 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    conference_uid group_id conference_name conference_short_name conference_logo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
@@ -145,7 +172,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://twitter.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
+  <p>Developed by <a href="https://x.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://x.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

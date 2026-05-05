@@ -70,7 +70,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
   </ul></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/saiemgilani"><span class="fa fab fa-twitter fa-lg"></span></a></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://x.com/saiemgilani"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/sportsdataverse/wehoop/"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
@@ -85,32 +85,18 @@
 
 
 <p><strong>Table of Contents</strong> <em>generated with <a href="https://github.com/thlorenz/doctoc" class="external-link">DocToc</a></em></p>
-<ul><li>
-<a href="#claudemd----wehoop-development-guide">CLAUDE.md – wehoop Development Guide</a>
-<ul><li><a href="#package-overview">Package Overview</a></li>
-<li><a href="#branching--pr-workflow">Branching &amp; PR Workflow</a></li>
-<li><a href="#build--development-commands">Build &amp; Development Commands</a></li>
+<ul><li><a href="#claudemd----wehoop-development-guide">CLAUDE.md – wehoop Development Guide</a></li>
+<li><a href="#package-overview">Package Overview</a></li>
+<li><a href="#branching-pr-workflow">Branching &amp; PR Workflow</a></li>
+<li><a href="#build-development-commands">Build &amp; Development Commands</a></li>
 <li><a href="#project-structure">Project Structure</a></li>
-<li>
-<a href="#key-coding-conventions">Key Coding Conventions</a>
-<ul><li><a href="#function-naming">Function Naming</a></li>
-<li><a href="#function-pattern-wnba-stats-api">Function Pattern (WNBA Stats API)</a></li>
-<li><a href="#data-processing-pipeline">Data Processing Pipeline</a></li>
-<li><a href="#v2-vs-v3-api-differences">V2 vs V3 API Differences</a></li>
-<li><a href="#null-safety">Null Safety</a></li>
-<li><a href="#http-layer">HTTP Layer</a></li>
-<li><a href="#messaging-layer">Messaging Layer</a></li>
-</ul></li>
-<li>
-<a href="#testing">Testing</a>
-<ul><li><a href="#test-pattern">Test Pattern</a></li>
-<li><a href="#rate-limiting">Rate Limiting</a></li>
-</ul></li>
+<li><a href="#key-coding-conventions">Key Coding Conventions</a></li>
+<li><a href="#testing">Testing</a></li>
 <li><a href="#wnba-specific-details">WNBA-Specific Details</a></li>
 <li><a href="#namespace">NAMESPACE</a></li>
+<li><a href="#documentation-maintenance">Documentation Maintenance</a></li>
 <li><a href="#commit-convention">Commit Convention</a></li>
 <li><a href="#common-pitfalls">Common Pitfalls</a></li>
-</ul></li>
 </ul><!-- END doctoc generated TOC please keep comment here to allow auto update --><div id="claudemd--wehoop-development-guide" class="section level1">
 
 <div class="section level2">
@@ -332,7 +318,19 @@
 <div class="section level3">
 <h3 id="http-layer">HTTP Layer<a class="anchor" aria-label="anchor" href="#http-layer"></a></h3>
 <p>WNBA Stats API requests use <code><a href="reference/request_with_proxy.html">request_with_proxy()</a></code> in <code>utils_wnba_stats.R</code> with required WNBA headers: - <code>Origin: https://stats.wnba.com</code> - <code>Referer: https://www.wnba.com/</code></p>
-<p><code>wnba_endpoint()</code> builds URLs via <code>glue::glue('https://stats.wnba.com/stats/{endpoint}')</code>.</p>
+<p><code>wnba_endpoint()</code> builds URLs via <code>paste0("https://stats.wnba.com/stats/", endpoint)</code>.</p>
+<div class="section level4">
+<h4 id="proxy-support">Proxy support<a class="anchor" aria-label="anchor" href="#proxy-support"></a></h4>
+<p><code><a href="reference/dot-retry_request.html">.retry_request()</a></code> resolves a proxy in this order:</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Explicit <code>proxy =</code> argument</strong> (caller-supplied; highest precedence).</li>
+<li>
+<strong><code>getOption("wehoop.proxy")</code></strong> session-level fallback — set once with <code>options(wehoop.proxy = ...)</code> and every call picks it up.</li>
+<li>
+<strong><code>http_proxy</code> / <code>https_proxy</code> / <code>no_proxy</code> environment variables</strong> — libcurl reads these automatically when no explicit proxy is supplied.</li>
+</ol><p>The proxy value (whether passed or read from the option) accepts: - <code>"http://host:port"</code> — string form, forwarded to <code>httr2::req_proxy(url = ...)</code>. - <code>list(url = "...", port = 8080, username = "...", password = "...", auth = "basic")</code> — spread as keyword args into <code><a href="https://httr2.r-lib.org/reference/req_proxy.html" class="external-link">httr2::req_proxy()</a></code> for authenticated proxies.</p>
+<p><strong>Per-call override</strong> works only for wrappers that thread <code>...</code> to <code><a href="reference/request_with_proxy.html">request_with_proxy()</a></code> — that’s every WNBA Stats API function (<code>wnba_*()</code>), e.g. <code>wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")</code>. ESPN / NCAA / KenPom wrappers call <code><a href="reference/dot-retry_request.html">.retry_request()</a></code> directly without <code>...</code>, so for those use the <code><a href="https://rdrr.io/r/base/options.html" class="external-link">options()</a></code> fallback or env-var path. The session option is the recommended pattern when working through one proxy across many calls — it’s a single line at the top of the script and it covers everything.</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="messaging-layer">Messaging Layer<a class="anchor" aria-label="anchor" href="#messaging-layer"></a></h3>
@@ -348,6 +346,7 @@
 <code class="sourceCode R"><span><span class="fu">test_that</span><span class="op">(</span><span class="st">"WNBA Endpoint Name"</span>, <span class="op">{</span></span>
 <span>  <span class="fu">skip_on_cran</span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="fu">skip_on_ci</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu">skip_wnba_stats_test</span><span class="op">(</span><span class="op">)</span>  <span class="co"># Requires WNBA_STATS_TESTS=1</span></span>
 <span></span>
 <span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">wnba_function</span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"1022200034"</span><span class="op">)</span></span>
 <span></span>
@@ -385,6 +384,24 @@
 <p>See <code>test-wnba_teamvsplayer.R</code> and <code>test-wnba_playerdashboardbyclutch.R</code> for live examples.</p>
 </div>
 <div class="section level3">
+<h3 id="environment-variables-for-tests">Environment Variables for Tests<a class="anchor" aria-label="anchor" href="#environment-variables-for-tests"></a></h3>
+<p>Tests are gated by source-specific env-var helpers in <code>tests/testthat/helper-skip.R</code>. Each helper short-circuits unless the corresponding variable is set:</p>
+<table class="table"><colgroup><col width="27%"><col width="37%"><col width="34%"></colgroup><thead><tr><th>Variable</th>
+<th>Description</th>
+<th>Helper</th>
+</tr></thead><tbody><tr><td><code>WNBA_STATS_TESTS=1</code></td>
+<td>Enable WNBA Stats API tests</td>
+<td><code>skip_wnba_stats_test()</code></td>
+</tr><tr><td><code>ESPN_TESTS=1</code></td>
+<td>Enable ESPN API tests</td>
+<td><code>skip_espn_test()</code></td>
+</tr><tr><td><code>NCAA_WBB_TESTS=1</code></td>
+<td>Enable NCAA WBB tests</td>
+<td><code>skip_ncaa_wbb_test()</code></td>
+</tr></tbody></table><p>Use the source-specific helper for the endpoint under test: - <code>skip_wnba_stats_test()</code> for <code>test-wnba_*.R</code> - <code>skip_espn_test()</code> for <code>test-espn_wbb_*.R</code> and <code>test-espn_wnba_*.R</code> - <code>skip_ncaa_wbb_test()</code> for <code>test-ncaa_wbb_*.R</code></p>
+<p>Note: in CI, many live API tests still include <code>skip_on_ci()</code> guards. Env vars alone do not override those guards unless tests are intentionally changed.</p>
+</div>
+<div class="section level3">
 <h3 id="rate-limiting">Rate Limiting<a class="anchor" aria-label="anchor" href="#rate-limiting"></a></h3>
 <p>WNBA Stats API: Always add <code>Sys.sleep(3)</code> at the end of each test.</p>
 </div>
@@ -410,6 +427,41 @@
 <div class="section level2">
 <h2 id="namespace">NAMESPACE<a class="anchor" aria-label="anchor" href="#namespace"></a></h2>
 <p>Auto-generated by roxygen2. <strong>Never edit manually.</strong> Run <code>devtools::document()</code> to regenerate.</p>
+</div>
+<div class="section level2">
+<h2 id="documentation-maintenance">Documentation Maintenance<a class="anchor" aria-label="anchor" href="#documentation-maintenance"></a></h2>
+<p>Two regeneration steps are part of the commit workflow whenever the relevant sources change. Both are mechanical — never edit the generated regions by hand.</p>
+<div class="section level3">
+<h3 id="markdown-tocs-doctoc">Markdown TOCs (doctoc)<a class="anchor" aria-label="anchor" href="#markdown-tocs-doctoc"></a></h3>
+<p><code>NEWS.md</code>, <code>CLAUDE.md</code>, <code>CONTRIBUTING.md</code>, <code>.github/copilot-instructions.md</code>, and <code>.github/pull_request_template.md</code> carry a doctoc-generated table of contents inside the standard marker comments. After editing any of those files, regenerate the TOC before committing:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">Rscript</span> tools/run_doctoc.R <span class="at">--maxlevel</span> 2 <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  NEWS.md CLAUDE.md CONTRIBUTING.md <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  .github/copilot-instructions.md .github/pull_request_template.md</span></code></pre></div>
+<p><code>cran-comments.md</code> is intentionally excluded — it is a short release-notes file submitted to CRAN and does not need a TOC.</p>
+<p><code>tools/run_doctoc.R</code> is a no-deps R replacement for the npm <code>doctoc</code> CLI — it produces output indistinguishable from the upstream tool, is idempotent (a no-op if no headings changed), and runs without Node.js. Use <code>--maxlevel 2</code> so the TOC only lists <code>#</code> and <code>##</code> headings; level-3 sub-entries crowd the nav.</p>
+</div>
+<div class="section level3">
+<h3 id="readmemd-rmarkdown">README.md (rmarkdown)<a class="anchor" aria-label="anchor" href="#readmemd-rmarkdown"></a></h3>
+<p><code>README.md</code> is rendered from <code>README.Rmd</code>. The Rmd carries <code>output: github_document: { toc: true, toc_depth: 2 }</code>, so the README has its own auto-generated TOC. After editing <code>README.Rmd</code>, re-render before committing:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">build_readme</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Commit <code>README.Rmd</code> and the regenerated <code>README.md</code> together. Never hand-edit <code>README.md</code>.</p>
+</div>
+<div class="section level3">
+<h3 id="description-usethis">DESCRIPTION (usethis)<a class="anchor" aria-label="anchor" href="#description-usethis"></a></h3>
+<p>After editing <code>DESCRIPTION</code> (adding/removing packages, bumping versions, updating <code>Authors@R</code>, etc.), normalize formatting before committing:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">use_tidy_description</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>This re-orders fields, alphabetizes <code>Imports</code>/<code>Suggests</code>, and reflows long lines so subsequent diffs stay minimal. Run it even for one-line edits.</p>
+</div>
+<div class="section level3">
+<h3 id="release-notes-triad-newsmd--cran-commentsmd--_pkgdownyml">Release notes triad: NEWS.md / cran-comments.md / _pkgdown.yml<a class="anchor" aria-label="anchor" href="#release-notes-triad-newsmd--cran-commentsmd--_pkgdownyml"></a></h3>
+<p>Three files describe the same release at different audiences. Whenever you add a <code>NEWS.md</code> bullet, <strong>think through all three before committing</strong>:</p>
+<ul><li><p><strong><code>NEWS.md</code></strong> — authoritative changelog for downstream users; rendered into the pkgdown changelog. <strong>All new bullets go under the most recent unreleased version heading</strong> (currently <code># **wehoop 3.0.0**</code>). Do NOT create a new version section ahead of release. Add to or extend an existing subsection (<code>### Bug fixes</code>, <code>### Deprecations</code>, <code>### Test infrastructure</code>, etc.) instead of starting a new one when the change is incremental. Once <code>3.0.0</code> ships to CRAN, the development version gets its own heading and the rule rolls forward.</p></li>
+<li><p><strong><code>cran-comments.md</code></strong> — what gets submitted to CRAN. Every behavioral or user-visible change you add to <code>NEWS.md</code> should also be reflected in <code>cran-comments.md</code> before submission. The two files are not duplicates: <code>NEWS.md</code> is the long-form changelog, <code>cran-comments.md</code> is the short-form release summary. If a <code>NEWS.md</code> bullet is purely internal (refactor, test infrastructure, dev tooling) it can be omitted from <code>cran-comments.md</code>.</p></li>
+<li><p><strong><code>_pkgdown.yml</code></strong> — the pkgdown reference index. New exported functions need to land in the right <code>reference:</code> section. The existing wehoop config uses <code>starts_with("wnba_")</code> / <code>starts_with("espn_")</code> / <code>starts_with("ncaa_")</code> selectors so new functions matching those prefixes are picked up automatically; explicitly-listed functions need a manual entry. Functions deprecated via <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code> + <code>@keywords internal</code> are excluded from the rendered index by default — preview with <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site()</a></code> when in doubt.</p></li>
+</ul><p>When the change touches the API surface (new export, deprecation, removal), include a one-line note in your commit message confirming you’ve checked all three files.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="commit-convention">Commit Convention<a class="anchor" aria-label="anchor" href="#commit-convention"></a></h2>
@@ -445,7 +497,7 @@ ci: update GitHub Actions workflow versions</code></pre>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://twitter.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
+  <p>Developed by <a href="https://x.com/saiemgilani" class="external-link">Saiem Gilani</a>, <a href="https://x.com/hutchngo" class="external-link">Geoffery Hutchinson</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

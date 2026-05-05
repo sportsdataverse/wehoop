@@ -5,26 +5,17 @@
 
 - [CLAUDE.md – wehoop Development
   Guide](#claudemd----wehoop-development-guide)
-  - [Package Overview](#package-overview)
-  - [Branching & PR Workflow](#branching--pr-workflow)
-  - [Build & Development Commands](#build--development-commands)
-  - [Project Structure](#project-structure)
-  - [Key Coding Conventions](#key-coding-conventions)
-    - [Function Naming](#function-naming)
-    - [Function Pattern (WNBA Stats
-      API)](#function-pattern-wnba-stats-api)
-    - [Data Processing Pipeline](#data-processing-pipeline)
-    - [V2 vs V3 API Differences](#v2-vs-v3-api-differences)
-    - [Null Safety](#null-safety)
-    - [HTTP Layer](#http-layer)
-    - [Messaging Layer](#messaging-layer)
-  - [Testing](#testing)
-    - [Test Pattern](#test-pattern)
-    - [Rate Limiting](#rate-limiting)
-  - [WNBA-Specific Details](#wnba-specific-details)
-  - [NAMESPACE](#namespace)
-  - [Commit Convention](#commit-convention)
-  - [Common Pitfalls](#common-pitfalls)
+- [Package Overview](#package-overview)
+- [Branching & PR Workflow](#branching-pr-workflow)
+- [Build & Development Commands](#build-development-commands)
+- [Project Structure](#project-structure)
+- [Key Coding Conventions](#key-coding-conventions)
+- [Testing](#testing)
+- [WNBA-Specific Details](#wnba-specific-details)
+- [NAMESPACE](#namespace)
+- [Documentation Maintenance](#documentation-maintenance)
+- [Commit Convention](#commit-convention)
+- [Common Pitfalls](#common-pitfalls)
 
 ## Package Overview
 
@@ -296,7 +287,40 @@ in `utils_wnba_stats.R` with required WNBA headers: -
 `Origin: https://stats.wnba.com` - `Referer: https://www.wnba.com/`
 
 `wnba_endpoint()` builds URLs via
-`glue::glue('https://stats.wnba.com/stats/{endpoint}')`.
+`paste0("https://stats.wnba.com/stats/", endpoint)`.
+
+#### Proxy support
+
+[`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+resolves a proxy in this order:
+
+1.  **Explicit `proxy =` argument** (caller-supplied; highest
+    precedence).
+2.  **`getOption("wehoop.proxy")`** session-level fallback — set once
+    with `options(wehoop.proxy = ...)` and every call picks it up.
+3.  **`http_proxy` / `https_proxy` / `no_proxy` environment variables**
+    — libcurl reads these automatically when no explicit proxy is
+    supplied.
+
+The proxy value (whether passed or read from the option) accepts: -
+`"http://host:port"` — string form, forwarded to
+`httr2::req_proxy(url = ...)`. -
+`list(url = "...", port = 8080, username = "...", password = "...", auth = "basic")`
+— spread as keyword args into
+[`httr2::req_proxy()`](https://httr2.r-lib.org/reference/req_proxy.html)
+for authenticated proxies.
+
+**Per-call override** works only for wrappers that thread `...` to
+[`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
+— that’s every WNBA Stats API function (`wnba_*()`),
+e.g. `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")`. ESPN /
+NCAA / KenPom wrappers call
+[`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+directly without `...`, so for those use the
+[`options()`](https://rdrr.io/r/base/options.html) fallback or env-var
+path. The session option is the recommended pattern when working through
+one proxy across many calls — it’s a single line at the top of the
+script and it covers everything.
 
 ### Messaging Layer
 
@@ -322,6 +346,7 @@ column. The rule is: the *expected* list must be a subset of the
 test_that("WNBA Endpoint Name", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()  # Requires WNBA_STATS_TESTS=1
 
   x <- wnba_function(game_id = "1022200034")
 
@@ -373,6 +398,27 @@ check_cols(2, cols_x2)
 See `test-wnba_teamvsplayer.R` and `test-wnba_playerdashboardbyclutch.R`
 for live examples.
 
+### Environment Variables for Tests
+
+Tests are gated by source-specific env-var helpers in
+`tests/testthat/helper-skip.R`. Each helper short-circuits unless the
+corresponding variable is set:
+
+| Variable             | Description                 | Helper                   |
+|----------------------|-----------------------------|--------------------------|
+| `WNBA_STATS_TESTS=1` | Enable WNBA Stats API tests | `skip_wnba_stats_test()` |
+| `ESPN_TESTS=1`       | Enable ESPN API tests       | `skip_espn_test()`       |
+| `NCAA_WBB_TESTS=1`   | Enable NCAA WBB tests       | `skip_ncaa_wbb_test()`   |
+
+Use the source-specific helper for the endpoint under test: -
+`skip_wnba_stats_test()` for `test-wnba_*.R` - `skip_espn_test()` for
+`test-espn_wbb_*.R` and `test-espn_wnba_*.R` - `skip_ncaa_wbb_test()`
+for `test-ncaa_wbb_*.R`
+
+Note: in CI, many live API tests still include `skip_on_ci()` guards.
+Env vars alone do not override those guards unless tests are
+intentionally changed.
+
 ### Rate Limiting
 
 WNBA Stats API: Always add `Sys.sleep(3)` at the end of each test.
@@ -392,6 +438,103 @@ WNBA Stats API: Always add `Sys.sleep(3)` at the end of each test.
 
 Auto-generated by roxygen2. **Never edit manually.** Run
 `devtools::document()` to regenerate.
+
+## Documentation Maintenance
+
+Two regeneration steps are part of the commit workflow whenever the
+relevant sources change. Both are mechanical — never edit the generated
+regions by hand.
+
+### Markdown TOCs (doctoc)
+
+`NEWS.md`, `CLAUDE.md`, `CONTRIBUTING.md`,
+`.github/copilot-instructions.md`, and
+`.github/pull_request_template.md` carry a doctoc-generated table of
+contents inside the standard marker comments. After editing any of those
+files, regenerate the TOC before committing:
+
+``` sh
+Rscript tools/run_doctoc.R --maxlevel 2 \
+  NEWS.md CLAUDE.md CONTRIBUTING.md \
+  .github/copilot-instructions.md .github/pull_request_template.md
+```
+
+`cran-comments.md` is intentionally excluded — it is a short
+release-notes file submitted to CRAN and does not need a TOC.
+
+`tools/run_doctoc.R` is a no-deps R replacement for the npm `doctoc` CLI
+— it produces output indistinguishable from the upstream tool, is
+idempotent (a no-op if no headings changed), and runs without Node.js.
+Use `--maxlevel 2` so the TOC only lists `#` and `##` headings; level-3
+sub-entries crowd the nav.
+
+### README.md (rmarkdown)
+
+`README.md` is rendered from `README.Rmd`. The Rmd carries
+`output: github_document: { toc: true, toc_depth: 2 }`, so the README
+has its own auto-generated TOC. After editing `README.Rmd`, re-render
+before committing:
+
+``` r
+
+devtools::build_readme()
+```
+
+Commit `README.Rmd` and the regenerated `README.md` together. Never
+hand-edit `README.md`.
+
+### DESCRIPTION (usethis)
+
+After editing `DESCRIPTION` (adding/removing packages, bumping versions,
+updating `Authors@R`, etc.), normalize formatting before committing:
+
+``` r
+
+usethis::use_tidy_description()
+```
+
+This re-orders fields, alphabetizes `Imports`/`Suggests`, and reflows
+long lines so subsequent diffs stay minimal. Run it even for one-line
+edits.
+
+### Release notes triad: NEWS.md / cran-comments.md / \_pkgdown.yml
+
+Three files describe the same release at different audiences. Whenever
+you add a `NEWS.md` bullet, **think through all three before
+committing**:
+
+- **`NEWS.md`** — authoritative changelog for downstream users; rendered
+  into the pkgdown changelog. **All new bullets go under the most recent
+  unreleased version heading** (currently `# **wehoop 3.0.0**`). Do NOT
+  create a new version section ahead of release. Add to or extend an
+  existing subsection (`### Bug fixes`, `### Deprecations`,
+  `### Test infrastructure`, etc.) instead of starting a new one when
+  the change is incremental. Once `3.0.0` ships to CRAN, the development
+  version gets its own heading and the rule rolls forward.
+
+- **`cran-comments.md`** — what gets submitted to CRAN. Every behavioral
+  or user-visible change you add to `NEWS.md` should also be reflected
+  in `cran-comments.md` before submission. The two files are not
+  duplicates: `NEWS.md` is the long-form changelog, `cran-comments.md`
+  is the short-form release summary. If a `NEWS.md` bullet is purely
+  internal (refactor, test infrastructure, dev tooling) it can be
+  omitted from `cran-comments.md`.
+
+- **`_pkgdown.yml`** — the pkgdown reference index. New exported
+  functions need to land in the right `reference:` section. The existing
+  wehoop config uses `starts_with("wnba_")` / `starts_with("espn_")` /
+  `starts_with("ncaa_")` selectors so new functions matching those
+  prefixes are picked up automatically; explicitly-listed functions need
+  a manual entry. Functions deprecated via
+  [`lifecycle::deprecate_stop()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html) +
+  `@keywords internal` are excluded from the rendered index by default —
+  preview with
+  [`pkgdown::build_site()`](https://pkgdown.r-lib.org/reference/build_site.html)
+  when in doubt.
+
+When the change touches the API surface (new export, deprecation,
+removal), include a one-line note in your commit message confirming
+you’ve checked all three files.
 
 ## Commit Convention
 

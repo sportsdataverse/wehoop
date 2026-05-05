@@ -1,0 +1,510 @@
+# ESPN basketball endpoints -- WBB & WNBA
+
+## Introduction
+
+wehoop wraps three ESPN API families for women’s basketball – no
+authentication required for any of them:
+
+- **site-v2**
+  (`site.api.espn.com/apis/site/v2/sports/basketball/{league}`) –
+  scoreboards, teams, rosters, schedules, news, injuries, standings,
+  player and team stats. The most stable surface.
+- **core-v2** (`sports.core.api.espn.com/v2/sports/basketball/{league}`)
+  – athletes index, event detail (odds, probabilities, officials,
+  broadcasts), seasons catalog, venues, coaches, draft/transactions
+  (WNBA). Uses `$ref` pagination for large collections.
+- **web-common-v3**
+  (`site.web.api.espn.com/apis/common/v3/sports/basketball/{league}`) –
+  per-athlete deep detail: overview, stats, gamelog, splits. Less stable
+  than site-v2; some legacy seasons return 404.
+
+A fourth host, `cdn.espn.com/core`, exists but is fully redundant with
+site-v2 `/summary` parsing and is not wrapped by wehoop.
+
+League slugs used internally:
+
+- WBB: `basketball/womens-college-basketball`
+- WNBA: `basketball/wnba`
+
+**Rate limiting.** ESPN does not publish rate limits, but requests that
+arrive faster than one per second occasionally receive HTTP 429 or
+silent empty responses. Add `Sys.sleep(1)` between calls in scripts that
+loop over many games or athletes.
+
+**Proxy.** ESPN wrappers call
+[`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
+directly. Per-call proxy override via `...` is not supported for these
+functions. Use `options(wehoop.proxy = "http://host:port")` (or a named
+list for authenticated proxies) once at the top of your session and
+every ESPN call will route through it automatically.
+
+## Endpoint surface map
+
+### Scoreboard, teams, play-by-play, and box score (original 22)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md) | Daily scoreboard with game status | `espn_wbb_scoreboard(season = 2025)` |
+| [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) | All WBB teams | [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
+| [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md) | Conference list | [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md) |
+| [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md) | AP/coaches poll rankings | [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md) |
+| [`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md) | Conference standings | `espn_wbb_standings(season = 2025)` |
+| [`espn_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_stats.md) | Team-level season stats | `espn_wbb_team_stats(season = 2025)` |
+| [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md) | Player-level season stats | `espn_wbb_player_stats(season = 2025)` |
+| [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md) | Full game summary (named list) | `espn_wbb_game_all(game_id = "401768729")` |
+| [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md) | Play-by-play | `espn_wbb_pbp(game_id = "401768729")` |
+| [`espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.md) | Team box score | `espn_wbb_team_box(game_id = "401768729")` |
+| [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.md) | Player box score | `espn_wbb_player_box(game_id = "401768729")` |
+| [`espn_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_rosters.md) | Game-day rosters | `espn_wbb_game_rosters(game_id = "401768729")` |
+| [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md) | Daily WNBA scoreboard | `espn_wnba_scoreboard(season = 2025)` |
+| [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) | All WNBA teams | [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
+| [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md) | WNBA standings | `espn_wnba_standings(season = 2025)` |
+| [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md) | Team-level season stats | `espn_wnba_team_stats(season = 2025)` |
+| [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md) | Player-level season stats | `espn_wnba_player_stats(season = 2025)` |
+| [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md) | Full game summary (named list) | `espn_wnba_game_all(game_id = "401736171")` |
+| [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md) | Play-by-play | `espn_wnba_pbp(game_id = "401736171")` |
+| [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md) | Team box score | `espn_wnba_team_box(game_id = "401736171")` |
+| [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md) | Player box score | `espn_wnba_player_box(game_id = "401736171")` |
+| [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_rosters.md) | Game-day rosters | `espn_wnba_game_rosters(game_id = "401736171")` |
+
+### Phase 1 – Reference & catalog (18 new)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wbb_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_news.md) | League news feed | `espn_wbb_news(limit = 50)` |
+| [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md) | Season calendar weeks | `espn_wbb_calendar(season = 2025)` |
+| [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md) | Single-team detail (info, record, coaches) | `espn_wbb_team(team_id = 2509, season = 2025)` |
+| [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_roster.md) | Team roster | `espn_wbb_team_roster(team_id = 2509, season = 2025)` |
+| [`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md) | Team schedule | `espn_wbb_team_schedule(team_id = 2509, season = 2025)` |
+| [`espn_wbb_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_news.md) | Team news feed | `espn_wbb_team_news(team_id = 2509, limit = 25)` |
+| [`espn_wbb_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_leaders.md) | Team statistical leaders | `espn_wbb_team_leaders(team_id = 2509, season = 2025)` |
+| [`espn_wbb_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_injuries.md) | League-wide injury report | `espn_wbb_injuries(season = 2025)` |
+| [`espn_wbb_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_injuries.md) | Team injury report | `espn_wbb_team_injuries(team_id = 2509)` |
+| [`espn_wnba_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_news.md) | League news feed | `espn_wnba_news(limit = 50)` |
+| [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md) | Season calendar weeks | `espn_wnba_calendar(season = 2025)` |
+| [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md) | Single-team detail (info, record, coaches) | `espn_wnba_team(team_id = 17, season = 2025)` |
+| [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md) | Team roster | `espn_wnba_team_roster(team_id = 17, season = 2025)` |
+| [`espn_wnba_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_schedule.md) | Team schedule | `espn_wnba_team_schedule(team_id = 17, season = 2025)` |
+| [`espn_wnba_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_news.md) | Team news feed | `espn_wnba_team_news(team_id = 17, limit = 25)` |
+| [`espn_wnba_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_leaders.md) | Team statistical leaders | `espn_wnba_team_leaders(team_id = 17, season = 2025)` |
+| [`espn_wnba_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_injuries.md) | League-wide injury report | `espn_wnba_injuries(season = 2025)` |
+| [`espn_wnba_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_injuries.md) | Team injury report | `espn_wnba_team_injuries(team_id = 17)` |
+
+### Phase 2 – Athlete coverage (16 new)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md) | Athlete bio and profile | `espn_wbb_athlete_info(athlete_id = "4433403")` |
+| [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md) | Season overview (web-common-v3) | `espn_wbb_athlete_overview(athlete_id = "4433403", season = 2025)` |
+| [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md) | Season stats by category | `espn_wbb_athlete_stats(athlete_id = "4433403", season = 2025)` |
+| [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md) | Game-by-game log | `espn_wbb_athlete_gamelog(athlete_id = "4433403", season = 2025)` |
+| [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md) | Splits by situation | `espn_wbb_athlete_splits(athlete_id = "4433403", season = 2025)` |
+| [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md) | Event log (\$ref links) \| \`espn_wbb_athlete_eventlog(athlete_id = "4433403", season = 2025)\` \| \| \`espn_wbb_athlete_awards()\` \| Awards history \| \`espn_wbb_athlete_awards(athlete_id = "4433403")\` \| \| \`espn_wbb_athlete_statisticslog()\` \| Statistics log (core-v2) \| \`espn_wbb_athlete_statisticslog(athlete_id = "4433403", season = 2025)\` \| \| \`espn_wnba_athlete_info()\` \| Athlete bio and profile \| \`espn_wnba_athlete_info(athlete_id = "3149391")\` \| \| \`espn_wnba_athlete_overview()\` \| Season overview (web-common-v3) \| \`espn_wnba_athlete_overview(athlete_id = "3149391", season = 2025)\` \| \| \`espn_wnba_athlete_stats()\` \| Season stats by category \| \`espn_wnba_athlete_stats(athlete_id = "3149391", season = 2025)\` \| \| \`espn_wnba_athlete_gamelog()\` \| Game-by-game log \| \`espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2025)\` \| \| \`espn_wnba_athlete_splits()\` \| Splits by situation \| \`espn_wnba_athlete_splits(athlete_id = "3149391", season = 2025)\` \| \| \`espn_wnba_athlete_eventlog()\` \| Event log (\$ref links) | `espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2025)` |
+| [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md) | Awards history | `espn_wnba_athlete_awards(athlete_id = "3149391")` |
+| [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md) | Statistics log (core-v2) | `espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2025)` |
+
+### Phase 3 – Event enrichment (8 new)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md) | Opening/closing lines | `espn_wbb_event_odds(event_id = "401768729")` |
+| [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md) | Win probability by play | `espn_wbb_event_probabilities(event_id = "401768729")` |
+| [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md) | Game officials | `espn_wbb_event_officials(event_id = "401768729")` |
+| [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md) | TV/radio broadcast info | `espn_wbb_event_broadcasts(event_id = "401768729")` |
+| [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md) | Opening/closing lines | `espn_wnba_event_odds(event_id = "401736171")` |
+| [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md) | Win probability by play | `espn_wnba_event_probabilities(event_id = "401736171")` |
+| [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md) | Game officials | `espn_wnba_event_officials(event_id = "401736171")` |
+| [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md) | TV/radio broadcast info | `espn_wnba_event_broadcasts(event_id = "401736171")` |
+
+### Phase 4 – WNBA-only artifacts (3 new)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md) | Draft picks by season | `espn_wnba_draft(season = 2025)` |
+| [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md) | Free agent list | `espn_wnba_freeagents(season = 2025)` |
+| [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md) | Transactions log | `espn_wnba_transactions(season = 2025, limit = 100)` |
+
+### Phase 5 – League-wide catalogs (12 new)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wbb_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_leaders.md) | Statistical leaders | `espn_wbb_leaders(season = 2025)` |
+| [`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md) | All arenas | [`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md) |
+| [`espn_wbb_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coaches.md) | All coaches | `espn_wbb_coaches(season = 2025)` |
+| [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md) | Full athlete index | `espn_wbb_athletes_index(season = 2025, limit = 50)` |
+| [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md) | All seasons on record | [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md) |
+| [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md) | Single season metadata | `espn_wbb_season_info(season = 2025)` |
+| [`espn_wnba_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_leaders.md) | Statistical leaders | `espn_wnba_leaders(season = 2025)` |
+| [`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md) | All arenas | [`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md) |
+| [`espn_wnba_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coaches.md) | All coaches | `espn_wnba_coaches(season = 2025)` |
+| [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md) | Full athlete index | `espn_wnba_athletes_index(season = 2025, limit = 50)` |
+| [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md) | All seasons on record | [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md) |
+| [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md) | Single season metadata | `espn_wnba_season_info(season = 2025)` |
+
+### Phase 6 – WNBA symmetry (1 new)
+
+| Function | Returns | Example call |
+|----|----|----|
+| [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md) | WNBA conference list | [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md) |
+
+## Phase 1 walkthrough – reference and catalog
+
+These examples use UConn (`team_id = 2509`) for WBB and the Las Vegas
+Aces (`team_id = 17`) for WNBA.
+
+### League news
+
+``` r
+
+library(wehoop)
+
+# Latest 10 WBB news items
+wbb_news <- espn_wbb_news(limit = 10)
+head(wbb_news[, c("headline", "published")])
+
+# Latest 10 WNBA news items
+wnba_news <- espn_wnba_news(limit = 10)
+head(wnba_news[, c("headline", "published")])
+```
+
+### Season calendar
+
+``` r
+
+# WBB 2025 season calendar
+wbb_cal <- espn_wbb_calendar(season = 2025)
+head(wbb_cal)
+
+# WNBA 2025 season calendar
+wnba_cal <- espn_wnba_calendar(season = 2025)
+head(wnba_cal)
+```
+
+### Team detail, roster, and schedule
+
+``` r
+
+# UConn team info (named list: Info, Record, Coaches, ...)
+uconn <- espn_wbb_team(team_id = 2509, season = 2025)
+names(uconn)
+
+# UConn 2025 roster
+uconn_roster <- espn_wbb_team_roster(team_id = 2509, season = 2025)
+head(uconn_roster[, c("athlete_display_name", "position_name", "jersey")])
+
+# UConn 2025 schedule (regular season)
+uconn_sched <- espn_wbb_team_schedule(team_id = 2509, season = 2025, season_type = 2)
+head(uconn_sched[, c("name", "date", "home_away", "score")])
+
+# Las Vegas Aces roster
+aces_roster <- espn_wnba_team_roster(team_id = 17, season = 2025)
+head(aces_roster[, c("athlete_display_name", "position_name", "jersey")])
+```
+
+### Team news and statistical leaders
+
+``` r
+
+# UConn team news
+uconn_news <- espn_wbb_team_news(team_id = 2509, limit = 5)
+head(uconn_news[, c("headline", "published")])
+
+# UConn statistical leaders for 2025
+uconn_ldrs <- espn_wbb_team_leaders(team_id = 2509, season = 2025)
+head(uconn_ldrs)
+
+# Las Vegas Aces leaders
+aces_ldrs <- espn_wnba_team_leaders(team_id = 17, season = 2025)
+head(aces_ldrs)
+```
+
+### Injury reports
+
+``` r
+
+# WNBA league-wide injuries
+wnba_inj <- espn_wnba_injuries(season = 2025)
+# WBB injuries are sparse on ESPN; an empty tibble is normal
+wbb_inj <- espn_wbb_injuries(season = 2025)
+
+# Team-level injury report
+aces_inj <- espn_wnba_team_injuries(team_id = 17)
+```
+
+## Phase 2 walkthrough – athlete deep dive
+
+The pattern: pull a roster, pick an athlete ID, then call the athlete-
+specific endpoints in sequence.
+
+``` r
+
+library(wehoop)
+library(dplyr)
+
+# Step 1 -- get UConn roster
+uconn_roster <- espn_wbb_team_roster(team_id = 2509, season = 2025)
+
+# Step 2 -- pick a player (first one returned)
+athlete_id <- uconn_roster$athlete_id[1]
+athlete_name <- uconn_roster$athlete_display_name[1]
+message("Selected: ", athlete_name, " (", athlete_id, ")")
+```
+
+``` r
+
+# Step 3 -- bio and profile
+bio <- espn_wbb_athlete_info(athlete_id = athlete_id)
+glimpse(bio)
+```
+
+``` r
+
+# Step 4 -- season overview (web-common-v3)
+overview <- espn_wbb_athlete_overview(athlete_id = athlete_id, season = 2025)
+# overview is a named list; main tables vary by season/athlete
+names(overview)
+```
+
+``` r
+
+# Step 5 -- game-by-game log
+gamelog <- espn_wbb_athlete_gamelog(athlete_id = athlete_id, season = 2025)
+head(gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")])
+```
+
+``` r
+
+# Step 6 -- splits (home/away, wins/losses, by month, ...)
+splits <- espn_wbb_athlete_splits(athlete_id = athlete_id, season = 2025)
+head(splits)
+```
+
+The same chain works for WNBA; swap `espn_wbb_*` for `espn_wnba_*` and
+use a WNBA `athlete_id` (e.g., A’ja Wilson is `"3149391"`).
+
+### Notes on Phase 2 edge cases
+
+- `espn_*_athlete_eventlog()` returns `$ref` URL columns pointing to
+  individual game stat resources. These are not auto-resolved; use
+  `espn_*_athlete_gamelog()` for pre-parsed per-game stats.
+- `espn_*_athlete_awards()` is frequently empty. Many athletes have no
+  ESPN-recorded awards; an empty tibble is the normal return, not an
+  error.
+- `espn_*_athlete_statisticslog()` (core-v2) and `_overview()`
+  (web-common-v3) may return HTTP 404 for seasons prior to roughly 2018.
+  Use `espn_*_athlete_gamelog()` for historical seasons.
+
+## Phase 3 walkthrough – event enrichment
+
+### Win-probability chart (WNBA)
+
+Combine play-by-play with win probabilities to visualize game momentum.
+Event `'401736171'` is a 2024 WNBA regular-season game.
+
+``` r
+
+library(wehoop)
+library(dplyr)
+
+game_id <- "401736171"
+
+# Play-by-play (includes clock and score for labelling)
+pbp <- espn_wnba_pbp(game_id = game_id)
+
+# Win probabilities from core-v2 (one row per scored play, up to limit)
+probs <- espn_wnba_event_probabilities(event_id = game_id, limit = 200)
+head(probs[, c("sequence_number", "home_win_percentage", "away_win_percentage")])
+```
+
+``` r
+
+library(ggplot2)
+
+# Merge by sequence number and plot
+plot_data <- probs %>%
+  mutate(seq = as.integer(sequence_number)) %>%
+  arrange(seq)
+
+ggplot(plot_data, aes(x = seq, y = as.numeric(home_win_percentage))) +
+  geom_line(color = "#221A4D", linewidth = 0.8) +
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey50") +
+  labs(
+    title = paste("Win probability --", game_id),
+    x = "Play sequence",
+    y = "Home team win probability"
+  ) +
+  theme_minimal()
+```
+
+### Odds and officials
+
+``` r
+
+# WNBA odds -- populated when ESPN carries lines for this game
+odds <- espn_wnba_event_odds(event_id = game_id)
+
+# Officials list
+officials <- espn_wnba_event_officials(event_id = game_id)
+officials[, c("full_name", "position")]
+
+# Broadcast info
+broadcasts <- espn_wnba_event_broadcasts(event_id = game_id)
+broadcasts[, c("market", "names")]
+```
+
+**WBB note.** ESPN does not carry odds for NCAA basketball games.
+Calling
+[`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md)
+returns an empty tibble – this is expected and not an error. The
+function exists for API surface symmetry so WBB and WNBA workflows have
+an identical interface.
+
+## Phase 4 walkthrough – WNBA-specific
+
+### Draft picks
+
+``` r
+
+library(wehoop)
+
+# 2025 WNBA draft
+draft_2025 <- espn_wnba_draft(season = 2025)
+head(draft_2025[, c("pick", "round", "team_name", "athlete_display_name")])
+```
+
+### Transactions
+
+``` r
+
+# Recent WNBA transactions (waiver claims, trades, signings)
+txn <- espn_wnba_transactions(season = 2025, limit = 100)
+head(txn[, c("date", "type", "athlete_display_name", "team_name")])
+```
+
+### Free agents
+
+``` r
+
+# WNBA free agents -- returns empty tibble outside the free-agency window
+fa <- espn_wnba_freeagents(season = 2025)
+nrow(fa)
+```
+
+The
+[`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md)
+call returns an empty tibble whenever the league is not in its
+free-agency window. Check `nrow(fa) > 0` before downstream processing.
+
+## Phase 5 walkthrough – league-wide catalogs
+
+### Statistical leaders
+
+``` r
+
+library(wehoop)
+
+# WNBA 2025 statistical leaders (points, rebounds, assists, ...)
+wnba_ldrs <- espn_wnba_leaders(season = 2025, season_type = 2)
+head(wnba_ldrs)
+
+# WBB 2025 statistical leaders
+wbb_ldrs <- espn_wbb_leaders(season = 2025, season_type = 2)
+head(wbb_ldrs)
+```
+
+### Venues and coaches
+
+``` r
+
+# All WNBA arenas (no season argument -- returns full historical list)
+wnba_venues <- espn_wnba_venues()
+head(wnba_venues[, c("full_name", "city", "state", "capacity")])
+
+# All WBB coaches for 2025
+wbb_coaches <- espn_wbb_coaches(season = 2025)
+head(wbb_coaches[, c("full_name", "team_name", "experience")])
+```
+
+### Athletes index
+
+The athletes index covers every player ESPN tracks for the league and
+season. The WBB index is large (potentially 6,000+ athletes); use
+`limit` to cap the initial pull or set `active = TRUE` to restrict to
+rostered players.
+
+``` r
+
+# WNBA 2025 active athletes
+wnba_athletes <- espn_wnba_athletes_index(season = 2025, active = TRUE, limit = 5000)
+nrow(wnba_athletes)
+head(wnba_athletes[, c("display_name", "position_name", "team_name")])
+
+# WBB -- cap at 50 rows for illustration; default limit = 25000
+wbb_athletes <- espn_wbb_athletes_index(season = 2025, limit = 50)
+head(wbb_athletes[, c("display_name", "position_name", "team_name")])
+```
+
+### Seasons catalog
+
+``` r
+
+# All WNBA seasons ESPN has on record
+wnba_seasons <- espn_wnba_seasons()
+head(wnba_seasons[, c("year", "start_date", "end_date")])
+
+# Season metadata for 2025 (mostly $ref URLs to sub-resources)
+wnba_s2025 <- espn_wnba_season_info(season = 2025)
+head(wnba_s2025)
+
+# Same for WBB
+wbb_seasons <- espn_wbb_seasons()
+wbb_s2025 <- espn_wbb_season_info(season = 2025)
+```
+
+### Phase 6 – WNBA conferences
+
+``` r
+
+# WNBA conference list (parity with espn_wbb_conferences())
+wnba_confs <- espn_wnba_conferences()
+wnba_confs[, c("id", "name", "short_name")]
+```
+
+## Gaps and limitations
+
+The following ESPN basketball endpoints are intentionally not wrapped by
+wehoop:
+
+| Endpoint | Reason |
+|----|----|
+| `/teams/{id}/depth-charts` | ESPN basketball does not carry depth charts |
+| `cdn.espn.com/core` game summary | Fully redundant with existing `espn_*_game_all()` parsing |
+| core-v2 `/events/{id}/plays` | Strict downgrade of `espn_*_pbp()`: requires per-play `$ref` resolution, returns less data |
+| `espn_wnba_rankings` | WNBA has no poll or rankings surface; only WBB has [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md) |
+| WBB transfer portal | Not on ESPN basketball API |
+
+Known data limitations by function:
+
+- **[`espn_wbb_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_injuries.md)**
+  and
+  **[`espn_wbb_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_injuries.md)**
+  – ESPN rarely populates injury data for college basketball. An empty
+  tibble is the common case, not an error.
+- **[`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md)**
+  – ESPN does not carry betting lines for NCAA games. Always returns an
+  empty tibble.
+- **[`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md)**
+  – empty outside the free-agency window.
+- **`espn_*_athlete_awards()`** – sparse; most athletes have no
+  ESPN-recorded awards.
+- **`espn_*_athlete_eventlog()`** – returns `$ref` URL columns, not
+  parsed stats. Use `espn_*_athlete_gamelog()` for game statistics.
+- **`espn_*_season_info()`** – payload consists mostly of `$ref` URLs to
+  sub-resources; use `espn_*_seasons()` for a more useful tabular view.
+- **web-common-v3 endpoints** (`_athlete_overview`, `_athlete_stats`,
+  `_athlete_gamelog`, `_athlete_splits`) – less stable than site-v2; may
+  return HTTP 404 for legacy seasons or less-prominent athletes.
+- **`espn_*_athletes_index()`** for WBB – the full index can be 10,000+
+  rows for current seasons. The default `limit = 25000` paginates
+  internally. Set `limit = 50` or `limit = 100` for quick exploratory
+  pulls.
