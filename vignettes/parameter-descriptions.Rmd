@@ -1,5 +1,13 @@
 ---
 title: "WNBA Stats API Parameter Descriptions"
+description: "A searchable reference table of every query parameter used by the WNBA Stats API endpoints wrapped in <code>wehoop</code> -- parameter name, description, accepted values, and which functions accept it."
+author: "Saiem Gilani <br><a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+opengraph:
+  image:
+    src: "https://github.com/sportsdataverse/wehoop-data/blob/main/themes/wehoop_gh.png?raw=true"
+  twitter:
+    card: summary_large_image
+    creator: "@saiemgilani"
 ---
 
 ```{r, include = FALSE}

@@ -1,6 +1,13 @@
 ---
 title: "ESPN basketball endpoints -- WBB & WNBA"
-author: "Saiem Gilani"
+description: "A tour of the 80 ESPN basketball endpoint wrappers in <code>wehoop</code>, grouped by use case: game data, team detail, athlete coverage, per-event enrichments, league-wide catalogs, and WNBA-specific draft/transactions/free-agency endpoints."
+author: "Saiem Gilani <br><a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+opengraph:
+  image:
+    src: "https://github.com/sportsdataverse/wehoop-data/blob/main/themes/wehoop_gh.png?raw=true"
+  twitter:
+    card: summary_large_image
+    creator: "@saiemgilani"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
