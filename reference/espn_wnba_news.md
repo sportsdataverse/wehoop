@@ -93,14 +93,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-06 00:20:13 UTC
+#> ℹ Data updated: 2026-05-06 01:29:40 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  4.87e7 Head… WNBA GM… The annual… 2026-05-… FALSE   Micha… https:/… 59       
-#> 2  4.87e7 Story WNBA 20… Where do a… 2026-05-… FALSE   Micha… https:/… 59       
-#> 3  4.84e7 Story Fantasy… Plan for t… 2026-05-… FALSE   ESPN … https:/… 59       
-#> 4  4.87e7 Story Dominan… Fantasy ex… 2026-05-… FALSE   Steph… https:/… 59       
-#> 5  4.87e7 Head… WNBA st… Tina Charl… 2026-05-… FALSE   NA     https:/… 59       
+#> 1  4.87e7 Head… Valkyri… Three week… 2026-05-… FALSE   Kendr… https:/… 59       
+#> 2  4.87e7 Head… WNBA GM… The annual… 2026-05-… FALSE   Micha… https:/… 59       
+#> 3  4.87e7 Story WNBA 20… Where do a… 2026-05-… FALSE   Micha… https:/… 59       
+#> 4  4.84e7 Story Fantasy… Plan for t… 2026-05-… FALSE   ESPN … https:/… 59       
+#> 5  4.87e7 Story Dominan… Fantasy ex… 2026-05-… FALSE   Steph… https:/… 59       
 # }
 ```
