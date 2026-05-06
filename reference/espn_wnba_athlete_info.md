@@ -138,9 +138,57 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_athlete_info(athlete_id = "3149391")
-#> ✖ 2026-05-06 01:43:51.12406: Failed to retrieve ESPN wnba athlete info for athlete_id=3149391
-#> ✖ Args: league = "wnba", athlete_id = "3149391"
-#> ✖ Error: The API returned an error
-#> list()
+#> $Bio
+#> ── ESPN WNBA Athlete Bio from ESPN.com ───────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:26 UTC
+#> # A tibble: 1 × 20
+#>   id      uid       guid  first_name last_name full_name display_name short_name
+#>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
+#> 1 3149391 s:40~l:5… 9d04… A'ja       Wilson    A'ja Wil… A'ja Wilson  A. Wilson 
+#> # ℹ 12 more variables: weight <dbl>, display_weight <chr>, height <dbl>,
+#> #   display_height <chr>, age <int>, date_of_birth <chr>, jersey <chr>,
+#> #   active <lgl>, headshot_href <chr>, birth_city <chr>, birth_state <chr>,
+#> #   birth_country <chr>
+#> 
+#> $Team
+#> ── ESPN WNBA Athlete Team from ESPN.com ──────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:26 UTC
+#> # A tibble: 1 × 1
+#>   x_ref                                                                         
+#>   <chr>                                                                         
+#> 1 http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/202…
+#> 
+#> $Position
+#> ── ESPN WNBA Athlete Position from ESPN.com ──────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:26 UTC
+#> # A tibble: 1 × 5
+#>   id    name   display_name abbreviation leaf 
+#>   <chr> <chr>  <chr>        <chr>        <lgl>
+#> 1 9     Center Center       C            FALSE
+#> 
+#> $Status
+#> ── ESPN WNBA Athlete Status from ESPN.com ────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:26 UTC
+#> # A tibble: 1 × 4
+#>   id    name   type   abbreviation
+#>   <chr> <chr>  <chr>  <chr>       
+#> 1 1     Active active Active      
+#> 
+#> $College
+#> ── ESPN WNBA Athlete College from ESPN.com ───────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:26 UTC
+#> # A tibble: 1 × 1
+#>   x_ref                                                             
+#>   <chr>                                                             
+#> 1 http://sports.core.api.espn.com/v2/colleges/2579?lang=en&region=us
+#> 
+#> $Draft
+#> ── ESPN WNBA Athlete Draft from ESPN.com ─────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:26 UTC
+#> # A tibble: 1 × 4
+#>   year  round selection display_text               
+#>   <chr> <chr> <chr>     <chr>                      
+#> 1 2018  1     1         Year: 2018 Round: 1 Pick: 1
+#> 
 # }
 ```

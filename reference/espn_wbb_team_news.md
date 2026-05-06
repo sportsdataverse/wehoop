@@ -96,7 +96,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_news(team_id = "2509", limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team News (team_id=2509) from ESPN.com ───────
-#> ℹ Data updated: 2026-05-06 01:43:46 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-05-06 04:51:22 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  3.99e7 Story Women's… UCLA's Lau… 2026-04-… FALSE   ESPN   https:/… 54       
+#> 2  4.42e7 Story NCAA wo… Conference… 2026-03-… FALSE   ESPN   https:/… 54       
+#> 3  4.81e7 Recap Fiso sc… — Katie Fi… 2026-03-… FALSE   NA     http://… 54       
+#> 4  4.81e7 Media Purdue … Purdue Boi… 2026-03-… FALSE   NA     https:/… 54       
+#> 5  4.80e7 Media Oregon … Oregon Duc… 2026-02-… FALSE   NA     https:/… 54       
 # }
 ```

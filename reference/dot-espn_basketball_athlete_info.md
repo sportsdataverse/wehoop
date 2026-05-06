@@ -1,9 +1,11 @@
 # Internal: ESPN basketball athlete info
 
 Fetches
-`site.api.espn.com/apis/site/v2/sports/basketball/{league}/athletes/{athlete_id}`
+`sports.core.api.espn.com/v2/sports/basketball/leagues/{league}/athletes/{athlete_id}`
 and returns a named list of tibbles: `Bio`, `Team`, `Position`,
-`Status`, `College`, `Draft`.
+`Status`, `College`, `Draft`. The legacy
+`site.api.espn.com/apis/site/v2/...` path was discontinued and now 404s
+for both leagues.
 
 ## Usage
 

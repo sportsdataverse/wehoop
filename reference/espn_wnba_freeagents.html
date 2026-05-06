@@ -118,8 +118,11 @@ forward compatibility. Proxy configuration should use
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Calls the ESPN core-v2 endpoint
 <code>https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/freeagents</code>.
-Outside the free-agent window the endpoint typically returns an empty list;
-the function returns an empty tibble rather than erroring in that case.</p>
+As of 2026-05, this endpoint returns HTTP 500 for every season tested and
+there is no documented replacement; the function consequently returns an
+empty tibble and emits a CLI error message. It is retained so that downstream
+code does not break if ESPN restores the endpoint, but should not be relied
+on in the meantime.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -174,7 +177,7 @@ the function returns an empty tibble rather than erroring in that case.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_freeagents</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-05-06 01:43:56.370179: Failed to retrieve ESPN WNBA free agents for season 2025</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-05-06 04:51:32.012679: Failed to retrieve ESPN WNBA free agents for season 2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: season = 2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>

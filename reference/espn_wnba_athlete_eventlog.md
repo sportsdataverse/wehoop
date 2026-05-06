@@ -92,9 +92,21 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
-#> ✖ 2026-05-06 01:43:50.111735: Failed to retrieve ESPN wnba athlete eventlog for athlete_id=3149391, season=2024
-#> ✖ Args: league = "wnba", athlete_id = "3149391", season = 2024
-#> ✖ Error: The API returned an error
-#> NULL
+#> ── ESPN WNBA Athlete Eventlog from ESPN.com ──────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:25 UTC
+#> # A tibble: 25 × 6
+#>    event_ref              competition_ref team_ref statistics_ref team_id played
+#>    <chr>                  <chr>           <chr>    <chr>          <chr>   <lgl> 
+#>  1 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  2 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  3 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  4 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  5 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  6 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  7 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  8 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#>  9 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#> 10 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#> # ℹ 15 more rows
 # }
 ```

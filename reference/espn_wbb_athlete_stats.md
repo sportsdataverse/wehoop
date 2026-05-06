@@ -82,10 +82,72 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_stats(athlete_id = "4432755", season = 2025)
-#> ✖ 2026-05-06 01:43:28.658321: Failed to retrieve ESPN womens-college-basketball athlete stats for athlete_id=4432755, season=2025
-#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755", season = 2025
-#> ✖ Error: The API returned an error
-#> list()
+  espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
+#> $`Season Averages`
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 5 × 5
+#>   team_id team_slug           season$year $displayName stats      position
+#>   <chr>   <chr>                     <int> <chr>        <list>     <chr>   
+#> 1 66      iowa-state-cyclones        2021 2020-21      <chr [18]> G       
+#> 2 2294    iowa-hawkeyes              2022 2021-22      <chr [18]> G       
+#> 3 2294    iowa-hawkeyes              2024 2023-24      <chr [18]> G       
+#> 4 2294    iowa-hawkeyes              2025 2024-25      <chr [18]> G       
+#> 5 2294    iowa-hawkeyes              2026 2025-26      <chr [18]> G       
+#> 
+#> $`Season Totals`
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 5 × 5
+#>   team_id team_slug           season$year $displayName stats      position
+#>   <chr>   <chr>                     <int> <chr>        <list>     <chr>   
+#> 1 66      iowa-state-cyclones        2021 2020-21      <chr [15]> G       
+#> 2 2294    iowa-hawkeyes              2022 2021-22      <chr [15]> G       
+#> 3 2294    iowa-hawkeyes              2024 2023-24      <chr [15]> G       
+#> 4 2294    iowa-hawkeyes              2025 2024-25      <chr [15]> G       
+#> 5 2294    iowa-hawkeyes              2026 2025-26      <chr [15]> G       
+#> 
+#> $`Season Misc Totals`
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 5 × 5
+#>   team_id team_slug           season$year $displayName stats     position
+#>   <chr>   <chr>                     <int> <chr>        <list>    <chr>   
+#> 1 66      iowa-state-cyclones        2021 2020-21      <chr [9]> G       
+#> 2 2294    iowa-hawkeyes              2022 2021-22      <chr [9]> G       
+#> 3 2294    iowa-hawkeyes              2024 2023-24      <chr [9]> G       
+#> 4 2294    iowa-hawkeyes              2025 2024-25      <chr [9]> G       
+#> 5 2294    iowa-hawkeyes              2026 2025-26      <chr [9]> G       
+#> 
+#> $General
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Offensive
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Defensive
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Rebounding
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Shooting
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Misc
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 0 × 0
+#> 
 # }
 ```

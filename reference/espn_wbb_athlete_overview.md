@@ -119,10 +119,47 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_overview(athlete_id = "4432755", season = 2025)
-#> ✖ 2026-05-06 01:43:27.804349: Failed to retrieve ESPN womens-college-basketball athlete overview for athlete_id=4432755, season=2025
-#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755", season = 2025
-#> ✖ Error: The API returned an error
-#> list()
+  espn_wbb_athlete_overview(athlete_id = "4433985", season = 2025)
+#> $Statistics
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────
+#> ℹ Data updated: 2026-05-06 04:51:03 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $NextGame
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────
+#> ℹ Data updated: 2026-05-06 04:51:03 UTC
+#> # A tibble: 1 × 4
+#>   id    date  name  short_name
+#>   <chr> <chr> <chr> <chr>     
+#> 1 NA    NA    NA    NA        
+#> 
+#> $Last5Games
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────
+#> ℹ Data updated: 2026-05-06 04:51:03 UTC
+#> # A tibble: 0 × 0
+#> 
+#> $Headlines
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────
+#> ℹ Data updated: 2026-05-06 04:51:03 UTC
+#> # A tibble: 26 × 5
+#>    headline                                   description published byline type 
+#>    <chr>                                      <chr>       <chr>     <chr>  <chr>
+#>  1 Kylie Feuerbach hits the shot vs. Illinoi… Kylie Feue… 2026-03-… NA     Media
+#>  2 What a shot by Kylie Feuerbach             Kylie Feue… 2026-02-… NA     Media
+#>  3 Iowa Hawkeyes vs. Purdue Boilermakers: Ga… Iowa Hawke… 2026-02-… NA     Media
+#>  4 What a shot by Kylie Feuerbach             What a sho… 2026-02-… NA     Media
+#>  5 Michigan State Spartans vs. Iowa Hawkeyes… Michigan S… 2026-01-… NA     Media
+#>  6 Kylie Feuerbach drills basket vs. Michiga… Kylie Feue… 2026-01-… NA     Media
+#>  7 Kylie Feuerbach beats the 1st-quarter buz… Kylie Feue… 2025-12-… NA     Media
+#>  8 Miami Hurricanes vs. Iowa Hawkeyes: Game … Miami Hurr… 2025-11-… NA     Media
+#>  9 Kylie Feuerbach hits a 3 for Iowa          Kylie Feue… 2025-03-… NA     Media
+#> 10 Ohio State Buckeyes vs. Iowa Hawkeyes - G… Watch the … 2025-03-… NA     Media
+#> # ℹ 16 more rows
+#> 
+#> $FantasyOutlook
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com 
+#> ℹ Data updated: 2026-05-06 04:51:03 UTC
+#> # A tibble: 0 × 0
+#> 
 # }
 ```

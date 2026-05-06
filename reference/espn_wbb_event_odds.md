@@ -94,7 +94,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_event_odds(event_id = "401735229")
-#> ✖ 2026-05-06 01:43:32.682101: Failed to retrieve ESPN womens-college-basketball event odds for event_id=401735229
+#> ✖ 2026-05-06 04:51:08.972164: Failed to retrieve ESPN womens-college-basketball event odds for event_id=401735229
 #> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
 #> ✖ Error: The API returned an error
 #> NULL

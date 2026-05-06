@@ -113,14 +113,17 @@ forward compatibility. Proxy configuration should use
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>wehoop_data</code> tibble with one row per draft pick:</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>round</td><td>integer</td></tr><tr><td>pick</td><td>integer</td></tr><tr><td>overall</td><td>integer</td></tr><tr><td>team_id</td><td>character</td></tr><tr><td>athlete_id</td><td>character</td></tr><tr><td>athlete_name</td><td>character</td></tr><tr><td>position</td><td>character</td></tr><tr><td>college</td><td>character</td></tr></table></div>
+    <p>A <code>wehoop_data</code> tibble with one row per draft pick:</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>round</td><td>integer</td></tr><tr><td>pick</td><td>integer</td></tr><tr><td>overall</td><td>integer</td></tr><tr><td>traded</td><td>logical</td></tr><tr><td>trade_note</td><td>character</td></tr><tr><td>status</td><td>character</td></tr><tr><td>athlete_id</td><td>character</td></tr><tr><td>athlete_ref</td><td>character</td></tr><tr><td>team_id</td><td>character</td></tr><tr><td>team_ref</td><td>character</td></tr></table><p>Athlete and team details (name, position, college, abbreviation) are not
+inlined in the draft response; resolve them via <code><a href="espn_wnba_athlete_info.html">espn_wnba_athlete_info()</a></code>
+or <code><a href="espn_wnba_team.html">espn_wnba_team()</a></code> using the returned IDs.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Calls the ESPN core-v2 endpoint
-<code>https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/draft</code>.
-Paginates over all pages (capped at 20 pages) and returns a single flat
-tibble. Outside the draft window, or for historical seasons with no ESPN
-draft data, the function returns an empty tibble rather than erroring.</p>
+<code>https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/draft/rounds</code>,
+which returns each round of the draft with its picks inlined as <code>picks: [...]</code>.
+For historical seasons with no ESPN draft data the function returns an empty
+tibble rather than erroring.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -176,8 +179,22 @@ draft data, the function returns an empty tibble rather than erroring.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_draft</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Draft Picks from ESPN.com ───────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-06 01:43:54 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-06 04:51:30 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 36 × 11</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    season round  pick overall traded trade_note    status athlete_id athlete_ref</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>024     1     1       1 FALSE  <span style="color: #BB0000;">NA</span>            SELEC… 108565     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>024     1     2       2 FALSE  <span style="color: #BB0000;">NA</span>            SELEC… 108566     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>024     1     3       3 TRUE   From PHX      SELEC… 108569     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>024     1     4       4 TRUE   From SEA      SELEC… 108567     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>024     1     5       5 TRUE   From CHI      SELEC… 108570     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>024     1     6       6 FALSE  <span style="color: #BB0000;">NA</span>            SELEC… 108568     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>024     1     7       7 TRUE   From MIN      SELEC… 108572     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>024     1     8       8 TRUE   From CHI via… SELEC… 108574     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>024     1     9       9 FALSE  <span style="color: #BB0000;">NA</span>            SELEC… 108581     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>024     1    10      10 FALSE  <span style="color: #BB0000;">NA</span>            SELEC… 108577     http://spo…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 26 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: team_id &lt;chr&gt;, team_ref &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -80,10 +80,12 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_splits(athlete_id = "4432755", season = 2025)
-#> ✖ 2026-05-06 01:43:28.124814: Failed to retrieve ESPN womens-college-basketball athlete splits for athlete_id=4432755, season=2025
-#> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755", season = 2025
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_athlete_splits(athlete_id = "4433985", season = 2025)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Splits from ESPN.com ─────────────────
+#> ℹ Data updated: 2026-05-06 04:51:04 UTC
+#> # A tibble: 1 × 3
+#>   name  display_name splits      
+#>   <chr> <chr>        <list>      
+#> 1 split split        <df [2 × 3]>
 # }
 ```
