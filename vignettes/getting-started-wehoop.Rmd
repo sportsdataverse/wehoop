@@ -282,7 +282,6 @@ The WNBA Stats API wrappers also accept a per-call `proxy =` argument that takes
 - [**ESPN basketball endpoints vignette**](espn-endpoints.html) -- a guided tour of all 80 ESPN wrappers, grouped by use case.
 - [**Parameter descriptions reference**](parameter-descriptions.html) -- searchable table of every WNBA Stats API query parameter.
 - [**`wehoop` reference index**](https://wehoop.sportsdataverse.org/reference/) -- every exported function, organized by data family.
-- [**SportsDataverse Discord**](https://discord.gg/sportsdataverse) -- the community Discord, where most active users hang out.
 - The [`hoopR`](https://hoopr.sportsdataverse.org), [`cfbfastR`](https://cfbfastR.sportsdataverse.org), and [`fastRhockey`](https://fastrhockey.sportsdataverse.org) packages share the same idioms and many of the same column conventions, if you work across multiple sports.
 
 If you build something interesting with `wehoop`, please share it -- DM me on X ([\@saiemgilani](https://x.com/saiemgilani)) or open a discussion on [GitHub](https://github.com/sportsdataverse/wehoop/discussions). The package gets meaningfully better when users tell us what's missing.

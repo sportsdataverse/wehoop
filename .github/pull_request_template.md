@@ -40,7 +40,7 @@
 Help future team members understand the full picture:
 - What problem or need prompted this change?
 - What was the previous state/behavior?
-- Link to any relevant Discord threads, or discussions
+- Link to any relevant threads or discussions
 - Are there any known limitations or technical debt introduced?
 -->
 
