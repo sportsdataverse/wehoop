@@ -98,7 +98,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_calendar(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Calendar from ESPN.com ─────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-05 23:25:04 UTC
+#> ℹ Data updated: 2026-05-05 23:57:45 UTC
 #> # A tibble: 116 × 12
 #>    season season_type season_type_label season_start_date season_end_date  
 #>    <chr>  <chr>       <chr>             <chr>             <chr>            

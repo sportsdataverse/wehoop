@@ -89,7 +89,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_awards(athlete_id = "3149391")
 #> ── ESPN WNBA Athlete Awards from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-05 23:25:24 UTC
+#> ℹ Data updated: 2026-05-05 23:58:03 UTC
 #> # A tibble: 22 × 7
 #>    season award_id name  description date  type  ref_url                        
 #>    <chr>  <chr>    <chr> <chr>       <chr> <chr> <chr>                          

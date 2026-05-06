@@ -91,7 +91,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_coaches(season = 2025)
 #> ── ESPN WNBA Coaches from ESPN.com ───────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-05 23:25:28 UTC
+#> ℹ Data updated: 2026-05-05 23:58:08 UTC
 #> # A tibble: 13 × 6
 #>    coach_id first_name last_name full_name experience team_id
 #>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  

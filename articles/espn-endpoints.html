@@ -17,6 +17,12 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="ESPN basketball endpoints -- WBB &amp; WNBA">
+<meta name="description" content="A tour of the 80 ESPN basketball endpoint wrappers in &lt;code&gt;wehoop&lt;/code&gt;, grouped by use case: game data, team detail, athlete coverage, per-event enrichments, league-wide catalogs, and WNBA-specific draft/transactions/free-agency endpoints.">
+<meta property="og:description" content="A tour of the 80 ESPN basketball endpoint wrappers in &lt;code&gt;wehoop&lt;/code&gt;, grouped by use case: game data, team detail, athlete coverage, per-event enrichments, league-wide catalogs, and WNBA-specific draft/transactions/free-agency endpoints.">
+<meta property="og:image" content="https://github.com/sportsdataverse/wehoop-data/blob/main/themes/wehoop_gh.png?raw=true">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@saiemgilani">
+<meta name="twitter:site" content="@sportsdataverse">
 <script defer data-domain="wehoop.sportsdataverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -116,8 +122,10 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>ESPN basketball endpoints -- WBB &amp; WNBA</h1>
-                        <h4 data-toc-skip class="author">Saiem
-Gilani</h4>
+                        <h4 data-toc-skip class="author">Saiem Gilani
+<br><a href="https://x.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
+</h4>
             
             <h4 data-toc-skip class="date">2026-05-05</h4>
       
@@ -128,562 +136,477 @@ Gilani</h4>
     
     
 <div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<h2 id="what-this-vignette-covers">What this vignette covers<a class="anchor" aria-label="anchor" href="#what-this-vignette-covers"></a>
 </h2>
-<p>wehoop wraps three ESPN API families for women’s basketball – no
-authentication required for any of them:</p>
-<ul>
-<li>
-<strong>site-v2</strong>
-(<code>site.api.espn.com/apis/site/v2/sports/basketball/{league}</code>)
-– scoreboards, teams, rosters, schedules, news, injuries, standings,
-player and team stats. The most stable surface.</li>
-<li>
-<strong>core-v2</strong>
-(<code>sports.core.api.espn.com/v2/sports/basketball/{league}</code>) –
-athletes index, event detail (odds, probabilities, officials,
-broadcasts), seasons catalog, venues, coaches, draft/transactions
-(WNBA). Uses <code>$ref</code> pagination for large collections.</li>
-<li>
-<strong>web-common-v3</strong>
-(<code>site.web.api.espn.com/apis/common/v3/sports/basketball/{league}</code>)
-– per-athlete deep detail: overview, stats, gamelog, splits. Less stable
-than site-v2; some legacy seasons return 404.</li>
-</ul>
-<p>A fourth host, <code>cdn.espn.com/core</code>, exists but is fully
-redundant with site-v2 <code>/summary</code> parsing and is not wrapped
-by wehoop.</p>
-<p>League slugs used internally:</p>
-<ul>
-<li>WBB: <code>basketball/womens-college-basketball</code>
-</li>
-<li>WNBA: <code>basketball/wnba</code>
-</li>
-</ul>
-<p><strong>Rate limiting.</strong> ESPN does not publish rate limits,
-but requests that arrive faster than one per second occasionally receive
-HTTP 429 or silent empty responses. Add <code>Sys.sleep(1)</code>
-between calls in scripts that loop over many games or athletes.</p>
-<p><strong>Proxy.</strong> ESPN wrappers call
-<code><a href="../reference/dot-retry_request.html">.retry_request()</a></code> directly. Per-call proxy override via
-<code>...</code> is not supported for these functions. Use
-<code>options(wehoop.proxy = "http://host:port")</code> (or a named list
-for authenticated proxies) once at the top of your session and every
-ESPN call will route through it automatically.</p>
+<p>If you’ve used <code>wehoop</code> before, you’ve probably reached
+for <code><a href="../reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code>, <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code>, and the
+box score wrappers. Those get you the bulk of any analysis built around
+individual games. The package now also wraps a much wider slice of
+ESPN’s basketball API – team rosters, schedules, league news, athlete
+biographies and gamelogs, in-game win probabilities, officials,
+broadcast info, the WNBA draft, free agency, transactions, and
+league-wide catalogs of venues, coaches, and statistical leaders. Eighty
+ESPN endpoint wrappers in total, split roughly evenly between women’s
+college basketball (<code>espn_wbb_*</code>) and the WNBA
+(<code>espn_wnba_*</code>).</p>
+<p>This vignette is a tour of what’s available and how to compose the
+pieces. None of the chunks evaluate during <code>R CMD check</code> –
+they all hit the live ESPN API – but every one of them works when you
+copy it into an interactive session.</p>
 </div>
 <div class="section level2">
-<h2 id="endpoint-surface-map">Endpoint surface map<a class="anchor" aria-label="anchor" href="#endpoint-surface-map"></a>
+<h2 id="a-note-on-the-api-surface">A note on the API surface<a class="anchor" aria-label="anchor" href="#a-note-on-the-api-surface"></a>
 </h2>
+<p>ESPN exposes basketball data through three public, unauthenticated
+API hosts, and <code>wehoop</code> reaches into each:</p>
+<ul>
+<li>
+<strong><code>site.api.espn.com/apis/site/v2/sports/basketball/{league}</code></strong>
+is the most stable. It serves scoreboards, teams, rosters, schedules,
+news, injuries, standings, and player and team season stats.</li>
+<li>
+<strong><code>sports.core.api.espn.com/v2/sports/basketball/{league}</code></strong>
+carries the deeper resources: athlete indexes, per-event detail (odds,
+win probabilities, officials, broadcasts), seasons, venues, coaches, the
+WNBA draft, and transactions. Big collections paginate via
+<code>$ref</code> links.</li>
+<li>
+<strong><code>site.web.api.espn.com/apis/common/v3/sports/basketball/{league}</code></strong>
+carries per-athlete deep detail – season overview, stats by category,
+game-by-game logs, situational splits. It’s the least stable of the
+three; older seasons sometimes return 404, and not every athlete is
+represented.</li>
+</ul>
+<p>There’s a fourth host (<code>cdn.espn.com/core</code>) that surfaces
+the same information as the site-v2 <code>/summary</code> endpoint we
+already parse, so we don’t wrap it.</p>
+<p>The league slugs in URL paths are
+<code>womens-college-basketball</code> and <code>wnba</code>. Those only
+matter if you’re building requests by hand.</p>
+<p><strong>Rate limits.</strong> ESPN doesn’t publish them. In practice,
+requests arriving faster than about one per second occasionally come
+back as HTTP 429 or as silently empty payloads. If you’re looping over
+many games or athletes, drop a <code>Sys.sleep(1)</code> between
+calls.</p>
+<p><strong>Proxies.</strong> ESPN wrappers don’t accept a per-call
+<code>proxy =</code> argument; they call into the package’s HTTP layer
+directly. Set the proxy once at the top of your session with
+<code>options(wehoop.proxy = "http://host:port")</code> (or a list, for
+authenticated proxies) and every ESPN call will pick it up
+automatically.</p>
+</div>
+<div class="section level2">
+<h2 id="whats-available-by-use-case">What’s available, by use case<a class="anchor" aria-label="anchor" href="#whats-available-by-use-case"></a>
+</h2>
+<p>The tables below are grouped by what you’re likely trying to do.
+Function names are clickable on the pkgdown reference.</p>
 <div class="section level3">
-<h3 id="scoreboard-teams-play-by-play-and-box-score-original-22">Scoreboard, teams, play-by-play, and box score (original 22)<a class="anchor" aria-label="anchor" href="#scoreboard-teams-play-by-play-and-box-score-original-22"></a>
+<h3 id="game-data">Game data<a class="anchor" aria-label="anchor" href="#game-data"></a>
 </h3>
+<p>These all key off <code>game_id</code> (also called
+<code>event_id</code> in some endpoints – they’re the same thing).</p>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th>Function</th>
 <th>Returns</th>
-<th>Example call</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_scoreboard.html">espn_wbb_scoreboard()</a></code></td>
-<td>Daily scoreboard with game status</td>
-<td><code>espn_wbb_scoreboard(season = 2025)</code></td>
+<td>
+<code><a href="../reference/espn_wbb_game_all.html">espn_wbb_game_all()</a></code> /
+<code><a href="../reference/espn_wnba_game_all.html">espn_wnba_game_all()</a></code>
+</td>
+<td>Full game summary as a named list</td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_teams.html">espn_wbb_teams()</a></code></td>
-<td>All WBB teams</td>
-<td><code><a href="../reference/espn_wbb_teams.html">espn_wbb_teams()</a></code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_conferences.html">espn_wbb_conferences()</a></code></td>
-<td>Conference list</td>
-<td><code><a href="../reference/espn_wbb_conferences.html">espn_wbb_conferences()</a></code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_rankings.html">espn_wbb_rankings()</a></code></td>
-<td>AP/coaches poll rankings</td>
-<td><code><a href="../reference/espn_wbb_rankings.html">espn_wbb_rankings()</a></code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_standings.html">espn_wbb_standings()</a></code></td>
-<td>Conference standings</td>
-<td><code>espn_wbb_standings(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_team_stats.html">espn_wbb_team_stats()</a></code></td>
-<td>Team-level season stats</td>
-<td><code>espn_wbb_team_stats(season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_player_stats.html">espn_wbb_player_stats()</a></code></td>
-<td>Player-level season stats</td>
-<td><code>espn_wbb_player_stats(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_game_all.html">espn_wbb_game_all()</a></code></td>
-<td>Full game summary (named list)</td>
-<td><code>espn_wbb_game_all(game_id = "401768729")</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code></td>
+<td>
+<code><a href="../reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code> / <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code>
+</td>
 <td>Play-by-play</td>
-<td><code>espn_wbb_pbp(game_id = "401768729")</code></td>
 </tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_team_box.html">espn_wbb_team_box()</a></code></td>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_team_box.html">espn_wbb_team_box()</a></code> /
+<code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code>
+</td>
 <td>Team box score</td>
-<td><code>espn_wbb_team_box(game_id = "401768729")</code></td>
 </tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_player_box.html">espn_wbb_player_box()</a></code></td>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_player_box.html">espn_wbb_player_box()</a></code> /
+<code><a href="../reference/espn_wnba_player_box.html">espn_wnba_player_box()</a></code>
+</td>
 <td>Player box score</td>
-<td><code>espn_wbb_player_box(game_id = "401768729")</code></td>
 </tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code></td>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code> /
+<code><a href="../reference/espn_wnba_game_rosters.html">espn_wnba_game_rosters()</a></code>
+</td>
 <td>Game-day rosters</td>
-<td><code>espn_wbb_game_rosters(game_id = "401768729")</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_scoreboard.html">espn_wnba_scoreboard()</a></code></td>
-<td>Daily WNBA scoreboard</td>
-<td><code>espn_wnba_scoreboard(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_teams.html">espn_wnba_teams()</a></code></td>
-<td>All WNBA teams</td>
-<td><code><a href="../reference/espn_wnba_teams.html">espn_wnba_teams()</a></code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_standings.html">espn_wnba_standings()</a></code></td>
-<td>WNBA standings</td>
-<td><code>espn_wnba_standings(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_team_stats.html">espn_wnba_team_stats()</a></code></td>
-<td>Team-level season stats</td>
-<td><code>espn_wnba_team_stats(season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_player_stats.html">espn_wnba_player_stats()</a></code></td>
-<td>Player-level season stats</td>
-<td><code>espn_wnba_player_stats(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_game_all.html">espn_wnba_game_all()</a></code></td>
-<td>Full game summary (named list)</td>
-<td><code>espn_wnba_game_all(game_id = "401736171")</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code></td>
-<td>Play-by-play</td>
-<td><code>espn_wnba_pbp(game_id = "401736171")</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code></td>
-<td>Team box score</td>
-<td><code>espn_wnba_team_box(game_id = "401736171")</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_player_box.html">espn_wnba_player_box()</a></code></td>
-<td>Player box score</td>
-<td><code>espn_wnba_player_box(game_id = "401736171")</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_game_rosters.html">espn_wnba_game_rosters()</a></code></td>
-<td>Game-day rosters</td>
-<td><code>espn_wnba_game_rosters(game_id = "401736171")</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section level3">
-<h3 id="phase-1-reference-catalog-18-new">Phase 1 – Reference &amp; catalog (18 new)<a class="anchor" aria-label="anchor" href="#phase-1-reference-catalog-18-new"></a>
+<h3 id="scoreboard-conferences-and-league-reference">Scoreboard, conferences, and league reference<a class="anchor" aria-label="anchor" href="#scoreboard-conferences-and-league-reference"></a>
 </h3>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th>Function</th>
 <th>Returns</th>
-<th>Example call</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_news.html">espn_wbb_news()</a></code></td>
-<td>League news feed</td>
-<td><code>espn_wbb_news(limit = 50)</code></td>
+<td>
+<code><a href="../reference/espn_wbb_scoreboard.html">espn_wbb_scoreboard()</a></code> /
+<code><a href="../reference/espn_wnba_scoreboard.html">espn_wnba_scoreboard()</a></code>
+</td>
+<td>Daily scoreboard</td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_calendar.html">espn_wbb_calendar()</a></code></td>
+<td>
+<code><a href="../reference/espn_wbb_teams.html">espn_wbb_teams()</a></code> / <code><a href="../reference/espn_wnba_teams.html">espn_wnba_teams()</a></code>
+</td>
+<td>All teams</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_conferences.html">espn_wbb_conferences()</a></code> /
+<code><a href="../reference/espn_wnba_conferences.html">espn_wnba_conferences()</a></code>
+</td>
+<td>Conferences</td>
+</tr>
+<tr class="even">
+<td><code><a href="../reference/espn_wbb_rankings.html">espn_wbb_rankings()</a></code></td>
+<td>AP / coaches poll (WBB only – WNBA has no poll)</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_standings.html">espn_wbb_standings()</a></code> /
+<code><a href="../reference/espn_wnba_standings.html">espn_wnba_standings()</a></code>
+</td>
+<td>Conference / league standings</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_news.html">espn_wbb_news()</a></code> / <code><a href="../reference/espn_wnba_news.html">espn_wnba_news()</a></code>
+</td>
+<td>League-wide news feed</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_calendar.html">espn_wbb_calendar()</a></code> /
+<code><a href="../reference/espn_wnba_calendar.html">espn_wnba_calendar()</a></code>
+</td>
 <td>Season calendar weeks</td>
-<td><code>espn_wbb_calendar(season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_team.html">espn_wbb_team()</a></code></td>
-<td>Single-team detail (info, record, coaches)</td>
-<td><code>espn_wbb_team(team_id = 2509, season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_team_roster.html">espn_wbb_team_roster()</a></code></td>
-<td>Team roster</td>
-<td><code>espn_wbb_team_roster(team_id = 2509, season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_team_schedule.html">espn_wbb_team_schedule()</a></code></td>
-<td>Team schedule</td>
-<td><code>espn_wbb_team_schedule(team_id = 2509, season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_team_news.html">espn_wbb_team_news()</a></code></td>
-<td>Team news feed</td>
-<td><code>espn_wbb_team_news(team_id = 2509, limit = 25)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_team_leaders.html">espn_wbb_team_leaders()</a></code></td>
-<td>Team statistical leaders</td>
-<td><code>espn_wbb_team_leaders(team_id = 2509, season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_injuries.html">espn_wbb_injuries()</a></code></td>
-<td>League-wide injury report</td>
-<td><code>espn_wbb_injuries(season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code></td>
-<td>Team injury report</td>
-<td><code>espn_wbb_team_injuries(team_id = 2509)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_news.html">espn_wnba_news()</a></code></td>
-<td>League news feed</td>
-<td><code>espn_wnba_news(limit = 50)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_calendar.html">espn_wnba_calendar()</a></code></td>
-<td>Season calendar weeks</td>
-<td><code>espn_wnba_calendar(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_team.html">espn_wnba_team()</a></code></td>
-<td>Single-team detail (info, record, coaches)</td>
-<td><code>espn_wnba_team(team_id = 17, season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster()</a></code></td>
-<td>Team roster</td>
-<td><code>espn_wnba_team_roster(team_id = 17, season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_team_schedule.html">espn_wnba_team_schedule()</a></code></td>
-<td>Team schedule</td>
-<td><code>espn_wnba_team_schedule(team_id = 17, season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_team_news.html">espn_wnba_team_news()</a></code></td>
-<td>Team news feed</td>
-<td><code>espn_wnba_team_news(team_id = 17, limit = 25)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_team_leaders.html">espn_wnba_team_leaders()</a></code></td>
-<td>Team statistical leaders</td>
-<td><code>espn_wnba_team_leaders(team_id = 17, season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_injuries.html">espn_wnba_injuries()</a></code></td>
-<td>League-wide injury report</td>
-<td><code>espn_wnba_injuries(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_team_injuries.html">espn_wnba_team_injuries()</a></code></td>
-<td>Team injury report</td>
-<td><code>espn_wnba_team_injuries(team_id = 17)</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section level3">
-<h3 id="phase-2-athlete-coverage-16-new">Phase 2 – Athlete coverage (16 new)<a class="anchor" aria-label="anchor" href="#phase-2-athlete-coverage-16-new"></a>
+<h3 id="team-detail">Team detail<a class="anchor" aria-label="anchor" href="#team-detail"></a>
 </h3>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th>Function</th>
 <th>Returns</th>
-<th>Example call</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_athlete_info.html">espn_wbb_athlete_info()</a></code></td>
-<td>Athlete bio and profile</td>
-<td><code>espn_wbb_athlete_info(athlete_id = "4433403")</code></td>
+<td>
+<code><a href="../reference/espn_wbb_team.html">espn_wbb_team()</a></code> / <code><a href="../reference/espn_wnba_team.html">espn_wnba_team()</a></code>
+</td>
+<td>Single-team info, record, coaches</td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_athlete_overview.html">espn_wbb_athlete_overview()</a></code></td>
+<td>
+<code><a href="../reference/espn_wbb_team_roster.html">espn_wbb_team_roster()</a></code> /
+<code><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster()</a></code>
+</td>
+<td>Roster</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_team_schedule.html">espn_wbb_team_schedule()</a></code> /
+<code><a href="../reference/espn_wnba_team_schedule.html">espn_wnba_team_schedule()</a></code>
+</td>
+<td>Schedule</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_team_leaders.html">espn_wbb_team_leaders()</a></code> /
+<code><a href="../reference/espn_wnba_team_leaders.html">espn_wnba_team_leaders()</a></code>
+</td>
+<td>Statistical leaders</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_team_news.html">espn_wbb_team_news()</a></code> /
+<code><a href="../reference/espn_wnba_team_news.html">espn_wnba_team_news()</a></code>
+</td>
+<td>Team news feed</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_team_stats.html">espn_wbb_team_stats()</a></code> /
+<code><a href="../reference/espn_wnba_team_stats.html">espn_wnba_team_stats()</a></code>
+</td>
+<td>Team-level season stats</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code> /
+<code><a href="../reference/espn_wnba_team_injuries.html">espn_wnba_team_injuries()</a></code>
+</td>
+<td>Team injury report</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_injuries.html">espn_wbb_injuries()</a></code> /
+<code><a href="../reference/espn_wnba_injuries.html">espn_wnba_injuries()</a></code>
+</td>
+<td>League-wide injury report</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="athlete-detail">Athlete detail<a class="anchor" aria-label="anchor" href="#athlete-detail"></a>
+</h3>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Returns</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_athlete_info.html">espn_wbb_athlete_info()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_info.html">espn_wnba_athlete_info()</a></code>
+</td>
+<td>Bio and profile</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_athlete_overview.html">espn_wbb_athlete_overview()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_overview.html">espn_wnba_athlete_overview()</a></code>
+</td>
 <td>Season overview (web-common-v3)</td>
-<td><code>espn_wbb_athlete_overview(athlete_id = "4433403", season = 2025)</code></td>
 </tr>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code></td>
+<td>
+<code><a href="../reference/espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_stats.html">espn_wnba_athlete_stats()</a></code>
+</td>
 <td>Season stats by category</td>
-<td><code>espn_wbb_athlete_stats(athlete_id = "4433403", season = 2025)</code></td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog()</a></code></td>
+<td>
+<code><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_gamelog.html">espn_wnba_athlete_gamelog()</a></code>
+</td>
 <td>Game-by-game log</td>
-<td><code>espn_wbb_athlete_gamelog(athlete_id = "4433403", season = 2025)</code></td>
 </tr>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_athlete_splits.html">espn_wbb_athlete_splits()</a></code></td>
-<td>Splits by situation</td>
-<td><code>espn_wbb_athlete_splits(athlete_id = "4433403", season = 2025)</code></td>
+<td>
+<code><a href="../reference/espn_wbb_athlete_splits.html">espn_wbb_athlete_splits()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_splits.html">espn_wnba_athlete_splits()</a></code>
+</td>
+<td>Situational splits</td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_athlete_eventlog.html">espn_wbb_athlete_eventlog()</a></code></td>
-<td>Event log (<span class="math inline">$ref links) |
-`espn_wbb_athlete_eventlog(athlete_id = "4433403", season = 2025)` |
-| `espn_wbb_athlete_awards()` | Awards history |
-`espn_wbb_athlete_awards(athlete_id = "4433403")` |
-| `espn_wbb_athlete_statisticslog()` | Statistics log (core-v2) |
-`espn_wbb_athlete_statisticslog(athlete_id = "4433403", season = 2025)`
-|
-| `espn_wnba_athlete_info()` | Athlete bio and profile |
-`espn_wnba_athlete_info(athlete_id = "3149391")` |
-| `espn_wnba_athlete_overview()` | Season overview (web-common-v3) |
-`espn_wnba_athlete_overview(athlete_id = "3149391", season = 2025)` |
-| `espn_wnba_athlete_stats()` | Season stats by category |
-`espn_wnba_athlete_stats(athlete_id = "3149391", season = 2025)` |
-| `espn_wnba_athlete_gamelog()` | Game-by-game log |
-`espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2025)` |
-| `espn_wnba_athlete_splits()` | Splits by situation |
-`espn_wnba_athlete_splits(athlete_id = "3149391", season = 2025)` |
-| `espn_wnba_athlete_eventlog()` | Event log ($</span>ref links)</td>
-<td><code>espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2025)</code></td>
+<td>
+<code><a href="../reference/espn_wbb_athlete_eventlog.html">espn_wbb_athlete_eventlog()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_eventlog.html">espn_wnba_athlete_eventlog()</a></code>
+</td>
+<td>Event log (<code>$ref</code> links)</td>
 </tr>
 <tr class="odd">
-<td><code><a href="../reference/espn_wnba_athlete_awards.html">espn_wnba_athlete_awards()</a></code></td>
+<td>
+<code><a href="../reference/espn_wbb_athlete_awards.html">espn_wbb_athlete_awards()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_awards.html">espn_wnba_athlete_awards()</a></code>
+</td>
 <td>Awards history</td>
-<td><code>espn_wnba_athlete_awards(athlete_id = "3149391")</code></td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wnba_athlete_statisticslog.html">espn_wnba_athlete_statisticslog()</a></code></td>
-<td>Statistics log (core-v2)</td>
-<td><code>espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2025)</code></td>
+<td>
+<code><a href="../reference/espn_wbb_athlete_statisticslog.html">espn_wbb_athlete_statisticslog()</a></code> /
+<code><a href="../reference/espn_wnba_athlete_statisticslog.html">espn_wnba_athlete_statisticslog()</a></code>
+</td>
+<td>Stats log (core-v2)</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_player_stats.html">espn_wbb_player_stats()</a></code> /
+<code><a href="../reference/espn_wnba_player_stats.html">espn_wnba_player_stats()</a></code>
+</td>
+<td>Cross-athlete season stats</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section level3">
-<h3 id="phase-3-event-enrichment-8-new">Phase 3 – Event enrichment (8 new)<a class="anchor" aria-label="anchor" href="#phase-3-event-enrichment-8-new"></a>
+<h3 id="per-event-enrichment">Per-event enrichment<a class="anchor" aria-label="anchor" href="#per-event-enrichment"></a>
 </h3>
+<p>These take an <code>event_id</code> and complement the
+play-by-play.</p>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th>Function</th>
 <th>Returns</th>
-<th>Example call</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code></td>
-<td>Opening/closing lines</td>
-<td><code>espn_wbb_event_odds(event_id = "401768729")</code></td>
+<td>
+<code><a href="../reference/espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code> /
+<code><a href="../reference/espn_wnba_event_odds.html">espn_wnba_event_odds()</a></code>
+</td>
+<td>Opening / closing lines (WNBA only – empty for WBB)</td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_event_probabilities.html">espn_wbb_event_probabilities()</a></code></td>
-<td>Win probability by play</td>
-<td><code>espn_wbb_event_probabilities(event_id = "401768729")</code></td>
+<td>
+<code><a href="../reference/espn_wbb_event_probabilities.html">espn_wbb_event_probabilities()</a></code> /
+<code><a href="../reference/espn_wnba_event_probabilities.html">espn_wnba_event_probabilities()</a></code>
+</td>
+<td>Win probability per play</td>
 </tr>
 <tr class="odd">
-<td><code><a href="../reference/espn_wbb_event_officials.html">espn_wbb_event_officials()</a></code></td>
-<td>Game officials</td>
-<td><code>espn_wbb_event_officials(event_id = "401768729")</code></td>
+<td>
+<code><a href="../reference/espn_wbb_event_officials.html">espn_wbb_event_officials()</a></code> /
+<code><a href="../reference/espn_wnba_event_officials.html">espn_wnba_event_officials()</a></code>
+</td>
+<td>Officials</td>
 </tr>
 <tr class="even">
-<td><code><a href="../reference/espn_wbb_event_broadcasts.html">espn_wbb_event_broadcasts()</a></code></td>
-<td>TV/radio broadcast info</td>
-<td><code>espn_wbb_event_broadcasts(event_id = "401768729")</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_event_odds.html">espn_wnba_event_odds()</a></code></td>
-<td>Opening/closing lines</td>
-<td><code>espn_wnba_event_odds(event_id = "401736171")</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_event_probabilities.html">espn_wnba_event_probabilities()</a></code></td>
-<td>Win probability by play</td>
-<td><code>espn_wnba_event_probabilities(event_id = "401736171")</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_event_officials.html">espn_wnba_event_officials()</a></code></td>
-<td>Game officials</td>
-<td><code>espn_wnba_event_officials(event_id = "401736171")</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_event_broadcasts.html">espn_wnba_event_broadcasts()</a></code></td>
-<td>TV/radio broadcast info</td>
-<td><code>espn_wnba_event_broadcasts(event_id = "401736171")</code></td>
+<td>
+<code><a href="../reference/espn_wbb_event_broadcasts.html">espn_wbb_event_broadcasts()</a></code> /
+<code><a href="../reference/espn_wnba_event_broadcasts.html">espn_wnba_event_broadcasts()</a></code>
+</td>
+<td>Broadcast outlets</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section level3">
-<h3 id="phase-4-wnba-only-artifacts-3-new">Phase 4 – WNBA-only artifacts (3 new)<a class="anchor" aria-label="anchor" href="#phase-4-wnba-only-artifacts-3-new"></a>
+<h3 id="league-wide-catalogs">League-wide catalogs<a class="anchor" aria-label="anchor" href="#league-wide-catalogs"></a>
 </h3>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th>Function</th>
 <th>Returns</th>
-<th>Example call</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_leaders.html">espn_wbb_leaders()</a></code> /
+<code><a href="../reference/espn_wnba_leaders.html">espn_wnba_leaders()</a></code>
+</td>
+<td>League statistical leaders</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_venues.html">espn_wbb_venues()</a></code> /
+<code><a href="../reference/espn_wnba_venues.html">espn_wnba_venues()</a></code>
+</td>
+<td>Arenas</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_coaches.html">espn_wbb_coaches()</a></code> /
+<code><a href="../reference/espn_wnba_coaches.html">espn_wnba_coaches()</a></code>
+</td>
+<td>Coaches</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_athletes_index.html">espn_wbb_athletes_index()</a></code> /
+<code><a href="../reference/espn_wnba_athletes_index.html">espn_wnba_athletes_index()</a></code>
+</td>
+<td>Full athlete index</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/espn_wbb_seasons.html">espn_wbb_seasons()</a></code> /
+<code><a href="../reference/espn_wnba_seasons.html">espn_wnba_seasons()</a></code>
+</td>
+<td>Seasons on record</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/espn_wbb_season_info.html">espn_wbb_season_info()</a></code> /
+<code><a href="../reference/espn_wnba_season_info.html">espn_wnba_season_info()</a></code>
+</td>
+<td>Single-season metadata</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="wnba-only">WNBA-only<a class="anchor" aria-label="anchor" href="#wnba-only"></a>
+</h3>
+<p>The pro-league side has draft, free agency, and transaction logs that
+don’t have NCAA equivalents.</p>
+<table class="table">
+<thead><tr class="header">
+<th>Function</th>
+<th>Returns</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td><code><a href="../reference/espn_wnba_draft.html">espn_wnba_draft()</a></code></td>
 <td>Draft picks by season</td>
-<td><code>espn_wnba_draft(season = 2025)</code></td>
 </tr>
 <tr class="even">
 <td><code><a href="../reference/espn_wnba_freeagents.html">espn_wnba_freeagents()</a></code></td>
-<td>Free agent list</td>
-<td><code>espn_wnba_freeagents(season = 2025)</code></td>
+<td>Free agents (during the FA window)</td>
 </tr>
 <tr class="odd">
 <td><code><a href="../reference/espn_wnba_transactions.html">espn_wnba_transactions()</a></code></td>
 <td>Transactions log</td>
-<td><code>espn_wnba_transactions(season = 2025, limit = 100)</code></td>
 </tr>
 </tbody>
-</table>
-</div>
-<div class="section level3">
-<h3 id="phase-5-league-wide-catalogs-12-new">Phase 5 – League-wide catalogs (12 new)<a class="anchor" aria-label="anchor" href="#phase-5-league-wide-catalogs-12-new"></a>
-</h3>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-</colgroup>
-<thead><tr class="header">
-<th>Function</th>
-<th>Returns</th>
-<th>Example call</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_leaders.html">espn_wbb_leaders()</a></code></td>
-<td>Statistical leaders</td>
-<td><code>espn_wbb_leaders(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_venues.html">espn_wbb_venues()</a></code></td>
-<td>All arenas</td>
-<td><code><a href="../reference/espn_wbb_venues.html">espn_wbb_venues()</a></code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_coaches.html">espn_wbb_coaches()</a></code></td>
-<td>All coaches</td>
-<td><code>espn_wbb_coaches(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_athletes_index.html">espn_wbb_athletes_index()</a></code></td>
-<td>Full athlete index</td>
-<td><code>espn_wbb_athletes_index(season = 2025, limit = 50)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wbb_seasons.html">espn_wbb_seasons()</a></code></td>
-<td>All seasons on record</td>
-<td><code><a href="../reference/espn_wbb_seasons.html">espn_wbb_seasons()</a></code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wbb_season_info.html">espn_wbb_season_info()</a></code></td>
-<td>Single season metadata</td>
-<td><code>espn_wbb_season_info(season = 2025)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_leaders.html">espn_wnba_leaders()</a></code></td>
-<td>Statistical leaders</td>
-<td><code>espn_wnba_leaders(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_venues.html">espn_wnba_venues()</a></code></td>
-<td>All arenas</td>
-<td><code><a href="../reference/espn_wnba_venues.html">espn_wnba_venues()</a></code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_coaches.html">espn_wnba_coaches()</a></code></td>
-<td>All coaches</td>
-<td><code>espn_wnba_coaches(season = 2025)</code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_athletes_index.html">espn_wnba_athletes_index()</a></code></td>
-<td>Full athlete index</td>
-<td><code>espn_wnba_athletes_index(season = 2025, limit = 50)</code></td>
-</tr>
-<tr class="odd">
-<td><code><a href="../reference/espn_wnba_seasons.html">espn_wnba_seasons()</a></code></td>
-<td>All seasons on record</td>
-<td><code><a href="../reference/espn_wnba_seasons.html">espn_wnba_seasons()</a></code></td>
-</tr>
-<tr class="even">
-<td><code><a href="../reference/espn_wnba_season_info.html">espn_wnba_season_info()</a></code></td>
-<td>Single season metadata</td>
-<td><code>espn_wnba_season_info(season = 2025)</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section level3">
-<h3 id="phase-6-wnba-symmetry-1-new">Phase 6 – WNBA symmetry (1 new)<a class="anchor" aria-label="anchor" href="#phase-6-wnba-symmetry-1-new"></a>
-</h3>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-</colgroup>
-<thead><tr class="header">
-<th>Function</th>
-<th>Returns</th>
-<th>Example call</th>
-</tr></thead>
-<tbody><tr class="odd">
-<td><code><a href="../reference/espn_wnba_conferences.html">espn_wnba_conferences()</a></code></td>
-<td>WNBA conference list</td>
-<td><code><a href="../reference/espn_wnba_conferences.html">espn_wnba_conferences()</a></code></td>
-</tr></tbody>
 </table>
 </div>
 </div>
 <div class="section level2">
-<h2 id="phase-1-walkthrough-reference-and-catalog">Phase 1 walkthrough – reference and catalog<a class="anchor" aria-label="anchor" href="#phase-1-walkthrough-reference-and-catalog"></a>
+<h2 id="worked-examples">Worked examples<a class="anchor" aria-label="anchor" href="#worked-examples"></a>
 </h2>
-<p>These examples use UConn (<code>team_id = 2509</code>) for WBB and
-the Las Vegas Aces (<code>team_id = 17</code>) for WNBA.</p>
+<p>The examples below use UConn (<code>team_id = 2509</code>) for WBB
+and the Las Vegas Aces (<code>team_id = 17</code>) for the WNBA. Most
+ESPN team IDs and athlete IDs are easy to discover with
+<code><a href="../reference/espn_wbb_teams.html">espn_wbb_teams()</a></code> / <code><a href="../reference/espn_wnba_teams.html">espn_wnba_teams()</a></code> and the
+various roster endpoints.</p>
 <div class="section level3">
-<h3 id="league-news">League news<a class="anchor" aria-label="anchor" href="#league-news"></a>
+<h3 id="browsing-news-and-the-season-calendar">Browsing news and the season calendar<a class="anchor" aria-label="anchor" href="#browsing-news-and-the-season-calendar"></a>
 </h3>
+<p>When you’re starting a new analysis, the easiest way to confirm the
+season is active and you’re hitting current data is to pull the news
+feed and the calendar.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wehoop.sportsdataverse.org">wehoop</a></span><span class="op">)</span></span>
 <span></span>
@@ -691,153 +614,144 @@ the Las Vegas Aces (<code>team_id = 17</code>) for WNBA.</p>
 <span><span class="va">wbb_news</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_news.html">espn_wbb_news</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wbb_news</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"headline"</span>, <span class="st">"published"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Latest 10 WNBA news items</span></span>
-<span><span class="va">wnba_news</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_news.html">espn_wnba_news</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_news</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"headline"</span>, <span class="st">"published"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="season-calendar">Season calendar<a class="anchor" aria-label="anchor" href="#season-calendar"></a>
-</h3>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># WBB 2025 season calendar</span></span>
+<span><span class="co"># 2025 WBB season calendar</span></span>
 <span><span class="va">wbb_cal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_calendar.html">espn_wbb_calendar</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wbb_cal</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># WNBA 2025 season calendar</span></span>
-<span><span class="va">wnba_cal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_calendar.html">espn_wnba_calendar</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_cal</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Same on the WNBA side</span></span>
+<span><span class="va">wnba_news</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_news.html">espn_wnba_news</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">wnba_cal</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_calendar.html">espn_wnba_calendar</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></code></pre></div>
+<p>The calendar tibble carries one row per scheduling block (preseason,
+regular season, postseason, championship weeks, etc.), with start and
+end dates. It’s useful for filtering schedules and scoreboards down to a
+specific portion of the year.</p>
 </div>
 <div class="section level3">
-<h3 id="team-detail-roster-and-schedule">Team detail, roster, and schedule<a class="anchor" aria-label="anchor" href="#team-detail-roster-and-schedule"></a>
+<h3 id="looking-at-a-team">Looking at a team<a class="anchor" aria-label="anchor" href="#looking-at-a-team"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># UConn team info (named list: Info, Record, Coaches, ...)</span></span>
+<p><code><a href="../reference/espn_wbb_team.html">espn_wbb_team()</a></code> and <code><a href="../reference/espn_wnba_team.html">espn_wnba_team()</a></code> return
+a small named list with high-level identity, record, next event, and
+coaching info. Pair it with the roster, schedule, and team-leader
+wrappers when you want a fuller picture.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># UConn at a glance</span></span>
 <span><span class="va">uconn</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team.html">espn_wbb_team</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">uconn</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">uconn</span><span class="op">)</span>        <span class="co"># Info, Record, NextEvent, StandingSummary, Coaches</span></span>
 <span></span>
-<span><span class="co"># UConn 2025 roster</span></span>
+<span><span class="co"># Current roster</span></span>
 <span><span class="va">uconn_roster</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team_roster.html">espn_wbb_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uconn_roster</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"athlete_display_name"</span>, <span class="st">"position_name"</span>, <span class="st">"jersey"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># UConn 2025 schedule (regular season)</span></span>
-<span><span class="va">uconn_sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team_schedule.html">espn_wbb_team_schedule</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2025</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co"># Regular-season schedule</span></span>
+<span><span class="va">uconn_sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team_schedule.html">espn_wbb_team_schedule</a></span><span class="op">(</span></span>
+<span>  team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2025</span>, season_type <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uconn_sched</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"date"</span>, <span class="st">"home_away"</span>, <span class="st">"score"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Las Vegas Aces roster</span></span>
-<span><span class="va">aces_roster</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">aces_roster</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"athlete_display_name"</span>, <span class="st">"position_name"</span>, <span class="st">"jersey"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="team-news-and-statistical-leaders">Team news and statistical leaders<a class="anchor" aria-label="anchor" href="#team-news-and-statistical-leaders"></a>
-</h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># UConn team news</span></span>
-<span><span class="va">uconn_news</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team_news.html">espn_wbb_team_news</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uconn_news</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"headline"</span>, <span class="st">"published"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># UConn statistical leaders for 2025</span></span>
+<span><span class="co"># Statistical leaders for the team</span></span>
 <span><span class="va">uconn_ldrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team_leaders.html">espn_wbb_team_leaders</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uconn_ldrs</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Las Vegas Aces leaders</span></span>
-<span><span class="va">aces_ldrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_team_leaders.html">espn_wnba_team_leaders</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">aces_ldrs</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uconn_ldrs</span><span class="op">)</span></span></code></pre></div>
+<p>The same shape applies to WNBA teams –
+<code>espn_wnba_team(17, 2025)</code> for the Aces, plus
+<code>_team_roster()</code>, <code>_team_schedule()</code>, and so
+on.</p>
+<p>A small caveat on the roster and leaders endpoints: ESPN serves only
+the <em>current</em> roster and leaders for each team, regardless of any
+<code>season</code> you pass. The argument is preserved in the function
+signature for API symmetry, but it doesn’t change the request URL.</p>
 </div>
 <div class="section level3">
-<h3 id="injury-reports">Injury reports<a class="anchor" aria-label="anchor" href="#injury-reports"></a>
+<h3 id="tracking-injuries">Tracking injuries<a class="anchor" aria-label="anchor" href="#tracking-injuries"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># WNBA league-wide injuries</span></span>
+<p>Injury data is a soft spot in ESPN’s WBB coverage – most college
+games don’t carry an active injury report. WNBA injuries are more
+reliably populated when the league is in season.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Whole league</span></span>
 <span><span class="va">wnba_inj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_injuries.html">espn_wnba_injuries</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="co"># WBB injuries are sparse on ESPN; an empty tibble is normal</span></span>
-<span><span class="va">wbb_inj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_injuries.html">espn_wbb_injuries</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Team-level injury report</span></span>
-<span><span class="va">aces_inj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_team_injuries.html">espn_wnba_team_injuries</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="phase-2-walkthrough-athlete-deep-dive">Phase 2 walkthrough – athlete deep dive<a class="anchor" aria-label="anchor" href="#phase-2-walkthrough-athlete-deep-dive"></a>
-</h2>
-<p>The pattern: pull a roster, pick an athlete ID, then call the
-athlete- specific endpoints in sequence.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wehoop.sportsdataverse.org">wehoop</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co"># Single team</span></span>
+<span><span class="va">aces_inj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_team_injuries.html">espn_wnba_team_injuries</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Step 1 -- get UConn roster</span></span>
+<span><span class="co"># WBB injuries are sparse on ESPN -- an empty tibble is the normal case</span></span>
+<span><span class="va">wbb_inj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_injuries.html">espn_wbb_injuries</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></code></pre></div>
+<p>If you’re building a workflow that depends on injury data, gate
+downstream code on <code>nrow(...) &gt; 0</code>.</p>
+</div>
+<div class="section level3">
+<h3 id="following-an-athlete">Following an athlete<a class="anchor" aria-label="anchor" href="#following-an-athlete"></a>
+</h3>
+<p>The athlete endpoints are the deepest part of the surface. Pull a
+roster, pick a player, and you have biographical data, season-level
+totals, a per-game log, situational splits, and an awards history all
+keyed off the same <code>athlete_id</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="va">uconn_roster</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_team_roster.html">espn_wbb_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Step 2 -- pick a player (first one returned)</span></span>
-<span><span class="va">athlete_id</span> <span class="op">&lt;-</span> <span class="va">uconn_roster</span><span class="op">$</span><span class="va">athlete_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">athlete_id</span>   <span class="op">&lt;-</span> <span class="va">uconn_roster</span><span class="op">$</span><span class="va">athlete_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="va">athlete_name</span> <span class="op">&lt;-</span> <span class="va">uconn_roster</span><span class="op">$</span><span class="va">athlete_display_name</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Selected: "</span>, <span class="va">athlete_name</span>, <span class="st">" ("</span>, <span class="va">athlete_id</span>, <span class="st">")"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Step 3 -- bio and profile</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Selected: "</span>, <span class="va">athlete_name</span>, <span class="st">" ("</span>, <span class="va">athlete_id</span>, <span class="st">")"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Bio and profile</span></span>
 <span><span class="va">bio</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_info.html">espn_wbb_athlete_info</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">bio</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Step 4 -- season overview (web-common-v3)</span></span>
-<span><span class="va">overview</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_overview.html">espn_wbb_athlete_overview</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="co"># overview is a named list; main tables vary by season/athlete</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">overview</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Step 5 -- game-by-game log</span></span>
-<span><span class="va">gamelog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">gamelog</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"game_date"</span>, <span class="st">"opponent"</span>, <span class="st">"points"</span>, <span class="st">"rebounds"</span>, <span class="st">"assists"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Step 6 -- splits (home/away, wins/losses, by month, ...)</span></span>
-<span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_splits.html">espn_wbb_athlete_splits</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">bio</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Season overview (web-common-v3)</span></span>
+<span><span class="va">overview</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_overview.html">espn_wbb_athlete_overview</a></span><span class="op">(</span></span>
+<span>  athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">overview</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Game-by-game log</span></span>
+<span><span class="va">gamelog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog</a></span><span class="op">(</span></span>
+<span>  athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">gamelog</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"game_date"</span>, <span class="st">"opponent"</span>, <span class="st">"points"</span>, <span class="st">"rebounds"</span>, <span class="st">"assists"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Situational splits (home/away, by month, vs ranked, ...)</span></span>
+<span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_splits.html">espn_wbb_athlete_splits</a></span><span class="op">(</span></span>
+<span>  athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span></span></code></pre></div>
-<p>The same chain works for WNBA; swap <code>espn_wbb_*</code> for
-<code>espn_wnba_*</code> and use a WNBA <code>athlete_id</code> (e.g.,
-A’ja Wilson is <code>"3149391"</code>).</p>
-<div class="section level3">
-<h3 id="notes-on-phase-2-edge-cases">Notes on Phase 2 edge cases<a class="anchor" aria-label="anchor" href="#notes-on-phase-2-edge-cases"></a>
-</h3>
+<p>Everything above works the same on the WNBA side – swap
+<code>espn_wbb_*</code> for <code>espn_wnba_*</code> and use a WNBA
+<code>athlete_id</code> (A’ja Wilson is <code>"3149391"</code>).</p>
+<p>A few things to know about the athlete endpoints:</p>
 <ul>
 <li>
 <code>espn_*_athlete_eventlog()</code> returns <code>$ref</code> URL
-columns pointing to individual game stat resources. These are not
-auto-resolved; use <code>espn_*_athlete_gamelog()</code> for pre-parsed
-per-game stats.</li>
+columns rather than parsed game stats. Reach for
+<code>espn_*_athlete_gamelog()</code> if you want per-game numbers in
+tibble form.</li>
 <li>
-<code>espn_*_athlete_awards()</code> is frequently empty. Many
-athletes have no ESPN-recorded awards; an empty tibble is the normal
-return, not an error.</li>
-<li>
-<code>espn_*_athlete_statisticslog()</code> (core-v2) and
-<code>_overview()</code> (web-common-v3) may return HTTP 404 for seasons
-prior to roughly 2018. Use <code>espn_*_athlete_gamelog()</code> for
-historical seasons.</li>
+<code>espn_*_athlete_awards()</code> is sparse. Many athletes have
+no ESPN-recorded awards, so an empty tibble is normal.</li>
+<li>The web-common-v3 endpoints (<code>_athlete_overview</code>,
+<code>_athlete_stats</code>, <code>_athlete_gamelog</code>,
+<code>_athlete_splits</code>) are less stable than the rest of the
+surface. Some seasons before roughly 2018 return HTTP 404, and not every
+athlete is in the index.</li>
 </ul>
 </div>
-</div>
-<div class="section level2">
-<h2 id="phase-3-walkthrough-event-enrichment">Phase 3 walkthrough – event enrichment<a class="anchor" aria-label="anchor" href="#phase-3-walkthrough-event-enrichment"></a>
-</h2>
 <div class="section level3">
-<h3 id="win-probability-chart-wnba">Win-probability chart (WNBA)<a class="anchor" aria-label="anchor" href="#win-probability-chart-wnba"></a>
+<h3 id="charting-win-probability">Charting win probability<a class="anchor" aria-label="anchor" href="#charting-win-probability"></a>
 </h3>
-<p>Combine play-by-play with win probabilities to visualize game
-momentum. Event <code>'401736171'</code> is a 2024 WNBA regular-season
-game.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<p>The combination of <code>_pbp()</code> and
+<code>_event_probabilities()</code> is the quickest way to chart a
+game’s momentum. Event <code>'401736171'</code> below is a 2024 WNBA
+regular-season game.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wehoop.sportsdataverse.org">wehoop</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">game_id</span> <span class="op">&lt;-</span> <span class="st">"401736171"</span></span>
 <span></span>
-<span><span class="co"># Play-by-play (includes clock and score for labelling)</span></span>
-<span><span class="va">pbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Win probabilities from core-v2 (one row per scored play, up to limit)</span></span>
+<span><span class="va">pbp</span>   <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span><span class="va">probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_event_probabilities.html">espn_wnba_event_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">game_id</span>, limit <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">probs</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sequence_number"</span>, <span class="st">"home_win_percentage"</span>, <span class="st">"away_win_percentage"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Merge by sequence number and plot</span></span>
 <span><span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="va">probs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>seq <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">sequence_number</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">seq</span><span class="op">)</span></span>
@@ -851,137 +765,96 @@ game.</p>
 <span>    y <span class="op">=</span> <span class="st">"Home team win probability"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="odds-and-officials">Odds and officials<a class="anchor" aria-label="anchor" href="#odds-and-officials"></a>
-</h3>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># WNBA odds -- populated when ESPN carries lines for this game</span></span>
+<p>You can layer in scoring plays from <code>pbp</code> to label
+momentum swings, or join <code>_event_officials()</code> and
+<code>_event_broadcasts()</code> if you want contextual annotations.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Pre-game odds (populated when ESPN carries lines)</span></span>
 <span><span class="va">odds</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_event_odds.html">espn_wnba_event_odds</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Officials list</span></span>
+<span><span class="co"># Officials</span></span>
 <span><span class="va">officials</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_event_officials.html">espn_wnba_event_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span><span class="va">officials</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full_name"</span>, <span class="st">"position"</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
-<span><span class="co"># Broadcast info</span></span>
+<span><span class="co"># Broadcast outlets</span></span>
 <span><span class="va">broadcasts</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_event_broadcasts.html">espn_wnba_event_broadcasts</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span><span class="va">broadcasts</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"market"</span>, <span class="st">"names"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
-<p><strong>WBB note.</strong> ESPN does not carry odds for NCAA
-basketball games. Calling <code><a href="../reference/espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code> returns an
-empty tibble – this is expected and not an error. The function exists
-for API surface symmetry so WBB and WNBA workflows have an identical
-interface.</p>
+<p>ESPN doesn’t carry betting lines for NCAA games, so
+<code><a href="../reference/espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code> always returns an empty tibble. The
+function exists for API symmetry; it’s not a bug. Win probabilities,
+officials, and broadcasts are all populated for both leagues.</p>
 </div>
-</div>
-<div class="section level2">
-<h2 id="phase-4-walkthrough-wnba-specific">Phase 4 walkthrough – WNBA-specific<a class="anchor" aria-label="anchor" href="#phase-4-walkthrough-wnba-specific"></a>
-</h2>
 <div class="section level3">
-<h3 id="draft-picks">Draft picks<a class="anchor" aria-label="anchor" href="#draft-picks"></a>
+<h3 id="working-with-the-wnba-draft-and-transactions">Working with the WNBA draft and transactions<a class="anchor" aria-label="anchor" href="#working-with-the-wnba-draft-and-transactions"></a>
 </h3>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wehoop.sportsdataverse.org">wehoop</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># 2025 WNBA draft</span></span>
+<p>The draft, free agency, and transaction logs only exist on the WNBA
+side – the NCAA doesn’t have a pro-style draft on ESPN, and the transfer
+portal isn’t part of ESPN’s basketball API.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># 2025 WNBA draft picks</span></span>
 <span><span class="va">draft_2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_draft.html">espn_wnba_draft</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">draft_2025</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pick"</span>, <span class="st">"round"</span>, <span class="st">"team_name"</span>, <span class="st">"athlete_display_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="transactions">Transactions<a class="anchor" aria-label="anchor" href="#transactions"></a>
-</h3>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Recent WNBA transactions (waiver claims, trades, signings)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">draft_2025</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pick"</span>, <span class="st">"round"</span>, <span class="st">"team_name"</span>, <span class="st">"athlete_display_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Recent transactions (waivers, trades, signings)</span></span>
 <span><span class="va">txn</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_transactions.html">espn_wnba_transactions</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">txn</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"date"</span>, <span class="st">"type"</span>, <span class="st">"athlete_display_name"</span>, <span class="st">"team_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="free-agents">Free agents<a class="anchor" aria-label="anchor" href="#free-agents"></a>
-</h3>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># WNBA free agents -- returns empty tibble outside the free-agency window</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">txn</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"date"</span>, <span class="st">"type"</span>, <span class="st">"athlete_display_name"</span>, <span class="st">"team_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Free agents -- empty outside the FA window, which is roughly</span></span>
+<span><span class="co"># January through April each year</span></span>
 <span><span class="va">fa</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_freeagents.html">espn_wnba_freeagents</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">fa</span><span class="op">)</span></span></code></pre></div>
-<p>The <code><a href="../reference/espn_wnba_freeagents.html">espn_wnba_freeagents()</a></code> call returns an empty tibble
-whenever the league is not in its free-agency window. Check
-<code>nrow(fa) &gt; 0</code> before downstream processing.</p>
+<p>If you’re stitching together a roster history, the natural sequence
+is draft -&gt; free agents -&gt; transactions, joined on
+<code>athlete_id</code>.</p>
 </div>
-</div>
-<div class="section level2">
-<h2 id="phase-5-walkthrough-league-wide-catalogs">Phase 5 walkthrough – league-wide catalogs<a class="anchor" aria-label="anchor" href="#phase-5-walkthrough-league-wide-catalogs"></a>
-</h2>
 <div class="section level3">
-<h3 id="statistical-leaders">Statistical leaders<a class="anchor" aria-label="anchor" href="#statistical-leaders"></a>
+<h3 id="browsing-league-wide-catalogs">Browsing league-wide catalogs<a class="anchor" aria-label="anchor" href="#browsing-league-wide-catalogs"></a>
 </h3>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wehoop.sportsdataverse.org">wehoop</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># WNBA 2025 statistical leaders (points, rebounds, assists, ...)</span></span>
-<span><span class="va">wnba_ldrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_leaders.html">espn_wnba_leaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<p>Sometimes you don’t have a specific team or athlete in mind – you
+want the league-wide leaderboard, every venue, every coach, or the full
+athlete index. The catalog endpoints cover that.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Statistical leaders (points, rebounds, assists, ...)</span></span>
+<span><span class="va">wnba_ldrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_leaders.html">espn_wnba_leaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_ldrs</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># WBB 2025 statistical leaders</span></span>
-<span><span class="va">wbb_ldrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_leaders.html">espn_wbb_leaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wbb_ldrs</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="venues-and-coaches">Venues and coaches<a class="anchor" aria-label="anchor" href="#venues-and-coaches"></a>
-</h3>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># All WNBA arenas (no season argument -- returns full historical list)</span></span>
+<span><span class="co"># Every WNBA arena ESPN tracks</span></span>
 <span><span class="va">wnba_venues</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_venues.html">espn_wnba_venues</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_venues</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full_name"</span>, <span class="st">"city"</span>, <span class="st">"state"</span>, <span class="st">"capacity"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># All WBB coaches for 2025</span></span>
+<span><span class="co"># Coaches (current season)</span></span>
 <span><span class="va">wbb_coaches</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_coaches.html">espn_wbb_coaches</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wbb_coaches</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full_name"</span>, <span class="st">"team_name"</span>, <span class="st">"experience"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="athletes-index">Athletes index<a class="anchor" aria-label="anchor" href="#athletes-index"></a>
-</h3>
-<p>The athletes index covers every player ESPN tracks for the league and
-season. The WBB index is large (potentially 6,000+ athletes); use
-<code>limit</code> to cap the initial pull or set
-<code>active = TRUE</code> to restrict to rostered players.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># WNBA 2025 active athletes</span></span>
-<span><span class="va">wnba_athletes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_athletes_index.html">espn_wnba_athletes_index</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, active <span class="op">=</span> <span class="cn">TRUE</span>, limit <span class="op">=</span> <span class="fl">5000</span><span class="op">)</span></span>
+<p>The athlete index is the largest of the catalog endpoints – expect
+6,000+ rows for a recent WBB season. Pagination is handled internally,
+but for exploratory pulls you’ll usually want a small
+<code>limit</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># WNBA -- a couple hundred active players</span></span>
+<span><span class="va">wnba_athletes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_athletes_index.html">espn_wnba_athletes_index</a></span><span class="op">(</span></span>
+<span>  season <span class="op">=</span> <span class="fl">2025</span>, active <span class="op">=</span> <span class="cn">TRUE</span>, limit <span class="op">=</span> <span class="fl">5000</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wnba_athletes</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_athletes</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"display_name"</span>, <span class="st">"position_name"</span>, <span class="st">"team_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># WBB -- cap at 50 rows for illustration; default limit = 25000</span></span>
+<span><span class="co"># WBB -- cap at 50 rows just to peek; the default limit is 25,000</span></span>
 <span><span class="va">wbb_athletes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athletes_index.html">espn_wbb_athletes_index</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, limit <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wbb_athletes</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"display_name"</span>, <span class="st">"position_name"</span>, <span class="st">"team_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="seasons-catalog">Seasons catalog<a class="anchor" aria-label="anchor" href="#seasons-catalog"></a>
-</h3>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># All WNBA seasons ESPN has on record</span></span>
-<span><span class="va">wnba_seasons</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_seasons.html">espn_wnba_seasons</a></span><span class="op">(</span><span class="op">)</span></span>
+<p>The seasons catalog is mostly handy when you want to know which years
+ESPN has on record before you start a multi-season pull.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">wnba_seasons</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_seasons.html">espn_wnba_seasons</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_seasons</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"start_date"</span>, <span class="st">"end_date"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Season metadata for 2025 (mostly $ref URLs to sub-resources)</span></span>
-<span><span class="va">wnba_s2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_season_info.html">espn_wnba_season_info</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wnba_s2025</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Same for WBB</span></span>
-<span><span class="va">wbb_seasons</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_seasons.html">espn_wbb_seasons</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">wbb_s2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_season_info.html">espn_wbb_season_info</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="phase-6-wnba-conferences">Phase 6 – WNBA conferences<a class="anchor" aria-label="anchor" href="#phase-6-wnba-conferences"></a>
-</h3>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># WNBA conference list (parity with espn_wbb_conferences())</span></span>
-<span><span class="va">wnba_confs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_conferences.html">espn_wnba_conferences</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">wnba_confs</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"name"</span>, <span class="st">"short_name"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
+<span><span class="co"># Single-season metadata is mostly $ref URLs to sub-resources, so</span></span>
+<span><span class="co"># espn_*_seasons() is usually the more useful starting point</span></span>
+<span><span class="va">wnba_s2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_season_info.html">espn_wnba_season_info</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
-<h2 id="gaps-and-limitations">Gaps and limitations<a class="anchor" aria-label="anchor" href="#gaps-and-limitations"></a>
+<h2 id="whats-not-here">What’s not here<a class="anchor" aria-label="anchor" href="#whats-not-here"></a>
 </h2>
-<p>The following ESPN basketball endpoints are intentionally not wrapped
-by wehoop:</p>
+<p>A few endpoints exist on ESPN but are deliberately not wrapped:</p>
 <table class="table">
 <colgroup>
 <col width="50%">
@@ -989,74 +862,70 @@ by wehoop:</p>
 </colgroup>
 <thead><tr class="header">
 <th>Endpoint</th>
-<th>Reason</th>
+<th>Why we skip it</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td><code>/teams/{id}/depth-charts</code></td>
-<td>ESPN basketball does not carry depth charts</td>
+<td>ESPN basketball doesn’t carry depth charts</td>
 </tr>
 <tr class="even">
 <td>
 <code>cdn.espn.com/core</code> game summary</td>
-<td>Fully redundant with existing <code>espn_*_game_all()</code>
-parsing</td>
+<td>Fully redundant with <code>espn_*_game_all()</code>
+</td>
 </tr>
 <tr class="odd">
 <td>core-v2 <code>/events/{id}/plays</code>
 </td>
-<td>Strict downgrade of <code>espn_*_pbp()</code>: requires per-play
-<code>$ref</code> resolution, returns less data</td>
+<td>Strict downgrade of <code>espn_*_pbp()</code>; needs per-play
+<code>$ref</code> resolution and returns less data</td>
 </tr>
 <tr class="even">
-<td><code>espn_wnba_rankings</code></td>
-<td>WNBA has no poll or rankings surface; only WBB has
+<td>
+<code>espn_wnba_rankings</code> (would-be)</td>
+<td>The WNBA has no poll; only WBB has
 <code><a href="../reference/espn_wbb_rankings.html">espn_wbb_rankings()</a></code>
 </td>
 </tr>
 <tr class="odd">
 <td>WBB transfer portal</td>
-<td>Not on ESPN basketball API</td>
+<td>Not on ESPN’s basketball API</td>
 </tr>
 </tbody>
 </table>
-<p>Known data limitations by function:</p>
+<p>And a handful of endpoints we do wrap that have known data
+quirks:</p>
 <ul>
 <li>
-<strong><code><a href="../reference/espn_wbb_injuries.html">espn_wbb_injuries()</a></code></strong> and
-<strong><code><a href="../reference/espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code></strong> – ESPN rarely
-populates injury data for college basketball. An empty tibble is the
-common case, not an error.</li>
+<strong><code><a href="../reference/espn_wbb_injuries.html">espn_wbb_injuries()</a></code> and
+<code><a href="../reference/espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code></strong> – ESPN rarely populates
+injury data for college basketball.</li>
 <li>
-<strong><code><a href="../reference/espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code></strong> – ESPN does not
-carry betting lines for NCAA games. Always returns an empty tibble.</li>
+<strong><code><a href="../reference/espn_wbb_event_odds.html">espn_wbb_event_odds()</a></code></strong> – always empty;
+ESPN doesn’t carry NCAA lines.</li>
 <li>
 <strong><code><a href="../reference/espn_wnba_freeagents.html">espn_wnba_freeagents()</a></code></strong> – empty outside
-the free-agency window.</li>
+the FA window.</li>
 <li>
-<strong><code>espn_*_athlete_awards()</code></strong> – sparse; most
-athletes have no ESPN-recorded awards.</li>
+<strong><code>espn_*_athlete_awards()</code></strong> – sparse for
+most athletes.</li>
 <li>
 <strong><code>espn_*_athlete_eventlog()</code></strong> – returns
-<code>$ref</code> URL columns, not parsed stats. Use
-<code>espn_*_athlete_gamelog()</code> for game statistics.</li>
+<code>$ref</code> URLs, not parsed stats. Use
+<code>_athlete_gamelog()</code> instead.</li>
 <li>
-<strong><code>espn_*_season_info()</code></strong> – payload
-consists mostly of <code>$ref</code> URLs to sub-resources; use
-<code>espn_*_seasons()</code> for a more useful tabular view.</li>
+<strong><code>espn_*_season_info()</code></strong> – mostly
+<code>$ref</code> URLs.</li>
 <li>
-<strong>web-common-v3 endpoints</strong>
-(<code>_athlete_overview</code>, <code>_athlete_stats</code>,
-<code>_athlete_gamelog</code>, <code>_athlete_splits</code>) – less
-stable than site-v2; may return HTTP 404 for legacy seasons or
-less-prominent athletes.</li>
-<li>
-<strong><code>espn_*_athletes_index()</code></strong> for WBB – the
-full index can be 10,000+ rows for current seasons. The default
-<code>limit = 25000</code> paginates internally. Set
-<code>limit = 50</code> or <code>limit = 100</code> for quick
-exploratory pulls.</li>
+<strong>web-common-v3 endpoints</strong> – some legacy seasons
+return HTTP 404.</li>
 </ul>
+<p>When something looks off, an empty tibble is far more often the
+correct, expected return than a bug. ESPN’s basketball coverage is
+uneven across leagues, seasons, and franchise tenures, and
+<code>wehoop</code> mirrors that unevenness honestly rather than
+papering over it.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
