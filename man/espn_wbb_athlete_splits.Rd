@@ -25,7 +25,7 @@ ESPN labels.
 }
 \examples{
 \donttest{
-  espn_wbb_athlete_splits(athlete_id = "4432755", season = 2025)
+  espn_wbb_athlete_splits(athlete_id = "4433985", season = 2025)
 }
 }
 \seealso{

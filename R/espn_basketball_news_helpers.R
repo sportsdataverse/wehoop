@@ -142,9 +142,9 @@
   url <- paste0(
     "https://site.api.espn.com/apis/site/v2/sports/basketball/",
     league,
-    "/teams/",
+    "/news?team=",
     team_id,
-    "/news?limit=",
+    "&limit=",
     as.integer(limit)
   )
 

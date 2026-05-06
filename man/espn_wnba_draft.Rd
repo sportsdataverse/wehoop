@@ -21,12 +21,19 @@ A \code{wehoop_data} tibble with one row per draft pick:\tabular{ll}{
    round \tab integer \cr
    pick \tab integer \cr
    overall \tab integer \cr
-   team_id \tab character \cr
+   traded \tab logical \cr
+   trade_note \tab character \cr
+   status \tab character \cr
    athlete_id \tab character \cr
-   athlete_name \tab character \cr
-   position \tab character \cr
-   college \tab character \cr
+   athlete_ref \tab character \cr
+   team_id \tab character \cr
+   team_ref \tab character \cr
 }
+
+
+Athlete and team details (name, position, college, abbreviation) are not
+inlined in the draft response; resolve them via \code{espn_wnba_athlete_info()}
+or \code{espn_wnba_team()} using the returned IDs.
 }
 \description{
 \strong{Get ESPN WNBA Draft Picks}
@@ -35,10 +42,10 @@ A \code{wehoop_data} tibble with one row per draft pick:\tabular{ll}{
 }
 \details{
 Calls the ESPN core-v2 endpoint
-\verb{https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/\{year\}/draft}.
-Paginates over all pages (capped at 20 pages) and returns a single flat
-tibble. Outside the draft window, or for historical seasons with no ESPN
-draft data, the function returns an empty tibble rather than erroring.
+\verb{https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/\{year\}/draft/rounds},
+which returns each round of the draft with its picks inlined as \verb{picks: [...]}.
+For historical seasons with no ESPN draft data the function returns an empty
+tibble rather than erroring.
 }
 \examples{
 \donttest{

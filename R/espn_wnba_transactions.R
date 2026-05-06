@@ -22,17 +22,23 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per draft pick:
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |season        |integer   |
-#'    |round         |integer   |
-#'    |pick          |integer   |
-#'    |overall       |integer   |
-#'    |team_id       |character |
-#'    |athlete_id    |character |
-#'    |athlete_name  |character |
-#'    |position      |character |
-#'    |college       |character |
+#'    |col_name     |types     |
+#'    |:------------|:---------|
+#'    |season       |integer   |
+#'    |round        |integer   |
+#'    |pick         |integer   |
+#'    |overall      |integer   |
+#'    |traded       |logical   |
+#'    |trade_note   |character |
+#'    |status       |character |
+#'    |athlete_id   |character |
+#'    |athlete_ref  |character |
+#'    |team_id      |character |
+#'    |team_ref     |character |
+#'
+#'    Athlete and team details (name, position, college, abbreviation) are not
+#'    inlined in the draft response; resolve them via `espn_wnba_athlete_info()`
+#'    or `espn_wnba_team()` using the returned IDs.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
@@ -43,10 +49,10 @@ NULL
 #' @family ESPN WNBA Functions
 #' @details
 #' Calls the ESPN core-v2 endpoint
-#' `https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/draft`.
-#' Paginates over all pages (capped at 20 pages) and returns a single flat
-#' tibble. Outside the draft window, or for historical seasons with no ESPN
-#' draft data, the function returns an empty tibble rather than erroring.
+#' `https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/draft/rounds`,
+#' which returns each round of the draft with its picks inlined as `picks: [...]`.
+#' For historical seasons with no ESPN draft data the function returns an empty
+#' tibble rather than erroring.
 #' @examples
 #' \donttest{
 #'   espn_wnba_draft(season = 2024)
@@ -56,146 +62,82 @@ espn_wnba_draft <- function(season = most_recent_wnba_season(), ...) {
 
   picks_df <- data.frame(stringsAsFactors = FALSE)
 
+  # Parse the trailing path-segment ID out of an ESPN $ref URL, e.g.
+  # ".../athletes/108565?lang=..." -> "108565".
+  .ref_id <- function(ref, segment) {
+    if (is.null(ref) || is.na(ref) || !nzchar(ref)) return(NA_character_)
+    m <- regmatches(ref, regexec(paste0("/", segment, "/(\\d+)"), ref))[[1]]
+    if (length(m) >= 2) m[[2]] else NA_character_
+  }
+
   tryCatch(
     expr = {
-      base_url <- paste0(
+      # /draft itself returns {rounds, athletes, ...} (no top-level items).
+      # /draft/rounds returns a paged collection where each item is a round
+      # carrying its picks inline as `picks: [...]`.
+      rounds_url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba",
-        "/seasons/", as.integer(season), "/draft"
+        "/seasons/", as.integer(season), "/draft/rounds"
       )
 
-      all_rows <- list()
-      page_index <- 1L
-      page_count <- 1L
-      page_cap   <- 20L
+      res <- .retry_request(rounds_url)
+      check_status(res)
+      raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = FALSE)
 
-      repeat {
-        url <- if (page_index == 1L) {
-          base_url
-        } else {
-          paste0(base_url, "?pageIndex=", page_index)
-        }
-
-        res <- .retry_request(url)
-        check_status(res)
-
-        raw <- res %>%
-          .resp_text() %>%
-          jsonlite::fromJSON(simplifyDataFrame = TRUE)
-
-        # Update pagination info on first page
-        if (page_index == 1L) {
-          page_count <- as.integer(raw[["pageCount"]] %||% 1L)
-          if (is.na(page_count) || page_count < 1L) page_count <- 1L
-        }
-
-        items <- raw[["items"]]
-
-        if (!is.null(items) && is.data.frame(items) && nrow(items) > 0) {
-          all_rows[[page_index]] <- items
-        }
-
-        if (page_index >= page_count || page_index >= page_cap) break
-        page_index <- page_index + 1L
-      }
-
-      if (length(all_rows) == 0) {
+      rounds <- raw[["items"]]
+      if (is.null(rounds) || length(rounds) == 0) {
         picks_df <- data.frame(stringsAsFactors = FALSE) %>%
           dplyr::as_tibble() %>%
           make_wehoop_data("ESPN WNBA Draft Picks from ESPN.com", Sys.time())
         return(picks_df)
       }
 
-      combined <- do.call(rbind, lapply(all_rows, function(df) {
-        # Normalise column names before bind to absorb schema drift
-        as.data.frame(df, stringsAsFactors = FALSE)
-      }))
+      pick_rows <- list()
+      for (rd in rounds) {
+        round_no <- as.integer(rd[["number"]] %||% NA_integer_)
+        picks    <- rd[["picks"]]
+        if (is.null(picks) || length(picks) == 0) next
 
-      # Extract nested fields defensively
-      extract_col <- function(df, col, default = NA_character_) {
-        if (col %in% colnames(df)) df[[col]] else rep(default, nrow(df))
-      }
+        for (pk in picks) {
+          ath_ref  <- pk[["athlete"]][["$ref"]] %||% NA_character_
+          team_ref <- pk[["team"]][["$ref"]]    %||% NA_character_
 
-      # athlete ref -> id
-      athlete_id <- NA_character_
-      athlete_name <- NA_character_
-      if ("athlete" %in% colnames(combined)) {
-        ath <- combined[["athlete"]]
-        if (is.data.frame(ath)) {
-          athlete_id   <- as.character(ath[["id"]] %||% NA_character_)
-          athlete_name <- as.character(ath[["displayName"]] %||% NA_character_)
-        } else if (is.list(ath)) {
-          athlete_id <- vapply(ath, function(a) {
-            as.character(if (is.list(a) || is.data.frame(a)) a[["id"]] %||% NA_character_ else NA_character_)
-          }, character(1))
-          athlete_name <- vapply(ath, function(a) {
-            as.character(if (is.list(a) || is.data.frame(a)) a[["displayName"]] %||% NA_character_ else NA_character_)
-          }, character(1))
+          pick_rows[[length(pick_rows) + 1L]] <- data.frame(
+            season       = as.integer(season),
+            round        = round_no,
+            pick         = as.integer(pk[["pick"]]    %||% NA_integer_),
+            overall      = as.integer(pk[["overall"]] %||% NA_integer_),
+            traded       = isTRUE(pk[["traded"]]),
+            trade_note   = as.character(pk[["tradeNote"]] %||% NA_character_),
+            status       = as.character(pk[["status"]][["name"]] %||% NA_character_),
+            athlete_id   = .ref_id(ath_ref,  "athletes"),
+            athlete_ref  = as.character(ath_ref),
+            team_id      = .ref_id(team_ref, "teams"),
+            team_ref     = as.character(team_ref),
+            stringsAsFactors = FALSE
+          )
         }
       }
 
-      team_id <- NA_character_
-      if ("team" %in% colnames(combined)) {
-        tm <- combined[["team"]]
-        if (is.data.frame(tm)) {
-          team_id <- as.character(tm[["id"]] %||% NA_character_)
-        } else if (is.list(tm)) {
-          team_id <- vapply(tm, function(t) {
-            as.character(if (is.list(t) || is.data.frame(t)) t[["id"]] %||% NA_character_ else NA_character_)
-          }, character(1))
-        }
+      if (length(pick_rows) == 0) {
+        picks_df <- data.frame(stringsAsFactors = FALSE) %>%
+          dplyr::as_tibble() %>%
+          make_wehoop_data("ESPN WNBA Draft Picks from ESPN.com", Sys.time())
+        return(picks_df)
       }
 
-      position_val <- NA_character_
-      if ("position" %in% colnames(combined)) {
-        pos <- combined[["position"]]
-        if (is.data.frame(pos)) {
-          position_val <- as.character(pos[["abbreviation"]] %||% NA_character_)
-        } else if (is.list(pos)) {
-          position_val <- vapply(pos, function(p) {
-            as.character(if (is.list(p) || is.data.frame(p)) p[["abbreviation"]] %||% NA_character_ else NA_character_)
-          }, character(1))
-        } else {
-          position_val <- as.character(pos)
-        }
-      }
-
-      college_val <- NA_character_
-      if ("college" %in% colnames(combined)) {
-        col_raw <- combined[["college"]]
-        if (is.data.frame(col_raw)) {
-          college_val <- as.character(col_raw[["name"]] %||% NA_character_)
-        } else if (is.list(col_raw)) {
-          college_val <- vapply(col_raw, function(c) {
-            as.character(if (is.list(c) || is.data.frame(c)) c[["name"]] %||% NA_character_ else NA_character_)
-          }, character(1))
-        } else {
-          college_val <- as.character(col_raw)
-        }
-      }
-
-      picks_df <- data.frame(
-        season       = as.integer(season),
-        round        = as.integer(extract_col(combined, "round",   NA_integer_)),
-        pick         = as.integer(extract_col(combined, "pick",    NA_integer_)),
-        overall      = as.integer(extract_col(combined, "overall", NA_integer_)),
-        team_id      = team_id,
-        athlete_id   = athlete_id,
-        athlete_name = athlete_name,
-        position     = position_val,
-        college      = college_val,
-        stringsAsFactors = FALSE
-      ) %>%
+      picks_df <- do.call(rbind, pick_rows) %>%
         dplyr::as_tibble() %>%
         make_wehoop_data("ESPN WNBA Draft Picks from ESPN.com", Sys.time())
     },
     error = function(e) .report_api_error(
       e,
-      hint = "Failed to retrieve ESPN WNBA draft data for season {season}",
+      hint = paste0("Failed to retrieve ESPN WNBA draft data for season ", season),
       args = .args
     ),
     warning = function(w) .report_api_warning(
       w,
-      hint = "Warning retrieving ESPN WNBA draft data for season {season}",
+      hint = paste0("Warning retrieving ESPN WNBA draft data for season ", season),
       args = .args
     ),
     finally = {}
@@ -245,8 +187,11 @@ NULL
 #' @details
 #' Calls the ESPN core-v2 endpoint
 #' `https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{year}/freeagents`.
-#' Outside the free-agent window the endpoint typically returns an empty list;
-#' the function returns an empty tibble rather than erroring in that case.
+#' As of 2026-05, this endpoint returns HTTP 500 for every season tested and
+#' there is no documented replacement; the function consequently returns an
+#' empty tibble and emits a CLI error message. It is retained so that downstream
+#' code does not break if ESPN restores the endpoint, but should not be relied
+#' on in the meantime.
 #' @examples
 #' \donttest{
 #'   espn_wnba_freeagents(season = 2025)

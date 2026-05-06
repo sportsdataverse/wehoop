@@ -12,9 +12,10 @@
 #' Internal: ESPN basketball athlete info
 #'
 #' Fetches
-#' `site.api.espn.com/apis/site/v2/sports/basketball/{league}/athletes/{athlete_id}`
+#' `sports.core.api.espn.com/v2/sports/basketball/leagues/{league}/athletes/{athlete_id}`
 #' and returns a named list of tibbles: `Bio`, `Team`, `Position`, `Status`,
-#' `College`, `Draft`.
+#' `College`, `Draft`. The legacy `site.api.espn.com/apis/site/v2/...` path
+#' was discontinued and now 404s for both leagues.
 #'
 #' @param league character. `"wnba"` or `"womens-college-basketball"`.
 #' @param athlete_id character or numeric. ESPN athlete identifier.
@@ -28,7 +29,7 @@
   result <- list()
 
   url <- paste0(
-    "https://site.api.espn.com/apis/site/v2/sports/basketball/",
+    "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
     league,
     "/athletes/",
     athlete_id
@@ -42,6 +43,25 @@
 
       ath <- raw[["athlete"]] %||% raw
 
+      # Helper: extract a 1-row data.frame of selected keys from either a
+      # data.frame (legacy site.api shape) or a named list (current core.api
+      # shape). Skips list-valued fields ($ref siblings, etc.).
+      .extract_row <- function(obj, keep) {
+        if (is.null(obj)) return(data.frame(stringsAsFactors = FALSE))
+        if (is.data.frame(obj)) {
+          cols <- intersect(keep, colnames(obj))
+          if (length(cols) == 0) return(data.frame(stringsAsFactors = FALSE))
+          return(as.data.frame(obj[cols], stringsAsFactors = FALSE))
+        }
+        if (is.list(obj)) {
+          present <- intersect(keep, names(obj))
+          scalars <- Filter(function(v) length(v) == 1 && !is.list(v), obj[present])
+          if (length(scalars) == 0) return(data.frame(stringsAsFactors = FALSE))
+          return(as.data.frame(scalars, stringsAsFactors = FALSE))
+        }
+        data.frame(stringsAsFactors = FALSE)
+      }
+
       # ---------- Bio ----------
       bio_keep <- c(
         "id", "uid", "guid", "firstName", "lastName", "fullName",
@@ -49,15 +69,21 @@
         "height", "displayHeight", "age", "dateOfBirth",
         "debutYear", "jersey", "active"
       )
-      bio_data <- ath[intersect(bio_keep, names(ath))]
-      if (!is.null(ath[["headshot"]]) && is.data.frame(ath[["headshot"]])) {
-        bio_data[["headshot_href"]] <- ath[["headshot"]][["href"]][[1]] %||% NA_character_
+      bio_data <- as.list(.extract_row(ath, bio_keep))
+      hs <- ath[["headshot"]]
+      if (!is.null(hs)) {
+        bio_data[["headshot_href"]] <- if (is.data.frame(hs)) hs[["href"]][[1]] %||% NA_character_
+                                       else hs[["href"]] %||% NA_character_
       }
-      if (!is.null(ath[["birthPlace"]]) && is.data.frame(ath[["birthPlace"]])) {
-        bp <- ath[["birthPlace"]]
-        bio_data[["birth_city"]]    <- bp[["city"]][[1]] %||% NA_character_
-        bio_data[["birth_state"]]   <- bp[["state"]][[1]] %||% NA_character_
-        bio_data[["birth_country"]] <- bp[["country"]][[1]] %||% NA_character_
+      bp <- ath[["birthPlace"]]
+      if (!is.null(bp)) {
+        get_bp <- function(k) {
+          v <- if (is.data.frame(bp)) bp[[k]][[1]] else bp[[k]]
+          v %||% NA_character_
+        }
+        bio_data[["birth_city"]]    <- get_bp("city")
+        bio_data[["birth_state"]]   <- get_bp("state")
+        bio_data[["birth_country"]] <- get_bp("country")
       }
       result[["Bio"]] <- data.frame(bio_data, stringsAsFactors = FALSE) %>%
         dplyr::as_tibble() %>%
@@ -68,13 +94,12 @@
         )
 
       # ---------- Team ----------
-      team_df <- data.frame(stringsAsFactors = FALSE)
-      if (!is.null(ath[["team"]]) && is.data.frame(ath[["team"]])) {
-        t_obj <- ath[["team"]]
-        team_keep <- c("id", "uid", "slug", "abbreviation", "displayName",
-                       "shortDisplayName", "name", "location", "color")
-        team_data <- t_obj[intersect(team_keep, colnames(t_obj))]
-        team_df <- data.frame(team_data, stringsAsFactors = FALSE)
+      team_keep <- c("id", "uid", "slug", "abbreviation", "displayName",
+                     "shortDisplayName", "name", "location", "color", "$ref")
+      team_df <- .extract_row(ath[["team"]], team_keep)
+      # Rename "$ref" -> "ref" before clean_names() to avoid problematic glyph
+      if ("$ref" %in% colnames(team_df)) {
+        names(team_df)[names(team_df) == "$ref"] <- "ref"
       }
       result[["Team"]] <- team_df %>%
         dplyr::as_tibble() %>%
@@ -85,14 +110,8 @@
         )
 
       # ---------- Position ----------
-      pos_df <- data.frame(stringsAsFactors = FALSE)
-      if (!is.null(ath[["position"]]) && is.data.frame(ath[["position"]])) {
-        p_obj <- ath[["position"]]
-        pos_keep <- c("id", "name", "displayName", "abbreviation", "leaf")
-        pos_data <- p_obj[intersect(pos_keep, colnames(p_obj))]
-        pos_df <- data.frame(pos_data, stringsAsFactors = FALSE)
-      }
-      result[["Position"]] <- pos_df %>%
+      pos_keep <- c("id", "name", "displayName", "abbreviation", "leaf")
+      result[["Position"]] <- .extract_row(ath[["position"]], pos_keep) %>%
         dplyr::as_tibble() %>%
         janitor::clean_names() %>%
         make_wehoop_data(
@@ -101,14 +120,8 @@
         )
 
       # ---------- Status ----------
-      status_df <- data.frame(stringsAsFactors = FALSE)
-      if (!is.null(ath[["status"]]) && is.data.frame(ath[["status"]])) {
-        s_obj <- ath[["status"]]
-        stat_keep <- c("id", "name", "type", "abbreviation")
-        stat_data <- s_obj[intersect(stat_keep, colnames(s_obj))]
-        status_df <- data.frame(stat_data, stringsAsFactors = FALSE)
-      }
-      result[["Status"]] <- status_df %>%
+      stat_keep <- c("id", "name", "type", "abbreviation")
+      result[["Status"]] <- .extract_row(ath[["status"]], stat_keep) %>%
         dplyr::as_tibble() %>%
         janitor::clean_names() %>%
         make_wehoop_data(
@@ -117,12 +130,10 @@
         )
 
       # ---------- College ----------
-      college_df <- data.frame(stringsAsFactors = FALSE)
-      if (!is.null(ath[["college"]]) && is.data.frame(ath[["college"]])) {
-        c_obj <- ath[["college"]]
-        coll_keep <- c("id", "mascot", "name", "shortName", "abbrev")
-        coll_data <- c_obj[intersect(coll_keep, colnames(c_obj))]
-        college_df <- data.frame(coll_data, stringsAsFactors = FALSE)
+      coll_keep <- c("id", "mascot", "name", "shortName", "abbrev", "$ref")
+      college_df <- .extract_row(ath[["college"]], coll_keep)
+      if ("$ref" %in% colnames(college_df)) {
+        names(college_df)[names(college_df) == "$ref"] <- "ref"
       }
       result[["College"]] <- college_df %>%
         dplyr::as_tibble() %>%
@@ -134,12 +145,17 @@
 
       # ---------- Draft ----------
       draft_df <- data.frame(stringsAsFactors = FALSE)
-      if (!is.null(ath[["draft"]]) && is.list(ath[["draft"]])) {
-        d_obj <- ath[["draft"]]
+      d_obj <- ath[["draft"]]
+      if (!is.null(d_obj) && (is.list(d_obj) || is.data.frame(d_obj))) {
+        get_d <- function(k) {
+          v <- if (is.data.frame(d_obj)) d_obj[[k]][[1]] else d_obj[[k]]
+          if (is.null(v) || is.list(v)) NA_character_ else as.character(v)
+        }
         draft_df <- data.frame(
-          year          = as.character(d_obj[["year"]] %||% NA_character_),
-          round         = as.character(d_obj[["round"]] %||% NA_character_),
-          selection     = as.character(d_obj[["selection"]] %||% NA_character_),
+          year      = get_d("year"),
+          round     = get_d("round"),
+          selection = get_d("selection"),
+          display_text = get_d("displayText"),
           stringsAsFactors = FALSE
         )
       }
@@ -524,19 +540,59 @@
               Sys.time()
             )
         } else if (is.list(events_raw) && length(events_raw) > 0) {
-          # Each element may be a named list with eventId + stats vector
-          rows <- lapply(events_raw, function(ev) {
-            event_id <- as.character(ev[["eventId"]] %||% ev[["id"]] %||% NA_character_)
-            stats_v  <- ev[["stats"]] %||% ev[["values"]]
+          # Each element is keyed by event id; the value is a list with
+          # per-game metadata (gameDate, opponent, score, atVs, gameResult,
+          # eventNote, leagueName, team, week, links, etc.). Stats themselves
+          # live in raw$seasonTypes and are merged separately if present.
+          rows <- lapply(seq_along(events_raw), function(i) {
+            ev <- events_raw[[i]]
+            if (!is.list(ev)) return(NULL)
+
+            event_id <- as.character(
+              ev[["eventId"]] %||% ev[["id"]] %||%
+                names(events_raw)[i] %||% NA_character_
+            )
+
+            # Capture scalar (length-1, non-list) fields verbatim.
+            scalars <- Filter(function(v) length(v) == 1 && !is.list(v), ev)
+            row_df <- if (length(scalars) > 0) {
+              as.data.frame(lapply(scalars, function(v) as.character(v[[1]])),
+                            stringsAsFactors = FALSE)
+            } else {
+              data.frame(stringsAsFactors = FALSE)
+            }
+
+            # Pull common nested 1-row objects (team, opponent) onto the row.
+            for (nm in c("team", "opponent")) {
+              sub <- ev[[nm]]
+              if (is.list(sub) && !is.data.frame(sub)) {
+                sub_scalars <- Filter(function(v) length(v) == 1 && !is.list(v), sub)
+                if (length(sub_scalars) > 0) {
+                  add <- as.data.frame(
+                    lapply(sub_scalars, function(v) as.character(v[[1]])),
+                    stringsAsFactors = FALSE
+                  )
+                  names(add) <- paste0(nm, "_", names(add))
+                  row_df <- if (nrow(row_df) > 0) cbind(row_df, add) else add
+                }
+              }
+            }
+
+            # Optionally append stats vector if it's bundled inline with labels.
+            stats_v <- ev[["stats"]] %||% ev[["values"]]
             if (!is.null(stats_v) && !is.null(labels_raw) &&
                 length(labels_raw) == length(stats_v)) {
-              row_vals <- as.list(as.character(stats_v))
-              names(row_vals) <- as.character(labels_raw)
-              row_vals[["event_id"]] <- event_id
-              data.frame(row_vals, stringsAsFactors = FALSE)
-            } else {
-              data.frame(event_id = event_id, stringsAsFactors = FALSE)
+              stat_cols <- as.list(as.character(stats_v))
+              names(stat_cols) <- as.character(labels_raw)
+              stat_df <- as.data.frame(stat_cols, stringsAsFactors = FALSE)
+              row_df <- if (nrow(row_df) > 0) cbind(row_df, stat_df) else stat_df
             }
+
+            if (nrow(row_df) == 0) {
+              row_df <- data.frame(stringsAsFactors = FALSE)
+            }
+            row_df[["event_id"]] <- event_id
+            row_df
           })
           rows <- Filter(Negate(is.null), rows)
           if (length(rows) > 0) {
@@ -612,7 +668,8 @@
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
 
-      splits_raw <- raw[["splits"]] %||% raw[["categories"]] %||% raw[["data"]]
+      splits_raw <- raw[["splitCategories"]] %||% raw[["splits"]] %||%
+                      raw[["categories"]] %||% raw[["data"]]
       labels_raw <- raw[["labels"]] %||% raw[["names"]] %||% raw[["statNames"]]
 
       if (is.null(splits_raw)) {
@@ -725,13 +782,14 @@
 
   result <- NULL
 
+  # Eventlog is scoped under /seasons/{year}/athletes/{id}/eventlog;
+  # the flat /athletes/{id}/eventlog?season= form 404s.
   url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
     league,
-    "/athletes/",
-    athlete_id,
-    "/eventlog?season=",
-    season
+    "/seasons/", as.integer(season),
+    "/athletes/", athlete_id,
+    "/eventlog"
   )
 
   tryCatch(
@@ -740,9 +798,17 @@
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
 
-      # core-v2 eventlog returns events[].{event.$ref, competition.$ref,
-      #   team.$ref, statistics.$ref, playByPlay.$ref}
-      events_raw <- raw[["events"]] %||% raw[["items"]]
+      # core-v2 eventlog returns:
+      #   raw$events = {count, pageIndex, pageSize, pageCount, items[]}
+      # where items is a data frame with cols
+      #   {event, competition, statistics, teamId, played}.
+      # The `event/competition/statistics` cols may be character $ref vectors
+      # (collapsed by simplifyDataFrame) or 1-col data frames named "$ref".
+      events_obj <- raw[["events"]]
+      events_raw <- if (is.list(events_obj) && !is.data.frame(events_obj))
+                      events_obj[["items"]] %||% events_obj
+                    else events_obj
+      events_raw <- events_raw %||% raw[["items"]]
 
       if (is.null(events_raw) ||
           (!is.data.frame(events_raw) && !is.list(events_raw)) ||
@@ -750,12 +816,13 @@
         result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
       } else {
         if (is.data.frame(events_raw) && nrow(events_raw) > 0) {
-          # Flatten $ref columns from nested data frames
+          # Flatten $ref columns from nested data frames or scalar URL columns
           ev <- events_raw
 
           extract_ref <- function(col_name) {
             x <- ev[[col_name]]
             if (is.null(x)) return(rep(NA_character_, nrow(ev)))
+            if (is.character(x)) return(x)
             if (is.data.frame(x) && "$ref" %in% colnames(x)) {
               return(as.character(x[["$ref"]]))
             }
@@ -995,13 +1062,17 @@
 
   result <- NULL
 
+  # ESPN's core-v2 statisticslog endpoint does NOT accept ?season=YYYY
+  # (returns 404). It returns the full chronological log; the season arg
+  # is retained on the public wrapper signature for API symmetry but only
+  # used to filter the resulting frame downstream.
+  invisible(season)
   url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
     league,
     "/athletes/",
     athlete_id,
-    "/statisticslog?season=",
-    season
+    "/statisticslog"
   )
 
   tryCatch(

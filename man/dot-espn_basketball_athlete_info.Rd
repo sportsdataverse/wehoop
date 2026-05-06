@@ -18,8 +18,9 @@ Named list of data frames.
 }
 \description{
 Fetches
-\code{site.api.espn.com/apis/site/v2/sports/basketball/{league}/athletes/{athlete_id}}
+\code{sports.core.api.espn.com/v2/sports/basketball/leagues/{league}/athletes/{athlete_id}}
 and returns a named list of tibbles: \code{Bio}, \code{Team}, \code{Position}, \code{Status},
-\code{College}, \code{Draft}.
+\code{College}, \code{Draft}. The legacy \code{site.api.espn.com/apis/site/v2/...} path
+was discontinued and now 404s for both leagues.
 }
 \keyword{internal}
