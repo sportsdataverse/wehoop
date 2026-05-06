@@ -100,7 +100,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_calendar(season = 2025)
 #> ── ESPN WNBA Calendar from ESPN.com ──────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-05 23:58:08 UTC
+#> ℹ Data updated: 2026-05-06 00:20:06 UTC
 #> # A tibble: 126 × 12
 #>    season season_type season_type_label season_start_date season_end_date  
 #>    <chr>  <chr>       <chr>             <chr>             <chr>            

@@ -98,7 +98,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_news(team_id = "17", limit = 5)
 #> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-05 23:58:20 UTC
+#> ℹ Data updated: 2026-05-06 00:20:19 UTC
 #> # A tibble: 0 × 0
 # }
 ```

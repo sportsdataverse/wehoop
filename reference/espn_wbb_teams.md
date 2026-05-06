@@ -94,7 +94,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_teams())
 #> ── ESPN WBB Teams Information from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-05 23:58:03 UTC
+#> ℹ Data updated: 2026-05-06 00:20:01 UTC
 #> # A tibble: 361 × 32
 #>    abbreviation alternate_color color display_name team_id team  logo  logo_dark
 #>    <chr>        <chr>           <chr> <chr>          <int> <chr> <chr> <chr>    

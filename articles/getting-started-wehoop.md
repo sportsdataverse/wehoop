@@ -112,7 +112,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.231 sec elapsed
+    ## 0.173 sec elapsed
 
 ``` r
 
@@ -187,7 +187,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.207 sec elapsed
+    ## 0.168 sec elapsed
 
 ``` r
 
@@ -216,7 +216,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.203 sec elapsed
+    ## 0.168 sec elapsed
 
 ``` r
 
@@ -276,7 +276,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 15.577 sec elapsed
+    ## 15.584 sec elapsed
 
 ``` r
 
@@ -301,7 +301,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.37 sec elapsed
+    ## 0.375 sec elapsed
 
 ``` r
 
@@ -326,7 +326,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.209 sec elapsed
+    ## 1.229 sec elapsed
 
 ``` r
 
@@ -434,8 +434,6 @@ that takes precedence over the option.
 - [**`wehoop` reference
   index**](https://wehoop.sportsdataverse.org/reference/) – every
   exported function, organized by data family.
-- [**SportsDataverse Discord**](https://discord.gg/sportsdataverse) –
-  the community Discord, where most active users hang out.
 - The [`hoopR`](https://hoopr.sportsdataverse.org),
   [`cfbfastR`](https://cfbfastR.sportsdataverse.org), and
   [`fastRhockey`](https://fastrhockey.sportsdataverse.org) packages
