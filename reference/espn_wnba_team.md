@@ -141,7 +141,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-06 01:29:45 UTC
+#> ℹ Data updated: 2026-05-06 01:44:04 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -151,7 +151,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-06 01:29:45 UTC
+#> ℹ Data updated: 2026-05-06 01:44:04 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -161,7 +161,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-06 01:29:45 UTC
+#> ℹ Data updated: 2026-05-06 01:44:04 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                              short_name
 #>   <chr>     <chr>             <chr>                             <chr>     
@@ -169,7 +169,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-06 01:29:45 UTC
+#> ℹ Data updated: 2026-05-06 01:44:04 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

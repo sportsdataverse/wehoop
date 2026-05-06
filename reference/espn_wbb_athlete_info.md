@@ -136,7 +136,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_athlete_info(athlete_id = "4432755")
-#> ✖ 2026-05-06 01:29:06.973573: Failed to retrieve ESPN womens-college-basketball athlete info for athlete_id=4432755
+#> ✖ 2026-05-06 01:43:27.47442: Failed to retrieve ESPN womens-college-basketball athlete info for athlete_id=4432755
 #> ✖ Args: league = "womens-college-basketball", athlete_id = "4432755"
 #> ✖ Error: The API returned an error
 #> list()
