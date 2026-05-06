@@ -47,8 +47,16 @@ jobs:
       fail-fast: false
       matrix:
         config: ${{ fromJson(needs.setup.outputs.containers) }}
+        
     container:
       image: ${{ matrix.config.container }}
+      
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      # Optional live API toggles for CI (tests still short-circuit on skip_on_ci() unless changed):
+      WNBA_STATS_TESTS: ${{ secrets.WNBA_STATS_TESTS }}
+      ESPN_TESTS: ${{ secrets.ESPN_TESTS }}
+      NCAA_WBB_TESTS: ${{ secrets.NCAA_WBB_TESTS }}
 
     steps:
       - uses: r-hub/actions/checkout@v1
@@ -74,6 +82,13 @@ jobs:
       fail-fast: false
       matrix:
         config: ${{ fromJson(needs.setup.outputs.platforms) }}
+        
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      # Optional live API toggles for CI (tests still short-circuit on skip_on_ci() unless changed):
+      WNBA_STATS_TESTS: ${{ secrets.WNBA_STATS_TESTS }}
+      ESPN_TESTS: ${{ secrets.ESPN_TESTS }}
+      NCAA_WBB_TESTS: ${{ secrets.NCAA_WBB_TESTS }}
 
     steps:
       - uses: r-hub/actions/checkout@v1
