@@ -9,7 +9,9 @@ update_wbb_db(
   dbname = "wehoop_db",
   tblname = "wehoop_wbb_pbp",
   force_rebuild = FALSE,
-  db_connection = NULL
+  db_connection = NULL,
+  datasets = NULL,
+  seasons = TRUE
 )
 }
 \arguments{
@@ -24,6 +26,19 @@ of or the complete play by play data table within the database (please see detai
 
 \item{db_connection}{A \code{DBIConnection} object, as returned by
 \code{\link[DBI:dbConnect]{DBI::dbConnect()}} (please see details for further information)}
+
+\item{datasets}{Optional character vector of dataset shortnames. When \code{NULL}
+(the default) the legacy behavior is preserved: the play-by-play table
+\code{tblname} is created/updated. When supplied, only the requested datasets
+are written (one table per dataset, named \verb{wbb_<dataset>} -- e.g.
+\code{wbb_rosters}, \code{wbb_player_stats}). Valid values:
+\code{"pbp"}, \code{"team_box"}, \code{"player_box"}, \code{"schedule"}, \code{"rosters"},
+\code{"player_stats"}, \code{"team_stats"}, \code{"standings"}, \code{"shots"},
+\code{"game_rosters"}, \code{"officials"}.}
+
+\item{seasons}{Optional integer vector of seasons. Forwarded to the dataset
+loaders only when \code{datasets} is supplied. Defaults to all available
+seasons for the dataset (\code{seasons = TRUE}).}
 }
 \value{
 Logical TRUE/FALSE
