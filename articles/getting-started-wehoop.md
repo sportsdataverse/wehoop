@@ -112,7 +112,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.221 sec elapsed
+    ## 0.336 sec elapsed
 
 ``` r
 
@@ -187,7 +187,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.209 sec elapsed
+    ## 0.309 sec elapsed
 
 ``` r
 
@@ -216,7 +216,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.188 sec elapsed
+    ## 0.306 sec elapsed
 
 ``` r
 
@@ -276,7 +276,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 16.668 sec elapsed
+    ## 16.139 sec elapsed
 
 ``` r
 
@@ -301,7 +301,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.867 sec elapsed
+    ## 0.63 sec elapsed
 
 ``` r
 
@@ -326,7 +326,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.309 sec elapsed
+    ## 1.456 sec elapsed
 
 ``` r
 
@@ -352,6 +352,46 @@ recent <- wehoop::load_wbb_player_box(
   seasons = (wehoop::most_recent_wbb_season() - 1):wehoop::most_recent_wbb_season()
 )
 ```
+
+### Bulk datasets beyond pbp and box scores
+
+In `wehoop` 3.0.0 the `load_*()` family expanded well past play-by-play
+and box scores. The same release-bucket pattern now powers loaders for
+rosters, season-aggregated player and team stats, standings, draft
+picks, shot events, per-game rosters, and game officials – across all
+three data sources (ESPN WBB, ESPN WNBA, and the WNBA Stats API). They
+all accept the same arguments as
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md):
+a vector of `seasons =`, optional `dbConnection =` / `tablename =` for
+streaming straight into a database, and
+[`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
+decoration of the per-season download.
+
+A quick tour through three of them and the alternate WNBA Stats API
+source:
+
+``` r
+
+# Season-level WNBA rosters (ESPN view)
+rosters_2025 <- wehoop::load_wnba_rosters(seasons = 2025)
+
+# Per-event shots derived from PBP — every made/missed shot with court coordinates
+shot_chart <- wehoop::load_wnba_shots(seasons = 2024)
+
+# Same standings dataset, alternate source: WNBA Stats API rather than ESPN.
+# Useful when you need the WNBA's official team_id keying.
+stats_standings <- wehoop::load_wnba_stats_standings(seasons = 2024)
+
+# WBB team-season stats (ESPN) for last two seasons
+wbb_teams <- wehoop::load_wbb_team_stats(
+  seasons = (wehoop::most_recent_wbb_season() - 1):wehoop::most_recent_wbb_season()
+)
+```
+
+The ESPN-backed and WNBA Stats API-backed WNBA loaders cover overlapping
+ground (rosters, player stats, team stats, standings, draft, shots, game
+rosters, officials), so you can pick whichever joins more cleanly into
+the rest of your pipeline. WBB has only the ESPN-backed family today.
 
 ### Live API endpoints
 

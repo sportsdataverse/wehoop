@@ -27,6 +27,54 @@ Data
 
   **Load wehoop WNBA schedules**
 
+- [`load_wnba_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md)
+  [`load_wnba_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md)
+  :
+
+  **Load wehoop WNBA Rosters**
+
+- [`load_wnba_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.md)
+  [`load_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.md)
+  :
+
+  **Load wehoop WNBA Player Season Stats**
+
+- [`load_wnba_team_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_stats.md)
+  [`load_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_stats.md)
+  :
+
+  **Load wehoop WNBA Team Season Stats**
+
+- [`load_wnba_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_standings.md)
+  [`load_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_standings.md)
+  :
+
+  **Load wehoop WNBA Standings**
+
+- [`load_wnba_draft_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+  [`load_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+  :
+
+  **Load wehoop WNBA Draft**
+
+- [`load_wnba_shots_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_shots.md)
+  [`load_wnba_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_shots.md)
+  :
+
+  **Load wehoop WNBA Shots**
+
+- [`load_wnba_game_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_game_rosters.md)
+  [`load_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_game_rosters.md)
+  :
+
+  **Load wehoop WNBA Game Rosters**
+
+- [`load_wnba_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md)
+  [`load_wnba_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md)
+  :
+
+  **Load wehoop WNBA Officials**
+
 - [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
   :
 
@@ -57,10 +105,122 @@ Women’s College Basketball Data
 
   **Load wehoop women's college basketball schedule**
 
+- [`load_wbb_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.md)
+  [`load_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.md)
+  :
+
+  **Load wehoop WBB Rosters**
+
+- [`load_wbb_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.md)
+  [`load_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.md)
+  :
+
+  **Load wehoop WBB Player Season Stats**
+
+- [`load_wbb_team_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_stats.md)
+  [`load_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_stats.md)
+  :
+
+  **Load wehoop WBB Team Season Stats**
+
+- [`load_wbb_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_standings.md)
+  [`load_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_standings.md)
+  :
+
+  **Load wehoop WBB Standings**
+
+- [`load_wbb_shots_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_shots.md)
+  [`load_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_wbb_shots.md)
+  :
+
+  **Load wehoop WBB Shots**
+
+- [`load_wbb_game_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
+  [`load_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
+  :
+
+  **Load wehoop WBB Game Rosters**
+
+- [`load_wbb_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_officials.md)
+  [`load_wbb_officials()`](https://wehoop.sportsdataverse.org/reference/load_wbb_officials.md)
+  :
+
+  **Load wehoop WBB Officials**
+
 - [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md)
   :
 
   **Build/update wehoop WBB play-by-play database**
+
+### WNBA Stats API Data Loaders
+
+Functions exported by wehoop to access wehoop-wnba-stats-data WNBA Stats
+API artifacts
+
+- [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.md)
+  [`load_wnba_stats_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.md)
+  :
+
+  **Load wehoop WNBA Stats Rosters**
+
+- [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+  [`load_wnba_stats_coaches_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+  :
+
+  **Load wehoop WNBA Stats Coaches**
+
+- [`load_wnba_stats_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md)
+  [`load_wnba_stats_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md)
+  :
+
+  **Load wehoop WNBA Stats Player Season Stats**
+
+- [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md)
+  [`load_wnba_stats_lineups_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md)
+  :
+
+  **Load wehoop WNBA Stats Lineups**
+
+- [`load_wnba_stats_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_team_stats.md)
+  [`load_wnba_stats_team_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_team_stats.md)
+  :
+
+  **Load wehoop WNBA Stats Team Season Stats**
+
+- [`load_wnba_stats_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_standings.md)
+  [`load_wnba_stats_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_standings.md)
+  :
+
+  **Load wehoop WNBA Stats Standings**
+
+- [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md)
+  [`load_wnba_stats_draft_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md)
+  :
+
+  **Load wehoop WNBA Stats Draft**
+
+- [`load_wnba_stats_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_shots.md)
+  [`load_wnba_stats_shots_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_shots.md)
+  :
+
+  **Load wehoop WNBA Stats Shots**
+
+- [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md)
+  [`load_wnba_stats_game_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md)
+  :
+
+  **Load wehoop WNBA Stats Game Rosters**
+
+- [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md)
+  [`load_wnba_stats_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md)
+  :
+
+  **Load wehoop WNBA Stats Officials**
+
+- [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md)
+  :
+
+  **Build/update wehoop WNBA Stats database**
 
 ## ESPN Data
 
@@ -1160,6 +1320,9 @@ Internal functions used by wehoop
 
 - [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
   : Most Recent WNBA Season
+
+- [`most_recent_wnba_stats_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_stats_season.md)
+  : Most Recent WNBA Stats API Season
 
 - [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
   : Progressively

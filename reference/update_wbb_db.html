@@ -98,7 +98,9 @@ play by play data of all completed and available games since 2002.</p>
 <span>  dbname <span class="op">=</span> <span class="st">"wehoop_db"</span>,</span>
 <span>  tblname <span class="op">=</span> <span class="st">"wehoop_wbb_pbp"</span>,</span>
 <span>  force_rebuild <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  db_connection <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  db_connection <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  datasets <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  seasons <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -126,6 +128,23 @@ of or the complete play by play data table within the database (please see detai
 <dt id="arg-db-connection">db_connection<a class="anchor" aria-label="anchor" href="#arg-db-connection"></a></dt>
 <dd><p>A <code>DBIConnection</code> object, as returned by
 <code><a href="https://dbi.r-dbi.org/reference/dbConnect.html" class="external-link">DBI::dbConnect()</a></code> (please see details for further information)</p></dd>
+
+
+<dt id="arg-datasets">datasets<a class="anchor" aria-label="anchor" href="#arg-datasets"></a></dt>
+<dd><p>Optional character vector of dataset shortnames. When <code>NULL</code>
+(the default) the legacy behavior is preserved: the play-by-play table
+<code>tblname</code> is created/updated. When supplied, only the requested datasets
+are written (one table per dataset, named <code>wbb_&lt;dataset&gt;</code> – e.g.
+<code>wbb_rosters</code>, <code>wbb_player_stats</code>). Valid values:
+<code>"pbp"</code>, <code>"team_box"</code>, <code>"player_box"</code>, <code>"schedule"</code>, <code>"rosters"</code>,
+<code>"player_stats"</code>, <code>"team_stats"</code>, <code>"standings"</code>, <code>"shots"</code>,
+<code>"game_rosters"</code>, <code>"officials"</code>.</p></dd>
+
+
+<dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
+<dd><p>Optional integer vector of seasons. Forwarded to the dataset
+loaders only when <code>datasets</code> is supplied. Defaults to all available
+seasons for the dataset (<code>seasons = TRUE</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">

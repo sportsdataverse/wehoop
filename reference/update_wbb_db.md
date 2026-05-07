@@ -11,7 +11,9 @@ update_wbb_db(
   dbname = "wehoop_db",
   tblname = "wehoop_wbb_pbp",
   force_rebuild = FALSE,
-  db_connection = NULL
+  db_connection = NULL,
+  datasets = NULL,
+  seasons = TRUE
 )
 ```
 
@@ -40,6 +42,23 @@ update_wbb_db(
   A `DBIConnection` object, as returned by
   [`DBI::dbConnect()`](https://dbi.r-dbi.org/reference/dbConnect.html)
   (please see details for further information)
+
+- datasets:
+
+  Optional character vector of dataset shortnames. When `NULL` (the
+  default) the legacy behavior is preserved: the play-by-play table
+  `tblname` is created/updated. When supplied, only the requested
+  datasets are written (one table per dataset, named `wbb_<dataset>` –
+  e.g. `wbb_rosters`, `wbb_player_stats`). Valid values: `"pbp"`,
+  `"team_box"`, `"player_box"`, `"schedule"`, `"rosters"`,
+  `"player_stats"`, `"team_stats"`, `"standings"`, `"shots"`,
+  `"game_rosters"`, `"officials"`.
+
+- seasons:
+
+  Optional integer vector of seasons. Forwarded to the dataset loaders
+  only when `datasets` is supplied. Defaults to all available seasons
+  for the dataset (`seasons = TRUE`).
 
 ## Value
 

@@ -2,6 +2,111 @@
 
 ## **wehoop 3.0.0**
 
+#### **New data loaders**
+
+- feat: add `load_*` functions for season-level rosters and player
+  stats, backed by new `sportsdataverse-data` release tags published by
+  the `wehoop-wbb-data`, `wehoop-wnba-data`, and
+  `wehoop-wnba-stats-data` pipelines. Each function follows the existing
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  shape — `(seasons, ..., dbConnection = NULL, tablename = NULL)`,
+  [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
+  decorator, `data.table::rbindlist(use.names = TRUE, fill = TRUE)`,
+  optional DB write, and a final `wehoop_data` class set on the
+  in-memory result.
+  - ESPN-backed loaders:
+    [`load_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.md),
+    [`load_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.md),
+    [`load_wnba_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md),
+    [`load_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.md)
+    reading from the `espn_womens_college_basketball_rosters`,
+    `espn_womens_college_basketball_player_season_stats`,
+    `espn_wnba_rosters`, and `espn_wnba_player_season_stats` release
+    tags respectively.
+  - WNBA Stats API-backed loaders:
+    [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.md),
+    [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
+    [`load_wnba_stats_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md),
+    [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md)
+    reading from the `wnba_stats_rosters`, `wnba_stats_coaches`,
+    `wnba_stats_player_season_stats`, and `wnba_stats_lineups` release
+    tags respectively. New file `R/load_wnba_stats.R` houses the four
+    `wnba_stats_*` loaders.
+  - Adds
+    [`most_recent_wnba_stats_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_stats_season.md)
+    helper in `R/utils.R` (a thin wrapper around
+    [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
+    for naming symmetry with the `wnba_stats_*` family).
+  - Tests gated by the existing `WEHOOP_LOAD_TESTS=1` env var via
+    `skip_load_test()` (`tests/testthat/helper-skip.R`).
+- feat: add additional `load_*` season-summary loaders backed by new
+  `sportsdataverse-data` release tags. Each follows the same
+  `(seasons, ..., dbConnection = NULL, tablename = NULL)` shape, single
+  `.rds` per season,
+  [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
+  decorator, and final `wehoop_data` class set on the in-memory result.
+  - ESPN-backed loaders:
+    [`load_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_stats.md),
+    [`load_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_standings.md),
+    [`load_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_stats.md),
+    [`load_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_standings.md),
+    [`load_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+    reading from the `espn_womens_college_basketball_team_season_stats`,
+    `espn_womens_college_basketball_standings`,
+    `espn_wnba_team_season_stats`, `espn_wnba_standings`, and
+    `espn_wnba_draft` release tags respectively.
+  - WNBA Stats API-backed loaders:
+    [`load_wnba_stats_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_team_stats.md),
+    [`load_wnba_stats_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_standings.md),
+    [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md)
+    reading from the `wnba_stats_team_season_stats`,
+    `wnba_stats_standings`, and `wnba_stats_draft` release tags
+    respectively.
+  - Tests gated by the existing `WEHOOP_LOAD_TESTS=1` env var via
+    `skip_load_test()`.
+- feat: add `load_*` loaders for shot events, per-game rosters, and game
+  officials backed by new `sportsdataverse-data` release tags. Each
+  follows the same
+  `(seasons, ..., dbConnection = NULL, tablename = NULL)` shape, single
+  `.rds` per season,
+  [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
+  decorator, and final `wehoop_data` class set on the in-memory result.
+  - ESPN-backed loaders:
+    [`load_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_wbb_shots.md),
+    [`load_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
+    [`load_wbb_officials()`](https://wehoop.sportsdataverse.org/reference/load_wbb_officials.md),
+    [`load_wnba_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_shots.md),
+    [`load_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_game_rosters.md),
+    [`load_wnba_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md)
+    reading from the `espn_womens_college_basketball_shots`,
+    `espn_womens_college_basketball_game_rosters`,
+    `espn_womens_college_basketball_officials`, `espn_wnba_shots`,
+    `espn_wnba_game_rosters`, and `espn_wnba_officials` release tags
+    respectively.
+  - WNBA Stats API-backed loaders:
+    [`load_wnba_stats_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_shots.md),
+    [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+    [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md)
+    reading from the `wnba_stats_shots`, `wnba_stats_game_rosters`, and
+    `wnba_stats_officials` release tags respectively.
+  - Tests gated by the existing `WEHOOP_LOAD_TESTS=1` env var via
+    `skip_load_test()`.
+- feat: add 25 `load_*_manifest()` helpers (one per non-PBP/non-schedule
+  dataset across the three release-tag families) plus a `datasets=`
+  argument on
+  [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
+  /
+  [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md)
+  and a new
+  [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md)
+  for selective DB population. Manifest helpers return the per-season
+  `season` / `row_count` / `generated_at_utc` / `source_endpoint` CSV
+  attached to each release tag, so users can discover available seasons
+  without triggering a heavy `load_*()` call. The `datasets=` arg lets
+  callers populate specific tables (e.g.
+  `update_wbb_db(datasets = c("rosters", "player_stats"))`); when `NULL`
+  the historical play-by-play behavior is preserved.
+
 #### **ESPN endpoint expansion**
 
 - feat: add ESPN news + calendar endpoint wrappers —
@@ -90,7 +195,7 @@
   [`.espn_basketball_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_awards.md),
   [`.espn_basketball_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_athlete_statisticslog.md)
   in `R/espn_basketball_athlete_helpers.R`) keep WBB and WNBA DRY.
-- feat: add WNBA-only ESPN endpoint wrappers (Phase 4 + Phase 6) –
+- feat: add WNBA-only ESPN endpoint wrappers –
   [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md),
   [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
   [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
@@ -111,7 +216,7 @@
   using the WNBA scoreboard-conferences endpoint (site-v2
   `/scoreboard/conferences?seasontype=2`) with the same column shape and
   `dplyr::select(-dplyr::any_of("subGroups"))` drift guard.
-- feat: add ESPN event-detail endpoint wrappers (Phase 3) –
+- feat: add ESPN event-detail endpoint wrappers –
   [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md),
   [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
   [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md),
@@ -130,7 +235,7 @@
   [`.espn_basketball_event_officials()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_event_officials.md),
   [`.espn_basketball_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_event_broadcasts.md)
   in `R/espn_basketball_event_helpers.R`) keep WBB and WNBA DRY.
-- feat: add ESPN league-wide catalog endpoint wrappers (Phase 5) –
+- feat: add ESPN league-wide catalog endpoint wrappers –
   [`espn_wbb_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_leaders.md),
   [`espn_wnba_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_leaders.md),
   [`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md),
@@ -157,9 +262,9 @@
   [`.espn_basketball_season_info()`](https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_info.md)
   in `R/espn_basketball_league_helpers.R`) keep WBB and WNBA DRY.
 - docs: add `vignettes/espn-endpoints.Rmd` covering all 80 ESPN
-  basketball wrappers across the six expansion phases (existing 22 + 58
-  new). Reorganize the pkgdown reference index into 14 per-domain ESPN
-  subsections so the rendered nav scales for the new surface.
+  basketball wrappers (existing 22 + 58 new). Reorganize the pkgdown
+  reference index into 14 per-domain ESPN subsections so the rendered
+  nav scales for the new surface.
 
 #### **CRAN preparation**
 
@@ -172,13 +277,13 @@
   [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md),
   which had been title/`@export`-only.
 - Add `@examples \donttest{}` blocks to all 58 new ESPN endpoint
-  wrappers (Phase 1-6 expansion). Live-API examples are wrapped in
-  `\donttest{}` so they do not run during routine `R CMD check` but are
-  still exercised under `--run-donttest`. The redundant `@details`
-  code-block samples were removed from these 58 functions; the legacy
-  `@details`-with-code-block convention is retained for the WNBA Stats
-  API (`wnba_*`) and NCAA (`ncaa_wbb_*`) wrappers per the project’s
-  documentation conventions in `CLAUDE.md`.
+  wrappers. Live-API examples are wrapped in `\donttest{}` so they do
+  not run during routine `R CMD check` but are still exercised under
+  `--run-donttest`. The redundant `@details` code-block samples were
+  removed from these 58 functions; the legacy `@details`-with-code-block
+  convention is retained for the WNBA Stats API (`wnba_*`) and NCAA
+  (`ncaa_wbb_*`) wrappers per the project’s documentation conventions in
+  `CLAUDE.md`.
 - Modernize `inst/CITATION`: replace deprecated
   [`citEntry()`](https://rdrr.io/r/utils/citEntry.html) /
   [`personList()`](https://rdrr.io/r/utils/personList.html) with

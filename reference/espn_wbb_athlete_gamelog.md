@@ -81,7 +81,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_gamelog(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Gamelog from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-06 04:51:02 UTC
+#> ℹ Data updated: 2026-05-07 18:39:47 UTC
 #> # A tibble: 34 × 26
 #>    id      week  at_vs game_date score home_team_id away_team_id home_team_score
 #>    <chr>   <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          

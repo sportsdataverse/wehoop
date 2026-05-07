@@ -95,7 +95,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Statisticslog from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-06 04:51:28 UTC
+#> ℹ Data updated: 2026-05-07 18:40:16 UTC
 #> # A tibble: 1 × 2
 #>   season$`$ref`                                                       statistics
 #>   <chr>                                                               <list>    
