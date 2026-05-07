@@ -21,3 +21,20 @@ skip_ncaa_wbb_test <- function(){
     invisible()
   }
 }
+
+# Gates tests for `load_*()` functions that download release-asset .rds/.parquet
+# files from `github.com/sportsdataverse/sportsdataverse-data/releases/...`.
+# Triggered by `WEHOOP_LOAD_TESTS=1`.
+#
+# Kept separate from `WNBA_STATS_TESTS` and `ESPN_TESTS` because the cost
+# profile is different: the API tests issue small JSON requests, whereas the
+# load tests pull multi-megabyte release assets per season. Bundling them under
+# the same env var would force every contributor running API tests to also
+# download the full data repo, which is undesirable for routine local checks.
+skip_load_test <- function(){
+  if(Sys.getenv("WEHOOP_LOAD_TESTS") != "1"){
+    skip("User can't run wehoop load_* tests")
+  } else {
+    invisible()
+  }
+}
