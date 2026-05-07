@@ -1,5 +1,5 @@
 # espn_wnba_transactions.R
-# WNBA-only Phase 4 ESPN endpoint wrappers:
+# WNBA-only ESPN endpoint wrappers:
 #   espn_wnba_draft(), espn_wnba_freeagents(), espn_wnba_transactions()
 # These endpoints have no WBB equivalent, so they are implemented directly
 # without shared helpers.

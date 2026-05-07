@@ -1,6 +1,6 @@
 # espn_wnba_groups.R
-# Phase 6 -- WNBA parity: espn_wnba_conferences()
-# Mirrors espn_wbb_conferences() using the WNBA scoreboard-conferences endpoint.
+# espn_wnba_conferences() -- mirrors espn_wbb_conferences() using the WNBA
+# scoreboard-conferences endpoint.
 
 #' **Get ESPN WNBA Conferences**
 #' @name espn_wnba_conferences
