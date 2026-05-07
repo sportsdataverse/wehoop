@@ -43,3 +43,4 @@ wbb_pbp_db*
 ^\.pre-commit-config\.yaml$
 ^CRAN-SUBMISSION$
 ^\.positai$
+^\.pytest_cache$

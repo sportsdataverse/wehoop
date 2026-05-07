@@ -1,8 +1,8 @@
 #!/usr/bin/env Rscript
 # Inject @examples \donttest{...} blocks into each of the 58 ESPN basketball
-# expansion wrappers added in wehoop 3.0.0 (Phases 1-6). All wrappers hit
-# live ESPN endpoints, so examples are wrapped in \donttest{} -- they DO
-# work when network is available but are skipped during routine R CMD check.
+# wrappers added in wehoop 3.0.0. All wrappers hit live ESPN endpoints, so
+# examples are wrapped in \donttest{} -- they DO work when network is
+# available but are skipped during routine R CMD check.
 #
 # Strategy: for each (file, function_name, example_call) tuple, find the
 # roxygen block that immediately precedes `funcname <- function(...)` and
@@ -14,15 +14,15 @@
 # nolint start: line_length_linter
 
 specs <- list(
-  # Phase 1 -- News
+  # News
   list("R/espn_wbb_news.R",            "espn_wbb_news",            "espn_wbb_news(limit = 5)"),
   list("R/espn_wbb_news.R",            "espn_wbb_team_news",       'espn_wbb_team_news(team_id = "2509", limit = 5)'),
   list("R/espn_wnba_news.R",           "espn_wnba_news",           "espn_wnba_news(limit = 5)"),
   list("R/espn_wnba_news.R",           "espn_wnba_team_news",      'espn_wnba_team_news(team_id = "17", limit = 5)'),
-  # Phase 1 -- Calendar
+  # Calendar
   list("R/espn_wbb_calendar.R",        "espn_wbb_calendar",        "espn_wbb_calendar(season = 2025)"),
   list("R/espn_wnba_calendar.R",       "espn_wnba_calendar",       "espn_wnba_calendar(season = 2025)"),
-  # Phase 1 -- Team detail
+  # Team detail
   list("R/espn_wbb_team_detail.R",     "espn_wbb_team",            'espn_wbb_team(team_id = "2509", season = 2025)'),
   list("R/espn_wbb_team_detail.R",     "espn_wbb_team_roster",     'espn_wbb_team_roster(team_id = "2509", season = 2025)'),
   list("R/espn_wbb_team_detail.R",     "espn_wbb_team_schedule",   'espn_wbb_team_schedule(team_id = "2509", season = 2025)'),
@@ -31,12 +31,12 @@ specs <- list(
   list("R/espn_wnba_team_detail.R",    "espn_wnba_team_roster",    'espn_wnba_team_roster(team_id = "17", season = 2025)'),
   list("R/espn_wnba_team_detail.R",    "espn_wnba_team_schedule",  'espn_wnba_team_schedule(team_id = "17", season = 2025)'),
   list("R/espn_wnba_team_detail.R",    "espn_wnba_team_leaders",   'espn_wnba_team_leaders(team_id = "17", season = 2025)'),
-  # Phase 1 -- Injuries
+  # Injuries
   list("R/espn_wbb_injuries.R",        "espn_wbb_injuries",        "espn_wbb_injuries()"),
   list("R/espn_wbb_injuries.R",        "espn_wbb_team_injuries",   'espn_wbb_team_injuries(team_id = "2509")'),
   list("R/espn_wnba_injuries.R",       "espn_wnba_injuries",       "espn_wnba_injuries()"),
   list("R/espn_wnba_injuries.R",       "espn_wnba_team_injuries",  'espn_wnba_team_injuries(team_id = "17")'),
-  # Phase 2 -- Athletes
+  # Athletes
   list("R/espn_wbb_athletes.R",        "espn_wbb_athlete_info",          'espn_wbb_athlete_info(athlete_id = "4432755")'),
   list("R/espn_wbb_athletes.R",        "espn_wbb_athlete_overview",      'espn_wbb_athlete_overview(athlete_id = "4432755", season = 2025)'),
   list("R/espn_wbb_athletes.R",        "espn_wbb_athlete_stats",         'espn_wbb_athlete_stats(athlete_id = "4432755", season = 2025)'),
@@ -53,7 +53,7 @@ specs <- list(
   list("R/espn_wnba_athletes.R",       "espn_wnba_athlete_eventlog",      'espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)'),
   list("R/espn_wnba_athletes.R",       "espn_wnba_athlete_awards",        'espn_wnba_athlete_awards(athlete_id = "3149391")'),
   list("R/espn_wnba_athletes.R",       "espn_wnba_athlete_statisticslog", 'espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)'),
-  # Phase 3 -- Event detail
+  # Event detail
   list("R/espn_wbb_event_detail.R",    "espn_wbb_event_odds",          'espn_wbb_event_odds(event_id = "401735229")'),
   list("R/espn_wbb_event_detail.R",    "espn_wbb_event_probabilities", 'espn_wbb_event_probabilities(event_id = "401735229", limit = 50)'),
   list("R/espn_wbb_event_detail.R",    "espn_wbb_event_officials",     'espn_wbb_event_officials(event_id = "401735229")'),
@@ -62,11 +62,11 @@ specs <- list(
   list("R/espn_wnba_event_detail.R",   "espn_wnba_event_probabilities", 'espn_wnba_event_probabilities(event_id = "401736171", limit = 50)'),
   list("R/espn_wnba_event_detail.R",   "espn_wnba_event_officials",     'espn_wnba_event_officials(event_id = "401736171")'),
   list("R/espn_wnba_event_detail.R",   "espn_wnba_event_broadcasts",    'espn_wnba_event_broadcasts(event_id = "401736171")'),
-  # Phase 4 -- WNBA-only
+  # WNBA-only
   list("R/espn_wnba_transactions.R",   "espn_wnba_draft",          "espn_wnba_draft(season = 2024)"),
   list("R/espn_wnba_transactions.R",   "espn_wnba_freeagents",     "espn_wnba_freeagents(season = 2025)"),
   list("R/espn_wnba_transactions.R",   "espn_wnba_transactions",   "espn_wnba_transactions(season = 2025, limit = 10)"),
-  # Phase 5 -- League catalogs
+  # League catalogs
   list("R/espn_wbb_league.R",          "espn_wbb_leaders",          "espn_wbb_leaders(season = 2025, season_type = 2)"),
   list("R/espn_wbb_league.R",          "espn_wbb_venues",           "espn_wbb_venues()"),
   list("R/espn_wbb_league.R",          "espn_wbb_coaches",          "espn_wbb_coaches(season = 2025)"),
@@ -79,7 +79,7 @@ specs <- list(
   list("R/espn_wnba_league.R",         "espn_wnba_athletes_index",  "espn_wnba_athletes_index(season = 2025, limit = 50)"),
   list("R/espn_wnba_league.R",         "espn_wnba_seasons",         "espn_wnba_seasons()"),
   list("R/espn_wnba_league.R",         "espn_wnba_season_info",     "espn_wnba_season_info(season = 2025)"),
-  # Phase 6 -- Symmetric
+  # Symmetric
   list("R/espn_wnba_groups.R",         "espn_wnba_conferences",     "espn_wnba_conferences()")
 )
 

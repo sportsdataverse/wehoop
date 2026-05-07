@@ -77,6 +77,20 @@ tictoc::toc()
 glue::glue("{nrow(wbb_pbp)} rows of women's college basketball play-by-play data from {length(unique(wbb_pbp$game_id))} games.")
 ```
 
+## **Bulk datasets**
+
+Beyond play-by-play and box scores, `wehoop` 3.0.0 ships a family of season-summary `load_*()` functions that read pre-aggregated parquet/RDS files from the `sportsdataverse-data` release bucket. Each accepts the same `(seasons, ..., dbConnection = NULL, tablename = NULL)` shape and returns a `wehoop_data` tibble.
+
+**ESPN-backed loaders** (women's college and WNBA, mirrored shape):
+
+* Rosters and per-player stats: `load_wbb_rosters()`, `load_wbb_player_stats()`, `load_wnba_rosters()`, `load_wnba_player_stats()`
+* Team summaries and standings: `load_wbb_team_stats()`, `load_wbb_standings()`, `load_wnba_team_stats()`, `load_wnba_standings()`, `load_wnba_draft()`
+* Per-event detail: `load_wbb_shots()`, `load_wbb_game_rosters()`, `load_wbb_officials()`, `load_wnba_shots()`, `load_wnba_game_rosters()`, `load_wnba_officials()`
+
+**WNBA Stats API-backed loaders** (alternate source for the same WNBA datasets, with the WNBA's official identifiers and column shapes):
+
+* `load_wnba_stats_rosters()`, `load_wnba_stats_coaches()`, `load_wnba_stats_player_stats()`, `load_wnba_stats_lineups()`, `load_wnba_stats_team_stats()`, `load_wnba_stats_standings()`, `load_wnba_stats_draft()`, `load_wnba_stats_shots()`, `load_wnba_stats_game_rosters()`, `load_wnba_stats_officials()`
+
 ## **Documentation**
 
 For more information on the package and function reference, please see the  [**`wehoop`** documentation website](https://wehoop.sportsdataverse.org).

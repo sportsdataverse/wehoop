@@ -28,23 +28,96 @@
 
 # **wehoop 3.0.0**
 
+### **New data loaders**
+
+* feat: add `load_*` functions for season-level rosters and player stats,
+  backed by new `sportsdataverse-data` release tags published by the
+  `wehoop-wbb-data`, `wehoop-wnba-data`, and `wehoop-wnba-stats-data`
+  pipelines. Each function follows the existing `load_wnba_pbp()` shape —
+  `(seasons, ..., dbConnection = NULL, tablename = NULL)`,
+  `progressively()` decorator, `data.table::rbindlist(use.names = TRUE, fill = TRUE)`,
+  optional DB write, and a final `wehoop_data` class set on the in-memory result.
+    - ESPN-backed loaders: `load_wbb_rosters()`, `load_wbb_player_stats()`,
+      `load_wnba_rosters()`, `load_wnba_player_stats()` reading from the
+      `espn_womens_college_basketball_rosters`,
+      `espn_womens_college_basketball_player_season_stats`, `espn_wnba_rosters`,
+      and `espn_wnba_player_season_stats` release tags respectively.
+    - WNBA Stats API-backed loaders: `load_wnba_stats_rosters()`,
+      `load_wnba_stats_coaches()`, `load_wnba_stats_player_stats()`,
+      `load_wnba_stats_lineups()` reading from the `wnba_stats_rosters`,
+      `wnba_stats_coaches`, `wnba_stats_player_season_stats`, and
+      `wnba_stats_lineups` release tags respectively. New file
+      `R/load_wnba_stats.R` houses the four `wnba_stats_*` loaders.
+    - Adds `most_recent_wnba_stats_season()` helper in `R/utils.R` (a thin
+      wrapper around `most_recent_wnba_season()` for naming symmetry with the
+      `wnba_stats_*` family).
+    - Tests gated by the existing `WEHOOP_LOAD_TESTS=1` env var via
+      `skip_load_test()` (`tests/testthat/helper-skip.R`).
+* feat: add additional `load_*` season-summary loaders backed by new
+  `sportsdataverse-data` release tags. Each follows the same
+  `(seasons, ..., dbConnection = NULL, tablename = NULL)` shape, single
+  `.rds` per season, `progressively()` decorator, and final
+  `wehoop_data` class set on the in-memory result.
+    - ESPN-backed loaders: `load_wbb_team_stats()`, `load_wbb_standings()`,
+      `load_wnba_team_stats()`, `load_wnba_standings()`, `load_wnba_draft()`
+      reading from the
+      `espn_womens_college_basketball_team_season_stats`,
+      `espn_womens_college_basketball_standings`,
+      `espn_wnba_team_season_stats`, `espn_wnba_standings`, and
+      `espn_wnba_draft` release tags respectively.
+    - WNBA Stats API-backed loaders: `load_wnba_stats_team_stats()`,
+      `load_wnba_stats_standings()`, `load_wnba_stats_draft()` reading
+      from the `wnba_stats_team_season_stats`, `wnba_stats_standings`,
+      and `wnba_stats_draft` release tags respectively.
+    - Tests gated by the existing `WEHOOP_LOAD_TESTS=1` env var via
+      `skip_load_test()`.
+* feat: add `load_*` loaders for shot events, per-game rosters, and
+  game officials backed by new `sportsdataverse-data` release tags.
+  Each follows the same `(seasons, ..., dbConnection = NULL,
+  tablename = NULL)` shape, single `.rds` per season, `progressively()`
+  decorator, and final `wehoop_data` class set on the in-memory result.
+    - ESPN-backed loaders: `load_wbb_shots()`, `load_wbb_game_rosters()`,
+      `load_wbb_officials()`, `load_wnba_shots()`,
+      `load_wnba_game_rosters()`, `load_wnba_officials()` reading from
+      the `espn_womens_college_basketball_shots`,
+      `espn_womens_college_basketball_game_rosters`,
+      `espn_womens_college_basketball_officials`, `espn_wnba_shots`,
+      `espn_wnba_game_rosters`, and `espn_wnba_officials` release tags
+      respectively.
+    - WNBA Stats API-backed loaders: `load_wnba_stats_shots()`,
+      `load_wnba_stats_game_rosters()`, `load_wnba_stats_officials()`
+      reading from the `wnba_stats_shots`, `wnba_stats_game_rosters`,
+      and `wnba_stats_officials` release tags respectively.
+    - Tests gated by the existing `WEHOOP_LOAD_TESTS=1` env var via
+      `skip_load_test()`.
+* feat: add 25 `load_*_manifest()` helpers (one per non-PBP/non-schedule
+  dataset across the three release-tag families) plus a `datasets=`
+  argument on `update_wnba_db()` / `update_wbb_db()` and a new
+  `update_wnba_stats_db()` for selective DB population. Manifest helpers
+  return the per-season `season` / `row_count` / `generated_at_utc` /
+  `source_endpoint` CSV attached to each release tag, so users can
+  discover available seasons without triggering a heavy `load_*()` call.
+  The `datasets=` arg lets callers populate specific tables (e.g.
+  `update_wbb_db(datasets = c("rosters", "player_stats"))`); when `NULL`
+  the historical play-by-play behavior is preserved.
+
 ### **ESPN endpoint expansion**
 
 * feat: add ESPN news + calendar endpoint wrappers — `espn_wbb_news()`, `espn_wnba_news()`, `espn_wbb_team_news()`, `espn_wnba_team_news()`, `espn_wbb_calendar()`, `espn_wnba_calendar()`. League-level and team-level news feeds (site-v2 `/news`) plus scoreboard calendar blocks (site-v2 `/scoreboard?dates={season}`) parsed into tidy tibbles. Shared internal helpers (`.espn_basketball_news()`, `.espn_basketball_team_news()`, `.espn_basketball_calendar()`) keep WBB and WNBA DRY.
 * feat: add ESPN injury endpoint wrappers — `espn_wbb_injuries()`, `espn_wnba_injuries()`, `espn_wbb_team_injuries()`, `espn_wnba_team_injuries()`. League-wide and team-scoped injury feeds (site-v2 `/injuries` and `/teams/{id}/injuries`) parsed into flat tidy tibbles. Note: WBB injury data is typically sparse on ESPN; both league and team variants return an empty tibble (rather than erroring) when no injuries are reported. The `season` parameter on the league-wide functions is attached as a constant output column for downstream joins (ESPN's injury endpoint does not accept a server-side season filter). Shared internal helpers (`.espn_basketball_league_injuries()`, `.espn_basketball_team_injuries()`) keep WBB and WNBA DRY.
 * feat: add ESPN team-detail endpoint wrappers — `espn_wbb_team()`, `espn_wnba_team()`, `espn_wbb_team_roster()`, `espn_wnba_team_roster()`, `espn_wbb_team_schedule()`, `espn_wnba_team_schedule()`, `espn_wbb_team_leaders()`, `espn_wnba_team_leaders()`. Single-team info (named list: `Info`, `Record`, `NextEvent`, `StandingSummary`, `Coaches`), roster (one row per athlete with position, height, weight, headshot), schedule (one row per event with opponent, venue, broadcast, result), and statistical leaders (long format per category-rank-athlete) via site-v2 `/teams/{id}`, `/teams/{id}/roster`, `/teams/{id}/schedule`, and `/teams/{id}/leaders`. Shared internal helpers (`.espn_basketball_team()`, `.espn_basketball_team_roster()`, `.espn_basketball_team_schedule()`, `.espn_basketball_team_leaders()` in `R/espn_basketball_team_helpers.R`) keep WBB and WNBA DRY.
 * feat: add ESPN athlete coverage endpoint wrappers -- `espn_wbb_athlete_info()`, `espn_wnba_athlete_info()`, `espn_wbb_athlete_overview()`, `espn_wnba_athlete_overview()`, `espn_wbb_athlete_stats()`, `espn_wnba_athlete_stats()`, `espn_wbb_athlete_gamelog()`, `espn_wnba_athlete_gamelog()`, `espn_wbb_athlete_splits()`, `espn_wnba_athlete_splits()`, `espn_wbb_athlete_eventlog()`, `espn_wnba_athlete_eventlog()`, `espn_wbb_athlete_awards()`, `espn_wnba_athlete_awards()`, `espn_wbb_athlete_statisticslog()`, `espn_wnba_athlete_statisticslog()`. Athlete bio/team/position/status/college/draft info (site-v2), season overview and last-5-games (web-common-v3), per-category stats as named list (web-common-v3), game-by-game log (web-common-v3), long-format splits (web-common-v3), per-event log with ref URLs as character columns (core-v2), awards (core-v2, sparse/often empty), and statistics log (core-v2). The awards endpoint returns an empty tibble with canonical columns when no data exist. The eventlog `statistics.$ref` URLs are returned as a `statistics_ref` character column and are not auto-resolved. Shared internal helpers (`.espn_basketball_athlete_info()`, `.espn_basketball_athlete_overview()`, `.espn_basketball_athlete_stats()`, `.espn_basketball_athlete_gamelog()`, `.espn_basketball_athlete_splits()`, `.espn_basketball_athlete_eventlog()`, `.espn_basketball_athlete_awards()`, `.espn_basketball_athlete_statisticslog()` in `R/espn_basketball_athlete_helpers.R`) keep WBB and WNBA DRY.
-* feat: add WNBA-only ESPN endpoint wrappers (Phase 4 + Phase 6) -- `espn_wnba_draft()`, `espn_wnba_freeagents()`, `espn_wnba_transactions()`, `espn_wnba_conferences()`. `espn_wnba_draft()` paginates the core-v2 `/seasons/{year}/draft` endpoint (up to 20 pages) and returns a flat tibble of picks (round, pick, overall, team, athlete, position, college). `espn_wnba_freeagents()` wraps core-v2 `/seasons/{year}/freeagents` and returns an empty tibble outside the free-agent window. `espn_wnba_transactions()` wraps site-v2 `/transactions?season={year}&limit={limit}` with null-safe `to_team_id` for release transactions. `espn_wnba_conferences()` mirrors `espn_wbb_conferences()` using the WNBA scoreboard-conferences endpoint (site-v2 `/scoreboard/conferences?seasontype=2`) with the same column shape and `dplyr::select(-dplyr::any_of("subGroups"))` drift guard.
-* feat: add ESPN event-detail endpoint wrappers (Phase 3) -- `espn_wbb_event_odds()`, `espn_wnba_event_odds()`, `espn_wbb_event_probabilities()`, `espn_wnba_event_probabilities()`, `espn_wbb_event_officials()`, `espn_wnba_event_officials()`, `espn_wbb_event_broadcasts()`, `espn_wnba_event_broadcasts()`. Game-level odds (one row per provider; WBB typically empty), paginated play-level win probabilities (core-v2 `/probabilities` with internal page loop capped at 50 pages, respects `limit` parameter), per-game officials, and broadcast outlets. All via core-v2 `/events/{id}/competitions/{id}/`. Shared internal helpers (`.espn_basketball_event_odds()`, `.espn_basketball_event_probabilities()`, `.espn_basketball_event_officials()`, `.espn_basketball_event_broadcasts()` in `R/espn_basketball_event_helpers.R`) keep WBB and WNBA DRY.
-* feat: add ESPN league-wide catalog endpoint wrappers (Phase 5) -- `espn_wbb_leaders()`, `espn_wnba_leaders()`, `espn_wbb_venues()`, `espn_wnba_venues()`, `espn_wbb_coaches()`, `espn_wnba_coaches()`, `espn_wbb_athletes_index()`, `espn_wnba_athletes_index()`, `espn_wbb_seasons()`, `espn_wnba_seasons()`, `espn_wbb_season_info()`, `espn_wnba_season_info()`. League leaders (web-common-v3 statistics/byathlete), venue catalog, coach roster, athlete index (paginated with progress messages; WBB default limit 25000, WNBA 5000), season list, and single-season info parsed into tidy tibbles. `$ref` components in season info are returned as character columns and not auto-resolved. Shared internal helpers (`.espn_basketball_leaders()`, `.espn_basketball_venues()`, `.espn_basketball_coaches()`, `.espn_basketball_athletes_index()`, `.espn_basketball_seasons()`, `.espn_basketball_season_info()` in `R/espn_basketball_league_helpers.R`) keep WBB and WNBA DRY.
-* docs: add `vignettes/espn-endpoints.Rmd` covering all 80 ESPN basketball wrappers across the six expansion phases (existing 22 + 58 new). Reorganize the pkgdown reference index into 14 per-domain ESPN subsections so the rendered nav scales for the new surface.
+* feat: add WNBA-only ESPN endpoint wrappers -- `espn_wnba_draft()`, `espn_wnba_freeagents()`, `espn_wnba_transactions()`, `espn_wnba_conferences()`. `espn_wnba_draft()` paginates the core-v2 `/seasons/{year}/draft` endpoint (up to 20 pages) and returns a flat tibble of picks (round, pick, overall, team, athlete, position, college). `espn_wnba_freeagents()` wraps core-v2 `/seasons/{year}/freeagents` and returns an empty tibble outside the free-agent window. `espn_wnba_transactions()` wraps site-v2 `/transactions?season={year}&limit={limit}` with null-safe `to_team_id` for release transactions. `espn_wnba_conferences()` mirrors `espn_wbb_conferences()` using the WNBA scoreboard-conferences endpoint (site-v2 `/scoreboard/conferences?seasontype=2`) with the same column shape and `dplyr::select(-dplyr::any_of("subGroups"))` drift guard.
+* feat: add ESPN event-detail endpoint wrappers -- `espn_wbb_event_odds()`, `espn_wnba_event_odds()`, `espn_wbb_event_probabilities()`, `espn_wnba_event_probabilities()`, `espn_wbb_event_officials()`, `espn_wnba_event_officials()`, `espn_wbb_event_broadcasts()`, `espn_wnba_event_broadcasts()`. Game-level odds (one row per provider; WBB typically empty), paginated play-level win probabilities (core-v2 `/probabilities` with internal page loop capped at 50 pages, respects `limit` parameter), per-game officials, and broadcast outlets. All via core-v2 `/events/{id}/competitions/{id}/`. Shared internal helpers (`.espn_basketball_event_odds()`, `.espn_basketball_event_probabilities()`, `.espn_basketball_event_officials()`, `.espn_basketball_event_broadcasts()` in `R/espn_basketball_event_helpers.R`) keep WBB and WNBA DRY.
+* feat: add ESPN league-wide catalog endpoint wrappers -- `espn_wbb_leaders()`, `espn_wnba_leaders()`, `espn_wbb_venues()`, `espn_wnba_venues()`, `espn_wbb_coaches()`, `espn_wnba_coaches()`, `espn_wbb_athletes_index()`, `espn_wnba_athletes_index()`, `espn_wbb_seasons()`, `espn_wnba_seasons()`, `espn_wbb_season_info()`, `espn_wnba_season_info()`. League leaders (web-common-v3 statistics/byathlete), venue catalog, coach roster, athlete index (paginated with progress messages; WBB default limit 25000, WNBA 5000), season list, and single-season info parsed into tidy tibbles. `$ref` components in season info are returned as character columns and not auto-resolved. Shared internal helpers (`.espn_basketball_leaders()`, `.espn_basketball_venues()`, `.espn_basketball_coaches()`, `.espn_basketball_athletes_index()`, `.espn_basketball_seasons()`, `.espn_basketball_season_info()` in `R/espn_basketball_league_helpers.R`) keep WBB and WNBA DRY.
+* docs: add `vignettes/espn-endpoints.Rmd` covering all 80 ESPN basketball wrappers (existing 22 + 58 new). Reorganize the pkgdown reference index into 14 per-domain ESPN subsections so the rendered nav scales for the new surface.
 
 ### **CRAN preparation**
 
 * Add `cph` (copyright holder) role to `Saiem Gilani` in `Authors@R` (CRAN strict requirement).
 * Bump `LICENSE` and `LICENSE.md` copyright year from 2020 to 2026.
 * Add full roxygen blocks (description, `@return`, `@examples`) to `most_recent_wbb_season()` and `most_recent_wnba_season()`, which had been title/`@export`-only.
-* Add `@examples \donttest{}` blocks to all 58 new ESPN endpoint wrappers (Phase 1-6 expansion). Live-API examples are wrapped in `\donttest{}` so they do not run during routine `R CMD check` but are still exercised under `--run-donttest`. The redundant `@details` code-block samples were removed from these 58 functions; the legacy `@details`-with-code-block convention is retained for the WNBA Stats API (`wnba_*`) and NCAA (`ncaa_wbb_*`) wrappers per the project's documentation conventions in `CLAUDE.md`.
+* Add `@examples \donttest{}` blocks to all 58 new ESPN endpoint wrappers. Live-API examples are wrapped in `\donttest{}` so they do not run during routine `R CMD check` but are still exercised under `--run-donttest`. The redundant `@details` code-block samples were removed from these 58 functions; the legacy `@details`-with-code-block convention is retained for the WNBA Stats API (`wnba_*`) and NCAA (`ncaa_wbb_*`) wrappers per the project's documentation conventions in `CLAUDE.md`.
 * Modernize `inst/CITATION`: replace deprecated `citEntry()` / `personList()` with `bibentry()` / `c(person(), ...)` (R 4.x deprecation cleanup).
 * Add `parameter_descriptions` (dataset) and `year_to_season` (utility) to `_pkgdown.yml` reference index so `pkgdown::check_pkgdown()` passes (resolves the gh-pages deploy failure).
 
