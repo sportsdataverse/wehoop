@@ -93,7 +93,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_statisticslog(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Statisticslog from ESPN.com ──────────
-#> ℹ Data updated: 2026-05-07 18:39:48 UTC
+#> ℹ Data updated: 2026-05-12 08:22:19 UTC
 #> # A tibble: 1 × 2
 #>   season$`$ref`                                                       statistics
 #>   <chr>                                                               <list>    

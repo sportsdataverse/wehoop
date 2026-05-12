@@ -144,7 +144,7 @@ Other ESPN WBB Functions:
 # \donttest{
   try(espn_wbb_standings(2021))
 #> ── ESPN WBB Standings Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:07 UTC
+#> ℹ Data updated: 2026-05-12 08:22:37 UTC
 #> # A tibble: 346 × 86
 #>    team_id team       avgpointsagainst avgpointsfor gamesbehind leaguewinpercent
 #>      <int> <chr>                 <dbl>        <dbl>       <dbl>            <dbl>

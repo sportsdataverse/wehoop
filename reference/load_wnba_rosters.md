@@ -63,9 +63,26 @@ Other WNBA loader functions:
 ``` r
 # \donttest{
   try(load_wnba_rosters(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_rosters/rosters_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_rosters/rosters_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 208 × 36
+#>    season team_id team_slug team_abbreviation team_display_name
+#>     <int>   <int> <chr>     <chr>             <chr>            
+#>  1   2026      11 NA        PHX               Phoenix Mercury  
+#>  2   2026      11 NA        PHX               Phoenix Mercury  
+#>  3   2026      11 NA        PHX               Phoenix Mercury  
+#>  4   2026      11 NA        PHX               Phoenix Mercury  
+#>  5   2026      11 NA        PHX               Phoenix Mercury  
+#>  6   2026      11 NA        PHX               Phoenix Mercury  
+#>  7   2026      11 NA        PHX               Phoenix Mercury  
+#>  8   2026      11 NA        PHX               Phoenix Mercury  
+#>  9   2026      11 NA        PHX               Phoenix Mercury  
+#> 10   2026      11 NA        PHX               Phoenix Mercury  
+#> # ℹ 198 more rows
+#> # ℹ 31 more variables: team_short_display_name <chr>, team_color <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <chr>, uid <chr>,
+#> #   guid <chr>, full_name <chr>, display_name <chr>, short_name <chr>,
+#> #   first_name <chr>, last_name <chr>, jersey <chr>,
+#> #   position_abbreviation <chr>, position_name <chr>, position_id <chr>,
+#> #   height <chr>, weight <chr>, age <chr>, date_of_birth <chr>, …
 # }
 ```

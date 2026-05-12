@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
    try(espn_wnba_pbp(game_id = 401455681))
 #> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:27 UTC
+#> ℹ Data updated: 2026-05-12 08:22:56 UTC
 #> # A tibble: 343 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>

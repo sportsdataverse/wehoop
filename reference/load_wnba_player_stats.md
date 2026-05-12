@@ -65,9 +65,24 @@ Other WNBA loader functions:
 ``` r
 # \donttest{
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_season_stats/player_season_stats_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_season_stats/player_season_stats_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 8,080 × 16
+#>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
+#>     <int>      <int> <chr>                <chr>              <chr>            
+#>  1   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  2   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  3   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  4   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  5   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  6   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  7   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  8   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#>  9   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#> 10   2026       1054 Tiffany Hayes        Tiffany            Hayes            
+#> # ℹ 8,070 more rows
+#> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
+#> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
+#> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,
+#> #   stat_description <chr>, display_value <chr>, value <dbl>
 # }
 ```

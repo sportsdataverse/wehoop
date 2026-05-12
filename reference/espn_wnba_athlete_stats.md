@@ -87,8 +87,8 @@ Saiem Gilani
   espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
 #> $`Regular Season Averages`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
-#> # A tibble: 8 × 5
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
 #> 1 17      las-vegas-aces        2018 2018         <chr [18]> C       
@@ -99,11 +99,12 @@ Saiem Gilani
 #> 6 17      las-vegas-aces        2023 2023         <chr [18]> C       
 #> 7 17      las-vegas-aces        2024 2024         <chr [18]> C       
 #> 8 17      las-vegas-aces        2025 2025         <chr [18]> C       
+#> 9 17      las-vegas-aces        2026 2026         <chr [18]> C       
 #> 
 #> $`Regular Season Totals`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
-#> # A tibble: 8 × 5
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
 #> 1 17      las-vegas-aces        2018 2018         <chr [15]> C       
@@ -114,11 +115,12 @@ Saiem Gilani
 #> 6 17      las-vegas-aces        2023 2023         <chr [15]> C       
 #> 7 17      las-vegas-aces        2024 2024         <chr [15]> C       
 #> 8 17      las-vegas-aces        2025 2025         <chr [15]> C       
+#> 9 17      las-vegas-aces        2026 2026         <chr [15]> C       
 #> 
 #> $`Regular Season Misc Totals`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
-#> # A tibble: 8 × 5
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
 #> 1 17      las-vegas-aces        2018 2018         <chr [10]> C       
@@ -129,35 +131,36 @@ Saiem Gilani
 #> 6 17      las-vegas-aces        2023 2023         <chr [10]> C       
 #> 7 17      las-vegas-aces        2024 2024         <chr [10]> C       
 #> 8 17      las-vegas-aces        2025 2025         <chr [10]> C       
+#> 9 17      las-vegas-aces        2026 2026         <chr [10]> C       
 #> 
 #> $General
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:17 UTC
+#> ℹ Data updated: 2026-05-12 08:22:46 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

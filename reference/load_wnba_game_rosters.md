@@ -77,9 +77,25 @@ Other WNBA loader functions:
 ``` r
 # \donttest{
   try(load_wnba_game_rosters(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_game_rosters/game_rosters_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_game_rosters/game_rosters_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 261 × 22
+#>    season game_id   team_id team_slug       team_abbreviation team_display_name
+#>     <int> <chr>       <int> <chr>           <chr>             <chr>            
+#>  1   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  2   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  3   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  4   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  5   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  6   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  7   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  8   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#>  9   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#> 10   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
+#> # ℹ 251 more rows
+#> # ℹ 16 more variables: home_away <chr>, athlete_id <int>, athlete_uid <chr>,
+#> #   athlete_guid <chr>, athlete_display_name <chr>, athlete_short_name <chr>,
+#> #   athlete_first_name <chr>, athlete_last_name <chr>, athlete_jersey <chr>,
+#> #   athlete_position <chr>, athlete_headshot <chr>, starter <lgl>,
+#> #   did_not_play <lgl>, active <lgl>, ejected <lgl>, reason <chr>
 # }
 ```

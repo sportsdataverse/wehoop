@@ -314,6 +314,24 @@ Women’s College Basketball Data
 Functions exported by wehoop to access wehoop-wnba-stats-data WNBA Stats
 API artifacts
 
+- [`load_wnba_stats_schedule()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_schedule.md)
+  [`load_wnba_stats_schedule_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_schedule.md)
+  :
+
+  **Load wehoop WNBA Stats Schedules**
+
+- [`load_wnba_stats_player_game_logs()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_game_logs.md)
+  [`load_wnba_stats_player_game_logs_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_game_logs.md)
+  :
+
+  **Load wehoop WNBA Stats Player Game Logs**
+
+- [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md)
+  [`load_wnba_stats_pbp_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md)
+  :
+
+  **Load wehoop WNBA Stats Play-by-Play**
+
 - [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.md)
   [`load_wnba_stats_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.md)
   :

@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_player_box(game_id = 401276115))
 #> ── ESPN WBB Player Box Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-07 18:40:02 UTC
+#> ℹ Data updated: 2026-05-12 08:22:33 UTC
 #> # A tibble: 25 × 54
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>

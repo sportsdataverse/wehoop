@@ -76,9 +76,23 @@ Other WNBA loader functions:
 ``` r
 # \donttest{
   try(load_wnba_officials(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_officials/officials_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_officials/officials_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 34 × 11
+#>    season game_id   official_id official_uid official_full_name    
+#>     <int> <chr>           <int> <chr>        <chr>                 
+#>  1   2026 401856890       52042 NA           Roy Gulbeyan          
+#>  2   2026 401856890     3951614 NA           Ryan Sassano          
+#>  3   2026 401856890     4236122 NA           Tyler Mirkovich       
+#>  4   2026 401856891       52044 NA           Fatou Cissoko-Stephens
+#>  5   2026 401856891       52049 NA           Charles Watson        
+#>  6   2026 401856891     4356548 NA           Clare Aubry           
+#>  7   2026 401856892        1211 NA           Angelica Suffren      
+#>  8   2026 401856892     5113092 NA           Sarah Williams        
+#>  9   2026 401856892     5184398 NA           Josh Reed             
+#> 10   2026 401856893        1183 NA           Tim Greene            
+#> # ℹ 24 more rows
+#> # ℹ 6 more variables: official_display_name <chr>, official_first_name <chr>,
+#> #   official_last_name <chr>, official_order <int>, position_name <chr>,
+#> #   position_display_name <chr>
 # }
 ```
