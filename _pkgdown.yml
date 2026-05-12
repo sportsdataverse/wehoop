@@ -202,6 +202,9 @@ reference:
   - subtitle: WNBA Stats API Data Loaders
     desc: Functions exported by wehoop to access wehoop-wnba-stats-data WNBA Stats API artifacts
     contents:
+      - '`load_wnba_stats_schedule`'
+      - '`load_wnba_stats_player_game_logs`'
+      - '`load_wnba_stats_pbp`'
       - '`load_wnba_stats_rosters`'
       - '`load_wnba_stats_coaches`'
       - '`load_wnba_stats_player_stats`'

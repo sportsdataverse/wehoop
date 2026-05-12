@@ -100,6 +100,19 @@
   The `datasets=` arg lets callers populate specific tables (e.g.
   `update_wbb_db(datasets = c("rosters", "player_stats"))`); when `NULL`
   the historical play-by-play behavior is preserved.
+* feat: add `load_wnba_stats_schedule()`, `load_wnba_stats_player_game_logs()`
+  and `load_wnba_stats_pbp()` plus the matching
+  `load_wnba_stats_schedule_manifest()` /
+  `load_wnba_stats_player_game_logs_manifest()` /
+  `load_wnba_stats_pbp_manifest()` helpers. These read from the
+  `wnba_stats_schedules`, `wnba_stats_player_game_logs` (new tag) and
+  `wnba_stats_pbp` release tags now populated by the rewritten
+  `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeline (V3 PBP with
+  on-court lineups supplied directly by `wnba_pbp()`, plus possession
+  assignment, FT-to-foul attribution, garbage-time flag, and a
+  per-season + master schedule build). All three new datasets are also
+  wired into `update_wnba_stats_db()`
+  (`datasets = c("schedule", "player_game_logs", "pbp", ...)`).
 
 ### **ESPN endpoint expansion**
 

@@ -730,6 +730,186 @@ load_wnba_stats_officials <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
+#' **Load wehoop WNBA Stats Player Game Logs**
+#' @name load_wnba_stats_player_game_logs
+NULL
+#' @title
+#' **Load cleaned WNBA Stats API per-player per-game logs from the data repo**
+#' @rdname load_wnba_stats_player_game_logs
+#' @description Loads per-player per-game logs scraped from
+#'   `stats.wnba.com/leaguegamelog?PlayerOrTeam=P` (one row per
+#'   athlete-game pair: minutes, shooting splits, rebounds, steals, blocks,
+#'   turnovers, personal fouls, plus/minus). Backed by the
+#'   `wehoop-wnba-stats-data` pipeline that publishes parquet/rds artifacts
+#'   to the `wnba_stats_player_game_logs` release tag.
+#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
+#'   (Min: 1997)
+#' @param ... Additional arguments passed to an underlying function that writes
+#'   the season data into a database.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the player game logs table within the database
+#' @return Returns a `wehoop_data` tibble of per-athlete per-game log rows.
+#' @export
+#' @family WNBA Stats loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
+#' }
+load_wnba_stats_player_game_logs <- function(seasons = most_recent_wnba_stats_season(),
+                                             ...,
+                                             dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  dots <- rlang::dots_list(...)
+
+  loader <- rds_from_url
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
+
+  stopifnot(is.numeric(seasons),
+            seasons >= 1997,
+            seasons <= most_recent_wnba_stats_season())
+
+  urls <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_player_game_logs/player_game_logs_", seasons, ".rds"
+  )
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+
+#' **Load wehoop WNBA Stats Schedules**
+#' @name load_wnba_stats_schedule
+NULL
+#' @title
+#' **Load cleaned WNBA Stats API season schedules from the data repo**
+#' @rdname load_wnba_stats_schedule
+#' @description Loads season-level WNBA schedules scraped from
+#'   `stats.wnba.com/leaguegamefinder` (regular season + playoffs combined,
+#'   pre-rejoined home/away). Backed by the `wehoop-wnba-stats-data`
+#'   pipeline that publishes parquet/rds artifacts to the
+#'   `wnba_stats_schedules` release tag.
+#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
+#'   (Min: 1997)
+#' @param ... Additional arguments passed to an underlying function that writes
+#'   the season data into a database.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the schedules data table within the database
+#' @return Returns a `wehoop_data` tibble of per-season schedules.
+#' @export
+#' @family WNBA Stats loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
+#' }
+load_wnba_stats_schedule <- function(seasons = most_recent_wnba_stats_season(),
+                                     ...,
+                                     dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  dots <- rlang::dots_list(...)
+
+  loader <- rds_from_url
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
+
+  stopifnot(is.numeric(seasons),
+            seasons >= 1997,
+            seasons <= most_recent_wnba_stats_season())
+
+  urls <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_schedules/wnba_stats_schedule_", seasons, ".rds"
+  )
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+
+#' **Load wehoop WNBA Stats Play-by-Play**
+#' @name load_wnba_stats_pbp
+NULL
+#' @title
+#' **Load cleaned WNBA Stats API play-by-play from the data repo**
+#' @rdname load_wnba_stats_pbp
+#' @description Loads season-level WNBA play-by-play (V3 with on-court
+#'   five-on-each-side player IDs, supplied by [wnba_pbp()] in the upstream
+#'   compile script). Backed by the `wehoop-wnba-stats-data` pipeline that
+#'   publishes parquet/rds artifacts to the `wnba_stats_pbp` release tag.
+#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
+#'   (Min: 1997)
+#' @param ... Additional arguments passed to an underlying function that writes
+#'   the season data into a database.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the play-by-play data table within the database
+#' @return Returns a `wehoop_data` tibble of per-event play-by-play rows.
+#' @export
+#' @family WNBA Stats loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
+#' }
+load_wnba_stats_pbp <- function(seasons = most_recent_wnba_stats_season(),
+                                ...,
+                                dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  dots <- rlang::dots_list(...)
+
+  loader <- rds_from_url
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
+
+  stopifnot(is.numeric(seasons),
+            seasons >= 1997,
+            seasons <= most_recent_wnba_stats_season())
+
+  urls <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_pbp/play_by_play_", seasons, ".rds"
+  )
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+
 # -----------------------------------------------------------------------------
 # Manifest loaders -- thin wrappers around csv_from_url() that return the
 # per-season manifest CSV (columns: season, row_count, generated_at_utc,
@@ -880,6 +1060,48 @@ load_wnba_stats_officials_manifest <- function() {
   csv_from_url(url)
 }
 
+#' @rdname load_wnba_stats_player_game_logs
+#' @description `load_wnba_stats_player_game_logs_manifest()` returns the
+#'   per-season manifest CSV (`season`, `row_count`, `generated_at_utc`,
+#'   `source_endpoint`) for the WNBA Stats player game logs release tag
+#'   without downloading any season's full data.
+#' @export
+load_wnba_stats_player_game_logs_manifest <- function() {
+  url <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_player_game_logs/wnba_stats_player_game_logs_in_data_repo.csv"
+  )
+  csv_from_url(url)
+}
+
+#' @rdname load_wnba_stats_schedule
+#' @description `load_wnba_stats_schedule_manifest()` returns the per-season
+#'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
+#'   `source_endpoint`) for the WNBA Stats schedules release tag without
+#'   downloading any season's full data.
+#' @export
+load_wnba_stats_schedule_manifest <- function() {
+  url <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_schedules/wnba_stats_schedules_in_data_repo.csv"
+  )
+  csv_from_url(url)
+}
+
+#' @rdname load_wnba_stats_pbp
+#' @description `load_wnba_stats_pbp_manifest()` returns the per-season
+#'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
+#'   `source_endpoint`) for the WNBA Stats play-by-play release tag without
+#'   downloading any season's full data.
+#' @export
+load_wnba_stats_pbp_manifest <- function() {
+  url <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_pbp/wnba_stats_pbp_in_data_repo.csv"
+  )
+  csv_from_url(url)
+}
+
 
 #' **Build/update wehoop WNBA Stats database**
 #' @name update_wnba_stats_db
@@ -897,8 +1119,9 @@ NULL
 #' "play-by-play table" default to preserve, so `datasets` is required.
 #'
 #' Valid `datasets` values:
-#' `"rosters"`, `"coaches"`, `"player_stats"`, `"lineups"`, `"team_stats"`,
-#' `"standings"`, `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`.
+#' `"schedule"`, `"player_game_logs"`, `"pbp"`, `"rosters"`, `"coaches"`,
+#' `"player_stats"`, `"lineups"`, `"team_stats"`, `"standings"`,
+#' `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`.
 #'
 #' @param dbdir Directory in which the database is or shall be located.
 #' @param dbname File name of an existing or desired SQLite database within
@@ -923,7 +1146,8 @@ update_wnba_stats_db <- function(dbdir = ".",
     usethis::ui_stop("{my_time()} | Packages {usethis::ui_value('DBI')} and {usethis::ui_value('RSQLite')} required for database communication. Please install them.")
   }
 
-  valid <- c("rosters", "coaches", "player_stats", "lineups",
+  valid <- c("schedule", "player_game_logs", "pbp",
+             "rosters", "coaches", "player_stats", "lineups",
              "team_stats", "standings", "draft", "shots",
              "game_rosters", "officials")
   if (is.null(datasets) || length(datasets) == 0) {
@@ -952,6 +1176,9 @@ update_wnba_stats_db <- function(dbdir = ".",
   }
 
   loader_map <- list(
+    schedule         = load_wnba_stats_schedule,
+    player_game_logs = load_wnba_stats_player_game_logs,
+    pbp              = load_wnba_stats_pbp,
     rosters      = load_wnba_stats_rosters,
     coaches      = load_wnba_stats_coaches,
     player_stats = load_wnba_stats_player_stats,

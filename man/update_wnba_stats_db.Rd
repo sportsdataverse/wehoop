@@ -40,6 +40,7 @@ Unlike \code{update_wnba_db()} / \code{update_wbb_db()}, there is no historical
 "play-by-play table" default to preserve, so \code{datasets} is required.
 
 Valid \code{datasets} values:
-\code{"rosters"}, \code{"coaches"}, \code{"player_stats"}, \code{"lineups"}, \code{"team_stats"},
-\code{"standings"}, \code{"draft"}, \code{"shots"}, \code{"game_rosters"}, \code{"officials"}.
+\code{"schedule"}, \code{"player_game_logs"}, \code{"pbp"}, \code{"rosters"}, \code{"coaches"},
+\code{"player_stats"}, \code{"lineups"}, \code{"team_stats"}, \code{"standings"},
+\code{"draft"}, \code{"shots"}, \code{"game_rosters"}, \code{"officials"}.
 }
