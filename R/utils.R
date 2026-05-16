@@ -211,9 +211,16 @@ check_status <- function(res) {
       httr2::req_proxy(req, url = proxy)
     }
   }
+  # Jittered exponential backoff. The fixed 2-second cadence in the default
+  # `httr2::req_retry()` synchronizes retries across users hitting the same
+  # rate-limited endpoint, which makes Cloudflare's anti-burst rules misfire
+  # against the whole user base. `runif(1, 0.5, 1.5)` spreads the wave.
   req |>
     httr2::req_timeout(timeout) |>
-    httr2::req_retry(max_tries = 3) |>
+    httr2::req_retry(
+      max_tries = 3,
+      backoff = function(i) stats::runif(1, 0.5, 1.5) * (2 ^ i)
+    ) |>
     httr2::req_error(is_error = function(resp) FALSE) |>
     httr2::req_perform()
 }

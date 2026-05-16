@@ -2,7 +2,6 @@ test_that("WNBA Player Profile V2", {
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()
-  skip("Deprecated: wnba_playerprofilev2() now errors by design; use wnba_playercareerstats().")
 
   x <- wnba_playerprofilev2(player_id = "203400")
 
@@ -55,7 +54,7 @@ test_that("WNBA Player Profile V2", {
     "VS_TEAM_NAME",
     "VS_TEAM_ABBREVIATION",
     "STAT",
-    "STATS_VALUE",
+    "STAT_VALUE",
     "STAT_ORDER",
     "DATE_EST"
   )
@@ -68,7 +67,7 @@ test_that("WNBA Player Profile V2", {
     "VS_TEAM_NAME",
     "VS_TEAM_ABBREVIATION",
     "STAT",
-    "STATS_VALUE",
+    "STAT_VALUE",
     "STAT_ORDER",
     "DATE_EST"
   )

@@ -9,7 +9,7 @@ wnba_leaguegamelog(
   date_from = "",
   date_to = "",
   direction = "ASC",
-  league_id = "00",
+  league_id = "10",
   player_or_team = "T",
   season = most_recent_wnba_season() - 1,
   season_type = "Regular Season",
@@ -26,7 +26,8 @@ wnba_leaguegamelog(
 
 \item{direction}{direction}
 
-\item{league_id}{league_id}
+\item{league_id}{league_id. Default \code{'10'} (WNBA). Use \code{'00'} for NBA or
+\code{'20'} for G-League data on the same endpoint.}
 
 \item{player_or_team}{player_or_team}
 

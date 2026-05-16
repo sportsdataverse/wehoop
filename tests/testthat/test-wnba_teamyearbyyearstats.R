@@ -2,10 +2,8 @@ test_that("WNBA Team Year by Year Stats", {
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()
-  
-  
-  skip("Deprecated: wnba_teamyearbyyearstats() now errors by design; use wnba_franchisehistory() or wnba_teamdashboardbyyearoveryear().")
-x <- wnba_teamyearbyyearstats(team_id = "1611661328")
+
+  x <- wnba_teamyearbyyearstats(team_id = "1611661328")
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
     fail("No rows returned from endpoint at test time")

@@ -74,27 +74,46 @@ wnba_schedule <- function(
     season = most_recent_wnba_season() - 1,
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  
-  version <- "scheduleleaguev2"
-  full_url <- wnba_endpoint(version)
-  
-  params <- list(
-    LeagueID = league_id,
-    Season = season
+
+  # The stats.wnba.com/stats/scheduleleaguev2 endpoint was retired upstream in
+  # March 2026 (returns Connection Reset). The same payload — identical
+  # leagueSchedule.gameDates[].games[] schema — is served unauthenticated from
+  # the public CDN, but only for the *current* season. Older seasons are
+  # available through load_wnba_schedule(seasons = ...), which reads cached
+  # ESPN snapshots from the sportsdataverse-data release artifacts.
+  cdn_url <- "https://cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json"
+  cdn_headers <- c(
+    `User-Agent` = paste0(
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ",
+      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"),
+    `Accept` = "application/json, text/plain, */*",
+    `Accept-Language` = "en-US,en;q=0.9",
+    `Origin` = "https://www.wnba.com",
+    `Referer` = "https://www.wnba.com/"
   )
-  
+
   games <- NULL
 
   tryCatch(
     expr = {
-      
-      resp <- request_with_proxy(url = full_url, params = params, ...)
-      
-      league_sched <- resp %>%
-        purrr::pluck("leagueSchedule")
+
+      resp <- .retry_request(cdn_url, headers = cdn_headers) %>%
+        .resp_text() %>%
+        jsonlite::fromJSON()
+
+      league_sched <- resp %>% purrr::pluck("leagueSchedule")
+      cdn_season   <- league_sched$seasonYear
+
+      if (!is.null(cdn_season) &&
+          !identical(as.character(season), as.character(cdn_season))) {
+        cli::cli_alert_info(paste0(
+          "WNBA CDN schedule is for season {cdn_season}, not {season}. ",
+          "For historical seasons use `load_wnba_schedule(seasons = {season})`."))
+      }
+
       games <- league_sched %>%
         purrr::pluck("gameDates") %>%
         tidyr::unnest("games") %>%
@@ -103,13 +122,11 @@ wnba_schedule <- function(
         dplyr::select(-dplyr::any_of(c("broadcasters", "pointsLeaders"))) %>%
         janitor::clean_names()
       colnames(games) <- gsub('team_team', 'team', colnames(games))
-      games$game_id <- unlist(purrr::map(games$game_id,function(x){
-        pad_id(x)
-      }))
+      games$game_id <- unlist(purrr::map(games$game_id, function(x) pad_id(x)))
       games$season <- league_sched$seasonYear
       games$league_id <- league_sched$leagueId
-      
-      games <- games %>% 
+
+      games <- games %>%
         dplyr::as_tibble()
       games <- games %>%
         dplyr::mutate(
