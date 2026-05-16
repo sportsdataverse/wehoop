@@ -2581,18 +2581,17 @@ NULL
 #'   wnba_playerprofilev2(player_id = '1628932')
 #' ```
 wnba_playerprofilev2 <- function(
-    league_id = '',
+    league_id = '10',
     per_mode = 'Totals',
     player_id = '1628932',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
 
-  lifecycle::deprecate_stop(
-    when = "3.0.0",
-    what = "wnba_playerprofilev2()",
-    with = "wnba_playercareerstats()",
-    details = "The `playerprofilev2` endpoint still returns the named-list shape but every `SeasonTotals*` and `CareerTotals*` result set is empty (verified against multiple active players in 2025). `wnba_playercareerstats()` exposes the same career totals and is in active use."
-  )
+  # Restored in 3.0.0 after the upstream endpoint resumed publishing populated
+  # SeasonTotals*/CareerTotals*/SeasonRankings*/SeasonHighs/CareerHighs/NextGame
+  # tables for WNBA players. Verified 2026-05-16 against PLAYER_ID 1628932
+  # (A'ja Wilson): 9 regular seasons + career totals + 22 career highs + next
+  # game info returned.
 
   version <- "playerprofilev2"
   endpoint <- wnba_endpoint(version)

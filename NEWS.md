@@ -152,9 +152,16 @@
 ### **Restored Functionality**
 
 * ```wnba_draftboard()``` — rewritten against the new upstream endpoint `https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board`. The old `wnba.com/wp-json/api/v1/get_draft_board` endpoint stopped serving data; the replacement returns a tidied named list of two tibbles — `board` (draft metadata) and `picks` (one row per pick with team, prospect, career stats, and headshot URL). See `?wnba_draftboard` for the column schema.
+* **Un-deprecations** — the following wrappers were deprecated in 2.1.0 or earlier in 3.0.0 dev when the underlying endpoints were returning empty result sets. Re-probing in mid-season 2026 (verified 2026-05-16 against `LeagueID=10`, current 2025-26 season) shows the endpoints have resumed publishing populated data, so the `lifecycle::deprecate_stop()` shim has been removed and the original body restored on each:
+    - `wnba_playerprofilev2()` — returns `SeasonTotalsRegularSeason` (9 seasons), `SeasonTotalsPostSeason` (7), `SeasonTotalsAllStarSeason` (6), `SeasonTotalsPreseason` (7), the matching `CareerTotals*` rollups, `SeasonRankingsRegularSeason`/`PostSeason`, `SeasonHighs` (17), `CareerHighs` (22), and `NextGame` for A'ja Wilson (`PLAYER_ID = 1628932`). Default `league_id` is now `'10'`.
+    - `wnba_teaminfocommon()` — returns `TeamInfoCommon` (current-season W/L + conference/division + slug/code), `TeamSeasonRanks` (PTS/REB/AST + opponent PTS rank), and the 76-season `AvailableSeasons` list for Las Vegas Aces (`TEAM_ID = 1611661319`). Function body un-commented; error handling migrated from raw `cli::cli_alert_danger()` to `.report_api_error()` / `.report_api_warning()` for consistency.
+    - `wnba_teamyearbyyearstats()` — returns `TeamStats` with 30 seasons × 34 columns of full franchise-level year-by-year ledger (GP, W, L, win%, conference rank, division rank, ratings) for the Aces.
+    - `wnba_leaguelineupviz()` — returns `LeagueLineupViz` with 458–4,169 5-player lineup combinations × 25 columns (off/def/net rating, pace, TS%, eFG%) depending on filters, current 2025-26 WNBA season.
 
 ### **Bug Fixes**
 
+* ```wnba_schedule()``` — migrated off the retired `stats.wnba.com/stats/scheduleleaguev2` endpoint (returns Connection Reset since March 2026; issue #53) to the public CDN at `cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json`. The CDN serves the same `leagueSchedule.gameDates[].games[]` payload as the dead stats endpoint, requires no authentication or special headers, and stays current with the live WNBA season. For historical seasons (CDN only serves the current season) the function now emits a `cli::cli_alert_info` pointing users at `load_wnba_schedule(seasons = ...)`, which reads cached ESPN snapshots from the `sportsdataverse-data` releases.
+* ```wnba_leaguegamelog()``` — default `league_id` was `'00'` (NBA), causing every call without an explicit `league_id` argument to return ~2,500 rows of NBA data instead of WNBA (issue #48). Default is now `'10'` (WNBA), matching the rest of the package. Additionally, **the parameter order in the outgoing query string was reordered to put `LeagueID` first**, because the WNBA Stats API as of 2026 returns a Cloudflare HTML error page for the alphabetical ordering (`Counter, DateFrom, DateTo, Direction, LeagueID, ...`) but a populated `LeagueGameLog` for `LeagueID`-first. Verified 2026-05-16: same param values, alphabetical-first returns HTML, `LeagueID`-first returns 572 WNBA rows.
 * ```espn_wbb_conferences()``` — ESPN dropped the `subGroups` column from its scoreboard-conferences response; the function now uses `dplyr::select(-dplyr::any_of("subGroups"))` so new column drops no longer break the call. Also initializes `conferences <- NULL` before the `tryCatch` so a transient error surfaces a `cli_alert_danger` instead of `object 'conferences' not found`.
 * ```ncaa_wbb_NET_rankings()``` — the NCAA.com rankings table now exposes `Conf`/`Prev`/`Quad 1..4` headers; after `janitor::clean_names()` these land as `conf`/`prev`/`quad_1..4`, breaking the documented schema. The function now renames `conf → conference` and `prev → previous` via `dplyr::rename(dplyr::any_of(...))` so existing consumers keep working while the new `quad_*` columns ride along untouched.
 * **Return-value initialization pattern** — swept ~124 WNBA and ESPN wrappers that `return(df_list)` (or returned other vars assigned only inside `tryCatch(expr = ...)`) without initializing the return value first. When the API errored, callers saw `object 'df_list' not found` instead of the intended `cli::cli_alert_danger` + empty-list fallback. Each wrapper now initializes its return variable before `tryCatch`, so errors degrade gracefully to an empty list / NULL. Affected files: `R/wnba_stats_boxscore.R`, `R/wnba_stats_boxscore_v3.R`, `R/wnba_stats_cume.R`, `R/wnba_stats_draft.R`, `R/wnba_stats_franchise.R`, `R/wnba_stats_leaders.R`, `R/wnba_stats_league.R`, `R/wnba_stats_league_dash.R`, `R/wnba_stats_lineups.R`, `R/wnba_stats_pbp.R`, `R/wnba_stats_player.R`, `R/wnba_stats_player_dash.R`, `R/wnba_stats_roster.R`, `R/wnba_stats_scoreboard.R`, `R/wnba_stats_shotchart.R`, `R/wnba_stats_team.R`, `R/wnba_stats_team_dash.R`, `R/wnba_stats_video.R`, `R/espn_wbb_data.R`, `R/espn_wnba_data.R`, `R/wnba_data_pbp.R`.
@@ -184,14 +191,10 @@ Newly deprecated in 3.0.0 — endpoints returned `<!DOCTYPE html>` (HTTP
 * `wnba_boxscoreplayertrackv2()` → `wnba_boxscoreplayertrackv3()`
 * `wnba_data_pbp()` → `wnba_pbp()` (the `data.wnba.com` mobile_teams feed
   is unstable; HTTP/2 stream errors are routine)
-* `wnba_leaguelineupviz()` → details only; nearest substitute is
-  `wnba_leaguedashlineups()`
 * `wnba_playercareerbycollege()` → details only; consider
   `wnba_playercareerbycollegerollup()` or `wnba_leaguedashplayerbiostats()`
 * `wnba_teamgamestreakfinder()` → `wnba_teamgamelogs()`
 * `wnba_teamhistoricalleaders()` → `wnba_franchiseleaders()`
-* `wnba_teamyearbyyearstats()` → details only; consider
-  `wnba_franchisehistory()` or `wnba_teamdashboardbyyearoveryear()`
 
 Already deprecated, re-stated under the lifecycle pattern:
 
@@ -205,13 +208,7 @@ Already deprecated, re-stated under the lifecycle pattern:
 * `wnba_homepagev2()` (2.1.0) → `wnba_homepagewidget()`
 * `wnba_leaderstiles()` (2.1.0) → `wnba_homepagewidget()`
 * `wnba_scoreboard()` (2.1.0) → `wnba_scoreboardv3()`
-* `wnba_teaminfocommon()` (2.1.0) → `wnba_teamdetails()`
 * `wnba_videodetails()` (3.0.0) → `wnba_videoevents()`
-* `wnba_playerprofilev2()` (3.0.0) → `wnba_playercareerstats()`. The
-  upstream `playerprofilev2` endpoint still returns the named-list
-  shape but every `SeasonTotals*` and `CareerTotals*` table comes back
-  zero-row in 2025 (verified against multiple active players).
-  `wnba_playercareerstats()` exposes the same career totals.
 * `wnba_videodetailsasset()` (3.0.0) → `wnba_videoevents()`
 
 Soft warning (lifecycle::deprecate_warn) — function still runs but
@@ -226,6 +223,13 @@ upstream endpoint isn't restored:
   populate. The V2 variant still returns full data.
 
 ### **HTTP layer**
+
+* **Jittered exponential backoff in `.retry_request()`.** Replaced the default
+  fixed 2-second retry cadence with `runif(1, 0.5, 1.5) * 2^i` so retries
+  from concurrent users hitting the same rate-limited endpoint don't
+  synchronize into a thundering-herd burst that Cloudflare scores as an
+  attack. Same 3 max tries; same backoff envelope (~0.5–6s); just
+  spread.
 
 * **Restored proxy support.** When wehoop migrated from `httr` to `httr2`
   in the V3 work, the legacy `httr::use_proxy()` plumbing was dropped

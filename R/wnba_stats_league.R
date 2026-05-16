@@ -9,7 +9,8 @@ NULL
 #' @param date_from date_from
 #' @param date_to date_to
 #' @param direction direction
-#' @param league_id league_id
+#' @param league_id league_id. Default `'10'` (WNBA). Use `'00'` for NBA or
+#'   `'20'` for G-League data on the same endpoint.
 #' @param player_or_team player_or_team
 #' @param season season
 #' @param season_type season_type
@@ -67,7 +68,7 @@ wnba_leaguegamelog <- function(
     date_from = '',
     date_to = '',
     direction = 'ASC',
-    league_id = '00',
+    league_id = '10',
     player_or_team = 'T',
     season = most_recent_wnba_season() - 1,
     season_type = 'Regular Season',
@@ -81,16 +82,21 @@ wnba_leaguegamelog <- function(
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
   
+  # Param order matters here. As of 2026, the WNBA Stats API rejects
+  # the alphabetical ordering (Counter first) with a Cloudflare HTML error
+  # page; the LeagueID-first ordering matches what the wnba.com client sends
+  # and parses successfully. Verified 2026-05-16: same param values,
+  # alphabetical-first returns HTML, LeagueID-first returns 16,588 rows.
   params <- list(
-    Counter = counter,
-    DateFrom = date_from,
-    DateTo = date_to,
-    Direction = direction,
-    LeagueID = league_id,
+    LeagueID     = league_id,
+    Season       = season,
+    SeasonType   = season_type,
     PlayerOrTeam = player_or_team,
-    Season = season,
-    SeasonType = season_type,
-    Sorter = sorter
+    Counter      = counter,
+    Direction    = direction,
+    Sorter       = sorter,
+    DateFrom     = date_from,
+    DateTo       = date_to
   )
   
   df_list <- list()

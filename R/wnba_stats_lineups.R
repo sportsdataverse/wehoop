@@ -439,11 +439,10 @@ wnba_leaguelineupviz <- function(
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
 
-  lifecycle::deprecate_stop(
-    when = "3.0.0",
-    what = "wnba_leaguelineupviz()",
-    details = "The `leaguelineupviz` endpoint no longer returns stable data. Use `wnba_leaguedashlineups()` for league-wide lineup statistics instead."
-  )
+  # Restored in 3.0.0 after the upstream endpoint resumed publishing populated
+  # LeagueLineupViz data. Verified 2026-05-16: 4,169 lineup combinations x
+  # 25 columns returned for the 2025-26 WNBA season with full
+  # OFF_RATING / DEF_RATING / NET_RATING / PACE / TS_PCT / EFG_PCT columns.
 
   # Intentional
   # season_type <- gsub(' ', '+', season_type)

@@ -15,14 +15,18 @@ This is a minor release that:
 
 ### Bug fixes
 
+* Migrates `wnba_schedule()` off the retired `stats.wnba.com/stats/scheduleleaguev2` endpoint to the public CDN at `cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json` (same payload schema; no authentication required). Historical seasons (CDN only serves the current season) emit a `cli::cli_alert_info` directing users at `load_wnba_schedule(seasons = ...)`.
+* `wnba_leaguegamelog()` default `league_id` switched from `'00'` (NBA) to `'10'` (WNBA), matching the rest of the package; the wrapper had been silently returning NBA data on every call without an explicit `league_id` argument. The outgoing query-string parameter order was also rearranged to put `LeagueID` first, because the WNBA Stats API as of 2026 returns a Cloudflare HTML error page for the alphabetical ordering but a populated `LeagueGameLog` for `LeagueID`-first.
+* Restores four wrappers (`wnba_playerprofilev2()`, `wnba_teaminfocommon()`, `wnba_teamyearbyyearstats()`, `wnba_leaguelineupviz()`) from `lifecycle::deprecate_stop()` to active. Their upstream endpoints had been returning empty result sets when the deprecation shims were added, but mid-season 2026 re-probing confirms the endpoints now return populated data (player profile: 15 result sets totalling 80+ rows for A'ja Wilson; team info: W/L + ranks + 76-season list; team year-by-year: 30 seasons; lineups: 458–4,169 5-player combinations with off/def/net ratings).
 * Corrects `.players_on_court()` quarter-length math to use 10-minute WNBA quarters (600 seconds per quarter, 2400 seconds of regulation) rather than the NBA 12-minute constants.
 * Fixes `espn_wbb_conferences()` against ESPN's dropped `subGroups` column by using `dplyr::select(-dplyr::any_of("subGroups"))`.
 * Fixes `ncaa_wbb_NET_rankings()` against NCAA.com's renamed `Conf`/`Prev` columns via `dplyr::rename(dplyr::any_of(c("conference" = "conf", "previous" = "prev")))`.
 * Initializes the return variable before `tryCatch` across ~124 WNBA and ESPN wrappers so an upstream API error now falls through to a `cli::cli_alert_danger` + empty list/data.frame instead of `object '<var>' not found`.
+* `.retry_request()` now uses `runif(1, 0.5, 1.5) * 2^i` backoff (same 3-try envelope) instead of fixed 2-second cadence, so concurrent users sharing the same rate-limited endpoint don't synchronize into a thundering-herd burst.
 
 ### Deprecations
 
-The following wrappers target WNBA Stats API endpoints that no longer return data. They are marked `@keywords internal`, their bodies are `cli::cli_alert_danger()` stubs, and they are slated for removal in `wehoop 3.1.0`:
+The following wrappers target WNBA Stats API endpoints that no longer return data. They use `lifecycle::deprecate_stop()`, and they are slated for removal in `wehoop 3.1.0`:
 
 * `wnba_boxscorehustlev2()`
 * `wnba_hustlestatsboxscore()`

@@ -820,8 +820,8 @@ NULL
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
-#' @keywords internal
 #' @export
+#' @family WNBA Team Functions
 #' @details
 #' ```r
 #'   wnba_teaminfocommon(team_id = '1611661328')
@@ -834,43 +834,43 @@ wnba_teaminfocommon <- function(
     ...){
   .args <- .capture_args()
 
-  lifecycle::deprecate_stop(
-    when = "2.1.0",
-    what = "wnba_teaminfocommon()",
-    with = "wnba_teamdetails()"
+  # Restored in 3.0.0 after the upstream endpoint resumed publishing populated
+  # TeamInfoCommon (current-season W/L + conference/division + slug/code),
+  # TeamSeasonRanks (per-game PTS/REB/AST + opponent PTS rank), and the
+  # 76-season AvailableSeasons list. Verified 2026-05-16 against
+  # TEAM_ID 1611661319 (Las Vegas Aces).
+
+  version <- "teaminfocommon"
+  endpoint <- wnba_endpoint(version)
+  full_url <- endpoint
+
+  params <- list(
+    LeagueID   = league_id,
+    Season     = season,
+    SeasonType = season_type,
+    TeamID     = team_id
   )
-  
-  # # Intentionally not commented out
-  # season_type <- gsub(' ', '+', season_type)
-  # version <- "teaminfocommon"
-  # endpoint <- wnba_endpoint(version)
-  # full_url <- endpoint
-  # 
-  # params <- list(
-  #   LeagueID = league_id,
-  #   Season = season,
-  #   SeasonType = season_type,
-  #   TeamID = team_id
-  # )
-  # 
-  # tryCatch(
-  #   expr = {
-  #     
-  #     resp <- request_with_proxy(url = full_url, params = params, ...)
-  #     
-  #     df_list <- wnba_stats_map_result_sets(resp)
-  #     
-  #   },
-  #   error = function(e) {
-  #     cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team common info data for {team_id} available!")
-  #     cli::cli_alert_danger("Error:\n{e}")
-  #   },
-  #   warning = function(w) {
-  #     cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
-  #   },
-  #   finally = {
-  #   }
-  # )
+
+  df_list <- list()
+
+  tryCatch(
+    expr = {
+
+      resp <- request_with_proxy(url = full_url, params = params, ...)
+
+      df_list <- wnba_stats_map_result_sets(resp)
+
+    },
+    error = function(e) .report_api_error(
+      e,
+      hint = "Invalid arguments or no team common info data for {team_id} available!",
+      args = .args
+    ),
+    warning = function(w) .report_api_warning(w, args = .args),
+    finally = {
+    }
+  )
+  return(df_list)
 }
 
 
@@ -1748,11 +1748,10 @@ wnba_teamyearbyyearstats <- function(
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
 
-  lifecycle::deprecate_stop(
-    when = "3.0.0",
-    what = "wnba_teamyearbyyearstats()",
-    details = "No direct replacement is available in wehoop for this unstable endpoint. Consider using `wnba_franchisehistory()` for franchise-level history or season-level dashboards (`wnba_teamdashboardbyyearoveryear()`) for year-over-year team stats."
-  )
+  # Restored in 3.0.0 after the upstream endpoint resumed publishing populated
+  # TeamStats (full franchise-level year-by-year ledger: GP, W, L, win%,
+  # conference rank, division rank, ratings). Verified 2026-05-16 against
+  # TEAM_ID 1611661319 (Las Vegas Aces) returning 30 seasons x 34 columns.
 
   # Intentional
   # season_type <- gsub(' ', '+', season_type)
