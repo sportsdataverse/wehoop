@@ -93,9 +93,6 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_team_leaders(team_id = "17", season = 2025)
-#> ✖ 2026-05-12 08:23:01.334281: No leaders data available for team_id=17, season=2025
-#> ✖ Args: league = "wnba", team_id = "17", season = 2025
-#> ✖ Error: The API returned an error
-#> NULL
+#> # A tibble: 0 × 0
 # }
 ```

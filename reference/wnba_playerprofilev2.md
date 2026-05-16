@@ -8,7 +8,7 @@
 
 ``` r
 wnba_playerprofilev2(
-  league_id = "",
+  league_id = "10",
   per_mode = "Totals",
   player_id = "1628932",
   ...

@@ -151,10 +151,25 @@
 <h4 id="restored-functionality-3-0-0"><strong>Restored Functionality</strong><a class="anchor" aria-label="anchor" href="#restored-functionality-3-0-0"></a></h4>
 <ul><li>
 <code><a href="../reference/wnba_draftboard.html">wnba_draftboard()</a></code> — rewritten against the new upstream endpoint <code>https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board</code>. The old <code>wnba.com/wp-json/api/v1/get_draft_board</code> endpoint stopped serving data; the replacement returns a tidied named list of two tibbles — <code>board</code> (draft metadata) and <code>picks</code> (one row per pick with team, prospect, career stats, and headshot URL). See <code><a href="../reference/wnba_draftboard.html">?wnba_draftboard</a></code> for the column schema.</li>
+<li>
+<strong>Un-deprecations</strong> — the following wrappers were deprecated in 2.1.0 or earlier in 3.0.0 dev when the underlying endpoints were returning empty result sets. Re-probing in mid-season 2026 (verified 2026-05-16 against <code>LeagueID=10</code>, current 2025-26 season) shows the endpoints have resumed publishing populated data, so the <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code> shim has been removed and the original body restored on each:
+<ul><li>
+<code><a href="../reference/wnba_playerprofilev2.html">wnba_playerprofilev2()</a></code> — returns <code>SeasonTotalsRegularSeason</code> (9 seasons), <code>SeasonTotalsPostSeason</code> (7), <code>SeasonTotalsAllStarSeason</code> (6), <code>SeasonTotalsPreseason</code> (7), the matching <code>CareerTotals*</code> rollups, <code>SeasonRankingsRegularSeason</code>/<code>PostSeason</code>, <code>SeasonHighs</code> (17), <code>CareerHighs</code> (22), and <code>NextGame</code> for A’ja Wilson (<code>PLAYER_ID = 1628932</code>). Default <code>league_id</code> is now <code>'10'</code>.</li>
+<li>
+<code><a href="../reference/wnba_teaminfocommon.html">wnba_teaminfocommon()</a></code> — returns <code>TeamInfoCommon</code> (current-season W/L + conference/division + slug/code), <code>TeamSeasonRanks</code> (PTS/REB/AST + opponent PTS rank), and the 76-season <code>AvailableSeasons</code> list for Las Vegas Aces (<code>TEAM_ID = 1611661319</code>). Function body un-commented; error handling migrated from raw <code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_danger()</a></code> to <code><a href="../reference/dot-report_api_error.html">.report_api_error()</a></code> / <code><a href="../reference/dot-report_api_warning.html">.report_api_warning()</a></code> for consistency.</li>
+<li>
+<code><a href="../reference/wnba_teamyearbyyearstats.html">wnba_teamyearbyyearstats()</a></code> — returns <code>TeamStats</code> with 30 seasons × 34 columns of full franchise-level year-by-year ledger (GP, W, L, win%, conference rank, division rank, ratings) for the Aces.</li>
+<li>
+<code><a href="../reference/wnba_leaguelineupviz.html">wnba_leaguelineupviz()</a></code> — returns <code>LeagueLineupViz</code> with 458–4,169 5-player lineup combinations × 25 columns (off/def/net rating, pace, TS%, eFG%) depending on filters, current 2025-26 WNBA season.</li>
+</ul></li>
 </ul></div>
 <div class="section level4">
 <h4 id="bug-fixes-3-0-0"><strong>Bug Fixes</strong><a class="anchor" aria-label="anchor" href="#bug-fixes-3-0-0"></a></h4>
 <ul><li>
+<code><a href="../reference/wnba_schedule.html">wnba_schedule()</a></code> — migrated off the retired <code>stats.wnba.com/stats/scheduleleaguev2</code> endpoint (returns Connection Reset since March 2026; issue <a href="https://github.com/sportsdataverse/wehoop/issues/53" class="external-link">#53</a>) to the public CDN at <code>cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json</code>. The CDN serves the same <code>leagueSchedule.gameDates[].games[]</code> payload as the dead stats endpoint, requires no authentication or special headers, and stays current with the live WNBA season. For historical seasons (CDN only serves the current season) the function now emits a <code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_info</a></code> pointing users at <code>load_wnba_schedule(seasons = ...)</code>, which reads cached ESPN snapshots from the <code>sportsdataverse-data</code> releases.</li>
+<li>
+<code><a href="../reference/wnba_leaguegamelog.html">wnba_leaguegamelog()</a></code> — default <code>league_id</code> was <code>'00'</code> (NBA), causing every call without an explicit <code>league_id</code> argument to return ~2,500 rows of NBA data instead of WNBA (issue <a href="https://github.com/sportsdataverse/wehoop/issues/48" class="external-link">#48</a>). Default is now <code>'10'</code> (WNBA), matching the rest of the package. Additionally, <strong>the parameter order in the outgoing query string was reordered to put <code>LeagueID</code> first</strong>, because the WNBA Stats API as of 2026 returns a Cloudflare HTML error page for the alphabetical ordering (<code>Counter, DateFrom, DateTo, Direction, LeagueID, ...</code>) but a populated <code>LeagueGameLog</code> for <code>LeagueID</code>-first. Verified 2026-05-16: same param values, alphabetical-first returns HTML, <code>LeagueID</code>-first returns 572 WNBA rows.</li>
+<li>
 <code><a href="../reference/espn_wbb_conferences.html">espn_wbb_conferences()</a></code> — ESPN dropped the <code>subGroups</code> column from its scoreboard-conferences response; the function now uses <code>dplyr::select(-dplyr::any_of("subGroups"))</code> so new column drops no longer break the call. Also initializes <code>conferences &lt;- NULL</code> before the <code>tryCatch</code> so a transient error surfaces a <code>cli_alert_danger</code> instead of <code>object 'conferences' not found</code>.</li>
 <li>
 <code><a href="../reference/ncaa_wbb_NET_rankings.html">ncaa_wbb_NET_rankings()</a></code> — the NCAA.com rankings table now exposes <code>Conf</code>/<code>Prev</code>/<code>Quad 1..4</code> headers; after <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html" class="external-link">janitor::clean_names()</a></code> these land as <code>conf</code>/<code>prev</code>/<code>quad_1..4</code>, breaking the documented schema. The function now renames <code>conf → conference</code> and <code>prev → previous</code> via <code>dplyr::rename(dplyr::any_of(...))</code> so existing consumers keep working while the new <code>quad_*</code> columns ride along untouched.</li>
@@ -181,9 +196,6 @@
 <li>
 <code><a href="../reference/wnba_data_pbp.html">wnba_data_pbp()</a></code> → <code><a href="../reference/wnba_pbp.html">wnba_pbp()</a></code> (the <code>data.wnba.com</code> mobile_teams feed is unstable; HTTP/2 stream errors are routine)</li>
 <li>
-<code><a href="../reference/wnba_leaguelineupviz.html">wnba_leaguelineupviz()</a></code> → details only; nearest substitute is <code><a href="../reference/wnba_leaguedashlineups.html">wnba_leaguedashlineups()</a></code>
-</li>
-<li>
 <code><a href="../reference/wnba_playercareerbycollege.html">wnba_playercareerbycollege()</a></code> → details only; consider <code><a href="../reference/wnba_playercareerbycollegerollup.html">wnba_playercareerbycollegerollup()</a></code> or <code><a href="../reference/wnba_leaguedashplayerbiostats.html">wnba_leaguedashplayerbiostats()</a></code>
 </li>
 <li>
@@ -191,9 +203,6 @@
 </li>
 <li>
 <code><a href="../reference/wnba_teamhistoricalleaders.html">wnba_teamhistoricalleaders()</a></code> → <code><a href="../reference/wnba_franchiseleaders.html">wnba_franchiseleaders()</a></code>
-</li>
-<li>
-<code><a href="../reference/wnba_teamyearbyyearstats.html">wnba_teamyearbyyearstats()</a></code> → details only; consider <code><a href="../reference/wnba_franchisehistory.html">wnba_franchisehistory()</a></code> or <code><a href="../reference/wnba_teamdashboardbyyearoveryear.html">wnba_teamdashboardbyyearoveryear()</a></code>
 </li>
 </ul><p>Already deprecated, re-stated under the lifecycle pattern:</p>
 <ul><li>
@@ -221,13 +230,8 @@
 <code><a href="../reference/wnba_scoreboard.html">wnba_scoreboard()</a></code> (2.1.0) → <code><a href="../reference/wnba_scoreboardv3.html">wnba_scoreboardv3()</a></code>
 </li>
 <li>
-<code><a href="../reference/wnba_teaminfocommon.html">wnba_teaminfocommon()</a></code> (2.1.0) → <code><a href="../reference/wnba_teamdetails.html">wnba_teamdetails()</a></code>
-</li>
-<li>
 <code><a href="../reference/wnba_videodetails.html">wnba_videodetails()</a></code> (3.0.0) → <code><a href="../reference/wnba_videoevents.html">wnba_videoevents()</a></code>
 </li>
-<li>
-<code><a href="../reference/wnba_playerprofilev2.html">wnba_playerprofilev2()</a></code> (3.0.0) → <code><a href="../reference/wnba_playercareerstats.html">wnba_playercareerstats()</a></code>. The upstream <code>playerprofilev2</code> endpoint still returns the named-list shape but every <code>SeasonTotals*</code> and <code>CareerTotals*</code> table comes back zero-row in 2025 (verified against multiple active players). <code><a href="../reference/wnba_playercareerstats.html">wnba_playercareerstats()</a></code> exposes the same career totals.</li>
 <li>
 <code><a href="../reference/wnba_videodetailsasset.html">wnba_videodetailsasset()</a></code> (3.0.0) → <code><a href="../reference/wnba_videoevents.html">wnba_videoevents()</a></code>
 </li>
@@ -237,8 +241,9 @@
 </ul></div>
 <div class="section level4">
 <h4 id="http-layer-3-0-0"><strong>HTTP layer</strong><a class="anchor" aria-label="anchor" href="#http-layer-3-0-0"></a></h4>
-<ul><li>
-<strong>Restored proxy support.</strong> When wehoop migrated from <code>httr</code> to <code>httr2</code> in the V3 work, the legacy <code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> plumbing was dropped and <code><a href="../reference/request_with_proxy.html">request_with_proxy()</a></code> quietly stopped honoring proxies (its <code>...</code> was preserved purely for source compatibility — see the prior comment “currently unused (preserved for backwards compatibility with callers that previously passed <code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> etc.)”). Both <code><a href="../reference/request_with_proxy.html">request_with_proxy()</a></code> and the lower-level <code><a href="../reference/dot-retry_request.html">.retry_request()</a></code> now accept a <code>proxy =</code> argument:
+<ul><li><p><strong>Jittered exponential backoff in <code><a href="../reference/dot-retry_request.html">.retry_request()</a></code>.</strong> Replaced the default fixed 2-second retry cadence with <code>runif(1, 0.5, 1.5) * 2^i</code> so retries from concurrent users hitting the same rate-limited endpoint don’t synchronize into a thundering-herd burst that Cloudflare scores as an attack. Same 3 max tries; same backoff envelope (~0.5–6s); just spread.</p></li>
+<li>
+<p><strong>Restored proxy support.</strong> When wehoop migrated from <code>httr</code> to <code>httr2</code> in the V3 work, the legacy <code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> plumbing was dropped and <code><a href="../reference/request_with_proxy.html">request_with_proxy()</a></code> quietly stopped honoring proxies (its <code>...</code> was preserved purely for source compatibility — see the prior comment “currently unused (preserved for backwards compatibility with callers that previously passed <code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> etc.)”). Both <code><a href="../reference/request_with_proxy.html">request_with_proxy()</a></code> and the lower-level <code><a href="../reference/dot-retry_request.html">.retry_request()</a></code> now accept a <code>proxy =</code> argument:</p>
 <ul><li>
 <code>proxy = NULL</code> (default) — libcurl reads <code>http_proxy</code> / <code>https_proxy</code> / <code>no_proxy</code> env vars automatically.</li>
 <li>

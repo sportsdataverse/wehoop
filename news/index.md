@@ -361,9 +361,69 @@
   team, prospect, career stats, and headshot URL). See
   [`?wnba_draftboard`](https://wehoop.sportsdataverse.org/reference/wnba_draftboard.md)
   for the column schema.
+- **Un-deprecations** — the following wrappers were deprecated in 2.1.0
+  or earlier in 3.0.0 dev when the underlying endpoints were returning
+  empty result sets. Re-probing in mid-season 2026 (verified 2026-05-16
+  against `LeagueID=10`, current 2025-26 season) shows the endpoints
+  have resumed publishing populated data, so the
+  [`lifecycle::deprecate_stop()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html)
+  shim has been removed and the original body restored on each:
+  - [`wnba_playerprofilev2()`](https://wehoop.sportsdataverse.org/reference/wnba_playerprofilev2.md)
+    — returns `SeasonTotalsRegularSeason` (9 seasons),
+    `SeasonTotalsPostSeason` (7), `SeasonTotalsAllStarSeason` (6),
+    `SeasonTotalsPreseason` (7), the matching `CareerTotals*` rollups,
+    `SeasonRankingsRegularSeason`/`PostSeason`, `SeasonHighs` (17),
+    `CareerHighs` (22), and `NextGame` for A’ja Wilson
+    (`PLAYER_ID = 1628932`). Default `league_id` is now `'10'`.
+  - [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md)
+    — returns `TeamInfoCommon` (current-season W/L +
+    conference/division + slug/code), `TeamSeasonRanks` (PTS/REB/AST +
+    opponent PTS rank), and the 76-season `AvailableSeasons` list for
+    Las Vegas Aces (`TEAM_ID = 1611661319`). Function body un-commented;
+    error handling migrated from raw
+    [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
+    to
+    [`.report_api_error()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_error.md)
+    /
+    [`.report_api_warning()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_warning.md)
+    for consistency.
+  - [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md)
+    — returns `TeamStats` with 30 seasons × 34 columns of full
+    franchise-level year-by-year ledger (GP, W, L, win%, conference
+    rank, division rank, ratings) for the Aces.
+  - [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md)
+    — returns `LeagueLineupViz` with 458–4,169 5-player lineup
+    combinations × 25 columns (off/def/net rating, pace, TS%, eFG%)
+    depending on filters, current 2025-26 WNBA season.
 
 #### **Bug Fixes**
 
+- [`wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule.md)
+  — migrated off the retired `stats.wnba.com/stats/scheduleleaguev2`
+  endpoint (returns Connection Reset since March 2026; issue
+  [\#53](https://github.com/sportsdataverse/wehoop/issues/53)) to the
+  public CDN at
+  `cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json`. The CDN
+  serves the same `leagueSchedule.gameDates[].games[]` payload as the
+  dead stats endpoint, requires no authentication or special headers,
+  and stays current with the live WNBA season. For historical seasons
+  (CDN only serves the current season) the function now emits a
+  [`cli::cli_alert_info`](https://cli.r-lib.org/reference/cli_alert.html)
+  pointing users at `load_wnba_schedule(seasons = ...)`, which reads
+  cached ESPN snapshots from the `sportsdataverse-data` releases.
+- [`wnba_leaguegamelog()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguegamelog.md)
+  — default `league_id` was `'00'` (NBA), causing every call without an
+  explicit `league_id` argument to return ~2,500 rows of NBA data
+  instead of WNBA (issue
+  [\#48](https://github.com/sportsdataverse/wehoop/issues/48)). Default
+  is now `'10'` (WNBA), matching the rest of the package. Additionally,
+  **the parameter order in the outgoing query string was reordered to
+  put `LeagueID` first**, because the WNBA Stats API as of 2026 returns
+  a Cloudflare HTML error page for the alphabetical ordering
+  (`Counter, DateFrom, DateTo, Direction, LeagueID, ...`) but a
+  populated `LeagueGameLog` for `LeagueID`-first. Verified 2026-05-16:
+  same param values, alphabetical-first returns HTML, `LeagueID`-first
+  returns 572 WNBA rows.
 - [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
   — ESPN dropped the `subGroups` column from its scoreboard-conferences
   response; the function now uses
@@ -450,9 +510,6 @@ Newly deprecated in 3.0.0 — endpoints returned `<!DOCTYPE html>` (HTTP
   [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
   (the `data.wnba.com` mobile_teams feed is unstable; HTTP/2 stream
   errors are routine)
-- [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md)
-  → details only; nearest substitute is
-  [`wnba_leaguedashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashlineups.md)
 - [`wnba_playercareerbycollege()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollege.md)
   → details only; consider
   [`wnba_playercareerbycollegerollup()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollegerollup.md)
@@ -464,11 +521,6 @@ Newly deprecated in 3.0.0 — endpoints returned `<!DOCTYPE html>` (HTTP
 - [`wnba_teamhistoricalleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_teamhistoricalleaders.md)
   →
   [`wnba_franchiseleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_franchiseleaders.md)
-- [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md)
-  → details only; consider
-  [`wnba_franchisehistory()`](https://wehoop.sportsdataverse.org/reference/wnba_franchisehistory.md)
-  or
-  [`wnba_teamdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyyearoveryear.md)
 
 Already deprecated, re-stated under the lifecycle pattern:
 
@@ -496,20 +548,9 @@ Already deprecated, re-stated under the lifecycle pattern:
 - [`wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboard.md)
   (2.1.0) →
   [`wnba_scoreboardv3()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboardv3.md)
-- [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md)
-  (2.1.0) →
-  [`wnba_teamdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdetails.md)
 - [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md)
   (3.0.0) →
   [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
-- [`wnba_playerprofilev2()`](https://wehoop.sportsdataverse.org/reference/wnba_playerprofilev2.md)
-  (3.0.0) →
-  [`wnba_playercareerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerstats.md).
-  The upstream `playerprofilev2` endpoint still returns the named-list
-  shape but every `SeasonTotals*` and `CareerTotals*` table comes back
-  zero-row in 2025 (verified against multiple active players).
-  [`wnba_playercareerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerstats.md)
-  exposes the same career totals.
 - [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md)
   (3.0.0) →
   [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
@@ -529,6 +570,14 @@ upstream endpoint isn’t restored:
 
 #### **HTTP layer**
 
+- **Jittered exponential backoff in
+  [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md).**
+  Replaced the default fixed 2-second retry cadence with
+  `runif(1, 0.5, 1.5) * 2^i` so retries from concurrent users hitting
+  the same rate-limited endpoint don’t synchronize into a
+  thundering-herd burst that Cloudflare scores as an attack. Same 3 max
+  tries; same backoff envelope (~0.5–6s); just spread.
+
 - **Restored proxy support.** When wehoop migrated from `httr` to
   `httr2` in the V3 work, the legacy
   [`httr::use_proxy()`](https://httr.r-lib.org/reference/use_proxy.html)
@@ -544,6 +593,7 @@ upstream endpoint isn’t restored:
   and the lower-level
   [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)
   now accept a `proxy =` argument:
+
   - `proxy = NULL` (default) — libcurl reads `http_proxy` /
     `https_proxy` / `no_proxy` env vars automatically.
   - `proxy = "http://host:port"` — string form, forwarded to

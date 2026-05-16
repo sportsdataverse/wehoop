@@ -87,7 +87,7 @@ Saiem Gilani
   espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
 #> $`Regular Season Averages`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
@@ -103,7 +103,7 @@ Saiem Gilani
 #> 
 #> $`Regular Season Totals`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
@@ -119,7 +119,7 @@ Saiem Gilani
 #> 
 #> $`Regular Season Misc Totals`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
@@ -135,32 +135,32 @@ Saiem Gilani
 #> 
 #> $General
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:46 UTC
+#> ℹ Data updated: 2026-05-16 20:12:31 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

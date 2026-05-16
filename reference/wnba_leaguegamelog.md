@@ -12,7 +12,7 @@ wnba_leaguegamelog(
   date_from = "",
   date_to = "",
   direction = "ASC",
-  league_id = "00",
+  league_id = "10",
   player_or_team = "T",
   season = most_recent_wnba_season() - 1,
   season_type = "Regular Season",
@@ -41,7 +41,8 @@ wnba_leaguegamelog(
 
 - league_id:
 
-  league_id
+  league_id. Default `'10'` (WNBA). Use `'00'` for NBA or `'20'` for
+  G-League data on the same endpoint.
 
 - player_or_team:
 

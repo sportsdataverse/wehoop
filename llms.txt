@@ -1428,6 +1428,11 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Team Historical Leaders**
 
+- [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md)
+  :
+
+  **Get WNBA Stats API Team Common Info**
+
 - [`wnba_teamplayerdashboard()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.md)
   :
 

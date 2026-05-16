@@ -103,7 +103,7 @@ Saiem Gilani
   espn_wbb_season_info(season = 2025)
 #> $Info
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Info from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:36 UTC
+#> ℹ Data updated: 2026-05-16 20:12:22 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date          display_name type_id type_name 
 #>   <int> <chr>             <chr>             <chr>        <chr>   <chr>     
@@ -111,7 +111,7 @@ Saiem Gilani
 #> 
 #> $Types
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Types from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:36 UTC
+#> ℹ Data updated: 2026-05-16 20:12:22 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -119,7 +119,7 @@ Saiem Gilani
 #> 
 #> $Athletes
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Athletes from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-12 08:22:36 UTC
+#> ℹ Data updated: 2026-05-16 20:12:22 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -127,17 +127,17 @@ Saiem Gilani
 #> 
 #> $Coaches
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Coaches from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-12 08:22:36 UTC
+#> ℹ Data updated: 2026-05-16 20:12:22 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Teams from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:36 UTC
+#> ℹ Data updated: 2026-05-16 20:12:22 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Awards from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-12 08:22:36 UTC
+#> ℹ Data updated: 2026-05-16 20:12:22 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
