@@ -237,7 +237,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 #> ── ESPN WNBA Player Season Stats from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 15:19:08 UTC
+#> ℹ Data updated: 2026-05-17 16:09:39 UTC
 #> # A tibble: 1 × 233
 #>   x_ref_8     athlete_id athlete_uid athlete_guid athlete_type    sdr first_name
 #>   <chr>            <int> <chr>       <chr>        <chr>         <int> <chr>     

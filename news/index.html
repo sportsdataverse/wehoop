@@ -488,7 +488,7 @@
 </tr><tr><td><code>markdown_man_table_helper.R</code></td>
 <td>Programmatic helpers (<code>load_column_descriptions()</code>, <code>make_return_table_md()</code>, <code>roxygenize_return()</code>, <code>augment_return_tables_in_file()</code>, <code>augment_all_r_files()</code>, plus the public <code>mine_espn_api_descriptions(url)</code> API miner). Legacy paste-snippet hand-tools preserved inside <code>if (FALSE) {}</code> so the file is <code><a href="https://rdrr.io/r/base/source.html" class="external-link">source()</a></code>-able.</td>
 </tr><tr><td><code>espn_endpoints_catalog.md</code></td>
-<td>Copy of the <a href="https://github.com/sejaldua/espn-api" class="external-link">sejaldua/espn-api</a> endpoint catalog used to scope the miner.</td>
+<td>Basketball-scoped ESPN endpoint reference used to scope the miner.</td>
 </tr></tbody></table><p>The sweep is idempotent: re-running <code>augment_all_r_files()</code> after updating the dictionary refreshes existing 3-column tables in place rather than appending a fourth column.</p>
 </div>
 </div>

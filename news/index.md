@@ -373,7 +373,7 @@ existing `tools/probes/` diagnostic toolkit):
 | `mine_api_descriptions.R` | Driver that probes the ESPN endpoints which self-document their stat columns. |
 | `audit_column_descriptions.R` | Diagnostic that reports coverage stats and the highest-leverage heuristic columns still to curate. |
 | `markdown_man_table_helper.R` | Programmatic helpers (`load_column_descriptions()`, `make_return_table_md()`, `roxygenize_return()`, `augment_return_tables_in_file()`, `augment_all_r_files()`, plus the public `mine_espn_api_descriptions(url)` API miner). Legacy paste-snippet hand-tools preserved inside `if (FALSE) {}` so the file is [`source()`](https://rdrr.io/r/base/source.html)-able. |
-| `espn_endpoints_catalog.md` | Copy of the [sejaldua/espn-api](https://github.com/sejaldua/espn-api) endpoint catalog used to scope the miner. |
+| `espn_endpoints_catalog.md` | Basketball-scoped ESPN endpoint reference used to scope the miner. |
 
 The sweep is idempotent: re-running `augment_all_r_files()` after
 updating the dictionary refreshes existing 3-column tables in place
