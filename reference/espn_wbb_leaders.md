@@ -32,20 +32,20 @@ espn_wbb_leaders(season = most_recent_wbb_season(), season_type = 2, ...)
 
 A single `wehoop_data` tibble with one row per category-athlete pair.
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| season        | integer   |
-| season_type   | integer   |
-| category      | character |
-| abbreviation  | character |
-| athlete_id    | character |
-| athlete_name  | character |
-| team_id       | character |
-| team_abbrev   | character |
-| value         | numeric   |
-| rank          | integer   |
-| display_value | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| season_type | integer | Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
+| category | character | Category label. |
+| abbreviation | character | Short abbreviation. |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| athlete_name | character | Athlete display name (ESPN). |
+| team_id | character | Unique team identifier. |
+| team_abbrev | character | Abbreviation for team. |
+| value | numeric | Numeric or string value field. |
+| rank | integer | Whether to include statistical ranks in the returned table. |
+| display_value | character | Human-readable display value. |
 
 ## See also
 
@@ -99,7 +99,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_leaders(season = 2025, season_type = 2)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Leaders from ESPN.com ──────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:44 UTC
+#> ℹ Data updated: 2026-05-17 13:51:25 UTC
 #> # A tibble: 350 × 11
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  

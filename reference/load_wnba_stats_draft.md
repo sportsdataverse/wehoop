@@ -48,22 +48,22 @@ load_wnba_stats_draft_manifest()
 
 Returns a `wehoop_data` tibble of WNBA draft picks.
 
-|                     |           |
-|---------------------|-----------|
-| col_name            | types     |
-| season              | integer   |
-| person_id           | character |
-| player_name         | character |
-| round_number        | integer   |
-| round_pick          | integer   |
-| overall_pick        | integer   |
-| team_id             | character |
-| team_city           | character |
-| team_name           | character |
-| team_abbreviation   | character |
-| organization        | character |
-| organization_type   | character |
-| player_profile_flag | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| person_id | character | Unique player identifier (V3 endpoints). |
+| player_name | character | Player name. |
+| round_number | integer | Numeric round. |
+| round_pick | integer | Round pick. |
+| overall_pick | integer | Overall pick. |
+| team_id | character | Unique team identifier. |
+| team_city | character | Team city or region (e.g. 'Las Vegas'). |
+| team_name | character | Full team display name (e.g. 'Las Vegas Aces'). |
+| team_abbreviation | character | Short team abbreviation (e.g. 'LAS'). |
+| organization | character | Organization. |
+| organization_type | character | Organization type. |
+| player_profile_flag | character | Player profile flag. |
 
 ## See also
 

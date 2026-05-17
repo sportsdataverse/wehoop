@@ -31,43 +31,43 @@ A named list of data frames: `Statistics`, `NextGame`, `Last5Games`,
 
 **Statistics**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| (varies) | character |
+|          |           |             |
+|----------|-----------|-------------|
+| col_name | types     | description |
+| (varies) | character |             |
 
 **NextGame**
 
-|            |           |
-|------------|-----------|
-| col_name   | types     |
-| id         | character |
-| date       | character |
-| name       | character |
-| short_name | character |
+|            |           |                                  |
+|------------|-----------|----------------------------------|
+| col_name   | types     | description                      |
+| id         | character | Unique play identifcation number |
+| date       | character | Date in YYYY-MM-DD format.       |
+| name       | character | Display name.                    |
+| short_name | character | Short display name.              |
 
 **Last5Games**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| (varies) | character |
+|          |           |             |
+|----------|-----------|-------------|
+| col_name | types     | description |
+| (varies) | character |             |
 
 **Headlines**
 
-|             |           |
-|-------------|-----------|
-| col_name    | types     |
-| headline    | character |
-| description | character |
-| published   | character |
+|             |           |                                   |
+|-------------|-----------|-----------------------------------|
+| col_name    | types     | description                       |
+| headline    | character | News headline.                    |
+| description | character | Long-form description text.       |
+| published   | character | Publication timestamp (ISO 8601). |
 
 **FantasyOutlook**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| (varies) | character |
+|          |           |             |
+|----------|-----------|-------------|
+| col_name | types     | description |
+| (varies) | character |             |
 
 ## See also
 
@@ -122,12 +122,12 @@ Saiem Gilani
   espn_wbb_athlete_overview(athlete_id = "4433985", season = 2025)
 #> $Statistics
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────
-#> ℹ Data updated: 2026-05-17 05:59:35 UTC
+#> ℹ Data updated: 2026-05-17 13:51:15 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────
-#> ℹ Data updated: 2026-05-17 05:59:35 UTC
+#> ℹ Data updated: 2026-05-17 13:51:15 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -135,12 +135,12 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────
-#> ℹ Data updated: 2026-05-17 05:59:35 UTC
+#> ℹ Data updated: 2026-05-17 13:51:15 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────
-#> ℹ Data updated: 2026-05-17 05:59:35 UTC
+#> ℹ Data updated: 2026-05-17 13:51:15 UTC
 #> # A tibble: 26 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
@@ -158,7 +158,7 @@ Saiem Gilani
 #> 
 #> $FantasyOutlook
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com 
-#> ℹ Data updated: 2026-05-17 05:59:35 UTC
+#> ℹ Data updated: 2026-05-17 13:51:15 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

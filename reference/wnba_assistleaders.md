@@ -50,18 +50,18 @@ Returns a named list of data frames: AssistLeaders
 
 **AssistLeaders**
 
-|                   |           |
-|-------------------|-----------|
-| col_name          | types     |
-| RANK              | character |
-| PLAYER_ID         | character |
-| PLAYER            | character |
-| TEAM_ID           | character |
-| TEAM_ABBREVIATION | character |
-| TEAM_NAME         | character |
-| JERSEY_NUM        | character |
-| PLAYER_POSITION   | character |
-| AST               | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| RANK | character | Whether to include statistical ranks in the returned table. |
+| PLAYER_ID | character | Unique player identifier. |
+| PLAYER | character |  |
+| TEAM_ID | character | Unique team identifier. |
+| TEAM_ABBREVIATION | character | Short team abbreviation (e.g. 'LAS'). |
+| TEAM_NAME | character | Full team display name (e.g. 'Las Vegas Aces'). |
+| JERSEY_NUM | character | Jersey number worn by the player. |
+| PLAYER_POSITION | character |  |
+| AST | character | Assists. |
 
 ## Details
 

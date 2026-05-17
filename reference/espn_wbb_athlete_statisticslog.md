@@ -35,11 +35,11 @@ entry in the core-v2 statistics log, with `event_ref` and
 `statistics_ref` character columns pointing to resolvable ESPN
 endpoints.
 
-|                |           |
-|----------------|-----------|
-| col_name       | types     |
-| event_ref      | character |
-| statistics_ref | character |
+|                |           |                                          |
+|----------------|-----------|------------------------------------------|
+| col_name       | types     | description                              |
+| event_ref      | character | Reference link to the originating event. |
+| statistics_ref | character | Statistics ref.                          |
 
 ## See also
 
@@ -93,7 +93,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_statisticslog(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Statisticslog from ESPN.com ──────────
-#> ℹ Data updated: 2026-05-17 05:59:35 UTC
+#> ℹ Data updated: 2026-05-17 13:51:15 UTC
 #> # A tibble: 1 × 2
 #>   season$`$ref`                                                       statistics
 #>   <chr>                                                               <list>    

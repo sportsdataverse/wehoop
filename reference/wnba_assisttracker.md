@@ -45,10 +45,10 @@ Returns a named list of data frames: AssistTracker
 
 **AssistTracker**
 
-|          |         |
-|----------|---------|
-| col_name | types   |
-| ASSISTS  | numeric |
+|          |         |                |
+|----------|---------|----------------|
+| col_name | types   | description    |
+| ASSISTS  | numeric | Total assists. |
 
 ## Details
 

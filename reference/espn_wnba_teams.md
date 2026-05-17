@@ -12,19 +12,19 @@ espn_wnba_teams()
 
 Returns a tibble
 
-|                 |           |
-|-----------------|-----------|
-| col_name        | types     |
-| team_id         | integer   |
-| team            | character |
-| mascot          | character |
-| display_name    | character |
-| short_name      | character |
-| abbreviation    | character |
-| color           | character |
-| alternate_color | character |
-| logo            | character |
-| logo_dark       | character |
+|                 |           |                                            |
+|-----------------|-----------|--------------------------------------------|
+| col_name        | types     | description                                |
+| team_id         | integer   | Unique team identifier.                    |
+| team            | character | Team-side label or team identifier.        |
+| mascot          | character | Team mascot.                               |
+| display_name    | character | Display name.                              |
+| short_name      | character | Short display name.                        |
+| abbreviation    | character | Short abbreviation.                        |
+| color           | character | Primary color (hex without leading '#').   |
+| alternate_color | character | Alternate color (hex without leading '#'). |
+| logo            | character | Team or league logo URL.                   |
+| logo_dark       | character | Logo dark.                                 |
 
 ## See also
 
@@ -80,7 +80,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_teams())
 #> ── ESPN WNBA Teams Information from ESPN.com ─────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:11 UTC
+#> ℹ Data updated: 2026-05-17 13:51:56 UTC
 #> # A tibble: 15 × 10
 #>    team_id team         mascot    display_name     short_name abbreviation color
 #>      <int> <chr>        <chr>     <chr>            <chr>      <chr>        <chr>

@@ -14,16 +14,16 @@ espn_wnba_conferences()
 
 A `wehoop_data` tibble with one row per conference:
 
-|                       |           |
-|-----------------------|-----------|
-| col_name              | types     |
-| group_id              | integer   |
-| conference_short_name | character |
-| conference_uid        | character |
-| conference_name       | character |
-| conference_logo       | character |
-| parent_group_id       | integer   |
-| conference_id         | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| group_id | integer | Group identifier (e.g. conference group_id). |
+| conference_short_name | character | Conference short name (e.g. 'ACC'). |
+| conference_uid | character | ESPN universal conference identifier. |
+| conference_name | character | Full conference name. |
+| conference_logo | character | Logo image URL for conference. |
+| parent_group_id | integer | Unique identifier for parent group. |
+| conference_id | integer | Conference identifier. |
 
 ## See also
 
@@ -78,7 +78,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wnba_conferences())
-#> ✖ 2026-05-17 05:59:59.554535: Invalid arguments or no conferences info available!
+#> ✖ 2026-05-17 13:51:42.566533: Invalid arguments or no conferences info available!
 #> ✖ Error: The API returned an error
 #> NULL
 # }

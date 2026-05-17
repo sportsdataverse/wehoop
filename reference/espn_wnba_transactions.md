@@ -31,18 +31,18 @@ espn_wnba_transactions(season = most_recent_wnba_season(), limit = 100, ...)
 
 A `wehoop_data` tibble with one row per transaction:
 
-|                |           |
-|----------------|-----------|
-| col_name       | types     |
-| transaction_id | character |
-| date           | character |
-| type           | character |
-| description    | character |
-| team_id        | character |
-| athlete_id     | character |
-| athlete_name   | character |
-| from_team_id   | character |
-| to_team_id     | character |
+|                |           |                                    |
+|----------------|-----------|------------------------------------|
+| col_name       | types     | description                        |
+| transaction_id | character | Unique identifier for transaction. |
+| date           | character | Date in YYYY-MM-DD format.         |
+| type           | character | Record type / category.            |
+| description    | character | Long-form description text.        |
+| team_id        | character | Unique team identifier.            |
+| athlete_id     | character | Unique athlete identifier (ESPN).  |
+| athlete_name   | character | Athlete display name (ESPN).       |
+| from_team_id   | character | Unique identifier for from team.   |
+| to_team_id     | character | Unique identifier for to team.     |
 
 ## Details
 
@@ -105,7 +105,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_transactions(season = 2025, limit = 10)
 #> ── ESPN WNBA Transactions from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:11 UTC
+#> ℹ Data updated: 2026-05-17 13:51:56 UTC
 #> # A tibble: 10 × 9
 #>    transaction_id date         type  description team_id athlete_id athlete_name
 #>    <chr>          <chr>        <chr> <chr>       <chr>   <chr>      <chr>       

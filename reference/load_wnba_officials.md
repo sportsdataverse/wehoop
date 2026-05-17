@@ -47,18 +47,18 @@ load_wnba_officials(
 
 Returns a `wehoop_data` tibble with one row per official-game pair.
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| game_id      | character |
-| season       | integer   |
-| official_id  | character |
-| display_name | character |
-| full_name    | character |
-| first_name   | character |
-| last_name    | character |
-| position     | character |
-| order        | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| game_id | character | Unique game identifier. |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| official_id | character | Unique official / referee identifier. |
+| display_name | character | Display name. |
+| full_name | character | Player's full name. |
+| first_name | character | Player's first name. |
+| last_name | character | Player's last name. |
+| position | character | Listed roster position (G, F, C, etc.). |
+| order | integer | Display order within the result set. |
 
 ## See also
 

@@ -49,27 +49,27 @@ load_wnba_stats_standings_manifest()
 
 Returns a `wehoop_data` tibble of team standings.
 
-|                   |           |
-|-------------------|-----------|
-| col_name          | types     |
-| season            | integer   |
-| season_id         | character |
-| team_id           | character |
-| team_city         | character |
-| team_name         | character |
-| conference        | character |
-| conference_record | character |
-| playoff_rank      | integer   |
-| wins              | integer   |
-| losses            | integer   |
-| win_pct           | numeric   |
-| home_record       | character |
-| road_record       | character |
-| l10               | character |
-| strcurrentstreak  | character |
-| points_pg         | numeric   |
-| opp_points_pg     | numeric   |
-| diff_points_pg    | numeric   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| season_id | character | Unique season identifier. |
+| team_id | character | Unique team identifier. |
+| team_city | character | Team city or region (e.g. 'Las Vegas'). |
+| team_name | character | Full team display name (e.g. 'Las Vegas Aces'). |
+| conference | character | Filter players or teams by conference. |
+| conference_record | character | Conference win-loss record. |
+| playoff_rank | integer | League/season rank for playoff. |
+| wins | integer | Total wins. |
+| losses | integer | Total losses. |
+| win_pct | numeric | Win percentage (0-1 decimal). |
+| home_record | character | Home win-loss record. |
+| road_record | character | Win-loss record for road. |
+| l10 | character | L10. |
+| strcurrentstreak | character | Strcurrentstreak. |
+| points_pg | numeric | Points pg. |
+| opp_points_pg | numeric | Opponent points pg. |
+| diff_points_pg | numeric | Diff points pg. |
 
 ## See also
 

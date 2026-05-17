@@ -31,13 +31,13 @@ API are returned as the character column `statistics_ref` and are NOT
 resolved. Similarly, `event_ref`, `competition_ref`, and `team_ref` are
 returned as character columns.
 
-|                 |           |
-|-----------------|-----------|
-| col_name        | types     |
-| event_ref       | character |
-| competition_ref | character |
-| team_ref        | character |
-| statistics_ref  | character |
+|                 |           |                                          |
+|-----------------|-----------|------------------------------------------|
+| col_name        | types     | description                              |
+| event_ref       | character | Reference link to the originating event. |
+| competition_ref | character | Competition ref.                         |
+| team_ref        | character | Team ref.                                |
+| statistics_ref  | character | Statistics ref.                          |
 
 ## See also
 

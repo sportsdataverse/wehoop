@@ -27,15 +27,15 @@ espn_wnba_coaches(season = most_recent_wnba_season(), ...)
 
 A single `wehoop_data` tibble with one row per coach.
 
-|            |           |
-|------------|-----------|
-| col_name   | types     |
-| coach_id   | character |
-| first_name | character |
-| last_name  | character |
-| full_name  | character |
-| experience | integer   |
-| team_id    | character |
+|            |           |                                   |
+|------------|-----------|-----------------------------------|
+| col_name   | types     | description                       |
+| coach_id   | character | Unique identifier for coach.      |
+| first_name | character | Player's first name.              |
+| last_name  | character | Player's last name.               |
+| full_name  | character | Player's full name.               |
+| experience | integer   | Years of professional experience. |
+| team_id    | character | Unique team identifier.           |
 
 ## See also
 
@@ -91,7 +91,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_coaches(season = 2025)
 #> ── ESPN WNBA Coaches from ESPN.com ───────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:59 UTC
+#> ℹ Data updated: 2026-05-17 13:51:42 UTC
 #> # A tibble: 14 × 6
 #>    coach_id first_name last_name full_name experience team_id
 #>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  

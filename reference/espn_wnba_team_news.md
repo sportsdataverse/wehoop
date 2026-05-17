@@ -24,18 +24,18 @@ espn_wnba_team_news(team_id, limit = 25)
 
 Returns a tibble of team news articles.
 
-|             |           |
-|-------------|-----------|
-| col_name    | types     |
-| id          | character |
-| type        | character |
-| headline    | character |
-| description | character |
-| published   | character |
-| premium     | logical   |
-| byline      | character |
-| link_web    | character |
-| league_id   | character |
+|             |           |                                   |
+|-------------|-----------|-----------------------------------|
+| col_name    | types     | description                       |
+| id          | character | Unique play identifcation number  |
+| type        | character | Record type / category.           |
+| headline    | character | News headline.                    |
+| description | character | Long-form description text.       |
+| published   | character | Publication timestamp (ISO 8601). |
+| premium     | logical   | Premium.                          |
+| byline      | character | News article byline / author.     |
+| link_web    | character | Web link / URL.                   |
+| league_id   | character | League identifier ('10' = WNBA).  |
 
 ## Details
 
@@ -98,7 +98,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_news(team_id = "17", limit = 5)
 #> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:09 UTC
+#> ℹ Data updated: 2026-05-17 13:51:54 UTC
 #> # A tibble: 5 × 8
 #>         id type        headline description published premium link_web league_id
 #>      <int> <chr>       <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    

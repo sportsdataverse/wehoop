@@ -24,19 +24,19 @@ espn_wbb_event_broadcasts(event_id, ...)
 
 A tibble with one row per broadcast outlet for the game.
 
-|                 |           |
-|-----------------|-----------|
-| col_name        | types     |
-| event_id        | character |
-| broadcast_id    | character |
-| type_id         | character |
-| type_short_name | character |
-| type_long_name  | character |
-| market_id       | character |
-| market_type     | character |
-| names           | character |
-| lang            | character |
-| region          | character |
+|                 |           |                                        |
+|-----------------|-----------|----------------------------------------|
+| col_name        | types     | description                            |
+| event_id        | character | Unique event / game identifier (ESPN). |
+| broadcast_id    | character | Unique identifier for broadcast.       |
+| type_id         | character | Type identifier (numeric).             |
+| type_short_name | character | Type short name.                       |
+| type_long_name  | character | Type long name.                        |
+| market_id       | character | Unique identifier for market.          |
+| market_type     | character | Market type.                           |
+| names           | character | Names.                                 |
+| lang            | character | Lang.                                  |
+| region          | character | Region label.                          |
 
 ## See also
 
@@ -89,7 +89,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_event_broadcasts(event_id = "401735229")
-#> ✖ 2026-05-17 05:59:40.030367: Failed to retrieve ESPN womens-college-basketball event broadcasts for event_id=401735229
+#> ✖ 2026-05-17 13:51:20.376341: Failed to retrieve ESPN womens-college-basketball event broadcasts for event_id=401735229
 #> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
 #> ✖ Error: The API returned an error
 #> NULL

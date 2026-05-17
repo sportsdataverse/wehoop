@@ -34,57 +34,57 @@ A named list of data frames: `Info`, `Record`, `NextEvent`,
 
 **Info**
 
-|                    |           |
-|--------------------|-----------|
-| col_name           | types     |
-| id                 | character |
-| uid                | character |
-| slug               | character |
-| abbreviation       | character |
-| display_name       | character |
-| short_display_name | character |
-| name               | character |
-| nickname           | character |
-| location           | character |
-| color              | character |
-| alternate_color    | character |
-| logo               | character |
+|                    |           |                                            |
+|--------------------|-----------|--------------------------------------------|
+| col_name           | types     | description                                |
+| id                 | character | Unique play identifcation number           |
+| uid                | character | ESPN UID string (universal identifier).    |
+| slug               | character | URL-safe identifier.                       |
+| abbreviation       | character | Short abbreviation.                        |
+| display_name       | character | Display name.                              |
+| short_display_name | character | Short display name.                        |
+| name               | character | Display name.                              |
+| nickname           | character | Team or athlete nickname.                  |
+| location           | character | Filter results by game location.           |
+| color              | character | Primary color (hex without leading '#').   |
+| alternate_color    | character | Alternate color (hex without leading '#'). |
+| logo               | character | Team or league logo URL.                   |
 
 **Record**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| type     | character |
-| summary  | character |
-| stats    | list      |
+|          |           |                         |
+|----------|-----------|-------------------------|
+| col_name | types     | description             |
+| type     | character | Record type / category. |
+| summary  | character | Summary.                |
+| stats    | list      | Stats.                  |
 
 **NextEvent**
 
-|            |           |
-|------------|-----------|
-| col_name   | types     |
-| id         | character |
-| date       | character |
-| name       | character |
-| short_name | character |
+|            |           |                                  |
+|------------|-----------|----------------------------------|
+| col_name   | types     | description                      |
+| id         | character | Unique play identifcation number |
+| date       | character | Date in YYYY-MM-DD format.       |
+| name       | character | Display name.                    |
+| short_name | character | Short display name.              |
 
 **StandingSummary**
 
-|                  |           |
-|------------------|-----------|
-| col_name         | types     |
-| standing_summary | character |
+|                  |           |                   |
+|------------------|-----------|-------------------|
+| col_name         | types     | description       |
+| standing_summary | character | Standing summary. |
 
 **Coaches**
 
-|            |           |
-|------------|-----------|
-| col_name   | types     |
-| id         | character |
-| first_name | character |
-| last_name  | character |
-| experience | integer   |
+|            |           |                                   |
+|------------|-----------|-----------------------------------|
+| col_name   | types     | description                       |
+| id         | character | Unique play identifcation number  |
+| first_name | character | Player's first name.              |
+| last_name  | character | Player's last name.               |
+| experience | integer   | Years of professional experience. |
 
 ## See also
 
@@ -141,7 +141,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:08 UTC
+#> ℹ Data updated: 2026-05-17 13:51:52 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -151,7 +151,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:08 UTC
+#> ℹ Data updated: 2026-05-17 13:51:52 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -161,7 +161,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:08 UTC
+#> ℹ Data updated: 2026-05-17 13:51:52 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
@@ -169,7 +169,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:08 UTC
+#> ℹ Data updated: 2026-05-17 13:51:52 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

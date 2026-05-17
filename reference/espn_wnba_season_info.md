@@ -32,23 +32,23 @@ functions for details.
 
 **Info**
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| year         | integer   |
-| start_date   | character |
-| end_date     | character |
-| display_name | character |
-| type_id      | character |
-| type_name    | character |
+|              |           |                            |
+|--------------|-----------|----------------------------|
+| col_name     | types     | description                |
+| year         | integer   | 4-digit year.              |
+| start_date   | character | Start date (YYYY-MM-DD).   |
+| end_date     | character | End date (YYYY-MM-DD).     |
+| display_name | character | Display name.              |
+| type_id      | character | Type identifier (numeric). |
+| type_name    | character | Type name.                 |
 
 **Types / Athletes / Coaches / Teams / Awards**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| count    | integer   |
-| ref      | character |
+|          |           |                 |
+|----------|-----------|-----------------|
+| col_name | types     | description     |
+| count    | integer   | Count of count. |
+| ref      | character | Ref.            |
 
 ## See also
 
@@ -105,7 +105,7 @@ Saiem Gilani
   espn_wnba_season_info(season = 2025)
 #> $Info
 #> ── ESPN WNBA Season Info from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:51 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date          display_name type_id type_name     
 #>   <int> <chr>             <chr>             <chr>        <chr>   <chr>         
@@ -113,7 +113,7 @@ Saiem Gilani
 #> 
 #> $Types
 #> ── ESPN WNBA Season Types from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:51 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -121,22 +121,22 @@ Saiem Gilani
 #> 
 #> $Athletes
 #> ── ESPN WNBA Season Athletes from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:51 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Coaches
 #> ── ESPN WNBA Season Coaches from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:51 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
 #> ── ESPN WNBA Season Teams from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:51 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
 #> ── ESPN WNBA Season Awards from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:51 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   

@@ -42,17 +42,17 @@ espn_wnba_athletes_index(
 
 A single `wehoop_data` tibble with one row per athlete.
 
-|            |           |
-|------------|-----------|
-| col_name   | types     |
-| athlete_id | character |
-| full_name  | character |
-| jersey     | character |
-| position   | character |
-| team_id    | character |
-| headshot   | character |
-| status     | character |
-| link       | character |
+|            |           |                                         |
+|------------|-----------|-----------------------------------------|
+| col_name   | types     | description                             |
+| athlete_id | character | Unique athlete identifier (ESPN).       |
+| full_name  | character | Player's full name.                     |
+| jersey     | character | Jersey number worn by the player.       |
+| position   | character | Listed roster position (G, F, C, etc.). |
+| team_id    | character | Unique team identifier.                 |
+| headshot   | character | Headshot image URL.                     |
+| status     | character | Status label.                           |
+| link       | character | Link.                                   |
 
 ## See also
 
@@ -109,7 +109,7 @@ Saiem Gilani
   espn_wnba_athletes_index(season = 2025, limit = 50)
 #> Fetching page 1 of 1 for wnba athletes (season=2025)...
 #> ── ESPN WNBA Athletes Index from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:57 UTC
+#> ℹ Data updated: 2026-05-17 13:51:40 UTC
 #> # A tibble: 50 × 9
 #>    athlete_id full_name jersey position team_id headshot status link     ref_url
 #>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>    <chr>  

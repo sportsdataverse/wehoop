@@ -47,20 +47,20 @@ load_wnba_draft(
 
 Returns a `wehoop_data` tibble of WNBA draft picks.
 
-|                      |           |
-|----------------------|-----------|
-| col_name             | types     |
-| season               | integer   |
-| round                | integer   |
-| pick                 | integer   |
-| overall              | integer   |
-| team_id              | character |
-| team_display_name    | character |
-| athlete_id           | character |
-| athlete_display_name | character |
-| athlete_position     | character |
-| college_id           | character |
-| college_name         | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| round | integer | Tournament / playoff round. |
+| pick | integer | Pick. |
+| overall | integer | Overall. |
+| team_id | character | Unique team identifier. |
+| team_display_name | character | Full team display name. |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| athlete_display_name | character | Athlete display name (full). |
+| athlete_position | character | Athlete position. |
+| college_id | character | Unique identifier for college. |
+| college_name | character | College name. |
 
 ## See also
 

@@ -18,29 +18,29 @@ espn_wnba_standings(year)
 
 Returns a tibble
 
-|                    |           |
-|--------------------|-----------|
-| col_name           | types     |
-| team_id            | integer   |
-| team               | character |
-| avgpointsagainst   | numeric   |
-| avgpointsfor       | numeric   |
-| clincher           | numeric   |
-| differential       | numeric   |
-| divisionwinpercent | numeric   |
-| gamesbehind        | numeric   |
-| leaguewinpercent   | numeric   |
-| losses             | numeric   |
-| playoffseed        | numeric   |
-| streak             | numeric   |
-| winpercent         | numeric   |
-| wins               | numeric   |
-| leaguestandings    | character |
-| home               | character |
-| road               | character |
-| vsdiv              | character |
-| vsconf             | character |
-| lasttengames       | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| team_id | integer | Unique team identifier. |
+| team | character | Team-side label or team identifier. |
+| avgpointsagainst | numeric | Avgpointsagainst. |
+| avgpointsfor | numeric | Avgpointsfor. |
+| clincher | numeric | Clincher. |
+| differential | numeric | Differential. |
+| divisionwinpercent | numeric | Divisionwinpercent. |
+| gamesbehind | numeric | Gamesbehind. |
+| leaguewinpercent | numeric | Leaguewinpercent. |
+| losses | numeric | Total losses. |
+| playoffseed | numeric | Playoffseed. |
+| streak | numeric | Current streak (e.g. 'W3' for three-game win streak). |
+| winpercent | numeric | Winpercent. |
+| wins | numeric | Total wins. |
+| leaguestandings | character | Leaguestandings. |
+| home | character | Home. |
+| road | character | Road. |
+| vsdiv | character | Vsdiv. |
+| vsconf | character | Vsconf. |
+| lasttengames | character | Lasttengames. |
 
 ## See also
 
@@ -96,7 +96,7 @@ Geoff Hutchinson
 # \donttest{
   try(espn_wnba_standings(year = 2021))
 #> ── ESPN WNBA Standings Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:08 UTC
+#> ℹ Data updated: 2026-05-17 13:51:52 UTC
 #> # A tibble: 12 × 25
 #>    team_id team              avgpointsagainst avgpointsfor clincher differential
 #>      <int> <chr>                        <dbl>        <dbl>    <dbl>        <dbl>

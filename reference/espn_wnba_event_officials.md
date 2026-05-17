@@ -24,17 +24,17 @@ espn_wnba_event_officials(event_id, ...)
 
 A tibble with one row per official assigned to the game.
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| event_id      | character |
-| official_id   | character |
-| full_name     | character |
-| display_name  | character |
-| position_id   | character |
-| position_name | character |
-| position_type | character |
-| order         | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| event_id | character | Unique event / game identifier (ESPN). |
+| official_id | character | Unique official / referee identifier. |
+| full_name | character | Player's full name. |
+| display_name | character | Display name. |
+| position_id | character | Unique position identifier. |
+| position_name | character | Listed roster position ('Guard', 'Forward', 'Center'). |
+| position_type | character | Position type. |
+| order | integer | Display order within the result set. |
 
 ## See also
 
@@ -90,7 +90,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_officials(event_id = "401736171")
 #> ── ESPN WNBA Event Officials (event_id=401736171) from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-17 06:00:00 UTC
+#> ℹ Data updated: 2026-05-17 13:51:43 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name         display_name position_id position_name
 #>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        

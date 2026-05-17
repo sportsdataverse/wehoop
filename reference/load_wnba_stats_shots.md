@@ -49,32 +49,32 @@ load_wnba_stats_shots_manifest()
 
 Returns a `wehoop_data` tibble with one row per shot attempt.
 
-|                     |           |
-|---------------------|-----------|
-| col_name            | types     |
-| season              | integer   |
-| game_id             | character |
-| game_event_id       | character |
-| player_id           | character |
-| player_name         | character |
-| team_id             | character |
-| team_name           | character |
-| period              | integer   |
-| minutes_remaining   | integer   |
-| seconds_remaining   | integer   |
-| event_type          | character |
-| action_type         | character |
-| shot_type           | character |
-| shot_zone_basic     | character |
-| shot_zone_area      | character |
-| shot_zone_range     | character |
-| shot_distance       | numeric   |
-| loc_x               | numeric   |
-| loc_y               | numeric   |
-| coordinate_x        | numeric   |
-| coordinate_y        | numeric   |
-| shot_attempted_flag | integer   |
-| shot_made_flag      | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| game_id | character | Unique game identifier. |
+| game_event_id | character | Unique identifier for game event. |
+| player_id | character | Unique player identifier. |
+| player_name | character | Player name. |
+| team_id | character | Unique team identifier. |
+| team_name | character | Full team display name (e.g. 'Las Vegas Aces'). |
+| period | integer | Period of the game (1-4 quarters; 5+ for OT). |
+| minutes_remaining | integer | Minutes remaining. |
+| seconds_remaining | integer | Seconds remaining in the period. |
+| event_type | character | Event / play type code (V2 PBP). |
+| action_type | character | Action type label (e.g. 'Made Shot', 'Substitution'). |
+| shot_type | character | Shot type label (e.g. 'Jump Shot', 'Layup'). |
+| shot_zone_basic | character | Shot zone (e.g. 'Restricted Area', 'Mid-Range', 'Above the Break 3'). |
+| shot_zone_area | character | Shot zone area ('Left Side', 'Right Side', 'Center'). |
+| shot_zone_range | character | Shot zone range ('Less Than 8 ft.', '8-16 ft.', '16-24 ft.', etc.). |
+| shot_distance | numeric | Shot distance from the basket, in feet. |
+| loc_x | numeric | X coordinate on the court (units of inches; 0 = basket center). |
+| loc_y | numeric | Y coordinate on the court (units of inches; baseline at 0). |
+| coordinate_x | numeric | X coordinate on the court (half-court layout). |
+| coordinate_y | numeric | Y coordinate on the court (half-court layout). |
+| shot_attempted_flag | integer | 1 if a shot was attempted on this event. |
+| shot_made_flag | integer | 1 if the shot was made; 0 if missed. |
 
 ## See also
 

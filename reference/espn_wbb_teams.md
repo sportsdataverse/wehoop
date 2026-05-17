@@ -18,29 +18,29 @@ espn_wbb_teams(year = most_recent_wbb_season())
 
 Returns a teams infomation data frame
 
-|                       |           |
-|-----------------------|-----------|
-| col_name              | types     |
-| team_id               | integer   |
-| abbreviation          | character |
-| display_name          | character |
-| short_name            | character |
-| mascot                | character |
-| nickname              | character |
-| team                  | character |
-| color                 | character |
-| alternate_color       | character |
-| logo                  | character |
-| logo_dark             | character |
-| href                  | character |
-| conference_url        | character |
-| group_id              | integer   |
-| conference_short_name | character |
-| conference_uid        | character |
-| conference_name       | character |
-| conference_logo       | character |
-| parent_group_id       | integer   |
-| conference_id         | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| team_id | integer | Unique team identifier. |
+| abbreviation | character | Short abbreviation. |
+| display_name | character | Display name. |
+| short_name | character | Short display name. |
+| mascot | character | Team mascot. |
+| nickname | character | Team or athlete nickname. |
+| team | character | Team-side label or team identifier. |
+| color | character | Primary color (hex without leading '#'). |
+| alternate_color | character | Alternate color (hex without leading '#'). |
+| logo | character | Team or league logo URL. |
+| logo_dark | character | Logo dark. |
+| href | character | Link / page URL. |
+| conference_url | character | URL for conference. |
+| group_id | integer | Group identifier (e.g. conference group_id). |
+| conference_short_name | character | Conference short name (e.g. 'ACC'). |
+| conference_uid | character | ESPN universal conference identifier. |
+| conference_name | character | Full conference name. |
+| conference_logo | character | Logo image URL for conference. |
+| parent_group_id | integer | Unique identifier for parent group. |
+| conference_id | integer | Conference identifier. |
 
 ## See also
 
@@ -94,7 +94,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_teams())
 #> ── ESPN WBB Teams Information from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:54 UTC
+#> ℹ Data updated: 2026-05-17 13:51:37 UTC
 #> # A tibble: 361 × 32
 #>    abbreviation alternate_color color display_name team_id team  logo  logo_dark
 #>    <chr>        <chr>           <chr> <chr>          <int> <chr> <chr> <chr>    

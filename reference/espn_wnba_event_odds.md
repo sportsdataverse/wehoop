@@ -26,21 +26,21 @@ espn_wnba_event_odds(event_id, ...)
 
 A tibble with one row per odds provider.
 
-|                      |           |
-|----------------------|-----------|
-| col_name             | types     |
-| event_id             | character |
-| provider_id          | character |
-| provider_name        | character |
-| details              | character |
-| over_under           | numeric   |
-| spread               | numeric   |
-| home_money_line      | integer   |
-| away_money_line      | integer   |
-| home_team_odds_open  | numeric   |
-| home_team_odds_close | numeric   |
-| away_team_odds_open  | numeric   |
-| away_team_odds_close | numeric   |
+|                      |           |                                        |
+|----------------------|-----------|----------------------------------------|
+| col_name             | types     | description                            |
+| event_id             | character | Unique event / game identifier (ESPN). |
+| provider_id          | character | Unique identifier for provider.        |
+| provider_name        | character | Provider name.                         |
+| details              | character | Details.                               |
+| over_under           | numeric   | Over under.                            |
+| spread               | numeric   | Spread.                                |
+| home_money_line      | integer   | Home team's money line.                |
+| away_money_line      | integer   | Away team's money line.                |
+| home_team_odds_open  | numeric   | Home team's team odds open.            |
+| home_team_odds_close | numeric   | Home team's team odds close.           |
+| away_team_odds_open  | numeric   | Away team's team odds open.            |
+| away_team_odds_close | numeric   | Away team's team odds close.           |
 
 ## See also
 
@@ -96,7 +96,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_odds(event_id = "401736171")
 #> ── ESPN WNBA Event Odds (event_id=401736171) from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:00 UTC
+#> ℹ Data updated: 2026-05-17 13:51:43 UTC
 #> # A tibble: 2 × 12
 #>   event_id  provider_id provider_name  details over_under spread home_money_line
 #>   <chr>     <chr>       <chr>          <chr>        <dbl>  <dbl>           <int>

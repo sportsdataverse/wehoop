@@ -22,18 +22,18 @@ espn_wnba_venues(...)
 
 A single `wehoop_data` tibble with one row per venue.
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| venue_id      | character |
-| name          | character |
-| full_name     | character |
-| address_city  | character |
-| address_state | character |
-| capacity      | integer   |
-| indoor        | logical   |
-| grass         | logical   |
-| images_url    | character |
+|               |           |                          |
+|---------------|-----------|--------------------------|
+| col_name      | types     | description              |
+| venue_id      | character | Unique venue identifier. |
+| name          | character | Display name.            |
+| full_name     | character | Player's full name.      |
+| address_city  | character | Address city.            |
+| address_state | character | Address state.           |
+| capacity      | integer   | Capacity.                |
+| indoor        | logical   | Indoor.                  |
+| grass         | logical   | Grass.                   |
+| images_url    | character | URL for images.          |
 
 ## See also
 
@@ -89,7 +89,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_venues()
 #> ── ESPN WNBA Venues from ESPN.com ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:12 UTC
+#> ℹ Data updated: 2026-05-17 13:51:56 UTC
 #> # A tibble: 227 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor grass
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl>  <lgl>

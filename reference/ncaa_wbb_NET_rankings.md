@@ -13,18 +13,18 @@ ncaa_wbb_NET_rankings()
 
 Returns a tibble
 
-|            |           |
-|------------|-----------|
-| col_name   | types     |
-| rank       | integer   |
-| previous   | integer   |
-| school     | character |
-| conference | character |
-| record     | character |
-| road       | character |
-| neutral    | character |
-| home       | character |
-| non_div_i  | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| rank | integer | Whether to include statistical ranks in the returned table. |
+| previous | integer | Previous. |
+| school | character | Player's school / college (when distinct from 'college'). |
+| conference | character | Filter players or teams by conference. |
+| record | character | Record string (e.g. '12-4'). |
+| road | character | Road. |
+| neutral | character | Neutral. |
+| home | character | Home. |
+| non_div_i | character | Non div i. |
 
 ## Author
 
@@ -37,7 +37,7 @@ Saiem Gilani
 # \donttest{
   try(ncaa_wbb_NET_rankings())
 #> ── NCAA WBB NET Rankings Information from NCAA.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:50 UTC
+#> ℹ Data updated: 2026-05-17 13:52:40 UTC
 #> # A tibble: 363 × 13
 #>     rank school  record conference road  neutral home  non_div_i previous quad_1
 #>    <int> <chr>   <chr>  <chr>      <chr> <chr>   <chr> <chr>        <int> <chr> 

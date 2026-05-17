@@ -27,19 +27,19 @@ espn_wnba_freeagents(season = most_recent_wnba_season(), ...)
 
 A `wehoop_data` tibble with one row per free agent:
 
-|                     |           |
-|---------------------|-----------|
-| col_name            | types     |
-| season              | integer   |
-| athlete_id          | character |
-| athlete_name        | character |
-| position            | character |
-| prior_team_id       | character |
-| status              | character |
-| signed_team_id      | character |
-| signed_date         | character |
-| contract_value      | character |
-| contract_term_years | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| athlete_name | character | Athlete display name (ESPN). |
+| position | character | Listed roster position (G, F, C, etc.). |
+| prior_team_id | character | Unique identifier for prior team. |
+| status | character | Status label. |
+| signed_team_id | character | Unique identifier for signed team. |
+| signed_date | character | Date in YYYY-MM-DD format. |
+| contract_value | character | Contract value. |
+| contract_term_years | character | Contract term years. |
 
 ## Details
 
@@ -104,7 +104,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_freeagents(season = 2025)
-#> ✖ 2026-05-17 06:00:01.079203: Failed to retrieve ESPN WNBA free agents for season 2025
+#> ✖ 2026-05-17 13:51:44.282672: Failed to retrieve ESPN WNBA free agents for season 2025
 #> ✖ Args: season = 2025
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

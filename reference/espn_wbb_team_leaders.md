@@ -28,17 +28,17 @@ espn_wbb_team_leaders(team_id, season = most_recent_wbb_season(), ...)
 
 A single long-format tibble (one row per category-rank-athlete).
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| team_id      | character |
-| season       | integer   |
-| category     | character |
-| display_name | character |
-| athlete_id   | character |
-| athlete_name | character |
-| value        | numeric   |
-| rank         | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| team_id | character | Unique team identifier. |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| category | character | Category label. |
+| display_name | character | Display name. |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| athlete_name | character | Athlete display name (ESPN). |
+| value | numeric | Numeric or string value field. |
+| rank | integer | Whether to include statistical ranks in the returned table. |
 
 ## See also
 

@@ -24,19 +24,19 @@ espn_wnba_event_broadcasts(event_id, ...)
 
 A tibble with one row per broadcast outlet for the game.
 
-|                 |           |
-|-----------------|-----------|
-| col_name        | types     |
-| event_id        | character |
-| broadcast_id    | character |
-| type_id         | character |
-| type_short_name | character |
-| type_long_name  | character |
-| market_id       | character |
-| market_type     | character |
-| names           | character |
-| lang            | character |
-| region          | character |
+|                 |           |                                        |
+|-----------------|-----------|----------------------------------------|
+| col_name        | types     | description                            |
+| event_id        | character | Unique event / game identifier (ESPN). |
+| broadcast_id    | character | Unique identifier for broadcast.       |
+| type_id         | character | Type identifier (numeric).             |
+| type_short_name | character | Type short name.                       |
+| type_long_name  | character | Type long name.                        |
+| market_id       | character | Unique identifier for market.          |
+| market_type     | character | Market type.                           |
+| names           | character | Names.                                 |
+| lang            | character | Lang.                                  |
+| region          | character | Region label.                          |
 
 ## See also
 
@@ -92,7 +92,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_broadcasts(event_id = "401736171")
 #> ── ESPN WNBA Event Broadcasts (event_id=401736171) from ESPN.com ───────────────
-#> ℹ Data updated: 2026-05-17 06:00:00 UTC
+#> ℹ Data updated: 2026-05-17 13:51:43 UTC
 #> # A tibble: 3 × 10
 #>   event_id  broadcast_id type_id type_short_name      type_long_name   market_id
 #>   <chr>     <chr>        <chr>   <chr>                <chr>            <chr>    

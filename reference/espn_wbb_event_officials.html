@@ -110,7 +110,7 @@ Get ESPN Women's College Basketball Event Officials"><meta property="og:image" c
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble with one row per official assigned to the game.</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>event_id</td><td>character</td></tr><tr><td>official_id</td><td>character</td></tr><tr><td>full_name</td><td>character</td></tr><tr><td>display_name</td><td>character</td></tr><tr><td>position_id</td><td>character</td></tr><tr><td>position_name</td><td>character</td></tr><tr><td>position_type</td><td>character</td></tr><tr><td>order</td><td>integer</td></tr></table></div>
+    <p>A tibble with one row per official assigned to the game.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>event_id</td><td>character</td><td>Unique event / game identifier (ESPN).</td></tr><tr><td>official_id</td><td>character</td><td>Unique official / referee identifier.</td></tr><tr><td>full_name</td><td>character</td><td>Player's full name.</td></tr><tr><td>display_name</td><td>character</td><td>Display name.</td></tr><tr><td>position_id</td><td>character</td><td>Unique position identifier.</td></tr><tr><td>position_name</td><td>character</td><td>Listed roster position ('Guard', 'Forward', 'Center').</td></tr><tr><td>position_type</td><td>character</td><td>Position type.</td></tr><tr><td>order</td><td>integer</td><td>Display order within the result set.</td></tr></table></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN WBB Functions:
@@ -162,7 +162,7 @@ Get ESPN Women's College Basketball Event Officials"><meta property="og:image" c
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_event_officials</span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401735229"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-05-17 05:59:40.525776: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-05-17 13:51:20.893165: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "womens-college-basketball", event_id = "401735229"</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>

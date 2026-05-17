@@ -31,13 +31,13 @@ API are returned as the character column `statistics_ref` and are NOT
 resolved. Similarly, `event_ref`, `competition_ref`, and `team_ref` are
 returned as character columns.
 
-|                 |           |
-|-----------------|-----------|
-| col_name        | types     |
-| event_ref       | character |
-| competition_ref | character |
-| team_ref        | character |
-| statistics_ref  | character |
+|                 |           |                                          |
+|-----------------|-----------|------------------------------------------|
+| col_name        | types     | description                              |
+| event_ref       | character | Reference link to the originating event. |
+| competition_ref | character | Competition ref.                         |
+| team_ref        | character | Team ref.                                |
+| statistics_ref  | character | Statistics ref.                          |
 
 ## See also
 
@@ -93,7 +93,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Eventlog from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:55 UTC
+#> ℹ Data updated: 2026-05-17 13:51:38 UTC
 #> # A tibble: 25 × 6
 #>    event_ref              competition_ref team_ref statistics_ref team_id played
 #>    <chr>                  <chr>           <chr>    <chr>          <chr>   <lgl> 

@@ -27,20 +27,20 @@ espn_wnba_draft(season = most_recent_wnba_season(), ...)
 
 A `wehoop_data` tibble with one row per draft pick:
 
-|             |           |
-|-------------|-----------|
-| col_name    | types     |
-| season      | integer   |
-| round       | integer   |
-| pick        | integer   |
-| overall     | integer   |
-| traded      | logical   |
-| trade_note  | character |
-| status      | character |
-| athlete_id  | character |
-| athlete_ref | character |
-| team_id     | character |
-| team_ref    | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| round | integer | Tournament / playoff round. |
+| pick | integer | Pick. |
+| overall | integer | Overall. |
+| traded | logical | Traded. |
+| trade_note | character | Trade note. |
+| status | character | Status label. |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| athlete_ref | character | Athlete ref. |
+| team_id | character | Unique team identifier. |
+| team_ref | character | Team ref. |
 
 Athlete and team details (name, position, college, abbreviation) are not
 inlined in the draft response; resolve them via
@@ -111,7 +111,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft(season = 2024)
 #> ── ESPN WNBA Draft Picks from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:59 UTC
+#> ℹ Data updated: 2026-05-17 13:51:42 UTC
 #> # A tibble: 36 × 11
 #>    season round  pick overall traded trade_note    status athlete_id athlete_ref
 #>     <int> <int> <int>   <int> <lgl>  <chr>         <chr>  <chr>      <chr>      

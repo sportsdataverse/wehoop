@@ -25,15 +25,15 @@ espn_wbb_athlete_awards(athlete_id, ...)
 A single tibble. This endpoint is sparse; many athletes have no award
 data, in which case an empty tibble with canonical columns is returned.
 
-|             |           |
-|-------------|-----------|
-| col_name    | types     |
-| season      | character |
-| award_id    | character |
-| name        | character |
-| description | character |
-| date        | character |
-| type        | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | character | Season identifier (4-digit year or 'YYYY-YY' string). |
+| award_id | character | Unique identifier for award. |
+| name | character | Display name. |
+| description | character | Long-form description text. |
+| date | character | Date in YYYY-MM-DD format. |
+| type | character | Record type / category. |
 
 ## See also
 
@@ -87,7 +87,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_awards(athlete_id = "4433985")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Awards from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-17 05:59:33 UTC
+#> ℹ Data updated: 2026-05-17 13:51:13 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: season <chr>, award_id <chr>, name <chr>, description <chr>,
 #> #   date <chr>, type <chr>

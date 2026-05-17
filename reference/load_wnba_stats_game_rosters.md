@@ -50,26 +50,26 @@ load_wnba_stats_game_rosters_manifest()
 
 Returns a `wehoop_data` tibble with one row per athlete-team-game.
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| season       | integer   |
-| game_id      | character |
-| team_id      | character |
-| team_city    | character |
-| team_name    | character |
-| team_tricode | character |
-| athlete_id   | character |
-| first_name   | character |
-| family_name  | character |
-| name_i       | character |
-| player_slug  | character |
-| jersey_num   | character |
-| position     | character |
-| starter      | logical   |
-| did_not_play | logical   |
-| status       | character |
-| comment      | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| game_id | character | Unique game identifier. |
+| team_id | character | Unique team identifier. |
+| team_city | character | Team city or region (e.g. 'Las Vegas'). |
+| team_name | character | Full team display name (e.g. 'Las Vegas Aces'). |
+| team_tricode | character | Three-letter team code (e.g. 'LAS' / 'NYL'). |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| first_name | character | Player's first name. |
+| family_name | character | Player's family / last name. |
+| name_i | character | Initialed name (e.g. 'A. Wilson'). |
+| player_slug | character | URL-safe player identifier. |
+| jersey_num | character | Jersey number worn by the player. |
+| position | character | Listed roster position (G, F, C, etc.). |
+| starter | logical | TRUE if the player was in the starting lineup; FALSE otherwise. |
+| did_not_play | logical | TRUE if the player did not appear in the game. |
+| status | character | Status label. |
+| comment | character | Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive'). |
 
 ## See also
 

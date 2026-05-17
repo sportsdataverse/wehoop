@@ -24,17 +24,17 @@ espn_wbb_event_officials(event_id, ...)
 
 A tibble with one row per official assigned to the game.
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| event_id      | character |
-| official_id   | character |
-| full_name     | character |
-| display_name  | character |
-| position_id   | character |
-| position_name | character |
-| position_type | character |
-| order         | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| event_id | character | Unique event / game identifier (ESPN). |
+| official_id | character | Unique official / referee identifier. |
+| full_name | character | Player's full name. |
+| display_name | character | Display name. |
+| position_id | character | Unique position identifier. |
+| position_name | character | Listed roster position ('Guard', 'Forward', 'Center'). |
+| position_type | character | Position type. |
+| order | integer | Display order within the result set. |
 
 ## See also
 
@@ -87,7 +87,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_event_officials(event_id = "401735229")
-#> ✖ 2026-05-17 05:59:40.525776: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
+#> ✖ 2026-05-17 13:51:20.893165: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
 #> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
 #> ✖ Error: The API returned an error
 #> NULL

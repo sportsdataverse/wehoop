@@ -20,18 +20,18 @@ espn_wnba_news(limit = 50)
 
 Returns a tibble of news articles.
 
-|             |           |
-|-------------|-----------|
-| col_name    | types     |
-| id          | character |
-| type        | character |
-| headline    | character |
-| description | character |
-| published   | character |
-| premium     | logical   |
-| byline      | character |
-| link_web    | character |
-| league_id   | character |
+|             |           |                                   |
+|-------------|-----------|-----------------------------------|
+| col_name    | types     | description                       |
+| id          | character | Unique play identifcation number  |
+| type        | character | Record type / category.           |
+| headline    | character | News headline.                    |
+| description | character | Long-form description text.       |
+| published   | character | Publication timestamp (ISO 8601). |
+| premium     | logical   | Premium.                          |
+| byline      | character | News article byline / author.     |
+| link_web    | character | Web link / URL.                   |
+| league_id   | character | League identifier ('10' = WNBA).  |
 
 ## Details
 
@@ -93,14 +93,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:04 UTC
+#> ℹ Data updated: 2026-05-17 13:51:48 UTC
 #> # A tibble: 5 × 8
 #>         id type    headline     description published premium link_web league_id
 #>      <int> <chr>   <chr>        <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 48787546 Media   A'ja Wilson… A'ja Wilso… 2026-05-… FALSE   https:/… 59       
-#> 2 48784449 Preview Toronto pla… Toronto Te… 2026-05-… FALSE   http://… 59       
-#> 3 48784448 Preview Wilson lead… Las Vegas … 2026-05-… FALSE   http://… 59       
-#> 4 48784447 Preview Seattle vis… Seattle St… 2026-05-… FALSE   http://… 59       
-#> 5 48784441 Preview Howard lead… Chicago Sk… 2026-05-… FALSE   http://… 59       
+#> 1 48793571 Preview Dallas host… Washington… 2026-05-… FALSE   http://… 59       
+#> 2 48793570 Preview Connecticut… Connecticu… 2026-05-… FALSE   http://… 59       
+#> 3 48787546 Media   A'ja Wilson… A'ja Wilso… 2026-05-… FALSE   https:/… 59       
+#> 4 48784449 Preview Toronto pla… Toronto Te… 2026-05-… FALSE   http://… 59       
+#> 5 48784448 Preview Wilson lead… Las Vegas … 2026-05-… FALSE   http://… 59       
 # }
 ```

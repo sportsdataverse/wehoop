@@ -38,30 +38,30 @@ espn_wbb_team_schedule(
 
 A single tibble with one row per event.
 
-|                        |           |
-|------------------------|-----------|
-| col_name               | types     |
-| event_id               | character |
-| season                 | integer   |
-| season_type            | integer   |
-| week                   | integer   |
-| date                   | character |
-| name                   | character |
-| short_name             | character |
-| opponent_id            | character |
-| opponent_abbrev        | character |
-| home_away              | character |
-| neutral_site           | logical   |
-| conference_competition | logical   |
-| venue_id               | character |
-| venue_name             | character |
-| venue_city             | character |
-| venue_state            | character |
-| broadcast              | character |
-| result                 | character |
-| team_score             | character |
-| opponent_score         | character |
-| winner                 | logical   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| event_id | character | Unique event / game identifier (ESPN). |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| season_type | integer | Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
+| week | integer | Week number within the season. |
+| date | character | Date in YYYY-MM-DD format. |
+| name | character | Display name. |
+| short_name | character | Short display name. |
+| opponent_id | character | Unique identifier for opponent. |
+| opponent_abbrev | character | Abbreviation for opponent. |
+| home_away | character | Game venue label ('home' or 'away'). |
+| neutral_site | logical | Neutral site. |
+| conference_competition | logical | Conference competition. |
+| venue_id | character | Unique venue identifier. |
+| venue_name | character | Venue name. |
+| venue_city | character | Venue city. |
+| venue_state | character | Venue state / region. |
+| broadcast | character | Broadcast information string. |
+| result | character | Result. |
+| team_score | character | Team's score / final score. |
+| opponent_score | character | Opponent score. |
+| winner | logical | Winner. |
 
 ## See also
 
@@ -115,7 +115,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_schedule(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Schedule from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:52 UTC
+#> ℹ Data updated: 2026-05-17 13:51:34 UTC
 #> # A tibble: 29 × 21
 #>    event_id  season season_type  week date          name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      

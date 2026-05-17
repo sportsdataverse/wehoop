@@ -29,19 +29,19 @@ espn_wnba_event_probabilities(event_id, limit = 200, ...)
 
 A tibble with one row per play-level win-probability entry.
 
-|                       |           |
-|-----------------------|-----------|
-| col_name              | types     |
-| event_id              | character |
-| sequence_number       | character |
-| play_id               | character |
-| period                | integer   |
-| clock                 | character |
-| home_win_percentage   | numeric   |
-| away_win_percentage   | numeric   |
-| tie_percentage        | numeric   |
-| secs_to_end_of_period | numeric   |
-| secs_to_end_of_game   | numeric   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| event_id | character | Unique event / game identifier (ESPN). |
+| sequence_number | character | Sequence number representing a shot-possession (V3 PBP). |
+| play_id | character | Unique play identifier within a game. |
+| period | integer | Period of the game (1-4 quarters; 5+ for OT). |
+| clock | character | Game clock value. |
+| home_win_percentage | numeric | Home win percentage (0-1 decimal). |
+| away_win_percentage | numeric | Away win percentage (0-1 decimal). |
+| tie_percentage | numeric | Tie percentage (0-1 decimal). |
+| secs_to_end_of_period | numeric | Secs to end of period. |
+| secs_to_end_of_game | numeric | Secs to end of game. |
 
 ## See also
 
@@ -97,7 +97,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_probabilities(event_id = "401736171", limit = 50)
 #> ── ESPN WNBA Event Probabilities (event_id=401736171) from ESPN.com ────────────
-#> ℹ Data updated: 2026-05-17 06:00:00 UTC
+#> ℹ Data updated: 2026-05-17 13:51:43 UTC
 #> # A tibble: 50 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>

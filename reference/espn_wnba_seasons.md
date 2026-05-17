@@ -22,14 +22,14 @@ espn_wnba_seasons(...)
 
 A single `wehoop_data` tibble with one row per season.
 
-|                   |           |
-|-------------------|-----------|
-| col_name          | types     |
-| season            | integer   |
-| start_date        | character |
-| end_date          | character |
-| display_name      | character |
-| season_type_count | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| start_date | character | Start date (YYYY-MM-DD). |
+| end_date | character | End date (YYYY-MM-DD). |
+| display_name | character | Display name. |
+| season_type_count | integer | Count of season type. |
 
 ## See also
 
@@ -85,7 +85,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_seasons()
 #> ── ESPN WNBA Seasons from ESPN.com ───────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 06:00:07 UTC
+#> ℹ Data updated: 2026-05-17 13:51:52 UTC
 #> # A tibble: 1 × 5
 #>   season start_date end_date display_name season_type_count
 #>    <int> <chr>      <chr>    <chr>                    <int>

@@ -29,61 +29,61 @@ A named list of data frames: `Bio`, `Team`, `Position`, `Status`,
 
 **Bio**
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| id            | character |
-| full_name     | character |
-| display_name  | character |
-| jersey        | character |
-| age           | character |
-| date_of_birth | character |
-| headshot_href | character |
+|               |           |                                   |
+|---------------|-----------|-----------------------------------|
+| col_name      | types     | description                       |
+| id            | character | Unique play identifcation number  |
+| full_name     | character | Player's full name.               |
+| display_name  | character | Display name.                     |
+| jersey        | character | Jersey number worn by the player. |
+| age           | character | Player age (in years).            |
+| date_of_birth | character | Date of birth (YYYY-MM-DD).       |
+| headshot_href | character | Headshot image URL.               |
 
 **Team**
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| id           | character |
-| abbreviation | character |
-| display_name | character |
+|              |           |                                  |
+|--------------|-----------|----------------------------------|
+| col_name     | types     | description                      |
+| id           | character | Unique play identifcation number |
+| abbreviation | character | Short abbreviation.              |
+| display_name | character | Display name.                    |
 
 **Position**
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| id           | character |
-| name         | character |
-| abbreviation | character |
+|              |           |                                  |
+|--------------|-----------|----------------------------------|
+| col_name     | types     | description                      |
+| id           | character | Unique play identifcation number |
+| name         | character | Display name.                    |
+| abbreviation | character | Short abbreviation.              |
 
 **Status**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| id       | character |
-| name     | character |
-| type     | character |
+|          |           |                                  |
+|----------|-----------|----------------------------------|
+| col_name | types     | description                      |
+| id       | character | Unique play identifcation number |
+| name     | character | Display name.                    |
+| type     | character | Record type / category.          |
 
 **College**
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| id       | character |
-| name     | character |
-| mascot   | character |
+|          |           |                                  |
+|----------|-----------|----------------------------------|
+| col_name | types     | description                      |
+| id       | character | Unique play identifcation number |
+| name     | character | Display name.                    |
+| mascot   | character | Team mascot.                     |
 
 **Draft**
 
-|           |           |
-|-----------|-----------|
-| col_name  | types     |
-| year      | character |
-| round     | character |
-| selection | character |
+|           |           |                             |
+|-----------|-----------|-----------------------------|
+| col_name  | types     | description                 |
+| year      | character | 4-digit year.               |
+| round     | character | Tournament / playoff round. |
+| selection | character | Selection.                  |
 
 ## See also
 
@@ -138,7 +138,7 @@ Saiem Gilani
   espn_wbb_athlete_info(athlete_id = "4433985")
 #> $Bio
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:34 UTC
+#> ℹ Data updated: 2026-05-17 13:51:14 UTC
 #> # A tibble: 1 × 16
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -149,7 +149,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:34 UTC
+#> ℹ Data updated: 2026-05-17 13:51:14 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -157,7 +157,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com ───────────────
-#> ℹ Data updated: 2026-05-17 05:59:34 UTC
+#> ℹ Data updated: 2026-05-17 13:51:14 UTC
 #> # A tibble: 1 × 5
 #>   id    name  display_name abbreviation leaf 
 #>   <chr> <chr> <chr>        <chr>        <lgl>
@@ -165,7 +165,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-17 05:59:34 UTC
+#> ℹ Data updated: 2026-05-17 13:51:14 UTC
 #> # A tibble: 1 × 4
 #>   id    name   type   abbreviation
 #>   <chr> <chr>  <chr>  <chr>       
@@ -173,12 +173,12 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-17 05:59:34 UTC
+#> ℹ Data updated: 2026-05-17 13:51:14 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Draft
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:34 UTC
+#> ℹ Data updated: 2026-05-17 13:51:14 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

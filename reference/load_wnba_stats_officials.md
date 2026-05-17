@@ -49,16 +49,16 @@ load_wnba_stats_officials_manifest()
 
 Returns a `wehoop_data` tibble with one row per official-game pair.
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| season       | integer   |
-| game_id      | character |
-| official_id  | character |
-| display_name | character |
-| first_name   | character |
-| last_name    | character |
-| jersey_num   | character |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+| game_id | character | Unique game identifier. |
+| official_id | character | Unique official / referee identifier. |
+| display_name | character | Display name. |
+| first_name | character | Player's first name. |
+| last_name | character | Player's last name. |
+| jersey_num | character | Jersey number worn by the player. |
 
 ## See also
 

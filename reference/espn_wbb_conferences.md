@@ -12,16 +12,16 @@ espn_wbb_conferences()
 
 Returns a tibble
 
-|                       |           |
-|-----------------------|-----------|
-| col_name              | types     |
-| group_id              | integer   |
-| conference_short_name | character |
-| conference_uid        | character |
-| conference_name       | character |
-| conference_logo       | character |
-| parent_group_id       | integer   |
-| conference_id         | integer   |
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| group_id | integer | Group identifier (e.g. conference group_id). |
+| conference_short_name | character | Conference short name (e.g. 'ACC'). |
+| conference_uid | character | ESPN universal conference identifier. |
+| conference_name | character | Full conference name. |
+| conference_logo | character | Logo image URL for conference. |
+| parent_group_id | integer | Unique identifier for parent group. |
+| conference_id | integer | Conference identifier. |
 
 ## See also
 
@@ -75,7 +75,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_conferences())
 #> ── ESPN WBB Conferences Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 05:59:39 UTC
+#> ℹ Data updated: 2026-05-17 13:51:20 UTC
 #> # A tibble: 31 × 7
 #>    conference_uid group_id conference_name conference_short_name conference_logo
 #>    <chr>             <int> <chr>           <chr>                 <chr>          
