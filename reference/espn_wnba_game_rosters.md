@@ -147,7 +147,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_game_rosters(game_id = 401244185))
 #> ── ESPN WNBA Game Roster Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-16 20:48:11 UTC
+#> ℹ Data updated: 2026-05-17 06:00:03 UTC
 #> # A tibble: 24 × 156
 #>    athlete_id athlete_uid  athlete_guid athlete_type    sdr first_name last_name
 #>         <int> <chr>        <chr>        <chr>         <int> <chr>      <chr>    

@@ -89,7 +89,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_event_broadcasts(event_id = "401735229")
-#> ✖ 2026-05-16 20:47:45.529722: Failed to retrieve ESPN womens-college-basketball event broadcasts for event_id=401735229
+#> ✖ 2026-05-17 05:59:40.030367: Failed to retrieve ESPN womens-college-basketball event broadcasts for event_id=401735229
 #> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
 #> ✖ Error: The API returned an error
 #> NULL

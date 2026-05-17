@@ -93,7 +93,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-16 20:48:12 UTC
+#> ℹ Data updated: 2026-05-17 06:00:04 UTC
 #> # A tibble: 5 × 8
 #>         id type    headline     description published premium link_web league_id
 #>      <int> <chr>   <chr>        <chr>       <chr>     <lgl>   <chr>    <chr>    
