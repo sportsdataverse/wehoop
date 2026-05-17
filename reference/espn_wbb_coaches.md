@@ -89,7 +89,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_coaches(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Coaches from ESPN.com ──────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 13:51:19 UTC
+#> ℹ Data updated: 2026-05-17 14:17:51 UTC
 #> # A tibble: 368 × 6
 #>    coach_id first_name last_name full_name experience team_id
 #>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  
