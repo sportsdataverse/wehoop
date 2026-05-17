@@ -106,7 +106,7 @@ Return a named list of data frames: GameByGameStats, TotalPlayerStats
    AVG_TOT_REB \tab character \tab  \cr
    AVG_AST \tab character \tab  \cr
    AVG_STL \tab character \tab  \cr
-   AVG_TURNOVERS \tab character \tab  \cr
+   AVG_TURNOVERS \tab character \tab The average turnovers committed per game. \cr
    AVG_BLK \tab character \tab  \cr
    AVG_PTS \tab character \tab  \cr
    PER_MIN_TOT_REB \tab character \tab  \cr

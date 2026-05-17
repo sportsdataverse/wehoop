@@ -331,6 +331,7 @@ augment_all_r_files <- function(
 .mtth_or <- function(a, b) if (is.null(a)) b else a
 
 mine_espn_api_descriptions <- function(url,
+                                       key_prefix = "",
                                        user_agent = paste0(
                                          "Mozilla/5.0 (Windows NT 10.0) ",
                                          "AppleWebKit/537.36"
@@ -351,17 +352,57 @@ mine_espn_api_descriptions <- function(url,
     httr2::resp_body_string() |>
     jsonlite::fromJSON(simplifyVector = FALSE)
 
-  ## Look for `splits.categories[]` (core-v2 stats endpoints) or a
-  ## top-level `categories[]` (web-common-v3 stats endpoints).
+  out <- list()
+
+  ## ----- Shape (T): Top-level parallel arrays
+  ## (`labels` / `names` / `displayNames` / `descriptions` at root)
+  ## Used by web-v3 athlete `splits`, `gamelog`, and similar endpoints
+  ## where every column lives at the response root with no category
+  ## grouping.
+  if (!is.null(raw[["names"]]) && length(raw[["names"]]) > 0) {
+    names_vec   <- raw[["names"]]
+    descs_vec   <- raw[["descriptions"]]
+    display_vec <- raw[["displayNames"]]
+    for (i in seq_along(names_vec)) {
+      nm <- names_vec[[i]]
+      if (is.null(nm) || !nzchar(nm)) next
+      desc <- if (!is.null(descs_vec)   && length(descs_vec)   >= i) descs_vec[[i]]
+              else if (!is.null(display_vec) && length(display_vec) >= i) display_vec[[i]]
+              else NULL
+      if (is.null(desc) || !nzchar(desc)) next
+      key <- paste0(key_prefix, .mtth_snake(nm))
+      if (!grepl("[.!?]$", desc)) desc <- paste0(desc, ".")
+      out[[length(out) + 1]] <- tibble::tibble(
+        col_name = key, description = desc
+      )
+    }
+  }
+
+  ## ----- Shape (G): Top-level `glossary[]` array of stat objects
+  ## (statistics/byathlete leaderboard + others). Each item is
+  ## `{abbreviation, displayName}` and the keys are best matched to
+  ## the displayName snake-cased, so this is a complementary source
+  ## rather than authoritative.
+  if (!is.null(raw[["glossary"]]) && length(raw[["glossary"]]) > 0) {
+    for (g in raw[["glossary"]]) {
+      if (is.null(g)) next
+      nm <- .mtth_or(g[["displayName"]], g[["abbreviation"]])
+      desc <- .mtth_or(g[["description"]], g[["displayName"]])
+      if (is.null(nm) || !nzchar(nm) || is.null(desc) || !nzchar(desc)) next
+      key <- paste0(key_prefix, .mtth_snake(nm))
+      if (!grepl("[.!?]$", desc)) desc <- paste0(desc, ".")
+      out[[length(out) + 1]] <- tibble::tibble(
+        col_name = key, description = desc
+      )
+    }
+  }
+
+  ## ----- Shape (A/B): `(splits.)categories[]` with stats[] or
+  ## parallel-arrays (existing behavior).
   cats <- raw[["splits"]][["categories"]] %||%
     raw[["categories"]] %||%
     raw[["statCategories"]]
-  if (is.null(cats) || length(cats) == 0) {
-    return(tibble::tibble(col_name = character(), description = character()))
-  }
-
-  out <- list()
-  for (cat in cats) {
+  if (!is.null(cats) && length(cats) > 0) for (cat in cats) {
     if (is.null(cat)) next
     cat_name <- .mtth_snake(.mtth_or(cat[["name"]], .mtth_or(cat[["displayName"]], "")))
     if (!nzchar(cat_name)) next
@@ -382,7 +423,7 @@ mine_espn_api_descriptions <- function(url,
                                    st[["shortDisplayName"]]))
         if (is.null(stat_name) || is.null(desc) ||
             !nzchar(stat_name)  || !nzchar(desc)) next
-        key <- paste0(cat_name, "_", .mtth_snake(stat_name))
+        key <- paste0(key_prefix, cat_name, "_", .mtth_snake(stat_name))
         if (!grepl("[.!?]$", desc)) desc <- paste0(desc, ".")
         out[[length(out) + 1]] <- tibble::tibble(
           col_name = key, description = desc
@@ -402,7 +443,7 @@ mine_espn_api_descriptions <- function(url,
                 else if (!is.null(display_vec) && length(display_vec) >= i) display_vec[[i]]
                 else NULL
         if (is.null(desc) || !nzchar(desc)) next
-        key <- paste0(cat_name, "_", .mtth_snake(nm))
+        key <- paste0(key_prefix, cat_name, "_", .mtth_snake(nm))
         if (!grepl("[.!?]$", desc)) desc <- paste0(desc, ".")
         out[[length(out) + 1]] <- tibble::tibble(
           col_name = key, description = desc

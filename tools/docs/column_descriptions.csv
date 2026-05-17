@@ -1,4 +1,7 @@
 col_name,description,source,needs_review
+3_point_field_goal_percentage,3-Point Field Goal Percentage.,espn_api,FALSE
+3_point_field_goals_made_attempted,3-Point Field Goals Made-Attempted.,espn_api,FALSE
+3_point_field_goals_made_attempted_per_game,3-Point Field Goals Made-Attempted Per Game.,espn_api,FALSE
 abbrev,Short abbreviation.,curated,FALSE
 abbreviation,Short abbreviation.,curated,FALSE
 action_id,Unique action identifier within a game (V3 PBP).,curated,FALSE
@@ -25,9 +28,11 @@ assist_person_id,Unique identifier for assist person.,heuristic,TRUE
 assist_player_name_initial,Assist player name initial.,heuristic,TRUE
 assist_ratio,Assist ratio (assists per 100 possessions used).,curated,FALSE
 assist_to_turnover,Assist-to-turnover ratio.,curated,FALSE
+assist_to_turnover_ratio,Assist To Turnover Ratio.,espn_api,FALSE
 assist_total,Assist total.,heuristic,TRUE
 assister_name,Assister name (for made shots).,curated,FALSE
 assists,Total assists.,curated,FALSE
+assists_per_game,Assists Per Game.,espn_api,FALSE
 assists_turnover_ratio,Assists turnover ratio.,heuristic,TRUE
 ast,Assists.,curated,FALSE
 ast_pct,Assist percentage (0-1).,curated,FALSE
@@ -55,6 +60,24 @@ athlete_short_name,Athlete short display name.,curated,FALSE
 athlete_type,Athlete type / class.,curated,FALSE
 athlete_uid,ESPN athlete UID (universal identifier).,curated,FALSE
 attendance,Reported attendance.,curated,FALSE
+average_3_point_field_goals_attempted,Average 3-Point Field Goals Attempted.,espn_api,FALSE
+average_3_point_field_goals_made,Average 3-Point Field Goals Made.,espn_api,FALSE
+average_field_goals_attempted,Average Field Goals Attempted.,espn_api,FALSE
+average_field_goals_made,Average Field Goals Made.,espn_api,FALSE
+average_free_throws_attempted,Average Free Throws Attempted.,espn_api,FALSE
+average_free_throws_made,Average Free Throws Made.,espn_api,FALSE
+avg_assists,The average assists per game.,espn_api,FALSE
+avg_blocks,The average blocks per game.,espn_api,FALSE
+avg_defensive_rebounds,The average defensive rebounds per game.,espn_api,FALSE
+avg_field_goals_made_avg_field_goals_attempted,avgFieldGoalsMade-avgFieldGoalsAttempted.,espn_api,FALSE
+avg_fouls,The average fouls committed per game.,espn_api,FALSE
+avg_minutes,The average number of minutes per game.,espn_api,FALSE
+avg_offensive_rebounds,The average offensive rebounds per game.,espn_api,FALSE
+avg_points,The average number of points scored per game.,espn_api,FALSE
+avg_rebounds,The average rebounds per game.,espn_api,FALSE
+avg_steals,The average steals per game.,espn_api,FALSE
+avg_three_point_field_goals_made_avg_three_point_field_goals_attempted,avgThreePointFieldGoalsMade-avgThreePointFieldGoalsAttempted.,espn_api,FALSE
+avg_turnovers,The average turnovers committed per game.,espn_api,FALSE
 avgpointsagainst,Avgpointsagainst.,heuristic,TRUE
 avgpointsfor,Avgpointsfor.,heuristic,TRUE
 award_id,Unique identifier for award.,heuristic,TRUE
@@ -133,6 +156,7 @@ block_player_name,Block player name.,heuristic,TRUE
 blocker_name,Blocker name (for blocked shots).,curated,FALSE
 blocks,Total blocks.,curated,FALSE
 blocks_against,Shots blocked by opponents while attempting.,curated,FALSE
+blocks_per_game,Blocks Per Game.,espn_api,FALSE
 blocks_received,Shots blocked by opponents while attempting.,curated,FALSE
 box_out_player_rebounds,Box-outs that led to a player rebound.,curated,FALSE
 box_out_player_team_rebounds,Box-outs that led to either a player or team rebound.,curated,FALSE
@@ -221,10 +245,12 @@ defensive_avg_defensive_rebounds,The average defensive rebounds per game.,espn_a
 defensive_avg_steals,The average steals per game.,espn_api,FALSE
 defensive_blocks,"Short for blocked shot, number of times when a defensive player legally deflects a field goal attempt from an offensive player.",espn_api,FALSE
 defensive_box_outs,Defensive box outs.,heuristic,TRUE
+defensive_def_rebound_rate,The percentage of missed shots that a team rebounds defensively. Rebound Rate = (Defensive Rebounds x Team Minutes) divided by [Player Minutes x (Team Defensive Rebounds + Opponent Defensive Rebounds)].,espn_api,FALSE
 defensive_defensive_rebounds,The number of times when the defense obtains the possession of the ball after a missed shot by the offense.,espn_api,FALSE
 defensive_rating,Defensive rating (points allowed per 100 possessions).,curated,FALSE
 defensive_rebound_percentage,Defensive rebound percentage (0-1).,curated,FALSE
 defensive_rebounds,Defensive rebounds.,curated,FALSE
+defensive_rebounds_per_game,Defensive Rebounds Per Game.,espn_api,FALSE
 defensive_steals,The number of times a defensive player forced a turnover by intercepting or deflecting a pass or a dribble of an offensive player.,espn_api,FALSE
 defensive_turnover_points,The amount of points resulting from the possession following a turnover.,espn_api,FALSE
 deflections,Defensive deflections.,curated,FALSE
@@ -312,10 +338,13 @@ fg_pct,Field goal percentage (0-1).,curated,FALSE
 fga,Field goal attempts.,curated,FALSE
 fgm,Field goals made.,curated,FALSE
 field_goal_pct,Field goal percentage (0-1).,curated,FALSE
-field_goal_percentage,Field goal percentage (0-1 decimal).,heuristic,TRUE
+field_goal_percentage,Field Goal Percentage.,espn_api,FALSE
 field_goals_attempted,Field goal attempts (2-pt + 3-pt).,curated,FALSE
 field_goals_effective_adjusted,Field goals effective adjusted.,heuristic,TRUE
 field_goals_made,Field goals made (2-pt + 3-pt).,curated,FALSE
+field_goals_made_attempted,Field Goals Made-Attempted.,espn_api,FALSE
+field_goals_made_attempted_per_game,Field Goals Made-Attempted Per Game.,espn_api,FALSE
+field_goals_made_field_goals_attempted,Field Goals Made-Attempted.,espn_api,FALSE
 field_goals_percentage,Field goal percentage (0-1 decimal).,curated,FALSE
 first_name,Player's first name.,curated,FALSE
 first_occurrence_type,First occurrence type.,heuristic,TRUE
@@ -331,6 +360,7 @@ fouler_name,Fouler name.,curated,FALSE
 fouls,Personal fouls.,curated,FALSE
 fouls_drawn,Personal fouls drawn (by opponent's actions).,curated,FALSE
 fouls_offensive,Offensive fouls.,curated,FALSE
+fouls_per_game,Fouls Per Game.,espn_api,FALSE
 fouls_personal,Personal fouls.,curated,FALSE
 fouls_team,Fouls team.,heuristic,TRUE
 fouls_team_technical,Fouls team technical.,heuristic,TRUE
@@ -339,8 +369,12 @@ fppg,Fantasy points per game.,curated,FALSE
 free_throw_assists,Free throw assists (passes that led to a fouled shot attempt).,curated,FALSE
 free_throw_attempt_rate,Free throw attempt rate (FTA / FGA).,curated,FALSE
 free_throw_pct,Free throw percentage (0-1).,curated,FALSE
+free_throw_percentage,Free Throw Percentage.,espn_api,FALSE
 free_throws_attempted,Free throw attempts.,curated,FALSE
 free_throws_made,Free throws made.,curated,FALSE
+free_throws_made_attempted,Free Throws Made-Attempted.,espn_api,FALSE
+free_throws_made_attempted_per_game,Free Throws Made-Attempted Per Game.,espn_api,FALSE
+free_throws_made_free_throws_attempted,Free Throws Made-Attempted.,espn_api,FALSE
 free_throws_percentage,Free throw percentage (0-1 decimal).,curated,FALSE
 from_team_id,Unique identifier for from team.,heuristic,TRUE
 ft_pct,Free throw percentage (0-1).,curated,FALSE
@@ -436,6 +470,7 @@ general_nba_rating,General nba rating.,heuristic,TRUE
 general_nbarating,"Custom formula to rate the performance of a player based on points, assists, steals, blocks, turnovers, rebounds, three pointers, and free throws.",espn_api,FALSE
 general_per,A numerical value for each of a player's accomplishments per-minute and is pace-adjusted for the team they play on. The league average in PER to 15.00 every season.,espn_api,FALSE
 general_plus_minus,A player's estimated on-court impact on team performance measured in point differential per 100 possessions.,espn_api,FALSE
+general_rebound_rate,The percentage of missed shots that a team rebounds. Rebound Rate = (Rebounds x Team Minutes) divided by [Player Minutes x (Team Rebounds + Opponent Rebounds)].,espn_api,FALSE
 general_rebounds,The total number of rebounds (offensive and defensive).,espn_api,FALSE
 general_steal_foul_ratio,The average number of steals a player or team records per foul committed.,espn_api,FALSE
 general_steal_turnover_ratio,The number of steals per turnover.,espn_api,FALSE
@@ -639,6 +674,7 @@ minute_game,Minute game.,heuristic,TRUE
 minute_remaining_quarter,Minute remaining quarter.,heuristic,TRUE
 minutes,"Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2).",curated,FALSE
 minutes_calculated,Minutes calculated from game-clock differences.,curated,FALSE
+minutes_per_game,Minutes Per Game.,espn_api,FALSE
 minutes_remaining,Minutes remaining.,heuristic,TRUE
 mobile_url,Mobile site URL.,curated,FALSE
 modified,Modified.,heuristic,TRUE
@@ -675,6 +711,7 @@ occurrence_type,Occurrence type.,heuristic,TRUE
 occurrence_value,Occurrence value.,heuristic,TRUE
 off_rating,Offensive rating (points produced per 100 possessions).,curated,FALSE
 offense_team_id,Unique identifier for offense team.,heuristic,TRUE
+offensive_assist_ratio,The percentage of a team's possessions that ends in an assist. Assist Ratio = (Assists x 100) divided by [(FGA + (FTA x 0.44) + Assists + Turnovers].,espn_api,FALSE
 offensive_assists,"The number of times a player who passes the ball to a teammate in a way that leads to a score by field goal, meaning that he or she was ""assisting"" in the basket. There is some judgment involved in deciding whether a passer should be credited with an assist.",espn_api,FALSE
 offensive_average,Average offensive value (context-dependent).,curated,FALSE
 offensive_avg48assists,The average number of assists per 48 minutes.,espn_api,FALSE
@@ -705,6 +742,7 @@ offensive_avg_two_point_field_goals_attempted,The number of 2-point field goals 
 offensive_avg_two_point_field_goals_made,The number of 2-point field goals made per game for a team or player.,espn_api,FALSE
 offensive_box_outs,Offensive box outs.,heuristic,TRUE
 offensive_brick_index,How many points a player costs his team with his shooting compared with the league average on a per-40-minute basis. ((52.8 - TS%) x (FGA + (FTA x 0.44))) / (Min/40) .,espn_api,FALSE
+offensive_effective_fgpct,Metric that gives 3pt field goals more worth than 2pt field goals: (FGM + (0.5 x 3PTM)) / FGA.,espn_api,FALSE
 offensive_estimated_possessions,An estimation of the number of possessions for a team or player.,espn_api,FALSE
 offensive_fast_break_points,The number of points scored on fast breaks.,espn_api,FALSE
 offensive_field_goal_pct,The ratio of field goals made to field goals attempted: FGM / FGA.,espn_api,FALSE
@@ -715,14 +753,18 @@ offensive_free_throw_pct,The ratio of free throws made to free throws attempted:
 offensive_free_throws,Free Throw makes and attempts.,espn_api,FALSE
 offensive_free_throws_attempted,The number of times a free throw was attempted.,espn_api,FALSE
 offensive_free_throws_made,The number of times a free throw was made.,espn_api,FALSE
+offensive_off_rebound_rate,The percentage of missed shots that a team rebounds offensively. Offensive Rebound Rate = (Offensive Rebounds x Team Minutes) divided by [Player Minutes x (Team Offensive Rebounds + Opponent Defensive Rebounds)].,espn_api,FALSE
 offensive_offensive_rebound_pct,The percentage of the number of times they obtain the possession of the ball after a missed shot.,espn_api,FALSE
 offensive_offensive_rebounds,The number of times when the offense obtains the possession of the ball after a missed shot.,espn_api,FALSE
+offensive_pace_factor,The number of possessions a team uses per game.,espn_api,FALSE
 offensive_points,The number of points scored.,espn_api,FALSE
 offensive_points_in_paint,"The amount of points scored in the area known as ""the Paint""(the rectangle between the foul line and the baseline).",espn_api,FALSE
 offensive_points_per_estimated_possessions,The number of points per estimated possession for a team or player.,espn_api,FALSE
+offensive_possessions,The total number of possessions for a team or player.,espn_api,FALSE
 offensive_rating,Offensive rating (points per 100 possessions).,curated,FALSE
 offensive_rebound_percentage,Offensive rebound percentage (0-1).,curated,FALSE
 offensive_rebounds,Offensive rebounds.,curated,FALSE
+offensive_rebounds_per_game,Offensive Rebounds Per Game.,espn_api,FALSE
 offensive_scoring_efficiency,The efficiency with which a team or player scores the basketball.,espn_api,FALSE
 offensive_second_chance_points,Points that a team gains after they have attempted at least one shot during the same possession and missed.,espn_api,FALSE
 offensive_shooting_efficiency,The efficiency with which a team or player shoots the basketball.,espn_api,FALSE
@@ -732,10 +774,13 @@ offensive_three_point_field_goals_attempted,The number of times a 3pt field goal
 offensive_three_point_field_goals_made,The number of times a 3pt field goal was made.,espn_api,FALSE
 offensive_three_point_pct,The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA.,espn_api,FALSE
 offensive_total_turnovers,The number of turnovers plus team turnovers for the team.,espn_api,FALSE
+offensive_true_shooting_pct,What a team's shooting percentage would be if we accounted for free throws and 3-pointers. True Shooting Percentage = (Total points x 50) divided by [(FGA + (FTA x 0.44)].,espn_api,FALSE
+offensive_turnover_ratio,The percentage of a team's possessions that end in a turnover. Turnover Ratio = (Turnover x 100) divided by [(FGA + (FTA x 0.44) + Assists + Turnovers].,espn_api,FALSE
 offensive_turnovers,The number of times a player loses possession to the other team.,espn_api,FALSE
 offensive_two_point_field_goal_pct,The percentage of 2-points fields goals made by a team or player.,espn_api,FALSE
 offensive_two_point_field_goals_attempted,The number of 2-point field goals attempted for a team or player.,espn_api,FALSE
 offensive_two_point_field_goals_made,The number of 2-point field goals made for a team or player.,espn_api,FALSE
+offensive_usage_rate,the number of possessions a player uses per 40 minutes. Usage Rate = {[FGA + (FT Att. x 0.44) + (Ast x 0.33) + TO] x 40 x League Pace} divided by (Minutes x Team Pace).,espn_api,FALSE
 official_id,Unique official / referee identifier.,curated,FALSE
 on_the_clock,On the clock.,heuristic,TRUE
 oncourt,Oncourt.,heuristic,TRUE
@@ -861,6 +906,7 @@ player3_team_abbreviation,Player3 team abbreviation.,heuristic,TRUE
 player3_team_city,Player3 team city.,heuristic,TRUE
 player3_team_id,Team ID of player3.,curated,FALSE
 player3_team_nickname,Player3 team nickname.,heuristic,TRUE
+player_efficiency_rating,Player Efficiency Rating.,espn_api,FALSE
 player_id,Unique player identifier.,curated,FALSE
 player_name,Player name.,heuristic,TRUE
 player_name_i,Player name i.,heuristic,TRUE
@@ -886,6 +932,7 @@ points_in_the_paint_made,Number of points in the paint made.,heuristic,TRUE
 points_in_the_paint_percentage,Points in the paint percentage (0-1 decimal).,heuristic,TRUE
 points_off_turnovers,Points scored off opponent turnovers.,curated,FALSE
 points_paint,Points scored in the paint.,curated,FALSE
+points_per_game,Points Per Game.,espn_api,FALSE
 points_pg,Points pg.,heuristic,TRUE
 points_second_chance,Second-chance points scored.,curated,FALSE
 points_total,Running total of points scored.,curated,FALSE
@@ -938,6 +985,7 @@ rebounder_name,Rebounder name.,curated,FALSE
 rebounds,Total rebounds.,curated,FALSE
 rebounds_defensive,Defensive rebounds.,curated,FALSE
 rebounds_offensive,Offensive rebounds.,curated,FALSE
+rebounds_per_game,Rebounds Per Game.,espn_api,FALSE
 rebounds_personal,Rebounds personal.,heuristic,TRUE
 rebounds_team,Rebounds team.,heuristic,TRUE
 rebounds_team_defensive,Rebounds team defensive.,heuristic,TRUE
@@ -983,6 +1031,7 @@ score_home,Score home.,heuristic,TRUE
 score_margin,Score margin.,heuristic,TRUE
 score_team_id,Team ID credited with the scoring play.,curated,FALSE
 score_value,Point value of the play (2 / 3 / 1).,curated,FALSE
+scoring_efficiency,Scoring Efficiency.,espn_api,FALSE
 scoring_play,TRUE if the play resulted in points scored.,curated,FALSE
 screen_assist_points,Points generated from screen assists.,curated,FALSE
 screen_assists,Screen assists (resulting in a basket).,curated,FALSE
@@ -1033,6 +1082,7 @@ series_game_number,Series game number.,heuristic,TRUE
 series_text,Series text.,heuristic,TRUE
 sex,Athlete sex / gender ('male' / 'female').,curated,FALSE
 shooter_name,Shooter name (for shot events).,curated,FALSE
+shooting_efficiency,Shooting Efficiency.,espn_api,FALSE
 shooting_play,TRUE if the play was a shooting attempt.,curated,FALSE
 short_abbreviation,Short abbreviation.,curated,FALSE
 short_caption,Short caption.,curated,FALSE
@@ -1087,7 +1137,9 @@ status_name,Status label.,curated,FALSE
 status_type,Status type.,heuristic,TRUE
 steal_person_id,Unique identifier for steal person.,heuristic,TRUE
 steal_player_name,Steal player name.,heuristic,TRUE
+steal_to_turnover_ratio,Steal To Turnover Ratio.,espn_api,FALSE
 steals,Total steals.,curated,FALSE
+steals_per_game,Steals Per Game.,espn_api,FALSE
 sth,Sth.,heuristic,TRUE
 stl,Steals.,curated,FALSE
 stl_to_ratio,Steal-to-turnover ratio.,curated,FALSE
@@ -1175,7 +1227,9 @@ text_type,Type of the text field.,curated,FALSE
 three_point_field_goal_pct,Three-point field goal percentage (0-1).,curated,FALSE
 three_point_field_goals_attempted,Three-point field goal attempts.,curated,FALSE
 three_point_field_goals_made,Three-point field goals made.,curated,FALSE
+three_point_field_goals_made_three_point_field_goals_attempted,3-Point Field Goals Made-Attempted.,espn_api,FALSE
 three_point_field_goals_percentage,Three-point field goal percentage (0-1).,curated,FALSE
+three_point_pct,3-Point Field Goal Percentage.,espn_api,FALSE
 three_pointers_attempted,Three-point field goal attempts.,curated,FALSE
 three_pointers_made,Three-point field goals made.,curated,FALSE
 three_pointers_percentage,Three-point field goal percentage (0-1 decimal).,curated,FALSE
@@ -1210,6 +1264,7 @@ turnover_percentage,Turnover percentage (0-1).,curated,FALSE
 turnover_ratio,Turnover ratio (turnovers per 100 possessions used).,curated,FALSE
 turnover_total,Turnover total.,heuristic,TRUE
 turnovers,Total turnovers.,curated,FALSE
+turnovers_per_game,Turnovers Per Game.,espn_api,FALSE
 turnovers_team,Turnovers team.,heuristic,TRUE
 turnovers_total,Turnovers total.,heuristic,TRUE
 two_point_field_goal_pct,Two-point field goal percentage (0-1).,curated,FALSE

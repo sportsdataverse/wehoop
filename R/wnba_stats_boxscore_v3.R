@@ -1706,7 +1706,7 @@ NULL
 #'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
 #'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
 #'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
-#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |field_goal_percentage                 |numeric   |Field Goal Percentage.                                                           |
 #'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
 #'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
 #'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
@@ -1749,7 +1749,7 @@ NULL
 #'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
 #'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
 #'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
-#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |field_goal_percentage                 |numeric   |Field Goal Percentage.                                                           |
 #'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
 #'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
 #'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
@@ -1783,7 +1783,7 @@ NULL
 #'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
 #'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
 #'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
-#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |field_goal_percentage                 |numeric   |Field Goal Percentage.                                                           |
 #'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
 #'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
 #'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
@@ -1817,7 +1817,7 @@ NULL
 #'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
 #'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
 #'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
-#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |field_goal_percentage                 |numeric   |Field Goal Percentage.                                                           |
 #'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
 #'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
 #'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |

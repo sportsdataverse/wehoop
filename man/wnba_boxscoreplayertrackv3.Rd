@@ -68,7 +68,7 @@ home_team_totals_player_track, away_team_totals_player_track
    uncontested_field_goals_made \tab integer \tab Number of uncontested field goals made. \cr
    uncontested_field_goals_attempted \tab integer \tab Number of uncontested field goals attempted. \cr
    uncontested_field_goals_percentage \tab numeric \tab Uncontested field goals percentage (0-1 decimal). \cr
-   field_goal_percentage \tab numeric \tab Field goal percentage (0-1 decimal). \cr
+   field_goal_percentage \tab numeric \tab Field Goal Percentage. \cr
    defended_at_rim_field_goals_made \tab integer \tab Field goals made allowed when defending at the rim. \cr
    defended_at_rim_field_goals_attempted \tab integer \tab Field goal attempts allowed when defending at the rim. \cr
    defended_at_rim_field_goal_percentage \tab numeric \tab Field goal percentage allowed at the rim (0-1). \cr
@@ -110,7 +110,7 @@ home_team_totals_player_track, away_team_totals_player_track
    uncontested_field_goals_made \tab integer \tab Number of uncontested field goals made. \cr
    uncontested_field_goals_attempted \tab integer \tab Number of uncontested field goals attempted. \cr
    uncontested_field_goals_percentage \tab numeric \tab Uncontested field goals percentage (0-1 decimal). \cr
-   field_goal_percentage \tab numeric \tab Field goal percentage (0-1 decimal). \cr
+   field_goal_percentage \tab numeric \tab Field Goal Percentage. \cr
    defended_at_rim_field_goals_made \tab integer \tab Field goals made allowed when defending at the rim. \cr
    defended_at_rim_field_goals_attempted \tab integer \tab Field goal attempts allowed when defending at the rim. \cr
    defended_at_rim_field_goal_percentage \tab numeric \tab Field goal percentage allowed at the rim (0-1). \cr
@@ -143,7 +143,7 @@ home_team_totals_player_track, away_team_totals_player_track
    uncontested_field_goals_made \tab integer \tab Number of uncontested field goals made. \cr
    uncontested_field_goals_attempted \tab integer \tab Number of uncontested field goals attempted. \cr
    uncontested_field_goals_percentage \tab numeric \tab Uncontested field goals percentage (0-1 decimal). \cr
-   field_goal_percentage \tab numeric \tab Field goal percentage (0-1 decimal). \cr
+   field_goal_percentage \tab numeric \tab Field Goal Percentage. \cr
    defended_at_rim_field_goals_made \tab integer \tab Field goals made allowed when defending at the rim. \cr
    defended_at_rim_field_goals_attempted \tab integer \tab Field goal attempts allowed when defending at the rim. \cr
    defended_at_rim_field_goal_percentage \tab numeric \tab Field goal percentage allowed at the rim (0-1). \cr
@@ -176,7 +176,7 @@ home_team_totals_player_track, away_team_totals_player_track
    uncontested_field_goals_made \tab integer \tab Number of uncontested field goals made. \cr
    uncontested_field_goals_attempted \tab integer \tab Number of uncontested field goals attempted. \cr
    uncontested_field_goals_percentage \tab numeric \tab Uncontested field goals percentage (0-1 decimal). \cr
-   field_goal_percentage \tab numeric \tab Field goal percentage (0-1 decimal). \cr
+   field_goal_percentage \tab numeric \tab Field Goal Percentage. \cr
    defended_at_rim_field_goals_made \tab integer \tab Field goals made allowed when defending at the rim. \cr
    defended_at_rim_field_goals_attempted \tab integer \tab Field goal attempts allowed when defending at the rim. \cr
    defended_at_rim_field_goal_percentage \tab numeric \tab Field goal percentage allowed at the rim (0-1). \cr
