@@ -18,468 +18,468 @@ TOTAL_REB, TOTAL_AST, ALL_TIME_TD3, TD3, GAME_FG3M,
 GAME_PTS, GAME_AST, GAME_STL, GAME_BLK, PCT_PTS_3PT,
 PCT_PTS_2PT, PCT_PTS_2PT_MR
 
-\strong{PTS}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   PTS \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{PTS}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   PTS \tab numeric \tab Points scored. \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{REB}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   REB \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{REB}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   REB \tab numeric \tab Total rebounds. \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{AST}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   AST \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{AST}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   AST \tab numeric \tab Assists. \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{BLK}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   BLK \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{BLK}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   BLK \tab numeric \tab Blocks. \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{STL}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   STL \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{STL}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   STL \tab numeric \tab Steals. \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{FG_PCT}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   FG_PCT \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{FG_PCT}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   FG_PCT \tab numeric \tab Field goal percentage (0-1). \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{FG3M}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   FG3M \tab integer \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{FG3M}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   FG3M \tab integer \tab Three-point field goals made. \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{FG3_PCT}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   RANK \tab integer \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   FG3_PCT \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{FG3_PCT}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   RANK \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   FG3_PCT \tab numeric \tab Three-point field goal percentage (0-1). \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{FANTASY_POINTS}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   permode \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   FANTASY_POINTS \tab numeric \cr
-   FIRST_NAME \tab character \cr
-   NICKNAME \tab character \cr
-   LAST_NAME \tab character \cr
-   JERSEY_NUM \tab character \cr
-   POSITION \tab character \cr
+\strong{FANTASY_POINTS}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   FANTASY_POINTS \tab numeric \tab  \cr
+   FIRST_NAME \tab character \tab Player's first name. \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   LAST_NAME \tab character \tab Player's last name. \cr
+   JERSEY_NUM \tab character \tab Jersey number worn by the player. \cr
+   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
 }
 
 
-\strong{TOTAL_PTS}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   PTS \tab integer \cr
+\strong{TOTAL_PTS}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   PTS \tab integer \tab Points scored. \cr
 }
 
 
-\strong{TOTAL_REB}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   REB \tab integer \cr
+\strong{TOTAL_REB}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   REB \tab integer \tab Total rebounds. \cr
 }
 
 
-\strong{TOTAL_AST}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   AST \tab integer \cr
+\strong{TOTAL_AST}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   AST \tab integer \tab Assists. \cr
 }
 
 
-\strong{ALL_TIME_TD3}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   TD3 \tab integer \cr
+\strong{ALL_TIME_TD3}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   TD3 \tab integer \tab  \cr
 }
 
 
-\strong{TD3}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   TEAM_ABBREVIATION \tab character \cr
-   SEASON_YEAR \tab character \cr
-   TD3 \tab integer \cr
+\strong{TD3}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
+   TD3 \tab integer \tab  \cr
 }
 
 
-\strong{GAME_FG3M}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   FG3M \tab integer \cr
-   GAME_ID \tab character \cr
+\strong{GAME_FG3M}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   FG3M \tab integer \tab Three-point field goals made. \cr
+   GAME_ID \tab character \tab Unique game identifier. \cr
 }
 
 
-\strong{GAME_PTS}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   PTS \tab integer \cr
-   GAME_ID \tab character \cr
+\strong{GAME_PTS}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   PTS \tab integer \tab Points scored. \cr
+   GAME_ID \tab character \tab Unique game identifier. \cr
 }
 
 
-\strong{GAME_AST}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   AST \tab integer \cr
-   GAME_ID \tab character \cr
+\strong{GAME_AST}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   AST \tab integer \tab Assists. \cr
+   GAME_ID \tab character \tab Unique game identifier. \cr
 }
 
 
-\strong{GAME_STL}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   STL \tab integer \cr
-   GAME_ID \tab character \cr
+\strong{GAME_STL}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   STL \tab integer \tab Steals. \cr
+   GAME_ID \tab character \tab Unique game identifier. \cr
 }
 
 
-\strong{GAME_BLK}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   BLK \tab integer \cr
-   GAME_ID \tab character \cr
+\strong{GAME_BLK}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   BLK \tab integer \tab Blocks. \cr
+   GAME_ID \tab character \tab Unique game identifier. \cr
 }
 
 
-\strong{PCT_PTS_3PT}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   PCT_PTS_3PT \tab numeric \cr
+\strong{PCT_PTS_3PT}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   PCT_PTS_3PT \tab numeric \tab  \cr
 }
 
 
-\strong{PCT_PTS_2PT}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   PCT_PTS_2PT \tab numeric \cr
+\strong{PCT_PTS_2PT}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   PCT_PTS_2PT \tab numeric \tab  \cr
 }
 
 
-\strong{PCT_PTS_2PT_MR}\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   deep_link \tab character \cr
-   name \tab character \cr
-   timestamp \tab character \cr
-   permode \tab character \cr
-   season \tab character \cr
-   seasontype \tab character \cr
-   PLAYER_ID \tab integer \cr
-   PLAYER_NAME \tab character \cr
-   PLAYER_NAME_LAST_FIRST \tab character \cr
-   NICKNAME \tab character \cr
-   TEAM_ID \tab integer \cr
-   TEAM_ABBREVIATION \tab character \cr
-   TEAM_NAME \tab character \cr
-   PCT_PTS_2PT_MR \tab numeric \cr
+\strong{PCT_PTS_2PT_MR}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Title or label for the record. \cr
+   deep_link \tab character \tab Deep link URL into wnba.com / espn.com. \cr
+   name \tab character \tab Display name. \cr
+   timestamp \tab character \tab ISO 8601 UTC timestamp. \cr
+   permode \tab character \tab Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   seasontype \tab character \tab Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star'). \cr
+   PLAYER_ID \tab integer \tab Unique player identifier. \cr
+   PLAYER_NAME \tab character \tab Player name. \cr
+   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+   NICKNAME \tab character \tab Team or athlete nickname. \cr
+   TEAM_ID \tab integer \tab Unique team identifier. \cr
+   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   PCT_PTS_2PT_MR \tab numeric \tab  \cr
 }
 }
 \description{

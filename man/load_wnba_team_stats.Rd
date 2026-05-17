@@ -26,22 +26,22 @@ the season data into a database.}
 \item{tablename}{The name of the team season stats table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of team season stats.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   season_type \tab integer \cr
-   team_id \tab character \cr
-   team_slug \tab character \cr
-   team_location \tab character \cr
-   team_name \tab character \cr
-   team_abbreviation \tab character \cr
-   team_display_name \tab character \cr
-   category \tab character \cr
-   stat_name \tab character \cr
-   stat_display_name \tab character \cr
-   stat_value \tab numeric \cr
-   stat_display_value \tab character \cr
-   stat_rank \tab integer \cr
+Returns a \code{wehoop_data} tibble of team season stats.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+   team_location \tab character \tab Team city or location string. \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   team_display_name \tab character \tab Full team display name. \cr
+   category \tab character \tab Category label. \cr
+   stat_name \tab character \tab Stat name. \cr
+   stat_display_name \tab character \tab Stat display name. \cr
+   stat_value \tab numeric \tab Stat value. \cr
+   stat_display_value \tab character \tab Stat display value. \cr
+   stat_rank \tab integer \tab League/season rank for stat. \cr
 }
 }
 \description{

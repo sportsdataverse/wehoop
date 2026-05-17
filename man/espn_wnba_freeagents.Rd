@@ -15,18 +15,18 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)}.}
 }
 \value{
-A \code{wehoop_data} tibble with one row per free agent:\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   athlete_id \tab character \cr
-   athlete_name \tab character \cr
-   position \tab character \cr
-   prior_team_id \tab character \cr
-   status \tab character \cr
-   signed_team_id \tab character \cr
-   signed_date \tab character \cr
-   contract_value \tab character \cr
-   contract_term_years \tab character \cr
+A \code{wehoop_data} tibble with one row per free agent:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   athlete_name \tab character \tab Athlete display name (ESPN). \cr
+   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+   prior_team_id \tab character \tab Unique identifier for prior team. \cr
+   status \tab character \tab Status label. \cr
+   signed_team_id \tab character \tab Unique identifier for signed team. \cr
+   signed_date \tab character \tab Date in YYYY-MM-DD format. \cr
+   contract_value \tab character \tab Contract value. \cr
+   contract_term_years \tab character \tab Contract term years. \cr
 }
 }
 \description{

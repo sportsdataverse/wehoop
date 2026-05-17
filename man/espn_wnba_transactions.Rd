@@ -18,17 +18,17 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)}.}
 }
 \value{
-A \code{wehoop_data} tibble with one row per transaction:\tabular{ll}{
-   col_name \tab types \cr
-   transaction_id \tab character \cr
-   date \tab character \cr
-   type \tab character \cr
-   description \tab character \cr
-   team_id \tab character \cr
-   athlete_id \tab character \cr
-   athlete_name \tab character \cr
-   from_team_id \tab character \cr
-   to_team_id \tab character \cr
+A \code{wehoop_data} tibble with one row per transaction:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   transaction_id \tab character \tab Unique identifier for transaction. \cr
+   date \tab character \tab Date in YYYY-MM-DD format. \cr
+   type \tab character \tab Record type / category. \cr
+   description \tab character \tab Long-form description text. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   athlete_name \tab character \tab Athlete display name (ESPN). \cr
+   from_team_id \tab character \tab Unique identifier for from team. \cr
+   to_team_id \tab character \tab Unique identifier for to team. \cr
 }
 }
 \description{

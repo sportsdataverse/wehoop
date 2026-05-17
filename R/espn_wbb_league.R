@@ -24,19 +24,19 @@ NULL
 #' @return A single `wehoop_data` tibble with one row per category-athlete
 #'   pair.
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |season        |integer   |
-#'    |season_type   |integer   |
-#'    |category      |character |
-#'    |abbreviation  |character |
-#'    |athlete_id    |character |
-#'    |athlete_name  |character |
-#'    |team_id       |character |
-#'    |team_abbrev   |character |
-#'    |value         |numeric   |
-#'    |rank          |integer   |
-#'    |display_value |character |
+#'    |col_name      |types     |description                                                                                                        |
+#'    |:-------------|:---------|:------------------------------------------------------------------------------------------------------------------|
+#'    |season        |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
+#'    |season_type   |integer   |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
+#'    |category      |character |Category label.                                                                                                    |
+#'    |abbreviation  |character |Short abbreviation.                                                                                                |
+#'    |athlete_id    |character |Unique athlete identifier (ESPN).                                                                                  |
+#'    |athlete_name  |character |Athlete display name (ESPN).                                                                                       |
+#'    |team_id       |character |Unique team identifier.                                                                                            |
+#'    |team_abbrev   |character |Abbreviation for team.                                                                                             |
+#'    |value         |numeric   |Numeric or string value field.                                                                                     |
+#'    |rank          |integer   |Whether to include statistical ranks in the returned table.                                                        |
+#'    |display_value |character |Human-readable display value.                                                                                      |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -74,17 +74,17 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A single `wehoop_data` tibble with one row per venue.
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |venue_id      |character |
-#'    |name          |character |
-#'    |full_name     |character |
-#'    |address_city  |character |
-#'    |address_state |character |
-#'    |capacity      |integer   |
-#'    |indoor        |logical   |
-#'    |grass         |logical   |
-#'    |images_url    |character |
+#'    |col_name      |types     |description              |
+#'    |:-------------|:---------|:------------------------|
+#'    |venue_id      |character |Unique venue identifier. |
+#'    |name          |character |Display name.            |
+#'    |full_name     |character |Player's full name.      |
+#'    |address_city  |character |Address city.            |
+#'    |address_state |character |Address state.           |
+#'    |capacity      |integer   |Capacity.                |
+#'    |indoor        |logical   |Indoor.                  |
+#'    |grass         |logical   |Grass.                   |
+#'    |images_url    |character |URL for images.          |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -120,14 +120,14 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A single `wehoop_data` tibble with one row per coach.
 #'
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |coach_id   |character |
-#'    |first_name |character |
-#'    |last_name  |character |
-#'    |full_name  |character |
-#'    |experience |integer   |
-#'    |team_id    |character |
+#'    |col_name   |types     |description                       |
+#'    |:----------|:---------|:---------------------------------|
+#'    |coach_id   |character |Unique identifier for coach.      |
+#'    |first_name |character |Player's first name.              |
+#'    |last_name  |character |Player's last name.               |
+#'    |full_name  |character |Player's full name.               |
+#'    |experience |integer   |Years of professional experience. |
+#'    |team_id    |character |Unique team identifier.           |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -170,16 +170,16 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A single `wehoop_data` tibble with one row per athlete.
 #'
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |athlete_id |character |
-#'    |full_name  |character |
-#'    |jersey     |character |
-#'    |position   |character |
-#'    |team_id    |character |
-#'    |headshot   |character |
-#'    |status     |character |
-#'    |link       |character |
+#'    |col_name   |types     |description                             |
+#'    |:----------|:---------|:---------------------------------------|
+#'    |athlete_id |character |Unique athlete identifier (ESPN).       |
+#'    |full_name  |character |Player's full name.                     |
+#'    |jersey     |character |Jersey number worn by the player.       |
+#'    |position   |character |Listed roster position (G, F, C, etc.). |
+#'    |team_id    |character |Unique team identifier.                 |
+#'    |headshot   |character |Headshot image URL.                     |
+#'    |status     |character |Status label.                           |
+#'    |link       |character |Link.                                   |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -219,13 +219,13 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A single `wehoop_data` tibble with one row per season.
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |season            |integer   |
-#'    |start_date        |character |
-#'    |end_date          |character |
-#'    |display_name      |character |
-#'    |season_type_count |integer   |
+#'    |col_name          |types     |description                                           |
+#'    |:-----------------|:---------|:-----------------------------------------------------|
+#'    |season            |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |start_date        |character |Start date (YYYY-MM-DD).                              |
+#'    |end_date          |character |End date (YYYY-MM-DD).                                |
+#'    |display_name      |character |Display name.                                         |
+#'    |season_type_count |integer   |Count of season type.                                 |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of
@@ -266,21 +266,21 @@ NULL
 #'
 #'    **Info**
 #'
-#'    |col_name     |types     |
-#'    |:------------|:---------|
-#'    |year         |integer   |
-#'    |start_date   |character |
-#'    |end_date     |character |
-#'    |display_name |character |
-#'    |type_id      |character |
-#'    |type_name    |character |
+#'    |col_name     |types     |description                |
+#'    |:------------|:---------|:--------------------------|
+#'    |year         |integer   |4-digit year.              |
+#'    |start_date   |character |Start date (YYYY-MM-DD).   |
+#'    |end_date     |character |End date (YYYY-MM-DD).     |
+#'    |display_name |character |Display name.              |
+#'    |type_id      |character |Type identifier (numeric). |
+#'    |type_name    |character |Type name.                 |
 #'
 #'    **Types / Athletes / Coaches / Teams / Awards**
 #'
-#'    |col_name |types     |
-#'    |:--------|:---------|
-#'    |count    |integer   |
-#'    |ref      |character |
+#'    |col_name |types     |description     |
+#'    |:--------|:---------|:---------------|
+#'    |count    |integer   |Count of count. |
+#'    |ref      |character |Ref.            |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of

@@ -15,19 +15,19 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)}.}
 }
 \value{
-A \code{wehoop_data} tibble with one row per draft pick:\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   round \tab integer \cr
-   pick \tab integer \cr
-   overall \tab integer \cr
-   traded \tab logical \cr
-   trade_note \tab character \cr
-   status \tab character \cr
-   athlete_id \tab character \cr
-   athlete_ref \tab character \cr
-   team_id \tab character \cr
-   team_ref \tab character \cr
+A \code{wehoop_data} tibble with one row per draft pick:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   round \tab integer \tab Tournament / playoff round. \cr
+   pick \tab integer \tab Pick. \cr
+   overall \tab integer \tab Overall. \cr
+   traded \tab logical \tab Traded. \cr
+   trade_note \tab character \tab Trade note. \cr
+   status \tab character \tab Status label. \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   athlete_ref \tab character \tab Athlete ref. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_ref \tab character \tab Team ref. \cr
 }
 
 

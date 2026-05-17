@@ -12,18 +12,18 @@ espn_wnba_event_broadcasts(event_id, ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A tibble with one row per broadcast outlet for the game.\tabular{ll}{
-   col_name \tab types \cr
-   event_id \tab character \cr
-   broadcast_id \tab character \cr
-   type_id \tab character \cr
-   type_short_name \tab character \cr
-   type_long_name \tab character \cr
-   market_id \tab character \cr
-   market_type \tab character \cr
-   names \tab character \cr
-   lang \tab character \cr
-   region \tab character \cr
+A tibble with one row per broadcast outlet for the game.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_id \tab character \tab Unique event / game identifier (ESPN). \cr
+   broadcast_id \tab character \tab Unique identifier for broadcast. \cr
+   type_id \tab character \tab Type identifier (numeric). \cr
+   type_short_name \tab character \tab Type short name. \cr
+   type_long_name \tab character \tab Type long name. \cr
+   market_id \tab character \tab Unique identifier for market. \cr
+   market_type \tab character \tab Market type. \cr
+   names \tab character \tab Names. \cr
+   lang \tab character \tab Lang. \cr
+   region \tab character \tab Region label. \cr
 }
 }
 \description{

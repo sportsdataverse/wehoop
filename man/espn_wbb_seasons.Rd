@@ -12,13 +12,13 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
 }
 \value{
-A single \code{wehoop_data} tibble with one row per season.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   start_date \tab character \cr
-   end_date \tab character \cr
-   display_name \tab character \cr
-   season_type_count \tab integer \cr
+A single \code{wehoop_data} tibble with one row per season.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   start_date \tab character \tab Start date (YYYY-MM-DD). \cr
+   end_date \tab character \tab End date (YYYY-MM-DD). \cr
+   display_name \tab character \tab Display name. \cr
+   season_type_count \tab integer \tab Count of season type. \cr
 }
 }
 \description{

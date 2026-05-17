@@ -26,31 +26,31 @@ the season data into a database.}
 \item{tablename}{The name of the shots data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble with one row per shot attempt.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   game_id \tab character \cr
-   game_event_id \tab character \cr
-   player_id \tab character \cr
-   player_name \tab character \cr
-   team_id \tab character \cr
-   team_name \tab character \cr
-   period \tab integer \cr
-   minutes_remaining \tab integer \cr
-   seconds_remaining \tab integer \cr
-   event_type \tab character \cr
-   action_type \tab character \cr
-   shot_type \tab character \cr
-   shot_zone_basic \tab character \cr
-   shot_zone_area \tab character \cr
-   shot_zone_range \tab character \cr
-   shot_distance \tab numeric \cr
-   loc_x \tab numeric \cr
-   loc_y \tab numeric \cr
-   coordinate_x \tab numeric \cr
-   coordinate_y \tab numeric \cr
-   shot_attempted_flag \tab integer \cr
-   shot_made_flag \tab integer \cr
+Returns a \code{wehoop_data} tibble with one row per shot attempt.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   game_event_id \tab character \tab Unique identifier for game event. \cr
+   player_id \tab character \tab Unique player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   period \tab integer \tab Period of the game (1-4 quarters; 5+ for OT). \cr
+   minutes_remaining \tab integer \tab Minutes remaining. \cr
+   seconds_remaining \tab integer \tab Seconds remaining in the period. \cr
+   event_type \tab character \tab Event / play type code (V2 PBP). \cr
+   action_type \tab character \tab Action type label (e.g. 'Made Shot', 'Substitution'). \cr
+   shot_type \tab character \tab Shot type label (e.g. 'Jump Shot', 'Layup'). \cr
+   shot_zone_basic \tab character \tab Shot zone (e.g. 'Restricted Area', 'Mid-Range', 'Above the Break 3'). \cr
+   shot_zone_area \tab character \tab Shot zone area ('Left Side', 'Right Side', 'Center'). \cr
+   shot_zone_range \tab character \tab Shot zone range ('Less Than 8 ft.', '8-16 ft.', '16-24 ft.', etc.). \cr
+   shot_distance \tab numeric \tab Shot distance from the basket, in feet. \cr
+   loc_x \tab numeric \tab X coordinate on the court (units of inches; 0 = basket center). \cr
+   loc_y \tab numeric \tab Y coordinate on the court (units of inches; baseline at 0). \cr
+   coordinate_x \tab numeric \tab X coordinate on the court (half-court layout). \cr
+   coordinate_y \tab numeric \tab Y coordinate on the court (half-court layout). \cr
+   shot_attempted_flag \tab integer \tab 1 if a shot was attempted on this event. \cr
+   shot_made_flag \tab integer \tab 1 if the shot was made; 0 if missed. \cr
 }
 }
 \description{

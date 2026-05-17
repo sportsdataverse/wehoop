@@ -18,211 +18,211 @@ NULL
 #'    **GPLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |GP             |character |
-#'    |GP_RANK        |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |GP             |character |Games played.             |
+#'    |GP_RANK        |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **PTSLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |PTS            |character |
-#'    |PTS_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |PTS            |character |Points scored.            |
+#'    |PTS_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **ASTLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |AST            |character |
-#'    |AST_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |AST            |character |Assists.                  |
+#'    |AST_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **STLLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |STL            |character |
-#'    |STL_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |STL            |character |Steals.                   |
+#'    |STL_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **OREBLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |OREB           |character |
-#'    |OREB_RANK      |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |OREB           |character |Offensive rebounds.       |
+#'    |OREB_RANK      |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **DREBLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |DREB           |character |
-#'    |DREB_RANK      |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |DREB           |character |Defensive rebounds.       |
+#'    |DREB_RANK      |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **REBLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |REB            |character |
-#'    |REB_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |REB            |character |Total rebounds.           |
+#'    |REB_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **BLKLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |BLK            |character |
-#'    |BLK_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |BLK            |character |Blocks.                   |
+#'    |BLK_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FGMLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FGM            |character |
-#'    |FGM_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |FGM            |character |Field goals made.         |
+#'    |FGM_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FGALeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FGA            |character |
-#'    |FGA_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |FGA            |character |Field goal attempts.      |
+#'    |FGA_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FG_PCTLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FG_PCT         |character |
-#'    |FG_PCT_RANK    |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description                  |
+#'    |:--------------|:---------|:----------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier.    |
+#'    |PLAYER_NAME    |character |Player name.                 |
+#'    |FG_PCT         |character |Field goal percentage (0-1). |
+#'    |FG_PCT_RANK    |character |                             |
+#'    |IS_ACTIVE_FLAG |character |                             |
 #'    
 #'    **TOVLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |TOV            |character |
-#'    |TOV_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |TOV            |character |Turnovers.                |
+#'    |TOV_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FG3MLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FG3M           |character |
-#'    |FG3M_RANK      |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description                   |
+#'    |:--------------|:---------|:-----------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier.     |
+#'    |PLAYER_NAME    |character |Player name.                  |
+#'    |FG3M           |character |Three-point field goals made. |
+#'    |FG3M_RANK      |character |                              |
+#'    |IS_ACTIVE_FLAG |character |                              |
 #'    
 #'    **FG3ALeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FG3A           |character |
-#'    |FG3A_RANK      |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description                      |
+#'    |:--------------|:---------|:--------------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier.        |
+#'    |PLAYER_NAME    |character |Player name.                     |
+#'    |FG3A           |character |Three-point field goal attempts. |
+#'    |FG3A_RANK      |character |                                 |
+#'    |IS_ACTIVE_FLAG |character |                                 |
 #'    
 #'    **FG3_PCTLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FG3_PCT        |character |
-#'    |FG3_PCT_RANK   |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description                              |
+#'    |:--------------|:---------|:----------------------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier.                |
+#'    |PLAYER_NAME    |character |Player name.                             |
+#'    |FG3_PCT        |character |Three-point field goal percentage (0-1). |
+#'    |FG3_PCT_RANK   |character |                                         |
+#'    |IS_ACTIVE_FLAG |character |                                         |
 #'    
 #'    **PFLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |PF             |character |
-#'    |PF_RANK        |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |PF             |character |Personal fouls.           |
+#'    |PF_RANK        |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FTMLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FTM            |character |
-#'    |FTM_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |FTM            |character |Free throws made.         |
+#'    |FTM_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FTALeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FTA            |character |
-#'    |FTA_RANK       |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description               |
+#'    |:--------------|:---------|:-------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier. |
+#'    |PLAYER_NAME    |character |Player name.              |
+#'    |FTA            |character |Free throw attempts.      |
+#'    |FTA_RANK       |character |                          |
+#'    |IS_ACTIVE_FLAG |character |                          |
 #'    
 #'    **FT_PCTLeaders** 
 #'    
 #'    
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |PLAYER_ID      |character |
-#'    |PLAYER_NAME    |character |
-#'    |FT_PCT         |character |
-#'    |FT_PCT_RANK    |character |
-#'    |IS_ACTIVE_FLAG |character |
+#'    |col_name       |types     |description                  |
+#'    |:--------------|:---------|:----------------------------|
+#'    |PLAYER_ID      |character |Unique player identifier.    |
+#'    |PLAYER_NAME    |character |Player name.                 |
+#'    |FT_PCT         |character |Free throw percentage (0-1). |
+#'    |FT_PCT_RANK    |character |                             |
+#'    |IS_ACTIVE_FLAG |character |                             |
 #'   
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -296,17 +296,17 @@ NULL
 #'    **AssistLeaders** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |PLAYER_ID         |character |
-#'    |PLAYER            |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |PLAYER_POSITION   |character |
-#'    |AST               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |PLAYER_ID         |character |Unique player identifier.                                   |
+#'    |PLAYER            |character |                                                            |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                           |
+#'    |PLAYER_POSITION   |character |                                                            |
+#'    |AST               |character |Assists.                                                    |
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -378,9 +378,9 @@ NULL
 #'  
 #'    **AssistTracker** 
 #'    
-#'    |col_name |types   |
-#'    |:--------|:-------|
-#'    |ASSISTS  |numeric |
+#'    |col_name |types   |description    |
+#'    |:--------|:-------|:--------------|
+#'    |ASSISTS  |numeric |Total assists. |
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -453,47 +453,47 @@ NULL
 #'    **HomePageLeaders** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |PLAYERID          |character |
-#'    |PLAYER            |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |PTS               |character |
-#'    |FG_PCT            |character |
-#'    |FG3_PCT           |character |
-#'    |FT_PCT            |character |
-#'    |EFG_PCT           |character |
-#'    |TS_PCT            |character |
-#'    |PTS_PER48         |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |PLAYERID          |character |                                                            |
+#'    |PLAYER            |character |                                                            |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |PTS               |character |Points scored.                                              |
+#'    |FG_PCT            |character |Field goal percentage (0-1).                                |
+#'    |FG3_PCT           |character |Three-point field goal percentage (0-1).                    |
+#'    |FT_PCT            |character |Free throw percentage (0-1).                                |
+#'    |EFG_PCT           |character |Effective field goal percentage (0-1).                      |
+#'    |TS_PCT            |character |True shooting percentage (0-1).                             |
+#'    |PTS_PER48         |character |                                                            |
 #'    
 #'    **LeagueAverage** 
 #'    
 #'    
-#'    |col_name  |types   |
-#'    |:---------|:-------|
-#'    |PTS       |numeric |
-#'    |FG_PCT    |numeric |
-#'    |FG3_PCT   |numeric |
-#'    |FT_PCT    |numeric |
-#'    |EFG_PCT   |numeric |
-#'    |TS_PCT    |numeric |
-#'    |PTS_PER48 |numeric |
+#'    |col_name  |types   |description                              |
+#'    |:---------|:-------|:----------------------------------------|
+#'    |PTS       |numeric |Points scored.                           |
+#'    |FG_PCT    |numeric |Field goal percentage (0-1).             |
+#'    |FG3_PCT   |numeric |Three-point field goal percentage (0-1). |
+#'    |FT_PCT    |numeric |Free throw percentage (0-1).             |
+#'    |EFG_PCT   |numeric |Effective field goal percentage (0-1).   |
+#'    |TS_PCT    |numeric |True shooting percentage (0-1).          |
+#'    |PTS_PER48 |numeric |                                         |
 #'    
 #'    **LeagueMax** 
 #'    
 #'    
-#'    |col_name  |types   |
-#'    |:---------|:-------|
-#'    |PTS       |numeric |
-#'    |FG_PCT    |numeric |
-#'    |FG3_PCT   |numeric |
-#'    |FT_PCT    |numeric |
-#'    |EFG_PCT   |numeric |
-#'    |TS_PCT    |numeric |
-#'    |PTS_PER48 |numeric |
+#'    |col_name  |types   |description                              |
+#'    |:---------|:-------|:----------------------------------------|
+#'    |PTS       |numeric |Points scored.                           |
+#'    |FG_PCT    |numeric |Field goal percentage (0-1).             |
+#'    |FG3_PCT   |numeric |Three-point field goal percentage (0-1). |
+#'    |FT_PCT    |numeric |Free throw percentage (0-1).             |
+#'    |EFG_PCT   |numeric |Effective field goal percentage (0-1).   |
+#'    |TS_PCT    |numeric |True shooting percentage (0-1).          |
+#'    |PTS_PER48 |numeric |                                         |
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -583,90 +583,90 @@ NULL
 #'    **HomePageStat1**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |PTS               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |PTS               |character |Points scored.                                              |
 #'
 #'    **HomePageStat2**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |REB               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |REB               |character |Total rebounds.                                             |
 #'
 #'    **HomePageStat3**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |AST               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |AST               |character |Assists.                                                    |
 #'
 #'    **HomePageStat4**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |STL               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |STL               |character |Steals.                                                     |
 #'
 #'    **HomePageStat5**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |FG_PCT            |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |FG_PCT            |character |Field goal percentage (0-1).                                |
 #'
 #'    **HomePageStat6**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |FT_PCT            |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |FT_PCT            |character |Free throw percentage (0-1).                                |
 #'
 #'    **HomePageStat7**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |FG3_PCT           |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |FG3_PCT           |character |Three-point field goal percentage (0-1).                    |
 #'
 #'    **HomePageStat8**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |BLK               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |BLK               |character |Blocks.                                                     |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -753,489 +753,489 @@ NULL
 #'    **PTS** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |PTS               |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |PTS               |numeric   |Points scored.                                                                  |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **REB** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |REB               |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |REB               |numeric   |Total rebounds.                                                                 |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **AST** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |AST               |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |AST               |numeric   |Assists.                                                                        |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **BLK** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |BLK               |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |BLK               |numeric   |Blocks.                                                                         |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **STL** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |STL               |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |STL               |numeric   |Steals.                                                                         |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **FG_PCT** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |FG_PCT            |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |FG_PCT            |numeric   |Field goal percentage (0-1).                                                    |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **FG3M** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |FG3M              |integer   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |FG3M              |integer   |Three-point field goals made.                                                   |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **FG3_PCT** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |RANK              |integer   |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |FG3_PCT           |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |RANK              |integer   |Whether to include statistical ranks in the returned table.                     |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |FG3_PCT           |numeric   |Three-point field goal percentage (0-1).                                        |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **FANTASY_POINTS** 
 #'    
 #'    
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |title             |character |
-#'    |deep_link         |character |
-#'    |name              |character |
-#'    |timestamp         |character |
-#'    |season            |character |
-#'    |seasontype        |character |
-#'    |permode           |character |
-#'    |PLAYER_ID         |integer   |
-#'    |PLAYER_NAME       |character |
-#'    |TEAM_ID           |integer   |
-#'    |TEAM_ABBREVIATION |character |
-#'    |FANTASY_POINTS    |numeric   |
-#'    |FIRST_NAME        |character |
-#'    |NICKNAME          |character |
-#'    |LAST_NAME         |character |
-#'    |JERSEY_NUM        |character |
-#'    |POSITION          |character |
+#'    |col_name          |types     |description                                                                     |
+#'    |:-----------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title             |character |Title or label for the record.                                                  |
+#'    |deep_link         |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name              |character |Display name.                                                                   |
+#'    |timestamp         |character |ISO 8601 UTC timestamp.                                                         |
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype        |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |permode           |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |PLAYER_ID         |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME       |character |Player name.                                                                    |
+#'    |TEAM_ID           |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |FANTASY_POINTS    |numeric   |                                                                                |
+#'    |FIRST_NAME        |character |Player's first name.                                                            |
+#'    |NICKNAME          |character |Team or athlete nickname.                                                       |
+#'    |LAST_NAME         |character |Player's last name.                                                             |
+#'    |JERSEY_NUM        |character |Jersey number worn by the player.                                               |
+#'    |POSITION          |character |Listed roster position (G, F, C, etc.).                                         |
 #'    
 #'    **TOTAL_PTS** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |PTS                    |integer   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |PTS                    |integer   |Points scored.                                                                  |
 #'    
 #'    **TOTAL_REB** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |REB                    |integer   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |REB                    |integer   |Total rebounds.                                                                 |
 #'    
 #'    **TOTAL_AST** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |AST                    |integer   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |AST                    |integer   |Assists.                                                                        |
 #'    
 #'    **ALL_TIME_TD3** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |TD3                    |integer   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |TD3                    |integer   |                                                                                |
 #'    
 #'    **TD3** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |SEASON_YEAR            |character |
-#'    |TD3                    |integer   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |SEASON_YEAR            |character |Season year string ('YYYY-YY' format).                                          |
+#'    |TD3                    |integer   |                                                                                |
 #'    
 #'    **GAME_FG3M** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |FG3M                   |integer   |
-#'    |GAME_ID                |character |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |FG3M                   |integer   |Three-point field goals made.                                                   |
+#'    |GAME_ID                |character |Unique game identifier.                                                         |
 #'    
 #'    **GAME_PTS** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |PTS                    |integer   |
-#'    |GAME_ID                |character |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |PTS                    |integer   |Points scored.                                                                  |
+#'    |GAME_ID                |character |Unique game identifier.                                                         |
 #'    
 #'    **GAME_AST** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |AST                    |integer   |
-#'    |GAME_ID                |character |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |AST                    |integer   |Assists.                                                                        |
+#'    |GAME_ID                |character |Unique game identifier.                                                         |
 #'    
 #'    **GAME_STL** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |STL                    |integer   |
-#'    |GAME_ID                |character |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |STL                    |integer   |Steals.                                                                         |
+#'    |GAME_ID                |character |Unique game identifier.                                                         |
 #'    
 #'    **GAME_BLK** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |BLK                    |integer   |
-#'    |GAME_ID                |character |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |BLK                    |integer   |Blocks.                                                                         |
+#'    |GAME_ID                |character |Unique game identifier.                                                         |
 #'    
 #'    **PCT_PTS_3PT** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |PCT_PTS_3PT            |numeric   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |PCT_PTS_3PT            |numeric   |                                                                                |
 #'    
 #'    **PCT_PTS_2PT** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |PCT_PTS_2PT            |numeric   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |PCT_PTS_2PT            |numeric   |                                                                                |
 #'    
 #'    **PCT_PTS_2PT_MR** 
 #'    
 #'    
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |title                  |character |
-#'    |deep_link              |character |
-#'    |name                   |character |
-#'    |timestamp              |character |
-#'    |permode                |character |
-#'    |season                 |character |
-#'    |seasontype             |character |
-#'    |PLAYER_ID              |integer   |
-#'    |PLAYER_NAME            |character |
-#'    |PLAYER_NAME_LAST_FIRST |character |
-#'    |NICKNAME               |character |
-#'    |TEAM_ID                |integer   |
-#'    |TEAM_ABBREVIATION      |character |
-#'    |TEAM_NAME              |character |
-#'    |PCT_PTS_2PT_MR         |numeric   |
+#'    |col_name               |types     |description                                                                     |
+#'    |:----------------------|:---------|:-------------------------------------------------------------------------------|
+#'    |title                  |character |Title or label for the record.                                                  |
+#'    |deep_link              |character |Deep link URL into wnba.com / espn.com.                                         |
+#'    |name                   |character |Display name.                                                                   |
+#'    |timestamp              |character |ISO 8601 UTC timestamp.                                                         |
+#'    |permode                |character |Per-mode aggregation ('Totals', 'PerGame', 'Per40', 'Per100Possessions', etc.). |
+#'    |season                 |character |Season identifier (4-digit year or 'YYYY-YY' string).                           |
+#'    |seasontype             |character |Season type ('Regular Season', 'Playoffs', 'Pre Season', 'All Star').           |
+#'    |PLAYER_ID              |integer   |Unique player identifier.                                                       |
+#'    |PLAYER_NAME            |character |Player name.                                                                    |
+#'    |PLAYER_NAME_LAST_FIRST |character |                                                                                |
+#'    |NICKNAME               |character |Team or athlete nickname.                                                       |
+#'    |TEAM_ID                |integer   |Unique team identifier.                                                         |
+#'    |TEAM_ABBREVIATION      |character |Short team abbreviation (e.g. 'LAS').                                           |
+#'    |TEAM_NAME              |character |Full team display name (e.g. 'Las Vegas Aces').                                 |
+#'    |PCT_PTS_2PT_MR         |numeric   |                                                                                |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1393,46 +1393,46 @@ NULL
 #'    **LeadersTiles**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |PTS               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |PTS               |character |Points scored.                                              |
 #'
 #'    **AllTimeSeasonHigh**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |SEASON_YEAR       |character |
-#'    |PTS               |character |
+#'    |col_name          |types     |description                                     |
+#'    |:-----------------|:---------|:-----------------------------------------------|
+#'    |TEAM_ID           |character |Unique team identifier.                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').           |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |SEASON_YEAR       |character |Season year string ('YYYY-YY' format).          |
+#'    |PTS               |character |Points scored.                                  |
 #'
 #'    **LastSeasonHigh**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |RANK              |character |
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |PTS               |character |
+#'    |col_name          |types     |description                                                 |
+#'    |:-----------------|:---------|:-----------------------------------------------------------|
+#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
+#'    |TEAM_ID           |character |Unique team identifier.                                     |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
+#'    |PTS               |character |Points scored.                                              |
 #'
 #'    **LowSeasonHigh**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |TEAM_ID           |character |
-#'    |TEAM_ABBREVIATION |character |
-#'    |TEAM_NAME         |character |
-#'    |SEASON_YEAR       |character |
-#'    |PTS               |character |
+#'    |col_name          |types     |description                                     |
+#'    |:-----------------|:---------|:-----------------------------------------------|
+#'    |TEAM_ID           |character |Unique team identifier.                         |
+#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').           |
+#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |SEASON_YEAR       |character |Season year string ('YYYY-YY' format).          |
+#'    |PTS               |character |Points scored.                                  |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1520,36 +1520,36 @@ NULL
 #'    **LeagueLeaders**
 #'
 #'
-#'    |col_name  |types     |
-#'    |:---------|:---------|
-#'    |PLAYER_ID |character |
-#'    |RANK      |character |
-#'    |PLAYER    |character |
-#'    |TEAM_ID   |character |
-#'    |TEAM      |character |
-#'    |GP        |character |
-#'    |MIN       |character |
-#'    |FGM       |character |
-#'    |FGA       |character |
-#'    |FG_PCT    |character |
-#'    |FG3M      |character |
-#'    |FG3A      |character |
-#'    |FG3_PCT   |character |
-#'    |FTM       |character |
-#'    |FTA       |character |
-#'    |FT_PCT    |character |
-#'    |OREB      |character |
-#'    |DREB      |character |
-#'    |REB       |character |
-#'    |AST       |character |
-#'    |STL       |character |
-#'    |BLK       |character |
-#'    |TOV       |character |
-#'    |PF        |character |
-#'    |PTS       |character |
-#'    |EFF       |character |
-#'    |AST_TOV   |character |
-#'    |STL_TOV   |character |
+#'    |col_name  |types     |description                                                 |
+#'    |:---------|:---------|:-----------------------------------------------------------|
+#'    |PLAYER_ID |character |Unique player identifier.                                   |
+#'    |RANK      |character |Whether to include statistical ranks in the returned table. |
+#'    |PLAYER    |character |                                                            |
+#'    |TEAM_ID   |character |Unique team identifier.                                     |
+#'    |TEAM      |character |Team-side label or team identifier.                         |
+#'    |GP        |character |Games played.                                               |
+#'    |MIN       |character |Minutes played.                                             |
+#'    |FGM       |character |Field goals made.                                           |
+#'    |FGA       |character |Field goal attempts.                                        |
+#'    |FG_PCT    |character |Field goal percentage (0-1).                                |
+#'    |FG3M      |character |Three-point field goals made.                               |
+#'    |FG3A      |character |Three-point field goal attempts.                            |
+#'    |FG3_PCT   |character |Three-point field goal percentage (0-1).                    |
+#'    |FTM       |character |Free throws made.                                           |
+#'    |FTA       |character |Free throw attempts.                                        |
+#'    |FT_PCT    |character |Free throw percentage (0-1).                                |
+#'    |OREB      |character |Offensive rebounds.                                         |
+#'    |DREB      |character |Defensive rebounds.                                         |
+#'    |REB       |character |Total rebounds.                                             |
+#'    |AST       |character |Assists.                                                    |
+#'    |STL       |character |Steals.                                                     |
+#'    |BLK       |character |Blocks.                                                     |
+#'    |TOV       |character |Turnovers.                                                  |
+#'    |PF        |character |Personal fouls.                                             |
+#'    |PTS       |character |Points scored.                                              |
+#'    |EFF       |character |                                                            |
+#'    |AST_TOV   |character |                                                            |
+#'    |STL_TOV   |character |                                                            |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble

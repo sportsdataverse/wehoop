@@ -20,21 +20,21 @@ A named list of \code{wehoop_data} tibbles:
 \verb{$ref} URL components are returned as character columns and are NOT
 auto-resolved -- use targeted endpoint functions for details.
 
-\strong{Info}\tabular{ll}{
-   col_name \tab types \cr
-   year \tab integer \cr
-   start_date \tab character \cr
-   end_date \tab character \cr
-   display_name \tab character \cr
-   type_id \tab character \cr
-   type_name \tab character \cr
+\strong{Info}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab integer \tab 4-digit year. \cr
+   start_date \tab character \tab Start date (YYYY-MM-DD). \cr
+   end_date \tab character \tab End date (YYYY-MM-DD). \cr
+   display_name \tab character \tab Display name. \cr
+   type_id \tab character \tab Type identifier (numeric). \cr
+   type_name \tab character \tab Type name. \cr
 }
 
 
-\strong{Types / Athletes / Coaches / Teams / Awards}\tabular{ll}{
-   col_name \tab types \cr
-   count \tab integer \cr
-   ref \tab character \cr
+\strong{Types / Athletes / Coaches / Teams / Awards}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   count \tab integer \tab Count of count. \cr
+   ref \tab character \tab Ref. \cr
 }
 }
 \description{

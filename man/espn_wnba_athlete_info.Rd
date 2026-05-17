@@ -17,55 +17,55 @@ forward compatibility. Proxy configuration should use
 A named list of data frames: \code{Bio}, \code{Team}, \code{Position},
 \code{Status}, \code{College}, \code{Draft}.
 
-\strong{Bio}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   full_name \tab character \cr
-   display_name \tab character \cr
-   jersey \tab character \cr
-   age \tab character \cr
-   date_of_birth \tab character \cr
-   headshot_href \tab character \cr
+\strong{Bio}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   full_name \tab character \tab Player's full name. \cr
+   display_name \tab character \tab Display name. \cr
+   jersey \tab character \tab Jersey number worn by the player. \cr
+   age \tab character \tab Player age (in years). \cr
+   date_of_birth \tab character \tab Date of birth (YYYY-MM-DD). \cr
+   headshot_href \tab character \tab Headshot image URL. \cr
 }
 
 
-\strong{Team}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   abbreviation \tab character \cr
-   display_name \tab character \cr
+\strong{Team}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   abbreviation \tab character \tab Short abbreviation. \cr
+   display_name \tab character \tab Display name. \cr
 }
 
 
-\strong{Position}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   name \tab character \cr
-   abbreviation \tab character \cr
+\strong{Position}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   name \tab character \tab Display name. \cr
+   abbreviation \tab character \tab Short abbreviation. \cr
 }
 
 
-\strong{Status}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   name \tab character \cr
-   type \tab character \cr
+\strong{Status}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   name \tab character \tab Display name. \cr
+   type \tab character \tab Record type / category. \cr
 }
 
 
-\strong{College}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   name \tab character \cr
-   mascot \tab character \cr
+\strong{College}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   name \tab character \tab Display name. \cr
+   mascot \tab character \tab Team mascot. \cr
 }
 
 
-\strong{Draft}\tabular{ll}{
-   col_name \tab types \cr
-   year \tab character \cr
-   round \tab character \cr
-   selection \tab character \cr
+\strong{Draft}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab character \tab 4-digit year. \cr
+   round \tab character \tab Tournament / playoff round. \cr
+   selection \tab character \tab Selection. \cr
 }
 }
 \description{

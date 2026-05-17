@@ -9,19 +9,19 @@ NULL
 #'   Defaults to `most_recent_wbb_season()`.
 #' @return Returns a tibble of calendar entries.
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |season            |character |
-#'    |season_type       |character |
-#'    |season_type_label |character |
-#'    |season_start_date |character |
-#'    |season_end_date   |character |
-#'    |label             |character |
-#'    |alternate_label   |character |
-#'    |detail            |character |
-#'    |value             |character |
-#'    |start_date        |character |
-#'    |end_date          |character |
+#'    |col_name          |types     |description                                                                                                        |
+#'    |:-----------------|:---------|:------------------------------------------------------------------------------------------------------------------|
+#'    |season            |character |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
+#'    |season_type       |character |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
+#'    |season_type_label |character |Season type label.                                                                                                 |
+#'    |season_start_date |character |Date in YYYY-MM-DD format.                                                                                         |
+#'    |season_end_date   |character |Date in YYYY-MM-DD format.                                                                                         |
+#'    |label             |character |Label.                                                                                                             |
+#'    |alternate_label   |character |Alternate label.                                                                                                   |
+#'    |detail            |character |Detail.                                                                                                            |
+#'    |value             |character |Numeric or string value field.                                                                                     |
+#'    |start_date        |character |Start date (YYYY-MM-DD).                                                                                           |
+#'    |end_date          |character |End date (YYYY-MM-DD).                                                                                             |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble

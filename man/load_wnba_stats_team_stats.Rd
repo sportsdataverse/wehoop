@@ -26,37 +26,37 @@ the season data into a database.}
 \item{tablename}{The name of the team season stats table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of team season stats.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   season_type \tab character \cr
-   team_id \tab character \cr
-   team_name \tab character \cr
-   team_abbreviation \tab character \cr
-   gp \tab integer \cr
-   w \tab integer \cr
-   l \tab integer \cr
-   w_pct \tab numeric \cr
-   min \tab numeric \cr
-   fgm \tab numeric \cr
-   fga \tab numeric \cr
-   fg_pct \tab numeric \cr
-   fg3m \tab numeric \cr
-   fg3a \tab numeric \cr
-   fg3_pct \tab numeric \cr
-   ftm \tab numeric \cr
-   fta \tab numeric \cr
-   ft_pct \tab numeric \cr
-   oreb \tab numeric \cr
-   dreb \tab numeric \cr
-   reb \tab numeric \cr
-   ast \tab numeric \cr
-   tov \tab numeric \cr
-   stl \tab numeric \cr
-   blk \tab numeric \cr
-   pf \tab numeric \cr
-   pts \tab numeric \cr
-   plus_minus \tab numeric \cr
+Returns a \code{wehoop_data} tibble of team season stats.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   season_type \tab character \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   gp \tab integer \tab Games played. \cr
+   w \tab integer \tab Wins. \cr
+   l \tab integer \tab Losses. \cr
+   w_pct \tab numeric \tab Wins percentage (0-1 decimal). \cr
+   min \tab numeric \tab Minutes played. \cr
+   fgm \tab numeric \tab Field goals made. \cr
+   fga \tab numeric \tab Field goal attempts. \cr
+   fg_pct \tab numeric \tab Field goal percentage (0-1). \cr
+   fg3m \tab numeric \tab Three-point field goals made. \cr
+   fg3a \tab numeric \tab Three-point field goal attempts. \cr
+   fg3_pct \tab numeric \tab Three-point field goal percentage (0-1). \cr
+   ftm \tab numeric \tab Free throws made. \cr
+   fta \tab numeric \tab Free throw attempts. \cr
+   ft_pct \tab numeric \tab Free throw percentage (0-1). \cr
+   oreb \tab numeric \tab Offensive rebounds. \cr
+   dreb \tab numeric \tab Defensive rebounds. \cr
+   reb \tab numeric \tab Total rebounds. \cr
+   ast \tab numeric \tab Assists. \cr
+   tov \tab numeric \tab Turnovers. \cr
+   stl \tab numeric \tab Steals. \cr
+   blk \tab numeric \tab Blocks. \cr
+   pf \tab numeric \tab Personal fouls. \cr
+   pts \tab numeric \tab Points scored. \cr
+   plus_minus \tab numeric \tab Plus/minus point differential while on court. \cr
 }
 }
 \description{

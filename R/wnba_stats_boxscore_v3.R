@@ -20,286 +20,286 @@ NULL
 #'    **home_team_player_traditional**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |person_id                 |integer   |
-#'    |first_name                |character |
-#'    |family_name               |character |
-#'    |name_i                    |character |
-#'    |player_slug               |character |
-#'    |position                  |character |
-#'    |comment                   |character |
-#'    |jersey_num                |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
-#'    |plus_minus_points         |numeric   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                 |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                |character |Player's first name.                                                             |
+#'    |family_name               |character |Player's family / last name.                                                     |
+#'    |name_i                    |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug               |character |URL-safe player identifier.                                                      |
+#'    |position                  |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                   |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                |character |Jersey number worn by the player.                                                |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
+#'    |plus_minus_points         |numeric   |Plus/minus point differential while on court.                                    |
 #'
 #'    **away_team_player_traditional**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |person_id                 |integer   |
-#'    |first_name                |character |
-#'    |family_name               |character |
-#'    |name_i                    |character |
-#'    |player_slug               |character |
-#'    |position                  |character |
-#'    |comment                   |character |
-#'    |jersey_num                |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
-#'    |plus_minus_points         |numeric   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                 |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                |character |Player's first name.                                                             |
+#'    |family_name               |character |Player's family / last name.                                                     |
+#'    |name_i                    |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug               |character |URL-safe player identifier.                                                      |
+#'    |position                  |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                   |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                |character |Jersey number worn by the player.                                                |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
+#'    |plus_minus_points         |numeric   |Plus/minus point differential while on court.                                    |
 #'
 #'    **home_team_totals_traditional**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
-#'    |plus_minus_points         |numeric   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
+#'    |plus_minus_points         |numeric   |Plus/minus point differential while on court.                                    |
 #'
 #'    **away_team_totals_traditional**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
-#'    |plus_minus_points         |numeric   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
+#'    |plus_minus_points         |numeric   |Plus/minus point differential while on court.                                    |
 #'
 #'    **home_team_starters_totals**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
 #'
 #'    **away_team_starters_totals**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
 #'
 #'    **home_team_bench_totals**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
 #'
 #'    **away_team_bench_totals**
 #'
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |game_id                   |character |
-#'    |away_team_id              |integer   |
-#'    |home_team_id              |integer   |
-#'    |team_id                   |integer   |
-#'    |team_name                 |character |
-#'    |team_city                 |character |
-#'    |team_tricode              |character |
-#'    |team_slug                 |character |
-#'    |minutes                   |character |
-#'    |field_goals_made          |integer   |
-#'    |field_goals_attempted     |integer   |
-#'    |field_goals_percentage    |numeric   |
-#'    |three_pointers_made       |integer   |
-#'    |three_pointers_attempted  |integer   |
-#'    |three_pointers_percentage |numeric   |
-#'    |free_throws_made          |integer   |
-#'    |free_throws_attempted     |integer   |
-#'    |free_throws_percentage    |numeric   |
-#'    |rebounds_offensive        |integer   |
-#'    |rebounds_defensive        |integer   |
-#'    |rebounds_total            |integer   |
-#'    |assists                   |integer   |
-#'    |steals                    |integer   |
-#'    |blocks                    |integer   |
-#'    |turnovers                 |integer   |
-#'    |fouls_personal            |integer   |
-#'    |points                    |integer   |
+#'    |col_name                  |types     |description                                                                      |
+#'    |:-------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                   |character |Unique game identifier.                                                          |
+#'    |away_team_id              |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id              |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                   |integer   |Unique team identifier.                                                          |
+#'    |team_name                 |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                 |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode              |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                 |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                   |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |field_goals_made          |integer   |Field goals made (2-pt + 3-pt).                                                  |
+#'    |field_goals_attempted     |integer   |Field goal attempts (2-pt + 3-pt).                                               |
+#'    |field_goals_percentage    |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |three_pointers_made       |integer   |Three-point field goals made.                                                    |
+#'    |three_pointers_attempted  |integer   |Three-point field goal attempts.                                                 |
+#'    |three_pointers_percentage |numeric   |Three-point field goal percentage (0-1 decimal).                                 |
+#'    |free_throws_made          |integer   |Free throws made.                                                                |
+#'    |free_throws_attempted     |integer   |Free throw attempts.                                                             |
+#'    |free_throws_percentage    |numeric   |Free throw percentage (0-1 decimal).                                             |
+#'    |rebounds_offensive        |integer   |Offensive rebounds.                                                              |
+#'    |rebounds_defensive        |integer   |Defensive rebounds.                                                              |
+#'    |rebounds_total            |integer   |Total rebounds.                                                                  |
+#'    |assists                   |integer   |Total assists.                                                                   |
+#'    |steals                    |integer   |Total steals.                                                                    |
+#'    |blocks                    |integer   |Total blocks.                                                                    |
+#'    |turnovers                 |integer   |Total turnovers.                                                                 |
+#'    |fouls_personal            |integer   |Personal fouls.                                                                  |
+#'    |points                    |integer   |Points scored.                                                                   |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -508,168 +508,168 @@ NULL
 #'    **home_team_player_advanced**
 #'
 #'
-#'    |col_name                        |types     |
-#'    |:-------------------------------|:---------|
-#'    |game_id                         |character |
-#'    |away_team_id                    |integer   |
-#'    |home_team_id                    |integer   |
-#'    |team_id                         |integer   |
-#'    |team_name                       |character |
-#'    |team_city                       |character |
-#'    |team_tricode                    |character |
-#'    |team_slug                       |character |
-#'    |person_id                       |integer   |
-#'    |first_name                      |character |
-#'    |family_name                     |character |
-#'    |name_i                          |character |
-#'    |player_slug                     |character |
-#'    |position                        |character |
-#'    |comment                         |character |
-#'    |jersey_num                      |character |
-#'    |minutes                         |character |
-#'    |estimated_offensive_rating      |numeric   |
-#'    |offensive_rating                |numeric   |
-#'    |estimated_defensive_rating      |numeric   |
-#'    |defensive_rating                |numeric   |
-#'    |estimated_net_rating            |numeric   |
-#'    |net_rating                      |numeric   |
-#'    |assist_percentage               |numeric   |
-#'    |assist_to_turnover              |numeric   |
-#'    |assist_ratio                    |numeric   |
-#'    |offensive_rebound_percentage    |numeric   |
-#'    |defensive_rebound_percentage    |numeric   |
-#'    |rebound_percentage              |numeric   |
-#'    |turnover_ratio                  |numeric   |
-#'    |effective_field_goal_percentage |numeric   |
-#'    |true_shooting_percentage        |numeric   |
-#'    |usage_percentage                |numeric   |
-#'    |estimated_usage_percentage      |numeric   |
-#'    |estimated_pace                  |numeric   |
-#'    |pace                            |numeric   |
-#'    |pace_per40                      |numeric   |
-#'    |possessions                     |numeric   |
-#'    |pie                             |numeric   |
+#'    |col_name                        |types     |description                                                                      |
+#'    |:-------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                         |character |Unique game identifier.                                                          |
+#'    |away_team_id                    |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                    |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                         |integer   |Unique team identifier.                                                          |
+#'    |team_name                       |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                       |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                    |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                       |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                       |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                      |character |Player's first name.                                                             |
+#'    |family_name                     |character |Player's family / last name.                                                     |
+#'    |name_i                          |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                     |character |URL-safe player identifier.                                                      |
+#'    |position                        |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                         |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                      |character |Jersey number worn by the player.                                                |
+#'    |minutes                         |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |estimated_offensive_rating      |numeric   |Estimated offensive rating (points per 100 possessions estimate).                |
+#'    |offensive_rating                |numeric   |Offensive rating (points per 100 possessions).                                   |
+#'    |estimated_defensive_rating      |numeric   |Estimated defensive rating (points allowed per 100 possessions estimate).        |
+#'    |defensive_rating                |numeric   |Defensive rating (points allowed per 100 possessions).                           |
+#'    |estimated_net_rating            |numeric   |Estimated net rating (off rating - def rating).                                  |
+#'    |net_rating                      |numeric   |Net rating (off rating - def rating).                                            |
+#'    |assist_percentage               |numeric   |Assist percentage (0-1).                                                         |
+#'    |assist_to_turnover              |numeric   |Assist-to-turnover ratio.                                                        |
+#'    |assist_ratio                    |numeric   |Assist ratio (assists per 100 possessions used).                                 |
+#'    |offensive_rebound_percentage    |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |defensive_rebound_percentage    |numeric   |Defensive rebound percentage (0-1).                                              |
+#'    |rebound_percentage              |numeric   |Total rebound percentage (0-1).                                                  |
+#'    |turnover_ratio                  |numeric   |Turnover ratio (turnovers per 100 possessions used).                             |
+#'    |effective_field_goal_percentage |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |true_shooting_percentage        |numeric   |True shooting percentage (0-1).                                                  |
+#'    |usage_percentage                |numeric   |Usage percentage (0-1).                                                          |
+#'    |estimated_usage_percentage      |numeric   |Estimated usage percentage (0-1).                                                |
+#'    |estimated_pace                  |numeric   |Estimated possessions per 48 minutes.                                            |
+#'    |pace                            |numeric   |Possessions per 48 minutes.                                                      |
+#'    |pace_per40                      |numeric   |Pace per40.                                                                      |
+#'    |possessions                     |numeric   |Possessions used.                                                                |
+#'    |pie                             |numeric   |Player Impact Estimate (0-1).                                                    |
 #'
 #'    **away_team_player_advanced**
 #'
 #'
-#'    |col_name                        |types     |
-#'    |:-------------------------------|:---------|
-#'    |game_id                         |character |
-#'    |away_team_id                    |integer   |
-#'    |home_team_id                    |integer   |
-#'    |team_id                         |integer   |
-#'    |team_name                       |character |
-#'    |team_city                       |character |
-#'    |team_tricode                    |character |
-#'    |team_slug                       |character |
-#'    |person_id                       |integer   |
-#'    |first_name                      |character |
-#'    |family_name                     |character |
-#'    |name_i                          |character |
-#'    |player_slug                     |character |
-#'    |position                        |character |
-#'    |comment                         |character |
-#'    |jersey_num                      |character |
-#'    |minutes                         |character |
-#'    |estimated_offensive_rating      |numeric   |
-#'    |offensive_rating                |numeric   |
-#'    |estimated_defensive_rating      |numeric   |
-#'    |defensive_rating                |numeric   |
-#'    |estimated_net_rating            |numeric   |
-#'    |net_rating                      |numeric   |
-#'    |assist_percentage               |numeric   |
-#'    |assist_to_turnover              |numeric   |
-#'    |assist_ratio                    |numeric   |
-#'    |offensive_rebound_percentage    |numeric   |
-#'    |defensive_rebound_percentage    |numeric   |
-#'    |rebound_percentage              |numeric   |
-#'    |turnover_ratio                  |numeric   |
-#'    |effective_field_goal_percentage |numeric   |
-#'    |true_shooting_percentage        |numeric   |
-#'    |usage_percentage                |numeric   |
-#'    |estimated_usage_percentage      |numeric   |
-#'    |estimated_pace                  |numeric   |
-#'    |pace                            |numeric   |
-#'    |pace_per40                      |numeric   |
-#'    |possessions                     |numeric   |
-#'    |pie                             |numeric   |
+#'    |col_name                        |types     |description                                                                      |
+#'    |:-------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                         |character |Unique game identifier.                                                          |
+#'    |away_team_id                    |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                    |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                         |integer   |Unique team identifier.                                                          |
+#'    |team_name                       |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                       |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                    |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                       |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                       |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                      |character |Player's first name.                                                             |
+#'    |family_name                     |character |Player's family / last name.                                                     |
+#'    |name_i                          |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                     |character |URL-safe player identifier.                                                      |
+#'    |position                        |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                         |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                      |character |Jersey number worn by the player.                                                |
+#'    |minutes                         |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |estimated_offensive_rating      |numeric   |Estimated offensive rating (points per 100 possessions estimate).                |
+#'    |offensive_rating                |numeric   |Offensive rating (points per 100 possessions).                                   |
+#'    |estimated_defensive_rating      |numeric   |Estimated defensive rating (points allowed per 100 possessions estimate).        |
+#'    |defensive_rating                |numeric   |Defensive rating (points allowed per 100 possessions).                           |
+#'    |estimated_net_rating            |numeric   |Estimated net rating (off rating - def rating).                                  |
+#'    |net_rating                      |numeric   |Net rating (off rating - def rating).                                            |
+#'    |assist_percentage               |numeric   |Assist percentage (0-1).                                                         |
+#'    |assist_to_turnover              |numeric   |Assist-to-turnover ratio.                                                        |
+#'    |assist_ratio                    |numeric   |Assist ratio (assists per 100 possessions used).                                 |
+#'    |offensive_rebound_percentage    |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |defensive_rebound_percentage    |numeric   |Defensive rebound percentage (0-1).                                              |
+#'    |rebound_percentage              |numeric   |Total rebound percentage (0-1).                                                  |
+#'    |turnover_ratio                  |numeric   |Turnover ratio (turnovers per 100 possessions used).                             |
+#'    |effective_field_goal_percentage |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |true_shooting_percentage        |numeric   |True shooting percentage (0-1).                                                  |
+#'    |usage_percentage                |numeric   |Usage percentage (0-1).                                                          |
+#'    |estimated_usage_percentage      |numeric   |Estimated usage percentage (0-1).                                                |
+#'    |estimated_pace                  |numeric   |Estimated possessions per 48 minutes.                                            |
+#'    |pace                            |numeric   |Possessions per 48 minutes.                                                      |
+#'    |pace_per40                      |numeric   |Pace per40.                                                                      |
+#'    |possessions                     |numeric   |Possessions used.                                                                |
+#'    |pie                             |numeric   |Player Impact Estimate (0-1).                                                    |
 #'
 #'    **home_team_totals_advanced**
 #'
 #'
-#'    |col_name                           |types     |
-#'    |:----------------------------------|:---------|
-#'    |game_id                            |character |
-#'    |away_team_id                       |integer   |
-#'    |home_team_id                       |integer   |
-#'    |team_id                            |integer   |
-#'    |team_name                          |character |
-#'    |team_city                          |character |
-#'    |team_tricode                       |character |
-#'    |team_slug                          |character |
-#'    |minutes                            |character |
-#'    |estimated_offensive_rating         |numeric   |
-#'    |offensive_rating                   |numeric   |
-#'    |estimated_defensive_rating         |numeric   |
-#'    |defensive_rating                   |numeric   |
-#'    |estimated_net_rating               |numeric   |
-#'    |net_rating                         |numeric   |
-#'    |assist_percentage                  |numeric   |
-#'    |assist_to_turnover                 |numeric   |
-#'    |assist_ratio                       |numeric   |
-#'    |offensive_rebound_percentage       |numeric   |
-#'    |defensive_rebound_percentage       |numeric   |
-#'    |rebound_percentage                 |numeric   |
-#'    |estimated_team_turnover_percentage |numeric   |
-#'    |turnover_ratio                     |numeric   |
-#'    |effective_field_goal_percentage    |numeric   |
-#'    |true_shooting_percentage           |numeric   |
-#'    |usage_percentage                   |numeric   |
-#'    |estimated_usage_percentage         |numeric   |
-#'    |estimated_pace                     |numeric   |
-#'    |pace                               |numeric   |
-#'    |pace_per40                         |numeric   |
-#'    |possessions                        |numeric   |
-#'    |pie                                |numeric   |
+#'    |col_name                           |types     |description                                                                      |
+#'    |:----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                            |character |Unique game identifier.                                                          |
+#'    |away_team_id                       |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                       |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                            |integer   |Unique team identifier.                                                          |
+#'    |team_name                          |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                          |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                       |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                          |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                            |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |estimated_offensive_rating         |numeric   |Estimated offensive rating (points per 100 possessions estimate).                |
+#'    |offensive_rating                   |numeric   |Offensive rating (points per 100 possessions).                                   |
+#'    |estimated_defensive_rating         |numeric   |Estimated defensive rating (points allowed per 100 possessions estimate).        |
+#'    |defensive_rating                   |numeric   |Defensive rating (points allowed per 100 possessions).                           |
+#'    |estimated_net_rating               |numeric   |Estimated net rating (off rating - def rating).                                  |
+#'    |net_rating                         |numeric   |Net rating (off rating - def rating).                                            |
+#'    |assist_percentage                  |numeric   |Assist percentage (0-1).                                                         |
+#'    |assist_to_turnover                 |numeric   |Assist-to-turnover ratio.                                                        |
+#'    |assist_ratio                       |numeric   |Assist ratio (assists per 100 possessions used).                                 |
+#'    |offensive_rebound_percentage       |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |defensive_rebound_percentage       |numeric   |Defensive rebound percentage (0-1).                                              |
+#'    |rebound_percentage                 |numeric   |Total rebound percentage (0-1).                                                  |
+#'    |estimated_team_turnover_percentage |numeric   |Estimated team turnover percentage (0-1).                                        |
+#'    |turnover_ratio                     |numeric   |Turnover ratio (turnovers per 100 possessions used).                             |
+#'    |effective_field_goal_percentage    |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |true_shooting_percentage           |numeric   |True shooting percentage (0-1).                                                  |
+#'    |usage_percentage                   |numeric   |Usage percentage (0-1).                                                          |
+#'    |estimated_usage_percentage         |numeric   |Estimated usage percentage (0-1).                                                |
+#'    |estimated_pace                     |numeric   |Estimated possessions per 48 minutes.                                            |
+#'    |pace                               |numeric   |Possessions per 48 minutes.                                                      |
+#'    |pace_per40                         |numeric   |Pace per40.                                                                      |
+#'    |possessions                        |numeric   |Possessions used.                                                                |
+#'    |pie                                |numeric   |Player Impact Estimate (0-1).                                                    |
 #'
 #'    **away_team_totals_advanced**
 #'
 #'
-#'    |col_name                           |types     |
-#'    |:----------------------------------|:---------|
-#'    |game_id                            |character |
-#'    |away_team_id                       |integer   |
-#'    |home_team_id                       |integer   |
-#'    |team_id                            |integer   |
-#'    |team_name                          |character |
-#'    |team_city                          |character |
-#'    |team_tricode                       |character |
-#'    |team_slug                          |character |
-#'    |minutes                            |character |
-#'    |estimated_offensive_rating         |numeric   |
-#'    |offensive_rating                   |numeric   |
-#'    |estimated_defensive_rating         |numeric   |
-#'    |defensive_rating                   |numeric   |
-#'    |estimated_net_rating               |numeric   |
-#'    |net_rating                         |numeric   |
-#'    |assist_percentage                  |numeric   |
-#'    |assist_to_turnover                 |numeric   |
-#'    |assist_ratio                       |numeric   |
-#'    |offensive_rebound_percentage       |numeric   |
-#'    |defensive_rebound_percentage       |numeric   |
-#'    |rebound_percentage                 |numeric   |
-#'    |estimated_team_turnover_percentage |numeric   |
-#'    |turnover_ratio                     |numeric   |
-#'    |effective_field_goal_percentage    |numeric   |
-#'    |true_shooting_percentage           |numeric   |
-#'    |usage_percentage                   |numeric   |
-#'    |estimated_usage_percentage         |numeric   |
-#'    |estimated_pace                     |numeric   |
-#'    |pace                               |numeric   |
-#'    |pace_per40                         |numeric   |
-#'    |possessions                        |numeric   |
-#'    |pie                                |numeric   |
+#'    |col_name                           |types     |description                                                                      |
+#'    |:----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                            |character |Unique game identifier.                                                          |
+#'    |away_team_id                       |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                       |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                            |integer   |Unique team identifier.                                                          |
+#'    |team_name                          |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                          |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                       |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                          |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                            |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |estimated_offensive_rating         |numeric   |Estimated offensive rating (points per 100 possessions estimate).                |
+#'    |offensive_rating                   |numeric   |Offensive rating (points per 100 possessions).                                   |
+#'    |estimated_defensive_rating         |numeric   |Estimated defensive rating (points allowed per 100 possessions estimate).        |
+#'    |defensive_rating                   |numeric   |Defensive rating (points allowed per 100 possessions).                           |
+#'    |estimated_net_rating               |numeric   |Estimated net rating (off rating - def rating).                                  |
+#'    |net_rating                         |numeric   |Net rating (off rating - def rating).                                            |
+#'    |assist_percentage                  |numeric   |Assist percentage (0-1).                                                         |
+#'    |assist_to_turnover                 |numeric   |Assist-to-turnover ratio.                                                        |
+#'    |assist_ratio                       |numeric   |Assist ratio (assists per 100 possessions used).                                 |
+#'    |offensive_rebound_percentage       |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |defensive_rebound_percentage       |numeric   |Defensive rebound percentage (0-1).                                              |
+#'    |rebound_percentage                 |numeric   |Total rebound percentage (0-1).                                                  |
+#'    |estimated_team_turnover_percentage |numeric   |Estimated team turnover percentage (0-1).                                        |
+#'    |turnover_ratio                     |numeric   |Turnover ratio (turnovers per 100 possessions used).                             |
+#'    |effective_field_goal_percentage    |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |true_shooting_percentage           |numeric   |True shooting percentage (0-1).                                                  |
+#'    |usage_percentage                   |numeric   |Usage percentage (0-1).                                                          |
+#'    |estimated_usage_percentage         |numeric   |Estimated usage percentage (0-1).                                                |
+#'    |estimated_pace                     |numeric   |Estimated possessions per 48 minutes.                                            |
+#'    |pace                               |numeric   |Possessions per 48 minutes.                                                      |
+#'    |pace_per40                         |numeric   |Pace per40.                                                                      |
+#'    |possessions                        |numeric   |Possessions used.                                                                |
+#'    |pie                                |numeric   |Player Impact Estimate (0-1).                                                    |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -831,126 +831,126 @@ NULL
 #'    **home_team_player_misc**
 #'
 #'
-#'    |col_name                 |types     |
-#'    |:------------------------|:---------|
-#'    |game_id                  |character |
-#'    |away_team_id             |integer   |
-#'    |home_team_id             |integer   |
-#'    |team_id                  |integer   |
-#'    |team_name                |character |
-#'    |team_city                |character |
-#'    |team_tricode             |character |
-#'    |team_slug                |character |
-#'    |person_id                |integer   |
-#'    |first_name               |character |
-#'    |family_name              |character |
-#'    |name_i                   |character |
-#'    |player_slug              |character |
-#'    |position                 |character |
-#'    |comment                  |character |
-#'    |jersey_num               |character |
-#'    |minutes                  |character |
-#'    |points_off_turnovers     |integer   |
-#'    |points_second_chance     |integer   |
-#'    |points_fast_break        |integer   |
-#'    |points_paint             |integer   |
-#'    |opp_points_off_turnovers |integer   |
-#'    |opp_points_second_chance |integer   |
-#'    |opp_points_fast_break    |integer   |
-#'    |opp_points_paint         |integer   |
-#'    |blocks                   |integer   |
-#'    |blocks_against           |integer   |
-#'    |fouls_personal           |integer   |
-#'    |fouls_drawn              |integer   |
+#'    |col_name                 |types     |description                                                                      |
+#'    |:------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                  |character |Unique game identifier.                                                          |
+#'    |away_team_id             |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id             |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                  |integer   |Unique team identifier.                                                          |
+#'    |team_name                |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode             |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name               |character |Player's first name.                                                             |
+#'    |family_name              |character |Player's family / last name.                                                     |
+#'    |name_i                   |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug              |character |URL-safe player identifier.                                                      |
+#'    |position                 |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                  |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num               |character |Jersey number worn by the player.                                                |
+#'    |minutes                  |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points_off_turnovers     |integer   |Points scored off opponent turnovers.                                            |
+#'    |points_second_chance     |integer   |Second-chance points scored.                                                     |
+#'    |points_fast_break        |integer   |Fast-break points scored.                                                        |
+#'    |points_paint             |integer   |Points scored in the paint.                                                      |
+#'    |opp_points_off_turnovers |integer   |Opponent points off turnovers.                                                   |
+#'    |opp_points_second_chance |integer   |Opponent points second chance.                                                   |
+#'    |opp_points_fast_break    |integer   |Opponent points fast break.                                                      |
+#'    |opp_points_paint         |integer   |Opponent points paint.                                                           |
+#'    |blocks                   |integer   |Total blocks.                                                                    |
+#'    |blocks_against           |integer   |Shots blocked by opponents while attempting.                                     |
+#'    |fouls_personal           |integer   |Personal fouls.                                                                  |
+#'    |fouls_drawn              |integer   |Personal fouls drawn (by opponent's actions).                                    |
 #'
 #'    **away_team_player_misc**
 #'
 #'
-#'    |col_name                 |types     |
-#'    |:------------------------|:---------|
-#'    |game_id                  |character |
-#'    |away_team_id             |integer   |
-#'    |home_team_id             |integer   |
-#'    |team_id                  |integer   |
-#'    |team_name                |character |
-#'    |team_city                |character |
-#'    |team_tricode             |character |
-#'    |team_slug                |character |
-#'    |person_id                |integer   |
-#'    |first_name               |character |
-#'    |family_name              |character |
-#'    |name_i                   |character |
-#'    |player_slug              |character |
-#'    |position                 |character |
-#'    |comment                  |character |
-#'    |jersey_num               |character |
-#'    |minutes                  |character |
-#'    |points_off_turnovers     |integer   |
-#'    |points_second_chance     |integer   |
-#'    |points_fast_break        |integer   |
-#'    |points_paint             |integer   |
-#'    |opp_points_off_turnovers |integer   |
-#'    |opp_points_second_chance |integer   |
-#'    |opp_points_fast_break    |integer   |
-#'    |opp_points_paint         |integer   |
-#'    |blocks                   |integer   |
-#'    |blocks_against           |integer   |
-#'    |fouls_personal           |integer   |
-#'    |fouls_drawn              |integer   |
+#'    |col_name                 |types     |description                                                                      |
+#'    |:------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                  |character |Unique game identifier.                                                          |
+#'    |away_team_id             |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id             |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                  |integer   |Unique team identifier.                                                          |
+#'    |team_name                |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode             |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name               |character |Player's first name.                                                             |
+#'    |family_name              |character |Player's family / last name.                                                     |
+#'    |name_i                   |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug              |character |URL-safe player identifier.                                                      |
+#'    |position                 |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                  |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num               |character |Jersey number worn by the player.                                                |
+#'    |minutes                  |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points_off_turnovers     |integer   |Points scored off opponent turnovers.                                            |
+#'    |points_second_chance     |integer   |Second-chance points scored.                                                     |
+#'    |points_fast_break        |integer   |Fast-break points scored.                                                        |
+#'    |points_paint             |integer   |Points scored in the paint.                                                      |
+#'    |opp_points_off_turnovers |integer   |Opponent points off turnovers.                                                   |
+#'    |opp_points_second_chance |integer   |Opponent points second chance.                                                   |
+#'    |opp_points_fast_break    |integer   |Opponent points fast break.                                                      |
+#'    |opp_points_paint         |integer   |Opponent points paint.                                                           |
+#'    |blocks                   |integer   |Total blocks.                                                                    |
+#'    |blocks_against           |integer   |Shots blocked by opponents while attempting.                                     |
+#'    |fouls_personal           |integer   |Personal fouls.                                                                  |
+#'    |fouls_drawn              |integer   |Personal fouls drawn (by opponent's actions).                                    |
 #'
 #'    **home_team_totals_misc**
 #'
 #'
-#'    |col_name                 |types     |
-#'    |:------------------------|:---------|
-#'    |game_id                  |character |
-#'    |away_team_id             |integer   |
-#'    |home_team_id             |integer   |
-#'    |team_id                  |integer   |
-#'    |team_name                |character |
-#'    |team_city                |character |
-#'    |team_tricode             |character |
-#'    |team_slug                |character |
-#'    |minutes                  |character |
-#'    |points_off_turnovers     |integer   |
-#'    |points_second_chance     |integer   |
-#'    |points_fast_break        |integer   |
-#'    |points_paint             |integer   |
-#'    |opp_points_off_turnovers |integer   |
-#'    |opp_points_second_chance |integer   |
-#'    |opp_points_fast_break    |integer   |
-#'    |opp_points_paint         |integer   |
-#'    |blocks                   |integer   |
-#'    |blocks_against           |integer   |
-#'    |fouls_personal           |integer   |
-#'    |fouls_drawn              |integer   |
+#'    |col_name                 |types     |description                                                                      |
+#'    |:------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                  |character |Unique game identifier.                                                          |
+#'    |away_team_id             |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id             |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                  |integer   |Unique team identifier.                                                          |
+#'    |team_name                |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode             |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                  |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points_off_turnovers     |integer   |Points scored off opponent turnovers.                                            |
+#'    |points_second_chance     |integer   |Second-chance points scored.                                                     |
+#'    |points_fast_break        |integer   |Fast-break points scored.                                                        |
+#'    |points_paint             |integer   |Points scored in the paint.                                                      |
+#'    |opp_points_off_turnovers |integer   |Opponent points off turnovers.                                                   |
+#'    |opp_points_second_chance |integer   |Opponent points second chance.                                                   |
+#'    |opp_points_fast_break    |integer   |Opponent points fast break.                                                      |
+#'    |opp_points_paint         |integer   |Opponent points paint.                                                           |
+#'    |blocks                   |integer   |Total blocks.                                                                    |
+#'    |blocks_against           |integer   |Shots blocked by opponents while attempting.                                     |
+#'    |fouls_personal           |integer   |Personal fouls.                                                                  |
+#'    |fouls_drawn              |integer   |Personal fouls drawn (by opponent's actions).                                    |
 #'
 #'    **away_team_totals_misc**
 #'
 #'
-#'    |col_name                 |types     |
-#'    |:------------------------|:---------|
-#'    |game_id                  |character |
-#'    |away_team_id             |integer   |
-#'    |home_team_id             |integer   |
-#'    |team_id                  |integer   |
-#'    |team_name                |character |
-#'    |team_city                |character |
-#'    |team_tricode             |character |
-#'    |team_slug                |character |
-#'    |minutes                  |character |
-#'    |points_off_turnovers     |integer   |
-#'    |points_second_chance     |integer   |
-#'    |points_fast_break        |integer   |
-#'    |points_paint             |integer   |
-#'    |opp_points_off_turnovers |integer   |
-#'    |opp_points_second_chance |integer   |
-#'    |opp_points_fast_break    |integer   |
-#'    |opp_points_paint         |integer   |
-#'    |blocks                   |integer   |
-#'    |blocks_against           |integer   |
-#'    |fouls_personal           |integer   |
-#'    |fouls_drawn              |integer   |
+#'    |col_name                 |types     |description                                                                      |
+#'    |:------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                  |character |Unique game identifier.                                                          |
+#'    |away_team_id             |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id             |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                  |integer   |Unique team identifier.                                                          |
+#'    |team_name                |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode             |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                  |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points_off_turnovers     |integer   |Points scored off opponent turnovers.                                            |
+#'    |points_second_chance     |integer   |Second-chance points scored.                                                     |
+#'    |points_fast_break        |integer   |Fast-break points scored.                                                        |
+#'    |points_paint             |integer   |Points scored in the paint.                                                      |
+#'    |opp_points_off_turnovers |integer   |Opponent points off turnovers.                                                   |
+#'    |opp_points_second_chance |integer   |Opponent points second chance.                                                   |
+#'    |opp_points_fast_break    |integer   |Opponent points fast break.                                                      |
+#'    |opp_points_paint         |integer   |Opponent points paint.                                                           |
+#'    |blocks                   |integer   |Total blocks.                                                                    |
+#'    |blocks_against           |integer   |Shots blocked by opponents while attempting.                                     |
+#'    |fouls_personal           |integer   |Personal fouls.                                                                  |
+#'    |fouls_drawn              |integer   |Personal fouls drawn (by opponent's actions).                                    |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1112,138 +1112,138 @@ NULL
 #'    **home_team_player_scoring**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |person_id                           |integer   |
-#'    |first_name                          |character |
-#'    |family_name                         |character |
-#'    |name_i                              |character |
-#'    |player_slug                         |character |
-#'    |position                            |character |
-#'    |comment                             |character |
-#'    |jersey_num                          |character |
-#'    |minutes                             |character |
-#'    |percentage_field_goals_attempted2pt |numeric   |
-#'    |percentage_field_goals_attempted3pt |numeric   |
-#'    |percentage_points2pt                |numeric   |
-#'    |percentage_points_midrange2pt       |numeric   |
-#'    |percentage_points3pt                |numeric   |
-#'    |percentage_points_fast_break        |numeric   |
-#'    |percentage_points_free_throw        |numeric   |
-#'    |percentage_points_off_turnovers     |numeric   |
-#'    |percentage_points_paint             |numeric   |
-#'    |percentage_assisted2pt              |numeric   |
-#'    |percentage_unassisted2pt            |numeric   |
-#'    |percentage_assisted3pt              |numeric   |
-#'    |percentage_unassisted3pt            |numeric   |
-#'    |percentage_assisted_fgm             |numeric   |
-#'    |percentage_unassisted_fgm           |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                           |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                          |character |Player's first name.                                                             |
+#'    |family_name                         |character |Player's family / last name.                                                     |
+#'    |name_i                              |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                         |character |URL-safe player identifier.                                                      |
+#'    |position                            |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                             |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                          |character |Jersey number worn by the player.                                                |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |percentage_field_goals_attempted2pt |numeric   |Percentage field goals attempted2pt.                                             |
+#'    |percentage_field_goals_attempted3pt |numeric   |Percentage field goals attempted3pt.                                             |
+#'    |percentage_points2pt                |numeric   |Percentage points2pt.                                                            |
+#'    |percentage_points_midrange2pt       |numeric   |Percentage points midrange2pt.                                                   |
+#'    |percentage_points3pt                |numeric   |Percentage points3pt.                                                            |
+#'    |percentage_points_fast_break        |numeric   |Percentage points fast break.                                                    |
+#'    |percentage_points_free_throw        |numeric   |Percentage points free throw.                                                    |
+#'    |percentage_points_off_turnovers     |numeric   |Percentage points off turnovers.                                                 |
+#'    |percentage_points_paint             |numeric   |Percentage points paint.                                                         |
+#'    |percentage_assisted2pt              |numeric   |Percentage assisted2pt.                                                          |
+#'    |percentage_unassisted2pt            |numeric   |Percentage unassisted2pt.                                                        |
+#'    |percentage_assisted3pt              |numeric   |Percentage assisted3pt.                                                          |
+#'    |percentage_unassisted3pt            |numeric   |Percentage unassisted3pt.                                                        |
+#'    |percentage_assisted_fgm             |numeric   |Percentage assisted fgm.                                                         |
+#'    |percentage_unassisted_fgm           |numeric   |Percentage unassisted fgm.                                                       |
 #'
 #'    **away_team_player_scoring**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |person_id                           |integer   |
-#'    |first_name                          |character |
-#'    |family_name                         |character |
-#'    |name_i                              |character |
-#'    |player_slug                         |character |
-#'    |position                            |character |
-#'    |comment                             |character |
-#'    |jersey_num                          |character |
-#'    |minutes                             |character |
-#'    |percentage_field_goals_attempted2pt |numeric   |
-#'    |percentage_field_goals_attempted3pt |numeric   |
-#'    |percentage_points2pt                |numeric   |
-#'    |percentage_points_midrange2pt       |numeric   |
-#'    |percentage_points3pt                |numeric   |
-#'    |percentage_points_fast_break        |numeric   |
-#'    |percentage_points_free_throw        |numeric   |
-#'    |percentage_points_off_turnovers     |numeric   |
-#'    |percentage_points_paint             |numeric   |
-#'    |percentage_assisted2pt              |numeric   |
-#'    |percentage_unassisted2pt            |numeric   |
-#'    |percentage_assisted3pt              |numeric   |
-#'    |percentage_unassisted3pt            |numeric   |
-#'    |percentage_assisted_fgm             |numeric   |
-#'    |percentage_unassisted_fgm           |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                           |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                          |character |Player's first name.                                                             |
+#'    |family_name                         |character |Player's family / last name.                                                     |
+#'    |name_i                              |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                         |character |URL-safe player identifier.                                                      |
+#'    |position                            |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                             |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                          |character |Jersey number worn by the player.                                                |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |percentage_field_goals_attempted2pt |numeric   |Percentage field goals attempted2pt.                                             |
+#'    |percentage_field_goals_attempted3pt |numeric   |Percentage field goals attempted3pt.                                             |
+#'    |percentage_points2pt                |numeric   |Percentage points2pt.                                                            |
+#'    |percentage_points_midrange2pt       |numeric   |Percentage points midrange2pt.                                                   |
+#'    |percentage_points3pt                |numeric   |Percentage points3pt.                                                            |
+#'    |percentage_points_fast_break        |numeric   |Percentage points fast break.                                                    |
+#'    |percentage_points_free_throw        |numeric   |Percentage points free throw.                                                    |
+#'    |percentage_points_off_turnovers     |numeric   |Percentage points off turnovers.                                                 |
+#'    |percentage_points_paint             |numeric   |Percentage points paint.                                                         |
+#'    |percentage_assisted2pt              |numeric   |Percentage assisted2pt.                                                          |
+#'    |percentage_unassisted2pt            |numeric   |Percentage unassisted2pt.                                                        |
+#'    |percentage_assisted3pt              |numeric   |Percentage assisted3pt.                                                          |
+#'    |percentage_unassisted3pt            |numeric   |Percentage unassisted3pt.                                                        |
+#'    |percentage_assisted_fgm             |numeric   |Percentage assisted fgm.                                                         |
+#'    |percentage_unassisted_fgm           |numeric   |Percentage unassisted fgm.                                                       |
 #'
 #'    **home_team_totals_scoring**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |minutes                             |character |
-#'    |percentage_field_goals_attempted2pt |numeric   |
-#'    |percentage_field_goals_attempted3pt |numeric   |
-#'    |percentage_points2pt                |numeric   |
-#'    |percentage_points_midrange2pt       |numeric   |
-#'    |percentage_points3pt                |numeric   |
-#'    |percentage_points_fast_break        |numeric   |
-#'    |percentage_points_free_throw        |numeric   |
-#'    |percentage_points_off_turnovers     |numeric   |
-#'    |percentage_points_paint             |numeric   |
-#'    |percentage_assisted2pt              |numeric   |
-#'    |percentage_unassisted2pt            |numeric   |
-#'    |percentage_assisted3pt              |numeric   |
-#'    |percentage_unassisted3pt            |numeric   |
-#'    |percentage_assisted_fgm             |numeric   |
-#'    |percentage_unassisted_fgm           |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |percentage_field_goals_attempted2pt |numeric   |Percentage field goals attempted2pt.                                             |
+#'    |percentage_field_goals_attempted3pt |numeric   |Percentage field goals attempted3pt.                                             |
+#'    |percentage_points2pt                |numeric   |Percentage points2pt.                                                            |
+#'    |percentage_points_midrange2pt       |numeric   |Percentage points midrange2pt.                                                   |
+#'    |percentage_points3pt                |numeric   |Percentage points3pt.                                                            |
+#'    |percentage_points_fast_break        |numeric   |Percentage points fast break.                                                    |
+#'    |percentage_points_free_throw        |numeric   |Percentage points free throw.                                                    |
+#'    |percentage_points_off_turnovers     |numeric   |Percentage points off turnovers.                                                 |
+#'    |percentage_points_paint             |numeric   |Percentage points paint.                                                         |
+#'    |percentage_assisted2pt              |numeric   |Percentage assisted2pt.                                                          |
+#'    |percentage_unassisted2pt            |numeric   |Percentage unassisted2pt.                                                        |
+#'    |percentage_assisted3pt              |numeric   |Percentage assisted3pt.                                                          |
+#'    |percentage_unassisted3pt            |numeric   |Percentage unassisted3pt.                                                        |
+#'    |percentage_assisted_fgm             |numeric   |Percentage assisted fgm.                                                         |
+#'    |percentage_unassisted_fgm           |numeric   |Percentage unassisted fgm.                                                       |
 #'
 #'    **away_team_totals_scoring**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |minutes                             |character |
-#'    |percentage_field_goals_attempted2pt |numeric   |
-#'    |percentage_field_goals_attempted3pt |numeric   |
-#'    |percentage_points2pt                |numeric   |
-#'    |percentage_points_midrange2pt       |numeric   |
-#'    |percentage_points3pt                |numeric   |
-#'    |percentage_points_fast_break        |numeric   |
-#'    |percentage_points_free_throw        |numeric   |
-#'    |percentage_points_off_turnovers     |numeric   |
-#'    |percentage_points_paint             |numeric   |
-#'    |percentage_assisted2pt              |numeric   |
-#'    |percentage_unassisted2pt            |numeric   |
-#'    |percentage_assisted3pt              |numeric   |
-#'    |percentage_unassisted3pt            |numeric   |
-#'    |percentage_assisted_fgm             |numeric   |
-#'    |percentage_unassisted_fgm           |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |percentage_field_goals_attempted2pt |numeric   |Percentage field goals attempted2pt.                                             |
+#'    |percentage_field_goals_attempted3pt |numeric   |Percentage field goals attempted3pt.                                             |
+#'    |percentage_points2pt                |numeric   |Percentage points2pt.                                                            |
+#'    |percentage_points_midrange2pt       |numeric   |Percentage points midrange2pt.                                                   |
+#'    |percentage_points3pt                |numeric   |Percentage points3pt.                                                            |
+#'    |percentage_points_fast_break        |numeric   |Percentage points fast break.                                                    |
+#'    |percentage_points_free_throw        |numeric   |Percentage points free throw.                                                    |
+#'    |percentage_points_off_turnovers     |numeric   |Percentage points off turnovers.                                                 |
+#'    |percentage_points_paint             |numeric   |Percentage points paint.                                                         |
+#'    |percentage_assisted2pt              |numeric   |Percentage assisted2pt.                                                          |
+#'    |percentage_unassisted2pt            |numeric   |Percentage unassisted2pt.                                                        |
+#'    |percentage_assisted3pt              |numeric   |Percentage assisted3pt.                                                          |
+#'    |percentage_unassisted3pt            |numeric   |Percentage unassisted3pt.                                                        |
+#'    |percentage_assisted_fgm             |numeric   |Percentage assisted fgm.                                                         |
+#'    |percentage_unassisted_fgm           |numeric   |Percentage unassisted fgm.                                                       |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1406,110 +1406,110 @@ NULL
 #'    **home_team_player_four_factors**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |person_id                           |integer   |
-#'    |first_name                          |character |
-#'    |family_name                         |character |
-#'    |name_i                              |character |
-#'    |player_slug                         |character |
-#'    |position                            |character |
-#'    |comment                             |character |
-#'    |jersey_num                          |character |
-#'    |minutes                             |character |
-#'    |effective_field_goal_percentage     |numeric   |
-#'    |free_throw_attempt_rate             |numeric   |
-#'    |team_turnover_percentage            |numeric   |
-#'    |offensive_rebound_percentage        |numeric   |
-#'    |opp_effective_field_goal_percentage |numeric   |
-#'    |opp_free_throw_attempt_rate         |numeric   |
-#'    |opp_team_turnover_percentage        |numeric   |
-#'    |opp_offensive_rebound_percentage    |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                           |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                          |character |Player's first name.                                                             |
+#'    |family_name                         |character |Player's family / last name.                                                     |
+#'    |name_i                              |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                         |character |URL-safe player identifier.                                                      |
+#'    |position                            |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                             |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                          |character |Jersey number worn by the player.                                                |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |effective_field_goal_percentage     |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |free_throw_attempt_rate             |numeric   |Free throw attempt rate (FTA / FGA).                                             |
+#'    |team_turnover_percentage            |numeric   |Team turnover percentage (0-1).                                                  |
+#'    |offensive_rebound_percentage        |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |opp_effective_field_goal_percentage |numeric   |Opponent effective field goal percentage (0-1 decimal).                          |
+#'    |opp_free_throw_attempt_rate         |numeric   |Opponent free throw attempt rate.                                                |
+#'    |opp_team_turnover_percentage        |numeric   |Opponent team turnover percentage (0-1 decimal).                                 |
+#'    |opp_offensive_rebound_percentage    |numeric   |Opponent offensive rebound percentage (0-1 decimal).                             |
 #'
 #'    **away_team_player_four_factors**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |person_id                           |integer   |
-#'    |first_name                          |character |
-#'    |family_name                         |character |
-#'    |name_i                              |character |
-#'    |player_slug                         |character |
-#'    |position                            |character |
-#'    |comment                             |character |
-#'    |jersey_num                          |character |
-#'    |minutes                             |character |
-#'    |effective_field_goal_percentage     |numeric   |
-#'    |free_throw_attempt_rate             |numeric   |
-#'    |team_turnover_percentage            |numeric   |
-#'    |offensive_rebound_percentage        |numeric   |
-#'    |opp_effective_field_goal_percentage |numeric   |
-#'    |opp_free_throw_attempt_rate         |numeric   |
-#'    |opp_team_turnover_percentage        |numeric   |
-#'    |opp_offensive_rebound_percentage    |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                           |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                          |character |Player's first name.                                                             |
+#'    |family_name                         |character |Player's family / last name.                                                     |
+#'    |name_i                              |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                         |character |URL-safe player identifier.                                                      |
+#'    |position                            |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                             |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                          |character |Jersey number worn by the player.                                                |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |effective_field_goal_percentage     |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |free_throw_attempt_rate             |numeric   |Free throw attempt rate (FTA / FGA).                                             |
+#'    |team_turnover_percentage            |numeric   |Team turnover percentage (0-1).                                                  |
+#'    |offensive_rebound_percentage        |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |opp_effective_field_goal_percentage |numeric   |Opponent effective field goal percentage (0-1 decimal).                          |
+#'    |opp_free_throw_attempt_rate         |numeric   |Opponent free throw attempt rate.                                                |
+#'    |opp_team_turnover_percentage        |numeric   |Opponent team turnover percentage (0-1 decimal).                                 |
+#'    |opp_offensive_rebound_percentage    |numeric   |Opponent offensive rebound percentage (0-1 decimal).                             |
 #'
 #'    **home_team_totals_four_factors**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |minutes                             |character |
-#'    |effective_field_goal_percentage     |numeric   |
-#'    |free_throw_attempt_rate             |numeric   |
-#'    |team_turnover_percentage            |numeric   |
-#'    |offensive_rebound_percentage        |numeric   |
-#'    |opp_effective_field_goal_percentage |numeric   |
-#'    |opp_free_throw_attempt_rate         |numeric   |
-#'    |opp_team_turnover_percentage        |numeric   |
-#'    |opp_offensive_rebound_percentage    |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |effective_field_goal_percentage     |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |free_throw_attempt_rate             |numeric   |Free throw attempt rate (FTA / FGA).                                             |
+#'    |team_turnover_percentage            |numeric   |Team turnover percentage (0-1).                                                  |
+#'    |offensive_rebound_percentage        |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |opp_effective_field_goal_percentage |numeric   |Opponent effective field goal percentage (0-1 decimal).                          |
+#'    |opp_free_throw_attempt_rate         |numeric   |Opponent free throw attempt rate.                                                |
+#'    |opp_team_turnover_percentage        |numeric   |Opponent team turnover percentage (0-1 decimal).                                 |
+#'    |opp_offensive_rebound_percentage    |numeric   |Opponent offensive rebound percentage (0-1 decimal).                             |
 #'
 #'    **away_team_totals_four_factors**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |minutes                             |character |
-#'    |effective_field_goal_percentage     |numeric   |
-#'    |free_throw_attempt_rate             |numeric   |
-#'    |team_turnover_percentage            |numeric   |
-#'    |offensive_rebound_percentage        |numeric   |
-#'    |opp_effective_field_goal_percentage |numeric   |
-#'    |opp_free_throw_attempt_rate         |numeric   |
-#'    |opp_team_turnover_percentage        |numeric   |
-#'    |opp_offensive_rebound_percentage    |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |effective_field_goal_percentage     |numeric   |Effective field goal percentage (0-1).                                           |
+#'    |free_throw_attempt_rate             |numeric   |Free throw attempt rate (FTA / FGA).                                             |
+#'    |team_turnover_percentage            |numeric   |Team turnover percentage (0-1).                                                  |
+#'    |offensive_rebound_percentage        |numeric   |Offensive rebound percentage (0-1).                                              |
+#'    |opp_effective_field_goal_percentage |numeric   |Opponent effective field goal percentage (0-1 decimal).                          |
+#'    |opp_free_throw_attempt_rate         |numeric   |Opponent free throw attempt rate.                                                |
+#'    |opp_team_turnover_percentage        |numeric   |Opponent team turnover percentage (0-1 decimal).                                 |
+#'    |opp_offensive_rebound_percentage    |numeric   |Opponent offensive rebound percentage (0-1 decimal).                             |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1671,156 +1671,156 @@ NULL
 #'    **home_team_player_player_track**
 #'
 #'
-#'    |col_name                              |types     |
-#'    |:-------------------------------------|:---------|
-#'    |game_id                               |character |
-#'    |away_team_id                          |integer   |
-#'    |home_team_id                          |integer   |
-#'    |team_id                               |integer   |
-#'    |team_name                             |character |
-#'    |team_city                             |character |
-#'    |team_tricode                          |character |
-#'    |team_slug                             |character |
-#'    |person_id                             |integer   |
-#'    |first_name                            |character |
-#'    |family_name                           |character |
-#'    |name_i                                |character |
-#'    |player_slug                           |character |
-#'    |position                              |character |
-#'    |comment                               |character |
-#'    |jersey_num                            |character |
-#'    |minutes                               |character |
-#'    |speed                                 |numeric   |
-#'    |distance                              |numeric   |
-#'    |rebound_chances_offensive             |integer   |
-#'    |rebound_chances_defensive             |integer   |
-#'    |rebound_chances_total                 |integer   |
-#'    |touches                               |integer   |
-#'    |secondary_assists                     |integer   |
-#'    |free_throw_assists                    |integer   |
-#'    |passes                                |integer   |
-#'    |assists                               |integer   |
-#'    |contested_field_goals_made            |integer   |
-#'    |contested_field_goals_attempted       |integer   |
-#'    |contested_field_goal_percentage       |numeric   |
-#'    |uncontested_field_goals_made          |integer   |
-#'    |uncontested_field_goals_attempted     |integer   |
-#'    |uncontested_field_goals_percentage    |numeric   |
-#'    |field_goal_percentage                 |numeric   |
-#'    |defended_at_rim_field_goals_made      |integer   |
-#'    |defended_at_rim_field_goals_attempted |integer   |
-#'    |defended_at_rim_field_goal_percentage |numeric   |
+#'    |col_name                              |types     |description                                                                      |
+#'    |:-------------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                               |character |Unique game identifier.                                                          |
+#'    |away_team_id                          |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                          |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                               |integer   |Unique team identifier.                                                          |
+#'    |team_name                             |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                             |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                          |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                             |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                             |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                            |character |Player's first name.                                                             |
+#'    |family_name                           |character |Player's family / last name.                                                     |
+#'    |name_i                                |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                           |character |URL-safe player identifier.                                                      |
+#'    |position                              |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                               |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                            |character |Jersey number worn by the player.                                                |
+#'    |minutes                               |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |speed                                 |numeric   |Speed.                                                                           |
+#'    |distance                              |numeric   |Distance value (in feet for shot data; otherwise context-dependent).             |
+#'    |rebound_chances_offensive             |integer   |Rebound chances offensive.                                                       |
+#'    |rebound_chances_defensive             |integer   |Rebound chances defensive.                                                       |
+#'    |rebound_chances_total                 |integer   |Rebound chances total.                                                           |
+#'    |touches                               |integer   |Touches.                                                                         |
+#'    |secondary_assists                     |integer   |Secondary assists.                                                               |
+#'    |free_throw_assists                    |integer   |Free throw assists (passes that led to a fouled shot attempt).                   |
+#'    |passes                                |integer   |Passes.                                                                          |
+#'    |assists                               |integer   |Total assists.                                                                   |
+#'    |contested_field_goals_made            |integer   |Contested field goals made.                                                      |
+#'    |contested_field_goals_attempted       |integer   |Contested field goal attempts.                                                   |
+#'    |contested_field_goal_percentage       |numeric   |Contested field goal percentage (0-1).                                           |
+#'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
+#'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
+#'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
+#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
+#'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
+#'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
 #'
 #'    **away_team_player_player_track**
 #'
 #'
-#'    |col_name                              |types     |
-#'    |:-------------------------------------|:---------|
-#'    |game_id                               |character |
-#'    |away_team_id                          |integer   |
-#'    |home_team_id                          |integer   |
-#'    |team_id                               |integer   |
-#'    |team_name                             |character |
-#'    |team_city                             |character |
-#'    |team_tricode                          |character |
-#'    |team_slug                             |character |
-#'    |person_id                             |integer   |
-#'    |first_name                            |character |
-#'    |family_name                           |character |
-#'    |name_i                                |character |
-#'    |player_slug                           |character |
-#'    |position                              |character |
-#'    |comment                               |character |
-#'    |jersey_num                            |character |
-#'    |minutes                               |character |
-#'    |speed                                 |numeric   |
-#'    |distance                              |numeric   |
-#'    |rebound_chances_offensive             |integer   |
-#'    |rebound_chances_defensive             |integer   |
-#'    |rebound_chances_total                 |integer   |
-#'    |touches                               |integer   |
-#'    |secondary_assists                     |integer   |
-#'    |free_throw_assists                    |integer   |
-#'    |passes                                |integer   |
-#'    |assists                               |integer   |
-#'    |contested_field_goals_made            |integer   |
-#'    |contested_field_goals_attempted       |integer   |
-#'    |contested_field_goal_percentage       |numeric   |
-#'    |uncontested_field_goals_made          |integer   |
-#'    |uncontested_field_goals_attempted     |integer   |
-#'    |uncontested_field_goals_percentage    |numeric   |
-#'    |field_goal_percentage                 |numeric   |
-#'    |defended_at_rim_field_goals_made      |integer   |
-#'    |defended_at_rim_field_goals_attempted |integer   |
-#'    |defended_at_rim_field_goal_percentage |numeric   |
+#'    |col_name                              |types     |description                                                                      |
+#'    |:-------------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                               |character |Unique game identifier.                                                          |
+#'    |away_team_id                          |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                          |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                               |integer   |Unique team identifier.                                                          |
+#'    |team_name                             |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                             |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                          |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                             |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                             |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                            |character |Player's first name.                                                             |
+#'    |family_name                           |character |Player's family / last name.                                                     |
+#'    |name_i                                |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                           |character |URL-safe player identifier.                                                      |
+#'    |position                              |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                               |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                            |character |Jersey number worn by the player.                                                |
+#'    |minutes                               |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |speed                                 |numeric   |Speed.                                                                           |
+#'    |distance                              |numeric   |Distance value (in feet for shot data; otherwise context-dependent).             |
+#'    |rebound_chances_offensive             |integer   |Rebound chances offensive.                                                       |
+#'    |rebound_chances_defensive             |integer   |Rebound chances defensive.                                                       |
+#'    |rebound_chances_total                 |integer   |Rebound chances total.                                                           |
+#'    |touches                               |integer   |Touches.                                                                         |
+#'    |secondary_assists                     |integer   |Secondary assists.                                                               |
+#'    |free_throw_assists                    |integer   |Free throw assists (passes that led to a fouled shot attempt).                   |
+#'    |passes                                |integer   |Passes.                                                                          |
+#'    |assists                               |integer   |Total assists.                                                                   |
+#'    |contested_field_goals_made            |integer   |Contested field goals made.                                                      |
+#'    |contested_field_goals_attempted       |integer   |Contested field goal attempts.                                                   |
+#'    |contested_field_goal_percentage       |numeric   |Contested field goal percentage (0-1).                                           |
+#'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
+#'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
+#'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
+#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
+#'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
+#'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
 #'
 #'    **home_team_totals_player_track**
 #'
 #'
-#'    |col_name                              |types     |
-#'    |:-------------------------------------|:---------|
-#'    |game_id                               |character |
-#'    |away_team_id                          |integer   |
-#'    |home_team_id                          |integer   |
-#'    |team_id                               |integer   |
-#'    |team_name                             |character |
-#'    |team_city                             |character |
-#'    |team_tricode                          |character |
-#'    |team_slug                             |character |
-#'    |minutes                               |character |
-#'    |distance                              |numeric   |
-#'    |rebound_chances_offensive             |integer   |
-#'    |rebound_chances_defensive             |integer   |
-#'    |rebound_chances_total                 |integer   |
-#'    |touches                               |integer   |
-#'    |secondary_assists                     |integer   |
-#'    |free_throw_assists                    |integer   |
-#'    |passes                                |integer   |
-#'    |assists                               |integer   |
-#'    |contested_field_goals_made            |integer   |
-#'    |contested_field_goals_attempted       |integer   |
-#'    |contested_field_goal_percentage       |numeric   |
-#'    |uncontested_field_goals_made          |integer   |
-#'    |uncontested_field_goals_attempted     |integer   |
-#'    |uncontested_field_goals_percentage    |numeric   |
-#'    |field_goal_percentage                 |numeric   |
-#'    |defended_at_rim_field_goals_made      |integer   |
-#'    |defended_at_rim_field_goals_attempted |integer   |
-#'    |defended_at_rim_field_goal_percentage |numeric   |
+#'    |col_name                              |types     |description                                                                      |
+#'    |:-------------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                               |character |Unique game identifier.                                                          |
+#'    |away_team_id                          |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                          |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                               |integer   |Unique team identifier.                                                          |
+#'    |team_name                             |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                             |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                          |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                             |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                               |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |distance                              |numeric   |Distance value (in feet for shot data; otherwise context-dependent).             |
+#'    |rebound_chances_offensive             |integer   |Rebound chances offensive.                                                       |
+#'    |rebound_chances_defensive             |integer   |Rebound chances defensive.                                                       |
+#'    |rebound_chances_total                 |integer   |Rebound chances total.                                                           |
+#'    |touches                               |integer   |Touches.                                                                         |
+#'    |secondary_assists                     |integer   |Secondary assists.                                                               |
+#'    |free_throw_assists                    |integer   |Free throw assists (passes that led to a fouled shot attempt).                   |
+#'    |passes                                |integer   |Passes.                                                                          |
+#'    |assists                               |integer   |Total assists.                                                                   |
+#'    |contested_field_goals_made            |integer   |Contested field goals made.                                                      |
+#'    |contested_field_goals_attempted       |integer   |Contested field goal attempts.                                                   |
+#'    |contested_field_goal_percentage       |numeric   |Contested field goal percentage (0-1).                                           |
+#'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
+#'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
+#'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
+#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
+#'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
+#'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
 #'
 #'    **away_team_totals_player_track**
 #'
 #'
-#'    |col_name                              |types     |
-#'    |:-------------------------------------|:---------|
-#'    |game_id                               |character |
-#'    |away_team_id                          |integer   |
-#'    |home_team_id                          |integer   |
-#'    |team_id                               |integer   |
-#'    |team_name                             |character |
-#'    |team_city                             |character |
-#'    |team_tricode                          |character |
-#'    |team_slug                             |character |
-#'    |minutes                               |character |
-#'    |distance                              |numeric   |
-#'    |rebound_chances_offensive             |integer   |
-#'    |rebound_chances_defensive             |integer   |
-#'    |rebound_chances_total                 |integer   |
-#'    |touches                               |integer   |
-#'    |secondary_assists                     |integer   |
-#'    |free_throw_assists                    |integer   |
-#'    |passes                                |integer   |
-#'    |assists                               |integer   |
-#'    |contested_field_goals_made            |integer   |
-#'    |contested_field_goals_attempted       |integer   |
-#'    |contested_field_goal_percentage       |numeric   |
-#'    |uncontested_field_goals_made          |integer   |
-#'    |uncontested_field_goals_attempted     |integer   |
-#'    |uncontested_field_goals_percentage    |numeric   |
-#'    |field_goal_percentage                 |numeric   |
-#'    |defended_at_rim_field_goals_made      |integer   |
-#'    |defended_at_rim_field_goals_attempted |integer   |
-#'    |defended_at_rim_field_goal_percentage |numeric   |
+#'    |col_name                              |types     |description                                                                      |
+#'    |:-------------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                               |character |Unique game identifier.                                                          |
+#'    |away_team_id                          |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                          |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                               |integer   |Unique team identifier.                                                          |
+#'    |team_name                             |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                             |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                          |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                             |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                               |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |distance                              |numeric   |Distance value (in feet for shot data; otherwise context-dependent).             |
+#'    |rebound_chances_offensive             |integer   |Rebound chances offensive.                                                       |
+#'    |rebound_chances_defensive             |integer   |Rebound chances defensive.                                                       |
+#'    |rebound_chances_total                 |integer   |Rebound chances total.                                                           |
+#'    |touches                               |integer   |Touches.                                                                         |
+#'    |secondary_assists                     |integer   |Secondary assists.                                                               |
+#'    |free_throw_assists                    |integer   |Free throw assists (passes that led to a fouled shot attempt).                   |
+#'    |passes                                |integer   |Passes.                                                                          |
+#'    |assists                               |integer   |Total assists.                                                                   |
+#'    |contested_field_goals_made            |integer   |Contested field goals made.                                                      |
+#'    |contested_field_goals_attempted       |integer   |Contested field goal attempts.                                                   |
+#'    |contested_field_goal_percentage       |numeric   |Contested field goal percentage (0-1).                                           |
+#'    |uncontested_field_goals_made          |integer   |Number of uncontested field goals made.                                          |
+#'    |uncontested_field_goals_attempted     |integer   |Number of uncontested field goals attempted.                                     |
+#'    |uncontested_field_goals_percentage    |numeric   |Uncontested field goals percentage (0-1 decimal).                                |
+#'    |field_goal_percentage                 |numeric   |Field goal percentage (0-1 decimal).                                             |
+#'    |defended_at_rim_field_goals_made      |integer   |Field goals made allowed when defending at the rim.                              |
+#'    |defended_at_rim_field_goals_attempted |integer   |Field goal attempts allowed when defending at the rim.                           |
+#'    |defended_at_rim_field_goal_percentage |numeric   |Field goal percentage allowed at the rim (0-1).                                  |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -1982,150 +1982,150 @@ NULL
 #'    **home_team_player_usage**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |person_id                           |integer   |
-#'    |first_name                          |character |
-#'    |family_name                         |character |
-#'    |name_i                              |character |
-#'    |player_slug                         |character |
-#'    |position                            |character |
-#'    |comment                             |character |
-#'    |jersey_num                          |character |
-#'    |minutes                             |character |
-#'    |usage_percentage                    |numeric   |
-#'    |percentage_field_goals_made         |numeric   |
-#'    |percentage_field_goals_attempted    |numeric   |
-#'    |percentage_three_pointers_made      |numeric   |
-#'    |percentage_three_pointers_attempted |numeric   |
-#'    |percentage_free_throws_made         |numeric   |
-#'    |percentage_free_throws_attempted    |numeric   |
-#'    |percentage_rebounds_offensive       |numeric   |
-#'    |percentage_rebounds_defensive       |numeric   |
-#'    |percentage_rebounds_total           |numeric   |
-#'    |percentage_assists                  |numeric   |
-#'    |percentage_turnovers                |numeric   |
-#'    |percentage_steals                   |numeric   |
-#'    |percentage_blocks                   |numeric   |
-#'    |percentage_blocks_allowed           |numeric   |
-#'    |percentage_personal_fouls           |numeric   |
-#'    |percentage_personal_fouls_drawn     |numeric   |
-#'    |percentage_points                   |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                           |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                          |character |Player's first name.                                                             |
+#'    |family_name                         |character |Player's family / last name.                                                     |
+#'    |name_i                              |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                         |character |URL-safe player identifier.                                                      |
+#'    |position                            |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                             |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                          |character |Jersey number worn by the player.                                                |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |usage_percentage                    |numeric   |Usage percentage (0-1).                                                          |
+#'    |percentage_field_goals_made         |numeric   |Number of percentage field goals made.                                           |
+#'    |percentage_field_goals_attempted    |numeric   |Number of percentage field goals attempted.                                      |
+#'    |percentage_three_pointers_made      |numeric   |Number of percentage three pointers made.                                        |
+#'    |percentage_three_pointers_attempted |numeric   |Number of percentage three pointers attempted.                                   |
+#'    |percentage_free_throws_made         |numeric   |Number of percentage free throws made.                                           |
+#'    |percentage_free_throws_attempted    |numeric   |Number of percentage free throws attempted.                                      |
+#'    |percentage_rebounds_offensive       |numeric   |Percentage rebounds offensive.                                                   |
+#'    |percentage_rebounds_defensive       |numeric   |Percentage rebounds defensive.                                                   |
+#'    |percentage_rebounds_total           |numeric   |Percentage rebounds total.                                                       |
+#'    |percentage_assists                  |numeric   |Percentage assists.                                                              |
+#'    |percentage_turnovers                |numeric   |Percentage turnovers.                                                            |
+#'    |percentage_steals                   |numeric   |Percentage steals.                                                               |
+#'    |percentage_blocks                   |numeric   |Percentage blocks.                                                               |
+#'    |percentage_blocks_allowed           |numeric   |Percentage blocks allowed.                                                       |
+#'    |percentage_personal_fouls           |numeric   |Percentage personal fouls.                                                       |
+#'    |percentage_personal_fouls_drawn     |numeric   |Percentage personal fouls drawn.                                                 |
+#'    |percentage_points                   |numeric   |Percentage points.                                                               |
 #'
 #'    **away_team_player_usage**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |person_id                           |integer   |
-#'    |first_name                          |character |
-#'    |family_name                         |character |
-#'    |name_i                              |character |
-#'    |player_slug                         |character |
-#'    |position                            |character |
-#'    |comment                             |character |
-#'    |jersey_num                          |character |
-#'    |minutes                             |character |
-#'    |usage_percentage                    |numeric   |
-#'    |percentage_field_goals_made         |numeric   |
-#'    |percentage_field_goals_attempted    |numeric   |
-#'    |percentage_three_pointers_made      |numeric   |
-#'    |percentage_three_pointers_attempted |numeric   |
-#'    |percentage_free_throws_made         |numeric   |
-#'    |percentage_free_throws_attempted    |numeric   |
-#'    |percentage_rebounds_offensive       |numeric   |
-#'    |percentage_rebounds_defensive       |numeric   |
-#'    |percentage_rebounds_total           |numeric   |
-#'    |percentage_assists                  |numeric   |
-#'    |percentage_turnovers                |numeric   |
-#'    |percentage_steals                   |numeric   |
-#'    |percentage_blocks                   |numeric   |
-#'    |percentage_blocks_allowed           |numeric   |
-#'    |percentage_personal_fouls           |numeric   |
-#'    |percentage_personal_fouls_drawn     |numeric   |
-#'    |percentage_points                   |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                           |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                          |character |Player's first name.                                                             |
+#'    |family_name                         |character |Player's family / last name.                                                     |
+#'    |name_i                              |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                         |character |URL-safe player identifier.                                                      |
+#'    |position                            |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                             |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                          |character |Jersey number worn by the player.                                                |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |usage_percentage                    |numeric   |Usage percentage (0-1).                                                          |
+#'    |percentage_field_goals_made         |numeric   |Number of percentage field goals made.                                           |
+#'    |percentage_field_goals_attempted    |numeric   |Number of percentage field goals attempted.                                      |
+#'    |percentage_three_pointers_made      |numeric   |Number of percentage three pointers made.                                        |
+#'    |percentage_three_pointers_attempted |numeric   |Number of percentage three pointers attempted.                                   |
+#'    |percentage_free_throws_made         |numeric   |Number of percentage free throws made.                                           |
+#'    |percentage_free_throws_attempted    |numeric   |Number of percentage free throws attempted.                                      |
+#'    |percentage_rebounds_offensive       |numeric   |Percentage rebounds offensive.                                                   |
+#'    |percentage_rebounds_defensive       |numeric   |Percentage rebounds defensive.                                                   |
+#'    |percentage_rebounds_total           |numeric   |Percentage rebounds total.                                                       |
+#'    |percentage_assists                  |numeric   |Percentage assists.                                                              |
+#'    |percentage_turnovers                |numeric   |Percentage turnovers.                                                            |
+#'    |percentage_steals                   |numeric   |Percentage steals.                                                               |
+#'    |percentage_blocks                   |numeric   |Percentage blocks.                                                               |
+#'    |percentage_blocks_allowed           |numeric   |Percentage blocks allowed.                                                       |
+#'    |percentage_personal_fouls           |numeric   |Percentage personal fouls.                                                       |
+#'    |percentage_personal_fouls_drawn     |numeric   |Percentage personal fouls drawn.                                                 |
+#'    |percentage_points                   |numeric   |Percentage points.                                                               |
 #'
 #'    **home_team_totals_usage**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |minutes                             |character |
-#'    |usage_percentage                    |numeric   |
-#'    |percentage_field_goals_made         |numeric   |
-#'    |percentage_field_goals_attempted    |numeric   |
-#'    |percentage_three_pointers_made      |numeric   |
-#'    |percentage_three_pointers_attempted |numeric   |
-#'    |percentage_free_throws_made         |numeric   |
-#'    |percentage_free_throws_attempted    |numeric   |
-#'    |percentage_rebounds_offensive       |numeric   |
-#'    |percentage_rebounds_defensive       |numeric   |
-#'    |percentage_rebounds_total           |numeric   |
-#'    |percentage_assists                  |numeric   |
-#'    |percentage_turnovers                |numeric   |
-#'    |percentage_steals                   |numeric   |
-#'    |percentage_blocks                   |numeric   |
-#'    |percentage_blocks_allowed           |numeric   |
-#'    |percentage_personal_fouls           |numeric   |
-#'    |percentage_personal_fouls_drawn     |numeric   |
-#'    |percentage_points                   |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |usage_percentage                    |numeric   |Usage percentage (0-1).                                                          |
+#'    |percentage_field_goals_made         |numeric   |Number of percentage field goals made.                                           |
+#'    |percentage_field_goals_attempted    |numeric   |Number of percentage field goals attempted.                                      |
+#'    |percentage_three_pointers_made      |numeric   |Number of percentage three pointers made.                                        |
+#'    |percentage_three_pointers_attempted |numeric   |Number of percentage three pointers attempted.                                   |
+#'    |percentage_free_throws_made         |numeric   |Number of percentage free throws made.                                           |
+#'    |percentage_free_throws_attempted    |numeric   |Number of percentage free throws attempted.                                      |
+#'    |percentage_rebounds_offensive       |numeric   |Percentage rebounds offensive.                                                   |
+#'    |percentage_rebounds_defensive       |numeric   |Percentage rebounds defensive.                                                   |
+#'    |percentage_rebounds_total           |numeric   |Percentage rebounds total.                                                       |
+#'    |percentage_assists                  |numeric   |Percentage assists.                                                              |
+#'    |percentage_turnovers                |numeric   |Percentage turnovers.                                                            |
+#'    |percentage_steals                   |numeric   |Percentage steals.                                                               |
+#'    |percentage_blocks                   |numeric   |Percentage blocks.                                                               |
+#'    |percentage_blocks_allowed           |numeric   |Percentage blocks allowed.                                                       |
+#'    |percentage_personal_fouls           |numeric   |Percentage personal fouls.                                                       |
+#'    |percentage_personal_fouls_drawn     |numeric   |Percentage personal fouls drawn.                                                 |
+#'    |percentage_points                   |numeric   |Percentage points.                                                               |
 #'
 #'    **away_team_totals_usage**
 #'
 #'
-#'    |col_name                            |types     |
-#'    |:-----------------------------------|:---------|
-#'    |game_id                             |character |
-#'    |away_team_id                        |integer   |
-#'    |home_team_id                        |integer   |
-#'    |team_id                             |integer   |
-#'    |team_name                           |character |
-#'    |team_city                           |character |
-#'    |team_tricode                        |character |
-#'    |team_slug                           |character |
-#'    |minutes                             |character |
-#'    |usage_percentage                    |numeric   |
-#'    |percentage_field_goals_made         |numeric   |
-#'    |percentage_field_goals_attempted    |numeric   |
-#'    |percentage_three_pointers_made      |numeric   |
-#'    |percentage_three_pointers_attempted |numeric   |
-#'    |percentage_free_throws_made         |numeric   |
-#'    |percentage_free_throws_attempted    |numeric   |
-#'    |percentage_rebounds_offensive       |numeric   |
-#'    |percentage_rebounds_defensive       |numeric   |
-#'    |percentage_rebounds_total           |numeric   |
-#'    |percentage_assists                  |numeric   |
-#'    |percentage_turnovers                |numeric   |
-#'    |percentage_steals                   |numeric   |
-#'    |percentage_blocks                   |numeric   |
-#'    |percentage_blocks_allowed           |numeric   |
-#'    |percentage_personal_fouls           |numeric   |
-#'    |percentage_personal_fouls_drawn     |numeric   |
-#'    |percentage_points                   |numeric   |
+#'    |col_name                            |types     |description                                                                      |
+#'    |:-----------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                             |character |Unique game identifier.                                                          |
+#'    |away_team_id                        |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                        |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                             |integer   |Unique team identifier.                                                          |
+#'    |team_name                           |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                           |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                        |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                           |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                             |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |usage_percentage                    |numeric   |Usage percentage (0-1).                                                          |
+#'    |percentage_field_goals_made         |numeric   |Number of percentage field goals made.                                           |
+#'    |percentage_field_goals_attempted    |numeric   |Number of percentage field goals attempted.                                      |
+#'    |percentage_three_pointers_made      |numeric   |Number of percentage three pointers made.                                        |
+#'    |percentage_three_pointers_attempted |numeric   |Number of percentage three pointers attempted.                                   |
+#'    |percentage_free_throws_made         |numeric   |Number of percentage free throws made.                                           |
+#'    |percentage_free_throws_attempted    |numeric   |Number of percentage free throws attempted.                                      |
+#'    |percentage_rebounds_offensive       |numeric   |Percentage rebounds offensive.                                                   |
+#'    |percentage_rebounds_defensive       |numeric   |Percentage rebounds defensive.                                                   |
+#'    |percentage_rebounds_total           |numeric   |Percentage rebounds total.                                                       |
+#'    |percentage_assists                  |numeric   |Percentage assists.                                                              |
+#'    |percentage_turnovers                |numeric   |Percentage turnovers.                                                            |
+#'    |percentage_steals                   |numeric   |Percentage steals.                                                               |
+#'    |percentage_blocks                   |numeric   |Percentage blocks.                                                               |
+#'    |percentage_blocks_allowed           |numeric   |Percentage blocks allowed.                                                       |
+#'    |percentage_personal_fouls           |numeric   |Percentage personal fouls.                                                       |
+#'    |percentage_personal_fouls_drawn     |numeric   |Percentage personal fouls drawn.                                                 |
+#'    |percentage_points                   |numeric   |Percentage points.                                                               |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -2280,45 +2280,45 @@ NULL
 #'    **game_summary**
 #'
 #'
-#'    |col_name                |types     |
-#'    |:-----------------------|:---------|
-#'    |game_date               |character |
-#'    |game_sequence           |integer   |
-#'    |game_id                 |character |
-#'    |game_status_id          |integer   |
-#'    |game_status_text        |character |
-#'    |gamecode                |character |
-#'    |home_team_id            |integer   |
-#'    |visitor_team_id         |integer   |
-#'    |season                  |character |
-#'    |live_period             |integer   |
-#'    |live_pc_time            |character |
-#'    |natl_tv_broadcaster_abbreviation |character |
-#'    |home_tv_broadcaster_abbreviation |character |
-#'    |away_tv_broadcaster_abbreviation |character |
-#'    |live_period_time_bcast  |character |
-#'    |arena_name              |character |
-#'    |wh_status               |integer   |
+#'    |col_name                         |types     |description                                            |
+#'    |:--------------------------------|:---------|:------------------------------------------------------|
+#'    |game_date                        |character |Game date (YYYY-MM-DD).                                |
+#'    |game_sequence                    |integer   |Game sequence.                                         |
+#'    |game_id                          |character |Unique game identifier.                                |
+#'    |game_status_id                   |integer   |Numeric game status identifier.                        |
+#'    |game_status_text                 |character |Game status display text (e.g. 'Final', '4:32 - 4th'). |
+#'    |gamecode                         |character |Gamecode.                                              |
+#'    |home_team_id                     |integer   |Unique identifier for the home team.                   |
+#'    |visitor_team_id                  |integer   |Unique identifier for visitor team.                    |
+#'    |season                           |character |Season identifier (4-digit year or 'YYYY-YY' string).  |
+#'    |live_period                      |integer   |Live period.                                           |
+#'    |live_pc_time                     |character |Time / clock value.                                    |
+#'    |natl_tv_broadcaster_abbreviation |character |Natl tv broadcaster abbreviation.                      |
+#'    |home_tv_broadcaster_abbreviation |character |Home team's tv broadcaster abbreviation.               |
+#'    |away_tv_broadcaster_abbreviation |character |Away team's tv broadcaster abbreviation.               |
+#'    |live_period_time_bcast           |character |Live period time bcast.                                |
+#'    |arena_name                       |character |Arena name.                                            |
+#'    |wh_status                        |integer   |Wh status.                                             |
 #'
 #'    **line_score**
 #'
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |game_date_est     |character |
-#'    |game_sequence     |integer   |
-#'    |game_id           |character |
-#'    |team_id           |integer   |
-#'    |team_abbreviation |character |
-#'    |team_city_name    |character |
-#'    |team_name         |character |
-#'    |team_wins_losses  |character |
-#'    |pts_qtr1          |integer   |
-#'    |pts_qtr2          |integer   |
-#'    |pts_qtr3          |integer   |
-#'    |pts_qtr4          |integer   |
-#'    |pts_ot1           |integer   |
-#'    |pts               |integer   |
+#'    |col_name          |types     |description                                     |
+#'    |:-----------------|:---------|:-----------------------------------------------|
+#'    |game_date_est     |character |Game date est.                                  |
+#'    |game_sequence     |integer   |Game sequence.                                  |
+#'    |game_id           |character |Unique game identifier.                         |
+#'    |team_id           |integer   |Unique team identifier.                         |
+#'    |team_abbreviation |character |Short team abbreviation (e.g. 'LAS').           |
+#'    |team_city_name    |character |Team city name.                                 |
+#'    |team_name         |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |team_wins_losses  |character |Team wins losses.                               |
+#'    |pts_qtr1          |integer   |Pts qtr1.                                       |
+#'    |pts_qtr2          |integer   |Pts qtr2.                                       |
+#'    |pts_qtr3          |integer   |Pts qtr3.                                       |
+#'    |pts_qtr4          |integer   |Pts qtr4.                                       |
+#'    |pts_ot1           |integer   |Pts ot1.                                        |
+#'    |pts               |integer   |Points scored.                                  |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -2485,142 +2485,142 @@ NULL
 #'    **home_team_player_hustle**
 #'
 #'
-#'    |col_name                        |types     |
-#'    |:-------------------------------|:---------|
-#'    |game_id                         |character |
-#'    |away_team_id                    |integer   |
-#'    |home_team_id                    |integer   |
-#'    |team_id                         |integer   |
-#'    |team_name                       |character |
-#'    |team_city                       |character |
-#'    |team_tricode                    |character |
-#'    |team_slug                       |character |
-#'    |person_id                       |integer   |
-#'    |first_name                      |character |
-#'    |family_name                     |character |
-#'    |name_i                          |character |
-#'    |player_slug                     |character |
-#'    |position                        |character |
-#'    |comment                         |character |
-#'    |jersey_num                      |character |
-#'    |minutes                         |character |
-#'    |points                          |integer   |
-#'    |contested_shots                 |integer   |
-#'    |contested_shots2pt              |integer   |
-#'    |contested_shots3pt              |integer   |
-#'    |deflections                     |integer   |
-#'    |charges_drawn                   |integer   |
-#'    |screen_assists                  |integer   |
-#'    |screen_assist_points            |integer   |
-#'    |loose_balls_recovered_offensive |integer   |
-#'    |loose_balls_recovered_defensive |integer   |
-#'    |loose_balls_recovered_total     |integer   |
-#'    |offensive_box_outs              |integer   |
-#'    |defensive_box_outs              |integer   |
-#'    |box_out_player_team_rebounds    |integer   |
-#'    |box_out_player_rebounds         |integer   |
-#'    |box_outs                        |integer   |
+#'    |col_name                        |types     |description                                                                      |
+#'    |:-------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                         |character |Unique game identifier.                                                          |
+#'    |away_team_id                    |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                    |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                         |integer   |Unique team identifier.                                                          |
+#'    |team_name                       |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                       |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                    |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                       |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                       |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                      |character |Player's first name.                                                             |
+#'    |family_name                     |character |Player's family / last name.                                                     |
+#'    |name_i                          |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                     |character |URL-safe player identifier.                                                      |
+#'    |position                        |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                         |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                      |character |Jersey number worn by the player.                                                |
+#'    |minutes                         |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points                          |integer   |Points scored.                                                                   |
+#'    |contested_shots                 |integer   |Defensively contested shots.                                                     |
+#'    |contested_shots2pt              |integer   |Contested shots2pt.                                                              |
+#'    |contested_shots3pt              |integer   |Contested shots3pt.                                                              |
+#'    |deflections                     |integer   |Defensive deflections.                                                           |
+#'    |charges_drawn                   |integer   |Charges drawn.                                                                   |
+#'    |screen_assists                  |integer   |Screen assists (resulting in a basket).                                          |
+#'    |screen_assist_points            |integer   |Points generated from screen assists.                                            |
+#'    |loose_balls_recovered_offensive |integer   |Loose balls recovered on offense.                                                |
+#'    |loose_balls_recovered_defensive |integer   |Loose balls recovered on defense.                                                |
+#'    |loose_balls_recovered_total     |integer   |Loose balls recovered total.                                                     |
+#'    |offensive_box_outs              |integer   |Offensive box outs.                                                              |
+#'    |defensive_box_outs              |integer   |Defensive box outs.                                                              |
+#'    |box_out_player_team_rebounds    |integer   |Box-outs that led to either a player or team rebound.                            |
+#'    |box_out_player_rebounds         |integer   |Box-outs that led to a player rebound.                                           |
+#'    |box_outs                        |integer   |Box-outs executed.                                                               |
 #'
 #'    **away_team_player_hustle**
 #'
 #'
-#'    |col_name                        |types     |
-#'    |:-------------------------------|:---------|
-#'    |game_id                         |character |
-#'    |away_team_id                    |integer   |
-#'    |home_team_id                    |integer   |
-#'    |team_id                         |integer   |
-#'    |team_name                       |character |
-#'    |team_city                       |character |
-#'    |team_tricode                    |character |
-#'    |team_slug                       |character |
-#'    |person_id                       |integer   |
-#'    |first_name                      |character |
-#'    |family_name                     |character |
-#'    |name_i                          |character |
-#'    |player_slug                     |character |
-#'    |position                        |character |
-#'    |comment                         |character |
-#'    |jersey_num                      |character |
-#'    |minutes                         |character |
-#'    |points                          |integer   |
-#'    |contested_shots                 |integer   |
-#'    |contested_shots2pt              |integer   |
-#'    |contested_shots3pt              |integer   |
-#'    |deflections                     |integer   |
-#'    |charges_drawn                   |integer   |
-#'    |screen_assists                  |integer   |
-#'    |screen_assist_points            |integer   |
-#'    |loose_balls_recovered_offensive |integer   |
-#'    |loose_balls_recovered_defensive |integer   |
-#'    |loose_balls_recovered_total     |integer   |
-#'    |offensive_box_outs              |integer   |
-#'    |defensive_box_outs              |integer   |
-#'    |box_out_player_team_rebounds    |integer   |
-#'    |box_out_player_rebounds         |integer   |
-#'    |box_outs                        |integer   |
+#'    |col_name                        |types     |description                                                                      |
+#'    |:-------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                         |character |Unique game identifier.                                                          |
+#'    |away_team_id                    |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                    |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                         |integer   |Unique team identifier.                                                          |
+#'    |team_name                       |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                       |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                    |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                       |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |person_id                       |integer   |Unique player identifier (V3 endpoints).                                         |
+#'    |first_name                      |character |Player's first name.                                                             |
+#'    |family_name                     |character |Player's family / last name.                                                     |
+#'    |name_i                          |character |Initialed name (e.g. 'A. Wilson').                                               |
+#'    |player_slug                     |character |URL-safe player identifier.                                                      |
+#'    |position                        |character |Listed roster position (G, F, C, etc.).                                          |
+#'    |comment                         |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive').     |
+#'    |jersey_num                      |character |Jersey number worn by the player.                                                |
+#'    |minutes                         |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points                          |integer   |Points scored.                                                                   |
+#'    |contested_shots                 |integer   |Defensively contested shots.                                                     |
+#'    |contested_shots2pt              |integer   |Contested shots2pt.                                                              |
+#'    |contested_shots3pt              |integer   |Contested shots3pt.                                                              |
+#'    |deflections                     |integer   |Defensive deflections.                                                           |
+#'    |charges_drawn                   |integer   |Charges drawn.                                                                   |
+#'    |screen_assists                  |integer   |Screen assists (resulting in a basket).                                          |
+#'    |screen_assist_points            |integer   |Points generated from screen assists.                                            |
+#'    |loose_balls_recovered_offensive |integer   |Loose balls recovered on offense.                                                |
+#'    |loose_balls_recovered_defensive |integer   |Loose balls recovered on defense.                                                |
+#'    |loose_balls_recovered_total     |integer   |Loose balls recovered total.                                                     |
+#'    |offensive_box_outs              |integer   |Offensive box outs.                                                              |
+#'    |defensive_box_outs              |integer   |Defensive box outs.                                                              |
+#'    |box_out_player_team_rebounds    |integer   |Box-outs that led to either a player or team rebound.                            |
+#'    |box_out_player_rebounds         |integer   |Box-outs that led to a player rebound.                                           |
+#'    |box_outs                        |integer   |Box-outs executed.                                                               |
 #'
 #'    **home_team_totals_hustle**
 #'
 #'
-#'    |col_name                        |types     |
-#'    |:-------------------------------|:---------|
-#'    |game_id                         |character |
-#'    |away_team_id                    |integer   |
-#'    |home_team_id                    |integer   |
-#'    |team_id                         |integer   |
-#'    |team_name                       |character |
-#'    |team_city                       |character |
-#'    |team_tricode                    |character |
-#'    |team_slug                       |character |
-#'    |minutes                         |character |
-#'    |points                          |integer   |
-#'    |contested_shots                 |integer   |
-#'    |contested_shots2pt              |integer   |
-#'    |contested_shots3pt              |integer   |
-#'    |deflections                     |integer   |
-#'    |charges_drawn                   |integer   |
-#'    |screen_assists                  |integer   |
-#'    |screen_assist_points            |integer   |
-#'    |loose_balls_recovered_offensive |integer   |
-#'    |loose_balls_recovered_defensive |integer   |
-#'    |loose_balls_recovered_total     |integer   |
-#'    |offensive_box_outs              |integer   |
-#'    |defensive_box_outs              |integer   |
-#'    |box_out_player_team_rebounds    |integer   |
-#'    |box_out_player_rebounds         |integer   |
-#'    |box_outs                        |integer   |
+#'    |col_name                        |types     |description                                                                      |
+#'    |:-------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                         |character |Unique game identifier.                                                          |
+#'    |away_team_id                    |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                    |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                         |integer   |Unique team identifier.                                                          |
+#'    |team_name                       |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                       |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                    |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                       |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                         |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points                          |integer   |Points scored.                                                                   |
+#'    |contested_shots                 |integer   |Defensively contested shots.                                                     |
+#'    |contested_shots2pt              |integer   |Contested shots2pt.                                                              |
+#'    |contested_shots3pt              |integer   |Contested shots3pt.                                                              |
+#'    |deflections                     |integer   |Defensive deflections.                                                           |
+#'    |charges_drawn                   |integer   |Charges drawn.                                                                   |
+#'    |screen_assists                  |integer   |Screen assists (resulting in a basket).                                          |
+#'    |screen_assist_points            |integer   |Points generated from screen assists.                                            |
+#'    |loose_balls_recovered_offensive |integer   |Loose balls recovered on offense.                                                |
+#'    |loose_balls_recovered_defensive |integer   |Loose balls recovered on defense.                                                |
+#'    |loose_balls_recovered_total     |integer   |Loose balls recovered total.                                                     |
+#'    |offensive_box_outs              |integer   |Offensive box outs.                                                              |
+#'    |defensive_box_outs              |integer   |Defensive box outs.                                                              |
+#'    |box_out_player_team_rebounds    |integer   |Box-outs that led to either a player or team rebound.                            |
+#'    |box_out_player_rebounds         |integer   |Box-outs that led to a player rebound.                                           |
+#'    |box_outs                        |integer   |Box-outs executed.                                                               |
 #'
 #'    **away_team_totals_hustle**
 #'
 #'
-#'    |col_name                        |types     |
-#'    |:-------------------------------|:---------|
-#'    |game_id                         |character |
-#'    |away_team_id                    |integer   |
-#'    |home_team_id                    |integer   |
-#'    |team_id                         |integer   |
-#'    |team_name                       |character |
-#'    |team_city                       |character |
-#'    |team_tricode                    |character |
-#'    |team_slug                       |character |
-#'    |minutes                         |character |
-#'    |points                          |integer   |
-#'    |contested_shots                 |integer   |
-#'    |contested_shots2pt              |integer   |
-#'    |contested_shots3pt              |integer   |
-#'    |deflections                     |integer   |
-#'    |charges_drawn                   |integer   |
-#'    |screen_assists                  |integer   |
-#'    |screen_assist_points            |integer   |
-#'    |loose_balls_recovered_offensive |integer   |
-#'    |loose_balls_recovered_defensive |integer   |
-#'    |loose_balls_recovered_total     |integer   |
-#'    |offensive_box_outs              |integer   |
-#'    |defensive_box_outs              |integer   |
-#'    |box_out_player_team_rebounds    |integer   |
-#'    |box_out_player_rebounds         |integer   |
-#'    |box_outs                        |integer   |
+#'    |col_name                        |types     |description                                                                      |
+#'    |:-------------------------------|:---------|:--------------------------------------------------------------------------------|
+#'    |game_id                         |character |Unique game identifier.                                                          |
+#'    |away_team_id                    |integer   |Unique identifier for the away team.                                             |
+#'    |home_team_id                    |integer   |Unique identifier for the home team.                                             |
+#'    |team_id                         |integer   |Unique team identifier.                                                          |
+#'    |team_name                       |character |Full team display name (e.g. 'Las Vegas Aces').                                  |
+#'    |team_city                       |character |Team city or region (e.g. 'Las Vegas').                                          |
+#'    |team_tricode                    |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                     |
+#'    |team_slug                       |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                        |
+#'    |minutes                         |character |Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). |
+#'    |points                          |integer   |Points scored.                                                                   |
+#'    |contested_shots                 |integer   |Defensively contested shots.                                                     |
+#'    |contested_shots2pt              |integer   |Contested shots2pt.                                                              |
+#'    |contested_shots3pt              |integer   |Contested shots3pt.                                                              |
+#'    |deflections                     |integer   |Defensive deflections.                                                           |
+#'    |charges_drawn                   |integer   |Charges drawn.                                                                   |
+#'    |screen_assists                  |integer   |Screen assists (resulting in a basket).                                          |
+#'    |screen_assist_points            |integer   |Points generated from screen assists.                                            |
+#'    |loose_balls_recovered_offensive |integer   |Loose balls recovered on offense.                                                |
+#'    |loose_balls_recovered_defensive |integer   |Loose balls recovered on defense.                                                |
+#'    |loose_balls_recovered_total     |integer   |Loose balls recovered total.                                                     |
+#'    |offensive_box_outs              |integer   |Offensive box outs.                                                              |
+#'    |defensive_box_outs              |integer   |Defensive box outs.                                                              |
+#'    |box_out_player_team_rebounds    |integer   |Box-outs that led to either a player or team rebound.                            |
+#'    |box_out_player_rebounds         |integer   |Box-outs that led to a player rebound.                                           |
+#'    |box_outs                        |integer   |Box-outs executed.                                                               |
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -2665,38 +2665,38 @@ NULL
 #'    **AwayTeam** 
 #'    
 #'    
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |GAME_ID       |character |
-#'    |TEAM_ID       |character |
-#'    |TEAM_CITY     |character |
-#'    |TEAM_NAME     |character |
-#'    |PERSON_ID     |character |
-#'    |PLAYER_FIRST  |character |
-#'    |PLAYER_LAST   |character |
-#'    |IN_TIME_REAL  |character |
-#'    |OUT_TIME_REAL |character |
-#'    |PLAYER_PTS    |character |
-#'    |PT_DIFF       |character |
-#'    |USG_PCT       |character |
+#'    |col_name      |types     |description                                     |
+#'    |:-------------|:---------|:-----------------------------------------------|
+#'    |GAME_ID       |character |Unique game identifier.                         |
+#'    |TEAM_ID       |character |Unique team identifier.                         |
+#'    |TEAM_CITY     |character |Team city or region (e.g. 'Las Vegas').         |
+#'    |TEAM_NAME     |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |PERSON_ID     |character |Unique player identifier (V3 endpoints).        |
+#'    |PLAYER_FIRST  |character |                                                |
+#'    |PLAYER_LAST   |character |                                                |
+#'    |IN_TIME_REAL  |character |                                                |
+#'    |OUT_TIME_REAL |character |                                                |
+#'    |PLAYER_PTS    |character |                                                |
+#'    |PT_DIFF       |character |                                                |
+#'    |USG_PCT       |character |Usage percentage (0-1).                         |
 #'    
 #'    **HomeTeam** 
 #'    
 #'    
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |GAME_ID       |character |
-#'    |TEAM_ID       |character |
-#'    |TEAM_CITY     |character |
-#'    |TEAM_NAME     |character |
-#'    |PERSON_ID     |character |
-#'    |PLAYER_FIRST  |character |
-#'    |PLAYER_LAST   |character |
-#'    |IN_TIME_REAL  |character |
-#'    |OUT_TIME_REAL |character |
-#'    |PLAYER_PTS    |character |
-#'    |PT_DIFF       |character |
-#'    |USG_PCT       |character |
+#'    |col_name      |types     |description                                     |
+#'    |:-------------|:---------|:-----------------------------------------------|
+#'    |GAME_ID       |character |Unique game identifier.                         |
+#'    |TEAM_ID       |character |Unique team identifier.                         |
+#'    |TEAM_CITY     |character |Team city or region (e.g. 'Las Vegas').         |
+#'    |TEAM_NAME     |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |PERSON_ID     |character |Unique player identifier (V3 endpoints).        |
+#'    |PLAYER_FIRST  |character |                                                |
+#'    |PLAYER_LAST   |character |                                                |
+#'    |IN_TIME_REAL  |character |                                                |
+#'    |OUT_TIME_REAL |character |                                                |
+#'    |PLAYER_PTS    |character |                                                |
+#'    |PT_DIFF       |character |                                                |
+#'    |USG_PCT       |character |Usage percentage (0-1).                         |
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble

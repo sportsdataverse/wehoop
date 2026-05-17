@@ -22,19 +22,19 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per draft pick:
 #'
-#'    |col_name     |types     |
-#'    |:------------|:---------|
-#'    |season       |integer   |
-#'    |round        |integer   |
-#'    |pick         |integer   |
-#'    |overall      |integer   |
-#'    |traded       |logical   |
-#'    |trade_note   |character |
-#'    |status       |character |
-#'    |athlete_id   |character |
-#'    |athlete_ref  |character |
-#'    |team_id      |character |
-#'    |team_ref     |character |
+#'    |col_name    |types     |description                                           |
+#'    |:-----------|:---------|:-----------------------------------------------------|
+#'    |season      |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |round       |integer   |Tournament / playoff round.                           |
+#'    |pick        |integer   |Pick.                                                 |
+#'    |overall     |integer   |Overall.                                              |
+#'    |traded      |logical   |Traded.                                               |
+#'    |trade_note  |character |Trade note.                                           |
+#'    |status      |character |Status label.                                         |
+#'    |athlete_id  |character |Unique athlete identifier (ESPN).                     |
+#'    |athlete_ref |character |Athlete ref.                                          |
+#'    |team_id     |character |Unique team identifier.                               |
+#'    |team_ref    |character |Team ref.                                             |
 #'
 #'    Athlete and team details (name, position, college, abbreviation) are not
 #'    inlined in the draft response; resolve them via `espn_wnba_athlete_info()`
@@ -164,18 +164,18 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per free agent:
 #'
-#'    |col_name           |types     |
-#'    |:------------------|:---------|
-#'    |season             |integer   |
-#'    |athlete_id         |character |
-#'    |athlete_name       |character |
-#'    |position           |character |
-#'    |prior_team_id      |character |
-#'    |status             |character |
-#'    |signed_team_id     |character |
-#'    |signed_date        |character |
-#'    |contract_value     |character |
-#'    |contract_term_years|character |
+#'    |col_name            |types     |description                                           |
+#'    |:-------------------|:---------|:-----------------------------------------------------|
+#'    |season              |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |athlete_id          |character |Unique athlete identifier (ESPN).                     |
+#'    |athlete_name        |character |Athlete display name (ESPN).                          |
+#'    |position            |character |Listed roster position (G, F, C, etc.).               |
+#'    |prior_team_id       |character |Unique identifier for prior team.                     |
+#'    |status              |character |Status label.                                         |
+#'    |signed_team_id      |character |Unique identifier for signed team.                    |
+#'    |signed_date         |character |Date in YYYY-MM-DD format.                            |
+#'    |contract_value      |character |Contract value.                                       |
+#'    |contract_term_years |character |Contract term years.                                  |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
@@ -341,17 +341,17 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per transaction:
 #'
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |transaction_id |character |
-#'    |date           |character |
-#'    |type           |character |
-#'    |description    |character |
-#'    |team_id        |character |
-#'    |athlete_id     |character |
-#'    |athlete_name   |character |
-#'    |from_team_id   |character |
-#'    |to_team_id     |character |
+#'    |col_name       |types     |description                        |
+#'    |:--------------|:---------|:----------------------------------|
+#'    |transaction_id |character |Unique identifier for transaction. |
+#'    |date           |character |Date in YYYY-MM-DD format.         |
+#'    |type           |character |Record type / category.            |
+#'    |description    |character |Long-form description text.        |
+#'    |team_id        |character |Unique team identifier.            |
+#'    |athlete_id     |character |Unique athlete identifier (ESPN).  |
+#'    |athlete_name   |character |Athlete display name (ESPN).       |
+#'    |from_team_id   |character |Unique identifier for from team.   |
+#'    |to_team_id     |character |Unique identifier for to team.     |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names

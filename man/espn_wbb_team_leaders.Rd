@@ -14,16 +14,16 @@ espn_wbb_team_leaders(team_id, season = most_recent_wbb_season(), ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single long-format tibble (one row per category-rank-athlete).\tabular{ll}{
-   col_name \tab types \cr
-   team_id \tab character \cr
-   season \tab integer \cr
-   category \tab character \cr
-   display_name \tab character \cr
-   athlete_id \tab character \cr
-   athlete_name \tab character \cr
-   value \tab numeric \cr
-   rank \tab integer \cr
+A single long-format tibble (one row per category-rank-athlete).\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   category \tab character \tab Category label. \cr
+   display_name \tab character \tab Display name. \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   athlete_name \tab character \tab Athlete display name (ESPN). \cr
+   value \tab numeric \tab Numeric or string value field. \cr
+   rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
 }
 }
 \description{

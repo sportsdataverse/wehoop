@@ -19,49 +19,49 @@ with shot coordinates, shot values, and V3 action types. V2 is available from 20
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-Returns a data frame: PlayByPlay\tabular{ll}{
-   col_name \tab types \cr
-   game_id \tab character \cr
-   event_num \tab character \cr
-   event_type \tab character \cr
-   event_action_type \tab character \cr
-   period \tab numeric \cr
-   minute_game \tab numeric \cr
-   time_remaining \tab numeric \cr
-   wc_time_string \tab character \cr
-   time_quarter \tab character \cr
-   minute_remaining_quarter \tab numeric \cr
-   seconds_remaining_quarter \tab numeric \cr
-   home_description \tab character \cr
-   neutral_description \tab character \cr
-   visitor_description \tab character \cr
-   score \tab character \cr
-   away_score \tab numeric \cr
-   home_score \tab numeric \cr
-   score_margin \tab character \cr
-   person1type \tab character \cr
-   player1_id \tab character \cr
-   player1_name \tab character \cr
-   player1_team_id \tab character \cr
-   player1_team_city \tab character \cr
-   player1_team_nickname \tab character \cr
-   player1_team_abbreviation \tab character \cr
-   person2type \tab character \cr
-   player2_id \tab character \cr
-   player2_name \tab character \cr
-   player2_team_id \tab character \cr
-   player2_team_city \tab character \cr
-   player2_team_nickname \tab character \cr
-   player2_team_abbreviation \tab character \cr
-   person3type \tab character \cr
-   player3_id \tab character \cr
-   player3_name \tab character \cr
-   player3_team_id \tab character \cr
-   player3_team_city \tab character \cr
-   player3_team_nickname \tab character \cr
-   player3_team_abbreviation \tab character \cr
-   video_available_flag \tab character \cr
-   team_leading \tab character \cr
+Returns a data frame: PlayByPlay\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   event_num \tab character \tab Sequential event number within the game (V2 PBP). \cr
+   event_type \tab character \tab Event / play type code (V2 PBP). \cr
+   event_action_type \tab character \tab Numeric event-action-type code (V2 PBP). \cr
+   period \tab numeric \tab Period of the game (1-4 quarters; 5+ for OT). \cr
+   minute_game \tab numeric \tab Minute game. \cr
+   time_remaining \tab numeric \tab Time remaining. \cr
+   wc_time_string \tab character \tab Wc time string. \cr
+   time_quarter \tab character \tab Time quarter. \cr
+   minute_remaining_quarter \tab numeric \tab Minute remaining quarter. \cr
+   seconds_remaining_quarter \tab numeric \tab Seconds remaining quarter. \cr
+   home_description \tab character \tab Home team's description. \cr
+   neutral_description \tab character \tab Neutral description. \cr
+   visitor_description \tab character \tab Visitor description. \cr
+   score \tab character \tab Final score. \cr
+   away_score \tab numeric \tab Away team score at the time of the play. \cr
+   home_score \tab numeric \tab Home team score at the time of the play. \cr
+   score_margin \tab character \tab Score margin. \cr
+   person1type \tab character \tab Person1type. \cr
+   player1_id \tab character \tab V2 PBP primary player ID (e.g. shooter / fouler). \cr
+   player1_name \tab character \tab V2 PBP primary player name. \cr
+   player1_team_id \tab character \tab Team ID of player1. \cr
+   player1_team_city \tab character \tab Player1 team city. \cr
+   player1_team_nickname \tab character \tab Player1 team nickname. \cr
+   player1_team_abbreviation \tab character \tab Player1 team abbreviation. \cr
+   person2type \tab character \tab Person2type. \cr
+   player2_id \tab character \tab V2 PBP secondary player ID (e.g. assister / fouled-by). \cr
+   player2_name \tab character \tab V2 PBP secondary player name. \cr
+   player2_team_id \tab character \tab Team ID of player2. \cr
+   player2_team_city \tab character \tab Player2 team city. \cr
+   player2_team_nickname \tab character \tab Player2 team nickname. \cr
+   player2_team_abbreviation \tab character \tab Player2 team abbreviation. \cr
+   person3type \tab character \tab Person3type. \cr
+   player3_id \tab character \tab V2 PBP tertiary player ID (e.g. blocker). \cr
+   player3_name \tab character \tab V2 PBP tertiary player name. \cr
+   player3_team_id \tab character \tab Team ID of player3. \cr
+   player3_team_city \tab character \tab Player3 team city. \cr
+   player3_team_nickname \tab character \tab Player3 team nickname. \cr
+   player3_team_abbreviation \tab character \tab Player3 team abbreviation. \cr
+   video_available_flag \tab character \tab Video available flag. \cr
+   team_leading \tab character \tab Team leading. \cr
 }
 }
 \description{

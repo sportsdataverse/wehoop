@@ -11,15 +11,15 @@ NULL
 #' @author Saiem Gilani
 #' @return A `wehoop_data` tibble with one row per conference:
 #'
-#'    |col_name              |types     |
-#'    |:---------------------|:---------|
-#'    |group_id              |integer   |
-#'    |conference_short_name |character |
-#'    |conference_uid        |character |
-#'    |conference_name       |character |
-#'    |conference_logo       |character |
-#'    |parent_group_id       |integer   |
-#'    |conference_id         |integer   |
+#'    |col_name              |types     |description                                  |
+#'    |:---------------------|:---------|:--------------------------------------------|
+#'    |group_id              |integer   |Group identifier (e.g. conference group_id). |
+#'    |conference_short_name |character |Conference short name (e.g. 'ACC').          |
+#'    |conference_uid        |character |ESPN universal conference identifier.        |
+#'    |conference_name       |character |Full conference name.                        |
+#'    |conference_logo       |character |Logo image URL for conference.               |
+#'    |parent_group_id       |integer   |Unique identifier for parent group.          |
+#'    |conference_id         |integer   |Conference identifier.                       |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names

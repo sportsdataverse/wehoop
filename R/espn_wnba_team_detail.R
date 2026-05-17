@@ -24,52 +24,52 @@ NULL
 #'
 #'    **Info**
 #'
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |id                |character |
-#'    |uid               |character |
-#'    |slug              |character |
-#'    |abbreviation      |character |
-#'    |display_name      |character |
-#'    |short_display_name|character |
-#'    |name              |character |
-#'    |nickname          |character |
-#'    |location          |character |
-#'    |color             |character |
-#'    |alternate_color   |character |
-#'    |logo              |character |
+#'    |col_name           |types     |description                                |
+#'    |:------------------|:---------|:------------------------------------------|
+#'    |id                 |character |Unique play identifcation number           |
+#'    |uid                |character |ESPN UID string (universal identifier).    |
+#'    |slug               |character |URL-safe identifier.                       |
+#'    |abbreviation       |character |Short abbreviation.                        |
+#'    |display_name       |character |Display name.                              |
+#'    |short_display_name |character |Short display name.                        |
+#'    |name               |character |Display name.                              |
+#'    |nickname           |character |Team or athlete nickname.                  |
+#'    |location           |character |Filter results by game location.           |
+#'    |color              |character |Primary color (hex without leading '#').   |
+#'    |alternate_color    |character |Alternate color (hex without leading '#'). |
+#'    |logo               |character |Team or league logo URL.                   |
 #'
 #'    **Record**
 #'
-#'    |col_name |types     |
-#'    |:--------|:---------|
-#'    |type     |character |
-#'    |summary  |character |
-#'    |stats    |list      |
+#'    |col_name |types     |description             |
+#'    |:--------|:---------|:-----------------------|
+#'    |type     |character |Record type / category. |
+#'    |summary  |character |Summary.                |
+#'    |stats    |list      |Stats.                  |
 #'
 #'    **NextEvent**
 #'
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |id         |character |
-#'    |date       |character |
-#'    |name       |character |
-#'    |short_name |character |
+#'    |col_name   |types     |description                      |
+#'    |:----------|:---------|:--------------------------------|
+#'    |id         |character |Unique play identifcation number |
+#'    |date       |character |Date in YYYY-MM-DD format.       |
+#'    |name       |character |Display name.                    |
+#'    |short_name |character |Short display name.              |
 #'
 #'    **StandingSummary**
 #'
-#'    |col_name         |types     |
-#'    |:----------------|:---------|
-#'    |standing_summary |character |
+#'    |col_name         |types     |description       |
+#'    |:----------------|:---------|:-----------------|
+#'    |standing_summary |character |Standing summary. |
 #'
 #'    **Coaches**
 #'
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |id         |character |
-#'    |first_name |character |
-#'    |last_name  |character |
-#'    |experience |integer   |
+#'    |col_name   |types     |description                       |
+#'    |:----------|:---------|:---------------------------------|
+#'    |id         |character |Unique play identifcation number  |
+#'    |first_name |character |Player's first name.              |
+#'    |last_name  |character |Player's last name.               |
+#'    |experience |integer   |Years of professional experience. |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble select any_of bind_rows
@@ -107,23 +107,23 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single tibble with one row per athlete.
 #'
-#'    |col_name        |types     |
-#'    |:---------------|:---------|
-#'    |athlete_id      |character |
-#'    |full_name       |character |
-#'    |jersey          |character |
-#'    |position_abbrev |character |
-#'    |position_name   |character |
-#'    |height          |character |
-#'    |weight          |character |
-#'    |age             |character |
-#'    |birth_date      |character |
-#'    |birth_place     |character |
-#'    |headshot        |character |
-#'    |link_web        |character |
-#'    |status          |character |
-#'    |team_id         |character |
-#'    |season          |integer   |
+#'    |col_name        |types     |description                                            |
+#'    |:---------------|:---------|:------------------------------------------------------|
+#'    |athlete_id      |character |Unique athlete identifier (ESPN).                      |
+#'    |full_name       |character |Player's full name.                                    |
+#'    |jersey          |character |Jersey number worn by the player.                      |
+#'    |position_abbrev |character |Abbreviation for position.                             |
+#'    |position_name   |character |Listed roster position ('Guard', 'Forward', 'Center'). |
+#'    |height          |character |Player height (string e.g. '6-2' or inches).           |
+#'    |weight          |character |Player weight in pounds.                               |
+#'    |age             |character |Player age (in years).                                 |
+#'    |birth_date      |character |Date of birth (YYYY-MM-DD).                            |
+#'    |birth_place     |character |Place of birth.                                        |
+#'    |headshot        |character |Headshot image URL.                                    |
+#'    |link_web        |character |Web link / URL.                                        |
+#'    |status          |character |Status label.                                          |
+#'    |team_id         |character |Unique team identifier.                                |
+#'    |season          |integer   |Season identifier (4-digit year or 'YYYY-YY' string).  |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -163,29 +163,29 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single tibble with one row per event.
 #'
-#'    |col_name               |types     |
-#'    |:----------------------|:---------|
-#'    |event_id               |character |
-#'    |season                 |integer   |
-#'    |season_type            |integer   |
-#'    |week                   |integer   |
-#'    |date                   |character |
-#'    |name                   |character |
-#'    |short_name             |character |
-#'    |opponent_id            |character |
-#'    |opponent_abbrev        |character |
-#'    |home_away              |character |
-#'    |neutral_site           |logical   |
-#'    |conference_competition |logical   |
-#'    |venue_id               |character |
-#'    |venue_name             |character |
-#'    |venue_city             |character |
-#'    |venue_state            |character |
-#'    |broadcast              |character |
-#'    |result                 |character |
-#'    |team_score             |character |
-#'    |opponent_score         |character |
-#'    |winner                 |logical   |
+#'    |col_name               |types     |description                                                                                                        |
+#'    |:----------------------|:---------|:------------------------------------------------------------------------------------------------------------------|
+#'    |event_id               |character |Unique event / game identifier (ESPN).                                                                             |
+#'    |season                 |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
+#'    |season_type            |integer   |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
+#'    |week                   |integer   |Week number within the season.                                                                                     |
+#'    |date                   |character |Date in YYYY-MM-DD format.                                                                                         |
+#'    |name                   |character |Display name.                                                                                                      |
+#'    |short_name             |character |Short display name.                                                                                                |
+#'    |opponent_id            |character |Unique identifier for opponent.                                                                                    |
+#'    |opponent_abbrev        |character |Abbreviation for opponent.                                                                                         |
+#'    |home_away              |character |Game venue label ('home' or 'away').                                                                               |
+#'    |neutral_site           |logical   |Neutral site.                                                                                                      |
+#'    |conference_competition |logical   |Conference competition.                                                                                            |
+#'    |venue_id               |character |Unique venue identifier.                                                                                           |
+#'    |venue_name             |character |Venue name.                                                                                                        |
+#'    |venue_city             |character |Venue city.                                                                                                        |
+#'    |venue_state            |character |Venue state / region.                                                                                              |
+#'    |broadcast              |character |Broadcast information string.                                                                                      |
+#'    |result                 |character |Result.                                                                                                            |
+#'    |team_score             |character |Team's score / final score.                                                                                        |
+#'    |opponent_score         |character |Opponent score.                                                                                                    |
+#'    |winner                 |logical   |Winner.                                                                                                            |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -225,16 +225,16 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single long-format tibble (one row per category-rank-athlete).
 #'
-#'    |col_name     |types     |
-#'    |:------------|:---------|
-#'    |team_id      |character |
-#'    |season       |integer   |
-#'    |category     |character |
-#'    |display_name |character |
-#'    |athlete_id   |character |
-#'    |athlete_name |character |
-#'    |value        |numeric   |
-#'    |rank         |integer   |
+#'    |col_name     |types     |description                                                 |
+#'    |:------------|:---------|:-----------------------------------------------------------|
+#'    |team_id      |character |Unique team identifier.                                     |
+#'    |season       |integer   |Season identifier (4-digit year or 'YYYY-YY' string).       |
+#'    |category     |character |Category label.                                             |
+#'    |display_name |character |Display name.                                               |
+#'    |athlete_id   |character |Unique athlete identifier (ESPN).                           |
+#'    |athlete_name |character |Athlete display name (ESPN).                                |
+#'    |value        |numeric   |Numeric or string value field.                              |
+#'    |rank         |integer   |Whether to include statistical ranks in the returned table. |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of

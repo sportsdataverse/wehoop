@@ -26,25 +26,25 @@ the season data into a database.}
 \item{tablename}{The name of the game rosters data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble with one row per athlete-team-game.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   game_id \tab character \cr
-   team_id \tab character \cr
-   team_city \tab character \cr
-   team_name \tab character \cr
-   team_tricode \tab character \cr
-   athlete_id \tab character \cr
-   first_name \tab character \cr
-   family_name \tab character \cr
-   name_i \tab character \cr
-   player_slug \tab character \cr
-   jersey_num \tab character \cr
-   position \tab character \cr
-   starter \tab logical \cr
-   did_not_play \tab logical \cr
-   status \tab character \cr
-   comment \tab character \cr
+Returns a \code{wehoop_data} tibble with one row per athlete-team-game.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   first_name \tab character \tab Player's first name. \cr
+   family_name \tab character \tab Player's family / last name. \cr
+   name_i \tab character \tab Initialed name (e.g. 'A. Wilson'). \cr
+   player_slug \tab character \tab URL-safe player identifier. \cr
+   jersey_num \tab character \tab Jersey number worn by the player. \cr
+   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+   starter \tab logical \tab TRUE if the player was in the starting lineup; FALSE otherwise. \cr
+   did_not_play \tab logical \tab TRUE if the player did not appear in the game. \cr
+   status \tab character \tab Status label. \cr
+   comment \tab character \tab Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive'). \cr
 }
 }
 \description{

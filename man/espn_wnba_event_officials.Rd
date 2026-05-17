@@ -12,16 +12,16 @@ espn_wnba_event_officials(event_id, ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A tibble with one row per official assigned to the game.\tabular{ll}{
-   col_name \tab types \cr
-   event_id \tab character \cr
-   official_id \tab character \cr
-   full_name \tab character \cr
-   display_name \tab character \cr
-   position_id \tab character \cr
-   position_name \tab character \cr
-   position_type \tab character \cr
-   order \tab integer \cr
+A tibble with one row per official assigned to the game.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_id \tab character \tab Unique event / game identifier (ESPN). \cr
+   official_id \tab character \tab Unique official / referee identifier. \cr
+   full_name \tab character \tab Player's full name. \cr
+   display_name \tab character \tab Display name. \cr
+   position_id \tab character \tab Unique position identifier. \cr
+   position_name \tab character \tab Listed roster position ('Guard', 'Forward', 'Center'). \cr
+   position_type \tab character \tab Position type. \cr
+   order \tab integer \tab Display order within the result set. \cr
 }
 }
 \description{

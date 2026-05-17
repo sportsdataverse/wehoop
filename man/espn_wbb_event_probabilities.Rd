@@ -15,18 +15,18 @@ Defaults to \code{200}. Pagination is handled internally.}
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A tibble with one row per play-level win-probability entry.\tabular{ll}{
-   col_name \tab types \cr
-   event_id \tab character \cr
-   sequence_number \tab character \cr
-   play_id \tab character \cr
-   period \tab integer \cr
-   clock \tab character \cr
-   home_win_percentage \tab numeric \cr
-   away_win_percentage \tab numeric \cr
-   tie_percentage \tab numeric \cr
-   secs_to_end_of_period \tab numeric \cr
-   secs_to_end_of_game \tab numeric \cr
+A tibble with one row per play-level win-probability entry.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_id \tab character \tab Unique event / game identifier (ESPN). \cr
+   sequence_number \tab character \tab Sequence number representing a shot-possession (V3 PBP). \cr
+   play_id \tab character \tab Unique play identifier within a game. \cr
+   period \tab integer \tab Period of the game (1-4 quarters; 5+ for OT). \cr
+   clock \tab character \tab Game clock value. \cr
+   home_win_percentage \tab numeric \tab Home win percentage (0-1 decimal). \cr
+   away_win_percentage \tab numeric \tab Away win percentage (0-1 decimal). \cr
+   tie_percentage \tab numeric \tab Tie percentage (0-1 decimal). \cr
+   secs_to_end_of_period \tab numeric \tab Secs to end of period. \cr
+   secs_to_end_of_game \tab numeric \tab Secs to end of game. \cr
 }
 }
 \description{

@@ -26,9 +26,9 @@ wnba_assisttracker(
 \value{
 Returns a named list of data frames: AssistTracker
 
-\strong{AssistTracker}\tabular{ll}{
-   col_name \tab types \cr
-   ASSISTS \tab numeric \cr
+\strong{AssistTracker}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   ASSISTS \tab numeric \tab Total assists. \cr
 }
 }
 \description{

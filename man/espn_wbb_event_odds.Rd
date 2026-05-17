@@ -15,20 +15,20 @@ forward compatibility. Proxy configuration should use
 }
 \value{
 A tibble with one row per odds provider (typically empty for WBB
-because ESPN does not carry NCAA basketball betting lines).\tabular{ll}{
-   col_name \tab types \cr
-   event_id \tab character \cr
-   provider_id \tab character \cr
-   provider_name \tab character \cr
-   details \tab character \cr
-   over_under \tab numeric \cr
-   spread \tab numeric \cr
-   home_money_line \tab integer \cr
-   away_money_line \tab integer \cr
-   home_team_odds_open \tab numeric \cr
-   home_team_odds_close \tab numeric \cr
-   away_team_odds_open \tab numeric \cr
-   away_team_odds_close \tab numeric \cr
+because ESPN does not carry NCAA basketball betting lines).\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_id \tab character \tab Unique event / game identifier (ESPN). \cr
+   provider_id \tab character \tab Unique identifier for provider. \cr
+   provider_name \tab character \tab Provider name. \cr
+   details \tab character \tab Details. \cr
+   over_under \tab numeric \tab Over under. \cr
+   spread \tab numeric \tab Spread. \cr
+   home_money_line \tab integer \tab Home team's money line. \cr
+   away_money_line \tab integer \tab Away team's money line. \cr
+   home_team_odds_open \tab numeric \tab Home team's team odds open. \cr
+   home_team_odds_close \tab numeric \tab Home team's team odds close. \cr
+   away_team_odds_open \tab numeric \tab Away team's team odds open. \cr
+   away_team_odds_close \tab numeric \tab Away team's team odds close. \cr
 }
 }
 \description{

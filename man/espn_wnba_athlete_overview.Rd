@@ -17,38 +17,38 @@ espn_wnba_athlete_overview(athlete_id, season = most_recent_wnba_season(), ...)
 A named list of data frames: \code{Statistics}, \code{NextGame},
 \code{Last5Games}, \code{Headlines}, \code{FantasyOutlook}.
 
-\strong{Statistics}\tabular{ll}{
-   col_name \tab types \cr
-   (varies) \tab character \cr
+\strong{Statistics}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   (varies) \tab character \tab  \cr
 }
 
 
-\strong{NextGame}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   date \tab character \cr
-   name \tab character \cr
-   short_name \tab character \cr
+\strong{NextGame}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   date \tab character \tab Date in YYYY-MM-DD format. \cr
+   name \tab character \tab Display name. \cr
+   short_name \tab character \tab Short display name. \cr
 }
 
 
-\strong{Last5Games}\tabular{ll}{
-   col_name \tab types \cr
-   (varies) \tab character \cr
+\strong{Last5Games}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   (varies) \tab character \tab  \cr
 }
 
 
-\strong{Headlines}\tabular{ll}{
-   col_name \tab types \cr
-   headline \tab character \cr
-   description \tab character \cr
-   published \tab character \cr
+\strong{Headlines}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   headline \tab character \tab News headline. \cr
+   description \tab character \tab Long-form description text. \cr
+   published \tab character \tab Publication timestamp (ISO 8601). \cr
 }
 
 
-\strong{FantasyOutlook}\tabular{ll}{
-   col_name \tab types \cr
-   (varies) \tab character \cr
+\strong{FantasyOutlook}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   (varies) \tab character \tab  \cr
 }
 }
 \description{

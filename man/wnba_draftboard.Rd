@@ -14,39 +14,39 @@ wnba_draftboard(season = most_recent_wnba_season(), ...)
 \value{
 Returns a named list of tibbles: \code{board}, \code{picks}.
 
-\strong{board}\tabular{ll}{
-   col_name \tab types \cr
-   draft_id \tab integer \cr
-   title \tab character \cr
-   season \tab integer \cr
-   status \tab character \cr
-   on_the_clock \tab character \cr
-   draft_date \tab character \cr
-   modified \tab character \cr
+\strong{board}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   draft_id \tab integer \tab Unique identifier for draft. \cr
+   title \tab character \tab Title or label for the record. \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   status \tab character \tab Status label. \cr
+   on_the_clock \tab character \tab On the clock. \cr
+   draft_date \tab character \tab Date in YYYY-MM-DD format. \cr
+   modified \tab character \tab Modified. \cr
 }
 
 
-\strong{picks}\tabular{ll}{
-   col_name \tab types \cr
-   round \tab integer \cr
-   pick \tab integer \cr
-   team_id \tab integer \cr
-   team_external_id \tab integer \cr
-   team_name \tab character \cr
-   prospect_id \tab integer \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   position \tab character \cr
-   country \tab character \cr
-   college \tab character \cr
-   ppg \tab character \cr
-   rpg \tab character \cr
-   apg \tab character \cr
-   spg \tab character \cr
-   bpg \tab character \cr
-   fg_pct \tab character \cr
-   description \tab character \cr
-   headshot_url \tab character \cr
+\strong{picks}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   round \tab integer \tab Tournament / playoff round. \cr
+   pick \tab integer \tab Pick. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team_external_id \tab integer \tab Unique identifier for team external. \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   prospect_id \tab integer \tab Unique identifier for prospect. \cr
+   first_name \tab character \tab Player's first name. \cr
+   last_name \tab character \tab Player's last name. \cr
+   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+   country \tab character \tab Country (full name or code). \cr
+   college \tab character \tab College or school attended. \cr
+   ppg \tab character \tab Points per game. \cr
+   rpg \tab character \tab Rebounds per game. \cr
+   apg \tab character \tab Assists per game. \cr
+   spg \tab character \tab Steals per game. \cr
+   bpg \tab character \tab Blocks per game. \cr
+   fg_pct \tab character \tab Field goal percentage (0-1). \cr
+   description \tab character \tab Long-form description text. \cr
+   headshot_url \tab character \tab URL for headshot. \cr
 }
 }
 \description{

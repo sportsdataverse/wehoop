@@ -20,10 +20,10 @@ espn_wnba_athlete_statisticslog(
 \value{
 A single tibble. When resolved, each row corresponds to one
 statistical entry in the core-v2 statistics log, with \code{event_ref} and
-\code{statistics_ref} character columns pointing to resolvable ESPN endpoints.\tabular{ll}{
-   col_name \tab types \cr
-   event_ref \tab character \cr
-   statistics_ref \tab character \cr
+\code{statistics_ref} character columns pointing to resolvable ESPN endpoints.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_ref \tab character \tab Reference link to the originating event. \cr
+   statistics_ref \tab character \tab Statistics ref. \cr
 }
 }
 \description{

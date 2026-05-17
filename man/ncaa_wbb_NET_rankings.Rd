@@ -7,17 +7,17 @@
 ncaa_wbb_NET_rankings()
 }
 \value{
-Returns a tibble\tabular{ll}{
-   col_name \tab types \cr
-   rank \tab integer \cr
-   previous \tab integer \cr
-   school \tab character \cr
-   conference \tab character \cr
-   record \tab character \cr
-   road \tab character \cr
-   neutral \tab character \cr
-   home \tab character \cr
-   non_div_i \tab character \cr
+Returns a tibble\tabular{lll}{
+   col_name \tab types \tab description \cr
+   rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+   previous \tab integer \tab Previous. \cr
+   school \tab character \tab Player's school / college (when distinct from 'college'). \cr
+   conference \tab character \tab Filter players or teams by conference. \cr
+   record \tab character \tab Record string (e.g. '12-4'). \cr
+   road \tab character \tab Road. \cr
+   neutral \tab character \tab Neutral. \cr
+   home \tab character \tab Home. \cr
+   non_div_i \tab character \tab Non div i. \cr
 }
 }
 \description{

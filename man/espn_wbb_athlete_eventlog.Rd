@@ -17,12 +17,12 @@ espn_wbb_athlete_eventlog(athlete_id, season = most_recent_wbb_season(), ...)
 A single tibble. Per-event \code{statistics.$ref} URLs from the ESPN
 core-v2 API are returned as the character column \code{statistics_ref} and
 are NOT resolved. Similarly, \code{event_ref}, \code{competition_ref}, and
-\code{team_ref} are returned as character columns.\tabular{ll}{
-   col_name \tab types \cr
-   event_ref \tab character \cr
-   competition_ref \tab character \cr
-   team_ref \tab character \cr
-   statistics_ref \tab character \cr
+\code{team_ref} are returned as character columns.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_ref \tab character \tab Reference link to the originating event. \cr
+   competition_ref \tab character \tab Competition ref. \cr
+   team_ref \tab character \tab Team ref. \cr
+   statistics_ref \tab character \tab Statistics ref. \cr
 }
 }
 \description{

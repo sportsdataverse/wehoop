@@ -15,14 +15,14 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
 }
 \value{
-A single \code{wehoop_data} tibble with one row per coach.\tabular{ll}{
-   col_name \tab types \cr
-   coach_id \tab character \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   full_name \tab character \cr
-   experience \tab integer \cr
-   team_id \tab character \cr
+A single \code{wehoop_data} tibble with one row per coach.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   coach_id \tab character \tab Unique identifier for coach. \cr
+   first_name \tab character \tab Player's first name. \cr
+   last_name \tab character \tab Player's last name. \cr
+   full_name \tab character \tab Player's full name. \cr
+   experience \tab integer \tab Years of professional experience. \cr
+   team_id \tab character \tab Unique team identifier. \cr
 }
 }
 \description{

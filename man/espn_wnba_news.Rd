@@ -10,17 +10,17 @@ espn_wnba_news(limit = 50)
 \item{limit}{integer. Maximum number of articles to return. Default \code{50}.}
 }
 \value{
-Returns a tibble of news articles.\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   type \tab character \cr
-   headline \tab character \cr
-   description \tab character \cr
-   published \tab character \cr
-   premium \tab logical \cr
-   byline \tab character \cr
-   link_web \tab character \cr
-   league_id \tab character \cr
+Returns a tibble of news articles.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   type \tab character \tab Record type / category. \cr
+   headline \tab character \tab News headline. \cr
+   description \tab character \tab Long-form description text. \cr
+   published \tab character \tab Publication timestamp (ISO 8601). \cr
+   premium \tab logical \tab Premium. \cr
+   byline \tab character \tab News article byline / author. \cr
+   link_web \tab character \tab Web link / URL. \cr
+   league_id \tab character \tab League identifier ('10' = WNBA). \cr
 }
 }
 \description{

@@ -20,20 +20,20 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A tibble with one row per odds provider.
 #'
-#'    |col_name             |types     |
-#'    |:--------------------|:---------|
-#'    |event_id             |character |
-#'    |provider_id          |character |
-#'    |provider_name        |character |
-#'    |details              |character |
-#'    |over_under           |numeric   |
-#'    |spread               |numeric   |
-#'    |home_money_line      |integer   |
-#'    |away_money_line      |integer   |
-#'    |home_team_odds_open  |numeric   |
-#'    |home_team_odds_close |numeric   |
-#'    |away_team_odds_open  |numeric   |
-#'    |away_team_odds_close |numeric   |
+#'    |col_name             |types     |description                            |
+#'    |:--------------------|:---------|:--------------------------------------|
+#'    |event_id             |character |Unique event / game identifier (ESPN). |
+#'    |provider_id          |character |Unique identifier for provider.        |
+#'    |provider_name        |character |Provider name.                         |
+#'    |details              |character |Details.                               |
+#'    |over_under           |numeric   |Over under.                            |
+#'    |spread               |numeric   |Spread.                                |
+#'    |home_money_line      |integer   |Home team's money line.                |
+#'    |away_money_line      |integer   |Away team's money line.                |
+#'    |home_team_odds_open  |numeric   |Home team's team odds open.            |
+#'    |home_team_odds_close |numeric   |Home team's team odds close.           |
+#'    |away_team_odds_open  |numeric   |Away team's team odds open.            |
+#'    |away_team_odds_close |numeric   |Away team's team odds close.           |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows
@@ -69,18 +69,18 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per play-level win-probability entry.
 #'
-#'    |col_name                  |types     |
-#'    |:-------------------------|:---------|
-#'    |event_id                  |character |
-#'    |sequence_number           |character |
-#'    |play_id                   |character |
-#'    |period                    |integer   |
-#'    |clock                     |character |
-#'    |home_win_percentage       |numeric   |
-#'    |away_win_percentage       |numeric   |
-#'    |tie_percentage            |numeric   |
-#'    |secs_to_end_of_period     |numeric   |
-#'    |secs_to_end_of_game       |numeric   |
+#'    |col_name              |types     |description                                              |
+#'    |:---------------------|:---------|:--------------------------------------------------------|
+#'    |event_id              |character |Unique event / game identifier (ESPN).                   |
+#'    |sequence_number       |character |Sequence number representing a shot-possession (V3 PBP). |
+#'    |play_id               |character |Unique play identifier within a game.                    |
+#'    |period                |integer   |Period of the game (1-4 quarters; 5+ for OT).            |
+#'    |clock                 |character |Game clock value.                                        |
+#'    |home_win_percentage   |numeric   |Home win percentage (0-1 decimal).                       |
+#'    |away_win_percentage   |numeric   |Away win percentage (0-1 decimal).                       |
+#'    |tie_percentage        |numeric   |Tie percentage (0-1 decimal).                            |
+#'    |secs_to_end_of_period |numeric   |Secs to end of period.                                   |
+#'    |secs_to_end_of_game   |numeric   |Secs to end of game.                                     |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows
@@ -115,16 +115,16 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per official assigned to the game.
 #'
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |event_id       |character |
-#'    |official_id    |character |
-#'    |full_name      |character |
-#'    |display_name   |character |
-#'    |position_id    |character |
-#'    |position_name  |character |
-#'    |position_type  |character |
-#'    |order          |integer   |
+#'    |col_name      |types     |description                                            |
+#'    |:-------------|:---------|:------------------------------------------------------|
+#'    |event_id      |character |Unique event / game identifier (ESPN).                 |
+#'    |official_id   |character |Unique official / referee identifier.                  |
+#'    |full_name     |character |Player's full name.                                    |
+#'    |display_name  |character |Display name.                                          |
+#'    |position_id   |character |Unique position identifier.                            |
+#'    |position_name |character |Listed roster position ('Guard', 'Forward', 'Center'). |
+#'    |position_type |character |Position type.                                         |
+#'    |order         |integer   |Display order within the result set.                   |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows
@@ -158,18 +158,18 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per broadcast outlet for the game.
 #'
-#'    |col_name         |types     |
-#'    |:----------------|:---------|
-#'    |event_id         |character |
-#'    |broadcast_id     |character |
-#'    |type_id          |character |
-#'    |type_short_name  |character |
-#'    |type_long_name   |character |
-#'    |market_id        |character |
-#'    |market_type      |character |
-#'    |names            |character |
-#'    |lang             |character |
-#'    |region           |character |
+#'    |col_name        |types     |description                            |
+#'    |:---------------|:---------|:--------------------------------------|
+#'    |event_id        |character |Unique event / game identifier (ESPN). |
+#'    |broadcast_id    |character |Unique identifier for broadcast.       |
+#'    |type_id         |character |Type identifier (numeric).             |
+#'    |type_short_name |character |Type short name.                       |
+#'    |type_long_name  |character |Type long name.                        |
+#'    |market_id       |character |Unique identifier for market.          |
+#'    |market_type     |character |Market type.                           |
+#'    |names           |character |Names.                                 |
+#'    |lang            |character |Lang.                                  |
+#'    |region          |character |Region label.                          |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows

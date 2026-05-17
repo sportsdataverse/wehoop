@@ -4,17 +4,17 @@
 #' @author Saiem Gilani
 #' @return Returns a tibble
 #' 
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |rank       |integer   |
-#'    |previous   |integer   |
-#'    |school     |character |
-#'    |conference |character |
-#'    |record     |character |
-#'    |road       |character |
-#'    |neutral    |character |
-#'    |home       |character |
-#'    |non_div_i  |character |
+#'    |col_name   |types     |description                                                 |
+#'    |:----------|:---------|:-----------------------------------------------------------|
+#'    |rank       |integer   |Whether to include statistical ranks in the returned table. |
+#'    |previous   |integer   |Previous.                                                   |
+#'    |school     |character |Player's school / college (when distinct from 'college').   |
+#'    |conference |character |Filter players or teams by conference.                      |
+#'    |record     |character |Record string (e.g. '12-4').                                |
+#'    |road       |character |Road.                                                       |
+#'    |neutral    |character |Neutral.                                                    |
+#'    |home       |character |Home.                                                       |
+#'    |non_div_i  |character |Non div i.                                                  |
 #' 
 #' @importFrom dplyr %>% as_tibble
 #' @import rvest
@@ -85,16 +85,16 @@ ncaa_wbb_NET_rankings <- function(){
 #'   `?.retry_request` for the full set of recognized arguments.
 #' @return A data frame with the following variables
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |team_id       |character |
-#'    |team_name     |character |
-#'    |team_url      |character |
-#'    |conference_id |character |
-#'    |conference    |character |
-#'    |division      |numeric   |
-#'    |year          |numeric   |
-#'    |season_id     |character |
+#'    |col_name      |types     |description                                     |
+#'    |:-------------|:---------|:-----------------------------------------------|
+#'    |team_id       |character |Unique team identifier.                         |
+#'    |team_name     |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |team_url      |character |URL for team.                                   |
+#'    |conference_id |character |Conference identifier.                          |
+#'    |conference    |character |Filter players or teams by conference.          |
+#'    |division      |numeric   |Team division.                                  |
+#'    |year          |numeric   |4-digit year.                                   |
+#'    |season_id     |character |Unique season identifier.                       |
 #'
 #' @import dplyr
 #' @import rvest

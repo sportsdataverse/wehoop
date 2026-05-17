@@ -23,55 +23,55 @@ NULL
 #'
 #'    **Bio**
 #'
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |id             |character |
-#'    |full_name      |character |
-#'    |display_name   |character |
-#'    |jersey         |character |
-#'    |age            |character |
-#'    |date_of_birth  |character |
-#'    |headshot_href  |character |
+#'    |col_name      |types     |description                       |
+#'    |:-------------|:---------|:---------------------------------|
+#'    |id            |character |Unique play identifcation number  |
+#'    |full_name     |character |Player's full name.               |
+#'    |display_name  |character |Display name.                     |
+#'    |jersey        |character |Jersey number worn by the player. |
+#'    |age           |character |Player age (in years).            |
+#'    |date_of_birth |character |Date of birth (YYYY-MM-DD).       |
+#'    |headshot_href |character |Headshot image URL.               |
 #'
 #'    **Team**
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |id            |character |
-#'    |abbreviation  |character |
-#'    |display_name  |character |
+#'    |col_name     |types     |description                      |
+#'    |:------------|:---------|:--------------------------------|
+#'    |id           |character |Unique play identifcation number |
+#'    |abbreviation |character |Short abbreviation.              |
+#'    |display_name |character |Display name.                    |
 #'
 #'    **Position**
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |id            |character |
-#'    |name          |character |
-#'    |abbreviation  |character |
+#'    |col_name     |types     |description                      |
+#'    |:------------|:---------|:--------------------------------|
+#'    |id           |character |Unique play identifcation number |
+#'    |name         |character |Display name.                    |
+#'    |abbreviation |character |Short abbreviation.              |
 #'
 #'    **Status**
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |id            |character |
-#'    |name          |character |
-#'    |type          |character |
+#'    |col_name |types     |description                      |
+#'    |:--------|:---------|:--------------------------------|
+#'    |id       |character |Unique play identifcation number |
+#'    |name     |character |Display name.                    |
+#'    |type     |character |Record type / category.          |
 #'
 #'    **College**
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |id            |character |
-#'    |name          |character |
-#'    |mascot        |character |
+#'    |col_name |types     |description                      |
+#'    |:--------|:---------|:--------------------------------|
+#'    |id       |character |Unique play identifcation number |
+#'    |name     |character |Display name.                    |
+#'    |mascot   |character |Team mascot.                     |
 #'
 #'    **Draft**
 #'
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |year       |character |
-#'    |round      |character |
-#'    |selection  |character |
+#'    |col_name  |types     |description                 |
+#'    |:---------|:---------|:---------------------------|
+#'    |year      |character |4-digit year.               |
+#'    |round     |character |Tournament / playoff round. |
+#'    |selection |character |Selection.                  |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble select any_of
@@ -109,38 +109,38 @@ NULL
 #'
 #'    **Statistics**
 #'
-#'    |col_name |types     |
-#'    |:--------|:---------|
-#'    |(varies) |character |
+#'    |col_name |types     |description |
+#'    |:--------|:---------|:-----------|
+#'    |(varies) |character |            |
 #'
 #'    **NextGame**
 #'
-#'    |col_name   |types     |
-#'    |:----------|:---------|
-#'    |id         |character |
-#'    |date       |character |
-#'    |name       |character |
-#'    |short_name |character |
+#'    |col_name   |types     |description                      |
+#'    |:----------|:---------|:--------------------------------|
+#'    |id         |character |Unique play identifcation number |
+#'    |date       |character |Date in YYYY-MM-DD format.       |
+#'    |name       |character |Display name.                    |
+#'    |short_name |character |Short display name.              |
 #'
 #'    **Last5Games**
 #'
-#'    |col_name |types     |
-#'    |:--------|:---------|
-#'    |(varies) |character |
+#'    |col_name |types     |description |
+#'    |:--------|:---------|:-----------|
+#'    |(varies) |character |            |
 #'
 #'    **Headlines**
 #'
-#'    |col_name    |types     |
-#'    |:-----------|:---------|
-#'    |headline    |character |
-#'    |description |character |
-#'    |published   |character |
+#'    |col_name    |types     |description                       |
+#'    |:-----------|:---------|:---------------------------------|
+#'    |headline    |character |News headline.                    |
+#'    |description |character |Long-form description text.       |
+#'    |published   |character |Publication timestamp (ISO 8601). |
 #'
 #'    **FantasyOutlook**
 #'
-#'    |col_name |types     |
-#'    |:--------|:---------|
-#'    |(varies) |character |
+#'    |col_name |types     |description |
+#'    |:--------|:---------|:-----------|
+#'    |(varies) |character |            |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble select any_of
@@ -296,12 +296,12 @@ NULL
 #'   are NOT resolved. Similarly, `event_ref`, `competition_ref`, and
 #'   `team_ref` are returned as character columns.
 #'
-#'    |col_name        |types     |
-#'    |:---------------|:---------|
-#'    |event_ref       |character |
-#'    |competition_ref |character |
-#'    |team_ref        |character |
-#'    |statistics_ref  |character |
+#'    |col_name        |types     |description                              |
+#'    |:---------------|:---------|:----------------------------------------|
+#'    |event_ref       |character |Reference link to the originating event. |
+#'    |competition_ref |character |Competition ref.                         |
+#'    |team_ref        |character |Team ref.                                |
+#'    |statistics_ref  |character |Statistics ref.                          |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -340,14 +340,14 @@ NULL
 #'   award data, in which case an empty tibble with canonical columns is
 #'   returned.
 #'
-#'    |col_name    |types     |
-#'    |:-----------|:---------|
-#'    |season      |character |
-#'    |award_id    |character |
-#'    |name        |character |
-#'    |description |character |
-#'    |date        |character |
-#'    |type        |character |
+#'    |col_name    |types     |description                                           |
+#'    |:-----------|:---------|:-----------------------------------------------------|
+#'    |season      |character |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |award_id    |character |Unique identifier for award.                          |
+#'    |name        |character |Display name.                                         |
+#'    |description |character |Long-form description text.                           |
+#'    |date        |character |Date in YYYY-MM-DD format.                            |
+#'    |type        |character |Record type / category.                               |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble select any_of
@@ -384,10 +384,10 @@ NULL
 #'   statistical entry in the core-v2 statistics log, with `event_ref` and
 #'   `statistics_ref` character columns pointing to resolvable ESPN endpoints.
 #'
-#'    |col_name        |types     |
-#'    |:---------------|:---------|
-#'    |event_ref       |character |
-#'    |statistics_ref  |character |
+#'    |col_name       |types     |description                              |
+#'    |:--------------|:---------|:----------------------------------------|
+#'    |event_ref      |character |Reference link to the originating event. |
+#'    |statistics_ref |character |Statistics ref.                          |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of

@@ -26,17 +26,17 @@ the season data into a database.}
 \item{tablename}{The name of the officials data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble with one row per official-game pair.\tabular{ll}{
-   col_name \tab types \cr
-   game_id \tab character \cr
-   season \tab integer \cr
-   official_id \tab character \cr
-   display_name \tab character \cr
-   full_name \tab character \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   position \tab character \cr
-   order \tab integer \cr
+Returns a \code{wehoop_data} tibble with one row per official-game pair.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   official_id \tab character \tab Unique official / referee identifier. \cr
+   display_name \tab character \tab Display name. \cr
+   full_name \tab character \tab Player's full name. \cr
+   first_name \tab character \tab Player's first name. \cr
+   last_name \tab character \tab Player's last name. \cr
+   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+   order \tab integer \tab Display order within the result set. \cr
 }
 }
 \description{

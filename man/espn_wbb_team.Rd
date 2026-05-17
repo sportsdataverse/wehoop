@@ -20,52 +20,52 @@ forward compatibility. Proxy configuration should use
 A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},
 \code{StandingSummary}, \code{Coaches}.
 
-\strong{Info}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   uid \tab character \cr
-   slug \tab character \cr
-   abbreviation \tab character \cr
-   display_name \tab character \cr
-   short_display_name \tab character \cr
-   name \tab character \cr
-   nickname \tab character \cr
-   location \tab character \cr
-   color \tab character \cr
-   alternate_color \tab character \cr
-   logo \tab character \cr
+\strong{Info}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   uid \tab character \tab ESPN UID string (universal identifier). \cr
+   slug \tab character \tab URL-safe identifier. \cr
+   abbreviation \tab character \tab Short abbreviation. \cr
+   display_name \tab character \tab Display name. \cr
+   short_display_name \tab character \tab Short display name. \cr
+   name \tab character \tab Display name. \cr
+   nickname \tab character \tab Team or athlete nickname. \cr
+   location \tab character \tab Filter results by game location. \cr
+   color \tab character \tab Primary color (hex without leading '#'). \cr
+   alternate_color \tab character \tab Alternate color (hex without leading '#'). \cr
+   logo \tab character \tab Team or league logo URL. \cr
 }
 
 
-\strong{Record}\tabular{ll}{
-   col_name \tab types \cr
-   type \tab character \cr
-   summary \tab character \cr
-   stats \tab list \cr
+\strong{Record}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   type \tab character \tab Record type / category. \cr
+   summary \tab character \tab Summary. \cr
+   stats \tab list \tab Stats. \cr
 }
 
 
-\strong{NextEvent}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   date \tab character \cr
-   name \tab character \cr
-   short_name \tab character \cr
+\strong{NextEvent}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   date \tab character \tab Date in YYYY-MM-DD format. \cr
+   name \tab character \tab Display name. \cr
+   short_name \tab character \tab Short display name. \cr
 }
 
 
-\strong{StandingSummary}\tabular{ll}{
-   col_name \tab types \cr
-   standing_summary \tab character \cr
+\strong{StandingSummary}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   standing_summary \tab character \tab Standing summary. \cr
 }
 
 
-\strong{Coaches}\tabular{ll}{
-   col_name \tab types \cr
-   id \tab character \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   experience \tab integer \cr
+\strong{Coaches}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab character \tab Unique play identifcation number \cr
+   first_name \tab character \tab Player's first name. \cr
+   last_name \tab character \tab Player's last name. \cr
+   experience \tab integer \tab Years of professional experience. \cr
 }
 }
 \description{

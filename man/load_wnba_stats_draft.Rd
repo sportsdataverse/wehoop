@@ -26,21 +26,21 @@ the season data into a database.}
 \item{tablename}{The name of the draft data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of WNBA draft picks.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   person_id \tab character \cr
-   player_name \tab character \cr
-   round_number \tab integer \cr
-   round_pick \tab integer \cr
-   overall_pick \tab integer \cr
-   team_id \tab character \cr
-   team_city \tab character \cr
-   team_name \tab character \cr
-   team_abbreviation \tab character \cr
-   organization \tab character \cr
-   organization_type \tab character \cr
-   player_profile_flag \tab character \cr
+Returns a \code{wehoop_data} tibble of WNBA draft picks.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   person_id \tab character \tab Unique player identifier (V3 endpoints). \cr
+   player_name \tab character \tab Player name. \cr
+   round_number \tab integer \tab Numeric round. \cr
+   round_pick \tab integer \tab Round pick. \cr
+   overall_pick \tab integer \tab Overall pick. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   organization \tab character \tab Organization. \cr
+   organization_type \tab character \tab Organization type. \cr
+   player_profile_flag \tab character \tab Player profile flag. \cr
 }
 }
 \description{

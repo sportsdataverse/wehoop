@@ -14,14 +14,14 @@ espn_wnba_athlete_awards(athlete_id, ...)
 \value{
 A single tibble. This endpoint is sparse; many athletes have no
 award data, in which case an empty tibble with canonical columns is
-returned.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab character \cr
-   award_id \tab character \cr
-   name \tab character \cr
-   description \tab character \cr
-   date \tab character \cr
-   type \tab character \cr
+returned.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   award_id \tab character \tab Unique identifier for award. \cr
+   name \tab character \tab Display name. \cr
+   description \tab character \tab Long-form description text. \cr
+   date \tab character \tab Date in YYYY-MM-DD format. \cr
+   type \tab character \tab Record type / category. \cr
 }
 }
 \description{

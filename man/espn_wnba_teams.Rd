@@ -7,18 +7,18 @@
 espn_wnba_teams()
 }
 \value{
-Returns a tibble\tabular{ll}{
-   col_name \tab types \cr
-   team_id \tab integer \cr
-   team \tab character \cr
-   mascot \tab character \cr
-   display_name \tab character \cr
-   short_name \tab character \cr
-   abbreviation \tab character \cr
-   color \tab character \cr
-   alternate_color \tab character \cr
-   logo \tab character \cr
-   logo_dark \tab character \cr
+Returns a tibble\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_id \tab integer \tab Unique team identifier. \cr
+   team \tab character \tab Team-side label or team identifier. \cr
+   mascot \tab character \tab Team mascot. \cr
+   display_name \tab character \tab Display name. \cr
+   short_name \tab character \tab Short display name. \cr
+   abbreviation \tab character \tab Short abbreviation. \cr
+   color \tab character \tab Primary color (hex without leading '#'). \cr
+   alternate_color \tab character \tab Alternate color (hex without leading '#'). \cr
+   logo \tab character \tab Team or league logo URL. \cr
+   logo_dark \tab character \tab Logo dark. \cr
 }
 }
 \description{

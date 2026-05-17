@@ -26,26 +26,26 @@ the season data into a database.}
 \item{tablename}{The name of the standings data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of team standings.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   season_id \tab character \cr
-   team_id \tab character \cr
-   team_city \tab character \cr
-   team_name \tab character \cr
-   conference \tab character \cr
-   conference_record \tab character \cr
-   playoff_rank \tab integer \cr
-   wins \tab integer \cr
-   losses \tab integer \cr
-   win_pct \tab numeric \cr
-   home_record \tab character \cr
-   road_record \tab character \cr
-   l10 \tab character \cr
-   strcurrentstreak \tab character \cr
-   points_pg \tab numeric \cr
-   opp_points_pg \tab numeric \cr
-   diff_points_pg \tab numeric \cr
+Returns a \code{wehoop_data} tibble of team standings.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   season_id \tab character \tab Unique season identifier. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   conference \tab character \tab Filter players or teams by conference. \cr
+   conference_record \tab character \tab Conference win-loss record. \cr
+   playoff_rank \tab integer \tab League/season rank for playoff. \cr
+   wins \tab integer \tab Total wins. \cr
+   losses \tab integer \tab Total losses. \cr
+   win_pct \tab numeric \tab Win percentage (0-1 decimal). \cr
+   home_record \tab character \tab Home win-loss record. \cr
+   road_record \tab character \tab Win-loss record for road. \cr
+   l10 \tab character \tab L10. \cr
+   strcurrentstreak \tab character \tab Strcurrentstreak. \cr
+   points_pg \tab numeric \tab Points pg. \cr
+   opp_points_pg \tab numeric \tab Opponent points pg. \cr
+   diff_points_pg \tab numeric \tab Diff points pg. \cr
 }
 }
 \description{

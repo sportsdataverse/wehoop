@@ -22,29 +22,29 @@ espn_wnba_team_schedule(
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single tibble with one row per event.\tabular{ll}{
-   col_name \tab types \cr
-   event_id \tab character \cr
-   season \tab integer \cr
-   season_type \tab integer \cr
-   week \tab integer \cr
-   date \tab character \cr
-   name \tab character \cr
-   short_name \tab character \cr
-   opponent_id \tab character \cr
-   opponent_abbrev \tab character \cr
-   home_away \tab character \cr
-   neutral_site \tab logical \cr
-   conference_competition \tab logical \cr
-   venue_id \tab character \cr
-   venue_name \tab character \cr
-   venue_city \tab character \cr
-   venue_state \tab character \cr
-   broadcast \tab character \cr
-   result \tab character \cr
-   team_score \tab character \cr
-   opponent_score \tab character \cr
-   winner \tab logical \cr
+A single tibble with one row per event.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_id \tab character \tab Unique event / game identifier (ESPN). \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
+   week \tab integer \tab Week number within the season. \cr
+   date \tab character \tab Date in YYYY-MM-DD format. \cr
+   name \tab character \tab Display name. \cr
+   short_name \tab character \tab Short display name. \cr
+   opponent_id \tab character \tab Unique identifier for opponent. \cr
+   opponent_abbrev \tab character \tab Abbreviation for opponent. \cr
+   home_away \tab character \tab Game venue label ('home' or 'away'). \cr
+   neutral_site \tab logical \tab Neutral site. \cr
+   conference_competition \tab logical \tab Conference competition. \cr
+   venue_id \tab character \tab Unique venue identifier. \cr
+   venue_name \tab character \tab Venue name. \cr
+   venue_city \tab character \tab Venue city. \cr
+   venue_state \tab character \tab Venue state / region. \cr
+   broadcast \tab character \tab Broadcast information string. \cr
+   result \tab character \tab Result. \cr
+   team_score \tab character \tab Team's score / final score. \cr
+   opponent_score \tab character \tab Opponent score. \cr
+   winner \tab logical \tab Winner. \cr
 }
 }
 \description{

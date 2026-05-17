@@ -26,19 +26,19 @@ the season data into a database.}
 \item{tablename}{The name of the draft data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of WNBA draft picks.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   round \tab integer \cr
-   pick \tab integer \cr
-   overall \tab integer \cr
-   team_id \tab character \cr
-   team_display_name \tab character \cr
-   athlete_id \tab character \cr
-   athlete_display_name \tab character \cr
-   athlete_position \tab character \cr
-   college_id \tab character \cr
-   college_name \tab character \cr
+Returns a \code{wehoop_data} tibble of WNBA draft picks.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   round \tab integer \tab Tournament / playoff round. \cr
+   pick \tab integer \tab Pick. \cr
+   overall \tab integer \tab Overall. \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   team_display_name \tab character \tab Full team display name. \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   athlete_display_name \tab character \tab Athlete display name (full). \cr
+   athlete_position \tab character \tab Athlete position. \cr
+   college_id \tab character \tab Unique identifier for college. \cr
+   college_name \tab character \tab College name. \cr
 }
 }
 \description{

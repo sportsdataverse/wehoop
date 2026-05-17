@@ -12,39 +12,39 @@ NULL
 #'
 #'    **board**
 #'
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |draft_id      |integer   |
-#'    |title         |character |
-#'    |season        |integer   |
-#'    |status        |character |
-#'    |on_the_clock  |character |
-#'    |draft_date    |character |
-#'    |modified      |character |
+#'    |col_name     |types     |description                                           |
+#'    |:------------|:---------|:-----------------------------------------------------|
+#'    |draft_id     |integer   |Unique identifier for draft.                          |
+#'    |title        |character |Title or label for the record.                        |
+#'    |season       |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |status       |character |Status label.                                         |
+#'    |on_the_clock |character |On the clock.                                         |
+#'    |draft_date   |character |Date in YYYY-MM-DD format.                            |
+#'    |modified     |character |Modified.                                             |
 #'
 #'    **picks**
 #'
-#'    |col_name         |types     |
-#'    |:----------------|:---------|
-#'    |round            |integer   |
-#'    |pick             |integer   |
-#'    |team_id          |integer   |
-#'    |team_external_id |integer   |
-#'    |team_name        |character |
-#'    |prospect_id      |integer   |
-#'    |first_name       |character |
-#'    |last_name        |character |
-#'    |position         |character |
-#'    |country          |character |
-#'    |college          |character |
-#'    |ppg              |character |
-#'    |rpg              |character |
-#'    |apg              |character |
-#'    |spg              |character |
-#'    |bpg              |character |
-#'    |fg_pct           |character |
-#'    |description      |character |
-#'    |headshot_url     |character |
+#'    |col_name         |types     |description                                     |
+#'    |:----------------|:---------|:-----------------------------------------------|
+#'    |round            |integer   |Tournament / playoff round.                     |
+#'    |pick             |integer   |Pick.                                           |
+#'    |team_id          |integer   |Unique team identifier.                         |
+#'    |team_external_id |integer   |Unique identifier for team external.            |
+#'    |team_name        |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |prospect_id      |integer   |Unique identifier for prospect.                 |
+#'    |first_name       |character |Player's first name.                            |
+#'    |last_name        |character |Player's last name.                             |
+#'    |position         |character |Listed roster position (G, F, C, etc.).         |
+#'    |country          |character |Country (full name or code).                    |
+#'    |college          |character |College or school attended.                     |
+#'    |ppg              |character |Points per game.                                |
+#'    |rpg              |character |Rebounds per game.                              |
+#'    |apg              |character |Assists per game.                               |
+#'    |spg              |character |Steals per game.                                |
+#'    |bpg              |character |Blocks per game.                                |
+#'    |fg_pct           |character |Field goal percentage (0-1).                    |
+#'    |description      |character |Long-form description text.                     |
+#'    |headshot_url     |character |URL for headshot.                               |
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
@@ -171,55 +171,55 @@ NULL
 #'    **DraftCombineStats** 
 #'    
 #'    
-#'    |col_name                     |types     |
-#'    |:----------------------------|:---------|
-#'    |SEASON                       |character |
-#'    |PLAYER_ID                    |character |
-#'    |FIRST_NAME                   |character |
-#'    |LAST_NAME                    |character |
-#'    |PLAYER_NAME                  |character |
-#'    |POSITION                     |character |
-#'    |HEIGHT_WO_SHOES              |character |
-#'    |HEIGHT_WO_SHOES_FT_IN        |character |
-#'    |HEIGHT_W_SHOES               |character |
-#'    |HEIGHT_W_SHOES_FT_IN         |character |
-#'    |WEIGHT                       |character |
-#'    |WINGSPAN                     |character |
-#'    |WINGSPAN_FT_IN               |character |
-#'    |STANDING_REACH               |character |
-#'    |STANDING_REACH_FT_IN         |character |
-#'    |BODY_FAT_PCT                 |character |
-#'    |HAND_LENGTH                  |character |
-#'    |HAND_WIDTH                   |character |
-#'    |STANDING_VERTICAL_LEAP       |character |
-#'    |MAX_VERTICAL_LEAP            |character |
-#'    |LANE_AGILITY_TIME            |character |
-#'    |MODIFIED_LANE_AGILITY_TIME   |character |
-#'    |THREE_QUARTER_SPRINT         |character |
-#'    |BENCH_PRESS                  |character |
-#'    |SPOT_FIFTEEN_CORNER_LEFT     |character |
-#'    |SPOT_FIFTEEN_BREAK_LEFT      |character |
-#'    |SPOT_FIFTEEN_TOP_KEY         |character |
-#'    |SPOT_FIFTEEN_BREAK_RIGHT     |character |
-#'    |SPOT_FIFTEEN_CORNER_RIGHT    |character |
-#'    |SPOT_COLLEGE_CORNER_LEFT     |character |
-#'    |SPOT_COLLEGE_BREAK_LEFT      |character |
-#'    |SPOT_COLLEGE_TOP_KEY         |character |
-#'    |SPOT_COLLEGE_BREAK_RIGHT     |character |
-#'    |SPOT_COLLEGE_CORNER_RIGHT    |character |
-#'    |SPOT_NBA_CORNER_LEFT         |character |
-#'    |SPOT_NBA_BREAK_LEFT          |character |
-#'    |SPOT_NBA_TOP_KEY             |character |
-#'    |SPOT_NBA_BREAK_RIGHT         |character |
-#'    |SPOT_NBA_CORNER_RIGHT        |character |
-#'    |OFF_DRIB_FIFTEEN_BREAK_LEFT  |character |
-#'    |OFF_DRIB_FIFTEEN_TOP_KEY     |character |
-#'    |OFF_DRIB_FIFTEEN_BREAK_RIGHT |character |
-#'    |OFF_DRIB_COLLEGE_BREAK_LEFT  |character |
-#'    |OFF_DRIB_COLLEGE_TOP_KEY     |character |
-#'    |OFF_DRIB_COLLEGE_BREAK_RIGHT |character |
-#'    |ON_MOVE_FIFTEEN              |character |
-#'    |ON_MOVE_COLLEGE              |character |
+#'    |col_name                     |types     |description                                           |
+#'    |:----------------------------|:---------|:-----------------------------------------------------|
+#'    |SEASON                       |character |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |PLAYER_ID                    |character |Unique player identifier.                             |
+#'    |FIRST_NAME                   |character |Player's first name.                                  |
+#'    |LAST_NAME                    |character |Player's last name.                                   |
+#'    |PLAYER_NAME                  |character |Player name.                                          |
+#'    |POSITION                     |character |Listed roster position (G, F, C, etc.).               |
+#'    |HEIGHT_WO_SHOES              |character |                                                      |
+#'    |HEIGHT_WO_SHOES_FT_IN        |character |                                                      |
+#'    |HEIGHT_W_SHOES               |character |                                                      |
+#'    |HEIGHT_W_SHOES_FT_IN         |character |                                                      |
+#'    |WEIGHT                       |character |Player weight in pounds.                              |
+#'    |WINGSPAN                     |character |                                                      |
+#'    |WINGSPAN_FT_IN               |character |                                                      |
+#'    |STANDING_REACH               |character |                                                      |
+#'    |STANDING_REACH_FT_IN         |character |                                                      |
+#'    |BODY_FAT_PCT                 |character |                                                      |
+#'    |HAND_LENGTH                  |character |                                                      |
+#'    |HAND_WIDTH                   |character |                                                      |
+#'    |STANDING_VERTICAL_LEAP       |character |                                                      |
+#'    |MAX_VERTICAL_LEAP            |character |                                                      |
+#'    |LANE_AGILITY_TIME            |character |                                                      |
+#'    |MODIFIED_LANE_AGILITY_TIME   |character |                                                      |
+#'    |THREE_QUARTER_SPRINT         |character |                                                      |
+#'    |BENCH_PRESS                  |character |                                                      |
+#'    |SPOT_FIFTEEN_CORNER_LEFT     |character |                                                      |
+#'    |SPOT_FIFTEEN_BREAK_LEFT      |character |                                                      |
+#'    |SPOT_FIFTEEN_TOP_KEY         |character |                                                      |
+#'    |SPOT_FIFTEEN_BREAK_RIGHT     |character |                                                      |
+#'    |SPOT_FIFTEEN_CORNER_RIGHT    |character |                                                      |
+#'    |SPOT_COLLEGE_CORNER_LEFT     |character |                                                      |
+#'    |SPOT_COLLEGE_BREAK_LEFT      |character |                                                      |
+#'    |SPOT_COLLEGE_TOP_KEY         |character |                                                      |
+#'    |SPOT_COLLEGE_BREAK_RIGHT     |character |                                                      |
+#'    |SPOT_COLLEGE_CORNER_RIGHT    |character |                                                      |
+#'    |SPOT_NBA_CORNER_LEFT         |character |                                                      |
+#'    |SPOT_NBA_BREAK_LEFT          |character |                                                      |
+#'    |SPOT_NBA_TOP_KEY             |character |                                                      |
+#'    |SPOT_NBA_BREAK_RIGHT         |character |                                                      |
+#'    |SPOT_NBA_CORNER_RIGHT        |character |                                                      |
+#'    |OFF_DRIB_FIFTEEN_BREAK_LEFT  |character |                                                      |
+#'    |OFF_DRIB_FIFTEEN_TOP_KEY     |character |                                                      |
+#'    |OFF_DRIB_FIFTEEN_BREAK_RIGHT |character |                                                      |
+#'    |OFF_DRIB_COLLEGE_BREAK_LEFT  |character |                                                      |
+#'    |OFF_DRIB_COLLEGE_TOP_KEY     |character |                                                      |
+#'    |OFF_DRIB_COLLEGE_BREAK_RIGHT |character |                                                      |
+#'    |ON_MOVE_FIFTEEN              |character |                                                      |
+#'    |ON_MOVE_COLLEGE              |character |                                                      |
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -524,22 +524,22 @@ wnba_draftcombinespotshooting <- function(
 #'    **DraftHistory** 
 #'    
 #'    
-#'    |col_name            |types     |
-#'    |:-------------------|:---------|
-#'    |PERSON_ID           |character |
-#'    |PLAYER_NAME         |character |
-#'    |SEASON              |character |
-#'    |ROUND_NUMBER        |character |
-#'    |ROUND_PICK          |character |
-#'    |OVERALL_PICK        |character |
-#'    |DRAFT_TYPE          |character |
-#'    |TEAM_ID             |character |
-#'    |TEAM_CITY           |character |
-#'    |TEAM_NAME           |character |
-#'    |TEAM_ABBREVIATION   |character |
-#'    |ORGANIZATION        |character |
-#'    |ORGANIZATION_TYPE   |character |
-#'    |PLAYER_PROFILE_FLAG |character |
+#'    |col_name            |types     |description                                           |
+#'    |:-------------------|:---------|:-----------------------------------------------------|
+#'    |PERSON_ID           |character |Unique player identifier (V3 endpoints).              |
+#'    |PLAYER_NAME         |character |Player name.                                          |
+#'    |SEASON              |character |Season identifier (4-digit year or 'YYYY-YY' string). |
+#'    |ROUND_NUMBER        |character |Numeric round.                                        |
+#'    |ROUND_PICK          |character |Round pick.                                           |
+#'    |OVERALL_PICK        |character |Overall pick.                                         |
+#'    |DRAFT_TYPE          |character |                                                      |
+#'    |TEAM_ID             |character |Unique team identifier.                               |
+#'    |TEAM_CITY           |character |Team city or region (e.g. 'Las Vegas').               |
+#'    |TEAM_NAME           |character |Full team display name (e.g. 'Las Vegas Aces').       |
+#'    |TEAM_ABBREVIATION   |character |Short team abbreviation (e.g. 'LAS').                 |
+#'    |ORGANIZATION        |character |Organization.                                         |
+#'    |ORGANIZATION_TYPE   |character |Organization type.                                    |
+#'    |PLAYER_PROFILE_FLAG |character |Player profile flag.                                  |
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble

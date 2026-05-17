@@ -12,17 +12,17 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
 }
 \value{
-A single \code{wehoop_data} tibble with one row per venue.\tabular{ll}{
-   col_name \tab types \cr
-   venue_id \tab character \cr
-   name \tab character \cr
-   full_name \tab character \cr
-   address_city \tab character \cr
-   address_state \tab character \cr
-   capacity \tab integer \cr
-   indoor \tab logical \cr
-   grass \tab logical \cr
-   images_url \tab character \cr
+A single \code{wehoop_data} tibble with one row per venue.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   venue_id \tab character \tab Unique venue identifier. \cr
+   name \tab character \tab Display name. \cr
+   full_name \tab character \tab Player's full name. \cr
+   address_city \tab character \tab Address city. \cr
+   address_state \tab character \tab Address state. \cr
+   capacity \tab integer \tab Capacity. \cr
+   indoor \tab logical \tab Indoor. \cr
+   grass \tab logical \tab Grass. \cr
+   images_url \tab character \tab URL for images. \cr
 }
 }
 \description{

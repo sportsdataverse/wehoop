@@ -19,20 +19,20 @@ Returns a tibble of league-wide WBB injury records. ESPN's WBB
 injury data is typically sparse; the function returns an empty tibble
 (zero rows) when no injuries are reported.
 
-\strong{Injuries}\tabular{ll}{
-   col_name \tab types \cr
-   team_id \tab character \cr
-   athlete_id \tab character \cr
-   athlete_name \tab character \cr
-   position \tab character \cr
-   status \tab character \cr
-   date \tab character \cr
-   type \tab character \cr
-   side \tab character \cr
-   returns_at \tab character \cr
-   short_comment \tab character \cr
-   long_comment \tab character \cr
-   season \tab integer \cr
+\strong{Injuries}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_id \tab character \tab Unique team identifier. \cr
+   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+   athlete_name \tab character \tab Athlete display name (ESPN). \cr
+   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+   status \tab character \tab Status label. \cr
+   date \tab character \tab Date in YYYY-MM-DD format. \cr
+   type \tab character \tab Record type / category. \cr
+   side \tab character \tab Side label (e.g. 'home', 'away', or 'overUnder'). \cr
+   returns_at \tab character \tab Returns at. \cr
+   short_comment \tab character \tab Short comment. \cr
+   long_comment \tab character \tab Long-form play / event comment. \cr
+   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
 }
 }
 \description{
