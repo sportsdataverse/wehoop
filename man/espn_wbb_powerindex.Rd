@@ -9,7 +9,7 @@ espn_wbb_powerindex(season = most_recent_wbb_season(), season_type = 2L, ...)
 \arguments{
 \item{season}{Season year (numeric). Defaults to the most recent WBB season.}
 
-\item{season_type}{Integer (1=preseason, 2=regular \link{default}, 3=postseason).}
+\item{season_type}{Integer (1=preseason, 2=regular (default), 3=postseason).}
 
 \item{...}{Additional arguments; currently unused.}
 }
