@@ -6,7 +6,11 @@ for one WNBA season, in long format: one row per (team x stat).
 ## Usage
 
 ``` r
-espn_wnba_powerindex(season = most_recent_wnba_season(), season_type = 2L, ...)
+espn_wnba_powerindex(
+  season = most_recent_wnba_season(),
+  season_type = c(2L, 3L),
+  ...
+)
 ```
 
 ## Arguments
@@ -123,7 +127,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_powerindex(season = 2025)
 #> ── ESPN WNBA Season Power Index ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:18 UTC
+#> ℹ Data updated: 2026-05-18 22:40:01 UTC
 #> # A tibble: 0 × 12
 #> # ℹ 12 variables: league <chr>, season <int>, season_type <int>, team_id <chr>,
 #> #   stat_name <chr>, abbreviation <chr>, display_name <chr>, description <chr>,

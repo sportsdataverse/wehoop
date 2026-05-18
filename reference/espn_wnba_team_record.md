@@ -9,7 +9,7 @@ and season-type. Each row is one record category.
 espn_wnba_team_record(
   team_id,
   season = most_recent_wnba_season(),
-  season_type = 2L,
+  season_type = c(2L, 3L),
   ...
 )
 ```
@@ -134,14 +134,18 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_record(team_id = 5, season = 2025)
 #> ── ESPN WNBA Team Record ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:26 UTC
-#> # A tibble: 4 × 14
+#> ℹ Data updated: 2026-05-18 22:40:12 UTC
+#> # A tibble: 8 × 14
 #>   league team_id season season_type record_id name     abbreviation display_name
 #>   <chr>  <chr>    <int>       <int> <chr>     <chr>    <chr>        <chr>       
 #> 1 wnba   5         2025           2 0         overall  Total        Overall     
 #> 2 wnba   5         2025           2 33        Home     NA           Home        
 #> 3 wnba   5         2025           2 34        Road     NA           Road        
 #> 4 wnba   5         2025           2 901       Last Te… Last Ten     Last Ten Ga…
+#> 5 wnba   5         2025           3 0         overall  Total        Overall     
+#> 6 wnba   5         2025           3 33        Home     NA           Home        
+#> 7 wnba   5         2025           3 34        Road     NA           Road        
+#> 8 wnba   5         2025           3 901       Last Te… Last Ten     Last Ten Ga…
 #> # ℹ 6 more variables: short_display_name <chr>, description <chr>, type <chr>,
 #> #   summary <chr>, display_value <chr>, value <dbl>
 # }

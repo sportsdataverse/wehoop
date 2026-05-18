@@ -115,7 +115,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_types(season = 2025)
 #> ── ESPN WNBA Season Types Index ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:22 UTC
+#> ℹ Data updated: 2026-05-18 22:40:07 UTC
 #> # A tibble: 4 × 4
 #>   league season season_type ref                                                 
 #>   <chr>   <int>       <int> <chr>                                               

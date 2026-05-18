@@ -9,7 +9,7 @@ rankings are populated only for college (MBB / WBB).
 ``` r
 espn_wnba_season_weeks(
   season = most_recent_wnba_season(),
-  season_type = 2L,
+  season_type = c(2L, 3L),
   ...
 )
 ```
@@ -121,7 +121,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_weeks(season = 2025)
 #> ── ESPN WNBA Season Weeks Index ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:22 UTC
+#> ℹ Data updated: 2026-05-18 22:40:08 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, season <int>, season_type <int>, week <int>,
 #> #   ref <chr>

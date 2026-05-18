@@ -9,7 +9,7 @@ e.g. "Points Per Game x rank 1 x LeBron James".
 ``` r
 espn_wnba_season_leaders(
   season = most_recent_wnba_season(),
-  season_type = 2L,
+  season_type = c(2L, 3L),
   ...
 )
 ```
@@ -135,8 +135,8 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_leaders(season = 2025)
 #> ── ESPN WNBA Season-Type Leaders ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:21 UTC
-#> # A tibble: 375 × 15
+#> ℹ Data updated: 2026-05-18 22:40:06 UTC
+#> # A tibble: 750 × 15
 #>    league season season_type category_name category_display category_short
 #>    <chr>   <int>       <int> <chr>         <chr>            <chr>         
 #>  1 wnba     2025           2 pointsPerGame Points Per Game  PPG           
@@ -149,7 +149,7 @@ Saiem Gilani
 #>  8 wnba     2025           2 pointsPerGame Points Per Game  PPG           
 #>  9 wnba     2025           2 pointsPerGame Points Per Game  PPG           
 #> 10 wnba     2025           2 pointsPerGame Points Per Game  PPG           
-#> # ℹ 365 more rows
+#> # ℹ 740 more rows
 #> # ℹ 9 more variables: category_abbrev <chr>, rank <int>, athlete_id <chr>,
 #> #   team_id <chr>, display_value <chr>, value <dbl>, rel <chr>,
 #> #   athlete_ref <chr>, team_ref <chr>

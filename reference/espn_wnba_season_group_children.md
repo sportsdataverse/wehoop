@@ -130,7 +130,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_group_children(group_id = 5, season = 2025)
 #> ── ESPN WNBA Season Group Children Index ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:19 UTC
+#> ℹ Data updated: 2026-05-18 22:40:02 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   parent_group_id <chr>, child_group_id <chr>, ref <chr>

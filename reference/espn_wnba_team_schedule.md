@@ -143,7 +143,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_schedule(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Schedule from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:27 UTC
+#> ℹ Data updated: 2026-05-18 22:40:13 UTC
 #> # A tibble: 44 × 21
 #>    event_id  season season_type  week date          name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      

@@ -110,7 +110,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_splits(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Splits from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:03 UTC
+#> ℹ Data updated: 2026-05-18 22:39:47 UTC
 #> # A tibble: 7 × 3
 #>   name       display_name splits       
 #>   <chr>      <chr>        <list>       

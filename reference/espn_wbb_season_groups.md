@@ -9,7 +9,7 @@ season x season-type) via core-v2
 ``` r
 espn_wbb_season_groups(
   season = most_recent_wbb_season(),
-  season_type = 2L,
+  season_type = c(2L, 3L),
   ...
 )
 ```
@@ -120,11 +120,13 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_groups(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Groups Index ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:28:47 UTC
-#> # A tibble: 2 × 5
+#> ℹ Data updated: 2026-05-18 22:39:29 UTC
+#> # A tibble: 4 × 5
 #>   league                    season season_type group_id ref                     
 #>   <chr>                      <int>       <int> <chr>    <chr>                   
 #> 1 womens-college-basketball   2025           2 50       http://sports.core.api.…
 #> 2 womens-college-basketball   2025           2 51       http://sports.core.api.…
+#> 3 womens-college-basketball   2025           3 50       http://sports.core.api.…
+#> 4 womens-college-basketball   2025           3 51       http://sports.core.api.…
 # }
 ```

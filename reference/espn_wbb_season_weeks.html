@@ -96,7 +96,11 @@ rankings are populated only for college (MBB / WBB).</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_wbb_season_weeks</span><span class="op">(</span>season <span class="op">=</span> <span class="fu"><a href="most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span>, season_type <span class="op">=</span> <span class="fl">2L</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">espn_wbb_season_weeks</span><span class="op">(</span></span>
+<span>  season <span class="op">=</span> <span class="fu"><a href="most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  season_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">3L</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -197,8 +201,8 @@ rankings are populated only for college (MBB / WBB).</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_season_weeks</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Weeks Index ─────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-18 22:28:50 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 5</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-18 22:39:33 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league                    season season_type  week ref                       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2     1 http://sports.core.api.es…</span>
@@ -211,16 +215,7 @@ rankings are populated only for college (MBB / WBB).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2     8 http://sports.core.api.es…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2     9 http://sports.core.api.es…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    10 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    11 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    12 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    13 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    14 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    15 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    16 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    17 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    18 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    19 http://sports.core.api.es…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>025           2    20 http://sports.core.api.es…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more rows</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

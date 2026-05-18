@@ -9,7 +9,7 @@ season x season-type) via core-v2
 ``` r
 espn_wnba_season_groups(
   season = most_recent_wnba_season(),
-  season_type = 2L,
+  season_type = c(2L, 3L),
   ...
 )
 ```
@@ -121,11 +121,13 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_groups(season = 2025)
 #> ── ESPN WNBA Season Groups Index ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:29:20 UTC
-#> # A tibble: 2 × 5
+#> ℹ Data updated: 2026-05-18 22:40:04 UTC
+#> # A tibble: 4 × 5
 #>   league season season_type group_id ref                                        
 #>   <chr>   <int>       <int> <chr>    <chr>                                      
 #> 1 wnba     2025           2 1        http://sports.core.api.espn.com/v2/sports/…
 #> 2 wnba     2025           2 2        http://sports.core.api.espn.com/v2/sports/…
+#> 3 wnba     2025           3 1        http://sports.core.api.espn.com/v2/sports/…
+#> 4 wnba     2025           3 2        http://sports.core.api.espn.com/v2/sports/…
 # }
 ```
