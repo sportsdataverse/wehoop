@@ -40,7 +40,7 @@ NULL
 #'   espn_wbb_powerindex(season = 2025)
 #' }
 espn_wbb_powerindex <- function(season = most_recent_wbb_season(),
-                                 season_type = 2L, ...) {
+                                 season_type = c(2L, 3L), ...) {
   .espn_basketball_powerindex(league = "womens-college-basketball",
                                 season = season,
                                 season_type = season_type, ...)

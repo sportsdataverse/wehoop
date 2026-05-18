@@ -4,7 +4,11 @@
 \alias{espn_wnba_powerindex}
 \title{\strong{Get ESPN WNBA Season Power Index (Long Format)}}
 \usage{
-espn_wnba_powerindex(season = most_recent_wnba_season(), season_type = 2L, ...)
+espn_wnba_powerindex(
+  season = most_recent_wnba_season(),
+  season_type = c(2L, 3L),
+  ...
+)
 }
 \arguments{
 \item{season}{Season year (numeric). Defaults to the most recent WNBA season.}

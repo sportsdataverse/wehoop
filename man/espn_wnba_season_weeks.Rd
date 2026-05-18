@@ -6,7 +6,7 @@
 \usage{
 espn_wnba_season_weeks(
   season = most_recent_wnba_season(),
-  season_type = 2L,
+  season_type = c(2L, 3L),
   ...
 )
 }

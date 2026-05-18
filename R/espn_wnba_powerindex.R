@@ -40,7 +40,7 @@ NULL
 #'   espn_wnba_powerindex(season = 2025)
 #' }
 espn_wnba_powerindex <- function(season = most_recent_wnba_season(),
-                                  season_type = 2L, ...) {
+                                  season_type = c(2L, 3L), ...) {
   .espn_basketball_powerindex(league = "wnba", season = season,
                                 season_type = season_type, ...)
 }

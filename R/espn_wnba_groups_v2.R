@@ -41,7 +41,7 @@ NULL
 #'   espn_wnba_season_groups(season = 2025)
 #' }
 espn_wnba_season_groups <- function(season = most_recent_wnba_season(),
-                                    season_type = 2L, ...) {
+                                    season_type = c(2L, 3L), ...) {
   .espn_basketball_season_groups(league = "wnba", season = season,
                                    season_type = season_type, ...)
 }
