@@ -466,6 +466,86 @@ Internal parsers exported for advanced use
 
   **Parse ESPN WBB Player Box, helper function**
 
+### WBB – Core-v2 expansion (Tier 1+)
+
+Crawler-discovered core-v2 endpoints (franchises, awards, tournaments,
+BPI, season metadata)
+
+- [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md)
+  :
+
+  **Get ESPN WBB Franchises Index**
+
+- [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md)
+  :
+
+  **Get ESPN WBB Franchise Detail**
+
+- [`espn_wbb_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_profile.md)
+  :
+
+  **Get ESPN WBB Team-in-Season Profile**
+
+- [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md)
+  :
+
+  **Get ESPN WBB Season Awards Index**
+
+- [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md)
+  :
+
+  **Get ESPN WBB Season Award Detail**
+
+- [`espn_wbb_tournaments()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournaments.md)
+  :
+
+  **Get ESPN WBB Tournaments Index**
+
+- [`espn_wbb_tournament()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament.md)
+  :
+
+  **Get ESPN WBB Tournament Detail**
+
+- [`espn_wbb_tournament_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_seasons.md)
+  :
+
+  **Get ESPN WBB Tournament Seasons List**
+
+- [`espn_wbb_coach()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach.md)
+  :
+
+  **Get ESPN WBB Single-Coach Detail**
+
+- [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md)
+  :
+
+  **Get ESPN WBB Season Power Index (Long Format)**
+
+- [`espn_wbb_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_types.md)
+  :
+
+  **Get ESPN WBB Season Types Index**
+
+- [`espn_wbb_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_type.md)
+  :
+
+  **Get ESPN WBB Season-Type Detail**
+
+- [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md)
+  :
+
+  **Get ESPN WBB Season Leaders (Long Format)**
+
+- [`espn_wbb_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_rankings.md)
+  :
+
+  **Get ESPN WBB Season Rankings Index**
+
+- [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md)
+  :
+
+  **Get ESPN WBB Season Ranking Detail**
+
 ### WNBA – Game data
 
 Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
@@ -707,6 +787,76 @@ Internal parsers exported for advanced use
   :
 
   **Parse ESPN WNBA Player Box, helper function**
+
+### WNBA – Core-v2 expansion (Tier 1+)
+
+Crawler-discovered core-v2 endpoints (franchises, awards, futures, BPI,
+season metadata)
+
+- [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md)
+  :
+
+  **Get ESPN WNBA Franchises Index**
+
+- [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md)
+  :
+
+  **Get ESPN WNBA Franchise Detail**
+
+- [`espn_wnba_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_profile.md)
+  :
+
+  **Get ESPN WNBA Team-in-Season Profile**
+
+- [`espn_wnba_team_record()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_record.md)
+  :
+
+  **Get ESPN WNBA Team Record (Per Season Type)**
+
+- [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md)
+  :
+
+  **Get ESPN WNBA Season Awards Index**
+
+- [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md)
+  :
+
+  **Get ESPN WNBA Season Award Detail**
+
+- [`espn_wnba_futures()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_futures.md)
+  :
+
+  **Get ESPN WNBA Season Futures (Long Format)**
+
+- [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md)
+  :
+
+  **Get ESPN WNBA Season Power Index (Long Format)**
+
+- [`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md)
+  :
+
+  **Get ESPN WNBA Season Types Index**
+
+- [`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md)
+  :
+
+  **Get ESPN WNBA Season-Type Detail**
+
+- [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md)
+  :
+
+  **Get ESPN WNBA Season Leaders (Long Format)**
+
+- [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md)
+  :
+
+  **Get ESPN WNBA Season Rankings Index**
+
+- [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md)
+  :
+
+  **Get ESPN WNBA Season Ranking Detail**
 
 ## NCAA Data
 

@@ -195,6 +195,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md),
 [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md),
 [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
+[`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md),
 [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md),
 [`espn_wnba_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coaches.md),
 [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md),
@@ -203,7 +204,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
 [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+[`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
+[`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
+[`espn_wnba_futures()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_futures.md),
 [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md),
 [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_rosters.md),
 [`espn_wnba_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_injuries.md),
@@ -211,8 +215,15 @@ Other ESPN WNBA Functions:
 [`espn_wnba_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_news.md),
 [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md),
 [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md),
+[`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
 [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md),
+[`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md),
 [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md),
+[`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md),
+[`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md),
+[`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md),
+[`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md),
+[`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md),
 [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md),
 [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md),
 [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md),
@@ -220,8 +231,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_injuries.md),
 [`espn_wnba_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_leaders.md),
 [`espn_wnba_team_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_news.md),
+[`espn_wnba_team_record()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_record.md),
 [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md),
 [`espn_wnba_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_schedule.md),
+[`espn_wnba_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_profile.md),
 [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md),
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md),
 [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
@@ -237,17 +250,17 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 #> ── ESPN WNBA Player Season Stats from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-17 16:09:39 UTC
-#> # A tibble: 1 × 233
-#>   x_ref_8     athlete_id athlete_uid athlete_guid athlete_type    sdr first_name
-#>   <chr>            <int> <chr>       <chr>        <chr>         <int> <chr>     
-#> 1 http://spo…    2529130 s:40~l:59~… 2e32f80f-85… basketball   2.53e6 Natasha   
-#> # ℹ 226 more variables: last_name <chr>, full_name <chr>, display_name <chr>,
-#> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
-#> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,
-#> #   headshot_href <chr>, headshot_alt <chr>, jersey <chr>, hand_type <chr>,
-#> #   hand_abbreviation <chr>, hand_display_value <chr>, position_id <int>,
-#> #   position_name <chr>, position_display_name <chr>,
-#> #   position_abbreviation <chr>, position_leaf <lgl>, linked <lgl>, …
+#> ℹ Data updated: 2026-05-18 17:14:58 UTC
+#> # A tibble: 1 × 232
+#>   athlete_id athlete_uid   athlete_guid athlete_type    sdr first_name last_name
+#>        <int> <chr>         <chr>        <chr>         <int> <chr>      <chr>    
+#> 1    2529130 s:40~l:59~a:… 2e32f80f-85… basketball   2.53e6 Natasha    Howard   
+#> # ℹ 225 more variables: full_name <chr>, display_name <chr>, short_name <chr>,
+#> #   weight <dbl>, display_weight <chr>, height <dbl>, display_height <chr>,
+#> #   age <int>, date_of_birth <chr>, slug <chr>, headshot_href <chr>,
+#> #   headshot_alt <chr>, jersey <chr>, hand_type <chr>, hand_abbreviation <chr>,
+#> #   hand_display_value <chr>, position_id <int>, position_name <chr>,
+#> #   position_display_name <chr>, position_abbreviation <chr>,
+#> #   position_leaf <lgl>, linked <lgl>, years <int>, active <lgl>, …
 # }
 ```

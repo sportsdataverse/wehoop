@@ -190,6 +190,52 @@ into
 - Reorganizes the pkgdown reference index into 14 per-domain ESPN
   subsections so the rendered nav scales for the new surface.
 
+##### *Tier 1 core-v2 expansion (crawler-driven)*
+
+20 new wrappers across 9 resource families, paired with the matching
+hoopR additions. Surfaced by an internal `$ref`-following crawler that
+mapped the entire reachable basketball API surface (21,962 fetches,
+1,570 unique templates across all 4 basketball leagues). Each wrapper is
+a thin shim over a shared `.espn_basketball_*()` helper.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_profile.md) / [`espn_wbb_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_profile.md) | Era-correct team identity in a specific season plus `$ref` URLs for deeper resources (record, statistics, leaders, athletes, coaches, etc.). Historical depth back to **1997** (WNBA) / **1982** (WBB). |
+| [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md) / [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md) | Franchise-level metadata. IDs are stable across relocations and rebrands. |
+| [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md) / [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md) | Index of franchise IDs in the league. |
+| [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md) / [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md) | Index of award IDs given out in a season. |
+| [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md) / [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md) | Award detail with winners (one row per winner; multi-recipient awards return one row each). |
+| [`espn_wnba_futures()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_futures.md) | WNBA per-season futures betting board, long format (one row per market × team × sportsbook). ESPN does not expose a futures endpoint for WBB. |
+| [`espn_wbb_tournaments()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournaments.md) | Index of WBB tournaments (NCAA Tournament, WNIT, conference tournaments). ESPN does not expose a tournaments endpoint for the WNBA. |
+| [`espn_wbb_tournament()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament.md) | Single tournament metadata + seasons-list `$ref`. |
+| [`espn_wbb_tournament_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_seasons.md) | Seasons in which a given WBB tournament was held. |
+| [`espn_wnba_team_record()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_record.md) | WNBA team record breakdown for one (team × season × season-type). |
+| [`espn_wbb_coach()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach.md) | Single WBB head coach biography, current team / college refs, and counts of career-record + per-season coaching entries. |
+| [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md) / [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md) | Per-season Basketball Power Index and related metrics, long format (one row per team × stat). |
+
+##### *Tier 2A core-v2 expansion — season metadata*
+
+10 new wrappers across 5 resource families covering season-level
+metadata: season types, the per-(season × season-type) leaderboards, and
+(mostly college-only) season rankings. Backed by a shared
+`R/espn_basketball_season_meta_helpers.R`. NBA + MBB siblings ship in
+hoopR’s matching release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md) / [`espn_wbb_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_types.md) | Index of season-type IDs that exist for one season (1 = preseason, 2 = regular, 3 = postseason, 4 = off-season). |
+| [`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md) / [`espn_wbb_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_type.md) | Single season-type detail (start / end dates, has-groups / has-standings / has-legs flags, `$ref` URLs to deeper resources). |
+| [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md) / [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md) | Per-(season × season-type) leaderboards in long format. 14–15 categories × 25 leaders ≈ 350 rows. |
+| [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md) / [`espn_wbb_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_rankings.md) | Index of season-level rankings (WNBA returns zero; WBB returns AP Top 25 + Coaches Poll). |
+| [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md) / [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md) | Per-week snapshot index for one ranking source — each row resolves to a per-week ranked-teams endpoint. |
+
+##### *pkgdown index*
+
+The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A
+wrapper (the 3.0.0 pkgdown build was failing with “topics missing from
+index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion”
+subsection per league).
+
 #### **Behavior changes to existing functions**
 
 ##### *Restored functionality (un-deprecations)*

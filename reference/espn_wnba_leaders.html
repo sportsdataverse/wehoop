@@ -132,6 +132,7 @@ pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>descr
 <code><a href="espn_wnba_athlete_statisticslog.html">espn_wnba_athlete_statisticslog()</a></code>,
 <code><a href="espn_wnba_athlete_stats.html">espn_wnba_athlete_stats()</a></code>,
 <code><a href="espn_wnba_athletes_index.html">espn_wnba_athletes_index()</a></code>,
+<code><a href="espn_wnba_award.html">espn_wnba_award()</a></code>,
 <code><a href="espn_wnba_calendar.html">espn_wnba_calendar()</a></code>,
 <code><a href="espn_wnba_coaches.html">espn_wnba_coaches()</a></code>,
 <code><a href="espn_wnba_conferences.html">espn_wnba_conferences()</a></code>,
@@ -140,7 +141,10 @@ pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>descr
 <code><a href="espn_wnba_event_odds.html">espn_wnba_event_odds()</a></code>,
 <code><a href="espn_wnba_event_officials.html">espn_wnba_event_officials()</a></code>,
 <code><a href="espn_wnba_event_probabilities.html">espn_wnba_event_probabilities()</a></code>,
+<code><a href="espn_wnba_franchise.html">espn_wnba_franchise()</a></code>,
+<code><a href="espn_wnba_franchises.html">espn_wnba_franchises()</a></code>,
 <code><a href="espn_wnba_freeagents.html">espn_wnba_freeagents()</a></code>,
+<code><a href="espn_wnba_futures.html">espn_wnba_futures()</a></code>,
 <code><a href="espn_wnba_game_all.html">espn_wnba_game_all()</a></code>,
 <code><a href="espn_wnba_game_rosters.html">espn_wnba_game_rosters()</a></code>,
 <code><a href="espn_wnba_injuries.html">espn_wnba_injuries()</a></code>,
@@ -148,8 +152,15 @@ pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>descr
 <code><a href="espn_wnba_pbp.html">espn_wnba_pbp()</a></code>,
 <code><a href="espn_wnba_player_box.html">espn_wnba_player_box()</a></code>,
 <code><a href="espn_wnba_player_stats.html">espn_wnba_player_stats()</a></code>,
+<code><a href="espn_wnba_powerindex.html">espn_wnba_powerindex()</a></code>,
 <code><a href="espn_wnba_scoreboard.html">espn_wnba_scoreboard()</a></code>,
+<code><a href="espn_wnba_season_awards.html">espn_wnba_season_awards()</a></code>,
 <code><a href="espn_wnba_season_info.html">espn_wnba_season_info()</a></code>,
+<code><a href="espn_wnba_season_leaders.html">espn_wnba_season_leaders()</a></code>,
+<code><a href="espn_wnba_season_ranking.html">espn_wnba_season_ranking()</a></code>,
+<code><a href="espn_wnba_season_rankings.html">espn_wnba_season_rankings()</a></code>,
+<code><a href="espn_wnba_season_type.html">espn_wnba_season_type()</a></code>,
+<code><a href="espn_wnba_season_types.html">espn_wnba_season_types()</a></code>,
 <code><a href="espn_wnba_seasons.html">espn_wnba_seasons()</a></code>,
 <code><a href="espn_wnba_standings.html">espn_wnba_standings()</a></code>,
 <code><a href="espn_wnba_team.html">espn_wnba_team()</a></code>,
@@ -157,8 +168,10 @@ pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>descr
 <code><a href="espn_wnba_team_injuries.html">espn_wnba_team_injuries()</a></code>,
 <code><a href="espn_wnba_team_leaders.html">espn_wnba_team_leaders()</a></code>,
 <code><a href="espn_wnba_team_news.html">espn_wnba_team_news()</a></code>,
+<code><a href="espn_wnba_team_record.html">espn_wnba_team_record()</a></code>,
 <code><a href="espn_wnba_team_roster.html">espn_wnba_team_roster()</a></code>,
 <code><a href="espn_wnba_team_schedule.html">espn_wnba_team_schedule()</a></code>,
+<code><a href="espn_wnba_team_season_profile.html">espn_wnba_team_season_profile()</a></code>,
 <code><a href="espn_wnba_team_stats.html">espn_wnba_team_stats()</a></code>,
 <code><a href="espn_wnba_teams.html">espn_wnba_teams()</a></code>,
 <code><a href="espn_wnba_transactions.html">espn_wnba_transactions()</a></code>,
@@ -174,7 +187,7 @@ pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>descr
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_leaders</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Leaders from ESPN.com ───────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-17 16:09:37 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-18 17:14:55 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 375 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type category      abbreviation athlete_id athlete_name team_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
