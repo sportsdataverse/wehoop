@@ -10,8 +10,6 @@
 - [**wehoop 1.7.0**](#wehoop-170)
 - [**wehoop 1.6.0**](#wehoop-160)
 - [**wehoop 1.5.0**](#wehoop-150)
-- [~106 WNBA Stats API functions added](#106-wnba-stats-api-functions-added)
-- [Adds 4 ESPN WBB and WNBA functions](#adds-4-espn-wbb-and-wnba-functions)
 - [**wehoop 1.2.1**](#wehoop-121)
 - [**wehoop 1.2.0**](#wehoop-120)
 - [**wehoop 1.1.1**](#wehoop-111)
@@ -175,6 +173,25 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 
 * Adds `vignettes/espn-endpoints.Rmd` covering all 80 ESPN basketball wrappers (existing 22 + 58 new).
 * Reorganizes the pkgdown reference index into 14 per-domain ESPN subsections so the rendered nav scales for the new surface.
+
+#### *Tier 1 core-v2 expansion (crawler-driven)*
+
+20 new wrappers across 9 resource families, paired with the matching hoopR additions. Surfaced by an internal `$ref`-following crawler that mapped the entire reachable basketball API surface (21,962 fetches, 1,570 unique templates across all 4 basketball leagues). Each wrapper is a thin shim over a shared `.espn_basketball_*()` helper.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_team_season_profile()` / `espn_wbb_team_season_profile()` | Era-correct team identity in a specific season plus `$ref` URLs for deeper resources (record, statistics, leaders, athletes, coaches, etc.). Historical depth back to **1997** (WNBA) / **1982** (WBB). |
+| `espn_wnba_franchise()` / `espn_wbb_franchise()` | Franchise-level metadata. IDs are stable across relocations and rebrands. |
+| `espn_wnba_franchises()` / `espn_wbb_franchises()` | Index of franchise IDs in the league. |
+| `espn_wnba_season_awards()` / `espn_wbb_season_awards()` | Index of award IDs given out in a season. |
+| `espn_wnba_award()` / `espn_wbb_award()` | Award detail with winners (one row per winner; multi-recipient awards return one row each). |
+| `espn_wnba_futures()` | WNBA per-season futures betting board, long format (one row per market × team × sportsbook). ESPN does not expose a futures endpoint for WBB. |
+| `espn_wbb_tournaments()` | Index of WBB tournaments (NCAA Tournament, WNIT, conference tournaments). ESPN does not expose a tournaments endpoint for the WNBA. |
+| `espn_wbb_tournament()` | Single tournament metadata + seasons-list `$ref`. |
+| `espn_wbb_tournament_seasons()` | Seasons in which a given WBB tournament was held. |
+| `espn_wnba_team_record()` | WNBA team record breakdown for one (team × season × season-type). |
+| `espn_wbb_coach()` | Single WBB head coach biography, current team / college refs, and counts of career-record + per-season coaching entries. |
+| `espn_wnba_powerindex()` / `espn_wbb_powerindex()` | Per-season Basketball Power Index and related metrics, long format (one row per team × stat). |
 
 ### **Behavior changes to existing functions**
 
