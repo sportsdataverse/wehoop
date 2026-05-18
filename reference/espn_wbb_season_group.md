@@ -64,10 +64,12 @@ A single-row tibble.
 
 Other ESPN WBB Functions:
 [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
+[`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md),
 [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
 [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md),
 [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
 [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
+[`espn_wbb_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_seasons.md),
 [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md),
 [`espn_wbb_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_statisticslog.md),
 [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
@@ -137,7 +139,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_group(group_id = 5, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Group Detail ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:10:12 UTC
+#> ℹ Data updated: 2026-05-18 22:28:46 UTC
 #> # A tibble: 1 × 15
 #>   league         season season_type group_id uid   name  abbreviation short_name
 #>   <chr>           <int>       <int> <chr>    <chr> <chr> <chr>        <chr>     

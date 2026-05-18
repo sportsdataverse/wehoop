@@ -465,6 +465,22 @@
 <td>Single-coach metadata for one (coach × season). Sparse coverage — many combinations 404.</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="tiera-core-v2-expansion--athlete-career--draft-pick-3-0-0"><em>Tier 2A core-v2 expansion — athlete career + draft pick</em><a class="anchor" aria-label="anchor" href="#tiera-core-v2-expansion--athlete-career--draft-pick-3-0-0"></a></h5>
+<p>5 new wrappers paired with hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_athlete_seasons.html">espn_wnba_athlete_seasons()</a></code> / <code><a href="../reference/espn_wbb_athlete_seasons.html">espn_wbb_athlete_seasons()</a></code>
+</td>
+<td>List of seasons an athlete appeared in.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_athlete_career_stats.html">espn_wnba_athlete_career_stats()</a></code> / <code><a href="../reference/espn_wbb_athlete_career_stats.html">espn_wbb_athlete_career_stats()</a></code>
+</td>
+<td>Long-format career stats. Default <code>stat_type = 0L</code> fetches the standard “All Splits” / regular-season view; pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a <code>stat_type_id</code> column. Coverage of types 1 and 2 is sparse.</td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_pick.html">espn_wnba_draft_pick()</a></code></td>
+<td>Single WNBA draft-pick detail. WBB has no draft endpoint, so this wrapper is WNBA-only on the wehoop side.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
 </div>
