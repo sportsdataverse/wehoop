@@ -216,6 +216,17 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_week_rankings()` / `espn_wbb_week_rankings()` | Index of ranking sources for one week (WNBA returns zero; WBB returns AP + Coaches). |
 | `espn_wnba_week_ranking()` / `espn_wbb_week_ranking()` | The ranked teams (typically 25 rows for WBB) for one (season-type × week × source). Includes current / previous rank, points, first-place votes, trend, record summary, team `$ref`. |
 
+#### *Tier 2A core-v2 expansion — groups (conferences and divisions)*
+
+8 new wrappers across 4 resource families covering the per-season group hierarchy. Backed by a shared `R/espn_basketball_group_helpers.R`. NBA + MBB siblings ship in hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_season_groups()` / `espn_wbb_season_groups()` | Index of group IDs (conferences / divisions) for one (season × season-type). |
+| `espn_wnba_season_group()` / `espn_wbb_season_group()` | Single-group metadata + `$ref` URLs to parent, children, member teams, and standings. |
+| `espn_wnba_season_group_children()` / `espn_wbb_season_group_children()` | Index of child groups (e.g. divisions inside a conference, or conferences inside the NCAA Division I umbrella group). |
+| `espn_wnba_season_group_teams()` / `espn_wbb_season_group_teams()` | Index of team IDs that belong to the group for that (season × season-type). |
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).
