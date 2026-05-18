@@ -193,6 +193,22 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wbb_coach()` | Single WBB head coach biography, current team / college refs, and counts of career-record + per-season coaching entries. |
 | `espn_wnba_powerindex()` / `espn_wbb_powerindex()` | Per-season Basketball Power Index and related metrics, long format (one row per team × stat). |
 
+#### *Tier 2A core-v2 expansion — season metadata*
+
+10 new wrappers across 5 resource families covering season-level metadata: season types, the per-(season × season-type) leaderboards, and (mostly college-only) season rankings. Backed by a shared `R/espn_basketball_season_meta_helpers.R`. NBA + MBB siblings ship in hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_season_types()` / `espn_wbb_season_types()` | Index of season-type IDs that exist for one season (1 = preseason, 2 = regular, 3 = postseason, 4 = off-season). |
+| `espn_wnba_season_type()` / `espn_wbb_season_type()` | Single season-type detail (start / end dates, has-groups / has-standings / has-legs flags, `$ref` URLs to deeper resources). |
+| `espn_wnba_season_leaders()` / `espn_wbb_season_leaders()` | Per-(season × season-type) leaderboards in long format. 14–15 categories × 25 leaders ≈ 350 rows. |
+| `espn_wnba_season_rankings()` / `espn_wbb_season_rankings()` | Index of season-level rankings (WNBA returns zero; WBB returns AP Top 25 + Coaches Poll). |
+| `espn_wnba_season_ranking()` / `espn_wbb_season_ranking()` | Per-week snapshot index for one ranking source — each row resolves to a per-week ranked-teams endpoint. |
+
+#### *pkgdown index*
+
+The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).
+
 ### **Behavior changes to existing functions**
 
 #### *Restored functionality (un-deprecations)*

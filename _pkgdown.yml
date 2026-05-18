@@ -280,6 +280,24 @@ reference:
       - helper_espn_wbb_pbp
       - helper_espn_wbb_team_box
       - helper_espn_wbb_player_box
+  - subtitle: WBB -- Core-v2 expansion (Tier 1+)
+    desc: Crawler-discovered core-v2 endpoints (franchises, awards, tournaments, BPI, season metadata)
+    contents:
+      - espn_wbb_franchises
+      - espn_wbb_franchise
+      - espn_wbb_team_season_profile
+      - espn_wbb_season_awards
+      - espn_wbb_award
+      - espn_wbb_tournaments
+      - espn_wbb_tournament
+      - espn_wbb_tournament_seasons
+      - espn_wbb_coach
+      - espn_wbb_powerindex
+      - espn_wbb_season_types
+      - espn_wbb_season_type
+      - espn_wbb_season_leaders
+      - espn_wbb_season_rankings
+      - espn_wbb_season_ranking
   - subtitle: WNBA -- Game data
     desc: Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
     contents:
@@ -348,6 +366,22 @@ reference:
       - helper_espn_wnba_pbp
       - helper_espn_wnba_team_box
       - helper_espn_wnba_player_box
+  - subtitle: WNBA -- Core-v2 expansion (Tier 1+)
+    desc: Crawler-discovered core-v2 endpoints (franchises, awards, futures, BPI, season metadata)
+    contents:
+      - espn_wnba_franchises
+      - espn_wnba_franchise
+      - espn_wnba_team_season_profile
+      - espn_wnba_team_record
+      - espn_wnba_season_awards
+      - espn_wnba_award
+      - espn_wnba_futures
+      - espn_wnba_powerindex
+      - espn_wnba_season_types
+      - espn_wnba_season_type
+      - espn_wnba_season_leaders
+      - espn_wnba_season_rankings
+      - espn_wnba_season_ranking
   - title: NCAA Data
   - subtitle: NCAA Data Functions
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
