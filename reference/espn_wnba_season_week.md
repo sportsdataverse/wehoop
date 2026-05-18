@@ -66,6 +66,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
 [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md),
 [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md),
+[`espn_wnba_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coach_season.md),
 [`espn_wnba_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coaches.md),
 [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md),
 [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md),
@@ -110,6 +111,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md),
 [`espn_wnba_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_schedule.md),
 [`espn_wnba_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_profile.md),
+[`espn_wnba_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_roster.md),
 [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md),
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md),
 [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
@@ -126,7 +128,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_season_week(week = 5, season = 2025)
-#> ✖ 2026-05-18 21:59:07.75477: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
+#> ✖ 2026-05-18 22:10:48.915859: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
 #> ✖ Args: league = "wnba", season = 2025, season_type = 2L, week = 5
 #> ✖ Error: The API returned an error
 #> NULL

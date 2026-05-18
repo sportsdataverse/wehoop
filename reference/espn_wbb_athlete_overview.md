@@ -83,6 +83,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
 [`espn_wbb_coach()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach.md),
+[`espn_wbb_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach_season.md),
 [`espn_wbb_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coaches.md),
 [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md),
 [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
@@ -125,6 +126,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_roster.md),
 [`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md),
 [`espn_wbb_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_profile.md),
+[`espn_wbb_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_roster.md),
 [`espn_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_stats.md),
 [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md),
 [`espn_wbb_tournament()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament.md),
@@ -145,12 +147,12 @@ Saiem Gilani
   espn_wbb_athlete_overview(athlete_id = "4433985", season = 2025)
 #> $Statistics
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────
-#> ℹ Data updated: 2026-05-18 21:58:18 UTC
+#> ℹ Data updated: 2026-05-18 22:09:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────
-#> ℹ Data updated: 2026-05-18 21:58:18 UTC
+#> ℹ Data updated: 2026-05-18 22:09:52 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -158,12 +160,12 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────
-#> ℹ Data updated: 2026-05-18 21:58:18 UTC
+#> ℹ Data updated: 2026-05-18 22:09:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────
-#> ℹ Data updated: 2026-05-18 21:58:18 UTC
+#> ℹ Data updated: 2026-05-18 22:09:52 UTC
 #> # A tibble: 26 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
@@ -181,7 +183,7 @@ Saiem Gilani
 #> 
 #> $FantasyOutlook
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com 
-#> ℹ Data updated: 2026-05-18 21:58:18 UTC
+#> ℹ Data updated: 2026-05-18 22:09:52 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

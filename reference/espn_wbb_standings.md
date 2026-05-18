@@ -111,6 +111,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
 [`espn_wbb_coach()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach.md),
+[`espn_wbb_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach_season.md),
 [`espn_wbb_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coaches.md),
 [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md),
 [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
@@ -152,6 +153,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_roster.md),
 [`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md),
 [`espn_wbb_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_profile.md),
+[`espn_wbb_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_roster.md),
 [`espn_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_stats.md),
 [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md),
 [`espn_wbb_tournament()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament.md),
@@ -167,7 +169,7 @@ Other ESPN WBB Functions:
 # \donttest{
   try(espn_wbb_standings(2021))
 #> ── ESPN WBB Standings Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:58:38 UTC
+#> ℹ Data updated: 2026-05-18 22:10:17 UTC
 #> # A tibble: 346 × 86
 #>    team_id team       avgpointsagainst avgpointsfor gamesbehind leaguewinpercent
 #>      <int> <chr>                 <dbl>        <dbl>       <dbl>            <dbl>

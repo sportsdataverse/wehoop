@@ -451,6 +451,20 @@
 <td>Index of team IDs that belong to the group for that (season × season-type).</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="tiera-core-v2-expansion--team-deep--coach-in-season-3-0-0"><em>Tier 2A core-v2 expansion — team deep + coach-in-season</em><a class="anchor" aria-label="anchor" href="#tiera-core-v2-expansion--team-deep--coach-in-season-3-0-0"></a></h5>
+<p>4 new wrappers paired with hoopR’s Tier 2A team-deep release. Backed by <code>R/espn_basketball_team_deep_helpers.R</code>. (The odds-records and depth-chart endpoints are NBA / MBB only at ESPN — those siblings live in hoopR.)</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_team_season_roster.html">espn_wnba_team_season_roster()</a></code> / <code><a href="../reference/espn_wbb_team_season_roster.html">espn_wbb_team_season_roster()</a></code>
+</td>
+<td>Per-season roster (core-v2 <code>seasons/{y}/teams/{id}/athletes</code>). Era-correct alternative to the existing site-v2 <code>espn_*_team_roster()</code>.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_coach_season.html">espn_wnba_coach_season()</a></code> / <code><a href="../reference/espn_wbb_coach_season.html">espn_wbb_coach_season()</a></code>
+</td>
+<td>Single-coach metadata for one (coach × season). Sparse coverage — many combinations 404.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
 </div>

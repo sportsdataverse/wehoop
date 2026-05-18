@@ -255,6 +255,18 @@ MBB siblings ship in hoopR’s matching release.
 | [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md) / [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md) | Index of child groups (e.g. divisions inside a conference, or conferences inside the NCAA Division I umbrella group). |
 | [`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md) / [`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md) | Index of team IDs that belong to the group for that (season × season-type). |
 
+##### *Tier 2A core-v2 expansion — team deep + coach-in-season*
+
+4 new wrappers paired with hoopR’s Tier 2A team-deep release. Backed by
+`R/espn_basketball_team_deep_helpers.R`. (The odds-records and
+depth-chart endpoints are NBA / MBB only at ESPN — those siblings live
+in hoopR.)
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_roster.md) / [`espn_wbb_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_roster.md) | Per-season roster (core-v2 `seasons/{y}/teams/{id}/athletes`). Era-correct alternative to the existing site-v2 `espn_*_team_roster()`. |
+| [`espn_wnba_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coach_season.md) / [`espn_wbb_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach_season.md) | Single-coach metadata for one (coach × season). Sparse coverage — many combinations 404. |
+
 ##### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A

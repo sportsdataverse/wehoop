@@ -586,6 +586,16 @@ BPI, season metadata)
 
   **Get ESPN WBB Season Group Teams Index**
 
+- [`espn_wbb_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_roster.md)
+  :
+
+  **Get ESPN WBB Team Roster (Per-Season, core-v2)**
+
+- [`espn_wbb_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach_season.md)
+  :
+
+  **Get ESPN WBB Coach-in-Season Detail**
+
 ### WNBA – Game data
 
 Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
@@ -937,6 +947,16 @@ season metadata)
   :
 
   **Get ESPN WNBA Season Group Teams Index**
+
+- [`espn_wnba_team_season_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_roster.md)
+  :
+
+  **Get ESPN WNBA Team Roster (Per-Season, core-v2)**
+
+- [`espn_wnba_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coach_season.md)
+  :
+
+  **Get ESPN WNBA Coach-in-Season Detail**
 
 ## NCAA Data
 
