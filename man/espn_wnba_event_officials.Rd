@@ -37,10 +37,12 @@ A tibble with one row per official assigned to the game.\tabular{lll}{
 \seealso{
 Other ESPN WNBA Functions: 
 \code{\link{espn_wnba_athlete_awards}()},
+\code{\link{espn_wnba_athlete_career_stats}()},
 \code{\link{espn_wnba_athlete_eventlog}()},
 \code{\link{espn_wnba_athlete_gamelog}()},
 \code{\link{espn_wnba_athlete_info}()},
 \code{\link{espn_wnba_athlete_overview}()},
+\code{\link{espn_wnba_athlete_seasons}()},
 \code{\link{espn_wnba_athlete_splits}()},
 \code{\link{espn_wnba_athlete_statisticslog}()},
 \code{\link{espn_wnba_athlete_stats}()},
@@ -51,6 +53,7 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_coaches}()},
 \code{\link{espn_wnba_conferences}()},
 \code{\link{espn_wnba_draft}()},
+\code{\link{espn_wnba_draft_pick}()},
 \code{\link{espn_wnba_event_broadcasts}()},
 \code{\link{espn_wnba_event_odds}()},
 \code{\link{espn_wnba_event_probabilities}()},

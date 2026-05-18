@@ -236,6 +236,16 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_team_season_roster()` / `espn_wbb_team_season_roster()` | Per-season roster (core-v2 `seasons/{y}/teams/{id}/athletes`). Era-correct alternative to the existing site-v2 `espn_*_team_roster()`. |
 | `espn_wnba_coach_season()` / `espn_wbb_coach_season()` | Single-coach metadata for one (coach × season). Sparse coverage — many combinations 404. |
 
+#### *Tier 2A core-v2 expansion — athlete career + draft pick*
+
+5 new wrappers paired with hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_athlete_seasons()` / `espn_wbb_athlete_seasons()` | List of seasons an athlete appeared in. |
+| `espn_wnba_athlete_career_stats()` / `espn_wbb_athlete_career_stats()` | Long-format career stats. Default `stat_type = 0L` fetches the standard "All Splits" / regular-season view; pass a vector like `c(0L, 1L, 2L)` to bind multiple types via a `stat_type_id` column. Coverage of types 1 and 2 is sparse. |
+| `espn_wnba_draft_pick()` | Single WNBA draft-pick detail. WBB has no draft endpoint, so this wrapper is WNBA-only on the wehoop side. |
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).

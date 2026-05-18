@@ -46,10 +46,12 @@ division) for one (WBB season x season-type).
 \seealso{
 Other ESPN WBB Functions: 
 \code{\link{espn_wbb_athlete_awards}()},
+\code{\link{espn_wbb_athlete_career_stats}()},
 \code{\link{espn_wbb_athlete_eventlog}()},
 \code{\link{espn_wbb_athlete_gamelog}()},
 \code{\link{espn_wbb_athlete_info}()},
 \code{\link{espn_wbb_athlete_overview}()},
+\code{\link{espn_wbb_athlete_seasons}()},
 \code{\link{espn_wbb_athlete_splits}()},
 \code{\link{espn_wbb_athlete_statisticslog}()},
 \code{\link{espn_wbb_athlete_stats}()},
