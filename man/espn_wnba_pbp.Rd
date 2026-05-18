@@ -117,6 +117,8 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_season_rankings}()},
 \code{\link{espn_wnba_season_type}()},
 \code{\link{espn_wnba_season_types}()},
+\code{\link{espn_wnba_season_week}()},
+\code{\link{espn_wnba_season_weeks}()},
 \code{\link{espn_wnba_seasons}()},
 \code{\link{espn_wnba_standings}()},
 \code{\link{espn_wnba_team}()},
@@ -131,7 +133,9 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_team_stats}()},
 \code{\link{espn_wnba_teams}()},
 \code{\link{espn_wnba_transactions}()},
-\code{\link{espn_wnba_venues}()}
+\code{\link{espn_wnba_venues}()},
+\code{\link{espn_wnba_week_ranking}()},
+\code{\link{espn_wnba_week_rankings}()}
 }
 \author{
 Saiem Gilani

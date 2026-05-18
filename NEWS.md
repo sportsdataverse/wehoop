@@ -205,6 +205,17 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_season_rankings()` / `espn_wbb_season_rankings()` | Index of season-level rankings (WNBA returns zero; WBB returns AP Top 25 + Coaches Poll). |
 | `espn_wnba_season_ranking()` / `espn_wbb_season_ranking()` | Per-week snapshot index for one ranking source — each row resolves to a per-week ranked-teams endpoint. |
 
+#### *Tier 2A core-v2 expansion — weeks + per-week rankings*
+
+8 new wrappers across 4 resource families covering the week structure of a season. Backed by a shared `R/espn_basketball_week_helpers.R`. NBA + MBB siblings ship in hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_season_weeks()` / `espn_wbb_season_weeks()` | Index of weeks within one (season × season-type). WNBA returns 0 rows (no week structure exposed); WBB returns ~20 weeks per regular season. |
+| `espn_wnba_season_week()` / `espn_wbb_season_week()` | Single-week metadata (number, start / end dates, text label, `$ref` to the per-week rankings endpoint). |
+| `espn_wnba_week_rankings()` / `espn_wbb_week_rankings()` | Index of ranking sources for one week (WNBA returns zero; WBB returns AP + Coaches). |
+| `espn_wnba_week_ranking()` / `espn_wbb_week_ranking()` | The ranked teams (typically 25 rows for WBB) for one (season-type × week × source). Includes current / previous rank, points, first-place votes, trend, record summary, team `$ref`. |
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).

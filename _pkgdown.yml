@@ -298,6 +298,10 @@ reference:
       - espn_wbb_season_leaders
       - espn_wbb_season_rankings
       - espn_wbb_season_ranking
+      - espn_wbb_season_weeks
+      - espn_wbb_season_week
+      - espn_wbb_week_rankings
+      - espn_wbb_week_ranking
   - subtitle: WNBA -- Game data
     desc: Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
     contents:
@@ -382,6 +386,10 @@ reference:
       - espn_wnba_season_leaders
       - espn_wnba_season_rankings
       - espn_wnba_season_ranking
+      - espn_wnba_season_weeks
+      - espn_wnba_season_week
+      - espn_wnba_week_rankings
+      - espn_wnba_week_ranking
   - title: NCAA Data
   - subtitle: NCAA Data Functions
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data

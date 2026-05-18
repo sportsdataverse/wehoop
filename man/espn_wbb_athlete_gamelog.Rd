@@ -66,6 +66,8 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_season_rankings}()},
 \code{\link{espn_wbb_season_type}()},
 \code{\link{espn_wbb_season_types}()},
+\code{\link{espn_wbb_season_week}()},
+\code{\link{espn_wbb_season_weeks}()},
 \code{\link{espn_wbb_seasons}()},
 \code{\link{espn_wbb_standings}()},
 \code{\link{espn_wbb_team}()},
@@ -81,7 +83,9 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_tournament}()},
 \code{\link{espn_wbb_tournament_seasons}()},
 \code{\link{espn_wbb_tournaments}()},
-\code{\link{espn_wbb_venues}()}
+\code{\link{espn_wbb_venues}()},
+\code{\link{espn_wbb_week_ranking}()},
+\code{\link{espn_wbb_week_rankings}()}
 }
 \author{
 Saiem Gilani
