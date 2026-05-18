@@ -90,6 +90,10 @@ Other ESPN WBB Functions:
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
 [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md),
 [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md),
+[`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md),
+[`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md),
+[`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md),
+[`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md),
 [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md),
 [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md),
 [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md),
@@ -125,7 +129,7 @@ Other ESPN WBB Functions:
 # \donttest{
   try(espn_wbb_scoreboard (season = "20230225"))
 #> ── ESPN WBB Scoreboard Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:06 UTC
+#> ℹ Data updated: 2026-05-18 21:58:32 UTC
 #> # A tibble: 532 × 36
 #>    matchup         matchup_short season season_type season_slug game_id game_uid
 #>    <chr>           <chr>          <int>       <int> <chr>         <int> <chr>   

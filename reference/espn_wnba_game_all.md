@@ -234,6 +234,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
 [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md),
 [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md),
+[`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md),
+[`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md),
+[`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md),
+[`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md),
 [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md),
 [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md),
 [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md),
@@ -271,7 +275,7 @@ Saiem Gilani
   try(espn_wnba_game_all(game_id = 401244185))
 #> $Plays
 #> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:27 UTC
+#> ℹ Data updated: 2026-05-18 21:58:58 UTC
 #> # A tibble: 388 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -295,7 +299,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:27 UTC
+#> ℹ Data updated: 2026-05-18 21:58:58 UTC
 #> # A tibble: 2 × 57
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -311,7 +315,7 @@ Saiem Gilani
 #> 
 #> $Player
 #> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:27 UTC
+#> ℹ Data updated: 2026-05-18 21:58:58 UTC
 #> # A tibble: 25 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>

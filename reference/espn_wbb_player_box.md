@@ -113,6 +113,10 @@ Other ESPN WBB Functions:
 [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md),
 [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md),
 [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md),
+[`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md),
+[`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md),
+[`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md),
+[`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md),
 [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md),
 [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md),
 [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md),
@@ -150,7 +154,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_player_box(game_id = 401276115))
 #> ── ESPN WBB Player Box Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:03 UTC
+#> ℹ Data updated: 2026-05-18 21:58:30 UTC
 #> # A tibble: 25 × 54
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>

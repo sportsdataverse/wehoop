@@ -73,6 +73,10 @@ Other ESPN WBB Functions:
 [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md),
 [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md),
 [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md),
+[`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md),
+[`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md),
+[`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md),
+[`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md),
 [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md),
 [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md),
 [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md),
@@ -109,7 +113,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_coach(coach_id = 1031)
-#> ✖ 2026-05-18 21:49:56.122205: Failed to retrieve ESPN womens-college-basketball coach 1031
+#> ✖ 2026-05-18 21:58:22.635215: Failed to retrieve ESPN womens-college-basketball coach 1031
 #> ✖ Args: league = "womens-college-basketball", coach_id = 1031
 #> ✖ Error: The API returned an error
 #> NULL

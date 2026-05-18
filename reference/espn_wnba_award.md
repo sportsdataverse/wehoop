@@ -74,6 +74,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
 [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md),
 [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md),
+[`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md),
+[`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md),
+[`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md),
+[`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md),
 [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md),
 [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md),
 [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md),
@@ -109,7 +113,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_award(award_id = 33, season = 2024)
-#> ✖ 2026-05-18 21:50:22.240894: Failed to retrieve ESPN wnba award 33 for season=2024
+#> ✖ 2026-05-18 21:58:53.113081: Failed to retrieve ESPN wnba award 33 for season=2024
 #> ✖ Args: league = "wnba", season = 2024, award_id = 33
 #> ✖ Error: The API returned an error
 #> NULL

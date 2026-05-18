@@ -86,6 +86,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
 [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md),
 [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md),
+[`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md),
+[`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md),
+[`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md),
+[`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md),
 [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md),
 [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md),
 [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md),
@@ -122,7 +126,7 @@ Saiem Gilani
   espn_wnba_season_info(season = 2025)
 #> $Info
 #> ── ESPN WNBA Season Info from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:33 UTC
+#> ℹ Data updated: 2026-05-18 21:59:05 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date          display_name type_id type_name     
 #>   <int> <chr>             <chr>             <chr>        <chr>   <chr>         
@@ -130,7 +134,7 @@ Saiem Gilani
 #> 
 #> $Types
 #> ── ESPN WNBA Season Types from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:33 UTC
+#> ℹ Data updated: 2026-05-18 21:59:05 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -138,22 +142,22 @@ Saiem Gilani
 #> 
 #> $Athletes
 #> ── ESPN WNBA Season Athletes from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:33 UTC
+#> ℹ Data updated: 2026-05-18 21:59:05 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Coaches
 #> ── ESPN WNBA Season Coaches from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:33 UTC
+#> ℹ Data updated: 2026-05-18 21:59:05 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
 #> ── ESPN WNBA Season Teams from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:33 UTC
+#> ℹ Data updated: 2026-05-18 21:59:05 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
 #> ── ESPN WNBA Season Awards from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:33 UTC
+#> ℹ Data updated: 2026-05-18 21:59:05 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   

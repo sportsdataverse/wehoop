@@ -96,6 +96,10 @@ Other ESPN WBB Functions:
 [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md),
 [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md),
 [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md),
+[`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md),
+[`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md),
+[`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md),
+[`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md),
 [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md),
 [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md),
 [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md),
@@ -132,7 +136,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_season_profile(team_id = "41", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Profile from ESPN.com ────────────
-#> ℹ Data updated: 2026-05-18 21:50:15 UTC
+#> ℹ Data updated: 2026-05-18 21:58:46 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <chr>    <chr>        <chr>       

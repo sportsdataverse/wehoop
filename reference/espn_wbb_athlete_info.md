@@ -119,6 +119,10 @@ Other ESPN WBB Functions:
 [`espn_wbb_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_rankings.md),
 [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md),
 [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md),
+[`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md),
+[`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md),
+[`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md),
+[`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md),
 [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md),
 [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md),
 [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md),
@@ -157,7 +161,7 @@ Saiem Gilani
   espn_wbb_athlete_info(athlete_id = "4433985")
 #> $Bio
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:49:51 UTC
+#> ℹ Data updated: 2026-05-18 21:58:17 UTC
 #> # A tibble: 1 × 16
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -168,7 +172,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:49:51 UTC
+#> ℹ Data updated: 2026-05-18 21:58:17 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -176,7 +180,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com ───────────────
-#> ℹ Data updated: 2026-05-18 21:49:51 UTC
+#> ℹ Data updated: 2026-05-18 21:58:17 UTC
 #> # A tibble: 1 × 5
 #>   id    name  display_name abbreviation leaf 
 #>   <chr> <chr> <chr>        <chr>        <lgl>
@@ -184,7 +188,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-18 21:49:51 UTC
+#> ℹ Data updated: 2026-05-18 21:58:17 UTC
 #> # A tibble: 1 × 4
 #>   id    name   type   abbreviation
 #>   <chr> <chr>  <chr>  <chr>       
@@ -192,12 +196,12 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-18 21:49:51 UTC
+#> ℹ Data updated: 2026-05-18 21:58:17 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Draft
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:49:51 UTC
+#> ℹ Data updated: 2026-05-18 21:58:17 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

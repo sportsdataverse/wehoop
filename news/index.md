@@ -242,6 +242,19 @@ MBB siblings ship in hoopR’s matching release.
 | [`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md) / [`espn_wbb_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.md) | Index of ranking sources for one week (WNBA returns zero; WBB returns AP + Coaches). |
 | [`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md) / [`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md) | The ranked teams (typically 25 rows for WBB) for one (season-type × week × source). Includes current / previous rank, points, first-place votes, trend, record summary, team `$ref`. |
 
+##### *Tier 2A core-v2 expansion — groups (conferences and divisions)*
+
+8 new wrappers across 4 resource families covering the per-season group
+hierarchy. Backed by a shared `R/espn_basketball_group_helpers.R`. NBA +
+MBB siblings ship in hoopR’s matching release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md) / [`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md) | Index of group IDs (conferences / divisions) for one (season × season-type). |
+| [`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md) / [`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md) | Single-group metadata + `$ref` URLs to parent, children, member teams, and standings. |
+| [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md) / [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md) | Index of child groups (e.g. divisions inside a conference, or conferences inside the NCAA Division I umbrella group). |
+| [`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md) / [`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md) | Index of team IDs that belong to the group for that (season × season-type). |
+
 ##### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A

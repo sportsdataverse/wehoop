@@ -88,6 +88,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
 [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md),
 [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md),
+[`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md),
+[`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md),
+[`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md),
+[`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md),
 [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md),
 [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md),
 [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md),
@@ -123,7 +127,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_week_rankings(week = 5, season = 2025)
 #> ── ESPN WNBA Week Rankings Index ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 21:50:41 UTC
+#> ℹ Data updated: 2026-05-18 21:59:13 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>, week <int>,
 #> #   ranking_id <chr>, ref <chr>

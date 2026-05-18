@@ -71,6 +71,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
 [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md),
 [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md),
+[`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md),
+[`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md),
+[`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md),
+[`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md),
 [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md),
 [`espn_wnba_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_leaders.md),
 [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md),
@@ -107,7 +111,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_officials(event_id = "401736171")
 #> ── ESPN WNBA Event Officials (event_id=401736171) from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-18 21:50:24 UTC
+#> ℹ Data updated: 2026-05-18 21:58:55 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name         display_name position_id position_name
 #>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        
