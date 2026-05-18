@@ -90,6 +90,8 @@ Other ESPN WBB Functions:
 [`espn_wbb_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_rankings.md),
 [`espn_wbb_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_type.md),
 [`espn_wbb_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_types.md),
+[`espn_wbb_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_week.md),
+[`espn_wbb_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_weeks.md),
 [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md),
 [`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md),
 [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md),
@@ -105,7 +107,9 @@ Other ESPN WBB Functions:
 [`espn_wbb_tournament()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament.md),
 [`espn_wbb_tournament_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_seasons.md),
 [`espn_wbb_tournaments()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournaments.md),
-[`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md)
+[`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md),
+[`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md),
+[`espn_wbb_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.md)
 
 ## Author
 
@@ -118,7 +122,7 @@ Saiem Gilani
   espn_wbb_season_info(season = 2025)
 #> $Info
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Info from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:37 UTC
+#> ℹ Data updated: 2026-05-18 21:50:07 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date          display_name type_id type_name 
 #>   <int> <chr>             <chr>             <chr>        <chr>   <chr>     
@@ -126,7 +130,7 @@ Saiem Gilani
 #> 
 #> $Types
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Types from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:37 UTC
+#> ℹ Data updated: 2026-05-18 21:50:07 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -134,7 +138,7 @@ Saiem Gilani
 #> 
 #> $Athletes
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Athletes from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-18 17:14:37 UTC
+#> ℹ Data updated: 2026-05-18 21:50:07 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -142,17 +146,17 @@ Saiem Gilani
 #> 
 #> $Coaches
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Coaches from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-18 17:14:37 UTC
+#> ℹ Data updated: 2026-05-18 21:50:07 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Teams from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:37 UTC
+#> ℹ Data updated: 2026-05-18 21:50:07 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Awards from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:37 UTC
+#> ℹ Data updated: 2026-05-18 21:50:07 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   

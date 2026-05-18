@@ -73,6 +73,8 @@ Other ESPN WNBA Functions:
 [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md),
 [`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md),
 [`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md),
+[`espn_wnba_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.md),
+[`espn_wnba_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.md),
 [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md),
 [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md),
 [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md),
@@ -87,7 +89,9 @@ Other ESPN WNBA Functions:
 [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md),
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md),
 [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
-[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md)
+[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md),
+[`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md),
+[`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md)
 
 ## Author
 
@@ -100,7 +104,7 @@ Saiem Gilani
   espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
 #> $`Regular Season Averages`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
@@ -116,7 +120,7 @@ Saiem Gilani
 #> 
 #> $`Regular Season Totals`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
@@ -132,7 +136,7 @@ Saiem Gilani
 #> 
 #> $`Regular Season Misc Totals`
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 9 × 5
 #>   team_id team_slug      season$year $displayName stats      position
 #>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
@@ -148,32 +152,32 @@ Saiem Gilani
 #> 
 #> $General
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:48 UTC
+#> ℹ Data updated: 2026-05-18 21:50:21 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

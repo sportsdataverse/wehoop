@@ -229,6 +229,19 @@ hoopR’s matching release.
 | [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md) / [`espn_wbb_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_rankings.md) | Index of season-level rankings (WNBA returns zero; WBB returns AP Top 25 + Coaches Poll). |
 | [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md) / [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md) | Per-week snapshot index for one ranking source — each row resolves to a per-week ranked-teams endpoint. |
 
+##### *Tier 2A core-v2 expansion — weeks + per-week rankings*
+
+8 new wrappers across 4 resource families covering the week structure of
+a season. Backed by a shared `R/espn_basketball_week_helpers.R`. NBA +
+MBB siblings ship in hoopR’s matching release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.md) / [`espn_wbb_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_weeks.md) | Index of weeks within one (season × season-type). WNBA returns 0 rows (no week structure exposed); WBB returns ~20 weeks per regular season. |
+| [`espn_wnba_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.md) / [`espn_wbb_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_week.md) | Single-week metadata (number, start / end dates, text label, `$ref` to the per-week rankings endpoint). |
+| [`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md) / [`espn_wbb_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.md) | Index of ranking sources for one week (WNBA returns zero; WBB returns AP + Coaches). |
+| [`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md) / [`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md) | The ranked teams (typically 25 rows for WBB) for one (season-type × week × source). Includes current / previous rank, points, first-place votes, trend, record summary, team `$ref`. |
+
 ##### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A

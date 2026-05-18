@@ -224,6 +224,8 @@ Other ESPN WNBA Functions:
 [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md),
 [`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md),
 [`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md),
+[`espn_wnba_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.md),
+[`espn_wnba_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.md),
 [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md),
 [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md),
 [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md),
@@ -238,7 +240,9 @@ Other ESPN WNBA Functions:
 [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md),
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md),
 [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
-[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md)
+[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md),
+[`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md),
+[`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md)
 
 ## Author
 
@@ -250,17 +254,17 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 #> ── ESPN WNBA Player Season Stats from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:58 UTC
-#> # A tibble: 1 × 232
-#>   athlete_id athlete_uid   athlete_guid athlete_type    sdr first_name last_name
-#>        <int> <chr>         <chr>        <chr>         <int> <chr>      <chr>    
-#> 1    2529130 s:40~l:59~a:… 2e32f80f-85… basketball   2.53e6 Natasha    Howard   
-#> # ℹ 225 more variables: full_name <chr>, display_name <chr>, short_name <chr>,
-#> #   weight <dbl>, display_weight <chr>, height <dbl>, display_height <chr>,
-#> #   age <int>, date_of_birth <chr>, slug <chr>, headshot_href <chr>,
-#> #   headshot_alt <chr>, jersey <chr>, hand_type <chr>, hand_abbreviation <chr>,
-#> #   hand_display_value <chr>, position_id <int>, position_name <chr>,
-#> #   position_display_name <chr>, position_abbreviation <chr>,
-#> #   position_leaf <lgl>, linked <lgl>, years <int>, active <lgl>, …
+#> ℹ Data updated: 2026-05-18 21:50:32 UTC
+#> # A tibble: 1 × 233
+#>   x_ref_8     athlete_id athlete_uid athlete_guid athlete_type    sdr first_name
+#>   <chr>            <int> <chr>       <chr>        <chr>         <int> <chr>     
+#> 1 http://spo…    2529130 s:40~l:59~… 2e32f80f-85… basketball   2.53e6 Natasha   
+#> # ℹ 226 more variables: last_name <chr>, full_name <chr>, display_name <chr>,
+#> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
+#> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,
+#> #   headshot_href <chr>, headshot_alt <chr>, jersey <chr>, hand_type <chr>,
+#> #   hand_abbreviation <chr>, hand_display_value <chr>, position_id <int>,
+#> #   position_name <chr>, position_display_name <chr>,
+#> #   position_abbreviation <chr>, position_leaf <lgl>, linked <lgl>, …
 # }
 ```

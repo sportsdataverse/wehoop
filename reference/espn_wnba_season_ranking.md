@@ -87,6 +87,8 @@ Other ESPN WNBA Functions:
 [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md),
 [`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md),
 [`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md),
+[`espn_wnba_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.md),
+[`espn_wnba_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.md),
 [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md),
 [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md),
 [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md),
@@ -101,7 +103,9 @@ Other ESPN WNBA Functions:
 [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md),
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md),
 [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
-[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md)
+[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md),
+[`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md),
+[`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md)
 
 ## Author
 
@@ -112,7 +116,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_season_ranking(ranking_id = 1, season = 2025)
-#> ✖ 2026-05-18 17:15:00.372357: Failed to retrieve ESPN wnba ranking 1 for season=2025
+#> ✖ 2026-05-18 21:50:34.636319: Failed to retrieve ESPN wnba ranking 1 for season=2025
 #> ✖ Args: league = "wnba", season = 2025, ranking_id = 1
 #> ✖ Error: The API returned an error
 #> NULL

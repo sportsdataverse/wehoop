@@ -48,6 +48,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_type.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_types.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_week.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_season_weeks.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_seasons.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_team_injuries.html</loc></url>
@@ -61,6 +63,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_tournament_seasons.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_tournaments.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_venues.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_week_ranking.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-espn_basketball_week_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-interp_braces.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-players_on_court.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-players_on_court_v3_wnba.html</loc></url>
@@ -107,6 +111,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_season_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_season_type.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_season_types.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_season_week.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_season_weeks.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_team.html</loc></url>
@@ -123,6 +129,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_seasons.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_tournaments.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.html</loc></url>
@@ -162,6 +170,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_team.html</loc></url>
@@ -177,6 +187,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_player_box.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_team_box.html</loc></url>

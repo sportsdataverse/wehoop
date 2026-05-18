@@ -407,6 +407,28 @@
 <td>Per-week snapshot index for one ranking source — each row resolves to a per-week ranked-teams endpoint.</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="tiera-core-v2-expansion--weeks--per-week-rankings-3-0-0"><em>Tier 2A core-v2 expansion — weeks + per-week rankings</em><a class="anchor" aria-label="anchor" href="#tiera-core-v2-expansion--weeks--per-week-rankings-3-0-0"></a></h5>
+<p>8 new wrappers across 4 resource families covering the week structure of a season. Backed by a shared <code>R/espn_basketball_week_helpers.R</code>. NBA + MBB siblings ship in hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_season_weeks.html">espn_wnba_season_weeks()</a></code> / <code><a href="../reference/espn_wbb_season_weeks.html">espn_wbb_season_weeks()</a></code>
+</td>
+<td>Index of weeks within one (season × season-type). WNBA returns 0 rows (no week structure exposed); WBB returns ~20 weeks per regular season.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_season_week.html">espn_wnba_season_week()</a></code> / <code><a href="../reference/espn_wbb_season_week.html">espn_wbb_season_week()</a></code>
+</td>
+<td>Single-week metadata (number, start / end dates, text label, <code>$ref</code> to the per-week rankings endpoint).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_week_rankings.html">espn_wnba_week_rankings()</a></code> / <code><a href="../reference/espn_wbb_week_rankings.html">espn_wbb_week_rankings()</a></code>
+</td>
+<td>Index of ranking sources for one week (WNBA returns zero; WBB returns AP + Coaches).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_week_ranking.html">espn_wnba_week_ranking()</a></code> / <code><a href="../reference/espn_wbb_week_ranking.html">espn_wbb_week_ranking()</a></code>
+</td>
+<td>The ranked teams (typically 25 rows for WBB) for one (season-type × week × source). Includes current / previous rank, points, first-place votes, trend, record summary, team <code>$ref</code>.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
 </div>

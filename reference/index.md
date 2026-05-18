@@ -546,6 +546,26 @@ BPI, season metadata)
 
   **Get ESPN WBB Season Ranking Detail**
 
+- [`espn_wbb_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_weeks.md)
+  :
+
+  **Get ESPN WBB Season Weeks Index**
+
+- [`espn_wbb_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_week.md)
+  :
+
+  **Get ESPN WBB Season-Week Detail**
+
+- [`espn_wbb_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.md)
+  :
+
+  **Get ESPN WBB Per-Week Rankings Index**
+
+- [`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md)
+  :
+
+  **Get ESPN WBB Per-Week Ranking Detail**
+
 ### WNBA – Game data
 
 Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
@@ -857,6 +877,26 @@ season metadata)
   :
 
   **Get ESPN WNBA Season Ranking Detail**
+
+- [`espn_wnba_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.md)
+  :
+
+  **Get ESPN WNBA Season Weeks Index**
+
+- [`espn_wnba_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.md)
+  :
+
+  **Get ESPN WNBA Season-Week Detail**
+
+- [`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md)
+  :
+
+  **Get ESPN WNBA Per-Week Rankings Index**
+
+- [`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md)
+  :
+
+  **Get ESPN WNBA Per-Week Ranking Detail**
 
 ## NCAA Data
 

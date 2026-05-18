@@ -157,6 +157,8 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
 <code><a href="espn_wnba_season_rankings.html">espn_wnba_season_rankings()</a></code>,
 <code><a href="espn_wnba_season_type.html">espn_wnba_season_type()</a></code>,
 <code><a href="espn_wnba_season_types.html">espn_wnba_season_types()</a></code>,
+<code><a href="espn_wnba_season_week.html">espn_wnba_season_week()</a></code>,
+<code><a href="espn_wnba_season_weeks.html">espn_wnba_season_weeks()</a></code>,
 <code><a href="espn_wnba_seasons.html">espn_wnba_seasons()</a></code>,
 <code><a href="espn_wnba_standings.html">espn_wnba_standings()</a></code>,
 <code><a href="espn_wnba_team.html">espn_wnba_team()</a></code>,
@@ -171,7 +173,9 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
 <code><a href="espn_wnba_team_stats.html">espn_wnba_team_stats()</a></code>,
 <code><a href="espn_wnba_teams.html">espn_wnba_teams()</a></code>,
 <code><a href="espn_wnba_transactions.html">espn_wnba_transactions()</a></code>,
-<code><a href="espn_wnba_venues.html">espn_wnba_venues()</a></code></p></div>
+<code><a href="espn_wnba_venues.html">espn_wnba_venues()</a></code>,
+<code><a href="espn_wnba_week_ranking.html">espn_wnba_week_ranking()</a></code>,
+<code><a href="espn_wnba_week_rankings.html">espn_wnba_week_rankings()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -183,7 +187,7 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_event_probabilities</span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401736171"</span>, limit <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Event Probabilities (event_id=401736171) from ESPN.com ────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-18 17:14:51 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-18 21:50:25 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 50 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    event_id  sequence_number play_id period clock home_win_percentage</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

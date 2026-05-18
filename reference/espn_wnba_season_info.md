@@ -91,6 +91,8 @@ Other ESPN WNBA Functions:
 [`espn_wnba_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_rankings.md),
 [`espn_wnba_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_type.md),
 [`espn_wnba_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_types.md),
+[`espn_wnba_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_week.md),
+[`espn_wnba_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_weeks.md),
 [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md),
 [`espn_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.md),
 [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md),
@@ -105,7 +107,9 @@ Other ESPN WNBA Functions:
 [`espn_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_stats.md),
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md),
 [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md),
-[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md)
+[`espn_wnba_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.md),
+[`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md),
+[`espn_wnba_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.md)
 
 ## Author
 
@@ -118,7 +122,7 @@ Saiem Gilani
   espn_wnba_season_info(season = 2025)
 #> $Info
 #> ── ESPN WNBA Season Info from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:59 UTC
+#> ℹ Data updated: 2026-05-18 21:50:33 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date          display_name type_id type_name     
 #>   <int> <chr>             <chr>             <chr>        <chr>   <chr>         
@@ -126,7 +130,7 @@ Saiem Gilani
 #> 
 #> $Types
 #> ── ESPN WNBA Season Types from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:59 UTC
+#> ℹ Data updated: 2026-05-18 21:50:33 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   
@@ -134,22 +138,22 @@ Saiem Gilani
 #> 
 #> $Athletes
 #> ── ESPN WNBA Season Athletes from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:59 UTC
+#> ℹ Data updated: 2026-05-18 21:50:33 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Coaches
 #> ── ESPN WNBA Season Coaches from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:59 UTC
+#> ℹ Data updated: 2026-05-18 21:50:33 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
 #> ── ESPN WNBA Season Teams from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:59 UTC
+#> ℹ Data updated: 2026-05-18 21:50:33 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
 #> ── ESPN WNBA Season Awards from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:59 UTC
+#> ℹ Data updated: 2026-05-18 21:50:33 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                                     
 #>   <int> <chr>                                                                   

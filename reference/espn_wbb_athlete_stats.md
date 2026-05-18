@@ -72,6 +72,8 @@ Other ESPN WBB Functions:
 [`espn_wbb_season_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_rankings.md),
 [`espn_wbb_season_type()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_type.md),
 [`espn_wbb_season_types()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_types.md),
+[`espn_wbb_season_week()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_week.md),
+[`espn_wbb_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_weeks.md),
 [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md),
 [`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md),
 [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md),
@@ -87,7 +89,9 @@ Other ESPN WBB Functions:
 [`espn_wbb_tournament()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament.md),
 [`espn_wbb_tournament_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_seasons.md),
 [`espn_wbb_tournaments()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournaments.md),
-[`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md)
+[`espn_wbb_venues()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.md),
+[`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md),
+[`espn_wbb_week_rankings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.md)
 
 ## Author
 
@@ -100,7 +104,7 @@ Saiem Gilani
   espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
 #> $`Season Averages`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 5 × 5
 #>   team_id team_slug           season$year $displayName stats      position
 #>   <chr>   <chr>                     <int> <chr>        <list>     <chr>   
@@ -112,7 +116,7 @@ Saiem Gilani
 #> 
 #> $`Season Totals`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 5 × 5
 #>   team_id team_slug           season$year $displayName stats      position
 #>   <chr>   <chr>                     <int> <chr>        <list>     <chr>   
@@ -124,7 +128,7 @@ Saiem Gilani
 #> 
 #> $`Season Misc Totals`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 5 × 5
 #>   team_id team_slug           season$year $displayName stats     position
 #>   <chr>   <chr>                     <int> <chr>        <list>    <chr>   
@@ -136,32 +140,32 @@ Saiem Gilani
 #> 
 #> $General
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 17:14:23 UTC
+#> ℹ Data updated: 2026-05-18 21:49:52 UTC
 #> # A tibble: 0 × 0
 #> 
 # }
