@@ -306,6 +306,8 @@ reference:
       - espn_wbb_season_group
       - espn_wbb_season_group_children
       - espn_wbb_season_group_teams
+      - espn_wbb_team_season_roster
+      - espn_wbb_coach_season
   - subtitle: WNBA -- Game data
     desc: Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
     contents:
@@ -398,6 +400,8 @@ reference:
       - espn_wnba_season_group
       - espn_wnba_season_group_children
       - espn_wnba_season_group_teams
+      - espn_wnba_team_season_roster
+      - espn_wnba_coach_season
   - title: NCAA Data
   - subtitle: NCAA Data Functions
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
