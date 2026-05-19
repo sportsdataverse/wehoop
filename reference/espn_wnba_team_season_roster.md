@@ -124,7 +124,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_season_roster(team_id = 13, season = 2025)
 #> ── ESPN WNBA Team Season Roster ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:40:13 UTC
+#> ℹ Data updated: 2026-05-18 23:59:32 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, team_id <chr>, season <int>, athlete_id <chr>,
 #> #   ref <chr>

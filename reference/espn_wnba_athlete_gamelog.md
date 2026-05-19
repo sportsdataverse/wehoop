@@ -109,7 +109,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Gamelog from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:39:45 UTC
+#> ℹ Data updated: 2026-05-18 23:59:03 UTC
 #> # A tibble: 46 × 24
 #>    id        at_vs game_date     score home_team_id away_team_id home_team_score
 #>    <chr>     <chr> <chr>         <chr> <chr>        <chr>        <chr>          

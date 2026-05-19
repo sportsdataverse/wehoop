@@ -141,7 +141,7 @@ Saiem Gilani
   # LeBron James — regular + postseason combined
   espn_wnba_athlete_career_stats(athlete_id = 1966)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:39:44 UTC
+#> ℹ Data updated: 2026-05-18 23:59:02 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,
@@ -151,7 +151,7 @@ Saiem Gilani
   # Just career aggregate
   espn_wnba_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:39:44 UTC
+#> ℹ Data updated: 2026-05-18 23:59:02 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

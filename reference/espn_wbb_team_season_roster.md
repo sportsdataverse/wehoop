@@ -123,7 +123,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_season_roster(team_id = 13, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Roster ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:39:39 UTC
+#> ℹ Data updated: 2026-05-18 23:58:56 UTC
 #> # A tibble: 23 × 5
 #>    league                    team_id season athlete_id ref                      
 #>    <chr>                     <chr>    <int> <chr>      <chr>                    

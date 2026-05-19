@@ -126,7 +126,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_powerindex(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Power Index ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-18 22:39:25 UTC
+#> ℹ Data updated: 2026-05-18 23:58:43 UTC
 #> # A tibble: 1,475 × 12
 #>    league         season season_type team_id stat_name abbreviation display_name
 #>    <chr>           <int>       <int> <chr>   <chr>     <chr>        <chr>       

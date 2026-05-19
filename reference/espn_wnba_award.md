@@ -118,7 +118,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_award(award_id = 33, season = 2024)
-#> ✖ 2026-05-18 22:39:48.409568: Failed to retrieve ESPN wnba award 33 for season=2024
+#> ✖ 2026-05-18 23:59:06.430907: Failed to retrieve ESPN wnba award 33 for season=2024
 #> ✖ Args: league = "wnba", season = 2024, award_id = 33
 #> ✖ Error: The API returned an error
 #> NULL
