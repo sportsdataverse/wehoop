@@ -117,7 +117,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_coach(coach_id = 1031)
-#> ✖ 2026-05-18 23:58:29.999177: Failed to retrieve ESPN womens-college-basketball coach 1031
+#> ✖ 2026-05-19 00:17:06.422583: Failed to retrieve ESPN womens-college-basketball coach 1031
 #> ✖ Args: league = "womens-college-basketball", coach_id = 1031
 #> ✖ Error: The API returned an error
 #> NULL

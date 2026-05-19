@@ -114,7 +114,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_event_officials(event_id = "401735229")
-#> ✖ 2026-05-18 23:58:33.541837: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
+#> ✖ 2026-05-19 00:17:09.780225: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
 #> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
 #> ✖ Error: The API returned an error
 #> NULL

@@ -116,7 +116,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_officials(event_id = "401736171")
 #> ── ESPN WNBA Event Officials (event_id=401736171) from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-18 23:59:10 UTC
+#> ℹ Data updated: 2026-05-19 00:17:39 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name         display_name position_id position_name
 #>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        
