@@ -257,6 +257,17 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_draft_athletes()` | Index of every athlete in a given WNBA draft year. |
 | `espn_wnba_draft_status()` | Single-row snapshot of one draft year's current state. |
 
+#### *Tier 2B core-v2 expansion — event meta endpoints*
+
+8 new wrappers per league (16 across both packages) wrapping `events/{eid}/competitions/{cid}/...`. Paired with hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_event_situation()` / `espn_wbb_event_situation()` | Live game situation: timeouts, fouls, bonus state. |
+| `espn_wnba_event_predictor()` / `espn_wbb_event_predictor()` | Pre-game predictor stats in long format (per team × stat). |
+| `espn_wnba_event_powerindex()` / `espn_wbb_event_powerindex()` | Per-event power-index `$ref` index (sparse coverage). |
+| `espn_wnba_event_propbets()` / `espn_wbb_event_propbets()` | Per-(event × provider) prop-bet markets in long format. |
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).

@@ -265,6 +265,10 @@ reference:
       - espn_wbb_event_probabilities
       - espn_wbb_event_officials
       - espn_wbb_event_broadcasts
+      - espn_wbb_event_situation
+      - espn_wbb_event_predictor
+      - espn_wbb_event_powerindex
+      - espn_wbb_event_propbets
   - subtitle: WBB -- League catalogs
     desc: League-wide catalogs and indexes for women's college basketball
     contents:
@@ -358,6 +362,10 @@ reference:
       - espn_wnba_event_probabilities
       - espn_wnba_event_officials
       - espn_wnba_event_broadcasts
+      - espn_wnba_event_situation
+      - espn_wnba_event_predictor
+      - espn_wnba_event_powerindex
+      - espn_wnba_event_propbets
   - subtitle: WNBA -- League catalogs
     desc: League-wide catalogs and indexes for the WNBA
     contents:

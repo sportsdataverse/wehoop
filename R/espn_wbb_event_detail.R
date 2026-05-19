@@ -188,3 +188,123 @@ espn_wbb_event_broadcasts <- function(event_id, ...) {
     ...
   )
 }
+
+# ---------------------------------------------------------------------------
+# espn_wbb_event_situation
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WBB Event Situation (Live)**
+#' @name espn_wbb_event_situation
+NULL
+#' @title
+#' **Get ESPN WBB Event Situation (Live)**
+#' @rdname espn_wbb_event_situation
+#' @author Saiem Gilani
+#' @description
+#' Returns the live game situation for one WBB event: timeouts remaining,
+#' team fouls, fouls to give, bonus state, and a `$ref` to the last play.
+#' During a live game this reflects current state; after the game ends
+#' the values are frozen.
+#'
+#' @param event_id ESPN event identifier.
+#' @param ... Additional arguments; currently unused.
+#' @return A single-row tibble with timeouts + fouls for both teams.
+#' @export
+#' @family ESPN WBB Functions
+#' @examples
+#' \donttest{
+#'   espn_wbb_event_situation(event_id = 401812680)
+#' }
+espn_wbb_event_situation <- function(event_id, ...) {
+  .espn_basketball_event_situation(league = "womens-college-basketball", event_id = event_id, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wbb_event_predictor
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WBB Event Predictor (Pre-game)**
+#' @name espn_wbb_event_predictor
+#' @title
+#' **Get ESPN WBB Event Predictor (Pre-game)**
+#' @rdname espn_wbb_event_predictor
+#' @author Saiem Gilani
+#' @description
+#' Returns pre-game predictor statistics for one WBB event in long
+#' format: one row per (team × statistic). Typical stats include
+#' matchup quality, predicted score, win probability, and team
+#' strength metrics. Returns empty for events without predictor data
+#' (often the case for already-played games).
+#'
+#' @param event_id ESPN event identifier.
+#' @param ... Additional arguments; currently unused.
+#' @return A long tibble with rows for both home and away teams.
+#' @export
+#' @family ESPN WBB Functions
+#' @examples
+#' \donttest{
+#'   espn_wbb_event_predictor(event_id = 401812680)
+#' }
+espn_wbb_event_predictor <- function(event_id, ...) {
+  .espn_basketball_event_predictor(league = "womens-college-basketball", event_id = event_id, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wbb_event_powerindex
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WBB Event Power Index Index**
+#' @name espn_wbb_event_powerindex
+#' @title
+#' **Get ESPN WBB Event Power Index Index**
+#' @rdname espn_wbb_event_powerindex
+#' @author Saiem Gilani
+#' @description
+#' Returns the per-team power-index `$ref` URLs for one WBB event.
+#' Coverage is sparse — many events return zero items.
+#'
+#' @param event_id ESPN event identifier.
+#' @param ... Additional arguments; currently unused.
+#' @return A tibble with one row per team-game power-index entry.
+#' @export
+#' @family ESPN WBB Functions
+#' @examples
+#' \donttest{
+#'   espn_wbb_event_powerindex(event_id = 401812680)
+#' }
+espn_wbb_event_powerindex <- function(event_id, ...) {
+  .espn_basketball_event_powerindex(league = "womens-college-basketball", event_id = event_id, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wbb_event_propbets
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WBB Event Prop Bets (Long Format)**
+#' @name espn_wbb_event_propbets
+#' @title
+#' **Get ESPN WBB Event Prop Bets (Long Format)**
+#' @rdname espn_wbb_event_propbets
+#' @author Saiem Gilani
+#' @description
+#' Returns prop-bet markets for one WBB event + provider in long format:
+#' one row per (athlete × prop type). Each row has american / decimal /
+#' fraction odds plus the current target (e.g. over/under line). Hits the
+#' core-v2 `competitions/{id}/odds/{provider_id}/propBets` endpoint and
+#' auto-paginates.
+#'
+#' @param event_id ESPN event identifier.
+#' @param provider_id Sportsbook provider id (e.g. 58 = ESPN BET,
+#'   100 = Caesars). Look up via [espn_wbb_event_odds()].
+#' @param ... Additional arguments; currently unused.
+#' @return A long tibble with one row per (athlete × prop type).
+#' @export
+#' @family ESPN WBB Functions
+#' @examples
+#' \donttest{
+#'   espn_wbb_event_propbets(event_id = 401812680, provider_id = 58)
+#' }
+espn_wbb_event_propbets <- function(event_id, provider_id, ...) {
+  .espn_basketball_event_propbets(league = "womens-college-basketball", event_id = event_id,
+                                    provider_id = provider_id, ...)
+}
