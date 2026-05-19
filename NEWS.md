@@ -268,6 +268,18 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_event_powerindex()` / `espn_wbb_event_powerindex()` | Per-event power-index `$ref` index (sparse coverage). |
 | `espn_wnba_event_propbets()` / `espn_wbb_event_propbets()` | Per-(event × provider) prop-bet markets in long format. |
 
+#### *Tier 2B core-v2 expansion — event competitor sub-resources*
+
+5 new resource families under `events/{eid}/competitions/{cid}/competitors/{team_id}/`, each shimmed for WNBA and WBB (10 new public functions). Paired with hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_event_competitor_linescores()` / `espn_wbb_event_competitor_linescores()` | Per-quarter scoring for one team in one event. One row per period (regulation + OT). |
+| `espn_wnba_event_competitor_leaders()` / `espn_wbb_event_competitor_leaders()` | Per-team top performers in long format (one row per category × athlete rank). |
+| `espn_wnba_event_competitor_roster()` / `espn_wbb_event_competitor_roster()` | Game-day roster index — athlete ids + core-v2 `$ref` URLs for deferred dereferencing. |
+| `espn_wnba_event_competitor_statistics()` / `espn_wbb_event_competitor_statistics()` | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
+| `espn_wnba_event_competitor_records()` / `espn_wbb_event_competitor_records()` | Team records as of the event: overall / home / away / conference / division breakdowns. |
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).
