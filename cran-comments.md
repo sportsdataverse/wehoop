@@ -56,6 +56,35 @@ The following wrappers target WNBA Stats API endpoints that no longer return dat
   per-domain subsections so the rendered nav scales for the new
   surface (80 ESPN wrappers total, up from 22).
 
+### ESPN core-v2 deep expansion (post-initial batch)
+
+* Additional ESPN core-v2 wrappers brought the total to **180 ESPN
+  basketball exports** across `espn_wnba_*` + `espn_wbb_*`. Coverage
+  added under tier batches (full breakdown in `NEWS.md`):
+    * **Tier 1 / 2A** — athlete career, franchise, futures, tournament,
+      season-meta (types/leaders/rankings/weeks/groups), team deep
+      (record / season_profile / season_roster / odds_records),
+      coach-in-season, powerindex, draft completion.
+    * **Tier 2B.1 / 2B.2 / 2B.3** — `athlete_eventlog_v2`, draft
+      rounds/athletes/status, event meta (situation, predictor,
+      powerindex, propbets), and event competitor sub-resources
+      (linescores, leaders, roster, statistics, records).
+    * **Tier 2D** — league position dictionary (`positions`, `position`).
+    * **Tier 2E.1** — per-game player box score (`event_player_box`),
+      roster entry with starter / DNP / ejection flags, single-play
+      detail, on-court personnel.
+    * **Tier 2E.2** — full team-season stat sheet (`team_season_statistics`
+      with `rank` + `rank_display_value` per stat), event competitor
+      score, draft year top-level metadata.
+    * **Tier 2F** — typed-detail companions to the existing index
+      endpoints: `event_official_detail` (note: URL segment is crew
+      `order`, not the ESPN stable `official_id`), `team_record_detail`,
+      `coach_record`, `tournament_season`, `draft_athlete_detail`.
+* All new wrappers ship with skip-gated tests
+  (`skip_on_cran()` + `skip_on_ci()` + `skip_espn_test()`); 86 new
+  test files added. `R CMD check --run-donttest` ran every new
+  `\donttest{}` example against live ESPN core-v2 and they all passed.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
