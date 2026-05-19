@@ -10,6 +10,8 @@
 - [**wehoop 1.7.0**](#wehoop-170)
 - [**wehoop 1.6.0**](#wehoop-160)
 - [**wehoop 1.5.0**](#wehoop-150)
+- [~106 WNBA Stats API functions added](#106-wnba-stats-api-functions-added)
+- [Adds 4 ESPN WBB and WNBA functions](#adds-4-espn-wbb-and-wnba-functions)
 - [**wehoop 1.2.1**](#wehoop-121)
 - [**wehoop 1.2.0**](#wehoop-120)
 - [**wehoop 1.1.1**](#wehoop-111)
