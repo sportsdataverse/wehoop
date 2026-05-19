@@ -42,3 +42,37 @@ espn_wbb_coach <- function(coach_id, ...) {
   .espn_basketball_coach(league = "womens-college-basketball",
                           coach_id = coach_id, ...)
 }
+
+# ---------------------------------------------------------------------------
+# espn_wbb_coach_record
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WBB Coach Career Record (Long Format)**
+#' @name espn_wbb_coach_record
+NULL
+#' @title
+#' **Get ESPN WBB Coach Career Record (Long Format)**
+#' @rdname espn_wbb_coach_record
+#' @author Saiem Gilani
+#' @description
+#' Returns a coach's career record by type in long format (one row per
+#' stat in the record's `stats[]` array). `record_type` codes commonly
+#' populated: 0 = Total, 1 = Pre Season, 2 = Regular Season, 3 = Post
+#' Season. Use [espn_wbb_coaches()] to discover coach_ids for a season.
+#'
+#' @param coach_id ESPN coach identifier (use [espn_wbb_coaches()] to find).
+#' @param record_type Integer record type: 0 = Total (default), 1 = Pre Season,
+#'   2 = Regular Season, 3 = Post Season.
+#' @param ... Additional arguments; currently unused.
+#' @return A long tibble.
+#' @export
+#' @family ESPN WBB Functions
+#' @examples
+#' \donttest{
+#'   espn_wbb_coach_record(coach_id = 52120, record_type = 2)
+#' }
+espn_wbb_coach_record <- function(coach_id, record_type = 0L, ...) {
+  .espn_basketball_coach_record(league = "womens-college-basketball",
+                                  coach_id = coach_id,
+                                  record_type = record_type, ...)
+}

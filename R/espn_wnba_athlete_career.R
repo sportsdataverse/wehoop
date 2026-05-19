@@ -300,3 +300,37 @@ NULL
 espn_wnba_season_draft <- function(season = most_recent_wnba_season(), ...) {
   .espn_basketball_season_draft(league = "wnba", season = season, ...)
 }
+
+# ---------------------------------------------------------------------------
+# espn_wnba_draft_athlete_detail
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Draft Athlete Detail (Single Drafted Player)**
+#' @name espn_wnba_draft_athlete_detail
+NULL
+#' @title
+#' **Get ESPN WNBA Draft Athlete Detail (Single Drafted Player)**
+#' @rdname espn_wnba_draft_athlete_detail
+#' @author Saiem Gilani
+#' @description
+#' Returns rich single-row detail for one drafted athlete in one NBA
+#' draft year: name, height, weight, position, pick (overall/round/team),
+#' and a `$ref` to the athlete's core-v2 profile. Use
+#' [espn_wnba_draft_athletes()] to enumerate draftees for a year.
+#'
+#' @param season Draft year (numeric). Defaults to the most recent NBA season.
+#' @param athlete_id ESPN draftee identifier.
+#' @param ... Additional arguments; currently unused.
+#' @return A single-row tibble.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 108206)
+#' }
+espn_wnba_draft_athlete_detail <- function(season = most_recent_wnba_season(),
+                                            athlete_id, ...) {
+  .espn_basketball_draft_athlete_detail(league = "wnba",
+                                          season = season,
+                                          athlete_id = athlete_id, ...)
+}

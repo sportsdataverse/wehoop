@@ -649,3 +649,36 @@ espn_wnba_event_competitor_score <- function(event_id, team_id, ...) {
                                             event_id = event_id,
                                             team_id = team_id, ...)
 }
+
+# ---------------------------------------------------------------------------
+# espn_wnba_event_official_detail
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Event Official Detail (Single Official)**
+#' @name espn_wnba_event_official_detail
+NULL
+#' @title
+#' **Get ESPN WNBA Event Official Detail (Single Official)**
+#' @rdname espn_wnba_event_official_detail
+#' @author Saiem Gilani
+#' @description
+#' Returns a single-row tibble for one referee assigned to one WNBA event,
+#' with their name, position (Referee / Crew Chief / Umpire), and crew
+#' order. Pair with [espn_wnba_event_officials()] to enumerate the crew.
+#'
+#' @param event_id ESPN event identifier.
+#' @param order Crew order index (1 = first official). Pair with the `order` column from event_officials().
+#' @param ... Additional arguments; currently unused.
+#' @return A single-row tibble.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_official_detail(event_id = 401283399, order = 1)
+#' }
+espn_wnba_event_official_detail <- function(event_id, order, ...) {
+  .espn_basketball_event_official_detail(league = "wnba",
+                                           event_id = event_id,
+                                           order = order, ...)
+}
+

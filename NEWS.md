@@ -280,6 +280,20 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_event_competitor_statistics()` / `espn_wbb_event_competitor_statistics()` | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
 | `espn_wnba_event_competitor_records()` / `espn_wbb_event_competitor_records()` | Team records as of the event: overall / home / away / conference / division breakdowns. |
 
+#### *Tier 2F core-v2 expansion — typed-detail companions*
+
+5 new resource families completing index/detail pairs for existing wrappers. WBB has no league-wide draft; WNBA has no coach/tournament wrappers — those families ship in the leagues where the index exists.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_event_official_detail()` / `espn_wbb_event_official_detail()` | Per-official details for one event. URL segment is the **crew order** (1-indexed), not the ESPN stable official_id — wrapper takes `order =` to match `event_officials()$order`. |
+| `espn_wnba_team_record_detail()` / `espn_wbb_team_record_detail()` | Per-record stat array in long format (overall / home / away / conference / per-opponent). |
+| `espn_wbb_coach_record()` | Coach career record by type (Total / Pre Season / Regular Season / Post Season). |
+| `espn_wbb_tournament_season()` | Single tournament-year detail. |
+| `espn_wnba_draft_athlete_detail()` | Rich single-row drafted-player record: height/weight, position, pick, athlete `$ref`. |
+
+`_pkgdown.yml` updated for both WBB + WNBA.
+
 #### *Tier 2E.2 core-v2 expansion — team-season stats + quick lookups*
 
 3 new resource families across WNBA + WBB (5 new exports — season_draft is WNBA-only). Paired with hoopR's matching release.
