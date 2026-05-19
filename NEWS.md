@@ -280,6 +280,17 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_event_competitor_statistics()` / `espn_wbb_event_competitor_statistics()` | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
 | `espn_wnba_event_competitor_records()` / `espn_wbb_event_competitor_records()` | Team records as of the event: overall / home / away / conference / division breakdowns. |
 
+#### *Tier 2D core-v2 expansion — position dictionary*
+
+2 new resource families for the league-specific position dictionary (4 new public functions). Position ids are **not** shared across the basketball family — id `1` resolves to `Point Guard` in WNBA and `Center` in WBB. These wrappers make the dictionary explicit so users can disambiguate position `$ref` URLs in athlete records.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_positions()` / `espn_wbb_positions()` | League position dictionary index. One row per position with id + canonical `$ref`. |
+| `espn_wnba_position()` / `espn_wbb_position()` | Single-position detail: id, name, displayName, abbreviation, leaf flag, parent `$ref`. |
+
+Both `_pkgdown.yml` league-catalog subsections updated to surface the new entries.
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).

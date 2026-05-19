@@ -283,6 +283,8 @@ reference:
       - espn_wbb_athletes_index
       - espn_wbb_seasons
       - espn_wbb_season_info
+      - espn_wbb_positions
+      - espn_wbb_position
   - subtitle: WBB -- Helpers
     desc: Internal parsers exported for advanced use
     contents:
@@ -385,6 +387,8 @@ reference:
       - espn_wnba_athletes_index
       - espn_wnba_seasons
       - espn_wnba_season_info
+      - espn_wnba_positions
+      - espn_wnba_position
   - subtitle: WNBA -- Transactions, draft, free agency
     desc: WNBA-only player movement endpoints
     contents:

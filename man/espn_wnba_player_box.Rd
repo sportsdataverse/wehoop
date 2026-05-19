@@ -130,6 +130,8 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_news}()},
 \code{\link{espn_wnba_pbp}()},
 \code{\link{espn_wnba_player_stats}()},
+\code{\link{espn_wnba_position}()},
+\code{\link{espn_wnba_positions}()},
 \code{\link{espn_wnba_powerindex}()},
 \code{\link{espn_wnba_scoreboard}()},
 \code{\link{espn_wnba_season_awards}()},

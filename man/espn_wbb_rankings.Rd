@@ -99,6 +99,8 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_pbp}()},
 \code{\link{espn_wbb_player_box}()},
 \code{\link{espn_wbb_player_stats}()},
+\code{\link{espn_wbb_position}()},
+\code{\link{espn_wbb_positions}()},
 \code{\link{espn_wbb_powerindex}()},
 \code{\link{espn_wbb_scoreboard}()},
 \code{\link{espn_wbb_season_awards}()},
