@@ -8,16 +8,11 @@ opengraph:
   twitter:
     card: summary_large_image
     creator: "@saiemgilani"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{ESPN basketball endpoints}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE, comment = "#>", collapse = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, comment = "#>", collapse = TRUE)
 ```
 
 ## What this vignette covers
@@ -434,6 +429,262 @@ head(wnba_seasons[, c("year", "start_date", "end_date")])
 # espn_*_seasons() is usually the more useful starting point
 wnba_s2025 <- espn_wnba_season_info(season = 2025)
 ```
+
+## Core-v2 deep expansion
+
+The post-3.0.0 release adds another ~62 ESPN core-v2 wrappers to
+`espn_wnba_*` + `espn_wbb_*`, bringing the total ESPN basketball surface
+in `wehoop` to **180 functions**. Everything here is shimmed over an
+internal `.espn_basketball_*` helper so WNBA and WBB share parsing logic
+and bug fixes propagate to both leagues at once.
+
+### Function overview
+
+| Tier | Family | WNBA | WBB | What it gives you |
+|---|---|---|---|---|
+| 1 / 2A | `athlete_career_stats` | ✓ | ✓ | Long-format career stats (1 row per stat). Default fetches RS + post and binds. |
+| 1 / 2A | `athlete_seasons` | ✓ | ✓ | Index of seasons an athlete played, with `$ref`s to season-scoped detail |
+| 1 / 2A | `franchises` / `franchise` | ✓ | ✓ | League franchise index + per-franchise detail (stable across relocations) |
+| 1 / 2A | `futures` | ✓ | — | Per-season betting futures markets in long format |
+| 1 / 2A | `tournaments` / `tournament` / `tournament_seasons` | — | ✓ | NCAA tournament index + per-tournament detail + per-season list |
+| 1 / 2A | `team_record` / `team_odds_records` | — | — | (NBA/MBB only) |
+| 1 / 2A | `team_season_profile` / `team_season_roster` | ✓ | ✓ | Per-(team × season) profile and roster |
+| 1 / 2A | `coach` / `coach_season` | — / ✓ | ✓ / ✓ | Coach detail; coach-in-a-season |
+| 1 / 2A | `powerindex` | ✓ | ✓ | Per-season power-index entries per team |
+| 1 / 2A | `season_info` / `season_type` / `season_types` | ✓ | ✓ | Season metadata (top-level + per-season-type) |
+| 1 / 2A | `season_leaders` | ✓ | ✓ | Per-(season × season-type) leader board, long format. Defaults fetch RS + post. |
+| 1 / 2A | `season_rankings` / `season_ranking` | ✓ | ✓ | Per-season poll/ranking indexes |
+| 1 / 2A | `season_weeks` / `season_week` | ✓ | ✓ | Weeks within a season (week-based leagues) |
+| 1 / 2A | `week_rankings` / `week_ranking` | ✓ | ✓ | Per-week ranking lookups |
+| 1 / 2A | `season_groups` / `season_group` / `season_group_children` / `season_group_teams` | ✓ | ✓ | Conferences / divisions / D-I groups within a season |
+| 1 / 2A | `season_awards` / `award` | ✓ | ✓ | Per-season awards index + per-award detail |
+| 1 / 2A | `draft_pick` | ✓ | — | Single pick lookup |
+| 2B.1 | `athlete_eventlog_v2` | ✓ | ✓ | Per-(athlete × season) event log (core-v2; richer than the web-common-v3 variant) |
+| 2B.1 | `draft_rounds` / `draft_athletes` / `draft_status` | ✓ | — | Draft year completion: rounds, draftees, in-progress status |
+| 2B.2 | `event_situation` | ✓ | ✓ | Live game situation: timeouts, fouls, bonus state, last play `$ref` |
+| 2B.2 | `event_predictor` | ✓ | ✓ | Pre-game predictor stats (one row per team × stat) |
+| 2B.2 | `event_powerindex` | ✓ | ✓ | Per-event power-index index. Sparse coverage. |
+| 2B.2 | `event_propbets` | ✓ | ✓ | Per-(event × provider) prop-bet markets in long format |
+| 2B.3 | `event_competitor_linescores` | ✓ | ✓ | Per-quarter scoring for one team in one event |
+| 2B.3 | `event_competitor_leaders` | ✓ | ✓ | Top performers per team in long format |
+| 2B.3 | `event_competitor_roster` | ✓ | ✓ | Game-day roster index — athlete ids + `$ref`s |
+| 2B.3 | `event_competitor_statistics` | ✓ | ✓ | Full team-game statistics in long format |
+| 2B.3 | `event_competitor_records` | ✓ | ✓ | Team records as of the event (overall / home / away / conf / div) |
+| 2D | `positions` / `position` | ✓ | ✓ | Position dictionary index + detail (id-by-league, **not** shared) |
+| 2E.1 | `event_player_box` | ✓ | ✓ | **Per-game player box score**, long format |
+| 2E.1 | `event_competitor_roster_entry` | ✓ | ✓ | Single roster row: starter / DNP / ejection / sub slot |
+| 2E.1 | `event_play` | ✓ | ✓ | Single-play detail (sequence, period, clock, scoring flags, coords) |
+| 2E.1 | `event_play_personnel` | ✓ | ✓ | Players on court at a specific play. Sparse coverage. |
+| 2E.2 | `event_competitor_score` | ✓ | ✓ | Single-row final score (value, displayValue, winner, source) |
+| 2E.2 | `team_season_statistics` | ✓ | ✓ | Full team-season stat sheet in long format, with league rank per stat |
+| 2E.2 | `season_draft` | ✓ | — | Draft-year top-level metadata |
+| 2F | `event_official_detail` | ✓ | ✓ | Per-official detail. URL uses crew `order` (1-indexed), not the ESPN stable id. |
+| 2F | `team_record_detail` | ✓ | ✓ | Per-record stat array in long format |
+| 2F | `coach_record` | — | ✓ | Coach career record by type (Total / Pre Season / Regular Season / Post Season) |
+| 2F | `tournament_season` | — | ✓ | Single tournament-year detail |
+| 2F | `draft_athlete_detail` | ✓ | — | Rich single-row drafted-player record |
+
+Dashes mark families that don't apply at ESPN for that league (no
+WNBA tournament structure; no WBB futures market; no WNBA coach
+detail endpoint; no WBB league-wide draft).
+
+### Athlete career, contracts, splits, and event log
+
+Beyond the gamelog and per-season stats wrappers we shipped in the
+initial ESPN batch, the core-v2 surface adds career-level rollups,
+season-by-season indexes, and a richer event log.
+
+```{r}
+library(wehoop)
+
+# Career stats — long format, one row per (stat_type x category x stat).
+# Default `stat_type = c(0L, 1L)` fetches regular season + postseason and
+# binds them so a single call gives you the player's full career sheet.
+caitlin_career <- espn_wbb_athlete_career_stats(athlete_id = 4433404)
+aja_career     <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
+
+# Per-(athlete x season) event log -- core-v2 variant. Returns
+# event_id + result + per-event stats in long format.
+espn_wnba_athlete_eventlog_v2(athlete_id = 3149391, season = 2024)
+
+# Index of seasons an athlete has on file (good for iterating).
+espn_wnba_athlete_seasons(athlete_id = 3149391)
+```
+
+### Franchises, tournaments, and league dictionaries
+
+```{r}
+# Franchise records are stable across relocations and rebrands.
+espn_wnba_franchises()
+espn_wnba_franchise(franchise_id = 20)   # one franchise
+
+# WBB-only: NCAA tournament index + detail + season list.
+espn_wbb_tournaments()
+espn_wbb_tournament(tournament_id = 22)
+espn_wbb_tournament_seasons(tournament_id = 22)
+
+# Position dictionary. Position ids are NOT shared across leagues --
+# id 1 is "Point Guard" in WNBA but "Center" in WBB.
+espn_wnba_positions()
+espn_wnba_position(position_id = 1)
+```
+
+### Season metadata, rankings, awards
+
+```{r}
+# Per-season-type leaders, long format. Default fetches RS + post.
+espn_wnba_season_leaders(season = 2024)
+
+# Award index for a season + per-award detail.
+aw <- espn_wnba_season_awards(season = 2024)
+espn_wnba_award(award_id = aw$award_id[1])
+
+# Season group structure (conferences / D-I groups) -- mostly relevant
+# for WBB, which has a deep conference hierarchy.
+espn_wbb_season_groups(season = 2024, season_type = 2)
+espn_wbb_season_group(group_id = 50, season = 2024, season_type = 2)
+espn_wbb_season_group_teams(group_id = 50, season = 2024, season_type = 2)
+```
+
+### Team season profile, roster, and stats
+
+```{r}
+# Per-(team x season) profile — a $ref index for that team-season's
+# deeper resources (record, statistics, leaders, roster, ...).
+espn_wbb_team_season_profile(team_id = 2509, season = 2024)
+
+# Roster the same team carried for that season.
+espn_wbb_team_season_roster(team_id = 2509, season = 2024)
+
+# Full team-season stat sheet in long format, with league rank embedded
+# per stat. Smoke-tested at 109 rows x 13 cols for a single NBA team --
+# WBB shapes are comparable.
+espn_wbb_team_season_statistics(team_id = 2509, season = 2024,
+                                season_type = 2)
+```
+
+### Coach detail, coach-in-season, and coach career record
+
+```{r}
+# Coach detail (single-row). Wnba has no coach wrapper at ESPN.
+espn_wbb_coach(coach_id = 2167842)
+
+# Coach-in-a-season: per-season stats and record.
+espn_wbb_coach_season(coach_id = 2167842, season = 2024)
+
+# Career record by type. Type codes: 0 = Total, 1 = Pre Season,
+# 2 = Regular Season, 3 = Post Season.
+espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
+```
+
+### Event meta: live situation, predictor, power index, prop bets
+
+```{r}
+# All four take an event_id from espn_*_schedule() or any boxscore.
+EID <- "401736171"
+
+# Live game situation -- timeouts, fouls, bonus state, last play $ref.
+espn_wnba_event_situation(event_id = EID)
+
+# Pre-game predictor -- one row per (team x stat). Empty for past games.
+espn_wnba_event_predictor(event_id = EID)
+
+# Per-event power index. Coverage is sparse -- many events return zero.
+espn_wnba_event_powerindex(event_id = EID)
+
+# Prop bet markets per (event x provider). 58 = ESPN BET.
+espn_wnba_event_propbets(event_id = EID, provider_id = 58)
+```
+
+### Event competitor sub-resources
+
+Five resource families under `events/{eid}/competitions/{cid}/competitors/{team_id}/`,
+each shimmed for WNBA + WBB. Pair `team_id` with `event_id` from
+`espn_wnba_schedule()$id` (or the team_id from any boxscore-style call).
+
+```{r}
+EID <- "401736171"; TID <- 17  # team_id of one competitor
+
+# Per-quarter scoring for one team in one event.
+espn_wnba_event_competitor_linescores(event_id = EID, team_id = TID)
+
+# Top performers per team in long format (category x rank).
+espn_wnba_event_competitor_leaders(event_id = EID, team_id = TID)
+
+# Game-day roster index. Returns athlete ids + core-v2 $refs.
+espn_wnba_event_competitor_roster(event_id = EID, team_id = TID)
+
+# Full team-game statistics in long format.
+espn_wnba_event_competitor_statistics(event_id = EID, team_id = TID)
+
+# Team records as of the event: overall / home / away / conf / div.
+espn_wnba_event_competitor_records(event_id = EID, team_id = TID)
+
+# One-row final score, quick lookup.
+espn_wnba_event_competitor_score(event_id = EID, team_id = TID)
+```
+
+### Per-game player box score, play detail, and on-court lineups
+
+This is the headline 2E.1 batch -- the per-(game x player) box score
+in long format plus single-play deep dives.
+
+```{r}
+EID <- "401736171"; TID <- 17; AID <- 3149391  # event, team, athlete
+
+# Per-game box score for one athlete -- one row per (category x stat).
+# Same shape as event_competitor_statistics() but scoped to an athlete.
+espn_wnba_event_player_box(event_id = EID, team_id = TID,
+                           athlete_id = AID)
+
+# Per-athlete game-day row: starter flag, did_not_play + reason,
+# ejected flag, period of entry, for_player_id (substitution slot).
+espn_wnba_event_competitor_roster_entry(event_id = EID, team_id = TID,
+                                        athlete_id = AID)
+
+# Single-play detail. play_id comes from espn_wnba_pbp() output.
+PID <- "401736171001"  # example play id
+espn_wnba_event_play(event_id = EID, play_id = PID)
+
+# Players on court at a specific play (long format). Coverage is
+# sparse -- many plays return zero rows.
+espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
+```
+
+### Officials, team records, and the draft
+
+```{r}
+# Single official detail. The URL segment is the CREW ORDER, not the
+# ESPN-stable official_id -- so pair this with the `order` column from
+# espn_wnba_event_officials() rather than `official_id`.
+espn_wnba_event_official_detail(event_id = "401736171", order = 1)
+
+# Per-record stat array. Use espn_wnba_team_record() to discover
+# valid record_id values for a (team_id, season) pair.
+espn_wnba_team_record_detail(team_id = 17, season = 2024, record_id = 0)
+
+# Draft year top-level metadata + rich single-pick record.
+espn_wnba_season_draft(season = 2024)
+espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 5170843)
+```
+
+### One thing to know about default season types
+
+Most of the new wrappers that take a `season_type` parameter default to
+`c(2L, 3L)` (regular season + postseason) and bind the two results into
+a single tibble keyed by a `season_type` column. This is more useful
+than the strict `season_type = 2` default for end-of-season analysis,
+and pass `season_type = 2` to limit to regular season only.
+
+```{r}
+# Regular season only.
+espn_wnba_season_leaders(season = 2024, season_type = 2)
+
+# Default — RS + post, bound, keyed by season_type column.
+espn_wnba_season_leaders(season = 2024)
+```
+
+
 
 ## What's not here
 
