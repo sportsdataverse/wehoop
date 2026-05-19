@@ -155,3 +155,118 @@ espn_wnba_draft_pick <- function(season = most_recent_wnba_season(),
   .espn_basketball_draft_pick(league = "wnba", season = season,
                                 round = round, pick = pick, ...)
 }
+
+# espn_wnba_athlete_eventlog_v2 (core-v2 per-season event log)
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Athlete Per-Season Event Log (core-v2)**
+#' @name espn_wnba_athlete_eventlog_v2
+NULL
+#' @title
+#' **Get ESPN WNBA Athlete Per-Season Event Log (core-v2)**
+#' @rdname espn_wnba_athlete_eventlog_v2
+#' @author Saiem Gilani
+#' @description
+#' Returns one row per (event x team) for an WNBA athlete's appearances
+#' in a given season. Distinct from [espn_wnba_athlete_eventlog()] which
+#' wraps the web-common-v3 gamelog endpoint returning stats per game;
+#' this core-v2 variant returns refs + `played` flag and is era-correct.
+#'
+#' @param athlete_id ESPN athlete identifier.
+#' @param season Season year. Defaults to most recent WNBA season.
+#' @param ... Additional arguments; currently unused.
+#' @return A tibble with one row per event appearance. See package source
+#'   for column schema.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_athlete_eventlog_v2(athlete_id = 2999102, season = 2025)
+#' }
+espn_wnba_athlete_eventlog_v2 <- function(athlete_id,
+                                          season = most_recent_wnba_season(),
+                                          ...) {
+  .espn_basketball_athlete_eventlog_v2(league = "wnba",
+                                      athlete_id = athlete_id,
+                                      season = season, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wnba_draft_rounds
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Draft Rounds Summary**
+#' @name espn_wnba_draft_rounds
+#' @title
+#' **Get ESPN WNBA Draft Rounds Summary**
+#' @rdname espn_wnba_draft_rounds
+#' @author Saiem Gilani
+#' @description
+#' Returns one row per round of the WNBA draft (typically 2 rounds:
+#' 1st with 30 picks, 2nd with ~28 picks).
+#'
+#' @param season Season year. Defaults to most recent WNBA season.
+#' @param ... Additional arguments; currently unused.
+#' @return A tibble with one row per round.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_draft_rounds(season = 2024)
+#' }
+espn_wnba_draft_rounds <- function(season = most_recent_wnba_season(), ...) {
+  .espn_basketball_draft_rounds(league = "wnba", season = season, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wnba_draft_athletes
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Draft Athletes Index**
+#' @name espn_wnba_draft_athletes
+#' @title
+#' **Get ESPN WNBA Draft Athletes Index**
+#' @rdname espn_wnba_draft_athletes
+#' @author Saiem Gilani
+#' @description
+#' Returns one row per drafted athlete in a given WNBA draft year.
+#'
+#' @param season Season year. Defaults to most recent WNBA season.
+#' @param ... Additional arguments; currently unused.
+#' @return A tibble of athlete IDs + `$ref` URLs.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_draft_athletes(season = 2024)
+#' }
+espn_wnba_draft_athletes <- function(season = most_recent_wnba_season(), ...) {
+  .espn_basketball_draft_athletes(league = "wnba", season = season, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wnba_draft_status
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Draft Status**
+#' @name espn_wnba_draft_status
+#' @title
+#' **Get ESPN WNBA Draft Status**
+#' @rdname espn_wnba_draft_status
+#' @author Saiem Gilani
+#' @description
+#' Returns the current status of one WNBA draft year (round, state,
+#' description). Live during the draft; static afterward.
+#'
+#' @param season Season year. Defaults to most recent WNBA season.
+#' @param ... Additional arguments; currently unused.
+#' @return A single-row tibble.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_draft_status(season = 2024)
+#' }
+espn_wnba_draft_status <- function(season = most_recent_wnba_season(), ...) {
+  .espn_basketball_draft_status(league = "wnba", season = season, ...)
+}

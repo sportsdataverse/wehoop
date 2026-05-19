@@ -35,6 +35,7 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_athlete_awards}()},
 \code{\link{espn_wbb_athlete_career_stats}()},
 \code{\link{espn_wbb_athlete_eventlog}()},
+\code{\link{espn_wbb_athlete_eventlog_v2}()},
 \code{\link{espn_wbb_athlete_gamelog}()},
 \code{\link{espn_wbb_athlete_info}()},
 \code{\link{espn_wbb_athlete_overview}()},

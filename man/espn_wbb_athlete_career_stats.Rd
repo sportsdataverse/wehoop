@@ -62,6 +62,7 @@ and 2 is sparse — many athletes only have type 0 populated.
 Other ESPN WBB Functions: 
 \code{\link{espn_wbb_athlete_awards}()},
 \code{\link{espn_wbb_athlete_eventlog}()},
+\code{\link{espn_wbb_athlete_eventlog_v2}()},
 \code{\link{espn_wbb_athlete_gamelog}()},
 \code{\link{espn_wbb_athlete_info}()},
 \code{\link{espn_wbb_athlete_overview}()},

@@ -246,6 +246,17 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_athlete_career_stats()` / `espn_wbb_athlete_career_stats()` | Long-format career stats. Default `stat_type = 0L` fetches the standard "All Splits" / regular-season view; pass a vector like `c(0L, 1L, 2L)` to bind multiple types via a `stat_type_id` column. Coverage of types 1 and 2 is sparse. |
 | `espn_wnba_draft_pick()` | Single WNBA draft-pick detail. WBB has no draft endpoint, so this wrapper is WNBA-only on the wehoop side. |
 
+#### *Tier 2B core-v2 expansion — athlete event log + draft completion*
+
+5 new wrappers paired with hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_athlete_eventlog_v2()` / `espn_wbb_athlete_eventlog_v2()` | Per-season event log from core-v2. One row per (event × team) with `played` flag + refs. Distinct from `espn_*_athlete_eventlog()` (web-common-v3 with stats per game). |
+| `espn_wnba_draft_rounds()` | Round-level summary for one WNBA draft year. |
+| `espn_wnba_draft_athletes()` | Index of every athlete in a given WNBA draft year. |
+| `espn_wnba_draft_status()` | Single-row snapshot of one draft year's current state. |
+
 #### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).

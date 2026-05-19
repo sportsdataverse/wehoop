@@ -310,6 +310,7 @@ reference:
       - espn_wbb_coach_season
       - espn_wbb_athlete_seasons
       - espn_wbb_athlete_career_stats
+      - espn_wbb_athlete_eventlog_v2
   - subtitle: WNBA -- Game data
     desc: Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
     contents:
@@ -407,6 +408,10 @@ reference:
       - espn_wnba_athlete_seasons
       - espn_wnba_athlete_career_stats
       - espn_wnba_draft_pick
+      - espn_wnba_athlete_eventlog_v2
+      - espn_wnba_draft_rounds
+      - espn_wnba_draft_athletes
+      - espn_wnba_draft_status
   - title: NCAA Data
   - subtitle: NCAA Data Functions
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
