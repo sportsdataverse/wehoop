@@ -227,7 +227,11 @@ Other ESPN WNBA Functions:
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
+[`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md),
+[`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md),
 [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+[`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md),
+[`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md),
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
 [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
@@ -284,7 +288,7 @@ Saiem Gilani
   try(espn_wnba_game_all(game_id = 401244185))
 #> $Plays
 #> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:06 UTC
+#> ℹ Data updated: 2026-05-19 01:33:11 UTC
 #> # A tibble: 388 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -308,7 +312,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:06 UTC
+#> ℹ Data updated: 2026-05-19 01:33:12 UTC
 #> # A tibble: 2 × 57
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -324,7 +328,7 @@ Saiem Gilani
 #> 
 #> $Player
 #> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:07 UTC
+#> ℹ Data updated: 2026-05-19 01:33:12 UTC
 #> # A tibble: 25 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>

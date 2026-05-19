@@ -288,6 +288,19 @@ in hoopR.)
 | [`espn_wnba_draft_athletes()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Index of every athlete in a given WNBA draft year. |
 | [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md) | Single-row snapshot of one draft year’s current state. |
 
+##### *Tier 2B core-v2 expansion — event meta endpoints*
+
+8 new wrappers per league (16 across both packages) wrapping
+`events/{eid}/competitions/{cid}/...`. Paired with hoopR’s matching
+release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md) / [`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md) | Live game situation: timeouts, fouls, bonus state. |
+| [`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md) / [`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md) | Pre-game predictor stats in long format (per team × stat). |
+| [`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md) / [`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md) | Per-event power-index `$ref` index (sparse coverage). |
+| [`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md) / [`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md) | Per-(event × provider) prop-bet markets in long format. |
+
 ##### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A

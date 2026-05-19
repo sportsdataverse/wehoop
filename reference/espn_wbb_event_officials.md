@@ -59,7 +59,11 @@ Other ESPN WBB Functions:
 [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md),
 [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
 [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md),
+[`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md),
+[`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md),
 [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md),
+[`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md),
+[`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md),
 [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md),
 [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md),
 [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
@@ -115,7 +119,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_event_officials(event_id = "401735229")
-#> ✖ 2026-05-19 01:20:29.922736: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
+#> ✖ 2026-05-19 01:32:31.404174: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
 #> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
 #> ✖ Error: The API returned an error
 #> NULL

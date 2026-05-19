@@ -87,7 +87,11 @@ Other ESPN WNBA Functions:
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
+[`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md),
+[`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md),
 [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+[`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md),
+[`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md),
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
 [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
@@ -145,7 +149,7 @@ Saiem Gilani
   # LeBron James — regular + postseason combined
   espn_wnba_athlete_career_stats(athlete_id = 1966)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:57 UTC
+#> ℹ Data updated: 2026-05-19 01:33:00 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,
@@ -155,7 +159,7 @@ Saiem Gilani
   # Just career aggregate
   espn_wnba_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:57 UTC
+#> ℹ Data updated: 2026-05-19 01:33:00 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

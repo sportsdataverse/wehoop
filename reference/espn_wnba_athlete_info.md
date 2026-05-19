@@ -112,7 +112,11 @@ Other ESPN WNBA Functions:
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
+[`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md),
+[`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md),
 [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+[`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md),
+[`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md),
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
 [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
@@ -170,7 +174,7 @@ Saiem Gilani
   espn_wnba_athlete_info(athlete_id = "3149391")
 #> $Bio
 #> ── ESPN WNBA Athlete Bio from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:58 UTC
+#> ℹ Data updated: 2026-05-19 01:33:01 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -182,7 +186,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WNBA Athlete Team from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:58 UTC
+#> ℹ Data updated: 2026-05-19 01:33:01 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -190,7 +194,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WNBA Athlete Position from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:58 UTC
+#> ℹ Data updated: 2026-05-19 01:33:01 UTC
 #> # A tibble: 1 × 5
 #>   id    name   display_name abbreviation leaf 
 #>   <chr> <chr>  <chr>        <chr>        <lgl>
@@ -198,7 +202,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WNBA Athlete Status from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:58 UTC
+#> ℹ Data updated: 2026-05-19 01:33:01 UTC
 #> # A tibble: 1 × 4
 #>   id    name   type   abbreviation
 #>   <chr> <chr>  <chr>  <chr>       
@@ -206,7 +210,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WNBA Athlete College from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:58 UTC
+#> ℹ Data updated: 2026-05-19 01:33:01 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                             
 #>   <chr>                                                             
@@ -214,7 +218,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN WNBA Athlete Draft from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:58 UTC
+#> ℹ Data updated: 2026-05-19 01:33:01 UTC
 #> # A tibble: 1 × 4
 #>   year  round selection display_text               
 #>   <chr> <chr> <chr>     <chr>                      

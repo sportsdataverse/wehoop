@@ -497,6 +497,28 @@
 <td>Single-row snapshot of one draft year’s current state.</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="tierb-core-v2-expansion--event-meta-endpoints-3-0-0"><em>Tier 2B core-v2 expansion — event meta endpoints</em><a class="anchor" aria-label="anchor" href="#tierb-core-v2-expansion--event-meta-endpoints-3-0-0"></a></h5>
+<p>8 new wrappers per league (16 across both packages) wrapping <code>events/{eid}/competitions/{cid}/...</code>. Paired with hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_event_situation.html">espn_wnba_event_situation()</a></code> / <code><a href="../reference/espn_wbb_event_situation.html">espn_wbb_event_situation()</a></code>
+</td>
+<td>Live game situation: timeouts, fouls, bonus state.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_predictor.html">espn_wnba_event_predictor()</a></code> / <code><a href="../reference/espn_wbb_event_predictor.html">espn_wbb_event_predictor()</a></code>
+</td>
+<td>Pre-game predictor stats in long format (per team × stat).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_powerindex.html">espn_wnba_event_powerindex()</a></code> / <code><a href="../reference/espn_wbb_event_powerindex.html">espn_wbb_event_powerindex()</a></code>
+</td>
+<td>Per-event power-index <code>$ref</code> index (sparse coverage).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_propbets.html">espn_wnba_event_propbets()</a></code> / <code><a href="../reference/espn_wbb_event_propbets.html">espn_wbb_event_propbets()</a></code>
+</td>
+<td>Per-(event × provider) prop-bet markets in long format.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
 </div>

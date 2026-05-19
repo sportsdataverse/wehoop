@@ -83,7 +83,11 @@ Other ESPN WBB Functions:
 [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
 [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md),
 [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md),
+[`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md),
+[`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md),
 [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md),
+[`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md),
+[`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md),
 [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md),
 [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md),
 [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
@@ -141,7 +145,7 @@ Saiem Gilani
   # LeBron James — regular + postseason combined
   espn_wbb_athlete_career_stats(athlete_id = 1966)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Career Stats ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:19 UTC
+#> ℹ Data updated: 2026-05-19 01:32:22 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,
@@ -151,7 +155,7 @@ Saiem Gilani
   # Just career aggregate
   espn_wbb_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Career Stats ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:19 UTC
+#> ℹ Data updated: 2026-05-19 01:32:22 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

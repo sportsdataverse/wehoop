@@ -114,7 +114,11 @@ Other ESPN WNBA Functions:
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
+[`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md),
+[`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md),
 [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+[`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md),
+[`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md),
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
 [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
@@ -171,7 +175,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:19 UTC
+#> ℹ Data updated: 2026-05-19 01:33:26 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -181,7 +185,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:19 UTC
+#> ℹ Data updated: 2026-05-19 01:33:26 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -191,7 +195,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:19 UTC
+#> ℹ Data updated: 2026-05-19 01:33:26 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                                 short_name
 #>   <chr>     <chr>             <chr>                                <chr>     
@@ -199,7 +203,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:21:19 UTC
+#> ℹ Data updated: 2026-05-19 01:33:26 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

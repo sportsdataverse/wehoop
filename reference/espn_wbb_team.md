@@ -110,7 +110,11 @@ Other ESPN WBB Functions:
 [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
 [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md),
 [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md),
+[`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md),
+[`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md),
 [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md),
+[`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md),
+[`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md),
 [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md),
 [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md),
 [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
@@ -167,7 +171,7 @@ Saiem Gilani
   espn_wbb_team(team_id = "2509", season = 2025)
 #> $Info
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Info from ESPN.com ────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:49 UTC
+#> ℹ Data updated: 2026-05-19 01:32:52 UTC
 #> # A tibble: 1 × 13
 #>   id    uid    slug  abbreviation display_name short_display_name name  nickname
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -177,7 +181,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Record from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 01:20:49 UTC
+#> ℹ Data updated: 2026-05-19 01:32:52 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -187,7 +191,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Next Event from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-19 01:20:49 UTC
+#> ℹ Data updated: 2026-05-19 01:32:52 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                                short_name
 #>   <chr>     <chr>             <chr>                               <chr>     
@@ -195,7 +199,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Standing Summary from ESPN.com ──────────
-#> ℹ Data updated: 2026-05-19 01:20:49 UTC
+#> ℹ Data updated: 2026-05-19 01:32:52 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

@@ -71,6 +71,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
+[`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md),
+[`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md),
+[`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md),
+[`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md),
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
 [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
@@ -127,7 +131,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_probabilities(event_id = "401736171", limit = 50)
 #> ── ESPN WNBA Event Probabilities (event_id=401736171) from ESPN.com ────────────
-#> ℹ Data updated: 2026-05-19 01:21:04 UTC
+#> ℹ Data updated: 2026-05-19 01:33:09 UTC
 #> # A tibble: 50 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>

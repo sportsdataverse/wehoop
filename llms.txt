@@ -570,6 +570,26 @@ Per-event enrichments (odds, win probability, officials, broadcasts)
 
   **Get ESPN Women's College Basketball Event Broadcasts**
 
+- [`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md)
+  :
+
+  **Get ESPN WBB Event Situation (Live)**
+
+- [`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md)
+  :
+
+  **Get ESPN WBB Event Predictor (Pre-game)**
+
+- [`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md)
+  :
+
+  **Get ESPN WBB Event Power Index Index**
+
+- [`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md)
+  :
+
+  **Get ESPN WBB Event Prop Bets (Long Format)**
+
 ### WBB – League catalogs
 
 League-wide catalogs and indexes for women’s college basketball
@@ -937,6 +957,26 @@ Per-event enrichments (odds, win probability, officials, broadcasts)
   :
 
   **Get ESPN WNBA Event Broadcasts**
+
+- [`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md)
+  :
+
+  **Get ESPN WNBA Event Situation (Live)**
+
+- [`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md)
+  :
+
+  **Get ESPN WNBA Event Predictor (Pre-game)**
+
+- [`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md)
+  :
+
+  **Get ESPN WNBA Event Power Index Index**
+
+- [`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md)
+  :
+
+  **Get ESPN WNBA Event Prop Bets (Long Format)**
 
 ### WNBA – League catalogs
 

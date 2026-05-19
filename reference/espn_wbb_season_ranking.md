@@ -70,7 +70,11 @@ Other ESPN WBB Functions:
 [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md),
 [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md),
 [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md),
+[`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md),
+[`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md),
 [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md),
+[`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md),
+[`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md),
 [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md),
 [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md),
 [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
@@ -126,7 +130,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_ranking(ranking_id = 1, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Ranking Snapshots Index ───────────────
-#> ℹ Data updated: 2026-05-19 01:20:45 UTC
+#> ℹ Data updated: 2026-05-19 01:32:48 UTC
 #> # A tibble: 21 × 9
 #>    league       season ranking_id name  short_name type  season_type  week ref  
 #>    <chr>         <int> <chr>      <chr> <chr>      <chr>       <int> <int> <chr>

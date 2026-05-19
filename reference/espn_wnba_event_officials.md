@@ -63,7 +63,11 @@ Other ESPN WNBA Functions:
 [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md),
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
+[`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md),
+[`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md),
 [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md),
+[`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md),
+[`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md),
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md),
 [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md),
 [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md),
@@ -120,7 +124,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_officials(event_id = "401736171")
 #> ── ESPN WNBA Event Officials (event_id=401736171) from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-19 01:21:04 UTC
+#> ℹ Data updated: 2026-05-19 01:33:08 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name         display_name position_id position_name
 #>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        
