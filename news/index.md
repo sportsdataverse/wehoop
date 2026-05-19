@@ -277,6 +277,17 @@ in hoopR.)
 | [`espn_wnba_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_career_stats.md) / [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md) | Long-format career stats. Default `stat_type = 0L` fetches the standard “All Splits” / regular-season view; pass a vector like `c(0L, 1L, 2L)` to bind multiple types via a `stat_type_id` column. Coverage of types 1 and 2 is sparse. |
 | [`espn_wnba_draft_pick()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_pick.md) | Single WNBA draft-pick detail. WBB has no draft endpoint, so this wrapper is WNBA-only on the wehoop side. |
 
+##### *Tier 2B core-v2 expansion — athlete event log + draft completion*
+
+5 new wrappers paired with hoopR’s matching release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog_v2.md) / [`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md) | Per-season event log from core-v2. One row per (event × team) with `played` flag + refs. Distinct from `espn_*_athlete_eventlog()` (web-common-v3 with stats per game). |
+| [`espn_wnba_draft_rounds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_rounds.md) | Round-level summary for one WNBA draft year. |
+| [`espn_wnba_draft_athletes()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Index of every athlete in a given WNBA draft year. |
+| [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md) | Single-row snapshot of one draft year’s current state. |
+
 ##### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A

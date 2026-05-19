@@ -481,6 +481,22 @@
 <td>Single WNBA draft-pick detail. WBB has no draft endpoint, so this wrapper is WNBA-only on the wehoop side.</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="tierb-core-v2-expansion--athlete-event-log--draft-completion-3-0-0"><em>Tier 2B core-v2 expansion — athlete event log + draft completion</em><a class="anchor" aria-label="anchor" href="#tierb-core-v2-expansion--athlete-event-log--draft-completion-3-0-0"></a></h5>
+<p>5 new wrappers paired with hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_athlete_eventlog_v2.html">espn_wnba_athlete_eventlog_v2()</a></code> / <code><a href="../reference/espn_wbb_athlete_eventlog_v2.html">espn_wbb_athlete_eventlog_v2()</a></code>
+</td>
+<td>Per-season event log from core-v2. One row per (event × team) with <code>played</code> flag + refs. Distinct from <code>espn_*_athlete_eventlog()</code> (web-common-v3 with stats per game).</td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_rounds.html">espn_wnba_draft_rounds()</a></code></td>
+<td>Round-level summary for one WNBA draft year.</td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_draft_athletes()</a></code></td>
+<td>Index of every athlete in a given WNBA draft year.</td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_status.html">espn_wnba_draft_status()</a></code></td>
+<td>Single-row snapshot of one draft year’s current state.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
 </div>

@@ -53,6 +53,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
 [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md),
 [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
+[`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md),
 [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md),
 [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
 [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
@@ -126,7 +127,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_roster(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Roster from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:28 UTC
+#> ℹ Data updated: 2026-05-19 01:20:51 UTC
 #> # A tibble: 13 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>

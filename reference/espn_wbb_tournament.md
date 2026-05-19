@@ -39,6 +39,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
 [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md),
 [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
+[`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md),
 [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md),
 [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
 [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
@@ -112,7 +113,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_tournament(tournament_id = 23)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Tournament Detail ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:30 UTC
+#> ℹ Data updated: 2026-05-19 01:20:55 UTC
 #> # A tibble: 1 × 4
 #>   tournament_id display_name              seasons_ref                     league
 #>   <chr>         <chr>                     <chr>                           <chr> 

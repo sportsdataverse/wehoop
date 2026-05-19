@@ -52,6 +52,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
 [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md),
 [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
+[`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md),
 [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md),
 [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
 [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
@@ -125,7 +126,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_calendar(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Calendar from ESPN.com ─────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:06 UTC
+#> ℹ Data updated: 2026-05-19 01:20:25 UTC
 #> # A tibble: 116 × 12
 #>    season season_type season_type_label season_start_date season_end_date  
 #>    <chr>  <chr>       <chr>             <chr>             <chr>            

@@ -91,6 +91,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md),
 [`espn_wnba_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_career_stats.md),
 [`espn_wnba_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.md),
+[`espn_wnba_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog_v2.md),
 [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md),
 [`espn_wnba_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_overview.md),
 [`espn_wnba_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_seasons.md),
@@ -104,7 +105,10 @@ Other ESPN WNBA Functions:
 [`espn_wnba_coaches()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coaches.md),
 [`espn_wnba_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_conferences.md),
 [`espn_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft.md),
+[`espn_wnba_draft_athletes()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md),
 [`espn_wnba_draft_pick()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_pick.md),
+[`espn_wnba_draft_rounds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_rounds.md),
+[`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md),
 [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md),
 [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md),
 [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md),
@@ -166,7 +170,7 @@ Saiem Gilani
   espn_wnba_athlete_info(athlete_id = "3149391")
 #> $Bio
 #> ── ESPN WNBA Athlete Bio from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:33 UTC
+#> ℹ Data updated: 2026-05-19 01:20:58 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -178,7 +182,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WNBA Athlete Team from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:33 UTC
+#> ℹ Data updated: 2026-05-19 01:20:58 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -186,7 +190,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WNBA Athlete Position from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:33 UTC
+#> ℹ Data updated: 2026-05-19 01:20:58 UTC
 #> # A tibble: 1 × 5
 #>   id    name   display_name abbreviation leaf 
 #>   <chr> <chr>  <chr>        <chr>        <lgl>
@@ -194,7 +198,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WNBA Athlete Status from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:33 UTC
+#> ℹ Data updated: 2026-05-19 01:20:58 UTC
 #> # A tibble: 1 × 4
 #>   id    name   type   abbreviation
 #>   <chr> <chr>  <chr>  <chr>       
@@ -202,7 +206,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WNBA Athlete College from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:33 UTC
+#> ℹ Data updated: 2026-05-19 01:20:58 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                             
 #>   <chr>                                                             
@@ -210,7 +214,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN WNBA Athlete Draft from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:33 UTC
+#> ℹ Data updated: 2026-05-19 01:20:58 UTC
 #> # A tibble: 1 × 4
 #>   year  round selection display_text               
 #>   <chr> <chr> <chr>     <chr>                      

@@ -35,6 +35,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
 [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md),
 [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
+[`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md),
 [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
 [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
 [`espn_wbb_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_seasons.md),
@@ -108,7 +109,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_gamelog(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Gamelog from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-19 00:17:01 UTC
+#> ℹ Data updated: 2026-05-19 01:20:20 UTC
 #> # A tibble: 34 × 26
 #>    id      week  at_vs game_date score home_team_id away_team_id home_team_score
 #>    <chr>   <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          

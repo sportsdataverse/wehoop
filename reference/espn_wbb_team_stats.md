@@ -133,6 +133,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md),
 [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md),
 [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md),
+[`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md),
 [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md),
 [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md),
 [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md),
@@ -206,7 +207,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_team_stats(team_id = 52, year = 2020))
 #> ── ESPN WBB Team Season Stats from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 00:17:29 UTC
+#> ℹ Data updated: 2026-05-19 01:20:52 UTC
 #> # A tibble: 1 × 179
 #>   team_x_ref_3       team_id team_guid team_uid team_sdr team_slug team_location
 #>   <chr>                <int> <chr>     <chr>       <int> <chr>     <chr>        

@@ -606,6 +606,11 @@ BPI, season metadata)
 
   **Get ESPN WBB Athlete Career Stats (Long Format)**
 
+- [`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md)
+  :
+
+  **Get ESPN WBB Athlete Per-Season Event Log (core-v2)**
+
 ### WNBA – Game data
 
 Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
@@ -982,6 +987,26 @@ season metadata)
   :
 
   **Get ESPN WNBA Draft Pick Detail**
+
+- [`espn_wnba_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog_v2.md)
+  :
+
+  **Get ESPN WNBA Athlete Per-Season Event Log (core-v2)**
+
+- [`espn_wnba_draft_rounds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_rounds.md)
+  :
+
+  **Get ESPN WNBA Draft Rounds Summary**
+
+- [`espn_wnba_draft_athletes()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md)
+  :
+
+  **Get ESPN WNBA Draft Athletes Index**
+
+- [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md)
+  :
+
+  **Get ESPN WNBA Draft Status**
 
 ## NCAA Data
 
