@@ -278,6 +278,8 @@ reference:
       - espn_wbb_event_competitor_roster_entry
       - espn_wbb_event_play
       - espn_wbb_event_play_personnel
+      - espn_wbb_event_competitor_score
+      - espn_wbb_team_season_statistics
   - subtitle: WBB -- League catalogs
     desc: League-wide catalogs and indexes for women's college basketball
     contents:
@@ -386,6 +388,9 @@ reference:
       - espn_wnba_event_competitor_roster_entry
       - espn_wnba_event_play
       - espn_wnba_event_play_personnel
+      - espn_wnba_event_competitor_score
+      - espn_wnba_team_season_statistics
+      - espn_wnba_season_draft
   - subtitle: WNBA -- League catalogs
     desc: League-wide catalogs and indexes for the WNBA
     contents:

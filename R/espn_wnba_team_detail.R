@@ -325,3 +325,43 @@ espn_wnba_team_season_profile <- function(team_id,
     ...
   )
 }
+
+# ---------------------------------------------------------------------------
+# espn_wnba_team_season_statistics
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Team Season Statistics (Long Format with Rank)**
+#' @name espn_wnba_team_season_statistics
+NULL
+#' @title
+#' **Get ESPN WNBA Team Season Statistics (Long Format with Rank)**
+#' @rdname espn_wnba_team_season_statistics
+#' @author Saiem Gilani
+#' @description
+#' Returns the full team-season-type statistics sheet for one WNBA team in
+#' long format: one row per (category x stat). Each row carries the team's
+#' league rank for that stat where ESPN provides it (`rank` +
+#' `rank_display_value`). Complements [espn_wnba_team_record()] (W-L only)
+#' with the full stat package.
+#'
+#' @param team_id ESPN team identifier.
+#' @param season Season year (numeric). Defaults to the most recent WNBA season.
+#' @param season_type Integer season type: 1 = preseason, 2 = regular
+#'   (default), 3 = postseason.
+#' @param ... Additional arguments; currently unused.
+#' @return A long tibble with one row per (category x stat).
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_team_season_statistics(team_id = 13, season = 2024)
+#' }
+espn_wnba_team_season_statistics <- function(team_id,
+                                              season      = most_recent_wnba_season(),
+                                              season_type = 2L,
+                                              ...) {
+  .espn_basketball_team_season_statistics(league = "wnba",
+                                            team_id = team_id,
+                                            season = season,
+                                            season_type = season_type, ...)
+}

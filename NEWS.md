@@ -280,6 +280,18 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_event_competitor_statistics()` / `espn_wbb_event_competitor_statistics()` | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
 | `espn_wnba_event_competitor_records()` / `espn_wbb_event_competitor_records()` | Team records as of the event: overall / home / away / conference / division breakdowns. |
 
+#### *Tier 2E.2 core-v2 expansion — team-season stats + quick lookups*
+
+3 new resource families across WNBA + WBB (5 new exports — season_draft is WNBA-only). Paired with hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_team_season_statistics()` / `espn_wbb_team_season_statistics()` | **Full team-season-type stat sheet in long format**, with `rank` + `rank_display_value` per stat. |
+| `espn_wnba_event_competitor_score()` / `espn_wbb_event_competitor_score()` | Single-row final score for one team in one event: `value`, `display_value`, `winner` flag, source. |
+| `espn_wnba_season_draft()` | Draft-year top-level metadata: `year`, `number_of_rounds`, `display_name`, plus sub-refs. |
+
+`_pkgdown.yml` updated to surface the new entries.
+
 #### *Tier 2E.1 core-v2 expansion — event-scoped player + play deep dives*
 
 4 new resource families covering per-game player stats, starter/DNP metadata, single-play detail, and on-court personnel (8 new public functions). Paired with hoopR's matching release.
