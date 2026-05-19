@@ -127,10 +127,17 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_competitor_records(event_id = 401812680, team_id = 235)
-#> ✖ 2026-05-19 17:29:51.09199: Failed to retrieve ESPN womens-college-basketball competitor records for event_id=401812680, team_id=235
-#> ✖ Args: league = "womens-college-basketball", event_id = 401812680, team_id = 235
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_competitor_records(event_id = 401276115, team_id = 52)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Records ─────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:04 UTC
+#> # A tibble: 4 × 11
+#>   league              event_id team_id record_id name  abbreviation display_name
+#>   <chr>               <chr>    <chr>   <chr>     <chr> <chr>        <chr>       
+#> 1 womens-college-bas… 4012761… 52      1         over… Game         Record Year…
+#> 2 womens-college-bas… 4012761… 52      9002      Home  NA           Home        
+#> 3 womens-college-bas… 4012761… 52      9003      Road  NA           Road        
+#> 4 womens-college-bas… 4012761… 52      9009      vs. … NA           CONF        
+#> # ℹ 4 more variables: short_display_name <chr>, type <chr>, summary <chr>,
+#> #   value <dbl>
 # }
 ```

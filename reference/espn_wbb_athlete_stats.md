@@ -131,71 +131,68 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
+  espn_wbb_athlete_stats(athlete_id = "4433404", season = 2025)
 #> $`Season Averages`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
-#> # A tibble: 5 × 5
-#>   team_id team_slug           season$year $displayName stats      position
-#>   <chr>   <chr>                     <int> <chr>        <list>     <chr>   
-#> 1 66      iowa-state-cyclones        2021 2020-21      <chr [18]> G       
-#> 2 2294    iowa-hawkeyes              2022 2021-22      <chr [18]> G       
-#> 3 2294    iowa-hawkeyes              2024 2023-24      <chr [18]> G       
-#> 4 2294    iowa-hawkeyes              2025 2024-25      <chr [18]> G       
-#> 5 2294    iowa-hawkeyes              2026 2025-26      <chr [18]> G       
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
+#> # A tibble: 4 × 5
+#>   team_id team_slug         season$year $displayName stats      position
+#>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
+#> 1 24      stanford-cardinal        2021 2020-21      <chr [18]> F       
+#> 2 24      stanford-cardinal        2022 2021-22      <chr [18]> F       
+#> 3 24      stanford-cardinal        2023 2022-23      <chr [18]> F       
+#> 4 24      stanford-cardinal        2024 2023-24      <chr [18]> F       
 #> 
 #> $`Season Totals`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
-#> # A tibble: 5 × 5
-#>   team_id team_slug           season$year $displayName stats      position
-#>   <chr>   <chr>                     <int> <chr>        <list>     <chr>   
-#> 1 66      iowa-state-cyclones        2021 2020-21      <chr [15]> G       
-#> 2 2294    iowa-hawkeyes              2022 2021-22      <chr [15]> G       
-#> 3 2294    iowa-hawkeyes              2024 2023-24      <chr [15]> G       
-#> 4 2294    iowa-hawkeyes              2025 2024-25      <chr [15]> G       
-#> 5 2294    iowa-hawkeyes              2026 2025-26      <chr [15]> G       
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
+#> # A tibble: 4 × 5
+#>   team_id team_slug         season$year $displayName stats      position
+#>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
+#> 1 24      stanford-cardinal        2021 2020-21      <chr [15]> F       
+#> 2 24      stanford-cardinal        2022 2021-22      <chr [15]> F       
+#> 3 24      stanford-cardinal        2023 2022-23      <chr [15]> F       
+#> 4 24      stanford-cardinal        2024 2023-24      <chr [15]> F       
 #> 
 #> $`Season Misc Totals`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
-#> # A tibble: 5 × 5
-#>   team_id team_slug           season$year $displayName stats     position
-#>   <chr>   <chr>                     <int> <chr>        <list>    <chr>   
-#> 1 66      iowa-state-cyclones        2021 2020-21      <chr [9]> G       
-#> 2 2294    iowa-hawkeyes              2022 2021-22      <chr [9]> G       
-#> 3 2294    iowa-hawkeyes              2024 2023-24      <chr [9]> G       
-#> 4 2294    iowa-hawkeyes              2025 2024-25      <chr [9]> G       
-#> 5 2294    iowa-hawkeyes              2026 2025-26      <chr [9]> G       
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
+#> # A tibble: 4 × 5
+#>   team_id team_slug         season$year $displayName stats     position
+#>   <chr>   <chr>                   <int> <chr>        <list>    <chr>   
+#> 1 24      stanford-cardinal        2021 2020-21      <chr [9]> F       
+#> 2 24      stanford-cardinal        2022 2021-22      <chr [9]> F       
+#> 3 24      stanford-cardinal        2023 2022-23      <chr [9]> F       
+#> 4 24      stanford-cardinal        2024 2023-24      <chr [9]> F       
 #> 
 #> $General
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:45 UTC
+#> ℹ Data updated: 2026-05-19 19:24:58 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

@@ -146,13 +146,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_franchise(franchise_id = 5)
+  espn_wnba_franchise(franchise_id = 17)
 #> ── ESPN WNBA Franchise from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:32 UTC
+#> ℹ Data updated: 2026-05-19 19:25:49 UTC
 #> # A tibble: 1 × 16
-#>   id    uid           slug     location name  nickname abbreviation display_name
-#>   <chr> <chr>         <chr>    <chr>    <chr> <chr>    <chr>        <chr>       
-#> 1 5     s:40~l:59~f:5 indiana… Indiana  Fever Fever    IND          Indiana Fev…
+#>   id    uid            slug    location name  nickname abbreviation display_name
+#>   <chr> <chr>          <chr>   <chr>    <chr> <lgl>    <chr>        <chr>       
+#> 1 17    s:40~l:59~f:17 las-ve… Las Veg… Aces  NA       LV           Las Vegas A…
 #> # ℹ 8 more variables: short_display_name <chr>, color <chr>, is_active <lgl>,
 #> #   league <chr>, logo <chr>, logo_dark <chr>, venue_ref <chr>, team_ref <chr>
 # }

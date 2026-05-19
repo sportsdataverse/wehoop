@@ -131,10 +131,24 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_leaders(event_id = 401812680, team_id = 5)
-#> ✖ 2026-05-19 17:30:28.157995: Failed to retrieve ESPN wnba competitor leaders for event_id=401812680, team_id=5
-#> ✖ Args: league = "wnba", event_id = 401812680, team_id = 5
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_leaders(event_id = 401736171, team_id = 17)
+#> ── ESPN WNBA Competitor Leaders ──────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:43 UTC
+#> # A tibble: 28 × 11
+#>    league event_id  team_id category_name category_display category_abbrev  rank
+#>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>           <int>
+#>  1 wnba   401736171 17      points        Points           Pts                 1
+#>  2 wnba   401736171 17      points        Points           Pts                 2
+#>  3 wnba   401736171 17      points        Points           Pts                 3
+#>  4 wnba   401736171 17      points        Points           Pts                 4
+#>  5 wnba   401736171 17      points        Points           Pts                 5
+#>  6 wnba   401736171 17      points        Points           Pts                 6
+#>  7 wnba   401736171 17      assists       Assists          Ast                 1
+#>  8 wnba   401736171 17      assists       Assists          Ast                 2
+#>  9 wnba   401736171 17      assists       Assists          Ast                 3
+#> 10 wnba   401736171 17      assists       Assists          Ast                 4
+#> # ℹ 18 more rows
+#> # ℹ 4 more variables: athlete_id <chr>, display_value <chr>, value <dbl>,
+#> #   athlete_ref <chr>
 # }
 ```

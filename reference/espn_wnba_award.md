@@ -142,10 +142,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_award(award_id = 33, season = 2024)
-#> ✖ 2026-05-19 17:30:24.28765: Failed to retrieve ESPN wnba award 33 for season=2024
-#> ✖ Args: league = "wnba", season = 2024, award_id = 33
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_award(award_id = 247, season = 2024)
+#> ── ESPN WNBA Season Award Detail from ESPN.com ───────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:39 UTC
+#> # A tibble: 1 × 9
+#>   league season award_id name         description athlete_id team_id athlete_ref
+#>   <chr>   <int> <chr>    <chr>        <chr>       <chr>      <chr>   <chr>      
+#> 1 wnba     2024 247      Rookie of t… WNBA Rooki… 4433403    5       http://spo…
+#> # ℹ 1 more variable: team_ref <chr>
 # }
 ```

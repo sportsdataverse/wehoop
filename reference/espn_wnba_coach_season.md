@@ -152,10 +152,14 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_coach_season(coach_id = 6385, season = 2025)
-#> ✖ 2026-05-19 17:30:25.52144: Failed to retrieve ESPN wnba coach-in-season detail for coach_id=6385, season=2025
-#> ✖ Args: league = "wnba", coach_id = 6385, season = 2025
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_coach_season(coach_id = 52063, season = 2025)
+#> ── ESPN WNBA Coach-in-Season Detail ──────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:40 UTC
+#> # A tibble: 1 × 13
+#>   league season coach_id uid       first_name last_name date_of_birth birth_city
+#>   <chr>   <int> <chr>    <chr>     <chr>      <chr>     <chr>         <chr>     
+#> 1 wnba     2025 52063    s:40~l:5… Jose       Fernandez NA            NA        
+#> # ℹ 5 more variables: birth_state <chr>, n_records <int>, person_ref <chr>,
+#> #   college_ref <chr>, team_ref <chr>
 # }
 ```

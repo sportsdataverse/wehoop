@@ -142,10 +142,24 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_probabilities(event_id = "401735229", limit = 50)
-#> ✖ 2026-05-19 17:29:54.210805: Failed to retrieve ESPN womens-college-basketball event probabilities for event_id=401735229
-#> ✖ Args: league = "womens-college-basketball", event_id = "401735229", limit = 50
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_probabilities(event_id = "401276115", limit = 50)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Probabilities (event_id=401276115) from 
+#> ℹ Data updated: 2026-05-19 19:25:08 UTC
+#> # A tibble: 50 × 10
+#>    event_id  sequence_number play_id period clock home_win_percentage
+#>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>
+#>  1 401276115 101899901       NA          NA NA                  0.26 
+#>  2 401276115 101904901       NA          NA NA                  0.283
+#>  3 401276115 101907701       NA          NA NA                  0.241
+#>  4 401276115 101914901       NA          NA NA                  0.233
+#>  5 401276115 101914902       NA          NA NA                  0.243
+#>  6 401276115 101915701       NA          NA NA                  0.29 
+#>  7 401276115 101919001       NA          NA NA                  0.307
+#>  8 401276115 101919002       NA          NA NA                  0.294
+#>  9 401276115 101919501       NA          NA NA                  0.27 
+#> 10 401276115 101924601       NA          NA NA                  0.255
+#> # ℹ 40 more rows
+#> # ℹ 4 more variables: away_win_percentage <dbl>, tie_percentage <dbl>,
+#> #   secs_to_end_of_period <dbl>, secs_to_end_of_game <dbl>
 # }
 ```

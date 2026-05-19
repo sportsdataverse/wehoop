@@ -131,10 +131,23 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_statistics(event_id = 401812680, team_id = 5)
-#> ✖ 2026-05-19 17:30:29.569762: Failed to retrieve ESPN wnba competitor statistics for event_id=401812680, team_id=5
-#> ✖ Args: league = "wnba", event_id = 401812680, team_id = 5
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_statistics(event_id = 401736171, team_id = 17)
+#> ── ESPN WNBA Competitor Statistics ───────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:44 UTC
+#> # A tibble: 99 × 10
+#>    league event_id  team_id category_name category_display stat_name stat_abbrev
+#>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>     <chr>      
+#>  1 wnba   401736171 17      defensive     Defensive        blocks    BLK        
+#>  2 wnba   401736171 17      defensive     Defensive        defensiv… DR         
+#>  3 wnba   401736171 17      defensive     Defensive        steals    STL        
+#>  4 wnba   401736171 17      defensive     Defensive        turnover… Points Con…
+#>  5 wnba   401736171 17      defensive     Defensive        avgDefen… DR         
+#>  6 wnba   401736171 17      defensive     Defensive        avgBlocks BLK        
+#>  7 wnba   401736171 17      defensive     Defensive        avgSteals STL        
+#>  8 wnba   401736171 17      defensive     Defensive        avg48Def… DR         
+#>  9 wnba   401736171 17      defensive     Defensive        avg48Blo… BLK        
+#> 10 wnba   401736171 17      defensive     Defensive        avg48Ste… STL        
+#> # ℹ 89 more rows
+#> # ℹ 3 more variables: stat_display <chr>, value <dbl>, display_value <chr>
 # }
 ```

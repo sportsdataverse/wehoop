@@ -143,13 +143,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_franchise(franchise_id = 41)
+  espn_wbb_franchise(franchise_id = 2509)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchise from ESPN.com ────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:54 UTC
+#> ℹ Data updated: 2026-05-19 19:25:09 UTC
 #> # A tibble: 1 × 16
-#>   id    uid            slug    location name  nickname abbreviation display_name
-#>   <chr> <chr>          <chr>   <chr>    <chr> <chr>    <chr>        <chr>       
-#> 1 41    s:40~l:54~f:41 uconn-… UConn    Husk… UConn    CONN         UConn Huski…
+#>   id    uid              slug  location name  nickname abbreviation display_name
+#>   <chr> <chr>            <chr> <chr>    <chr> <chr>    <chr>        <chr>       
+#> 1 2509  s:40~l:54~f:2509 purd… Purdue   Boil… Purdue   PUR          Purdue Boil…
 #> # ℹ 8 more variables: short_display_name <chr>, color <chr>, is_active <lgl>,
 #> #   league <chr>, logo <chr>, logo_dark <chr>, venue_ref <chr>, team_ref <chr>
 # }

@@ -133,10 +133,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_score(event_id = 401283399, team_id = 29)
-#> ✖ 2026-05-19 17:30:29.336501: Failed to retrieve ESPN wnba competitor score for event_id=401283399, team_id=29
-#> ✖ Args: league = "wnba", event_id = 401283399, team_id = 29
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_score(event_id = 401736171, team_id = 17)
+#> ── ESPN WNBA Event Competitor Score ──────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:44 UTC
+#> # A tibble: 1 × 8
+#>   league event_id  team_id value display_value winner source_id
+#>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    
+#> 1 wnba   401736171 17         89 89            FALSE  1        
+#> # ℹ 1 more variable: source_description <chr>
 # }
 ```

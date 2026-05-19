@@ -133,10 +133,19 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_predictor(event_id = 401812680)
-#> ✖ 2026-05-19 17:30:31.531796: Failed to retrieve ESPN wnba event predictor for event_id=401812680
-#> ✖ Args: league = "wnba", event_id = 401812680
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_predictor(event_id = 401736171)
+#> ── ESPN WNBA Event Predictor ─────────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:46 UTC
+#> # A tibble: 6 × 13
+#>   league event_id  name         short_name last_modified side  team_id stat_name
+#>   <chr>  <chr>     <chr>        <chr>      <chr>         <chr> <chr>   <chr>    
+#> 1 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… home  17      matchupQ…
+#> 2 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… home  17      teamPred…
+#> 3 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… home  17      teamPred…
+#> 4 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… away  6       matchupQ…
+#> 5 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… away  6       teamPred…
+#> 6 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… away  6       teamPred…
+#> # ℹ 5 more variables: stat_display <chr>, description <chr>, value <dbl>,
+#> #   display_value <chr>, team_ref <chr>
 # }
 ```

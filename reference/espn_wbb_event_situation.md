@@ -124,10 +124,19 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_situation(event_id = 401812680)
-#> ✖ 2026-05-19 17:29:54.709187: Failed to retrieve ESPN womens-college-basketball event situation for event_id=401812680
-#> ✖ Args: league = "womens-college-basketball", event_id = 401812680
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_situation(event_id = 401276115)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Situation ────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:08 UTC
+#> # A tibble: 1 × 15
+#>   league                   event_id home_timeouts_current home_timeouts_remain…¹
+#>   <chr>                    <chr>                    <int>                  <int>
+#> 1 womens-college-basketba… 4012761…                     0                      0
+#> # ℹ abbreviated name: ¹​home_timeouts_remaining
+#> # ℹ 11 more variables: away_timeouts_current <int>,
+#> #   away_timeouts_remaining <int>, home_team_fouls <int>,
+#> #   home_team_fouls_current <int>, home_fouls_to_give <int>,
+#> #   home_bonus_state <chr>, away_team_fouls <int>,
+#> #   away_team_fouls_current <int>, away_fouls_to_give <int>,
+#> #   away_bonus_state <chr>, last_play_ref <chr>
 # }
 ```

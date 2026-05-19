@@ -143,11 +143,25 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_player_box(event_id = 401283399, team_id = 29,
-                               athlete_id = 4066392)
-#> ✖ 2026-05-19 17:30:31.047868: Failed to retrieve ESPN wnba event player box for event_id=401283399, team_id=29, athlete_id=4066392
-#> ✖ Args: league = "wnba", event_id = 401283399, team_id = 29, athlete_id = 4066392, stat_type = 0L
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_player_box(event_id = 401736171, team_id = 17,
+                               athlete_id = 3149391)
+#> ── ESPN WNBA Event Player Box ────────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:46 UTC
+#> # A tibble: 97 × 12
+#>    league event_id  team_id athlete_id stat_type category_name category_display
+#>    <chr>  <chr>     <chr>   <chr>          <int> <chr>         <chr>           
+#>  1 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  2 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  3 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  4 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  5 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  6 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  7 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  8 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  9 wnba   401736171 17      3149391            0 defensive     Defensive       
+#> 10 wnba   401736171 17      3149391            0 general       General         
+#> # ℹ 87 more rows
+#> # ℹ 5 more variables: stat_name <chr>, stat_abbrev <chr>, stat_display <chr>,
+#> #   value <dbl>, display_value <chr>
 # }
 ```

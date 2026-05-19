@@ -126,10 +126,19 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_competitor_linescores(event_id = 401812680, team_id = 235)
-#> ✖ 2026-05-19 17:29:50.855594: Failed to retrieve ESPN womens-college-basketball competitor linescores for event_id=401812680, team_id=235
-#> ✖ Args: league = "womens-college-basketball", event_id = 401812680, team_id = 235
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_competitor_linescores(event_id = 401276115, team_id = 52)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Linescores ──────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:04 UTC
+#> # A tibble: 8 × 7
+#>   league                    event_id  team_id period value display_value source 
+#>   <chr>                     <chr>     <chr>    <int> <dbl> <chr>         <chr>  
+#> 1 womens-college-basketball 401276115 52           1    14 14            1      
+#> 2 womens-college-basketball 401276115 52           1    14 14            Basic/…
+#> 3 womens-college-basketball 401276115 52           2    14 14            1      
+#> 4 womens-college-basketball 401276115 52           2    14 14            Basic/…
+#> 5 womens-college-basketball 401276115 52           3    11 11            1      
+#> 6 womens-college-basketball 401276115 52           3    11 11            Basic/…
+#> 7 womens-college-basketball 401276115 52           4    29 29            1      
+#> 8 womens-college-basketball 401276115 52           4    29 29            Basic/…
 # }
 ```

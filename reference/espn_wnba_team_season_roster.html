@@ -231,12 +231,24 @@ season for each league.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">espn_wnba_team_season_roster</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">13</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">espn_wnba_team_season_roster</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Team Season Roster ──────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-19 17:30:52 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 variables: league &lt;chr&gt;, team_id &lt;chr&gt;, season &lt;int&gt;, athlete_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ref &lt;chr&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-19 19:26:08 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    league team_id season athlete_id ref                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> wnba   17        <span style="text-decoration: underline;">2</span>025 2529122    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> wnba   17        <span style="text-decoration: underline;">2</span>025 2529458    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> wnba   17        <span style="text-decoration: underline;">2</span>025 2987869    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> wnba   17        <span style="text-decoration: underline;">2</span>025 3099736    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> wnba   17        <span style="text-decoration: underline;">2</span>025 3142086    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> wnba   17        <span style="text-decoration: underline;">2</span>025 3149391    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> wnba   17        <span style="text-decoration: underline;">2</span>025 4065870    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> wnba   17        <span style="text-decoration: underline;">2</span>025 4280892    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> wnba   17        <span style="text-decoration: underline;">2</span>025 4281190    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> wnba   17        <span style="text-decoration: underline;">2</span>025 4398776    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> wnba   17        <span style="text-decoration: underline;">2</span>025 4433633    http://sports.core.api.espn.com/v2/sports/b…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> wnba   17        <span style="text-decoration: underline;">2</span>025 4565501    http://sports.core.api.espn.com/v2/sports/b…</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

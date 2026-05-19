@@ -130,10 +130,19 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_linescores(event_id = 401812680, team_id = 5)
-#> ✖ 2026-05-19 17:30:28.390167: Failed to retrieve ESPN wnba competitor linescores for event_id=401812680, team_id=5
-#> ✖ Args: league = "wnba", event_id = 401812680, team_id = 5
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
+#> ── ESPN WNBA Competitor Linescores ───────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:43 UTC
+#> # A tibble: 8 × 7
+#>   league event_id  team_id period value display_value source      
+#>   <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr>       
+#> 1 wnba   401736171 17           1    17 17            1           
+#> 2 wnba   401736171 17           1    17 17            Basic/Manual
+#> 3 wnba   401736171 17           2    24 24            1           
+#> 4 wnba   401736171 17           2    24 24            Basic/Manual
+#> 5 wnba   401736171 17           3    24 24            1           
+#> 6 wnba   401736171 17           3    24 24            Basic/Manual
+#> 7 wnba   401736171 17           4    24 24            1           
+#> 8 wnba   401736171 17           4    24 24            Basic/Manual
 # }
 ```

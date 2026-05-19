@@ -134,10 +134,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_play(event_id = 401283399, play_id = 4012833997)
-#> ✖ 2026-05-19 17:30:30.579433: Failed to retrieve ESPN wnba event play detail for event_id=401283399, play_id=4012833997
-#> ✖ Args: league = "wnba", event_id = 401283399, play_id = 4012833997
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_play(event_id = 401736171, play_id = 4017361714)
+#> ── ESPN WNBA Event Play Detail ───────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:45 UTC
+#> # A tibble: 1 × 19
+#>   league event_id  play_id    sequence_number type_id type_text text  short_text
+#>   <chr>  <chr>     <chr>      <chr>           <chr>   <chr>     <chr> <chr>     
+#> 1 wnba   401736171 4017361714 4               615     Jumpball  Azur… NA        
+#> # ℹ 11 more variables: period <int>, clock <chr>, scoring_play <lgl>,
+#> #   score_value <dbl>, away_score <int>, home_score <int>, shooting_play <lgl>,
+#> #   coordinate_x <dbl>, coordinate_y <dbl>, team_ref <chr>, wallclock <chr>
 # }
 ```

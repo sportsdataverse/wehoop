@@ -139,22 +139,22 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_team_season_statistics(team_id = 13, season = 2024)
+  espn_wbb_team_season_statistics(team_id = 2509, season = 2024)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Statistics ─────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:16 UTC
+#> ℹ Data updated: 2026-05-19 19:25:31 UTC
 #> # A tibble: 77 × 13
 #>    league    season season_type team_id category_name category_display stat_name
 #>    <chr>      <int>       <int> <chr>   <chr>         <chr>            <chr>    
-#>  1 womens-c…   2024           2 13      defensive     Defensive        blocks   
-#>  2 womens-c…   2024           2 13      defensive     Defensive        defensiv…
-#>  3 womens-c…   2024           2 13      defensive     Defensive        steals   
-#>  4 womens-c…   2024           2 13      defensive     Defensive        turnover…
-#>  5 womens-c…   2024           2 13      defensive     Defensive        avgDefen…
-#>  6 womens-c…   2024           2 13      defensive     Defensive        avgBlocks
-#>  7 womens-c…   2024           2 13      defensive     Defensive        avgSteals
-#>  8 womens-c…   2024           2 13      general       General          disquali…
-#>  9 womens-c…   2024           2 13      general       General          flagrant…
-#> 10 womens-c…   2024           2 13      general       General          fouls    
+#>  1 womens-c…   2024           2 2509    defensive     Defensive        blocks   
+#>  2 womens-c…   2024           2 2509    defensive     Defensive        defensiv…
+#>  3 womens-c…   2024           2 2509    defensive     Defensive        steals   
+#>  4 womens-c…   2024           2 2509    defensive     Defensive        turnover…
+#>  5 womens-c…   2024           2 2509    defensive     Defensive        avgDefen…
+#>  6 womens-c…   2024           2 2509    defensive     Defensive        avgBlocks
+#>  7 womens-c…   2024           2 2509    defensive     Defensive        avgSteals
+#>  8 womens-c…   2024           2 2509    general       General          disquali…
+#>  9 womens-c…   2024           2 2509    general       General          flagrant…
+#> 10 womens-c…   2024           2 2509    general       General          fouls    
 #> # ℹ 67 more rows
 #> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
 #> #   display_value <chr>, rank <int>, rank_display_value <chr>

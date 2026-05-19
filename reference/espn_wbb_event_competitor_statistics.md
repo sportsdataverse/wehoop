@@ -127,10 +127,23 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_competitor_statistics(event_id = 401812680, team_id = 235)
-#> ✖ 2026-05-19 17:29:52.090043: Failed to retrieve ESPN womens-college-basketball competitor statistics for event_id=401812680, team_id=235
-#> ✖ Args: league = "womens-college-basketball", event_id = 401812680, team_id = 235
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_competitor_statistics(event_id = 401276115, team_id = 52)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Statistics ──────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:05 UTC
+#> # A tibble: 71 × 10
+#>    league  event_id team_id category_name category_display stat_name stat_abbrev
+#>    <chr>   <chr>    <chr>   <chr>         <chr>            <chr>     <chr>      
+#>  1 womens… 4012761… 52      defensive     Defensive        blocks    BLK        
+#>  2 womens… 4012761… 52      defensive     Defensive        defensiv… DR         
+#>  3 womens… 4012761… 52      defensive     Defensive        steals    STL        
+#>  4 womens… 4012761… 52      defensive     Defensive        turnover… PTS OFF TO 
+#>  5 womens… 4012761… 52      defensive     Defensive        avgDefen… DR         
+#>  6 womens… 4012761… 52      defensive     Defensive        avgBlocks BLK        
+#>  7 womens… 4012761… 52      defensive     Defensive        avgSteals STL        
+#>  8 womens… 4012761… 52      general       General          largestL… LL         
+#>  9 womens… 4012761… 52      general       General          disquali… DQ         
+#> 10 womens… 4012761… 52      general       General          flagrant… FLAG       
+#> # ℹ 61 more rows
+#> # ℹ 3 more variables: stat_display <chr>, value <dbl>, display_value <chr>
 # }
 ```

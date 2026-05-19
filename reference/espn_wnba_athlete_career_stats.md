@@ -164,19 +164,31 @@ Saiem Gilani
 ``` r
 # \donttest{
   # LeBron James — regular + postseason combined
-  espn_wnba_athlete_career_stats(athlete_id = 1966)
+  espn_wnba_athlete_career_stats(athlete_id = 3149391)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:20 UTC
-#> # A tibble: 0 × 17
-#> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
-#> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,
-#> #   category_display <chr>, category_short <chr>, category_abbrev <chr>,
-#> #   stat_name <chr>, stat_abbrev <chr>, stat_display <chr>, stat_short <chr>,
-#> #   description <chr>, value <dbl>, display_value <chr>
+#> ℹ Data updated: 2026-05-19 19:25:35 UTC
+#> # A tibble: 112 × 17
+#>    league athlete_id stat_type_id split_id split_name split_type category_name
+#>    <chr>  <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
+#>  1 wnba   3149391    0            0        All Splits total      defensive    
+#>  2 wnba   3149391    0            0        All Splits total      defensive    
+#>  3 wnba   3149391    0            0        All Splits total      defensive    
+#>  4 wnba   3149391    0            0        All Splits total      defensive    
+#>  5 wnba   3149391    0            0        All Splits total      defensive    
+#>  6 wnba   3149391    0            0        All Splits total      defensive    
+#>  7 wnba   3149391    0            0        All Splits total      defensive    
+#>  8 wnba   3149391    0            0        All Splits total      defensive    
+#>  9 wnba   3149391    0            0        All Splits total      defensive    
+#> 10 wnba   3149391    0            0        All Splits total      defensive    
+#> # ℹ 102 more rows
+#> # ℹ 10 more variables: category_display <chr>, category_short <chr>,
+#> #   category_abbrev <chr>, stat_name <chr>, stat_abbrev <chr>,
+#> #   stat_display <chr>, stat_short <chr>, description <chr>, value <dbl>,
+#> #   display_value <chr>
   # Just career aggregate
-  espn_wnba_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
+  espn_wnba_athlete_career_stats(athlete_id = 3149391, stat_type = 2L)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:20 UTC
+#> ℹ Data updated: 2026-05-19 19:25:35 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

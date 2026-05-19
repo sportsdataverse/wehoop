@@ -126,10 +126,10 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_powerindex(event_id = 401812680)
-#> ✖ 2026-05-19 17:29:53.737353: Failed to retrieve ESPN womens-college-basketball event powerindex for event_id=401812680
-#> ✖ Args: league = "womens-college-basketball", event_id = 401812680
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_powerindex(event_id = 401276115)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Power Index ──────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:07 UTC
+#> # A tibble: 0 × 4
+#> # ℹ 4 variables: league <chr>, event_id <chr>, team_id <chr>, ref <chr>
 # }
 ```

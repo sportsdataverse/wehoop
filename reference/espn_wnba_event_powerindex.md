@@ -130,10 +130,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_powerindex(event_id = 401812680)
-#> ✖ 2026-05-19 17:30:31.28995: Failed to retrieve ESPN wnba event powerindex for event_id=401812680
-#> ✖ Args: league = "wnba", event_id = 401812680
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_powerindex(event_id = 401736171)
+#> ── ESPN WNBA Event Power Index ───────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:46 UTC
+#> # A tibble: 2 × 4
+#>   league event_id  team_id ref                                                  
+#>   <chr>  <chr>     <chr>   <chr>                                                
+#> 1 wnba   401736171 6       http://sports.core.api.espn.com/v2/sports/basketball…
+#> 2 wnba   401736171 17      http://sports.core.api.espn.com/v2/sports/basketball…
 # }
 ```

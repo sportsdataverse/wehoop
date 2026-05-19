@@ -138,12 +138,17 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_roster_entry(event_id = 401283399,
-                                            team_id = 29,
-                                            athlete_id = 4066392)
-#> ✖ 2026-05-19 17:30:29.098937: Failed to retrieve ESPN wnba event roster entry for event_id=401283399, team_id=29, athlete_id=4066392
-#> ✖ Args: league = "wnba", event_id = 401283399, team_id = 29, athlete_id = 4066392
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_roster_entry(event_id = 401736171,
+                                            team_id = 17,
+                                            athlete_id = 3149391)
+#> ── ESPN WNBA Event Competitor Roster Entry ───────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:44 UTC
+#> # A tibble: 1 × 16
+#>   league event_id  team_id athlete_id player_id period active starter
+#>   <chr>  <chr>     <chr>   <chr>      <chr>      <int> <lgl>  <lgl>  
+#> 1 wnba   401736171 17      3149391    3149391        0 FALSE  TRUE   
+#> # ℹ 8 more variables: did_not_play <lgl>, reason <chr>, ejected <lgl>,
+#> #   for_player_id <chr>, jersey <chr>, display_name <chr>, athlete_ref <chr>,
+#> #   position_ref <chr>
 # }
 ```

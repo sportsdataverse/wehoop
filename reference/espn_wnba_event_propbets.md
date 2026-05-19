@@ -139,13 +139,10 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_propbets(event_id = 401812680, provider_id = 58)
-#> ── ESPN WNBA Event Prop Bets ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:32 UTC
-#> # A tibble: 0 × 13
-#> # ℹ 13 variables: league <chr>, event_id <chr>, provider_id <chr>,
-#> #   athlete_id <chr>, prop_type_id <chr>, prop_type_name <chr>, american <chr>,
-#> #   decimal <dbl>, fraction <chr>, total <dbl>, current_target <dbl>,
-#> #   last_updated <chr>, athlete_ref <chr>
+  espn_wnba_event_propbets(event_id = 401736171, provider_id = 58)
+#> ✖ 2026-05-19 19:25:48.728904: Failed to retrieve ESPN wnba event prop bets for event_id=401736171, provider_id=58
+#> ✖ Args: league = "wnba", event_id = 401736171, provider_id = 58
+#> ✖ Error: arguments imply differing number of rows: 1, 2, 0
+#> NULL
 # }
 ```

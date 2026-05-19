@@ -144,10 +144,24 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_team_season_statistics(team_id = 13, season = 2024)
-#> ✖ 2026-05-19 17:30:52.693976: Failed to retrieve ESPN wnba team season statistics for team_id=13, season=2024, season_type=2
-#> ✖ Args: league = "wnba", team_id = 13, season = 2024, season_type = 2L
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_team_season_statistics(team_id = 17, season = 2024)
+#> ── ESPN WNBA Team Season Statistics ──────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:26:08 UTC
+#> # A tibble: 98 × 13
+#>    league season season_type team_id category_name category_display stat_name   
+#>    <chr>   <int>       <int> <chr>   <chr>         <chr>            <chr>       
+#>  1 wnba     2024           2 17      defensive     Defensive        blocks      
+#>  2 wnba     2024           2 17      defensive     Defensive        defensiveRe…
+#>  3 wnba     2024           2 17      defensive     Defensive        steals      
+#>  4 wnba     2024           2 17      defensive     Defensive        avgDefensiv…
+#>  5 wnba     2024           2 17      defensive     Defensive        avgBlocks   
+#>  6 wnba     2024           2 17      defensive     Defensive        avgSteals   
+#>  7 wnba     2024           2 17      defensive     Defensive        avg48Defens…
+#>  8 wnba     2024           2 17      defensive     Defensive        avg48Blocks 
+#>  9 wnba     2024           2 17      defensive     Defensive        avg48Steals 
+#> 10 wnba     2024           2 17      general       General          disqualific…
+#> # ℹ 88 more rows
+#> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>, rank_display_value <chr>
 # }
 ```

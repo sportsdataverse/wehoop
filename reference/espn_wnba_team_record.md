@@ -157,20 +157,20 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_team_record(team_id = 5, season = 2025)
+  espn_wnba_team_record(team_id = 17, season = 2025)
 #> ── ESPN WNBA Team Record ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:50 UTC
+#> ℹ Data updated: 2026-05-19 19:26:06 UTC
 #> # A tibble: 8 × 14
 #>   league team_id season season_type record_id name     abbreviation display_name
 #>   <chr>  <chr>    <int>       <int> <chr>     <chr>    <chr>        <chr>       
-#> 1 wnba   5         2025           2 0         overall  Total        Overall     
-#> 2 wnba   5         2025           2 33        Home     NA           Home        
-#> 3 wnba   5         2025           2 34        Road     NA           Road        
-#> 4 wnba   5         2025           2 901       Last Te… Last Ten     Last Ten Ga…
-#> 5 wnba   5         2025           3 0         overall  Total        Overall     
-#> 6 wnba   5         2025           3 33        Home     NA           Home        
-#> 7 wnba   5         2025           3 34        Road     NA           Road        
-#> 8 wnba   5         2025           3 901       Last Te… Last Ten     Last Ten Ga…
+#> 1 wnba   17        2025           2 0         overall  Total        Overall     
+#> 2 wnba   17        2025           2 33        Home     NA           Home        
+#> 3 wnba   17        2025           2 34        Road     NA           Road        
+#> 4 wnba   17        2025           2 901       Last Te… Last Ten     Last Ten Ga…
+#> 5 wnba   17        2025           3 0         overall  Total        Overall     
+#> 6 wnba   17        2025           3 33        Home     NA           Home        
+#> 7 wnba   17        2025           3 34        Road     NA           Road        
+#> 8 wnba   17        2025           3 901       Last Te… Last Ten     Last Ten Ga…
 #> # ℹ 6 more variables: short_display_name <chr>, description <chr>, type <chr>,
 #> #   summary <chr>, display_value <chr>, value <dbl>
 # }

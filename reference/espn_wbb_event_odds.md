@@ -142,10 +142,14 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_odds(event_id = "401735229")
-#> ✖ 2026-05-19 17:29:52.321343: Failed to retrieve ESPN womens-college-basketball event odds for event_id=401735229
-#> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_odds(event_id = "401276115")
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Odds (event_id=401276115) from ESPN.com 
+#> ℹ Data updated: 2026-05-19 19:25:06 UTC
+#> # A tibble: 0 × 12
+#> # ℹ 12 variables: event_id <chr>, provider_id <chr>, provider_name <chr>,
+#> #   details <chr>, over_under <dbl>, spread <dbl>, home_money_line <int>,
+#> #   away_money_line <int>, home_team_odds_open <dbl>,
+#> #   home_team_odds_close <dbl>, away_team_odds_open <dbl>,
+#> #   away_team_odds_close <dbl>
 # }
 ```

@@ -226,14 +226,14 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_wbb_team_stats(team_id = 52, year = 2020))
+  try(espn_wbb_team_stats(team_id = 2509, year = 2020))
 #> ── ESPN WBB Team Season Stats from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:16 UTC
-#> # A tibble: 1 × 179
-#>   team_x_ref_3       team_id team_guid team_uid team_sdr team_slug team_location
+#> ℹ Data updated: 2026-05-19 19:25:31 UTC
+#> # A tibble: 1 × 180
+#>   team_x_ref_4       team_id team_guid team_uid team_sdr team_slug team_location
 #>   <chr>                <int> <chr>     <chr>       <int> <chr>     <chr>        
-#> 1 http://sports.cor…      52 686a0ce2… s:40~l:…     5994 florida-… Florida State
-#> # ℹ 172 more variables: team_name <chr>, team_nickname <chr>,
+#> 1 http://sports.cor…    2509 2fe4080d… s:40~l:…     7155 purdue-b… Purdue       
+#> # ℹ 173 more variables: team_name <chr>, team_nickname <chr>,
 #> #   team_abbreviation <chr>, team_display_name <chr>,
 #> #   team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_is_active <lgl>, is_all_star <lgl>,

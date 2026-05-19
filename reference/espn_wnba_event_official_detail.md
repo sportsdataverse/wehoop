@@ -9,7 +9,7 @@ to enumerate the crew.
 ## Usage
 
 ``` r
-espn_wnba_event_official_detail(event_id, official_id, ...)
+espn_wnba_event_official_detail(event_id, order, ...)
 ```
 
 ## Arguments
@@ -18,9 +18,10 @@ espn_wnba_event_official_detail(event_id, official_id, ...)
 
   ESPN event identifier.
 
-- official_id:
+- order:
 
-  ESPN official identifier.
+  Crew order index (1 = first official). Pair with the `order` column
+  from event_officials().
 
 - ...:
 
@@ -133,7 +134,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_official_detail(event_id = 401283399, official_id = 6856)
-#> Error in espn_wnba_event_official_detail(event_id = 401283399, official_id = 6856): argument "order" is missing, with no default
+  espn_wnba_event_official_detail(event_id = 401736171, order = 1)
+#> ── ESPN WNBA Event Official Detail ───────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:45 UTC
+#> # A tibble: 1 × 10
+#>   league event_id  official_id first_name last_name full_name     display_name 
+#>   <chr>  <chr>     <chr>       <chr>      <chr>     <chr>         <chr>        
+#> 1 wnba   401736171 7671        Michael    Price     Michael Price Michael Price
+#> # ℹ 3 more variables: position_id <chr>, position_name <chr>, order <int>
 # }
 ```

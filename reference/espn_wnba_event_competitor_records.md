@@ -131,10 +131,16 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_records(event_id = 401812680, team_id = 5)
-#> ✖ 2026-05-19 17:30:28.621215: Failed to retrieve ESPN wnba competitor records for event_id=401812680, team_id=5
-#> ✖ Args: league = "wnba", event_id = 401812680, team_id = 5
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_records(event_id = 401736171, team_id = 17)
+#> ── ESPN WNBA Competitor Records ──────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:43 UTC
+#> # A tibble: 3 × 11
+#>   league event_id  team_id record_id name    abbreviation display_name       
+#>   <chr>  <chr>     <chr>   <chr>     <chr>   <chr>        <chr>              
+#> 1 wnba   401736171 17      900       overall Game         Record Year To Date
+#> 2 wnba   401736171 17      33        Home    NA           Home               
+#> 3 wnba   401736171 17      34        Road    NA           Road               
+#> # ℹ 4 more variables: short_display_name <chr>, type <chr>, summary <chr>,
+#> #   value <dbl>
 # }
 ```

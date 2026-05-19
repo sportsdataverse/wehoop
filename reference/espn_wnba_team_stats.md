@@ -251,13 +251,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_wnba_team_stats(team_id = 18, year = 2020))
+  try(espn_wnba_team_stats(team_id = 17, year = 2020))
 #> ── ESPN WNBA Team Season Stats from ESPN.com ─────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:53 UTC
+#> ℹ Data updated: 2026-05-19 19:26:09 UTC
 #> # A tibble: 1 × 198
 #>   team_id team_guid          team_uid team_sdr team_slug team_location team_name
 #>     <int> <chr>              <chr>       <int> <chr>     <chr>         <chr>    
-#> 1      18 7c72e7ee-5064-b76… s:40~l:…    15432 connecti… Connecticut   Sun      
+#> 1      17 c97eb968-6e82-978… s:40~l:…    15431 las-vega… Las Vegas     Aces     
 #> # ℹ 191 more variables: team_abbreviation <chr>, team_display_name <chr>,
 #> #   team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_is_active <lgl>, team_is_all_star <lgl>,

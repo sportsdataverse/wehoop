@@ -132,12 +132,12 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_tournament(tournament_id = 23)
+  espn_wbb_tournament(tournament_id = 3)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Tournament Detail ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:18 UTC
+#> ℹ Data updated: 2026-05-19 19:25:33 UTC
 #> # A tibble: 1 × 4
-#>   tournament_id display_name              seasons_ref                     league
-#>   <chr>         <chr>                     <chr>                           <chr> 
-#> 1 23            Northeast Conf Tournament http://sports.core.api.espn.co… women…
+#>   tournament_id display_name                   seasons_ref                league
+#>   <chr>         <chr>                          <chr>                      <chr> 
+#> 1 3             Atlantic Coast Conf Tournament http://sports.core.api.es… women…
 # }
 ```

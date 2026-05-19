@@ -161,13 +161,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_team_season_profile(team_id = "5", season = 2025)
+  espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Season Profile from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:52 UTC
+#> ℹ Data updated: 2026-05-19 19:26:08 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       
-#> 1 5     bfef1bdd-… s:40… indi… Indiana  Fever NA       IND          Indiana Fev…
+#> 1 17    c97eb968-… s:40… las-… Las Veg… Aces  NA       LV           Las Vegas A…
 #> # ℹ 26 more variables: short_display_name <chr>, color <chr>,
 #> #   alternate_color <chr>, is_active <lgl>, is_all_star <lgl>, season <int>,
 #> #   logo <chr>, logo_dark <chr>, record_ref <chr>, venue_ref <chr>,

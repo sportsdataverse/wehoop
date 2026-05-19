@@ -160,13 +160,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_team_season_profile(team_id = "41", season = 2025)
+  espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Profile from ESPN.com ────────────
-#> ℹ Data updated: 2026-05-19 17:30:15 UTC
+#> ℹ Data updated: 2026-05-19 19:25:30 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <chr>    <chr>        <chr>       
-#> 1 41    179cc0cf-… s:40… ucon… UConn    Husk… UConn    CONN         UConn Huski…
+#> 1 2509  2fe4080d-… s:40… purd… Purdue   Boil… Purdue   PUR          Purdue Boil…
 #> # ℹ 26 more variables: short_display_name <chr>, color <chr>,
 #> #   alternate_color <chr>, is_active <lgl>, is_all_star <lgl>, season <int>,
 #> #   logo <chr>, logo_dark <chr>, record_ref <chr>, venue_ref <chr>,

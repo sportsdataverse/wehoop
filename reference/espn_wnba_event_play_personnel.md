@@ -132,10 +132,11 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_play_personnel(event_id = 401283399, play_id = 4012833997)
-#> ✖ 2026-05-19 17:30:30.817116: Failed to retrieve ESPN wnba play personnel for event_id=401283399, play_id=4012833997
-#> ✖ Args: league = "wnba", event_id = 401283399, play_id = 4012833997
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_play_personnel(event_id = 401736171, play_id = 4017361714)
+#> ── ESPN WNBA Event Play Personnel ────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:46 UTC
+#> # A tibble: 0 × 7
+#> # ℹ 7 variables: league <chr>, event_id <chr>, play_id <chr>, team_id <chr>,
+#> #   athlete_id <chr>, athlete_ref <chr>, competitor_ref <chr>
 # }
 ```

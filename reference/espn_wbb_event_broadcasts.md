@@ -137,10 +137,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_broadcasts(event_id = "401735229")
-#> ✖ 2026-05-19 17:29:50.382976: Failed to retrieve ESPN womens-college-basketball event broadcasts for event_id=401735229
-#> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_broadcasts(event_id = "401276115")
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Broadcasts (event_id=401276115) from ESP
+#> ℹ Data updated: 2026-05-19 19:25:03 UTC
+#> # A tibble: 1 × 10
+#>   event_id  broadcast_id type_id type_short_name type_long_name market_id
+#>   <chr>     <chr>        <chr>   <chr>           <chr>          <chr>    
+#> 1 401276115 NA           4       Streaming       Streaming      0        
+#> # ℹ 4 more variables: market_type <chr>, names <chr>, lang <chr>, region <chr>
 # }
 ```

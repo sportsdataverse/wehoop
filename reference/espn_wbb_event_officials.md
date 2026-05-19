@@ -135,10 +135,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_officials(event_id = "401735229")
-#> ✖ 2026-05-19 17:29:52.782647: Failed to retrieve ESPN womens-college-basketball event officials for event_id=401735229
-#> ✖ Args: league = "womens-college-basketball", event_id = "401735229"
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_officials(event_id = "401276115")
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Officials (event_id=401276115) from ESPN
+#> ℹ Data updated: 2026-05-19 19:25:06 UTC
+#> # A tibble: 3 × 8
+#>   event_id  official_id full_name     display_name  position_id position_name
+#>   <chr>     <chr>       <chr>         <chr>         <chr>       <chr>        
+#> 1 401276115 18864       Denise Brooks Denise Brooks 40          Referee      
+#> 2 401276115 2609971     Tiara Cruse   Tiara Cruse   40          Referee      
+#> 3 401276115 3007837     Jeffrey Smith Jeffrey Smith 40          Referee      
+#> # ℹ 2 more variables: position_type <chr>, order <int>
 # }
 ```

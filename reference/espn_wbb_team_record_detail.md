@@ -137,32 +137,32 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_team_record_detail(team_id = 13, season = 2024, record_id = 0)
+  espn_wbb_team_record_detail(team_id = 2509, season = 2024, record_id = 0)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Record Detail ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:14 UTC
+#> ℹ Data updated: 2026-05-19 19:25:29 UTC
 #> # A tibble: 20 × 15
 #>    league         team_id season season_type record_id record_name record_abbrev
 #>    <chr>          <chr>    <int>       <int> <chr>     <chr>       <chr>        
-#>  1 womens-colleg… 13        2024           2 0         overall     Season       
-#>  2 womens-colleg… 13        2024           2 0         overall     Season       
-#>  3 womens-colleg… 13        2024           2 0         overall     Season       
-#>  4 womens-colleg… 13        2024           2 0         overall     Season       
-#>  5 womens-colleg… 13        2024           2 0         overall     Season       
-#>  6 womens-colleg… 13        2024           2 0         overall     Season       
-#>  7 womens-colleg… 13        2024           2 0         overall     Season       
-#>  8 womens-colleg… 13        2024           2 0         overall     Season       
-#>  9 womens-colleg… 13        2024           2 0         overall     Season       
-#> 10 womens-colleg… 13        2024           2 0         overall     Season       
-#> 11 womens-colleg… 13        2024           2 0         overall     Season       
-#> 12 womens-colleg… 13        2024           2 0         overall     Season       
-#> 13 womens-colleg… 13        2024           2 0         overall     Season       
-#> 14 womens-colleg… 13        2024           2 0         overall     Season       
-#> 15 womens-colleg… 13        2024           2 0         overall     Season       
-#> 16 womens-colleg… 13        2024           2 0         overall     Season       
-#> 17 womens-colleg… 13        2024           2 0         overall     Season       
-#> 18 womens-colleg… 13        2024           2 0         overall     Season       
-#> 19 womens-colleg… 13        2024           2 0         overall     Season       
-#> 20 womens-colleg… 13        2024           2 0         overall     Season       
+#>  1 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  2 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  3 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  4 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  5 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  6 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  7 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  8 womens-colleg… 2509      2024           2 0         overall     Season       
+#>  9 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 10 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 11 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 12 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 13 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 14 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 15 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 16 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 17 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 18 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 19 womens-colleg… 2509      2024           2 0         overall     Season       
+#> 20 womens-colleg… 2509      2024           2 0         overall     Season       
 #> # ℹ 8 more variables: record_display <chr>, record_type <chr>,
 #> #   record_summary <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, stat_display_value <chr>

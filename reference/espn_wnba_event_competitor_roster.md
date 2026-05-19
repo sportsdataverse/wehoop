@@ -131,10 +131,11 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_event_competitor_roster(event_id = 401812680, team_id = 5)
-#> ✖ 2026-05-19 17:30:28.862366: Failed to retrieve ESPN wnba competitor roster for event_id=401812680, team_id=5
-#> ✖ Args: league = "wnba", event_id = 401812680, team_id = 5
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wnba_event_competitor_roster(event_id = 401736171, team_id = 17)
+#> ── ESPN WNBA Competitor Roster ───────────────────────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:43 UTC
+#> # A tibble: 0 × 5
+#> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
+#> #   ref <chr>
 # }
 ```

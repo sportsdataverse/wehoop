@@ -229,17 +229,11 @@ and a <code>$ref</code> to the athlete's core-v2 profile. Use
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">espn_wnba_draft_athlete_detail</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, athlete_id <span class="op">=</span> <span class="fl">108206</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Draft Athlete Detail ────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-19 17:30:26 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 19</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league season draftee_id athlete_id first_name last_name full_name         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> wnba     <span style="text-decoration: underline;">2</span>024 108206     <span style="color: #BB0000;">NA</span>         Zaccharie  Risacher  Zaccharie Risacher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 12 more variables: display_name &lt;chr&gt;, height &lt;dbl&gt;, display_height &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   weight &lt;dbl&gt;, display_weight &lt;chr&gt;, position_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   position_abbrev &lt;chr&gt;, pick_overall &lt;int&gt;, pick_round &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pick_team_id &lt;chr&gt;, athlete_ref &lt;chr&gt;, headshot &lt;chr&gt;</span></span>
+<span class="r-in"><span>  <span class="fu">espn_wnba_draft_athlete_detail</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-05-19 19:25:41.521386: Failed to retrieve ESPN wnba draft athlete detail for season=2024, athlete_id=3149391</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "wnba", season = 2024, athlete_id = 3149391</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -184,21 +184,22 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_info(athlete_id = "4433985")
+  espn_wbb_athlete_info(athlete_id = "4433404")
 #> $Bio
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
-#> # A tibble: 1 × 16
+#> ℹ Data updated: 2026-05-19 19:24:57 UTC
+#> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
-#> 1 4433985 s:40~l:5… d704… Kylie      Feuerbach Kylie Fe… Kylie Feuer… K. Feuerb…
-#> # ℹ 8 more variables: height <dbl>, display_height <chr>, jersey <chr>,
+#> 1 4433404 s:40~l:5… a476… Cameron    Brink     Cameron … Cameron Bri… C. Brink  
+#> # ℹ 12 more variables: weight <dbl>, display_weight <chr>, height <dbl>,
+#> #   display_height <chr>, age <int>, date_of_birth <chr>, jersey <chr>,
 #> #   active <lgl>, headshot_href <chr>, birth_city <chr>, birth_state <chr>,
 #> #   birth_country <chr>
 #> 
 #> $Team
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
+#> ℹ Data updated: 2026-05-19 19:24:57 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -206,28 +207,31 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com ───────────────
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
+#> ℹ Data updated: 2026-05-19 19:24:57 UTC
 #> # A tibble: 1 × 5
-#>   id    name  display_name abbreviation leaf 
-#>   <chr> <chr> <chr>        <chr>        <lgl>
-#> 1 3     Guard Guard        G            FALSE
+#>   id    name    display_name abbreviation leaf 
+#>   <chr> <chr>   <chr>        <chr>        <lgl>
+#> 1 2     Forward Forward      F            FALSE
 #> 
 #> $Status
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
+#> ℹ Data updated: 2026-05-19 19:24:57 UTC
 #> # A tibble: 1 × 4
-#>   id    name   type   abbreviation
-#>   <chr> <chr>  <chr>  <chr>       
-#> 1 1     Active active Active      
+#>   id    name     type     abbreviation
+#>   <chr> <chr>    <chr>    <chr>       
+#> 1 2     Inactive inactive Inactive    
 #> 
 #> $College
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-05-19 19:24:57 UTC
+#> # A tibble: 1 × 1
+#>   x_ref                                                           
+#>   <chr>                                                           
+#> 1 http://sports.core.api.espn.com/v2/colleges/24?lang=en&region=us
 #> 
 #> $Draft
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
+#> ℹ Data updated: 2026-05-19 19:24:57 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

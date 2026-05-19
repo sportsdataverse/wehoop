@@ -128,28 +128,7 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_gamelog(athlete_id = "4433985", season = 2025)
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Gamelog from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-19 17:29:43 UTC
-#> # A tibble: 34 × 26
-#>    id      week  at_vs game_date score home_team_id away_team_id home_team_score
-#>    <chr>   <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          
-#>  1 401746… 2     @     2025-03-… 96-62 201          2294         96             
-#>  2 401746… 1     vs    2025-03-… 92-57 2294         93           92             
-#>  3 401743… 18    vs    2025-03-… 60-59 194          2294         60             
-#>  4 401743… 18    vs    2025-03-… 74-61 127          2294         61             
-#>  5 401743… 18    vs    2025-03-… 81-54 2294         275          81             
-#>  6 401721… 17    vs    2025-03-… 81-66 2294         275          81             
-#>  7 401721… 17    @     2025-02-… 79-66 130          2294         66             
-#>  8 401721… 16    vs    2025-02-… 67-65 2294         26           65             
-#>  9 401721… 16    @     2025-02-… 86-7… 194          2294         86             
-#> 10 401721… 15    vs    2025-02-… 55-43 2294         164          55             
-#> # ℹ 24 more rows
-#> # ℹ 18 more variables: away_team_score <chr>, game_result <chr>,
-#> #   league_name <chr>, league_abbreviation <chr>, league_short_name <chr>,
-#> #   event_note <chr>, team_id <chr>, team_uid <chr>, team_abbreviation <chr>,
-#> #   team_logo <chr>, team_is_all_star <chr>, opponent_id <chr>,
-#> #   opponent_uid <chr>, opponent_display_name <chr>,
-#> #   opponent_abbreviation <chr>, opponent_logo <chr>, opponent_rank <chr>, …
+  espn_wbb_athlete_gamelog(athlete_id = "4433404", season = 2025)
+#> # A tibble: 0 × 0
 # }
 ```

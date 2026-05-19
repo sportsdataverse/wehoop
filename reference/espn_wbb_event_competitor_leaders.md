@@ -127,10 +127,24 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_event_competitor_leaders(event_id = 401812680, team_id = 235)
-#> ✖ 2026-05-19 17:29:50.626163: Failed to retrieve ESPN womens-college-basketball competitor leaders for event_id=401812680, team_id=235
-#> ✖ Args: league = "womens-college-basketball", event_id = 401812680, team_id = 235
-#> ✖ Error: The API returned an error
-#> NULL
+  espn_wbb_event_competitor_leaders(event_id = 401276115, team_id = 52)
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Leaders ─────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-05-19 19:25:04 UTC
+#> # A tibble: 41 × 11
+#>    league  event_id team_id category_name category_display category_abbrev  rank
+#>    <chr>   <chr>    <chr>   <chr>         <chr>            <chr>           <int>
+#>  1 womens… 4012761… 52      points        Points           Pts                 1
+#>  2 womens… 4012761… 52      points        Points           Pts                 2
+#>  3 womens… 4012761… 52      points        Points           Pts                 3
+#>  4 womens… 4012761… 52      points        Points           Pts                 4
+#>  5 womens… 4012761… 52      points        Points           Pts                 5
+#>  6 womens… 4012761… 52      points        Points           Pts                 6
+#>  7 womens… 4012761… 52      points        Points           Pts                 7
+#>  8 womens… 4012761… 52      assists       Assists          Ast                 1
+#>  9 womens… 4012761… 52      assists       Assists          Ast                 2
+#> 10 womens… 4012761… 52      assists       Assists          Ast                 3
+#> # ℹ 31 more rows
+#> # ℹ 4 more variables: athlete_id <chr>, display_value <chr>, value <dbl>,
+#> #   athlete_ref <chr>
 # }
 ```

@@ -137,16 +137,10 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 108206)
-#> ── ESPN WNBA Draft Athlete Detail ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 17:30:26 UTC
-#> # A tibble: 1 × 19
-#>   league season draftee_id athlete_id first_name last_name full_name         
-#>   <chr>   <int> <chr>      <chr>      <chr>      <chr>     <chr>             
-#> 1 wnba     2024 108206     NA         Zaccharie  Risacher  Zaccharie Risacher
-#> # ℹ 12 more variables: display_name <chr>, height <dbl>, display_height <chr>,
-#> #   weight <dbl>, display_weight <chr>, position_name <chr>,
-#> #   position_abbrev <chr>, pick_overall <int>, pick_round <int>,
-#> #   pick_team_id <chr>, athlete_ref <chr>, headshot <chr>
+  espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 3149391)
+#> ✖ 2026-05-19 19:25:41.521386: Failed to retrieve ESPN wnba draft athlete detail for season=2024, athlete_id=3149391
+#> ✖ Args: league = "wnba", season = 2024, athlete_id = 3149391
+#> ✖ Error: The API returned an error
+#> NULL
 # }
 ```
