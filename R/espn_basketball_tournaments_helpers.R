@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------------------
 
 #' Internal: ESPN basketball tournaments index
-#' @keywords internal
+#' @noRd
 .espn_basketball_tournaments <- function(league, ...) {
   .espn_bball_validate_league(league)
   .args <- list(league = league)
@@ -61,7 +61,7 @@
 # ---------------------------------------------------------------------------
 
 #' Internal: ESPN basketball single tournament detail
-#' @keywords internal
+#' @noRd
 .espn_basketball_tournament <- function(league, tournament_id, ...) {
   .espn_bball_validate_league(league)
   .args <- list(league = league, tournament_id = tournament_id)
@@ -115,7 +115,7 @@
 # ---------------------------------------------------------------------------
 
 #' Internal: ESPN basketball tournament seasons list
-#' @keywords internal
+#' @noRd
 .espn_basketball_tournament_seasons <- function(league, tournament_id, ...) {
   .espn_bball_validate_league(league)
   .args <- list(league = league, tournament_id = tournament_id)

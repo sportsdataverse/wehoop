@@ -18,7 +18,7 @@
 #' @param season numeric.
 #' @param ... Unused.
 #' @return A `wehoop_data` tibble in long format, or `NULL` on error.
-#' @keywords internal
+#' @noRd
 .espn_basketball_futures <- function(league, season, ...) {
   .espn_bball_validate_league(league)
   .args <- list(league = league, season = season)
