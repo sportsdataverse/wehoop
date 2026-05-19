@@ -274,6 +274,10 @@ reference:
       - espn_wbb_event_competitor_roster
       - espn_wbb_event_competitor_statistics
       - espn_wbb_event_competitor_records
+      - espn_wbb_event_player_box
+      - espn_wbb_event_competitor_roster_entry
+      - espn_wbb_event_play
+      - espn_wbb_event_play_personnel
   - subtitle: WBB -- League catalogs
     desc: League-wide catalogs and indexes for women's college basketball
     contents:
@@ -378,6 +382,10 @@ reference:
       - espn_wnba_event_competitor_roster
       - espn_wnba_event_competitor_statistics
       - espn_wnba_event_competitor_records
+      - espn_wnba_event_player_box
+      - espn_wnba_event_competitor_roster_entry
+      - espn_wnba_event_play
+      - espn_wnba_event_play_personnel
   - subtitle: WNBA -- League catalogs
     desc: League-wide catalogs and indexes for the WNBA
     contents:

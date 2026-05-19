@@ -280,6 +280,17 @@ Populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeli
 | `espn_wnba_event_competitor_statistics()` / `espn_wbb_event_competitor_statistics()` | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
 | `espn_wnba_event_competitor_records()` / `espn_wbb_event_competitor_records()` | Team records as of the event: overall / home / away / conference / division breakdowns. |
 
+#### *Tier 2E.1 core-v2 expansion — event-scoped player + play deep dives*
+
+4 new resource families covering per-game player stats, starter/DNP metadata, single-play detail, and on-court personnel (8 new public functions). Paired with hoopR's matching release.
+
+| Function | Description |
+|---|---|
+| `espn_wnba_event_player_box()` / `espn_wbb_event_player_box()` | **Per-game box score for one athlete** in long format (one row per category × stat). |
+| `espn_wnba_event_competitor_roster_entry()` / `espn_wbb_event_competitor_roster_entry()` | Per-athlete game-day roster row: starter, DNP + reason, ejected, period, substitution slot. |
+| `espn_wnba_event_play()` / `espn_wbb_event_play()` | Rich single-play detail (sequence, period, clock, text, scoring flags, shot coordinates). |
+| `espn_wnba_event_play_personnel()` / `espn_wbb_event_play_personnel()` | Players on court at a specific play (long format). Sparse coverage. |
+
 #### *Tier 2D core-v2 expansion — position dictionary*
 
 2 new resource families for the league-specific position dictionary (4 new public functions). Position ids are **not** shared across the basketball family — id `1` resolves to `Point Guard` in WNBA and `Center` in WBB. These wrappers make the dictionary explicit so users can disambiguate position `$ref` URLs in athlete records.

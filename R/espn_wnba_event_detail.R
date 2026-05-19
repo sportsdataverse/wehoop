@@ -469,3 +469,150 @@ espn_wnba_event_competitor_records <- function(event_id, team_id, ...) {
                                               event_id = event_id,
                                               team_id = team_id, ...)
 }
+
+# ---------------------------------------------------------------------------
+# espn_wnba_event_player_box
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Event Player Box Score (Long Format)**
+#' @name espn_wnba_event_player_box
+NULL
+#' @title
+#' **Get ESPN WNBA Event Player Box Score (Long Format)**
+#' @rdname espn_wnba_event_player_box
+#' @author Saiem Gilani
+#' @description
+#' Returns the long-format per-game box score for a single athlete in one
+#' WNBA event. One row per (category x stat). Same shape as
+#' [espn_wnba_event_competitor_statistics()] but scoped to a single
+#' athlete-in-event instead of the full team. `stat_type` defaults to 0
+#' (regular-season aggregate as ESPN tags it for finished events).
+#'
+#' @param event_id ESPN event identifier.
+#' @param team_id ESPN team identifier (the competitor the athlete played for).
+#' @param athlete_id ESPN athlete identifier.
+#' @param stat_type Integer stat-type segment. Defaults to 0 (the only type
+#'   commonly populated for finished events).
+#' @param ... Additional arguments; currently unused.
+#' @return A long tibble with one row per (category x stat).
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_player_box(event_id = 401283399, team_id = 29,
+#'                                athlete_id = 4066392)
+#' }
+espn_wnba_event_player_box <- function(event_id, team_id, athlete_id,
+                                        stat_type = 0L, ...) {
+  .espn_basketball_event_player_box(league = "wnba",
+                                       event_id = event_id,
+                                       team_id = team_id,
+                                       athlete_id = athlete_id,
+                                       stat_type = stat_type, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wnba_event_competitor_roster_entry
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Event Competitor Roster Entry (Per-Athlete Game-Day Row)**
+#' @name espn_wnba_event_competitor_roster_entry
+NULL
+#' @title
+#' **Get ESPN WNBA Event Competitor Roster Entry (Per-Athlete Game-Day Row)**
+#' @rdname espn_wnba_event_competitor_roster_entry
+#' @author Saiem Gilani
+#' @description
+#' Returns a single-row tibble describing one athlete's game-day roster
+#' entry for one WNBA event. Carries the **starter** flag, **didNotPlay**
+#' flag with reason, ejection flag, and the substitution slot if the
+#' athlete came in for another player. Pair with
+#' [espn_wnba_event_competitor_roster()] to enumerate the roster.
+#'
+#' @param event_id ESPN event identifier.
+#' @param team_id ESPN team identifier.
+#' @param athlete_id ESPN athlete identifier.
+#' @param ... Additional arguments; currently unused.
+#' @return A single-row tibble.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_competitor_roster_entry(event_id = 401283399,
+#'                                             team_id = 29,
+#'                                             athlete_id = 4066392)
+#' }
+espn_wnba_event_competitor_roster_entry <- function(event_id, team_id,
+                                                     athlete_id, ...) {
+  .espn_basketball_event_competitor_roster_entry(league = "wnba",
+                                                   event_id = event_id,
+                                                   team_id = team_id,
+                                                   athlete_id = athlete_id, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wnba_event_play
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Event Play Detail (Single Play)**
+#' @name espn_wnba_event_play
+NULL
+#' @title
+#' **Get ESPN WNBA Event Play Detail (Single Play)**
+#' @rdname espn_wnba_event_play
+#' @author Saiem Gilani
+#' @description
+#' Returns the rich detail block for a single WNBA play: sequence, period,
+#' clock, text, scoring/shooting flags, current home/away score, team
+#' `$ref`, and shot coordinates if applicable. Complements the bulk
+#' [espn_wnba_pbp()] output by exposing the canonical core-v2 play record.
+#'
+#' @param event_id ESPN event identifier.
+#' @param play_id ESPN play identifier (visible in `pbp()` output as
+#'   `play_id` or extractable from `plays[].$ref`).
+#' @param ... Additional arguments; currently unused.
+#' @return A single-row tibble.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_play(event_id = 401283399, play_id = 4012833997)
+#' }
+espn_wnba_event_play <- function(event_id, play_id, ...) {
+  .espn_basketball_event_play(league = "wnba",
+                                event_id = event_id,
+                                play_id = play_id, ...)
+}
+
+# ---------------------------------------------------------------------------
+# espn_wnba_event_play_personnel
+# ---------------------------------------------------------------------------
+
+#' **Get ESPN WNBA Event Play Personnel (On-Court Lineup at Play)**
+#' @name espn_wnba_event_play_personnel
+NULL
+#' @title
+#' **Get ESPN WNBA Event Play Personnel (On-Court Lineup at Play)**
+#' @rdname espn_wnba_event_play_personnel
+#' @author Saiem Gilani
+#' @description
+#' Returns the players on court at a specific WNBA play in long format
+#' (one row per athlete entry across both competitors). Foundation for
+#' lineup analysis. ESPN coverage is sparse — many plays return zero
+#' rows; the wrapper returns a typed empty tibble in that case.
+#'
+#' @param event_id ESPN event identifier.
+#' @param play_id ESPN play identifier.
+#' @param ... Additional arguments; currently unused.
+#' @return A long tibble with one row per on-court athlete.
+#' @export
+#' @family ESPN WNBA Functions
+#' @examples
+#' \donttest{
+#'   espn_wnba_event_play_personnel(event_id = 401283399, play_id = 4012833997)
+#' }
+espn_wnba_event_play_personnel <- function(event_id, play_id, ...) {
+  .espn_basketball_event_play_personnel(league = "wnba",
+                                          event_id = event_id,
+                                          play_id = play_id, ...)
+}
