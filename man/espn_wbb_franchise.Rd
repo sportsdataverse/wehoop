@@ -38,7 +38,7 @@ Franchise IDs are stable across program reorganization or rebrands.
 }
 \examples{
 \donttest{
-  espn_wbb_franchise(franchise_id = 41)
+  espn_wbb_franchise(franchise_id = 2509)
 }
 }
 \seealso{

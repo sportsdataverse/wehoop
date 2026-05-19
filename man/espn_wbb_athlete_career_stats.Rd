@@ -53,9 +53,9 @@ and 2 is sparse — many athletes only have type 0 populated.
 \examples{
 \donttest{
   # LeBron James — regular + postseason combined
-  espn_wbb_athlete_career_stats(athlete_id = 1966)
+  espn_wbb_athlete_career_stats(athlete_id = 4433404)
   # Just career aggregate
-  espn_wbb_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
+  espn_wbb_athlete_career_stats(athlete_id = 4433404, stat_type = 2L)
 }
 }
 \seealso{

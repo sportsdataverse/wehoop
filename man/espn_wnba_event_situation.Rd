@@ -22,7 +22,7 @@ the values are frozen.
 }
 \examples{
 \donttest{
-  espn_wnba_event_situation(event_id = 401812680)
+  espn_wnba_event_situation(event_id = 401736171)
 }
 }
 \seealso{

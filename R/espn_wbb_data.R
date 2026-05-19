@@ -2244,7 +2244,7 @@ espn_wbb_standings <- function(year) {
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   try(espn_wbb_team_stats(team_id = 52, year = 2020))
+#'   try(espn_wbb_team_stats(team_id = 2509, year = 2020))
 #' }
 
 espn_wbb_team_stats <- function(

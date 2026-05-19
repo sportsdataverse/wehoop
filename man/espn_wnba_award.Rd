@@ -32,7 +32,7 @@ Returns the name, description, and winners of one WNBA season award.
 }
 \examples{
 \donttest{
-  espn_wnba_award(award_id = 33, season = 2024)
+  espn_wnba_award(award_id = 247, season = 2024)
 }
 }
 \seealso{

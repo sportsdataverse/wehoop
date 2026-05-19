@@ -79,7 +79,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_award(award_id = 33, season = 2024)
+#'   espn_wbb_award(award_id = 344, season = 2024)
 #' }
 espn_wbb_award <- function(award_id,
                             season = most_recent_wbb_season(),

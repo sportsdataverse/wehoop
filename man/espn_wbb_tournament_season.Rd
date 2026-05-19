@@ -24,7 +24,7 @@ resources. Use \code{\link[=espn_wbb_tournament_seasons]{espn_wbb_tournament_sea
 }
 \examples{
 \donttest{
-  espn_wbb_tournament_season(tournament_id = 1, season = 2024)
+  espn_wbb_tournament_season(tournament_id = 3, season = 2024)
 }
 }
 \seealso{

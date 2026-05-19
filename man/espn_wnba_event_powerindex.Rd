@@ -23,7 +23,7 @@ Coverage is sparse — many events return zero items.
 }
 \examples{
 \donttest{
-  espn_wnba_event_powerindex(event_id = 401812680)
+  espn_wnba_event_powerindex(event_id = 401736171)
 }
 }
 \seealso{

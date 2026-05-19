@@ -4,12 +4,12 @@
 \alias{espn_wnba_event_official_detail}
 \title{\strong{Get ESPN WNBA Event Official Detail (Single Official)}}
 \usage{
-espn_wnba_event_official_detail(event_id, official_id, ...)
+espn_wnba_event_official_detail(event_id, order, ...)
 }
 \arguments{
 \item{event_id}{ESPN event identifier.}
 
-\item{official_id}{ESPN official identifier.}
+\item{order}{Crew order index (1 = first official). Pair with the \code{order} column from event_officials().}
 
 \item{...}{Additional arguments; currently unused.}
 }
@@ -23,7 +23,7 @@ order. Pair with \code{\link[=espn_wnba_event_officials]{espn_wnba_event_officia
 }
 \examples{
 \donttest{
-  espn_wnba_event_official_detail(event_id = 401283399, official_id = 6856)
+  espn_wnba_event_official_detail(event_id = 401736171, order = 1)
 }
 }
 \seealso{

@@ -25,7 +25,7 @@ Returns the seasons in which a given WBB tournament was held.
 }
 \examples{
 \donttest{
-  espn_wbb_tournament_seasons(tournament_id = 23)
+  espn_wbb_tournament_seasons(tournament_id = 3)
 }
 }
 \seealso{

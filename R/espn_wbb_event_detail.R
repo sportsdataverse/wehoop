@@ -43,7 +43,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_odds(event_id = "401735229")
+#'   espn_wbb_event_odds(event_id = "401276115")
 #' }
 espn_wbb_event_odds <- function(event_id, ...) {
   .espn_basketball_event_odds(
@@ -90,7 +90,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_probabilities(event_id = "401735229", limit = 50)
+#'   espn_wbb_event_probabilities(event_id = "401276115", limit = 50)
 #' }
 espn_wbb_event_probabilities <- function(event_id, limit = 200, ...) {
   .espn_basketball_event_probabilities(
@@ -134,7 +134,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_officials(event_id = "401735229")
+#'   espn_wbb_event_officials(event_id = "401276115")
 #' }
 espn_wbb_event_officials <- function(event_id, ...) {
   .espn_basketball_event_officials(
@@ -179,7 +179,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_broadcasts(event_id = "401735229")
+#'   espn_wbb_event_broadcasts(event_id = "401276115")
 #' }
 espn_wbb_event_broadcasts <- function(event_id, ...) {
   .espn_basketball_event_broadcasts(
@@ -213,7 +213,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_situation(event_id = 401812680)
+#'   espn_wbb_event_situation(event_id = 401276115)
 #' }
 espn_wbb_event_situation <- function(event_id, ...) {
   .espn_basketball_event_situation(league = "womens-college-basketball", event_id = event_id, ...)
@@ -243,7 +243,7 @@ espn_wbb_event_situation <- function(event_id, ...) {
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_predictor(event_id = 401812680)
+#'   espn_wbb_event_predictor(event_id = 401276115)
 #' }
 espn_wbb_event_predictor <- function(event_id, ...) {
   .espn_basketball_event_predictor(league = "womens-college-basketball", event_id = event_id, ...)
@@ -270,7 +270,7 @@ espn_wbb_event_predictor <- function(event_id, ...) {
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_powerindex(event_id = 401812680)
+#'   espn_wbb_event_powerindex(event_id = 401276115)
 #' }
 espn_wbb_event_powerindex <- function(event_id, ...) {
   .espn_basketball_event_powerindex(league = "womens-college-basketball", event_id = event_id, ...)
@@ -302,7 +302,7 @@ espn_wbb_event_powerindex <- function(event_id, ...) {
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_propbets(event_id = 401812680, provider_id = 58)
+#'   espn_wbb_event_propbets(event_id = 401276115, provider_id = 58)
 #' }
 espn_wbb_event_propbets <- function(event_id, provider_id, ...) {
   .espn_basketball_event_propbets(league = "womens-college-basketball", event_id = event_id,
@@ -334,7 +334,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_linescores(event_id = 401812680, team_id = 235)
+#'   espn_wbb_event_competitor_linescores(event_id = 401276115, team_id = 52)
 #' }
 espn_wbb_event_competitor_linescores <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_linescores(league = "womens-college-basketball",
@@ -366,7 +366,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_leaders(event_id = 401812680, team_id = 235)
+#'   espn_wbb_event_competitor_leaders(event_id = 401276115, team_id = 52)
 #' }
 espn_wbb_event_competitor_leaders <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_leaders(league = "womens-college-basketball",
@@ -398,7 +398,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_roster(event_id = 401812680, team_id = 235)
+#'   espn_wbb_event_competitor_roster(event_id = 401276115, team_id = 52)
 #' }
 espn_wbb_event_competitor_roster <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_roster(league = "womens-college-basketball",
@@ -431,7 +431,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_statistics(event_id = 401812680, team_id = 235)
+#'   espn_wbb_event_competitor_statistics(event_id = 401276115, team_id = 52)
 #' }
 espn_wbb_event_competitor_statistics <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_statistics(league = "womens-college-basketball",
@@ -463,7 +463,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_records(event_id = 401812680, team_id = 235)
+#'   espn_wbb_event_competitor_records(event_id = 401276115, team_id = 52)
 #' }
 espn_wbb_event_competitor_records <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_records(league = "womens-college-basketball",
@@ -500,8 +500,8 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_player_box(event_id = 401283399, team_id = 29,
-#'                                athlete_id = 4066392)
+#'   espn_wbb_event_player_box(event_id = 401276115, team_id = 52,
+#'                                athlete_id = 4433404)
 #' }
 espn_wbb_event_player_box <- function(event_id, team_id, athlete_id,
                                         stat_type = 0L, ...) {
@@ -539,9 +539,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_roster_entry(event_id = 401283399,
-#'                                             team_id = 29,
-#'                                             athlete_id = 4066392)
+#'   espn_wbb_event_competitor_roster_entry(event_id = 401276115,
+#'                                             team_id = 2509,
+#'                                             athlete_id = 4433404)
 #' }
 espn_wbb_event_competitor_roster_entry <- function(event_id, team_id,
                                                      athlete_id, ...) {
@@ -577,7 +577,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_play(event_id = 401283399, play_id = 4012833997)
+#'   espn_wbb_event_play(event_id = 401276115, play_id = 401276115101899901)
 #' }
 espn_wbb_event_play <- function(event_id, play_id, ...) {
   .espn_basketball_event_play(league = "womens-college-basketball",
@@ -610,7 +610,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_play_personnel(event_id = 401283399, play_id = 4012833997)
+#'   espn_wbb_event_play_personnel(event_id = 401276115, play_id = 401276115101899901)
 #' }
 espn_wbb_event_play_personnel <- function(event_id, play_id, ...) {
   .espn_basketball_event_play_personnel(league = "womens-college-basketball",
@@ -643,7 +643,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_score(event_id = 401283399, team_id = 29)
+#'   espn_wbb_event_competitor_score(event_id = 401276115, team_id = 52)
 #' }
 espn_wbb_event_competitor_score <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_score(league = "womens-college-basketball",
@@ -675,7 +675,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_official_detail(event_id = 401283399, order = 1)
+#'   espn_wbb_event_official_detail(event_id = 401276115, order = 1)
 #' }
 espn_wbb_event_official_detail <- function(event_id, order, ...) {
   .espn_basketball_event_official_detail(league = "womens-college-basketball",

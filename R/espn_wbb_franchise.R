@@ -84,7 +84,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_franchise(franchise_id = 41)
+#'   espn_wbb_franchise(franchise_id = 2509)
 #' }
 espn_wbb_franchise <- function(franchise_id, ...) {
   .espn_basketball_franchise(

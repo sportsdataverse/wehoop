@@ -38,7 +38,7 @@ because ESPN does not carry NCAA basketball betting lines).\tabular{lll}{
 }
 \examples{
 \donttest{
-  espn_wbb_event_odds(event_id = "401735229")
+  espn_wbb_event_odds(event_id = "401276115")
 }
 }
 \seealso{

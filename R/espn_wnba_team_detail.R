@@ -313,7 +313,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_team_season_profile(team_id = "5", season = 2025)
+#'   espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #' }
 espn_wnba_team_season_profile <- function(team_id,
                                            season = most_recent_wnba_season(),
@@ -354,7 +354,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_team_season_statistics(team_id = 13, season = 2024)
+#'   espn_wnba_team_season_statistics(team_id = 17, season = 2024)
 #' }
 espn_wnba_team_season_statistics <- function(team_id,
                                               season      = most_recent_wnba_season(),

@@ -24,7 +24,7 @@ per-period detail.
 }
 \examples{
 \donttest{
-  espn_wnba_event_competitor_score(event_id = 401283399, team_id = 29)
+  espn_wnba_event_competitor_score(event_id = 401736171, team_id = 17)
 }
 }
 \seealso{

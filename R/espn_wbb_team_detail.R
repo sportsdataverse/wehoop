@@ -315,7 +315,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_team_season_profile(team_id = "41", season = 2025)
+#'   espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 #' }
 espn_wbb_team_season_profile <- function(team_id,
                                           season = most_recent_wbb_season(),
@@ -356,7 +356,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_team_season_statistics(team_id = 13, season = 2024)
+#'   espn_wbb_team_season_statistics(team_id = 2509, season = 2024)
 #' }
 espn_wbb_team_season_statistics <- function(team_id,
                                               season      = most_recent_wbb_season(),

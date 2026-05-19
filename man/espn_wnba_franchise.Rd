@@ -38,7 +38,7 @@ stable across relocations and rebrands.
 }
 \examples{
 \donttest{
-  espn_wnba_franchise(franchise_id = 5)
+  espn_wnba_franchise(franchise_id = 17)
 }
 }
 \seealso{

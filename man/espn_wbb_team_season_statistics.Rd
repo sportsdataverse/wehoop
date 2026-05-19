@@ -33,7 +33,7 @@ with the full stat package.
 }
 \examples{
 \donttest{
-  espn_wbb_team_season_statistics(team_id = 13, season = 2024)
+  espn_wbb_team_season_statistics(team_id = 2509, season = 2024)
 }
 }
 \seealso{

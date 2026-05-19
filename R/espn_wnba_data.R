@@ -1580,7 +1580,7 @@ utils::globalVariables(c("where"))
 #'
 #' @examples
 #' \donttest{
-#'   try(espn_wnba_team_stats(team_id = 18, year = 2020))
+#'   try(espn_wnba_team_stats(team_id = 17, year = 2020))
 #' }
 
 espn_wnba_team_stats <- function(

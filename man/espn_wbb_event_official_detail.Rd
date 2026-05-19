@@ -4,12 +4,12 @@
 \alias{espn_wbb_event_official_detail}
 \title{\strong{Get ESPN WBB Event Official Detail (Single Official)}}
 \usage{
-espn_wbb_event_official_detail(event_id, official_id, ...)
+espn_wbb_event_official_detail(event_id, order, ...)
 }
 \arguments{
 \item{event_id}{ESPN event identifier.}
 
-\item{official_id}{ESPN official identifier.}
+\item{order}{Crew order index (1 = first official). Pair with the \code{order} column from event_officials().}
 
 \item{...}{Additional arguments; currently unused.}
 }
@@ -23,7 +23,7 @@ order. Pair with \code{\link[=espn_wbb_event_officials]{espn_wbb_event_officials
 }
 \examples{
 \donttest{
-  espn_wbb_event_official_detail(event_id = 401283399, official_id = 6856)
+  espn_wbb_event_official_detail(event_id = 401276115, order = 1)
 }
 }
 \seealso{

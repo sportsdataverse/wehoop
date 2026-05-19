@@ -27,7 +27,7 @@ ESPN.
 }
 \examples{
 \donttest{
-  espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
+  espn_wbb_athlete_stats(athlete_id = "4433404", season = 2025)
 }
 }
 \seealso{

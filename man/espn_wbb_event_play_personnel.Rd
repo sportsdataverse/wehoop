@@ -24,7 +24,7 @@ rows; the wrapper returns a typed empty tibble in that case.
 }
 \examples{
 \donttest{
-  espn_wbb_event_play_personnel(event_id = 401283399, play_id = 4012833997)
+  espn_wbb_event_play_personnel(event_id = 401276115, play_id = 401276115101899901)
 }
 }
 \seealso{

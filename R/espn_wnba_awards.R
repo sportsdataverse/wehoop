@@ -78,7 +78,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_award(award_id = 33, season = 2024)
+#'   espn_wnba_award(award_id = 247, season = 2024)
 #' }
 espn_wnba_award <- function(award_id,
                              season = most_recent_wnba_season(),

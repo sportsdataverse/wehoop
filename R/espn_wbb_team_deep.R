@@ -37,7 +37,7 @@
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_team_season_roster(team_id = 13, season = 2025)
+#'   espn_wbb_team_season_roster(team_id = 2509, season = 2025)
 #' }
 espn_wbb_team_season_roster <- function(team_id,
                                          season = most_recent_wbb_season(),
@@ -88,7 +88,7 @@ espn_wbb_team_season_roster <- function(team_id,
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_coach_season(coach_id = 6385, season = 2025)
+#'   espn_wbb_coach_season(coach_id = 2167842, season = 2025)
 #' }
 espn_wbb_coach_season <- function(coach_id,
                                    season = most_recent_wbb_season(),
@@ -124,7 +124,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_team_record_detail(team_id = 13, season = 2024, record_id = 0)
+#'   espn_wbb_team_record_detail(team_id = 2509, season = 2024, record_id = 0)
 #' }
 espn_wbb_team_record_detail <- function(team_id, season, record_id,
                                           season_type = 2L, ...) {

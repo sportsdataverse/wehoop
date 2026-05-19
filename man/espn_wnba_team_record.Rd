@@ -45,7 +45,7 @@ and season-type. Each row is one record category.
 }
 \examples{
 \donttest{
-  espn_wnba_team_record(team_id = 5, season = 2025)
+  espn_wnba_team_record(team_id = 17, season = 2025)
 }
 }
 \seealso{

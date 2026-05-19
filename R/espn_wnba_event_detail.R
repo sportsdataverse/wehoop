@@ -212,7 +212,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_situation(event_id = 401812680)
+#'   espn_wnba_event_situation(event_id = 401736171)
 #' }
 espn_wnba_event_situation <- function(event_id, ...) {
   .espn_basketball_event_situation(league = "wnba", event_id = event_id, ...)
@@ -242,7 +242,7 @@ espn_wnba_event_situation <- function(event_id, ...) {
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_predictor(event_id = 401812680)
+#'   espn_wnba_event_predictor(event_id = 401736171)
 #' }
 espn_wnba_event_predictor <- function(event_id, ...) {
   .espn_basketball_event_predictor(league = "wnba", event_id = event_id, ...)
@@ -269,7 +269,7 @@ espn_wnba_event_predictor <- function(event_id, ...) {
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_powerindex(event_id = 401812680)
+#'   espn_wnba_event_powerindex(event_id = 401736171)
 #' }
 espn_wnba_event_powerindex <- function(event_id, ...) {
   .espn_basketball_event_powerindex(league = "wnba", event_id = event_id, ...)
@@ -301,7 +301,7 @@ espn_wnba_event_powerindex <- function(event_id, ...) {
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_propbets(event_id = 401812680, provider_id = 58)
+#'   espn_wnba_event_propbets(event_id = 401736171, provider_id = 58)
 #' }
 espn_wnba_event_propbets <- function(event_id, provider_id, ...) {
   .espn_basketball_event_propbets(league = "wnba", event_id = event_id,
@@ -333,7 +333,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_linescores(event_id = 401812680, team_id = 5)
+#'   espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
 #' }
 espn_wnba_event_competitor_linescores <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_linescores(league = "wnba",
@@ -365,7 +365,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_leaders(event_id = 401812680, team_id = 5)
+#'   espn_wnba_event_competitor_leaders(event_id = 401736171, team_id = 17)
 #' }
 espn_wnba_event_competitor_leaders <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_leaders(league = "wnba",
@@ -397,7 +397,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_roster(event_id = 401812680, team_id = 5)
+#'   espn_wnba_event_competitor_roster(event_id = 401736171, team_id = 17)
 #' }
 espn_wnba_event_competitor_roster <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_roster(league = "wnba",
@@ -430,7 +430,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_statistics(event_id = 401812680, team_id = 5)
+#'   espn_wnba_event_competitor_statistics(event_id = 401736171, team_id = 17)
 #' }
 espn_wnba_event_competitor_statistics <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_statistics(league = "wnba",
@@ -462,7 +462,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_records(event_id = 401812680, team_id = 5)
+#'   espn_wnba_event_competitor_records(event_id = 401736171, team_id = 17)
 #' }
 espn_wnba_event_competitor_records <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_records(league = "wnba",
@@ -499,8 +499,8 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_player_box(event_id = 401283399, team_id = 29,
-#'                                athlete_id = 4066392)
+#'   espn_wnba_event_player_box(event_id = 401736171, team_id = 17,
+#'                                athlete_id = 3149391)
 #' }
 espn_wnba_event_player_box <- function(event_id, team_id, athlete_id,
                                         stat_type = 0L, ...) {
@@ -538,9 +538,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_roster_entry(event_id = 401283399,
-#'                                             team_id = 29,
-#'                                             athlete_id = 4066392)
+#'   espn_wnba_event_competitor_roster_entry(event_id = 401736171,
+#'                                             team_id = 17,
+#'                                             athlete_id = 3149391)
 #' }
 espn_wnba_event_competitor_roster_entry <- function(event_id, team_id,
                                                      athlete_id, ...) {
@@ -576,7 +576,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_play(event_id = 401283399, play_id = 4012833997)
+#'   espn_wnba_event_play(event_id = 401736171, play_id = 4017361714)
 #' }
 espn_wnba_event_play <- function(event_id, play_id, ...) {
   .espn_basketball_event_play(league = "wnba",
@@ -609,7 +609,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_play_personnel(event_id = 401283399, play_id = 4012833997)
+#'   espn_wnba_event_play_personnel(event_id = 401736171, play_id = 4017361714)
 #' }
 espn_wnba_event_play_personnel <- function(event_id, play_id, ...) {
   .espn_basketball_event_play_personnel(league = "wnba",
@@ -642,7 +642,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_competitor_score(event_id = 401283399, team_id = 29)
+#'   espn_wnba_event_competitor_score(event_id = 401736171, team_id = 17)
 #' }
 espn_wnba_event_competitor_score <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_score(league = "wnba",
@@ -674,7 +674,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_event_official_detail(event_id = 401283399, order = 1)
+#'   espn_wnba_event_official_detail(event_id = 401736171, order = 1)
 #' }
 espn_wnba_event_official_detail <- function(event_id, order, ...) {
   .espn_basketball_event_official_detail(league = "wnba",

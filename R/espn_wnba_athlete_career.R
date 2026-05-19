@@ -34,7 +34,7 @@ NULL
 #' @examples
 #' \donttest{
 #'   # LeBron James (1966): 23 career seasons
-#'   espn_wnba_athlete_seasons(athlete_id = 1966)
+#'   espn_wnba_athlete_seasons(athlete_id = 3149391)
 #' }
 espn_wnba_athlete_seasons <- function(athlete_id, ...) {
   .espn_basketball_athlete_seasons(league = "wnba",
@@ -95,9 +95,9 @@ espn_wnba_athlete_seasons <- function(athlete_id, ...) {
 #' @examples
 #' \donttest{
 #'   # LeBron James — regular + postseason combined
-#'   espn_wnba_athlete_career_stats(athlete_id = 1966)
+#'   espn_wnba_athlete_career_stats(athlete_id = 3149391)
 #'   # Just career aggregate
-#'   espn_wnba_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
+#'   espn_wnba_athlete_career_stats(athlete_id = 3149391, stat_type = 2L)
 #' }
 espn_wnba_athlete_career_stats <- function(athlete_id,
                                            stat_type = 0L,
@@ -326,7 +326,7 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 108206)
+#'   espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 3149391)
 #' }
 espn_wnba_draft_athlete_detail <- function(season = most_recent_wnba_season(),
                                             athlete_id, ...) {

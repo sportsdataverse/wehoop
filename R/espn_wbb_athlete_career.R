@@ -34,7 +34,7 @@ NULL
 #' @examples
 #' \donttest{
 #'   # LeBron James (1966): 23 career seasons
-#'   espn_wbb_athlete_seasons(athlete_id = 1966)
+#'   espn_wbb_athlete_seasons(athlete_id = 4433404)
 #' }
 espn_wbb_athlete_seasons <- function(athlete_id, ...) {
   .espn_basketball_athlete_seasons(league = "womens-college-basketball",
@@ -95,9 +95,9 @@ espn_wbb_athlete_seasons <- function(athlete_id, ...) {
 #' @examples
 #' \donttest{
 #'   # LeBron James — regular + postseason combined
-#'   espn_wbb_athlete_career_stats(athlete_id = 1966)
+#'   espn_wbb_athlete_career_stats(athlete_id = 4433404)
 #'   # Just career aggregate
-#'   espn_wbb_athlete_career_stats(athlete_id = 1966, stat_type = 2L)
+#'   espn_wbb_athlete_career_stats(athlete_id = 4433404, stat_type = 2L)
 #' }
 espn_wbb_athlete_career_stats <- function(athlete_id,
                                            stat_type = 0L,

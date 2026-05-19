@@ -36,7 +36,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_coach(coach_id = 1031)
+#'   espn_wbb_coach(coach_id = 2167842)
 #' }
 espn_wbb_coach <- function(coach_id, ...) {
   .espn_basketball_coach(league = "womens-college-basketball",
@@ -69,7 +69,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_coach_record(coach_id = 52120, record_type = 2)
+#'   espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 #' }
 espn_wbb_coach_record <- function(coach_id, record_type = 0L, ...) {
   .espn_basketball_coach_record(league = "womens-college-basketball",

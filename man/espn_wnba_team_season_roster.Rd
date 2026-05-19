@@ -35,7 +35,7 @@ season for each league.
 }
 \examples{
 \donttest{
-  espn_wnba_team_season_roster(team_id = 13, season = 2025)
+  espn_wnba_team_season_roster(team_id = 17, season = 2025)
 }
 }
 \seealso{

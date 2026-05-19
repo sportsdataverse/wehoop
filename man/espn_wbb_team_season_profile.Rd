@@ -53,7 +53,7 @@ forward). Older seasons return fewer \verb{$ref} keys; missing refs become \code
 }
 \examples{
 \donttest{
-  espn_wbb_team_season_profile(team_id = "41", season = 2025)
+  espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 }
 }
 \seealso{

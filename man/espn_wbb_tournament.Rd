@@ -27,7 +27,7 @@ the NCAA Tournament and WNIT (resolve via \code{\link[=espn_wbb_tournaments]{esp
 }
 \examples{
 \donttest{
-  espn_wbb_tournament(tournament_id = 23)
+  espn_wbb_tournament(tournament_id = 3)
 }
 }
 \seealso{

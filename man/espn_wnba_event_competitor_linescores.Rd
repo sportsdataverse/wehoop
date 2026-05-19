@@ -24,7 +24,7 @@ periods).
 }
 \examples{
 \donttest{
-  espn_wnba_event_competitor_linescores(event_id = 401812680, team_id = 5)
+  espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
 }
 }
 \seealso{

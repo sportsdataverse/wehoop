@@ -27,9 +27,9 @@ athlete came in for another player. Pair with
 }
 \examples{
 \donttest{
-  espn_wbb_event_competitor_roster_entry(event_id = 401283399,
-                                            team_id = 29,
-                                            athlete_id = 4066392)
+  espn_wbb_event_competitor_roster_entry(event_id = 401276115,
+                                            team_id = 2509,
+                                            athlete_id = 4433404)
 }
 }
 \seealso{

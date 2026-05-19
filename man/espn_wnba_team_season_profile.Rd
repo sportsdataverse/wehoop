@@ -51,7 +51,7 @@ return fewer \verb{$ref} keys; missing refs become \code{NA}.
 }
 \examples{
 \donttest{
-  espn_wnba_team_season_profile(team_id = "5", season = 2025)
+  espn_wnba_team_season_profile(team_id = "17", season = 2025)
 }
 }
 \seealso{

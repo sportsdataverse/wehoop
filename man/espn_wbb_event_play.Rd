@@ -25,7 +25,7 @@ clock, text, scoring/shooting flags, current home/away score, team
 }
 \examples{
 \donttest{
-  espn_wbb_event_play(event_id = 401283399, play_id = 4012833997)
+  espn_wbb_event_play(event_id = 401276115, play_id = 401276115101899901)
 }
 }
 \seealso{

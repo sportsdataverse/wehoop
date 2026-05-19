@@ -24,7 +24,7 @@ strings.
 }
 \examples{
 \donttest{
-  espn_wbb_event_competitor_statistics(event_id = 401812680, team_id = 235)
+  espn_wbb_event_competitor_statistics(event_id = 401276115, team_id = 52)
 }
 }
 \seealso{

@@ -23,7 +23,7 @@ the ref to dereference athlete-game splits or biographical data.
 }
 \examples{
 \donttest{
-  espn_wnba_event_competitor_roster(event_id = 401812680, team_id = 5)
+  espn_wnba_event_competitor_roster(event_id = 401736171, team_id = 17)
 }
 }
 \seealso{

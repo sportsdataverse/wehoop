@@ -74,7 +74,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_tournament(tournament_id = 23)
+#'   espn_wbb_tournament(tournament_id = 3)
 #' }
 espn_wbb_tournament <- function(tournament_id, ...) {
   .espn_basketball_tournament(league = "womens-college-basketball",
@@ -112,7 +112,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_tournament_seasons(tournament_id = 23)
+#'   espn_wbb_tournament_seasons(tournament_id = 3)
 #' }
 espn_wbb_tournament_seasons <- function(tournament_id, ...) {
   .espn_basketball_tournament_seasons(league = "womens-college-basketball",
@@ -144,7 +144,7 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_tournament_season(tournament_id = 1, season = 2024)
+#'   espn_wbb_tournament_season(tournament_id = 3, season = 2024)
 #' }
 espn_wbb_tournament_season <- function(tournament_id, season, ...) {
   .espn_basketball_tournament_season(league = "womens-college-basketball",
