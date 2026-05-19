@@ -301,6 +301,79 @@ release.
 | [`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md) / [`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md) | Per-event power-index `$ref` index (sparse coverage). |
 | [`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md) / [`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md) | Per-(event × provider) prop-bet markets in long format. |
 
+##### *Tier 2B core-v2 expansion — event competitor sub-resources*
+
+5 new resource families under
+`events/{eid}/competitions/{cid}/competitors/{team_id}/`, each shimmed
+for WNBA and WBB (10 new public functions). Paired with hoopR’s matching
+release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_event_competitor_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_linescores.md) / [`espn_wbb_event_competitor_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_linescores.md) | Per-quarter scoring for one team in one event. One row per period (regulation + OT). |
+| [`espn_wnba_event_competitor_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_leaders.md) / [`espn_wbb_event_competitor_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_leaders.md) | Per-team top performers in long format (one row per category × athlete rank). |
+| [`espn_wnba_event_competitor_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_roster.md) / [`espn_wbb_event_competitor_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_roster.md) | Game-day roster index — athlete ids + core-v2 `$ref` URLs for deferred dereferencing. |
+| [`espn_wnba_event_competitor_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_statistics.md) / [`espn_wbb_event_competitor_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_statistics.md) | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
+| [`espn_wnba_event_competitor_records()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_records.md) / [`espn_wbb_event_competitor_records()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_records.md) | Team records as of the event: overall / home / away / conference / division breakdowns. |
+
+##### *Tier 2F core-v2 expansion — typed-detail companions*
+
+5 new resource families completing index/detail pairs for existing
+wrappers. WBB has no league-wide draft; WNBA has no coach/tournament
+wrappers — those families ship in the leagues where the index exists.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_event_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_official_detail.md) / [`espn_wbb_event_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_official_detail.md) | Per-official details for one event. URL segment is the **crew order** (1-indexed), not the ESPN stable official_id — wrapper takes `order =` to match `event_officials()$order`. |
+| [`espn_wnba_team_record_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_record_detail.md) / [`espn_wbb_team_record_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_record_detail.md) | Per-record stat array in long format (overall / home / away / conference / per-opponent). |
+| [`espn_wbb_coach_record()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach_record.md) | Coach career record by type (Total / Pre Season / Regular Season / Post Season). |
+| [`espn_wbb_tournament_season()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_season.md) | Single tournament-year detail. |
+| [`espn_wnba_draft_athlete_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athlete_detail.md) | Rich single-row drafted-player record: height/weight, position, pick, athlete `$ref`. |
+
+`_pkgdown.yml` updated for both WBB + WNBA.
+
+##### *Tier 2E.2 core-v2 expansion — team-season stats + quick lookups*
+
+3 new resource families across WNBA + WBB (5 new exports — season_draft
+is WNBA-only). Paired with hoopR’s matching release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_team_season_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_statistics.md) / [`espn_wbb_team_season_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_statistics.md) | **Full team-season-type stat sheet in long format**, with `rank` + `rank_display_value` per stat. |
+| [`espn_wnba_event_competitor_score()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_score.md) / [`espn_wbb_event_competitor_score()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_score.md) | Single-row final score for one team in one event: `value`, `display_value`, `winner` flag, source. |
+| [`espn_wnba_season_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_draft.md) | Draft-year top-level metadata: `year`, `number_of_rounds`, `display_name`, plus sub-refs. |
+
+`_pkgdown.yml` updated to surface the new entries.
+
+##### *Tier 2E.1 core-v2 expansion — event-scoped player + play deep dives*
+
+4 new resource families covering per-game player stats, starter/DNP
+metadata, single-play detail, and on-court personnel (8 new public
+functions). Paired with hoopR’s matching release.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_event_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_player_box.md) / [`espn_wbb_event_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_player_box.md) | **Per-game box score for one athlete** in long format (one row per category × stat). |
+| [`espn_wnba_event_competitor_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_roster_entry.md) / [`espn_wbb_event_competitor_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_roster_entry.md) | Per-athlete game-day roster row: starter, DNP + reason, ejected, period, substitution slot. |
+| [`espn_wnba_event_play()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_play.md) / [`espn_wbb_event_play()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_play.md) | Rich single-play detail (sequence, period, clock, text, scoring flags, shot coordinates). |
+| [`espn_wnba_event_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_play_personnel.md) / [`espn_wbb_event_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_play_personnel.md) | Players on court at a specific play (long format). Sparse coverage. |
+
+##### *Tier 2D core-v2 expansion — position dictionary*
+
+2 new resource families for the league-specific position dictionary (4
+new public functions). Position ids are **not** shared across the
+basketball family — id `1` resolves to `Point Guard` in WNBA and
+`Center` in WBB. These wrappers make the dictionary explicit so users
+can disambiguate position `$ref` URLs in athlete records.
+
+| Function | Description |
+|----|----|
+| [`espn_wnba_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_positions.md) / [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md) | League position dictionary index. One row per position with id + canonical `$ref`. |
+| [`espn_wnba_position()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_position.md) / [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md) | Single-position detail: id, name, displayName, abbreviation, leaf flag, parent `$ref`. |
+
+Both `_pkgdown.yml` league-catalog subsections updated to surface the
+new entries.
+
 ##### *pkgdown index*
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A

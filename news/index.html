@@ -519,6 +519,109 @@
 <td>Per-(event × provider) prop-bet markets in long format.</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="tierb-core-v2-expansion--event-competitor-sub-resources-3-0-0"><em>Tier 2B core-v2 expansion — event competitor sub-resources</em><a class="anchor" aria-label="anchor" href="#tierb-core-v2-expansion--event-competitor-sub-resources-3-0-0"></a></h5>
+<p>5 new resource families under <code>events/{eid}/competitions/{cid}/competitors/{team_id}/</code>, each shimmed for WNBA and WBB (10 new public functions). Paired with hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_linescores.html">espn_wnba_event_competitor_linescores()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_linescores.html">espn_wbb_event_competitor_linescores()</a></code>
+</td>
+<td>Per-quarter scoring for one team in one event. One row per period (regulation + OT).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_leaders.html">espn_wnba_event_competitor_leaders()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_leaders.html">espn_wbb_event_competitor_leaders()</a></code>
+</td>
+<td>Per-team top performers in long format (one row per category × athlete rank).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_roster.html">espn_wnba_event_competitor_roster()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_roster.html">espn_wbb_event_competitor_roster()</a></code>
+</td>
+<td>Game-day roster index — athlete ids + core-v2 <code>$ref</code> URLs for deferred dereferencing.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_statistics.html">espn_wnba_event_competitor_statistics()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_statistics.html">espn_wbb_event_competitor_statistics()</a></code>
+</td>
+<td>Full team-game statistics in long format (one row per category × stat) with raw values and display strings.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_records.html">espn_wnba_event_competitor_records()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_records.html">espn_wbb_event_competitor_records()</a></code>
+</td>
+<td>Team records as of the event: overall / home / away / conference / division breakdowns.</td>
+</tr></tbody></table></div>
+<div class="section level5">
+<h5 id="tierf-core-v2-expansion--typed-detail-companions-3-0-0"><em>Tier 2F core-v2 expansion — typed-detail companions</em><a class="anchor" aria-label="anchor" href="#tierf-core-v2-expansion--typed-detail-companions-3-0-0"></a></h5>
+<p>5 new resource families completing index/detail pairs for existing wrappers. WBB has no league-wide draft; WNBA has no coach/tournament wrappers — those families ship in the leagues where the index exists.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_event_official_detail.html">espn_wnba_event_official_detail()</a></code> / <code><a href="../reference/espn_wbb_event_official_detail.html">espn_wbb_event_official_detail()</a></code>
+</td>
+<td>Per-official details for one event. URL segment is the <strong>crew order</strong> (1-indexed), not the ESPN stable official_id — wrapper takes <code>order =</code> to match <code>event_officials()$order</code>.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_team_record_detail.html">espn_wnba_team_record_detail()</a></code> / <code><a href="../reference/espn_wbb_team_record_detail.html">espn_wbb_team_record_detail()</a></code>
+</td>
+<td>Per-record stat array in long format (overall / home / away / conference / per-opponent).</td>
+</tr><tr><td><code><a href="../reference/espn_wbb_coach_record.html">espn_wbb_coach_record()</a></code></td>
+<td>Coach career record by type (Total / Pre Season / Regular Season / Post Season).</td>
+</tr><tr><td><code><a href="../reference/espn_wbb_tournament_season.html">espn_wbb_tournament_season()</a></code></td>
+<td>Single tournament-year detail.</td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_athlete_detail.html">espn_wnba_draft_athlete_detail()</a></code></td>
+<td>Rich single-row drafted-player record: height/weight, position, pick, athlete <code>$ref</code>.</td>
+</tr></tbody></table><p><code>_pkgdown.yml</code> updated for both WBB + WNBA.</p>
+</div>
+<div class="section level5">
+<h5 id="tiere2-core-v2-expansion--team-season-stats--quick-lookups-3-0-0"><em>Tier 2E.2 core-v2 expansion — team-season stats + quick lookups</em><a class="anchor" aria-label="anchor" href="#tiere2-core-v2-expansion--team-season-stats--quick-lookups-3-0-0"></a></h5>
+<p>3 new resource families across WNBA + WBB (5 new exports — season_draft is WNBA-only). Paired with hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_team_season_statistics.html">espn_wnba_team_season_statistics()</a></code> / <code><a href="../reference/espn_wbb_team_season_statistics.html">espn_wbb_team_season_statistics()</a></code>
+</td>
+<td>
+<strong>Full team-season-type stat sheet in long format</strong>, with <code>rank</code> + <code>rank_display_value</code> per stat.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_score.html">espn_wnba_event_competitor_score()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_score.html">espn_wbb_event_competitor_score()</a></code>
+</td>
+<td>Single-row final score for one team in one event: <code>value</code>, <code>display_value</code>, <code>winner</code> flag, source.</td>
+</tr><tr><td><code><a href="../reference/espn_wnba_season_draft.html">espn_wnba_season_draft()</a></code></td>
+<td>Draft-year top-level metadata: <code>year</code>, <code>number_of_rounds</code>, <code>display_name</code>, plus sub-refs.</td>
+</tr></tbody></table><p><code>_pkgdown.yml</code> updated to surface the new entries.</p>
+</div>
+<div class="section level5">
+<h5 id="tiere1-core-v2-expansion--event-scoped-player--play-deep-dives-3-0-0"><em>Tier 2E.1 core-v2 expansion — event-scoped player + play deep dives</em><a class="anchor" aria-label="anchor" href="#tiere1-core-v2-expansion--event-scoped-player--play-deep-dives-3-0-0"></a></h5>
+<p>4 new resource families covering per-game player stats, starter/DNP metadata, single-play detail, and on-court personnel (8 new public functions). Paired with hoopR’s matching release.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_event_player_box.html">espn_wnba_event_player_box()</a></code> / <code><a href="../reference/espn_wbb_event_player_box.html">espn_wbb_event_player_box()</a></code>
+</td>
+<td>
+<strong>Per-game box score for one athlete</strong> in long format (one row per category × stat).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_competitor_roster_entry.html">espn_wnba_event_competitor_roster_entry()</a></code> / <code><a href="../reference/espn_wbb_event_competitor_roster_entry.html">espn_wbb_event_competitor_roster_entry()</a></code>
+</td>
+<td>Per-athlete game-day roster row: starter, DNP + reason, ejected, period, substitution slot.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_play.html">espn_wnba_event_play()</a></code> / <code><a href="../reference/espn_wbb_event_play.html">espn_wbb_event_play()</a></code>
+</td>
+<td>Rich single-play detail (sequence, period, clock, text, scoring flags, shot coordinates).</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_event_play_personnel.html">espn_wnba_event_play_personnel()</a></code> / <code><a href="../reference/espn_wbb_event_play_personnel.html">espn_wbb_event_play_personnel()</a></code>
+</td>
+<td>Players on court at a specific play (long format). Sparse coverage.</td>
+</tr></tbody></table></div>
+<div class="section level5">
+<h5 id="tierd-core-v2-expansion--position-dictionary-3-0-0"><em>Tier 2D core-v2 expansion — position dictionary</em><a class="anchor" aria-label="anchor" href="#tierd-core-v2-expansion--position-dictionary-3-0-0"></a></h5>
+<p>2 new resource families for the league-specific position dictionary (4 new public functions). Position ids are <strong>not</strong> shared across the basketball family — id <code>1</code> resolves to <code>Point Guard</code> in WNBA and <code>Center</code> in WBB. These wrappers make the dictionary explicit so users can disambiguate position <code>$ref</code> URLs in athlete records.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wnba_positions.html">espn_wnba_positions()</a></code> / <code><a href="../reference/espn_wbb_positions.html">espn_wbb_positions()</a></code>
+</td>
+<td>League position dictionary index. One row per position with id + canonical <code>$ref</code>.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wnba_position.html">espn_wnba_position()</a></code> / <code><a href="../reference/espn_wbb_position.html">espn_wbb_position()</a></code>
+</td>
+<td>Single-position detail: id, name, displayName, abbreviation, leaf flag, parent <code>$ref</code>.</td>
+</tr></tbody></table><p>Both <code>_pkgdown.yml</code> league-catalog subsections updated to surface the new entries.</p>
+</div>
+<div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
 </div>

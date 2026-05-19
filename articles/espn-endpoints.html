@@ -127,7 +127,6 @@
 <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
 </h4>
             
-            <h4 data-toc-skip class="date">2026-05-19</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/wehoop/blob/main/vignettes/espn-endpoints.Rmd" class="external-link"><code>vignettes/espn-endpoints.Rmd</code></a></small>
       <div class="d-none name"><code>espn-endpoints.Rmd</code></div>
@@ -849,6 +848,569 @@ ESPN has on record before you start a multi-season pull.</p>
 <span><span class="co"># Single-season metadata is mostly $ref URLs to sub-resources, so</span></span>
 <span><span class="co"># espn_*_seasons() is usually the more useful starting point</span></span>
 <span><span class="va">wnba_s2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_season_info.html">espn_wnba_season_info</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="core-v2-deep-expansion">Core-v2 deep expansion<a class="anchor" aria-label="anchor" href="#core-v2-deep-expansion"></a>
+</h2>
+<p>The post-3.0.0 release adds another ~62 ESPN core-v2 wrappers to
+<code>espn_wnba_*</code> + <code>espn_wbb_*</code>, bringing the total
+ESPN basketball surface in <code>wehoop</code> to <strong>180
+functions</strong>. Everything here is shimmed over an internal
+<code>.espn_basketball_*</code> helper so WNBA and WBB share parsing
+logic and bug fixes propagate to both leagues at once.</p>
+<div class="section level3">
+<h3 id="function-overview">Function overview<a class="anchor" aria-label="anchor" href="#function-overview"></a>
+</h3>
+<table class="table">
+<colgroup>
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th>Tier</th>
+<th>Family</th>
+<th>WNBA</th>
+<th>WBB</th>
+<th>What it gives you</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1 / 2A</td>
+<td><code>athlete_career_stats</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Long-format career stats (1 row per stat). Default fetches RS + post
+and binds.</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td><code>athlete_seasons</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Index of seasons an athlete played, with <code>$ref</code>s to
+season-scoped detail</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td>
+<code>franchises</code> / <code>franchise</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>League franchise index + per-franchise detail (stable across
+relocations)</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td><code>futures</code></td>
+<td>✓</td>
+<td>—</td>
+<td>Per-season betting futures markets in long format</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td>
+<code>tournaments</code> / <code>tournament</code> /
+<code>tournament_seasons</code>
+</td>
+<td>—</td>
+<td>✓</td>
+<td>NCAA tournament index + per-tournament detail + per-season list</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td>
+<code>team_record</code> / <code>team_odds_records</code>
+</td>
+<td>—</td>
+<td>—</td>
+<td>(NBA/MBB only)</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td>
+<code>team_season_profile</code> /
+<code>team_season_roster</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-(team × season) profile and roster</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td>
+<code>coach</code> / <code>coach_season</code>
+</td>
+<td>— / ✓</td>
+<td>✓ / ✓</td>
+<td>Coach detail; coach-in-a-season</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td><code>powerindex</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-season power-index entries per team</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td>
+<code>season_info</code> / <code>season_type</code> /
+<code>season_types</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Season metadata (top-level + per-season-type)</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td><code>season_leaders</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-(season × season-type) leader board, long format. Defaults fetch
+RS + post.</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td>
+<code>season_rankings</code> / <code>season_ranking</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-season poll/ranking indexes</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td>
+<code>season_weeks</code> / <code>season_week</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Weeks within a season (week-based leagues)</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td>
+<code>week_rankings</code> / <code>week_ranking</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-week ranking lookups</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td>
+<code>season_groups</code> / <code>season_group</code> /
+<code>season_group_children</code> /
+<code>season_group_teams</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Conferences / divisions / D-I groups within a season</td>
+</tr>
+<tr class="even">
+<td>1 / 2A</td>
+<td>
+<code>season_awards</code> / <code>award</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-season awards index + per-award detail</td>
+</tr>
+<tr class="odd">
+<td>1 / 2A</td>
+<td><code>draft_pick</code></td>
+<td>✓</td>
+<td>—</td>
+<td>Single pick lookup</td>
+</tr>
+<tr class="even">
+<td>2B.1</td>
+<td><code>athlete_eventlog_v2</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-(athlete × season) event log (core-v2; richer than the
+web-common-v3 variant)</td>
+</tr>
+<tr class="odd">
+<td>2B.1</td>
+<td>
+<code>draft_rounds</code> / <code>draft_athletes</code> /
+<code>draft_status</code>
+</td>
+<td>✓</td>
+<td>—</td>
+<td>Draft year completion: rounds, draftees, in-progress status</td>
+</tr>
+<tr class="even">
+<td>2B.2</td>
+<td><code>event_situation</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Live game situation: timeouts, fouls, bonus state, last play
+<code>$ref</code>
+</td>
+</tr>
+<tr class="odd">
+<td>2B.2</td>
+<td><code>event_predictor</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Pre-game predictor stats (one row per team × stat)</td>
+</tr>
+<tr class="even">
+<td>2B.2</td>
+<td><code>event_powerindex</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-event power-index index. Sparse coverage.</td>
+</tr>
+<tr class="odd">
+<td>2B.2</td>
+<td><code>event_propbets</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-(event × provider) prop-bet markets in long format</td>
+</tr>
+<tr class="even">
+<td>2B.3</td>
+<td><code>event_competitor_linescores</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-quarter scoring for one team in one event</td>
+</tr>
+<tr class="odd">
+<td>2B.3</td>
+<td><code>event_competitor_leaders</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Top performers per team in long format</td>
+</tr>
+<tr class="even">
+<td>2B.3</td>
+<td><code>event_competitor_roster</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Game-day roster index — athlete ids + <code>$ref</code>s</td>
+</tr>
+<tr class="odd">
+<td>2B.3</td>
+<td><code>event_competitor_statistics</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Full team-game statistics in long format</td>
+</tr>
+<tr class="even">
+<td>2B.3</td>
+<td><code>event_competitor_records</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Team records as of the event (overall / home / away / conf /
+div)</td>
+</tr>
+<tr class="odd">
+<td>2D</td>
+<td>
+<code>positions</code> / <code>position</code>
+</td>
+<td>✓</td>
+<td>✓</td>
+<td>Position dictionary index + detail (id-by-league,
+<strong>not</strong> shared)</td>
+</tr>
+<tr class="even">
+<td>2E.1</td>
+<td><code>event_player_box</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>
+<strong>Per-game player box score</strong>, long format</td>
+</tr>
+<tr class="odd">
+<td>2E.1</td>
+<td><code>event_competitor_roster_entry</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Single roster row: starter / DNP / ejection / sub slot</td>
+</tr>
+<tr class="even">
+<td>2E.1</td>
+<td><code>event_play</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Single-play detail (sequence, period, clock, scoring flags,
+coords)</td>
+</tr>
+<tr class="odd">
+<td>2E.1</td>
+<td><code>event_play_personnel</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Players on court at a specific play. Sparse coverage.</td>
+</tr>
+<tr class="even">
+<td>2E.2</td>
+<td><code>event_competitor_score</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Single-row final score (value, displayValue, winner, source)</td>
+</tr>
+<tr class="odd">
+<td>2E.2</td>
+<td><code>team_season_statistics</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Full team-season stat sheet in long format, with league rank per
+stat</td>
+</tr>
+<tr class="even">
+<td>2E.2</td>
+<td><code>season_draft</code></td>
+<td>✓</td>
+<td>—</td>
+<td>Draft-year top-level metadata</td>
+</tr>
+<tr class="odd">
+<td>2F</td>
+<td><code>event_official_detail</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-official detail. URL uses crew <code>order</code> (1-indexed),
+not the ESPN stable id.</td>
+</tr>
+<tr class="even">
+<td>2F</td>
+<td><code>team_record_detail</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>Per-record stat array in long format</td>
+</tr>
+<tr class="odd">
+<td>2F</td>
+<td><code>coach_record</code></td>
+<td>—</td>
+<td>✓</td>
+<td>Coach career record by type (Total / Pre Season / Regular Season /
+Post Season)</td>
+</tr>
+<tr class="even">
+<td>2F</td>
+<td><code>tournament_season</code></td>
+<td>—</td>
+<td>✓</td>
+<td>Single tournament-year detail</td>
+</tr>
+<tr class="odd">
+<td>2F</td>
+<td><code>draft_athlete_detail</code></td>
+<td>✓</td>
+<td>—</td>
+<td>Rich single-row drafted-player record</td>
+</tr>
+</tbody>
+</table>
+<p>Dashes mark families that don’t apply at ESPN for that league (no
+WNBA tournament structure; no WBB futures market; no WNBA coach detail
+endpoint; no WBB league-wide draft).</p>
+</div>
+<div class="section level3">
+<h3 id="athlete-career-contracts-splits-and-event-log">Athlete career, contracts, splits, and event log<a class="anchor" aria-label="anchor" href="#athlete-career-contracts-splits-and-event-log"></a>
+</h3>
+<p>Beyond the gamelog and per-season stats wrappers we shipped in the
+initial ESPN batch, the core-v2 surface adds career-level rollups,
+season-by-season indexes, and a richer event log.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wehoop.sportsdataverse.org">wehoop</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Career stats — long format, one row per (stat_type x category x stat).</span></span>
+<span><span class="co"># Default `stat_type = c(0L, 1L)` fetches regular season + postseason and</span></span>
+<span><span class="co"># binds them so a single call gives you the player's full career sheet.</span></span>
+<span><span class="va">caitlin_career</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_athlete_career_stats.html">espn_wbb_athlete_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">4433404</span><span class="op">)</span></span>
+<span><span class="va">aja_career</span>     <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_athlete_career_stats.html">espn_wnba_athlete_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Per-(athlete x season) event log -- core-v2 variant. Returns</span></span>
+<span><span class="co"># event_id + result + per-event stats in long format.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_athlete_eventlog_v2.html">espn_wnba_athlete_eventlog_v2</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Index of seasons an athlete has on file (good for iterating).</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_athlete_seasons.html">espn_wnba_athlete_seasons</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="franchises-tournaments-and-league-dictionaries">Franchises, tournaments, and league dictionaries<a class="anchor" aria-label="anchor" href="#franchises-tournaments-and-league-dictionaries"></a>
+</h3>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Franchise records are stable across relocations and rebrands.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_franchises.html">espn_wnba_franchises</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_franchise.html">espn_wnba_franchise</a></span><span class="op">(</span>franchise_id <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>   <span class="co"># one franchise</span></span>
+<span></span>
+<span><span class="co"># WBB-only: NCAA tournament index + detail + season list.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_tournaments.html">espn_wbb_tournaments</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_tournament.html">espn_wbb_tournament</a></span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">22</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_tournament_seasons.html">espn_wbb_tournament_seasons</a></span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">22</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Position dictionary. Position ids are NOT shared across leagues --</span></span>
+<span><span class="co"># id 1 is "Point Guard" in WNBA but "Center" in WBB.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_positions.html">espn_wnba_positions</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_position.html">espn_wnba_position</a></span><span class="op">(</span>position_id <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="season-metadata-rankings-awards">Season metadata, rankings, awards<a class="anchor" aria-label="anchor" href="#season-metadata-rankings-awards"></a>
+</h3>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Per-season-type leaders, long format. Default fetches RS + post.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_season_leaders.html">espn_wnba_season_leaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Award index for a season + per-award detail.</span></span>
+<span><span class="va">aw</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_season_awards.html">espn_wnba_season_awards</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_award.html">espn_wnba_award</a></span><span class="op">(</span>award_id <span class="op">=</span> <span class="va">aw</span><span class="op">$</span><span class="va">award_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Season group structure (conferences / D-I groups) -- mostly relevant</span></span>
+<span><span class="co"># for WBB, which has a deep conference hierarchy.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_season_groups.html">espn_wbb_season_groups</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_season_group.html">espn_wbb_season_group</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">50</span>, season <span class="op">=</span> <span class="fl">2024</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_season_group_teams.html">espn_wbb_season_group_teams</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">50</span>, season <span class="op">=</span> <span class="fl">2024</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="team-season-profile-roster-and-stats">Team season profile, roster, and stats<a class="anchor" aria-label="anchor" href="#team-season-profile-roster-and-stats"></a>
+</h3>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Per-(team x season) profile — a $ref index for that team-season's</span></span>
+<span><span class="co"># deeper resources (record, statistics, leaders, roster, ...).</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_team_season_profile.html">espn_wbb_team_season_profile</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Roster the same team carried for that season.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_team_season_roster.html">espn_wbb_team_season_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Full team-season stat sheet in long format, with league rank embedded</span></span>
+<span><span class="co"># per stat. Smoke-tested at 109 rows x 13 cols for a single NBA team --</span></span>
+<span><span class="co"># WBB shapes are comparable.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_team_season_statistics.html">espn_wbb_team_season_statistics</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">2509</span>, season <span class="op">=</span> <span class="fl">2024</span>,</span>
+<span>                                season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="coach-detail-coach-in-season-and-coach-career-record">Coach detail, coach-in-season, and coach career record<a class="anchor" aria-label="anchor" href="#coach-detail-coach-in-season-and-coach-career-record"></a>
+</h3>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Coach detail (single-row). Wnba has no coach wrapper at ESPN.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_coach.html">espn_wbb_coach</a></span><span class="op">(</span>coach_id <span class="op">=</span> <span class="fl">2167842</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Coach-in-a-season: per-season stats and record.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_coach_season.html">espn_wbb_coach_season</a></span><span class="op">(</span>coach_id <span class="op">=</span> <span class="fl">2167842</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Career record by type. Type codes: 0 = Total, 1 = Pre Season,</span></span>
+<span><span class="co"># 2 = Regular Season, 3 = Post Season.</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_coach_record.html">espn_wbb_coach_record</a></span><span class="op">(</span>coach_id <span class="op">=</span> <span class="fl">2167842</span>, record_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="event-meta-live-situation-predictor-power-index-prop-bets">Event meta: live situation, predictor, power index, prop bets<a class="anchor" aria-label="anchor" href="#event-meta-live-situation-predictor-power-index-prop-bets"></a>
+</h3>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># All four take an event_id from espn_*_schedule() or any boxscore.</span></span>
+<span><span class="va">EID</span> <span class="op">&lt;-</span> <span class="st">"401736171"</span></span>
+<span></span>
+<span><span class="co"># Live game situation -- timeouts, fouls, bonus state, last play $ref.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_situation.html">espn_wnba_event_situation</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Pre-game predictor -- one row per (team x stat). Empty for past games.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_predictor.html">espn_wnba_event_predictor</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Per-event power index. Coverage is sparse -- many events return zero.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_powerindex.html">espn_wnba_event_powerindex</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Prop bet markets per (event x provider). 58 = ESPN BET.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_propbets.html">espn_wnba_event_propbets</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, provider_id <span class="op">=</span> <span class="fl">58</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="event-competitor-sub-resources">Event competitor sub-resources<a class="anchor" aria-label="anchor" href="#event-competitor-sub-resources"></a>
+</h3>
+<p>Five resource families under
+<code>events/{eid}/competitions/{cid}/competitors/{team_id}/</code>,
+each shimmed for WNBA + WBB. Pair <code>team_id</code> with
+<code>event_id</code> from <code>espn_wnba_schedule()$id</code> (or the
+team_id from any boxscore-style call).</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EID</span> <span class="op">&lt;-</span> <span class="st">"401736171"</span>; <span class="va">TID</span> <span class="op">&lt;-</span> <span class="fl">17</span>  <span class="co"># team_id of one competitor</span></span>
+<span></span>
+<span><span class="co"># Per-quarter scoring for one team in one event.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_linescores.html">espn_wnba_event_competitor_linescores</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Top performers per team in long format (category x rank).</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_leaders.html">espn_wnba_event_competitor_leaders</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Game-day roster index. Returns athlete ids + core-v2 $refs.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_roster.html">espn_wnba_event_competitor_roster</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Full team-game statistics in long format.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_statistics.html">espn_wnba_event_competitor_statistics</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Team records as of the event: overall / home / away / conf / div.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_records.html">espn_wnba_event_competitor_records</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># One-row final score, quick lookup.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_score.html">espn_wnba_event_competitor_score</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="per-game-player-box-score-play-detail-and-on-court-lineups">Per-game player box score, play detail, and on-court lineups<a class="anchor" aria-label="anchor" href="#per-game-player-box-score-play-detail-and-on-court-lineups"></a>
+</h3>
+<p>This is the headline 2E.1 batch – the per-(game x player) box score
+in long format plus single-play deep dives.</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">EID</span> <span class="op">&lt;-</span> <span class="st">"401736171"</span>; <span class="va">TID</span> <span class="op">&lt;-</span> <span class="fl">17</span>; <span class="va">AID</span> <span class="op">&lt;-</span> <span class="fl">3149391</span>  <span class="co"># event, team, athlete</span></span>
+<span></span>
+<span><span class="co"># Per-game box score for one athlete -- one row per (category x stat).</span></span>
+<span><span class="co"># Same shape as event_competitor_statistics() but scoped to an athlete.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_player_box.html">espn_wnba_event_player_box</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span>,</span>
+<span>                           athlete_id <span class="op">=</span> <span class="va">AID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Per-athlete game-day row: starter flag, did_not_play + reason,</span></span>
+<span><span class="co"># ejected flag, period of entry, for_player_id (substitution slot).</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_competitor_roster_entry.html">espn_wnba_event_competitor_roster_entry</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, team_id <span class="op">=</span> <span class="va">TID</span>,</span>
+<span>                                        athlete_id <span class="op">=</span> <span class="va">AID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Single-play detail. play_id comes from espn_wnba_pbp() output.</span></span>
+<span><span class="va">PID</span> <span class="op">&lt;-</span> <span class="st">"401736171001"</span>  <span class="co"># example play id</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_play.html">espn_wnba_event_play</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, play_id <span class="op">=</span> <span class="va">PID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Players on court at a specific play (long format). Coverage is</span></span>
+<span><span class="co"># sparse -- many plays return zero rows.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_play_personnel.html">espn_wnba_event_play_personnel</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">EID</span>, play_id <span class="op">=</span> <span class="va">PID</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="officials-team-records-and-the-draft">Officials, team records, and the draft<a class="anchor" aria-label="anchor" href="#officials-team-records-and-the-draft"></a>
+</h3>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Single official detail. The URL segment is the CREW ORDER, not the</span></span>
+<span><span class="co"># ESPN-stable official_id -- so pair this with the `order` column from</span></span>
+<span><span class="co"># espn_wnba_event_officials() rather than `official_id`.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_event_official_detail.html">espn_wnba_event_official_detail</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401736171"</span>, order <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Per-record stat array. Use espn_wnba_team_record() to discover</span></span>
+<span><span class="co"># valid record_id values for a (team_id, season) pair.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_team_record_detail.html">espn_wnba_team_record_detail</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span>, season <span class="op">=</span> <span class="fl">2024</span>, record_id <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Draft year top-level metadata + rich single-pick record.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_season_draft.html">espn_wnba_season_draft</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_draft_athlete_detail.html">espn_wnba_draft_athlete_detail</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, athlete_id <span class="op">=</span> <span class="fl">5170843</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="one-thing-to-know-about-default-season-types">One thing to know about default season types<a class="anchor" aria-label="anchor" href="#one-thing-to-know-about-default-season-types"></a>
+</h3>
+<p>Most of the new wrappers that take a <code>season_type</code>
+parameter default to <code>c(2L, 3L)</code> (regular season +
+postseason) and bind the two results into a single tibble keyed by a
+<code>season_type</code> column. This is more useful than the strict
+<code>season_type = 2</code> default for end-of-season analysis, and
+pass <code>season_type = 2</code> to limit to regular season only.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Regular season only.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_season_leaders.html">espn_wnba_season_leaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Default — RS + post, bound, keyed by season_type column.</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_season_leaders.html">espn_wnba_season_leaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
