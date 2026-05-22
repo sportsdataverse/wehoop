@@ -5,10 +5,12 @@
 - [ESPN basketball endpoints -- WBB &
   WNBA](https://wehoop.sportsdataverse.org/articles/espn-endpoints.md):
 
-  A tour of the 80 ESPN basketball endpoint wrappers in `wehoop`,
-  grouped by use case: game data, team detail, athlete coverage,
-  per-event enrichments, league-wide catalogs, and WNBA-specific
-  draft/transactions/free-agency endpoints.
+  A tour of the ESPN basketball endpoint wrappers in `wehoop` – around
+  180 of them – grouped by use case: game data, team detail, athlete
+  coverage, per-event enrichments, league-wide catalogs, WNBA
+  draft/transactions/free-agency endpoints, and the post-3.0.0 core-v2
+  deep expansion (athlete career, team-season stats, per-game player
+  box, play personnel, typed-detail companions).
 
 - [Getting Started with
   wehoop](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.md):

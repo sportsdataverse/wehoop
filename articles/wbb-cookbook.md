@@ -53,9 +53,91 @@ team_id <- 2509            # UConn
 season  <- most_recent_wbb_season()
 
 espn_wbb_team(team_id = team_id)                              # identity + record
+#> $Info
+#> # A tibble: 1 × 13
+#>   id    uid    slug  abbreviation display_name short_display_name name  nickname
+#>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
+#> 1 2509  s:40~… purd… PUR          Purdue Boil… Purdue             Boil… Purdue  
+#> # ℹ 5 more variables: location <chr>, color <chr>, alternate_color <chr>,
+#> #   logo <chr>, logo_dark <chr>
+#> 
+#> $Record
+#> # A tibble: 3 × 4
+#>   description    type  summary stats        
+#>   <chr>          <chr> <chr>   <list>       
+#> 1 Overall Record total 13-17   <df [20 × 2]>
+#> 2 Home Record    home  11-6    <df [20 × 2]>
+#> 3 Away Record    road  2-10    <df [20 × 2]>
+#> 
+#> $NextEvent
+#> # A tibble: 1 × 4
+#>   id        date              name                                short_name
+#>   <chr>     <chr>             <chr>                               <chr>     
+#> 1 401851368 2026-03-05T01:30Z Purdue Boilermakers at Oregon Ducks PUR VS ORE
+#> 
+#> $StandingSummary
+#> # A tibble: 1 × 1
+#>   standing_summary
+#>   <chr>           
+#> 1 14th in Big Ten 
+#> 
+#> $Coaches
+#> data frame with 0 columns and 0 rows
 espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
+#> # A tibble: 30 × 21
+#>    event_id  season season_type  week date          name  short_name opponent_id
+#>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      
+#>  1 401812419   2026          NA     1 2025-11-04T0… Fair… FDU @ PUR  NA         
+#>  2 401818691   2026          NA     1 2025-11-07T0… East… EIU @ PUR  NA         
+#>  3 401818692   2026          NA     2 2025-11-13T0… Purd… PUR @ PFW  NA         
+#>  4 401818581   2026          NA     3 2025-11-19T0… Purd… PUR @ UK   NA         
+#>  5 401818693   2026          NA     3 2025-11-23T1… Miam… M-OH @ PUR NA         
+#>  6 401818694   2026          NA     4 2025-11-26T1… Howa… HOW @ PUR  NA         
+#>  7 401818695   2026          NA     4 2025-11-30T1… Purd… PUR @ CMU  NA         
+#>  8 401818696   2026          NA     5 2025-12-04T0… Evan… EVAN @ PUR NA         
+#>  9 401825225   2026          NA     5 2025-12-07T1… Purd… PUR @ MICH NA         
+#> 10 401818697   2026          NA     6 2025-12-11T1… Lips… LIP @ PUR  NA         
+#> # ℹ 20 more rows
+#> # ℹ 13 more variables: opponent_abbrev <chr>, home_away <chr>,
+#> #   neutral_site <lgl>, conference_competition <lgl>, venue_id <chr>,
+#> #   venue_name <chr>, venue_city <chr>, venue_state <chr>, broadcast <chr>,
+#> #   result <chr>, team_score <chr>, opponent_score <chr>, winner <lgl>
 espn_wbb_team_roster(team_id = team_id, season = season)      # the players
+#> # A tibble: 13 × 15
+#>    athlete_id full_name jersey position_abbrev position_name height weight age  
+#>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
+#>  1 5311737    Carley B… 24     G               Guard         "5' 7… NA     NA   
+#>  2 5106182    Tara Daye 44     G               Guard         "5' 1… NA     NA   
+#>  3 5107710    Taylor F… 5      G               Guard         "5' 8… NA     NA   
+#>  4 5311739    Avery Go… 55     F               Forward       "6' 7… NA     NA   
+#>  5 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
+#>  6 5311736    Hila Kar… 8      G               Guard         "5' 8… NA     NA   
+#>  7 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
+#>  8 4433438    Madison … 33     G               Guard         "6' 1… NA     NA   
+#>  9 5240041    Lana McC… 35     F               Forward       "6' 4… NA     NA   
+#> 10 5240040    Kendall … 22     F               Forward       "6' 3… NA     NA   
+#> 11 5239064    Kiki Smi… 23     G               Guard         "5' 7… NA     NA   
+#> 12 5243531    Nya Smith 3      G               Guard         "5' 9… NA     NA   
+#> 13 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
+#> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
+#> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 espn_wbb_team_season_statistics(team_id = team_id, season = season)
+#> # A tibble: 77 × 13
+#>    league    season season_type team_id category_name category_display stat_name
+#>    <chr>      <int>       <int> <chr>   <chr>         <chr>            <chr>    
+#>  1 womens-c…   2026           2 2509    defensive     Defensive        blocks   
+#>  2 womens-c…   2026           2 2509    defensive     Defensive        defensiv…
+#>  3 womens-c…   2026           2 2509    defensive     Defensive        steals   
+#>  4 womens-c…   2026           2 2509    defensive     Defensive        turnover…
+#>  5 womens-c…   2026           2 2509    defensive     Defensive        avgDefen…
+#>  6 womens-c…   2026           2 2509    defensive     Defensive        avgBlocks
+#>  7 womens-c…   2026           2 2509    defensive     Defensive        avgSteals
+#>  8 womens-c…   2026           2 2509    general       General          disquali…
+#>  9 womens-c…   2026           2 2509    general       General          flagrant…
+#> 10 womens-c…   2026           2 2509    general       General          fouls    
+#> # ℹ 67 more rows
+#> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>, rank_display_value <chr>
 ```
 
 Margin note:
@@ -80,8 +162,72 @@ roster     <- espn_wbb_team_roster(team_id = 2509, season = most_recent_wbb_seas
 athlete_id <- roster$athlete_id[1]   # whoever is first on the roster
 
 espn_wbb_athlete_info(athlete_id = athlete_id)            # bio
+#> $Bio
+#> # A tibble: 1 × 16
+#>   id      uid       guid  first_name last_name full_name display_name short_name
+#>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
+#> 1 5311737 s:40~l:5… e082… Carley     Barrett   Carley B… Carley Barr… C. Barrett
+#> # ℹ 8 more variables: height <dbl>, display_height <chr>, jersey <chr>,
+#> #   active <lgl>, headshot_href <chr>, birth_city <chr>, birth_state <chr>,
+#> #   birth_country <chr>
+#> 
+#> $Team
+#> # A tibble: 1 × 1
+#>   x_ref                                                                         
+#>   <chr>                                                                         
+#> 1 http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-b…
+#> 
+#> $Position
+#> # A tibble: 1 × 5
+#>   id    name  display_name abbreviation leaf 
+#>   <chr> <chr> <chr>        <chr>        <lgl>
+#> 1 3     Guard Guard        G            FALSE
+#> 
+#> $Status
+#> # A tibble: 1 × 4
+#>   id    name   type   abbreviation
+#>   <chr> <chr>  <chr>  <chr>       
+#> 1 1     Active active Active      
+#> 
+#> $College
+#> # A tibble: 0 × 0
+#> 
+#> $Draft
+#> # A tibble: 0 × 0
 espn_wbb_athlete_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
+#> # A tibble: 5 × 24
+#>   id       week  at_vs game_date score home_team_id away_team_id home_team_score
+#>   <chr>    <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          
+#> 1 4018186… 7     vs    2025-12-… 93-62 2509         2296         93             
+#> 2 4018186… 6     vs    2025-12-… 80-43 2509         2168         80             
+#> 3 4018186… 6     vs    2025-12-… 88-45 2509         288          88             
+#> 4 4018186… 5     vs    2025-12-… 91-49 2509         339          91             
+#> 5 4018186… 4     vs    2025-11-… 92-62 2509         47           92             
+#> # ℹ 16 more variables: away_team_score <chr>, game_result <chr>,
+#> #   league_name <chr>, league_abbreviation <chr>, league_short_name <chr>,
+#> #   team_id <chr>, team_uid <chr>, team_abbreviation <chr>, team_logo <chr>,
+#> #   team_is_all_star <chr>, opponent_id <chr>, opponent_uid <chr>,
+#> #   opponent_display_name <chr>, opponent_abbreviation <chr>,
+#> #   opponent_logo <chr>, event_id <chr>
 espn_wbb_athlete_career_stats(athlete_id = athlete_id)    # career rollup, long format
+#> # A tibble: 87 × 17
+#>    league   athlete_id stat_type_id split_id split_name split_type category_name
+#>    <chr>    <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
+#>  1 womens-… 5311737    0            0        Season     season     defensive    
+#>  2 womens-… 5311737    0            0        Season     season     defensive    
+#>  3 womens-… 5311737    0            0        Season     season     defensive    
+#>  4 womens-… 5311737    0            0        Season     season     defensive    
+#>  5 womens-… 5311737    0            0        Season     season     defensive    
+#>  6 womens-… 5311737    0            0        Season     season     defensive    
+#>  7 womens-… 5311737    0            0        Season     season     defensive    
+#>  8 womens-… 5311737    0            0        Season     season     defensive    
+#>  9 womens-… 5311737    0            0        Season     season     general      
+#> 10 womens-… 5311737    0            0        Season     season     general      
+#> # ℹ 77 more rows
+#> # ℹ 10 more variables: category_display <chr>, category_short <chr>,
+#> #   category_abbrev <chr>, stat_name <chr>, stat_abbrev <chr>,
+#> #   stat_display <chr>, stat_short <chr>, description <chr>, value <dbl>,
+#> #   display_value <chr>
 ```
 
 That “pull the index, lift an ID, drill down” move is the single most
@@ -112,6 +258,9 @@ net <- ncaa_wbb_NET_rankings()
 net |>
   select(rank, team, conference, net_wins, net_losses) |>
   head(25)
+#> Error in `select()`:
+#> ! Can't select columns that don't exist.
+#> ✖ Column `team` doesn't exist.
 ```
 
 The grammar lesson: a prefix is a compressed paragraph. The moment you
@@ -132,12 +281,137 @@ league-agnostic:
 game_id <- 401276115
 
 espn_wbb_game_all(game_id = game_id)      # everything, as a named list
+#> $Plays
+#> # A tibble: 386 × 53
+#>    id       sequence_number text  away_score home_score scoring_play score_value
+#>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
+#>  1 4012761… 101899901       Jump…          0          0 FALSE                  0
+#>  2 4012761… 101904901       Morg…          0          2 TRUE                   2
+#>  3 4012761… 101907701       Kian…          3          2 TRUE                   3
+#>  4 4012761… 101914901       Vale…          3          2 FALSE                  2
+#>  5 4012761… 101914902       Morg…          3          2 FALSE                  0
+#>  6 4012761… 101915701       Kour…          3          5 TRUE                   3
+#>  7 4012761… 101919001       Dana…          3          5 FALSE                  3
+#>  8 4012761… 101919002       Kian…          3          5 FALSE                  0
+#>  9 4012761… 101919501       Myka…          5          5 TRUE                   2
+#> 10 4012761… 101924601       Morg…          5          5 FALSE                  2
+#> # ℹ 376 more rows
+#> # ℹ 46 more variables: wallclock <chr>, shooting_play <lgl>,
+#> #   points_attempted <int>, short_description <chr>, type_id <int>,
+#> #   type_text <chr>, period_number <int>, period_display_value <chr>,
+#> #   clock_display_value <chr>, team_id <int>, coordinate_x_raw <dbl>,
+#> #   coordinate_y_raw <dbl>, coordinate_x <dbl>, coordinate_y <dbl>,
+#> #   play_id <chr>, athlete_id_1 <int>, athlete_id_2 <int>, …
+#> 
+#> $Team
+#> # A tibble: 2 × 56
+#>     game_id season season_type game_date  game_date_time      team_id team_uid  
+#>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
+#> 1 401276115   2021           2 2021-02-21 2021-02-21 14:00:00      97 s:40~l:54…
+#> 2 401276115   2021           2 2021-02-21 2021-02-21 14:00:00      52 s:40~l:54…
+#> # ℹ 49 more variables: team_slug <chr>, team_location <chr>, team_name <chr>,
+#> #   team_abbreviation <chr>, team_display_name <chr>,
+#> #   team_short_display_name <chr>, team_color <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, team_home_away <chr>,
+#> #   team_score <int>, team_winner <lgl>, assists <int>, blocks <int>,
+#> #   defensive_rebounds <int>, fast_break_points <chr>, field_goal_pct <dbl>,
+#> #   field_goals_made <int>, field_goals_attempted <int>, fouls <int>, …
+#> 
+#> $Player
+#> # A tibble: 25 × 54
+#>      game_id season season_type game_date  game_date_time      athlete_id
+#>        <int>  <int>       <int> <date>     <dttm>                   <int>
+#>  1 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4433426
+#>  2 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4433412
+#>  3 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398604
+#>  4 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4281919
+#>  5 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4281190
+#>  6 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4703211
+#>  7 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398591
+#>  8 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398589
+#>  9 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4433094
+#> 10 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398835
+#> # ℹ 15 more rows
+#> # ℹ 48 more variables: athlete_display_name <chr>, team_id <int>,
+#> #   team_name <chr>, team_location <chr>, team_short_display_name <chr>,
+#> #   minutes <dbl>, field_goals_made <int>, field_goals_attempted <int>,
+#> #   three_point_field_goals_made <int>,
+#> #   three_point_field_goals_attempted <int>, free_throws_made <int>,
+#> #   free_throws_attempted <int>, offensive_rebounds <int>, …
 espn_wbb_team_box(game_id = game_id)      # team box
+#> # A tibble: 2 × 56
+#>     game_id season season_type game_date  game_date_time      team_id team_uid  
+#>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
+#> 1 401276115   2021           2 2021-02-21 2021-02-21 14:00:00      97 s:40~l:54…
+#> 2 401276115   2021           2 2021-02-21 2021-02-21 14:00:00      52 s:40~l:54…
+#> # ℹ 49 more variables: team_slug <chr>, team_location <chr>, team_name <chr>,
+#> #   team_abbreviation <chr>, team_display_name <chr>,
+#> #   team_short_display_name <chr>, team_color <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, team_home_away <chr>,
+#> #   team_score <int>, team_winner <lgl>, assists <int>, blocks <int>,
+#> #   defensive_rebounds <int>, fast_break_points <chr>, field_goal_pct <dbl>,
+#> #   field_goals_made <int>, field_goals_attempted <int>, fouls <int>, …
 espn_wbb_player_box(game_id = game_id)    # player box
+#> # A tibble: 25 × 54
+#>      game_id season season_type game_date  game_date_time      athlete_id
+#>        <int>  <int>       <int> <date>     <dttm>                   <int>
+#>  1 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4433426
+#>  2 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4433412
+#>  3 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398604
+#>  4 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4281919
+#>  5 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4281190
+#>  6 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4703211
+#>  7 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398591
+#>  8 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398589
+#>  9 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4433094
+#> 10 401276115   2021           2 2021-02-21 2021-02-21 14:00:00    4398835
+#> # ℹ 15 more rows
+#> # ℹ 48 more variables: athlete_display_name <chr>, team_id <int>,
+#> #   team_name <chr>, team_location <chr>, team_short_display_name <chr>,
+#> #   minutes <dbl>, field_goals_made <int>, field_goals_attempted <int>,
+#> #   three_point_field_goals_made <int>,
+#> #   three_point_field_goals_attempted <int>, free_throws_made <int>,
+#> #   free_throws_attempted <int>, offensive_rebounds <int>, …
 espn_wbb_pbp(game_id = game_id)           # play-by-play
+#> # A tibble: 386 × 53
+#>    id       sequence_number text  away_score home_score scoring_play score_value
+#>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
+#>  1 4012761… 101899901       Jump…          0          0 FALSE                  0
+#>  2 4012761… 101904901       Morg…          0          2 TRUE                   2
+#>  3 4012761… 101907701       Kian…          3          2 TRUE                   3
+#>  4 4012761… 101914901       Vale…          3          2 FALSE                  2
+#>  5 4012761… 101914902       Morg…          3          2 FALSE                  0
+#>  6 4012761… 101915701       Kour…          3          5 TRUE                   3
+#>  7 4012761… 101919001       Dana…          3          5 FALSE                  3
+#>  8 4012761… 101919002       Kian…          3          5 FALSE                  0
+#>  9 4012761… 101919501       Myka…          5          5 TRUE                   2
+#> 10 4012761… 101924601       Morg…          5          5 FALSE                  2
+#> # ℹ 376 more rows
+#> # ℹ 46 more variables: wallclock <chr>, shooting_play <lgl>,
+#> #   points_attempted <int>, short_description <chr>, type_id <int>,
+#> #   type_text <chr>, period_number <int>, period_display_value <chr>,
+#> #   clock_display_value <chr>, team_id <int>, coordinate_x_raw <dbl>,
+#> #   coordinate_y_raw <dbl>, coordinate_x <dbl>, coordinate_y <dbl>,
+#> #   play_id <chr>, athlete_id_1 <int>, athlete_id_2 <int>, …
 
 # ESPN's win-probability-per-play for the same game.
 espn_wbb_event_probabilities(event_id = game_id)
+#> # A tibble: 200 × 10
+#>    event_id  sequence_number play_id period clock home_win_percentage
+#>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>
+#>  1 401276115 101899901       NA          NA NA                  0.26 
+#>  2 401276115 101904901       NA          NA NA                  0.283
+#>  3 401276115 101907701       NA          NA NA                  0.241
+#>  4 401276115 101914901       NA          NA NA                  0.233
+#>  5 401276115 101914902       NA          NA NA                  0.243
+#>  6 401276115 101915701       NA          NA NA                  0.29 
+#>  7 401276115 101919001       NA          NA NA                  0.307
+#>  8 401276115 101919002       NA          NA NA                  0.294
+#>  9 401276115 101919501       NA          NA NA                  0.27 
+#> 10 401276115 101924601       NA          NA NA                  0.255
+#> # ℹ 190 more rows
+#> # ℹ 4 more variables: away_win_percentage <dbl>, tie_percentage <dbl>,
+#> #   secs_to_end_of_period <dbl>, secs_to_end_of_game <dbl>
 ```
 
 If you read the WNBA cookbook, you’ve now seen `espn_*_game_all`,
@@ -159,6 +433,22 @@ espn_wbb_event_player_box(
   team_id    = 52,
   athlete_id = 4398583
 )
+#> # A tibble: 77 × 12
+#>    league   event_id team_id athlete_id stat_type category_name category_display
+#>    <chr>    <chr>    <chr>   <chr>          <int> <chr>         <chr>           
+#>  1 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  2 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  3 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  4 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  5 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  6 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  7 womens-… 4012761… 52      4398583            0 defensive     Defensive       
+#>  8 womens-… 4012761… 52      4398583            0 general       General         
+#>  9 womens-… 4012761… 52      4398583            0 general       General         
+#> 10 womens-… 4012761… 52      4398583            0 general       General         
+#> # ℹ 67 more rows
+#> # ℹ 5 more variables: stat_name <chr>, stat_abbrev <chr>, stat_display <chr>,
+#> #   value <dbl>, display_value <chr>
 ```
 
 ## Recipe 6: The conference race
@@ -179,11 +469,56 @@ season <- most_recent_wbb_season()
 # `year` -- when an argument name surprises you, ?function is the
 # two-second fix.
 espn_wbb_standings(year = season)
+#> # A tibble: 357 × 86
+#>    team_id team       avgpointsagainst avgpointsfor gamesbehind leaguewinpercent
+#>      <int> <chr>                 <dbl>        <dbl>       <dbl>            <dbl>
+#>  1      41 UConn Hus…             50.4         86.8         0              1    
+#>  2      26 UCLA Brui…             56.4         83.9         0              1    
+#>  3    2579 South Car…             57.8         85.6         0              0.938
+#>  4     251 Texas Lon…             55.8         83.9         0.5            0.812
+#>  5      93 Murray St…             73.9         85.6         0              0.95 
+#>  6     163 Princeton…             60.7         72.4         0              0.857
+#>  7     161 Fairleigh…             51.5         68.5         0              1    
+#>  8    2449 North Dak…             59.8         78.4         0              0.938
+#>  9     238 Vanderbil…             65.2         84.3         4              0.812
+#> 10    2217 Fairfield…             56.5         75.0         0              0.95 
+#> # ℹ 347 more rows
+#> # ℹ 80 more variables: losses <dbl>, playoffseed <dbl>,
+#> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,
+#> #   streak <dbl>, winpercent <dbl>, wins <dbl>, gamesahead <chr>, total <chr>,
+#> #   home_avgpointsagainst <dbl>, home_avgpointsfor <dbl>,
+#> #   home_gamesbehind <dbl>, home_leaguewinpercent <dbl>, home_losses <dbl>,
+#> #   home_playoffseed <dbl>, home_pointdifferential <chr>, …
 
 # The group tree: groups -> one group -> its teams.
 espn_wbb_season_groups(season = season, season_type = 2)
+#> # A tibble: 2 × 5
+#>   league                    season season_type group_id ref                     
+#>   <chr>                      <int>       <int> <chr>    <chr>                   
+#> 1 womens-college-basketball   2026           2 50       http://sports.core.api.…
+#> 2 womens-college-basketball   2026           2 51       http://sports.core.api.…
 espn_wbb_season_group(group_id = 50, season = season, season_type = 2)
+#> # A tibble: 1 × 15
+#>   league         season season_type group_id uid   name  abbreviation short_name
+#>   <chr>           <int>       <int> <chr>    <chr> <chr> <chr>        <chr>     
+#> 1 womens-colleg…   2026           2 50       s:40… NCAA… NCAA         Division I
+#> # ℹ 7 more variables: midsize_name <chr>, is_conference <lgl>, slug <chr>,
+#> #   parent_ref <chr>, children_ref <chr>, teams_ref <chr>, standings_ref <chr>
 espn_wbb_season_group_teams(group_id = 50, season = season, season_type = 2)
+#> # A tibble: 200 × 6
+#>    league                    season season_type group_id team_id ref            
+#>    <chr>                      <int>       <int> <chr>    <chr>   <chr>          
+#>  1 womens-college-basketball   2026           2 50       2       http://sports.…
+#>  2 womens-college-basketball   2026           2 50       5       http://sports.…
+#>  3 womens-college-basketball   2026           2 50       6       http://sports.…
+#>  4 womens-college-basketball   2026           2 50       8       http://sports.…
+#>  5 womens-college-basketball   2026           2 50       9       http://sports.…
+#>  6 womens-college-basketball   2026           2 50       12      http://sports.…
+#>  7 womens-college-basketball   2026           2 50       13      http://sports.…
+#>  8 womens-college-basketball   2026           2 50       16      http://sports.…
+#>  9 womens-college-basketball   2026           2 50       21      http://sports.…
+#> 10 womens-college-basketball   2026           2 50       23      http://sports.…
+#> # ℹ 190 more rows
 ```
 
 Margin note: `season_groups` (plural) is the index; `season_group`
@@ -201,9 +536,46 @@ this one.” It’s the most reliable two-word rule in the grammar.
 season <- most_recent_wbb_season()
 
 espn_wbb_tournaments()                                  # which tournaments exist
+#> # A tibble: 38 × 3
+#>    tournament_id ref                                                      league
+#>    <chr>         <chr>                                                    <chr> 
+#>  1 3             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  2 1             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  3 39            http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  4 2             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  5 4             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  6 5             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  7 6             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  8 7             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  9 8             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#> 10 9             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#> # ℹ 28 more rows
 espn_wbb_tournament(tournament_id = 3)                  # one tournament
+#> # A tibble: 1 × 4
+#>   tournament_id display_name                   seasons_ref                league
+#>   <chr>         <chr>                          <chr>                      <chr> 
+#> 1 3             Atlantic Coast Conf Tournament http://sports.core.api.es… women…
 espn_wbb_tournament_seasons(tournament_id = 3)          # its yearly editions
+#> # A tibble: 11 × 4
+#>    league                    tournament_id season ref                           
+#>    <chr>                     <chr>          <int> <chr>                         
+#>  1 womens-college-basketball 3               2010 http://sports.core.api.espn.c…
+#>  2 womens-college-basketball 3               2011 http://sports.core.api.espn.c…
+#>  3 womens-college-basketball 3               2014 http://sports.core.api.espn.c…
+#>  4 womens-college-basketball 3               2015 http://sports.core.api.espn.c…
+#>  5 womens-college-basketball 3               2016 http://sports.core.api.espn.c…
+#>  6 womens-college-basketball 3               2017 http://sports.core.api.espn.c…
+#>  7 womens-college-basketball 3               2018 http://sports.core.api.espn.c…
+#>  8 womens-college-basketball 3               2019 http://sports.core.api.espn.c…
+#>  9 womens-college-basketball 3               2020 http://sports.core.api.espn.c…
+#> 10 womens-college-basketball 3               2022 http://sports.core.api.espn.c…
+#> 11 womens-college-basketball 3               2023 http://sports.core.api.espn.c…
 espn_wbb_tournament_season(tournament_id = 3, season = season)
+#> # A tibble: 1 × 8
+#>   league   tournament_id season display_name short_display_name number_of_rounds
+#>   <chr>    <chr>          <int> <chr>        <chr>                         <int>
+#> 1 womens-… 3               2026 ACC Tournam… ACC                               0
+#> # ℹ 2 more variables: season_ref <chr>, bracketology_ref <chr>
 ```
 
 Same singular/plural rule as Recipe 6, same general-to-specific march

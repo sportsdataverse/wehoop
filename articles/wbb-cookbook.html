@@ -197,9 +197,91 @@ menu:</p>
 <span><span class="va">season</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_team.html">espn_wbb_team</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span><span class="op">)</span>                              <span class="co"># identity + record</span></span>
+<span><span class="co">#&gt; $Info</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 13</span></span></span>
+<span><span class="co">#&gt;   id    uid    slug  abbreviation display_name short_display_name name  nickname</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2509  s:40~… purd… PUR          Purdue Boil… Purdue             Boil… Purdue  </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: location &lt;chr&gt;, color &lt;chr&gt;, alternate_color &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   logo &lt;chr&gt;, logo_dark &lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Record</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 4</span></span></span>
+<span><span class="co">#&gt;   description    type  summary stats        </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Overall Record total 13-17   <span style="color: #949494;">&lt;df [20 × 2]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Home Record    home  11-6    <span style="color: #949494;">&lt;df [20 × 2]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Away Record    road  2-10    <span style="color: #949494;">&lt;df [20 × 2]&gt;</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $NextEvent</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
+<span><span class="co">#&gt;   id        date              name                                short_name</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 401851368 2026-03-05T01:30Z Purdue Boilermakers at Oregon Ducks PUR VS ORE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $StandingSummary</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 1</span></span></span>
+<span><span class="co">#&gt;   standing_summary</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 14th in Big Ten </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Coaches</span></span>
+<span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_team_schedule.html">espn_wbb_team_schedule</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>    <span class="co"># the slate</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 21</span></span></span>
+<span><span class="co">#&gt;    event_id  season season_type  week date          name  short_name opponent_id</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 401812419   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     1 2025-11-04T0… Fair… FDU @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 401818691   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     1 2025-11-07T0… East… EIU @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 401818692   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     2 2025-11-13T0… Purd… PUR @ PFW  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 401818581   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     3 2025-11-19T0… Purd… PUR @ UK   <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 401818693   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     3 2025-11-23T1… Miam… M-OH @ PUR <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 401818694   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     4 2025-11-26T1… Howa… HOW @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 401818695   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     4 2025-11-30T1… Purd… PUR @ CMU  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401818696   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     5 2025-12-04T0… Evan… EVAN @ PUR <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401825225   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     5 2025-12-07T1… Purd… PUR @ MICH <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 401818697   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>     6 2025-12-11T1… Lips… LIP @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 13 more variables: opponent_abbrev &lt;chr&gt;, home_away &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   neutral_site &lt;lgl&gt;, conference_competition &lt;lgl&gt;, venue_id &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   venue_name &lt;chr&gt;, venue_city &lt;chr&gt;, venue_state &lt;chr&gt;, broadcast &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   result &lt;chr&gt;, team_score &lt;chr&gt;, opponent_score &lt;chr&gt;, winner &lt;lgl&gt;</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_team_roster.html">espn_wbb_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>      <span class="co"># the players</span></span>
-<span><span class="fu"><a href="../reference/espn_wbb_team_season_statistics.html">espn_wbb_team_season_statistics</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 15</span></span></span>
+<span><span class="co">#&gt;    athlete_id full_name jersey position_abbrev position_name height weight age  </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 5311737    Carley B… 24     G               Guard         <span style="color: #949494;">"</span>5' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 5106182    Tara Daye 44     G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 5107710    Taylor F… 5      G               Guard         <span style="color: #949494;">"</span>5' 8… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 5311739    Avery Go… 55     F               Forward       <span style="color: #949494;">"</span>6' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 5108895    Taylor H… 2      G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 5311736    Hila Kar… 8      G               Guard         <span style="color: #949494;">"</span>5' 8… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 5175722    McKenna … 11     G               Guard         <span style="color: #949494;">"</span>6' 2… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 4433438    Madison … 33     G               Guard         <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 5240041    Lana McC… 35     F               Forward       <span style="color: #949494;">"</span>6' 4… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 5240040    Kendall … 22     F               Forward       <span style="color: #949494;">"</span>6' 3… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 5239064    Kiki Smi… 23     G               Guard         <span style="color: #949494;">"</span>5' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 5243531    Nya Smith 3      G               Guard         <span style="color: #949494;">"</span>5' 9… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> 5178283    Saige St… 13     F               Forward       <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 7 more variables: birth_date &lt;chr&gt;, birth_place &lt;chr&gt;, headshot &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   link_web &lt;chr&gt;, status &lt;chr&gt;, team_id &lt;chr&gt;, season &lt;int&gt;</span></span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_team_season_statistics.html">espn_wbb_team_season_statistics</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 77 × 13</span></span></span>
+<span><span class="co">#&gt;    league    season season_type team_id category_name category_display stat_name</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        blocks   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        defensiv…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        steals   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        turnover…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        avgDefen…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        avgBlocks</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    defensive     Defensive        avgSteals</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    general       General          disquali…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    general       General          flagrant…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-c…   <span style="text-decoration: underline;">2</span>026           2 2509    general       General          fouls    </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 67 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: stat_abbrev &lt;chr&gt;, stat_display &lt;chr&gt;, value &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   display_value &lt;chr&gt;, rank &lt;int&gt;, rank_display_value &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Margin note: <code><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season()</a></code> is worth knowing.
 Every league in <code>wehoop</code> has a
 <code>most_recent_&lt;league&gt;_season()</code> companion, and the
@@ -221,8 +303,72 @@ star-driven sport, and you want a marquee guard’s numbers.</p>
 <span><span class="va">athlete_id</span> <span class="op">&lt;-</span> <span class="va">roster</span><span class="op">$</span><span class="va">athlete_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>   <span class="co"># whoever is first on the roster</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_athlete_info.html">espn_wbb_athlete_info</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span><span class="op">)</span>            <span class="co"># bio</span></span>
+<span><span class="co">#&gt; $Bio</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 16</span></span></span>
+<span><span class="co">#&gt;   id      uid       guid  first_name last_name full_name display_name short_name</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5311737 s:40~l:5… e082… Carley     Barrett   Carley B… Carley Barr… C. Barrett</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 8 more variables: height &lt;dbl&gt;, display_height &lt;chr&gt;, jersey &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   active &lt;lgl&gt;, headshot_href &lt;chr&gt;, birth_city &lt;chr&gt;, birth_state &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   birth_country &lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Team</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 1</span></span></span>
+<span><span class="co">#&gt;   x_ref                                                                         </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                                         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-b…</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Position</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
+<span><span class="co">#&gt;   id    name  display_name abbreviation leaf </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 3     Guard Guard        G            FALSE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Status</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
+<span><span class="co">#&gt;   id    name   type   abbreviation</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 1     Active active Active      </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $College</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 0</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Draft</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 0</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wbb_athlete_career_stats.html">espn_wbb_athlete_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span><span class="op">)</span>    <span class="co"># career rollup, long format</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 24</span></span></span>
+<span><span class="co">#&gt;   id       week  at_vs game_date score home_team_id away_team_id home_team_score</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 4018186… 7     vs    2025-12-… 93-62 2509         2296         93             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 4018186… 6     vs    2025-12-… 80-43 2509         2168         80             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 4018186… 6     vs    2025-12-… 88-45 2509         288          88             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 4018186… 5     vs    2025-12-… 91-49 2509         339          91             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 4018186… 4     vs    2025-11-… 92-62 2509         47           92             </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 16 more variables: away_team_score &lt;chr&gt;, game_result &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   league_name &lt;chr&gt;, league_abbreviation &lt;chr&gt;, league_short_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_id &lt;chr&gt;, team_uid &lt;chr&gt;, team_abbreviation &lt;chr&gt;, team_logo &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_is_all_star &lt;chr&gt;, opponent_id &lt;chr&gt;, opponent_uid &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   opponent_display_name &lt;chr&gt;, opponent_abbreviation &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   opponent_logo &lt;chr&gt;, event_id &lt;chr&gt;</span></span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_athlete_career_stats.html">espn_wbb_athlete_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span><span class="op">)</span>    <span class="co"># career rollup, long format</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 87 × 17</span></span></span>
+<span><span class="co">#&gt;    league   athlete_id stat_type_id split_id split_name split_type category_name</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-… 5311737    0            0        Season     season     general      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-… 5311737    0            0        Season     season     general      </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 77 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 10 more variables: category_display &lt;chr&gt;, category_short &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   category_abbrev &lt;chr&gt;, stat_name &lt;chr&gt;, stat_abbrev &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   stat_display &lt;chr&gt;, stat_short &lt;chr&gt;, description &lt;chr&gt;, value &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   display_value &lt;chr&gt;</span></span></span></code></pre></div>
 <p>That “pull the index, lift an ID, drill down” move is the single most
 useful habit in the whole package. <code>athlete_gamelog</code> in
 particular only has data for players <em>currently</em> on a roster –
@@ -249,7 +395,10 @@ actually drives the bracket, and you want it.</p>
 <span></span>
 <span><span class="va">net</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">rank</span>, <span class="va">team</span>, <span class="va">conference</span>, <span class="va">net_wins</span>, <span class="va">net_losses</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">25</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `select()`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> Can't select columns that don't exist.</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> Column `team` doesn't exist.</span></span></code></pre></div>
 <p>The grammar lesson: a prefix is a compressed paragraph. The moment
 you see <code>ncaa_wbb_</code>, you know the data is
 women’s-college-only and comes from the NCAA’s own systems rather than
@@ -267,12 +416,137 @@ league-agnostic:</p>
 <code class="sourceCode R"><span><span class="va">game_id</span> <span class="op">&lt;-</span> <span class="fl">401276115</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_game_all.html">espn_wbb_game_all</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span>      <span class="co"># everything, as a named list</span></span>
+<span><span class="co">#&gt; $Plays</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 386 × 53</span></span></span>
+<span><span class="co">#&gt;    id       sequence_number text  away_score home_score scoring_play score_value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 4012761… 101899901       Jump…          0          0 FALSE                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 4012761… 101904901       Morg…          0          2 TRUE                   2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 4012761… 101907701       Kian…          3          2 TRUE                   3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 4012761… 101914901       Vale…          3          2 FALSE                  2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 4012761… 101914902       Morg…          3          2 FALSE                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 4012761… 101915701       Kour…          3          5 TRUE                   3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 4012761… 101919001       Dana…          3          5 FALSE                  3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 4012761… 101919002       Kian…          3          5 FALSE                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 4012761… 101919501       Myka…          5          5 TRUE                   2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 4012761… 101924601       Morg…          5          5 FALSE                  2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 376 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 46 more variables: wallclock &lt;chr&gt;, shooting_play &lt;lgl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   points_attempted &lt;int&gt;, short_description &lt;chr&gt;, type_id &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   type_text &lt;chr&gt;, period_number &lt;int&gt;, period_display_value &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   clock_display_value &lt;chr&gt;, team_id &lt;int&gt;, coordinate_x_raw &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   coordinate_y_raw &lt;dbl&gt;, coordinate_x &lt;dbl&gt;, coordinate_y &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   play_id &lt;chr&gt;, athlete_id_1 &lt;int&gt;, athlete_id_2 &lt;int&gt;, …</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Team</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 56</span></span></span>
+<span><span class="co">#&gt;     game_id season season_type game_date  game_date_time      team_id team_uid  </span></span>
+<span><span class="co">#&gt;       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>      97 s:40~l:54…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>      52 s:40~l:54…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 49 more variables: team_slug &lt;chr&gt;, team_location &lt;chr&gt;, team_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_abbreviation &lt;chr&gt;, team_display_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_short_display_name &lt;chr&gt;, team_color &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_alternate_color &lt;chr&gt;, team_logo &lt;chr&gt;, team_home_away &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_score &lt;int&gt;, team_winner &lt;lgl&gt;, assists &lt;int&gt;, blocks &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   defensive_rebounds &lt;int&gt;, fast_break_points &lt;chr&gt;, field_goal_pct &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   field_goals_made &lt;int&gt;, field_goals_attempted &lt;int&gt;, fouls &lt;int&gt;, …</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $Player</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 25 × 54</span></span></span>
+<span><span class="co">#&gt;      game_id season season_type game_date  game_date_time      athlete_id</span></span>
+<span><span class="co">#&gt;        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">433</span>426</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">433</span>412</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>604</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">281</span>919</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">281</span>190</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">703</span>211</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>591</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>589</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">433</span>094</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>835</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 15 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 48 more variables: athlete_display_name &lt;chr&gt;, team_id &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_name &lt;chr&gt;, team_location &lt;chr&gt;, team_short_display_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   minutes &lt;dbl&gt;, field_goals_made &lt;int&gt;, field_goals_attempted &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   three_point_field_goals_made &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   three_point_field_goals_attempted &lt;int&gt;, free_throws_made &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   free_throws_attempted &lt;int&gt;, offensive_rebounds &lt;int&gt;, …</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_team_box.html">espn_wbb_team_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span>      <span class="co"># team box</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 56</span></span></span>
+<span><span class="co">#&gt;     game_id season season_type game_date  game_date_time      team_id team_uid  </span></span>
+<span><span class="co">#&gt;       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>      97 s:40~l:54…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>      52 s:40~l:54…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 49 more variables: team_slug &lt;chr&gt;, team_location &lt;chr&gt;, team_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_abbreviation &lt;chr&gt;, team_display_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_short_display_name &lt;chr&gt;, team_color &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_alternate_color &lt;chr&gt;, team_logo &lt;chr&gt;, team_home_away &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_score &lt;int&gt;, team_winner &lt;lgl&gt;, assists &lt;int&gt;, blocks &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   defensive_rebounds &lt;int&gt;, fast_break_points &lt;chr&gt;, field_goal_pct &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   field_goals_made &lt;int&gt;, field_goals_attempted &lt;int&gt;, fouls &lt;int&gt;, …</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_player_box.html">espn_wbb_player_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span>    <span class="co"># player box</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 25 × 54</span></span></span>
+<span><span class="co">#&gt;      game_id season season_type game_date  game_date_time      athlete_id</span></span>
+<span><span class="co">#&gt;        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">433</span>426</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">433</span>412</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>604</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">281</span>919</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">281</span>190</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">703</span>211</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>591</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>589</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">433</span>094</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 401<span style="text-decoration: underline;">276</span>115   <span style="text-decoration: underline;">2</span>021           2 2021-02-21 2021-02-21 <span style="color: #949494;">14:00:00</span>    4<span style="text-decoration: underline;">398</span>835</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 15 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 48 more variables: athlete_display_name &lt;chr&gt;, team_id &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_name &lt;chr&gt;, team_location &lt;chr&gt;, team_short_display_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   minutes &lt;dbl&gt;, field_goals_made &lt;int&gt;, field_goals_attempted &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   three_point_field_goals_made &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   three_point_field_goals_attempted &lt;int&gt;, free_throws_made &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   free_throws_attempted &lt;int&gt;, offensive_rebounds &lt;int&gt;, …</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_pbp.html">espn_wbb_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span>           <span class="co"># play-by-play</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 386 × 53</span></span></span>
+<span><span class="co">#&gt;    id       sequence_number text  away_score home_score scoring_play score_value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 4012761… 101899901       Jump…          0          0 FALSE                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 4012761… 101904901       Morg…          0          2 TRUE                   2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 4012761… 101907701       Kian…          3          2 TRUE                   3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 4012761… 101914901       Vale…          3          2 FALSE                  2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 4012761… 101914902       Morg…          3          2 FALSE                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 4012761… 101915701       Kour…          3          5 TRUE                   3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 4012761… 101919001       Dana…          3          5 FALSE                  3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 4012761… 101919002       Kian…          3          5 FALSE                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 4012761… 101919501       Myka…          5          5 TRUE                   2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 4012761… 101924601       Morg…          5          5 FALSE                  2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 376 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 46 more variables: wallclock &lt;chr&gt;, shooting_play &lt;lgl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   points_attempted &lt;int&gt;, short_description &lt;chr&gt;, type_id &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   type_text &lt;chr&gt;, period_number &lt;int&gt;, period_display_value &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   clock_display_value &lt;chr&gt;, team_id &lt;int&gt;, coordinate_x_raw &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   coordinate_y_raw &lt;dbl&gt;, coordinate_x &lt;dbl&gt;, coordinate_y &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   play_id &lt;chr&gt;, athlete_id_1 &lt;int&gt;, athlete_id_2 &lt;int&gt;, …</span></span></span>
 <span></span>
 <span><span class="co"># ESPN's win-probability-per-play for the same game.</span></span>
-<span><span class="fu"><a href="../reference/espn_wbb_event_probabilities.html">espn_wbb_event_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/espn_wbb_event_probabilities.html">espn_wbb_event_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 200 × 10</span></span></span>
+<span><span class="co">#&gt;    event_id  sequence_number play_id period clock home_win_percentage</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 401276115 101899901       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.26 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 401276115 101904901       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.283</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 401276115 101907701       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.241</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 401276115 101914901       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.233</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 401276115 101914902       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.243</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 401276115 101915701       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.29 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 401276115 101919001       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.307</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401276115 101919002       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.294</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401276115 101919501       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.27 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 401276115 101924601       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span> <span style="color: #BB0000;">NA</span>                  0.255</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 190 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: away_win_percentage &lt;dbl&gt;, tie_percentage &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   secs_to_end_of_period &lt;dbl&gt;, secs_to_end_of_game &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>If you read the WNBA cookbook, you’ve now seen
 <code>espn_*_game_all</code>, <code>espn_*_team_box</code>,
 <code>espn_*_player_box</code>, <code>espn_*_pbp</code> in two leagues
@@ -292,7 +566,23 @@ tidy and long – not the whole <code>player_box</code>.</p>
 <span>  event_id   <span class="op">=</span> <span class="fl">401276115</span>,</span>
 <span>  team_id    <span class="op">=</span> <span class="fl">52</span>,</span>
 <span>  athlete_id <span class="op">=</span> <span class="fl">4398583</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 77 × 12</span></span></span>
+<span><span class="co">#&gt;    league   event_id team_id athlete_id stat_type category_name category_display</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-… 4012761… 52      4398583            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-… 4012761… 52      4398583            0 general       General         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-… 4012761… 52      4398583            0 general       General         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-… 4012761… 52      4398583            0 general       General         </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 67 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: stat_name &lt;chr&gt;, stat_abbrev &lt;chr&gt;, stat_display &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   value &lt;dbl&gt;, display_value &lt;chr&gt;</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="recipe-6-the-conference-race">Recipe 6: The conference race<a class="anchor" aria-label="anchor" href="#recipe-6-the-conference-race"></a>
@@ -310,11 +600,56 @@ conferences, the whole D-I grouping – and ESPN models that with the
 <span><span class="co"># `year` -- when an argument name surprises you, ?function is the</span></span>
 <span><span class="co"># two-second fix.</span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_standings.html">espn_wbb_standings</a></span><span class="op">(</span>year <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 357 × 86</span></span></span>
+<span><span class="co">#&gt;    team_id team       avgpointsagainst avgpointsfor gamesbehind leaguewinpercent</span></span>
+<span><span class="co">#&gt;      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>      41 UConn Hus…             50.4         86.8         0              1    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>      26 UCLA Brui…             56.4         83.9         0              1    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>    <span style="text-decoration: underline;">2</span>579 South Car…             57.8         85.6         0              0.938</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     251 Texas Lon…             55.8         83.9         0.5            0.812</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>      93 Murray St…             73.9         85.6         0              0.95 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     163 Princeton…             60.7         72.4         0              0.857</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     161 Fairleigh…             51.5         68.5         0              1    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>    <span style="text-decoration: underline;">2</span>449 North Dak…             59.8         78.4         0              0.938</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     238 Vanderbil…             65.2         84.3         4              0.812</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    <span style="text-decoration: underline;">2</span>217 Fairfield…             56.5         75.0         0              0.95 </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 347 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 80 more variables: losses &lt;dbl&gt;, playoffseed &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   pointdifferential &lt;chr&gt;, pointsagainst &lt;dbl&gt;, pointsfor &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   streak &lt;dbl&gt;, winpercent &lt;dbl&gt;, wins &lt;dbl&gt;, gamesahead &lt;chr&gt;, total &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   home_avgpointsagainst &lt;dbl&gt;, home_avgpointsfor &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   home_gamesbehind &lt;dbl&gt;, home_leaguewinpercent &lt;dbl&gt;, home_losses &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   home_playoffseed &lt;dbl&gt;, home_pointdifferential &lt;chr&gt;, …</span></span></span>
 <span></span>
 <span><span class="co"># The group tree: groups -&gt; one group -&gt; its teams.</span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_season_groups.html">espn_wbb_season_groups</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 5</span></span></span>
+<span><span class="co">#&gt;   league                    season season_type group_id ref                     </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       http://sports.core.api.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 51       http://sports.core.api.…</span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_season_group.html">espn_wbb_season_group</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">50</span>, season <span class="op">=</span> <span class="va">season</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/espn_wbb_season_group_teams.html">espn_wbb_season_group_teams</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">50</span>, season <span class="op">=</span> <span class="va">season</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 15</span></span></span>
+<span><span class="co">#&gt;   league         season season_type group_id uid   name  abbreviation short_name</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> womens-colleg…   <span style="text-decoration: underline;">2</span>026           2 50       s:40… NCAA… NCAA         Division I</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 7 more variables: midsize_name &lt;chr&gt;, is_conference &lt;lgl&gt;, slug &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   parent_ref &lt;chr&gt;, children_ref &lt;chr&gt;, teams_ref &lt;chr&gt;, standings_ref &lt;chr&gt;</span></span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_season_group_teams.html">espn_wbb_season_group_teams</a></span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">50</span>, season <span class="op">=</span> <span class="va">season</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 200 × 6</span></span></span>
+<span><span class="co">#&gt;    league                    season season_type group_id team_id ref            </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       2       http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       5       http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       6       http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       8       http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       9       http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       12      http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       13      http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       16      http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       21      http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-college-basketball   <span style="text-decoration: underline;">2</span>026           2 50       23      http://sports.…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 190 more rows</span></span></span></code></pre></div>
 <p>Margin note: <code>season_groups</code> (plural) is the index;
 <code>season_group</code> (singular) is one item. That singular/plural
 pair runs through the whole package –
@@ -332,9 +667,46 @@ rule in the grammar.</p>
 <code class="sourceCode R"><span><span class="va">season</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_tournaments.html">espn_wbb_tournaments</a></span><span class="op">(</span><span class="op">)</span>                                  <span class="co"># which tournaments exist</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 38 × 3</span></span></span>
+<span><span class="co">#&gt;    tournament_id ref                                                      league</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 3             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 1             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 39            http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 4             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 5             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 6             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 7             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 8             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 9             http://sports.core.api.espn.com/v2/sports/basketball/le… women…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 28 more rows</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_tournament.html">espn_wbb_tournament</a></span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>                  <span class="co"># one tournament</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
+<span><span class="co">#&gt;   tournament_id display_name                   seasons_ref                league</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 3             Atlantic Coast Conf Tournament http://sports.core.api.es… women…</span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_tournament_seasons.html">espn_wbb_tournament_seasons</a></span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>          <span class="co"># its yearly editions</span></span>
-<span><span class="fu"><a href="../reference/espn_wbb_tournament_season.html">espn_wbb_tournament_season</a></span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">3</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 11 × 4</span></span></span>
+<span><span class="co">#&gt;    league                    tournament_id season ref                           </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>010 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>011 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>014 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>015 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>016 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>017 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>018 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>019 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>020 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>022 http://sports.core.api.espn.c…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> womens-college-basketball 3               <span style="text-decoration: underline;">2</span>023 http://sports.core.api.espn.c…</span></span>
+<span><span class="fu"><a href="../reference/espn_wbb_tournament_season.html">espn_wbb_tournament_season</a></span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">3</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 8</span></span></span>
+<span><span class="co">#&gt;   league   tournament_id season display_name short_display_name number_of_rounds</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> womens-… 3               <span style="text-decoration: underline;">2</span>026 ACC Tournam… ACC                               0</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: season_ref &lt;chr&gt;, bracketology_ref &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Same singular/plural rule as Recipe 6, same general-to-specific march
 from <code>tournaments</code> down to one
 <code>tournament_season</code>. By now you should be able to

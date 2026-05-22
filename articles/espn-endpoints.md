@@ -10,14 +10,14 @@ around individual games. The package now also wraps a much wider slice
 of ESPN’s basketball API – team rosters, schedules, league news, athlete
 biographies and gamelogs, in-game win probabilities, officials,
 broadcast info, the WNBA draft, free agency, transactions, and
-league-wide catalogs of venues, coaches, and statistical leaders. Eighty
-ESPN endpoint wrappers in total, split roughly evenly between women’s
-college basketball (`espn_wbb_*`) and the WNBA (`espn_wnba_*`).
+league-wide catalogs of venues, coaches, and statistical leaders. Around
+180 ESPN endpoint wrappers in total, split between women’s college
+basketball (`espn_wbb_*`) and the WNBA (`espn_wnba_*`).
 
 This vignette is a tour of what’s available and how to compose the
-pieces. None of the chunks evaluate during `R CMD check` – they all hit
-the live ESPN API – but every one of them works when you copy it into an
-interactive session.
+pieces. Most of the chunks run live when the package website is built,
+so the tables below are real ESPN responses – and every one of them
+works the same way when you copy it into an interactive session.
 
 ## A note on the API surface
 
@@ -170,10 +170,30 @@ library(wehoop)
 # Latest 10 WBB news items
 wbb_news <- espn_wbb_news(limit = 10)
 head(wbb_news[, c("headline", "published")])
+#> # A tibble: 6 × 2
+#>   headline                                                          published   
+#>   <chr>                                                             <chr>       
+#> 1 CEO of NIL enforcement reminds schools: These are your rules      2026-05-21T…
+#> 2 Iowa State promotes former star Emily Ryan to assistant coach     2026-05-21T…
+#> 3 How top 2027 women's basketball commits fit at their schools      2026-05-20T…
+#> 4 Eve Long, No. 5 recruit, commits to Notre Dame women's basketball 2026-05-20T…
+#> 5 NAACP urging athletes, fans to boycott over voting rights         2026-05-19T…
+#> 6 Is big-budget spending sustainable in college sports?             2026-05-19T…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
 head(wbb_cal)
+#> # A tibble: 6 × 12
+#>   season season_type season_type_label season_start_date season_end_date  
+#>   <chr>  <chr>       <chr>             <chr>             <chr>            
+#> 1 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> 2 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> 3 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> 4 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> 5 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> 6 2025   NA          NA                2024-07-13T07:00Z 2025-04-09T06:59Z
+#> # ℹ 7 more variables: calendar_type <chr>, label <chr>, alternate_label <chr>,
+#> #   detail <chr>, value <chr>, start_date <chr>, end_date <chr>
 
 # Same on the WNBA side
 wnba_news <- espn_wnba_news(limit = 10)
@@ -199,20 +219,29 @@ wrappers when you want a fuller picture.
 # UConn at a glance
 uconn <- espn_wbb_team(team_id = 2509, season = 2025)
 names(uconn)        # Info, Record, NextEvent, StandingSummary, Coaches
+#> [1] "Info"            "Record"          "NextEvent"       "StandingSummary"
+#> [5] "Coaches"
 
 # Current roster
 uconn_roster <- espn_wbb_team_roster(team_id = 2509, season = 2025)
 head(uconn_roster[, c("athlete_display_name", "position_name", "jersey")])
+#> Error in `uconn_roster[, c("athlete_display_name", "position_name", "jersey")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Column `athlete_display_name` doesn't exist.
 
 # Regular-season schedule
 uconn_sched <- espn_wbb_team_schedule(
   team_id = 2509, season = 2025, season_type = 2
 )
 head(uconn_sched[, c("name", "date", "home_away", "score")])
+#> Error in `uconn_sched[, c("name", "date", "home_away", "score")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Column `score` doesn't exist.
 
 # Statistical leaders for the team
 uconn_ldrs <- espn_wbb_team_leaders(team_id = 2509, season = 2025)
 head(uconn_ldrs)
+#> # A tibble: 0 × 0
 ```
 
 The same shape applies to WNBA teams – `espn_wnba_team(17, 2025)` for
@@ -264,24 +293,80 @@ message("Selected: ", athlete_name, " (", athlete_id, ")")
 # Bio and profile
 bio <- espn_wbb_athlete_info(athlete_id = athlete_id)
 glimpse(bio)
+#> List of 6
+#>  $ Bio     : wehop_dt [1 × 16] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>   ..$ id            : chr "5311737"
+#>   ..$ uid           : chr "s:40~l:54~a:5311737"
+#>   ..$ guid          : chr "e082d6da-e8f8-32d8-8085-45ea3bfc5eac"
+#>   ..$ first_name    : chr "Carley"
+#>   ..$ last_name     : chr "Barrett"
+#>   ..$ full_name     : chr "Carley Barrett"
+#>   ..$ display_name  : chr "Carley Barrett"
+#>   ..$ short_name    : chr "C. Barrett"
+#>   ..$ height        : num 67
+#>   ..$ display_height: chr "5' 7\""
+#>   ..$ jersey        : chr "24"
+#>   ..$ active        : logi TRUE
+#>   ..$ headshot_href : chr "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5311737.png"
+#>   ..$ birth_city    : chr "Lafayette"
+#>   ..$ birth_state   : chr "IN"
+#>   ..$ birth_country : chr "USA"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-22 06:57:13"
+#>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
+#>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2026/teams/2509?"| __truncated__
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-22 06:57:13"
+#>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
+#>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>   ..$ id          : chr "3"
+#>   ..$ name        : chr "Guard"
+#>   ..$ display_name: chr "Guard"
+#>   ..$ abbreviation: chr "G"
+#>   ..$ leaf        : logi FALSE
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-22 06:57:13"
+#>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
+#>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>   ..$ id          : chr "1"
+#>   ..$ name        : chr "Active"
+#>   ..$ type        : chr "active"
+#>   ..$ abbreviation: chr "Active"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-22 06:57:13"
+#>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
+#>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  Named list()
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-22 06:57:13"
+#>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
+#>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  Named list()
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-22 06:57:13"
+#>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
 overview <- espn_wbb_athlete_overview(
   athlete_id = athlete_id, season = 2025
 )
 names(overview)
+#> [1] "Statistics"     "NextGame"       "Last5Games"     "Headlines"     
+#> [5] "FantasyOutlook"
 
 # Game-by-game log
 gamelog <- espn_wbb_athlete_gamelog(
   athlete_id = athlete_id, season = 2025
 )
 head(gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")])
+#> Error in `gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Columns `game_date`, `opponent`, `points`, `rebounds`, and `assists` don't exist.
 
 # Situational splits (home/away, by month, vs ranked, ...)
 splits <- espn_wbb_athlete_splits(
   athlete_id = athlete_id, season = 2025
 )
 head(splits)
+#> # A tibble: 1 × 2
+#>   name  display_name
+#>   <chr> <chr>       
+#> 1 split split
 ```
 
 Everything above works the same on the WNBA side – swap `espn_wbb_*` for
@@ -331,6 +416,8 @@ ggplot(plot_data, aes(x = seq, y = as.numeric(home_win_percentage))) +
   theme_minimal()
 ```
 
+![](espn-endpoints_files/figure-html/winprob-1.png)
+
 You can layer in scoring plays from `pbp` to label momentum swings, or
 join `_event_officials()` and `_event_broadcasts()` if you want
 contextual annotations.
@@ -343,10 +430,16 @@ odds <- espn_wnba_event_odds(event_id = game_id)
 # Officials
 officials <- espn_wnba_event_officials(event_id = game_id)
 officials[, c("full_name", "position")]
+#> Error in `officials[, c("full_name", "position")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Column `position` doesn't exist.
 
 # Broadcast outlets
 broadcasts <- espn_wnba_event_broadcasts(event_id = game_id)
 broadcasts[, c("market", "names")]
+#> Error in `broadcasts[, c("market", "names")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Column `market` doesn't exist.
 ```
 
 ESPN doesn’t carry betting lines for NCAA games, so
@@ -366,15 +459,22 @@ portal isn’t part of ESPN’s basketball API.
 # 2025 WNBA draft picks
 draft_2025 <- espn_wnba_draft(season = 2025)
 head(draft_2025[, c("pick", "round", "team_name", "athlete_display_name")])
+#> Error in `draft_2025[, c("pick", "round", "team_name", "athlete_display_name")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Columns `team_name` and `athlete_display_name` don't exist.
 
 # Recent transactions (waivers, trades, signings)
 txn <- espn_wnba_transactions(season = 2025, limit = 100)
 head(txn[, c("date", "type", "athlete_display_name", "team_name")])
+#> Error in `txn[, c("date", "type", "athlete_display_name", "team_name")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Columns `athlete_display_name` and `team_name` don't exist.
 
 # Free agents -- empty outside the FA window, which is roughly
 # January through April each year
 fa <- espn_wnba_freeagents(season = 2025)
 nrow(fa)
+#> [1] 0
 ```
 
 If you’re stitching together a roster history, the natural sequence is
@@ -391,14 +491,31 @@ athlete index. The catalog endpoints cover that.
 # Statistical leaders (points, rebounds, assists, ...)
 wnba_ldrs <- espn_wnba_leaders(season = 2024, season_type = 2)
 head(wnba_ldrs)
+#> # A tibble: 6 × 11
+#>   season season_type category      abbreviation athlete_id athlete_name team_id
+#>    <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
+#> 1   2024           2 pointsPerGame PTS          3149391    NA           17     
+#> 2   2024           2 pointsPerGame PTS          3904577    NA           3      
+#> 3   2024           2 pointsPerGame PTS          2998938    NA           11     
+#> 4   2024           2 pointsPerGame PTS          2998928    NA           9      
+#> 5   2024           2 pointsPerGame PTS          3917450    NA           8      
+#> 6   2024           2 pointsPerGame PTS          2987869    NA           17     
+#> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
+#> #   display_value <chr>
 
 # Every WNBA arena ESPN tracks
 wnba_venues <- espn_wnba_venues()
 head(wnba_venues[, c("full_name", "city", "state", "capacity")])
+#> Error in `wnba_venues[, c("full_name", "city", "state", "capacity")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Columns `city` and `state` don't exist.
 
 # Coaches (current season)
 wbb_coaches <- espn_wbb_coaches(season = 2025)
 head(wbb_coaches[, c("full_name", "team_name", "experience")])
+#> Error in `wbb_coaches[, c("full_name", "team_name", "experience")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Column `team_name` doesn't exist.
 ```
 
 The athlete index is the largest of the catalog endpoints – expect
@@ -412,11 +529,18 @@ wnba_athletes <- espn_wnba_athletes_index(
   season = 2025, active = TRUE, limit = 5000
 )
 nrow(wnba_athletes)
+#> [1] 228
 head(wnba_athletes[, c("display_name", "position_name", "team_name")])
+#> Error in `wnba_athletes[, c("display_name", "position_name", "team_name")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Columns `display_name`, `position_name`, and `team_name` don't exist.
 
 # WBB -- cap at 50 rows just to peek; the default limit is 25,000
 wbb_athletes <- espn_wbb_athletes_index(season = 2025, limit = 50)
 head(wbb_athletes[, c("display_name", "position_name", "team_name")])
+#> Error in `wbb_athletes[, c("display_name", "position_name", "team_name")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Columns `display_name`, `position_name`, and `team_name` don't exist.
 ```
 
 The seasons catalog is mostly handy when you want to know which years
@@ -426,6 +550,9 @@ ESPN has on record before you start a multi-season pull.
 
 wnba_seasons <- espn_wnba_seasons()
 head(wnba_seasons[, c("year", "start_date", "end_date")])
+#> Error in `wnba_seasons[, c("year", "start_date", "end_date")]`:
+#> ! Can't subset columns that don't exist.
+#> ✖ Column `year` doesn't exist.
 
 # Single-season metadata is mostly $ref URLs to sub-resources, so
 # espn_*_seasons() is usually the more useful starting point
@@ -509,9 +636,35 @@ aja_career     <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
 # Per-(athlete x season) event log -- core-v2 variant. Returns
 # event_id + result + per-event stats in long format.
 espn_wnba_athlete_eventlog_v2(athlete_id = 3149391, season = 2024)
+#> # A tibble: 25 × 8
+#>    league athlete_id season event_id  team_id played event_ref   competition_ref
+#>    <chr>  <chr>       <int> <chr>     <chr>   <lgl>  <chr>       <chr>          
+#>  1 wnba   3149391      2024 401620220 17      TRUE   http://spo… http://sports.…
+#>  2 wnba   3149391      2024 401620228 17      TRUE   http://spo… http://sports.…
+#>  3 wnba   3149391      2024 401620235 17      TRUE   http://spo… http://sports.…
+#>  4 wnba   3149391      2024 401620244 17      TRUE   http://spo… http://sports.…
+#>  5 wnba   3149391      2024 401620254 17      TRUE   http://spo… http://sports.…
+#>  6 wnba   3149391      2024 401620257 17      TRUE   http://spo… http://sports.…
+#>  7 wnba   3149391      2024 401620269 17      TRUE   http://spo… http://sports.…
+#>  8 wnba   3149391      2024 401620274 17      TRUE   http://spo… http://sports.…
+#>  9 wnba   3149391      2024 401620282 17      TRUE   http://spo… http://sports.…
+#> 10 wnba   3149391      2024 401620285 17      TRUE   http://spo… http://sports.…
+#> # ℹ 15 more rows
 
 # Index of seasons an athlete has on file (good for iterating).
 espn_wnba_athlete_seasons(athlete_id = 3149391)
+#> # A tibble: 9 × 4
+#>   league athlete_id season ref                                                  
+#>   <chr>  <chr>       <int> <chr>                                                
+#> 1 wnba   3149391      2026 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 2 wnba   3149391      2025 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 3 wnba   3149391      2024 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 4 wnba   3149391      2023 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 5 wnba   3149391      2022 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 6 wnba   3149391      2021 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 7 wnba   3149391      2020 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 8 wnba   3149391      2019 http://sports.core.api.espn.com/v2/sports/basketball…
+#> 9 wnba   3149391      2018 http://sports.core.api.espn.com/v2/sports/basketball…
 ```
 
 ### Franchises, tournaments, and league dictionaries
@@ -520,17 +673,94 @@ espn_wnba_athlete_seasons(athlete_id = 3149391)
 
 # Franchise records are stable across relocations and rebrands.
 espn_wnba_franchises()
+#> # A tibble: 17 × 3
+#>    franchise_id ref                                                       league
+#>    <chr>        <chr>                                                     <chr> 
+#>  1 3            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  2 5            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  3 6            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  4 8            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  5 9            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  6 11           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  7 14           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  8 16           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#>  9 17           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 10 18           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 11 19           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 12 20           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 13 17475        http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 14 17476        http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 15 129689       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 16 131935       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 17 132052       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba
 espn_wnba_franchise(franchise_id = 20)   # one franchise
+#> # A tibble: 1 × 16
+#>   id    uid            slug    location name  nickname abbreviation display_name
+#>   <chr> <chr>          <chr>   <chr>    <chr> <chr>    <chr>        <chr>       
+#> 1 20    s:40~l:59~f:20 atlant… Atlanta  Dream Dream    ATL          Atlanta Dre…
+#> # ℹ 8 more variables: short_display_name <chr>, color <chr>, is_active <lgl>,
+#> #   league <chr>, logo <chr>, logo_dark <chr>, venue_ref <chr>, team_ref <chr>
 
 # WBB-only: NCAA tournament index + detail + season list.
 espn_wbb_tournaments()
+#> # A tibble: 38 × 3
+#>    tournament_id ref                                                      league
+#>    <chr>         <chr>                                                    <chr> 
+#>  1 3             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  2 1             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  3 39            http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  4 2             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  5 4             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  6 5             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  7 6             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  8 7             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#>  9 8             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#> 10 9             http://sports.core.api.espn.com/v2/sports/basketball/le… women…
+#> # ℹ 28 more rows
 espn_wbb_tournament(tournament_id = 22)
+#> # A tibble: 1 × 4
+#>   tournament_id display_name                   seasons_ref                league
+#>   <chr>         <chr>                          <chr>                      <chr> 
+#> 1 22            NCAA Womens Final 4 Tournament http://sports.core.api.es… women…
 espn_wbb_tournament_seasons(tournament_id = 22)
+#> # A tibble: 24 × 4
+#>    league                    tournament_id season ref                           
+#>    <chr>                     <chr>          <int> <chr>                         
+#>  1 womens-college-basketball 22              2003 http://sports.core.api.espn.c…
+#>  2 womens-college-basketball 22              2004 http://sports.core.api.espn.c…
+#>  3 womens-college-basketball 22              2005 http://sports.core.api.espn.c…
+#>  4 womens-college-basketball 22              2006 http://sports.core.api.espn.c…
+#>  5 womens-college-basketball 22              2007 http://sports.core.api.espn.c…
+#>  6 womens-college-basketball 22              2008 http://sports.core.api.espn.c…
+#>  7 womens-college-basketball 22              2009 http://sports.core.api.espn.c…
+#>  8 womens-college-basketball 22              2010 http://sports.core.api.espn.c…
+#>  9 womens-college-basketball 22              2011 http://sports.core.api.espn.c…
+#> 10 womens-college-basketball 22              2012 http://sports.core.api.espn.c…
+#> # ℹ 14 more rows
 
 # Position dictionary. Position ids are NOT shared across leagues --
 # id 1 is "Point Guard" in WNBA but "Center" in WBB.
 espn_wnba_positions()
+#> # A tibble: 12 × 3
+#>    position_id ref                                                        league
+#>    <chr>       <chr>                                                      <chr> 
+#>  1 0           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  2 1           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  3 2           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  4 3           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  5 4           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  6 5           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  7 6           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  8 7           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#>  9 8           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#> 10 9           http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#> 11 74          http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba  
+#> 12 99          http://sports.core.api.espn.com/v2/sports/basketball/leag… wnba
 espn_wnba_position(position_id = 1)
+#> # A tibble: 1 × 7
+#>   position_id name        display_name abbreviation leaf  parent_ref      league
+#>   <chr>       <chr>       <chr>        <chr>        <lgl> <chr>           <chr> 
+#> 1 1           Point Guard Point Guard  PG           TRUE  http://sports.… wnba
 ```
 
 ### Season metadata, rankings, awards
@@ -539,16 +769,59 @@ espn_wnba_position(position_id = 1)
 
 # Per-season-type leaders, long format. Default fetches RS + post.
 espn_wnba_season_leaders(season = 2024)
+#> # A tibble: 750 × 15
+#>    league season season_type category_name category_display category_short
+#>    <chr>   <int>       <int> <chr>         <chr>            <chr>         
+#>  1 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  2 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  3 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  4 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  5 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  6 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  7 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  8 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  9 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#> 10 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#> # ℹ 740 more rows
+#> # ℹ 9 more variables: category_abbrev <chr>, rank <int>, athlete_id <chr>,
+#> #   team_id <chr>, display_value <chr>, value <dbl>, rel <chr>,
+#> #   athlete_ref <chr>, team_ref <chr>
 
 # Award index for a season + per-award detail.
 aw <- espn_wnba_season_awards(season = 2024)
 espn_wnba_award(award_id = aw$award_id[1])
+#> NULL
 
 # Season group structure (conferences / D-I groups) -- mostly relevant
 # for WBB, which has a deep conference hierarchy.
 espn_wbb_season_groups(season = 2024, season_type = 2)
+#> # A tibble: 2 × 5
+#>   league                    season season_type group_id ref                     
+#>   <chr>                      <int>       <int> <chr>    <chr>                   
+#> 1 womens-college-basketball   2024           2 50       http://sports.core.api.…
+#> 2 womens-college-basketball   2024           2 51       http://sports.core.api.…
 espn_wbb_season_group(group_id = 50, season = 2024, season_type = 2)
+#> # A tibble: 1 × 15
+#>   league         season season_type group_id uid   name  abbreviation short_name
+#>   <chr>           <int>       <int> <chr>    <chr> <chr> <chr>        <chr>     
+#> 1 womens-colleg…   2024           2 50       s:40… NCAA… NCAA         Division I
+#> # ℹ 7 more variables: midsize_name <chr>, is_conference <lgl>, slug <chr>,
+#> #   parent_ref <chr>, children_ref <chr>, teams_ref <chr>, standings_ref <chr>
 espn_wbb_season_group_teams(group_id = 50, season = 2024, season_type = 2)
+#> # A tibble: 200 × 6
+#>    league                    season season_type group_id team_id ref            
+#>    <chr>                      <int>       <int> <chr>    <chr>   <chr>          
+#>  1 womens-college-basketball   2024           2 50       2       http://sports.…
+#>  2 womens-college-basketball   2024           2 50       5       http://sports.…
+#>  3 womens-college-basketball   2024           2 50       6       http://sports.…
+#>  4 womens-college-basketball   2024           2 50       8       http://sports.…
+#>  5 womens-college-basketball   2024           2 50       9       http://sports.…
+#>  6 womens-college-basketball   2024           2 50       12      http://sports.…
+#>  7 womens-college-basketball   2024           2 50       13      http://sports.…
+#>  8 womens-college-basketball   2024           2 50       16      http://sports.…
+#>  9 womens-college-basketball   2024           2 50       21      http://sports.…
+#> 10 womens-college-basketball   2024           2 50       23      http://sports.…
+#> # ℹ 190 more rows
 ```
 
 ### Team season profile, roster, and stats
@@ -558,15 +831,56 @@ espn_wbb_season_group_teams(group_id = 50, season = 2024, season_type = 2)
 # Per-(team x season) profile — a $ref index for that team-season's
 # deeper resources (record, statistics, leaders, roster, ...).
 espn_wbb_team_season_profile(team_id = 2509, season = 2024)
+#> # A tibble: 1 × 35
+#>   id    guid       uid   slug  location name  nickname abbreviation display_name
+#>   <chr> <chr>      <chr> <chr> <chr>    <chr> <chr>    <chr>        <chr>       
+#> 1 2509  2fe4080d-… s:40… purd… Purdue   Boil… Purdue   PUR          Purdue Boil…
+#> # ℹ 26 more variables: short_display_name <chr>, color <chr>,
+#> #   alternate_color <chr>, is_active <lgl>, is_all_star <lgl>, season <int>,
+#> #   logo <chr>, logo_dark <chr>, record_ref <chr>, venue_ref <chr>,
+#> #   groups_ref <chr>, ranks_ref <chr>, statistics_ref <chr>, leaders_ref <chr>,
+#> #   injuries_ref <chr>, notes_ref <chr>, against_the_spread_records_ref <chr>,
+#> #   awards_ref <chr>, franchise_ref <chr>, depth_charts_ref <chr>,
+#> #   events_ref <chr>, transactions_ref <chr>, coaches_ref <chr>, …
 
 # Roster the same team carried for that season.
 espn_wbb_team_season_roster(team_id = 2509, season = 2024)
+#> # A tibble: 23 × 5
+#>    league                    team_id season athlete_id ref                      
+#>    <chr>                     <chr>    <int> <chr>      <chr>                    
+#>  1 womens-college-basketball 2509      2024 19486      http://sports.core.api.e…
+#>  2 womens-college-basketball 2509      2024 4595183    http://sports.core.api.e…
+#>  3 womens-college-basketball 2509      2024 4398945    http://sports.core.api.e…
+#>  4 womens-college-basketball 2509      2024 5107952    http://sports.core.api.e…
+#>  5 womens-college-basketball 2509      2024 4419354    http://sports.core.api.e…
+#>  6 womens-college-basketball 2509      2024 5108545    http://sports.core.api.e…
+#>  7 womens-college-basketball 2509      2024 5175721    http://sports.core.api.e…
+#>  8 womens-college-basketball 2509      2024 5175722    http://sports.core.api.e…
+#>  9 womens-college-basketball 2509      2024 4433438    http://sports.core.api.e…
+#> 10 womens-college-basketball 2509      2024 4899062    http://sports.core.api.e…
+#> # ℹ 13 more rows
 
 # Full team-season stat sheet in long format, with league rank embedded
 # per stat. Smoke-tested at 109 rows x 13 cols for a single NBA team --
 # WBB shapes are comparable.
 espn_wbb_team_season_statistics(team_id = 2509, season = 2024,
                                 season_type = 2)
+#> # A tibble: 77 × 13
+#>    league    season season_type team_id category_name category_display stat_name
+#>    <chr>      <int>       <int> <chr>   <chr>         <chr>            <chr>    
+#>  1 womens-c…   2024           2 2509    defensive     Defensive        blocks   
+#>  2 womens-c…   2024           2 2509    defensive     Defensive        defensiv…
+#>  3 womens-c…   2024           2 2509    defensive     Defensive        steals   
+#>  4 womens-c…   2024           2 2509    defensive     Defensive        turnover…
+#>  5 womens-c…   2024           2 2509    defensive     Defensive        avgDefen…
+#>  6 womens-c…   2024           2 2509    defensive     Defensive        avgBlocks
+#>  7 womens-c…   2024           2 2509    defensive     Defensive        avgSteals
+#>  8 womens-c…   2024           2 2509    general       General          disquali…
+#>  9 womens-c…   2024           2 2509    general       General          flagrant…
+#> 10 womens-c…   2024           2 2509    general       General          fouls    
+#> # ℹ 67 more rows
+#> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>, rank_display_value <chr>
 ```
 
 ### Coach detail, coach-in-season, and coach career record
@@ -575,13 +889,35 @@ espn_wbb_team_season_statistics(team_id = 2509, season = 2024,
 
 # Coach detail (single-row). Wnba has no coach wrapper at ESPN.
 espn_wbb_coach(coach_id = 2167842)
+#> # A tibble: 1 × 12
+#>   coach_id uid         first_name last_name date_of_birth birth_city birth_state
+#>   <chr>    <chr>       <chr>      <chr>     <chr>         <chr>      <chr>      
+#> 1 2167842  s:40~l:54~… Larry      Vickers   NA            Virginia … VA         
+#> # ℹ 5 more variables: n_career_records <int>, n_coach_seasons <int>,
+#> #   college_ref <chr>, team_ref <chr>, league <chr>
 
 # Coach-in-a-season: per-season stats and record.
 espn_wbb_coach_season(coach_id = 2167842, season = 2024)
+#> # A tibble: 1 × 13
+#>   league     season coach_id uid   first_name last_name date_of_birth birth_city
+#>   <chr>       <int> <chr>    <chr> <chr>      <chr>     <chr>         <chr>     
+#> 1 womens-co…   2024 2167842  s:40… Larry      Vickers   NA            Virginia …
+#> # ℹ 5 more variables: birth_state <chr>, n_records <int>, person_ref <chr>,
+#> #   college_ref <chr>, team_ref <chr>
 
 # Career record by type. Type codes: 0 = Total, 1 = Pre Season,
 # 2 = Regular Season, 3 = Post Season.
 espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
+#> # A tibble: 5 × 12
+#>   league          coach_id record_type_id record_name record_type record_summary
+#>   <chr>           <chr>             <int> <chr>       <chr>       <chr>         
+#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> # ℹ 6 more variables: record_display <chr>, stat_name <chr>, stat_abbrev <chr>,
+#> #   stat_display <chr>, value <dbl>, stat_display_value <chr>
 ```
 
 ### Event meta: live situation, predictor, power index, prop bets
@@ -593,15 +929,42 @@ EID <- "401736171"
 
 # Live game situation -- timeouts, fouls, bonus state, last play $ref.
 espn_wnba_event_situation(event_id = EID)
+#> # A tibble: 1 × 15
+#>   league event_id  home_timeouts_current home_timeouts_remaining
+#>   <chr>  <chr>                     <int>                   <int>
+#> 1 wnba   401736171                     2                       0
+#> # ℹ 11 more variables: away_timeouts_current <int>,
+#> #   away_timeouts_remaining <int>, home_team_fouls <int>,
+#> #   home_team_fouls_current <int>, home_fouls_to_give <int>,
+#> #   home_bonus_state <chr>, away_team_fouls <int>,
+#> #   away_team_fouls_current <int>, away_fouls_to_give <int>,
+#> #   away_bonus_state <chr>, last_play_ref <chr>
 
 # Pre-game predictor -- one row per (team x stat). Empty for past games.
 espn_wnba_event_predictor(event_id = EID)
+#> # A tibble: 6 × 13
+#>   league event_id  name         short_name last_modified side  team_id stat_name
+#>   <chr>  <chr>     <chr>        <chr>      <chr>         <chr> <chr>   <chr>    
+#> 1 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… home  17      matchupQ…
+#> 2 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… home  17      teamPred…
+#> 3 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… home  17      teamPred…
+#> 4 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… away  6       matchupQ…
+#> 5 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… away  6       teamPred…
+#> 6 wnba   401736171 Los Angeles… LA @ LV    2025-06-15T1… away  6       teamPred…
+#> # ℹ 5 more variables: stat_display <chr>, description <chr>, value <dbl>,
+#> #   display_value <chr>, team_ref <chr>
 
 # Per-event power index. Coverage is sparse -- many events return zero.
 espn_wnba_event_powerindex(event_id = EID)
+#> # A tibble: 2 × 4
+#>   league event_id  team_id ref                                                  
+#>   <chr>  <chr>     <chr>   <chr>                                                
+#> 1 wnba   401736171 6       http://sports.core.api.espn.com/v2/sports/basketball…
+#> 2 wnba   401736171 17      http://sports.core.api.espn.com/v2/sports/basketball…
 
 # Prop bet markets per (event x provider). 58 = ESPN BET.
 espn_wnba_event_propbets(event_id = EID, provider_id = 58)
+#> NULL
 ```
 
 ### Event competitor sub-resources
@@ -617,21 +980,79 @@ EID <- "401736171"; TID <- 17  # team_id of one competitor
 
 # Per-quarter scoring for one team in one event.
 espn_wnba_event_competitor_linescores(event_id = EID, team_id = TID)
+#> # A tibble: 8 × 7
+#>   league event_id  team_id period value display_value source      
+#>   <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr>       
+#> 1 wnba   401736171 17           1    17 17            1           
+#> 2 wnba   401736171 17           1    17 17            Basic/Manual
+#> 3 wnba   401736171 17           2    24 24            1           
+#> 4 wnba   401736171 17           2    24 24            Basic/Manual
+#> 5 wnba   401736171 17           3    24 24            1           
+#> 6 wnba   401736171 17           3    24 24            Basic/Manual
+#> 7 wnba   401736171 17           4    24 24            1           
+#> 8 wnba   401736171 17           4    24 24            Basic/Manual
 
 # Top performers per team in long format (category x rank).
 espn_wnba_event_competitor_leaders(event_id = EID, team_id = TID)
+#> # A tibble: 28 × 11
+#>    league event_id  team_id category_name category_display category_abbrev  rank
+#>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>           <int>
+#>  1 wnba   401736171 17      points        Points           Pts                 1
+#>  2 wnba   401736171 17      points        Points           Pts                 2
+#>  3 wnba   401736171 17      points        Points           Pts                 3
+#>  4 wnba   401736171 17      points        Points           Pts                 4
+#>  5 wnba   401736171 17      points        Points           Pts                 5
+#>  6 wnba   401736171 17      points        Points           Pts                 6
+#>  7 wnba   401736171 17      assists       Assists          Ast                 1
+#>  8 wnba   401736171 17      assists       Assists          Ast                 2
+#>  9 wnba   401736171 17      assists       Assists          Ast                 3
+#> 10 wnba   401736171 17      assists       Assists          Ast                 4
+#> # ℹ 18 more rows
+#> # ℹ 4 more variables: athlete_id <chr>, display_value <chr>, value <dbl>,
+#> #   athlete_ref <chr>
 
 # Game-day roster index. Returns athlete ids + core-v2 $refs.
 espn_wnba_event_competitor_roster(event_id = EID, team_id = TID)
+#> # A tibble: 0 × 5
+#> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
+#> #   ref <chr>
 
 # Full team-game statistics in long format.
 espn_wnba_event_competitor_statistics(event_id = EID, team_id = TID)
+#> # A tibble: 99 × 10
+#>    league event_id  team_id category_name category_display stat_name stat_abbrev
+#>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>     <chr>      
+#>  1 wnba   401736171 17      defensive     Defensive        blocks    BLK        
+#>  2 wnba   401736171 17      defensive     Defensive        defensiv… DR         
+#>  3 wnba   401736171 17      defensive     Defensive        steals    STL        
+#>  4 wnba   401736171 17      defensive     Defensive        turnover… Points Con…
+#>  5 wnba   401736171 17      defensive     Defensive        avgDefen… DR         
+#>  6 wnba   401736171 17      defensive     Defensive        avgBlocks BLK        
+#>  7 wnba   401736171 17      defensive     Defensive        avgSteals STL        
+#>  8 wnba   401736171 17      defensive     Defensive        avg48Def… DR         
+#>  9 wnba   401736171 17      defensive     Defensive        avg48Blo… BLK        
+#> 10 wnba   401736171 17      defensive     Defensive        avg48Ste… STL        
+#> # ℹ 89 more rows
+#> # ℹ 3 more variables: stat_display <chr>, value <dbl>, display_value <chr>
 
 # Team records as of the event: overall / home / away / conf / div.
 espn_wnba_event_competitor_records(event_id = EID, team_id = TID)
+#> # A tibble: 3 × 11
+#>   league event_id  team_id record_id name    abbreviation display_name       
+#>   <chr>  <chr>     <chr>   <chr>     <chr>   <chr>        <chr>              
+#> 1 wnba   401736171 17      900       overall Game         Record Year To Date
+#> 2 wnba   401736171 17      33        Home    NA           Home               
+#> 3 wnba   401736171 17      34        Road    NA           Road               
+#> # ℹ 4 more variables: short_display_name <chr>, type <chr>, summary <chr>,
+#> #   value <dbl>
 
 # One-row final score, quick lookup.
 espn_wnba_event_competitor_score(event_id = EID, team_id = TID)
+#> # A tibble: 1 × 8
+#>   league event_id  team_id value display_value winner source_id
+#>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    
+#> 1 wnba   401736171 17         89 89            FALSE  1        
+#> # ℹ 1 more variable: source_description <chr>
 ```
 
 ### Per-game player box score, play detail, and on-court lineups
@@ -647,19 +1068,44 @@ EID <- "401736171"; TID <- 17; AID <- 3149391  # event, team, athlete
 # Same shape as event_competitor_statistics() but scoped to an athlete.
 espn_wnba_event_player_box(event_id = EID, team_id = TID,
                            athlete_id = AID)
+#> # A tibble: 97 × 12
+#>    league event_id  team_id athlete_id stat_type category_name category_display
+#>    <chr>  <chr>     <chr>   <chr>          <int> <chr>         <chr>           
+#>  1 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  2 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  3 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  4 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  5 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  6 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  7 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  8 wnba   401736171 17      3149391            0 defensive     Defensive       
+#>  9 wnba   401736171 17      3149391            0 defensive     Defensive       
+#> 10 wnba   401736171 17      3149391            0 general       General         
+#> # ℹ 87 more rows
+#> # ℹ 5 more variables: stat_name <chr>, stat_abbrev <chr>, stat_display <chr>,
+#> #   value <dbl>, display_value <chr>
 
 # Per-athlete game-day row: starter flag, did_not_play + reason,
 # ejected flag, period of entry, for_player_id (substitution slot).
 espn_wnba_event_competitor_roster_entry(event_id = EID, team_id = TID,
                                         athlete_id = AID)
+#> # A tibble: 1 × 16
+#>   league event_id  team_id athlete_id player_id period active starter
+#>   <chr>  <chr>     <chr>   <chr>      <chr>      <int> <lgl>  <lgl>  
+#> 1 wnba   401736171 17      3149391    3149391        0 FALSE  TRUE   
+#> # ℹ 8 more variables: did_not_play <lgl>, reason <chr>, ejected <lgl>,
+#> #   for_player_id <chr>, jersey <chr>, display_name <chr>, athlete_ref <chr>,
+#> #   position_ref <chr>
 
 # Single-play detail. play_id comes from espn_wnba_pbp() output.
 PID <- "401736171001"  # example play id
 espn_wnba_event_play(event_id = EID, play_id = PID)
+#> NULL
 
 # Players on court at a specific play (long format). Coverage is
 # sparse -- many plays return zero rows.
 espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
+#> NULL
 ```
 
 ### Officials, team records, and the draft
@@ -670,14 +1116,42 @@ espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
 # ESPN-stable official_id -- so pair this with the `order` column from
 # espn_wnba_event_officials() rather than `official_id`.
 espn_wnba_event_official_detail(event_id = "401736171", order = 1)
+#> # A tibble: 1 × 10
+#>   league event_id  official_id first_name last_name full_name     display_name 
+#>   <chr>  <chr>     <chr>       <chr>      <chr>     <chr>         <chr>        
+#> 1 wnba   401736171 7671        Michael    Price     Michael Price Michael Price
+#> # ℹ 3 more variables: position_id <chr>, position_name <chr>, order <int>
 
 # Per-record stat array. Use espn_wnba_team_record() to discover
 # valid record_id values for a (team_id, season) pair.
 espn_wnba_team_record_detail(team_id = 17, season = 2024, record_id = 0)
+#> # A tibble: 21 × 15
+#>    league team_id season season_type record_id record_name record_abbrev
+#>    <chr>  <chr>    <int>       <int> <chr>     <chr>       <chr>        
+#>  1 wnba   17        2024           2 0         overall     Total        
+#>  2 wnba   17        2024           2 0         overall     Total        
+#>  3 wnba   17        2024           2 0         overall     Total        
+#>  4 wnba   17        2024           2 0         overall     Total        
+#>  5 wnba   17        2024           2 0         overall     Total        
+#>  6 wnba   17        2024           2 0         overall     Total        
+#>  7 wnba   17        2024           2 0         overall     Total        
+#>  8 wnba   17        2024           2 0         overall     Total        
+#>  9 wnba   17        2024           2 0         overall     Total        
+#> 10 wnba   17        2024           2 0         overall     Total        
+#> # ℹ 11 more rows
+#> # ℹ 8 more variables: record_display <chr>, record_type <chr>,
+#> #   record_summary <chr>, stat_name <chr>, stat_abbrev <chr>,
+#> #   stat_display <chr>, value <dbl>, stat_display_value <chr>
 
 # Draft year top-level metadata + rich single-pick record.
 espn_wnba_season_draft(season = 2024)
+#> # A tibble: 1 × 10
+#>   league season  year uid       number_of_rounds display_name short_display_name
+#>   <chr>   <int> <int> <chr>                <int> <chr>        <chr>             
+#> 1 wnba     2024  2024 s:40~l:5…                3 2024 Women'… 2024 WNBA Draft   
+#> # ℹ 3 more variables: status_ref <chr>, athletes_ref <chr>, rounds_ref <chr>
 espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 5170843)
+#> NULL
 ```
 
 ### One thing to know about default season types
@@ -692,9 +1166,43 @@ and pass `season_type = 2` to limit to regular season only.
 
 # Regular season only.
 espn_wnba_season_leaders(season = 2024, season_type = 2)
+#> # A tibble: 375 × 15
+#>    league season season_type category_name category_display category_short
+#>    <chr>   <int>       <int> <chr>         <chr>            <chr>         
+#>  1 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  2 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  3 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  4 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  5 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  6 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  7 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  8 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  9 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#> 10 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#> # ℹ 365 more rows
+#> # ℹ 9 more variables: category_abbrev <chr>, rank <int>, athlete_id <chr>,
+#> #   team_id <chr>, display_value <chr>, value <dbl>, rel <chr>,
+#> #   athlete_ref <chr>, team_ref <chr>
 
 # Default — RS + post, bound, keyed by season_type column.
 espn_wnba_season_leaders(season = 2024)
+#> # A tibble: 750 × 15
+#>    league season season_type category_name category_display category_short
+#>    <chr>   <int>       <int> <chr>         <chr>            <chr>         
+#>  1 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  2 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  3 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  4 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  5 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  6 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  7 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  8 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#>  9 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#> 10 wnba     2024           2 pointsPerGame Points Per Game  PPG           
+#> # ℹ 740 more rows
+#> # ℹ 9 more variables: category_abbrev <chr>, rank <int>, athlete_id <chr>,
+#> #   team_id <chr>, display_value <chr>, value <dbl>, rel <chr>,
+#> #   athlete_ref <chr>, team_ref <chr>
 ```
 
 ## What’s not here

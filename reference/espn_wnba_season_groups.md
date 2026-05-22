@@ -146,7 +146,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_groups(season = 2025)
 #> ── ESPN WNBA Season Groups Index ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-22 06:34:48 UTC
+#> ℹ Data updated: 2026-05-22 06:55:34 UTC
 #> # A tibble: 4 × 5
 #>   league season season_type group_id ref                                        
 #>   <chr>   <int>       <int> <chr>    <chr>                                      
