@@ -251,10 +251,12 @@ run. You want to <em>see</em> it – a win-probability line.</p>
 <code class="sourceCode R"><span><span class="co"># Route A -- ESPN's per-play win probability.</span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_event_probabilities.html">espn_wnba_event_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Route B -- the V3 play-by-play from the WNBA Stats API itself.</span></span>
-<span><span class="co"># Prefix flips to `wnba_` -&gt; different data source, different first</span></span>
-<span><span class="co"># token. Same idea, different kitchen.</span></span>
-<span><span class="fu"><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="st">"1022400001"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Route B -- the V3 play-by-play from the WNBA Stats API itself. The</span></span>
+<span><span class="co"># prefix flips to `wnba_` -&gt; different data source, different first</span></span>
+<span><span class="co"># token. It keys off WNBA.com game ids, which look nothing like ESPN's,</span></span>
+<span><span class="co"># so lift a real one off the schedule first.</span></span>
+<span><span class="va">sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wnba_schedule.html">wnba_schedule</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">sched</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p>The grammar doing real work: when two functions look like
 near-synonyms, the <em>prefix</em> is the tiebreaker.
 <code>espn_wnba_*</code> is ESPN’s take; <code>wnba_*</code> is

@@ -148,9 +148,5 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_team_injuries(team_id = "17")
-#> ✖ 2026-05-22 06:24:41.472073: Invalid arguments or no injury data available for team 17 in wnba!
-#> ✖ Args: league = "wnba", team_id = "17"
-#> ✖ Error: The API returned an error
-#> NULL
 # }
 ```

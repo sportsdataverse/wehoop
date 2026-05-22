@@ -118,10 +118,12 @@ Two engines, and the prefix tells you which:
 # Route A -- ESPN's per-play win probability.
 espn_wnba_event_probabilities(event_id = 401736171)
 
-# Route B -- the V3 play-by-play from the WNBA Stats API itself.
-# Prefix flips to `wnba_` -> different data source, different first
-# token. Same idea, different kitchen.
-wnba_playbyplayv3(game_id = "1022400001")
+# Route B -- the V3 play-by-play from the WNBA Stats API itself. The
+# prefix flips to `wnba_` -> different data source, different first
+# token. It keys off WNBA.com game ids, which look nothing like ESPN's,
+# so lift a real one off the schedule first.
+sched <- wnba_schedule()
+wnba_playbyplayv3(game_id = sched$game_id[1])
 ```
 
 The grammar doing real work: when two functions look like near-synonyms,
