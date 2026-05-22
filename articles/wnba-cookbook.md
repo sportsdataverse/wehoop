@@ -1,0 +1,371 @@
+# WNBA Cookbook
+
+## Before we cook
+
+Every recipe here is a small story: a real question about the WNBA, and
+the shortest honest path from that question to a tidy data frame. The
+code blocks don’t run when this page builds – they all hit live APIs –
+but each one works the moment you paste it into an R session.
+
+The one idea to carry through all of it: **`wehoop` function names are a
+grammar, not a list to memorize.** Learn the grammar and you can *guess*
+the function you need. That guessing skill is what this cookbook is
+really teaching; the basketball is the delivery vehicle.
+
+### The grammar of a `wehoop` function name
+
+Almost every function answers three questions, in order:
+
+1.  **Where does the data come from?** – the prefix.
+    - `espn_` – ESPN’s APIs. The broadest, most stable coverage.
+    - `wnba_` – the official WNBA Stats API (stats.wnba.com). Deepest
+      box scores, tracking data, lineup data.
+    - `load_` – pre-built bulk data. A whole season in one call.
+2.  **Which league?** – for ESPN functions the league is spelled out:
+    `espn_wnba_`. For the WNBA Stats API the `wnba_` prefix *is* the
+    league.
+3.  **What do you want?** – the rest of the name, read left to right,
+    general to specific: `team_season_roster`, `athlete_career_stats`,
+    `event_competitor_linescores`.
+
+So “a team’s roster for a season, from ESPN” assembles in your head as
+`espn_` + `wnba_` + `team` + `_roster` -\>
+[`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md).
+“The league leaders from WNBA.com” is `wnba_` + `leagueleaders` -\>
+[`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md).
+Hundreds of functions, one grammar. Memorize the grammar, not the list.
+
+We’ll point at the grammar in the margins of every recipe.
+
+``` r
+
+library(wehoop)
+library(dplyr)
+```
+
+## Recipe 1: One game, three levels of detail
+
+**The story.** You caught the end of a game on a stream and want to
+actually study it – not the recap, the game.
+
+ESPN serves a game at three zoom levels, and the function name tells you
+which zoom you asked for. Start wide, push in.
+
+``` r
+
+game_id <- 401736171
+
+# Widest: the entire game summary as a named list of tibbles.
+# Read the name: espn / wnba / "game" / "all".
+full_game <- espn_wnba_game_all(game_id = game_id)
+names(full_game)
+
+# Medium: the box score. team_box and player_box are siblings -- same
+# noun (box), different grain.
+espn_wnba_team_box(game_id = game_id)
+espn_wnba_player_box(game_id = game_id)
+
+# Tightest: play-by-play, one row per possession.
+espn_wnba_pbp(game_id = game_id)
+```
+
+Margin note: `team_box` and `player_box` differ by exactly one word, and
+that word is the *grain* of the table. Two functions that differ by a
+single noun – that noun is telling you “one row per \_\_\_.”
+
+## Recipe 2: A franchise cornerstone’s whole career
+
+**The story.** You want A’ja Wilson’s career arc – all of it, tidy
+enough to plot – not just this season.
+
+The word you want is **career**.
+
+``` r
+
+# espn / wnba / athlete / career / stats. The name is the sentence.
+aja <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
+
+# It returns long -- one row per (stat_type x category x stat) --
+# exactly the shape a faceted ggplot wants.
+aja |>
+  filter(category_name == "offensive", stat_name == "avgPoints") |>
+  select(stat_type_id, value)
+```
+
+Margin note: `athlete_career_stats()` defaults to pulling *both* regular
+season and postseason and stacking them, keyed by `stat_type_id`. Many
+of the newer `espn_wnba_*` functions behave this way – when “regular +
+playoffs” both make sense, you get both and filter. Want just one? Pass
+`season_type`.
+
+The season-by-season index is one word away – swap `career_stats` for
+`seasons`:
+
+``` r
+
+espn_wnba_athlete_seasons(athlete_id = 3149391)
+```
+
+## Recipe 3: Game flow and the fourth-quarter swing
+
+**The story.** That game from Recipe 1 turned on a late run. You want to
+*see* it – a win-probability line.
+
+Two engines, and the prefix tells you which:
+
+``` r
+
+# Route A -- ESPN's per-play win probability.
+espn_wnba_event_probabilities(event_id = 401736171)
+
+# Route B -- the V3 play-by-play from the WNBA Stats API itself.
+# Prefix flips to `wnba_` -> different data source, different first
+# token. Same idea, different kitchen.
+wnba_playbyplayv3(game_id = "1022400001")
+```
+
+The grammar doing real work: when two functions look like near-synonyms,
+the *prefix* is the tiebreaker. `espn_wnba_*` is ESPN’s take; `wnba_*`
+is WNBA.com’s. Choose by which columns you want, not by which name you
+remembered.
+
+## Recipe 4: One player’s line from one game
+
+**The story.** You want a single athlete’s box score from a single game,
+long and tidy – not the whole `player_box`.
+
+``` r
+
+# espn / wnba / event / player_box. You pass the (event, team, athlete)
+# trio because that triple is what uniquely names "this player in this
+# game."
+espn_wnba_event_player_box(
+  event_id   = 401736171,
+  team_id    = 17,
+  athlete_id = 2590093
+)
+```
+
+Margin note on *why three IDs*: a function’s argument list is a hint
+about its grain. One ID (`game_id`) -\> a whole game. Three IDs
+(`event` + `team` + `athlete`) -\> one cell of it. More identifiers,
+finer grain – the arguments and the grain always move together.
+
+The event-detail siblings all share the `espn_wnba_event_` stem:
+
+``` r
+
+espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
+espn_wnba_event_officials(event_id = 401736171)
+espn_wnba_event_play(event_id = 401736171, play_id = 4017361714)
+```
+
+## Recipe 5: A team’s season at a glance
+
+**The story.** You’re previewing a team – record, schedule, roster, and
+how they really stack up.
+
+Type `espn_wnba_team` and let the grammar lay out the menu:
+
+``` r
+
+team_id <- 17    # Las Vegas Aces
+season  <- most_recent_wnba_season()
+
+espn_wnba_team_season_profile(team_id = team_id, season = season)
+espn_wnba_team_schedule(team_id = team_id, season = season)
+espn_wnba_team_roster(team_id = team_id, season = season)
+
+# The full team-season stat sheet (with league rank per stat) vs. just
+# the W-L record.
+espn_wnba_team_season_statistics(team_id = team_id, season = season)
+espn_wnba_team_record(team_id = team_id, season = season)
+```
+
+Notice the family: `team_season_profile`, `team_season_roster`,
+`team_season_statistics`. The shared middle (`team_season`) is the
+subject; the last word is the lens. Find one member, you’ve found the
+family.
+
+## Recipe 6: The league-leaders board
+
+**The story.** You want the scoring, rebounding, and assist leaders –
+the bones of every MVP argument.
+
+``` r
+
+# WNBA.com's leaders. Prefix `wnba_` -> the official Stats API.
+wnba_leagueleaders(season = "2024")
+
+# ESPN's version of the same idea. Same question, different kitchen --
+# the prefix tells you which before you read another word.
+espn_wnba_leaders(season = most_recent_wnba_season())
+```
+
+Leaders live under *both* prefixes because both APIs publish them. That
+is normal and intentional – `wehoop` mirrors the data sources honestly
+rather than hiding one. You pick based on which columns you want.
+
+## Recipe 7: Draft night
+
+**The story.** You want to follow a draft class – order, picks, players.
+
+The draft has its own little family, sorted general to specific exactly
+as the grammar promises:
+
+``` r
+
+season <- most_recent_wnba_season()
+
+espn_wnba_season_draft(season = season)        # the draft, top level
+espn_wnba_draft_rounds(season = season)        # by round
+espn_wnba_draft_athletes(season = season)      # every drafted player
+espn_wnba_draft_pick(season = season, round = 1, pick = 1)
+
+# Or the pre-built bulk version -- note the `load_` prefix.
+load_wnba_draft(seasons = 2020:2024)
+```
+
+Read it top to bottom: each step adds a word and narrows the grain.
+That’s the grammar’s “general to specific, left to right” rule made
+visible.
+
+## Recipe 8: A whole season at once
+
+**The story.** You don’t want one game. You want every game – a full
+season to model on.
+
+Looping
+[`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+over hundreds of `game_id`s works but is slow and rude to ESPN. The
+`load_` prefix exists for exactly this: pre-built, pre-cleaned season
+files.
+
+``` r
+
+# load / wnba / pbp -- one call, one season.
+pbp_2024 <- load_wnba_pbp(seasons = 2024)
+
+load_wnba_player_box(seasons = 2024)
+load_wnba_team_box(seasons = 2024)
+load_wnba_schedule(seasons = 2024)
+load_wnba_shots(seasons = 2024)        # shot locations, ready to chart
+```
+
+There’s also a deeper, WNBA-Stats-API-sourced bulk family under the
+`load_wnba_stats_` stem – richer play-by-play with on-court lineups,
+possession assignment, and a garbage-time flag:
+
+``` r
+
+load_wnba_stats_pbp(seasons = 2024)
+load_wnba_stats_player_game_logs(seasons = 2024)
+load_wnba_stats_lineups(seasons = 2024)
+```
+
+The grammar lesson: `load_wnba_` and `load_wnba_stats_` are two bulk
+families, and the extra `stats_` token tells you the *source* – the
+plain family is ESPN-shaped, the `stats_` family is WNBA.com-shaped. An
+extra token in the middle of a name is never noise; it’s always
+narrowing something.
+
+## Recipe 9: Pour a season straight into a database
+
+**The story.** A season of play-by-play is big. You’d rather query it
+from disk than hold it in memory.
+
+Every `load_` function shares the same optional plumbing – learn it
+once, you’ve learned it everywhere:
+
+``` r
+
+library(DBI)
+con <- dbConnect(RSQLite::SQLite(), "wnba.sqlite")
+
+load_wnba_pbp(
+  seasons      = 2020:2024,
+  dbConnection = con,
+  tablename    = "wnba_pbp"
+)
+
+dbDisconnect(con)
+```
+
+Margin note: consistency is a feature. Because every `load_` function
+shares the `(seasons, ..., dbConnection, tablename)` signature, learning
+one teaches you all of them – guess the arguments the same way you guess
+the names.
+
+## Working through a proxy
+
+On a corporate or campus network your traffic may need a proxy. `wehoop`
+understands proxies in three layers – use the least invasive one that
+works.
+
+**Layer 1 – set it once for the session.** This covers everything: ESPN,
+WNBA Stats, loaders.
+
+``` r
+
+# Plain proxy.
+options(wehoop.proxy = "http://proxy.company.com:8080")
+
+# Authenticated proxy -- pass a list and it's spread into the request.
+options(wehoop.proxy = list(
+  url      = "http://proxy.company.com",
+  port     = 8080,
+  username = "saiem",
+  password = Sys.getenv("PROXY_PASS")
+))
+
+# From here on, nothing changes -- just call functions normally.
+espn_wnba_team_roster(team_id = 17, season = most_recent_wnba_season())
+wnba_leagueleaders(season = "2024")
+```
+
+**Layer 2 – one call, one proxy.** Every WNBA Stats API function
+(`wnba_*`) threads `...` down to the HTTP layer, so you can override the
+proxy for a single call:
+
+``` r
+
+wnba_playbyplayv3(
+  game_id = "1022400001",
+  proxy   = "http://other-proxy.company.com:3128"
+)
+```
+
+A grammar-flavored caveat: per-call `proxy =` works for the `wnba_*`
+Stats API functions because they pass `...` through. The `espn_*` and
+`load_*` functions call the HTTP layer directly and don’t take a
+per-call proxy – for those, use the session option in Layer 1. The
+prefix tells you the capability: `wnba_` functions are the ones wired
+for per-call overrides.
+
+**Layer 3 – let the environment decide.** If you’d rather keep proxies
+out of your R code entirely, `wehoop` honors the standard environment
+variables:
+
+``` r
+
+Sys.setenv(
+  http_proxy  = "http://proxy.company.com:8080",
+  https_proxy = "http://proxy.company.com:8080",
+  no_proxy    = "localhost,127.0.0.1"
+)
+```
+
+libcurl reads these automatically whenever you haven’t set an explicit
+proxy. It’s the right layer for shared scripts and CI, where the proxy
+is a property of the machine, not the analysis.
+
+## Where to go next
+
+You have the grammar now. Every recipe above was the same move: decide
+where the data lives (the prefix), name the league, then name the thing
+general to specific. The WNBA surface in `wehoop` is large but *regular*
+– and regular things are guessable.
+
+The women’s college game runs on the same package with the same grammar
+– swap `wnba` for `wbb`, meet the NCAA-sourced functions, and keep
+cooking. That’s the WBB cookbook.

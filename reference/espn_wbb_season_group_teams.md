@@ -151,7 +151,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_group_teams(group_id = 5, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Group Teams Index ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 19:25:21 UTC
+#> ℹ Data updated: 2026-05-22 06:23:59 UTC
 #> # A tibble: 10 × 6
 #>    league                    season season_type group_id team_id ref            
 #>    <chr>                      <int>       <int> <chr>    <chr>   <chr>          

@@ -1,0 +1,299 @@
+# Women's College Basketball Cookbook
+
+## Before we cook
+
+Women’s college basketball has never been more watched, and the data has
+never been better. `wehoop` covers it end to end – 360-odd Division I
+teams, a March bracket, and the NCAA’s own NET rankings. The trick to
+not drowning is the same as everywhere else in this family of packages:
+**learn the grammar of the function names and you can guess your way to
+almost anything.**
+
+If you’ve read the WNBA cookbook, you already know most of the grammar.
+This one swaps the league token from `wnba` to `wbb` and adds one new
+prefix – `ncaa_wbb_` for NCAA.com data. That’s nearly the whole diff.
+
+### The grammar, refreshed for college
+
+A `wehoop` college function answers three questions, in order:
+
+1.  **Where’s the data from?** – the prefix.
+    - `espn_` – ESPN’s APIs. The broad, stable backbone.
+    - `ncaa_wbb_` – NCAA.com. Home of the NET rankings and the official
+      bracket machinery. (Here the prefix carries the league with it.)
+    - `load_` – pre-built bulk season files.
+2.  **Which league?** – for ESPN it’s spelled out: `espn_wbb_`. The
+    `wbb` token is “women’s basketball.”
+3.  **What do you want?** – the rest of the name, general to specific.
+
+So “a team’s schedule from ESPN” is `espn_` + `wbb_` + `team_schedule`
+-\>
+[`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md).
+“NCAA NET rankings” is `ncaa_wbb_` + `NET_rankings` -\>
+[`ncaa_wbb_NET_rankings()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_NET_rankings.md).
+You’ll be right far more often than wrong, and being wrong just means
+opening the reference index.
+
+``` r
+
+library(wehoop)
+library(dplyr)
+```
+
+## Recipe 1: A powerhouse program’s season
+
+**The story.** It’s November and you want to set the table for UConn’s
+season – schedule, roster, where they sit.
+
+Type `espn_wbb_team` and the grammar lays out the menu:
+
+``` r
+
+team_id <- 2509            # UConn
+season  <- most_recent_wbb_season()
+
+espn_wbb_team(team_id = team_id)                              # identity + record
+espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
+espn_wbb_team_roster(team_id = team_id, season = season)      # the players
+espn_wbb_team_season_statistics(team_id = team_id, season = season)
+```
+
+Margin note:
+[`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md)
+is worth knowing. Every league in `wehoop` has a
+`most_recent_<league>_season()` companion, and the newer `espn_wbb_*`
+functions use it as their default `season`. Most of the time you can
+simply *omit* `season` – the function already knows what “now” means.
+
+## Recipe 2: The star guard
+
+**The story.** Women’s college basketball has become a star-driven
+sport, and you want a marquee guard’s numbers.
+
+College rosters turn over fast, so start from the team roster (Recipe 1)
+to grab an `athlete_id`, then walk the `athlete_` family:
+
+``` r
+
+athlete_id <- 4433404   # a recent star guard
+
+espn_wbb_athlete_info(athlete_id = athlete_id)            # bio
+espn_wbb_athlete_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
+espn_wbb_athlete_career_stats(athlete_id = athlete_id)    # career rollup, long format
+```
+
+Margin note: `athlete_info`, `athlete_gamelog`, `athlete_career_stats`
+all share the `athlete_` stem. A repeated stem is a *namespace* – a
+promise that everything under it is about the same subject. Browsing by
+stem (`espn_wbb_athlete` + Tab) is often faster than searching.
+
+## Recipe 3: The NET rankings
+
+**The story.** Box scores and the eye test only get you so far in
+seeding arguments. The NCAA’s NET ranking is the number that actually
+drives the bracket, and you want it.
+
+This is where the new prefix earns its keep. NCAA.com data is
+`ncaa_wbb_`.
+
+``` r
+
+# ncaa_wbb / NET / rankings. The name is the thing.
+net <- ncaa_wbb_NET_rankings()
+
+net |>
+  select(rank, team, conference, net_wins, net_losses) |>
+  head(25)
+```
+
+The grammar lesson: a prefix is a compressed paragraph. The moment you
+see `ncaa_wbb_`, you know the data is women’s-college-only and comes
+from the NCAA’s own systems rather than ESPN’s. Learn what each prefix
+promises and a lot of the documentation becomes redundant.
+
+## Recipe 4: Game flow
+
+**The story.** A December non-conference game went down to the wire. You
+want the play-by-play and a sense of the swing.
+
+Same three zoom levels as every other cookbook – the grammar is
+league-agnostic:
+
+``` r
+
+game_id <- 401276115
+
+espn_wbb_game_all(game_id = game_id)      # everything, as a named list
+espn_wbb_team_box(game_id = game_id)      # team box
+espn_wbb_player_box(game_id = game_id)    # player box
+espn_wbb_pbp(game_id = game_id)           # play-by-play
+
+# ESPN's win-probability-per-play for the same game.
+espn_wbb_event_probabilities(event_id = game_id)
+```
+
+If you read the WNBA cookbook, you’ve now seen `espn_*_game_all`,
+`espn_*_team_box`, `espn_*_player_box`, `espn_*_pbp` in two leagues with
+*only the league token changing*. That’s the payoff of a regular
+grammar: a recipe learned once transfers by editing a single word.
+
+## Recipe 5: Per-player, per-game box scores
+
+**The story.** You want one player’s line from one game, tidy and long –
+not the whole `player_box`.
+
+``` r
+
+# event + team + athlete -- three IDs, because you're naming one cell
+# of one game. More identifiers = finer grain. Always.
+espn_wbb_event_player_box(
+  event_id   = 401276115,
+  team_id    = 52,
+  athlete_id = 4398583
+)
+```
+
+## Recipe 6: The conference race
+
+**The story.** It’s February and your conference is a dogfight. You want
+the standings and the structure beneath them.
+
+College conferences are a *hierarchy* – divisions, conferences, the
+whole D-I grouping – and ESPN models that with the `season_group`
+family.
+
+``` r
+
+season <- most_recent_wbb_season()
+
+espn_wbb_standings(season = season)
+
+# The group tree: groups -> one group -> its teams.
+espn_wbb_season_groups(season = season, season_type = 2)
+espn_wbb_season_group(group_id = 50, season = season, season_type = 2)
+espn_wbb_season_group_teams(group_id = 50, season = season, season_type = 2)
+```
+
+Margin note: `season_groups` (plural) is the index; `season_group`
+(singular) is one item. That singular/plural pair runs through the whole
+package – `franchises`/`franchise`, `tournaments`/`tournament`,
+`positions`/`position`. Plural = “give me the list,” singular = “give me
+this one.” It’s the most reliable two-word rule in the grammar.
+
+## Recipe 7: March
+
+**The story.** The bracket. You want the tournament.
+
+``` r
+
+season <- most_recent_wbb_season()
+
+espn_wbb_tournaments()                                  # which tournaments exist
+espn_wbb_tournament(tournament_id = 3)                  # one tournament
+espn_wbb_tournament_seasons(tournament_id = 3)          # its yearly editions
+espn_wbb_tournament_season(tournament_id = 3, season = season)
+```
+
+Same singular/plural rule as Recipe 6, same general-to-specific march
+from `tournaments` down to one `tournament_season`. By now you should be
+able to *predict* this family before reading it – which is the whole
+point of the cookbook.
+
+## Recipe 8: A whole season, in bulk
+
+**The story.** You’re done with single games. You want every women’s
+college game of a season to model on.
+
+Looping
+[`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+over thousands of games works but is slow and rude to ESPN. The `load_`
+prefix exists for exactly this:
+
+``` r
+
+# load / wbb / pbp -- one call, one season.
+pbp <- load_wbb_pbp(seasons = 2024)
+
+load_wbb_player_box(seasons = 2024)
+load_wbb_team_box(seasons = 2024)
+load_wbb_schedule(seasons = 2024)
+load_wbb_shots(seasons = 2024)         # shot locations, ready to chart
+```
+
+And straight into a database, with the
+`(seasons, dbConnection, tablename)` plumbing every `load_` function
+shares:
+
+``` r
+
+library(DBI)
+con <- dbConnect(RSQLite::SQLite(), "wbb.sqlite")
+load_wbb_pbp(seasons = 2020:2024, dbConnection = con, tablename = "wbb_pbp")
+dbDisconnect(con)
+```
+
+Margin note: consistency is a feature. Every `load_` function shares the
+same signature, so learning one teaches you all of them – guess the
+arguments the same way you guess the names.
+
+## Working through a proxy
+
+Campus networks love a proxy. `wehoop` handles them in three layers –
+reach for the least invasive one that works.
+
+**Layer 1 – set it once for the session.** Covers everything: ESPN,
+NCAA, loaders.
+
+``` r
+
+options(wehoop.proxy = "http://proxy.university.edu:8080")
+
+# Authenticated proxy? Pass a list instead of a string.
+options(wehoop.proxy = list(
+  url      = "http://proxy.university.edu",
+  port     = 8080,
+  username = "netid",
+  password = Sys.getenv("PROXY_PASS")
+))
+
+# Then just work -- every call inherits it.
+espn_wbb_team_roster(team_id = 2509, season = most_recent_wbb_season())
+ncaa_wbb_NET_rankings()
+```
+
+**Layer 2 – environment variables.** For shared scripts and CI, where
+the proxy belongs to the machine and not the analysis, set the standard
+variables and let libcurl pick them up:
+
+``` r
+
+Sys.setenv(
+  http_proxy  = "http://proxy.university.edu:8080",
+  https_proxy = "http://proxy.university.edu:8080",
+  no_proxy    = "localhost,127.0.0.1"
+)
+```
+
+A grammar-flavored note on what *doesn’t* take a per-call `proxy =`
+argument: the `espn_*`, `ncaa_wbb_*`, and `load_*` functions call the
+HTTP layer directly, so they read the proxy from the session option or
+the environment – not from an argument. (In the WNBA cookbook, the
+`wnba_*` Stats API functions *do* accept per-call `proxy =`, because
+they thread `...` through. Women’s college basketball has no equivalent
+Stats-API surface, so for `wbb` you’ll use Layer 1 or Layer 2 every
+time.) Once again, the prefix tells you the capability before you go
+looking.
+
+## Where to go next
+
+The women’s college game has more teams, a deeper conference hierarchy,
+and the `ncaa_wbb_` prefix – but the grammar is identical to every other
+league in this family. You decided where the data lived, you named the
+league, you named the thing from general to specific, and you let the
+singular/plural rule and the shared stems carry you the rest of the way.
+
+`wehoop` is the women’s-game sibling of `hoopR`, and the two share this
+grammar bone for bone. `espn_wbb_team_roster` has a mirror image in
+`hoopR`’s `espn_mbb_team_roster`; a recipe you learn in one package
+crosses straight into the other. Four leagues, one grammar – and now
+it’s yours.

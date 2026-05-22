@@ -21,3 +21,18 @@
   A searchable reference table of every query parameter used by the WNBA
   Stats API endpoints wrapped in `wehoop` – parameter name, description,
   accepted values, and which functions accept it.
+
+- [Women's College Basketball
+  Cookbook](https://wehoop.sportsdataverse.org/articles/wbb-cookbook.md):
+
+  A storytelling tour of women’s college basketball analysis with
+  `wehoop` – recipes from a single game to a full bracket, plus NCAA NET
+  rankings, and a running commentary on how to read the package’s
+  function names.
+
+- [WNBA
+  Cookbook](https://wehoop.sportsdataverse.org/articles/wnba-cookbook.md):
+
+  A storytelling tour of WNBA analysis with `wehoop` – recipes from a
+  single box score to a full season, with a running commentary on how
+  the package’s function names are built so you can guess the next one.

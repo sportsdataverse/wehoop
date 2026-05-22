@@ -234,20 +234,20 @@ A dataframe with 42 columns
 # \donttest{
   try(load_wnba_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 12,655 × 64
+#> # A tibble: 14,287 × 64
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  Shak…          0
-#>  2                2   4.02e 9               7      92 Jump Shot Geor…          0
-#>  3                3   4.02e 9               8     155 Defensiv… Jess…          0
-#>  4                4   4.02e 9               9     126 Layup Dr… Jess…          0
-#>  5                5   4.02e10              10     155 Defensiv… Kiki…          0
-#>  6                6   4.02e10              11      63 Lost Bal… Kiki…          0
-#>  7                7   4.02e10              13     146 Running … Arik…          0
-#>  8                8   4.02e10              14      45 Personal… Alan…          0
-#>  9                9   4.02e10              16      92 Jump Shot Kiki…          3
-#> 10               10   4.02e10              18     131 Pullup J… Paig…          3
-#> # ℹ 12,645 more rows
+#>  1                1   4.02e 9               4     615 Jumpball  Luis…          0
+#>  2                2   4.02e 9               7      95 Layup Sh… Aliy…          0
+#>  3                3   4.02e 9               9     131 Pullup J… Brid…          0
+#>  4                4   4.02e10              10     156 Offensiv… Nyad…          0
+#>  5                5   4.02e10              11     141 Cutting … Luis…          2
+#>  6                6   4.02e10              13      42 Offensiv… Aliy…          2
+#>  7                7   4.02e10              15      84 Offensiv… Aliy…          2
+#>  8                8   4.02e10              17     128 Driving … Emil…          2
+#>  9                9   4.02e10              18     155 Defensiv… Aliy…          2
+#> 10               10   4.02e10              19     131 Pullup J… Kels…          2
+#> # ℹ 14,277 more rows
 #> # ℹ 57 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,

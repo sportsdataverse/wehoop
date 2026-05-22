@@ -160,7 +160,7 @@ Saiem Gilani
   espn_wnba_athletes_index(season = 2025, limit = 50)
 #> Fetching page 1 of 1 for wnba athletes (season=2025)...
 #> ── ESPN WNBA Athletes Index from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-19 19:25:38 UTC
+#> ℹ Data updated: 2026-05-22 06:24:16 UTC
 #> # A tibble: 50 × 9
 #>    athlete_id full_name jersey position team_id headshot status link     ref_url
 #>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>    <chr>  
