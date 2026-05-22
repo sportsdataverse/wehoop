@@ -12,15 +12,19 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE, comment = "#>", collapse = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, comment = "#>", collapse = TRUE,
+                      warning = FALSE, message = FALSE, error = TRUE)
 ```
 
 ## Before we cook
 
 Every recipe here is a small story: a real question about the WNBA, and
-the shortest honest path from that question to a tidy data frame. The
-code blocks don't run when this page builds -- they all hit live APIs --
-but each one works the moment you paste it into an R session.
+the shortest honest path from that question to a tidy data frame. Most
+of the code blocks run live when this page builds, so the tables you see
+are real data freshly pulled from ESPN and WNBA.com. A handful -- bulk
+season downloads, the database recipe, and the proxy examples -- are
+shown but not run, since they either take too long or would reconfigure
+your session; those are flagged where they appear.
 
 The one idea to carry through all of it: **`wehoop` function names are a
 grammar, not a list to memorize.** Learn the grammar and you can *guess*
@@ -221,7 +225,7 @@ players.
 The draft has its own little family, sorted general to specific exactly
 as the grammar promises:
 
-```{r}
+```{r eval = FALSE}
 season <- most_recent_wnba_season()
 
 espn_wnba_season_draft(season = season)        # the draft, top level
@@ -246,7 +250,7 @@ Looping `espn_wnba_pbp()` over hundreds of `game_id`s works but is slow
 and rude to ESPN. The `load_` prefix exists for exactly this: pre-built,
 pre-cleaned season files.
 
-```{r}
+```{r eval = FALSE}
 # load / wnba / pbp -- one call, one season.
 pbp_2024 <- load_wnba_pbp(seasons = 2024)
 
@@ -260,7 +264,7 @@ There's also a deeper, WNBA-Stats-API-sourced bulk family under the
 `load_wnba_stats_` stem -- richer play-by-play with on-court lineups,
 possession assignment, and a garbage-time flag:
 
-```{r}
+```{r eval = FALSE}
 load_wnba_stats_pbp(seasons = 2024)
 load_wnba_stats_player_game_logs(seasons = 2024)
 load_wnba_stats_lineups(seasons = 2024)
@@ -280,7 +284,7 @@ from disk than hold it in memory.
 Every `load_` function shares the same optional plumbing -- learn it
 once, you've learned it everywhere:
 
-```{r}
+```{r eval = FALSE}
 library(DBI)
 con <- dbConnect(RSQLite::SQLite(), "wnba.sqlite")
 
@@ -307,7 +311,7 @@ one that works.
 **Layer 1 -- set it once for the session.** This covers everything:
 ESPN, WNBA Stats, loaders.
 
-```{r}
+```{r eval = FALSE}
 # Plain proxy.
 options(wehoop.proxy = "http://proxy.company.com:8080")
 
@@ -346,7 +350,7 @@ for per-call overrides.
 out of your R code entirely, `wehoop` honors the standard environment
 variables:
 
-```{r}
+```{r eval = FALSE}
 Sys.setenv(
   http_proxy  = "http://proxy.company.com:8080",
   https_proxy = "http://proxy.company.com:8080",

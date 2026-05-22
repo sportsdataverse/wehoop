@@ -1,6 +1,6 @@
 ---
 title: "ESPN basketball endpoints -- WBB & WNBA"
-description: "A tour of the 80 ESPN basketball endpoint wrappers in <code>wehoop</code>, grouped by use case: game data, team detail, athlete coverage, per-event enrichments, league-wide catalogs, and WNBA-specific draft/transactions/free-agency endpoints."
+description: "A tour of the ESPN basketball endpoint wrappers in <code>wehoop</code> -- around 180 of them -- grouped by use case: game data, team detail, athlete coverage, per-event enrichments, league-wide catalogs, WNBA draft/transactions/free-agency endpoints, and the post-3.0.0 core-v2 deep expansion (athlete career, team-season stats, per-game player box, play personnel, typed-detail companions)."
 author: "Saiem Gilani <br><a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 opengraph:
   image:
@@ -12,7 +12,8 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE, comment = "#>", collapse = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, comment = "#>", collapse = TRUE,
+                      warning = FALSE, message = FALSE, error = TRUE)
 ```
 
 ## What this vignette covers
@@ -24,14 +25,14 @@ package now also wraps a much wider slice of ESPN's basketball API --
 team rosters, schedules, league news, athlete biographies and gamelogs,
 in-game win probabilities, officials, broadcast info, the WNBA draft,
 free agency, transactions, and league-wide catalogs of venues, coaches,
-and statistical leaders. Eighty ESPN endpoint wrappers in total, split
-roughly evenly between women's college basketball (`espn_wbb_*`) and the
+and statistical leaders. Around 180 ESPN endpoint wrappers in total,
+split between women's college basketball (`espn_wbb_*`) and the
 WNBA (`espn_wnba_*`).
 
 This vignette is a tour of what's available and how to compose the
-pieces. None of the chunks evaluate during `R CMD check` -- they all hit
-the live ESPN API -- but every one of them works when you copy it into
-an interactive session.
+pieces. Most of the chunks run live when the package website is built,
+so the tables below are real ESPN responses -- and every one of them
+works the same way when you copy it into an interactive session.
 
 ## A note on the API surface
 
