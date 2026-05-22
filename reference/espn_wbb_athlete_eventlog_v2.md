@@ -135,7 +135,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_eventlog_v2(athlete_id = 4433404, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Event Log ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-22 07:11:09 UTC
+#> ℹ Data updated: 2026-05-22 07:29:52 UTC
 #> # A tibble: 0 × 8
 #> # ℹ 8 variables: league <chr>, athlete_id <chr>, season <int>, event_id <chr>,
 #> #   team_id <chr>, played <lgl>, event_ref <chr>, competition_ref <chr>
