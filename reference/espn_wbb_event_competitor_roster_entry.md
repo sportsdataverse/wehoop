@@ -137,7 +137,7 @@ Saiem Gilani
   espn_wbb_event_competitor_roster_entry(event_id = 401276115,
                                             team_id = 2509,
                                             athlete_id = 4433404)
-#> ✖ 2026-05-22 06:54:33.007894: Failed to retrieve ESPN womens-college-basketball event roster entry for event_id=401276115, team_id=2509, athlete_id=4433404
+#> ✖ 2026-05-22 07:11:21.076042: Failed to retrieve ESPN womens-college-basketball event roster entry for event_id=401276115, team_id=2509, athlete_id=4433404
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115, team_id = 2509, athlete_id = 4433404
 #> ✖ Error: The API returned an error
 #> NULL

@@ -139,7 +139,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_award(award_id = 344, season = 2024)
-#> ✖ 2026-05-22 06:54:24.601963: Failed to retrieve ESPN womens-college-basketball award 344 for season=2024
+#> ✖ 2026-05-22 07:11:12.914299: Failed to retrieve ESPN womens-college-basketball award 344 for season=2024
 #> ✖ Args: league = "womens-college-basketball", season = 2024, award_id = 344
 #> ✖ Error: The API returned an error
 #> NULL
