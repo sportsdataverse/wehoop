@@ -126,7 +126,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_event_situation(event_id = 401276115)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Situation ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:50:23 UTC
+#> ℹ Data updated: 2026-05-29 18:25:52 UTC
 #> # A tibble: 1 × 15
 #>   league                   event_id home_timeouts_current home_timeouts_remain…¹
 #>   <chr>                    <chr>                    <int>                  <int>

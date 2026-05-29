@@ -130,7 +130,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_situation(event_id = 401736171)
 #> ── ESPN WNBA Event Situation ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:51:03 UTC
+#> ℹ Data updated: 2026-05-29 18:26:36 UTC
 #> # A tibble: 1 × 15
 #>   league event_id  home_timeouts_current home_timeouts_remaining
 #>   <chr>  <chr>                     <int>                   <int>

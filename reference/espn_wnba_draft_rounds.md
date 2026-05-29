@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_rounds(season = 2024)
 #> ── ESPN WNBA Draft Rounds ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 17:50:56 UTC
+#> ℹ Data updated: 2026-05-29 18:26:28 UTC
 #> # A tibble: 3 × 7
 #>   league season round display_name short_display_name n_picks status   
 #>   <chr>   <int> <int> <chr>        <chr>                <int> <chr>    

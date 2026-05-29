@@ -20,12 +20,10 @@ Tabular `resultSets[]` responses parsed via
 `wnba_stats_map_result_sets()`. See
 [`wnba_boxscoreadvancedv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreadvancedv2.md),
 [`wnba_boxscoretraditionalv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md),
-`wnba_boxscoredefensivev2()`,
 [`wnba_boxscorefourfactorsv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorefourfactorsv2.md),
 [`wnba_boxscoremiscv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv2.md),
 [`wnba_boxscoreplayertrackv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md),
 [`wnba_boxscorescoringv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorescoringv2.md),
-`wnba_boxscoresimilarityscore()`,
 [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2.md),
 [`wnba_boxscoreusagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev2.md),
 [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md).
@@ -55,7 +53,6 @@ See
 ### **Leaders, standings, league**
 
 [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md),
-`wnba_leaguestandings()`,
 [`wnba_leaguestandingsv3()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguestandingsv3.md),
 [`wnba_homepageleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_homepageleaders.md),
 [`wnba_leaderstiles()`](https://wehoop.sportsdataverse.org/reference/wnba_leaderstiles.md).
