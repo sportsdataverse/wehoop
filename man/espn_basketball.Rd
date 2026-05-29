@@ -30,7 +30,6 @@ WNBA Stats convention).
    \code{\link[=espn_wnba_game_rosters]{espn_wnba_game_rosters()}} \tab \code{\link[=espn_wbb_game_rosters]{espn_wbb_game_rosters()}} \cr
    \code{\link[=espn_wnba_player_box]{espn_wnba_player_box()}} \tab \code{\link[=espn_wbb_player_box]{espn_wbb_player_box()}} \cr
    \code{\link[=espn_wnba_team_box]{espn_wnba_team_box()}} \tab \code{\link[=espn_wbb_team_box]{espn_wbb_team_box()}} \cr
-   \code{\link[=espn_wnba_wp]{espn_wnba_wp()}} \tab \code{\link[=espn_wbb_wp]{espn_wbb_wp()}} \cr
 }
 
 }
@@ -41,7 +40,6 @@ WNBA Stats convention).
    \code{\link[=espn_wnba_standings]{espn_wnba_standings()}} \tab \code{\link[=espn_wbb_standings]{espn_wbb_standings()}} \cr
    \code{\link[=espn_wnba_player_stats]{espn_wnba_player_stats()}} \tab \code{\link[=espn_wbb_player_stats]{espn_wbb_player_stats()}} \cr
    \code{\link[=espn_wnba_team_stats]{espn_wnba_team_stats()}} \tab \code{\link[=espn_wbb_team_stats]{espn_wbb_team_stats()}} \cr
-   \code{\link[=espn_wnba_betting]{espn_wnba_betting()}} \tab \code{\link[=espn_wbb_betting]{espn_wbb_betting()}} \cr
     \tab \code{\link[=espn_wbb_conferences]{espn_wbb_conferences()}} \cr
     \tab \code{\link[=espn_wbb_rankings]{espn_wbb_rankings()}} \cr
 }

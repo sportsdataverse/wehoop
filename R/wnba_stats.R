@@ -19,9 +19,9 @@
 #'
 #' Tabular `resultSets[]` responses parsed via `wnba_stats_map_result_sets()`.
 #' See [wnba_boxscoreadvancedv2()], [wnba_boxscoretraditionalv2()],
-#' [wnba_boxscoredefensivev2()], [wnba_boxscorefourfactorsv2()],
+#' [wnba_boxscorefourfactorsv2()],
 #' [wnba_boxscoremiscv2()], [wnba_boxscoreplayertrackv2()],
-#' [wnba_boxscorescoringv2()], [wnba_boxscoresimilarityscore()],
+#' [wnba_boxscorescoringv2()],
 #' [wnba_boxscoresummaryv2()], [wnba_boxscoreusagev2()],
 #' [wnba_hustlestatsboxscore()].
 #'
@@ -43,9 +43,8 @@
 #'
 #' ## **Leaders, standings, league**
 #'
-#' [wnba_leagueleaders()], [wnba_leaguestandings()],
-#' [wnba_leaguestandingsv3()], [wnba_homepageleaders()],
-#' [wnba_leaderstiles()].
+#' [wnba_leagueleaders()], [wnba_leaguestandingsv3()],
+#' [wnba_homepageleaders()], [wnba_leaderstiles()].
 #'
 #' ## **Player + team season + game stats**
 #'

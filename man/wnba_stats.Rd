@@ -21,9 +21,9 @@ game IDs start with \code{"10"}, \code{LeagueID = "10"}.
 
 Tabular \code{resultSets[]} responses parsed via \code{wnba_stats_map_result_sets()}.
 See \code{\link[=wnba_boxscoreadvancedv2]{wnba_boxscoreadvancedv2()}}, \code{\link[=wnba_boxscoretraditionalv2]{wnba_boxscoretraditionalv2()}},
-\code{\link[=wnba_boxscoredefensivev2]{wnba_boxscoredefensivev2()}}, \code{\link[=wnba_boxscorefourfactorsv2]{wnba_boxscorefourfactorsv2()}},
+\code{\link[=wnba_boxscorefourfactorsv2]{wnba_boxscorefourfactorsv2()}},
 \code{\link[=wnba_boxscoremiscv2]{wnba_boxscoremiscv2()}}, \code{\link[=wnba_boxscoreplayertrackv2]{wnba_boxscoreplayertrackv2()}},
-\code{\link[=wnba_boxscorescoringv2]{wnba_boxscorescoringv2()}}, \code{\link[=wnba_boxscoresimilarityscore]{wnba_boxscoresimilarityscore()}},
+\code{\link[=wnba_boxscorescoringv2]{wnba_boxscorescoringv2()}},
 \code{\link[=wnba_boxscoresummaryv2]{wnba_boxscoresummaryv2()}}, \code{\link[=wnba_boxscoreusagev2]{wnba_boxscoreusagev2()}},
 \code{\link[=wnba_hustlestatsboxscore]{wnba_hustlestatsboxscore()}}.
 }
@@ -48,9 +48,8 @@ Nested JSON parsed via \code{purrr::pluck()}. See
 
 \subsection{\strong{Leaders, standings, league}}{
 
-\code{\link[=wnba_leagueleaders]{wnba_leagueleaders()}}, \code{\link[=wnba_leaguestandings]{wnba_leaguestandings()}},
-\code{\link[=wnba_leaguestandingsv3]{wnba_leaguestandingsv3()}}, \code{\link[=wnba_homepageleaders]{wnba_homepageleaders()}},
-\code{\link[=wnba_leaderstiles]{wnba_leaderstiles()}}.
+\code{\link[=wnba_leagueleaders]{wnba_leagueleaders()}}, \code{\link[=wnba_leaguestandingsv3]{wnba_leaguestandingsv3()}},
+\code{\link[=wnba_homepageleaders]{wnba_homepageleaders()}}, \code{\link[=wnba_leaderstiles]{wnba_leaderstiles()}}.
 }
 
 \subsection{\strong{Player + team season + game stats}}{
