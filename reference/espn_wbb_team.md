@@ -190,7 +190,7 @@ Saiem Gilani
   espn_wbb_team(team_id = "2509", season = 2025)
 #> $Info
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Info from ESPN.com ────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:26:11 UTC
+#> ℹ Data updated: 2026-05-29 23:25:43 UTC
 #> # A tibble: 1 × 13
 #>   id    uid    slug  abbreviation display_name short_display_name name  nickname
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -200,7 +200,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Record from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:26:11 UTC
+#> ℹ Data updated: 2026-05-29 23:25:43 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -210,7 +210,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Next Event from ESPN.com ────────────────
-#> ℹ Data updated: 2026-05-29 18:26:11 UTC
+#> ℹ Data updated: 2026-05-29 23:25:43 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                                short_name
 #>   <chr>     <chr>             <chr>                               <chr>     
@@ -218,7 +218,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Standing Summary from ESPN.com ──────────
-#> ℹ Data updated: 2026-05-29 18:26:11 UTC
+#> ℹ Data updated: 2026-05-29 23:25:43 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

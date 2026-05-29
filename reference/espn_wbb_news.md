@@ -141,14 +141,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 18:25:57 UTC
+#> ℹ Data updated: 2026-05-29 23:25:29 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  4.89e7 Head… UNCW's … UNC Wilmin… 2026-05-… FALSE   NA     https:/… 54       
-#> 2  4.89e7 Head… Biparti… A group of… 2026-05-… FALSE   Dan M… https:/… 23       
-#> 3  4.89e7 Head… Ex-Clem… Terry Don … 2026-05-… FALSE   NA     https:/… 23       
-#> 4  4.89e7 Head… Iowa, U… Iowa and U… 2026-05-… FALSE   NA     https:/… 54       
-#> 5  4.88e7 Head… CEO of … Bryan Seel… 2026-05-… FALSE   NA     https:/… 23       
+#> 1  4.88e7 Story How top… Projecting… 2026-05-… FALSE   Shane… https:/… 54       
+#> 2  4.89e7 Head… Lauren … Lauren Has… 2026-05-… FALSE   Shane… https:/… 54       
+#> 3  4.89e7 Head… Big 12 … The Big 12… 2026-05-… FALSE   NA     https:/… 23       
+#> 4  4.89e7 Head… UNCW's … UNC Wilmin… 2026-05-… FALSE   NA     https:/… 54       
+#> 5  4.89e7 Head… Biparti… A group of… 2026-05-… FALSE   Dan M… https:/… 23       
 # }
 ```
