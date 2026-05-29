@@ -149,14 +149,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_news(team_id = "17", limit = 5)
 #> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-22 07:31:07 UTC
+#> ℹ Data updated: 2026-05-29 14:19:07 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  4.88e7 Prev… Los Ang… Los Angele… 2026-05-… FALSE   NA     http://… 59       
-#> 2  4.88e7 Story WNBA ne… Draftees, … 2026-05-… FALSE   Karee… https:/… 59       
-#> 3  4.88e7 Story WNBA Po… Chicago ha… 2026-05-… FALSE   Micha… https:/… 59       
-#> 4  4.88e7 Recap Chelsea… — Chelsea … 2026-05-… FALSE   NA     http://… 59       
-#> 5  4.88e7 Media Chelsea… Chelsea Gr… 2026-05-… FALSE   NA     https:/… 59       
+#> 1  4.89e7 Story How hig… "Expansion… 2026-05-… FALSE   Micha… https:/… 59       
+#> 2  4.89e7 Head… Hammon … "Aces coac… 2026-05-… FALSE   Alexa… https:/… 59       
+#> 3  4.89e7 Recap Azzi Fu… "— Azzi Fu… 2026-05-… FALSE   NA     http://… 59       
+#> 4  4.89e7 Media Dallas … "Watch the… 2026-05-… FALSE   NA     https:/… 59       
+#> 5  4.84e7 Story 2026 WN… "Odds for … 2026-05-… FALSE   Doug … https:/… 22000    
 # }
 ```
