@@ -178,8 +178,8 @@ PlayerScreenAssistLeaders, Table5
 Other WNBA Hustle Functions: 
 \code{\link{wnba_hustlestatsboxscore}()},
 \code{\link{wnba_leaguehustlestatsplayer}()},
-\code{\link{wnba_leaguehustlestatsteam}()},
-\code{\link{wnba_leaguehustlestatsteamleaders}()}
+\code{\link{wnba_leaguehustlestatsteamleaders}()},
+\code{\link{wnba_leaguehustlestatsteam}()}
 }
 \author{
 Saiem Gilani

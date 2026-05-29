@@ -138,8 +138,8 @@ Returns a named list of data frames: HustleStatsPlayer
 Other WNBA Hustle Functions: 
 \code{\link{wnba_hustlestatsboxscore}()},
 \code{\link{wnba_leaguehustlestatsplayerleaders}()},
-\code{\link{wnba_leaguehustlestatsteam}()},
-\code{\link{wnba_leaguehustlestatsteamleaders}()}
+\code{\link{wnba_leaguehustlestatsteamleaders}()},
+\code{\link{wnba_leaguehustlestatsteam}()}
 }
 \author{
 Saiem Gilani

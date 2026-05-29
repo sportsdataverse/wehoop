@@ -71,10 +71,19 @@ navbar:
       icon: "fas fa-book-reader"
       text: " Articles"
       menu:
-      - text: Vignettes
+      - text: All Vignettes
         href: articles/index.html
-      - text: Getting started
+      - text: --------------------------------
+      - text: "Getting Started with wehoop"
         href: articles/getting-started-wehoop.html
+      - text: "ESPN Endpoints"
+        href: articles/espn-endpoints.html
+      - text: "Parameter Descriptions"
+        href: articles/parameter-descriptions.html
+      - text: "WBB Cookbook"
+        href: articles/wbb-cookbook.html
+      - text: "WNBA Cookbook"
+        href: articles/wnba-cookbook.html
     news:
       icon: "fas fa-newspaper"
       text: "News"
@@ -168,6 +177,10 @@ navbar:
       
 reference:
   - title: wehoop Data
+  - subtitle: Loaders Family Overview
+    desc: wehoop loader family overview (WNBA + WBB release loaders)
+    contents:
+      - '`wehoop_loaders`'
   - subtitle: WNBA Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
     contents:
@@ -245,6 +258,10 @@ reference:
       - '`load_wnba_stats_officials_manifest`'
       - '`update_wnba_stats_db`'
   - title: ESPN Data
+  - subtitle: ESPN Family Overview
+    desc: ESPN basketball endpoint family overview (WNBA + WBB)
+    contents:
+      - '`espn_basketball`'
   - subtitle: WBB -- Game data
     desc: Per-game endpoints for women's college basketball (play-by-play, box scores, rosters)
     contents:
@@ -483,16 +500,25 @@ reference:
       - espn_wnba_draft_athletes
       - espn_wnba_draft_status
   - title: NCAA Data
+  - subtitle: NCAA Family Overview
+    desc: NCAA women's basketball endpoint family overview
+    contents:
+      - '`ncaa_wbb`'
   - subtitle: NCAA Data Functions
     desc: Functions exported by wehoop to access NCAA Women's College Basketball Data
     contents:
       - starts_with("ncaa_")
-  
+
   - title: WNBA Stats Data
+  - subtitle: WNBA Stats Family Overview
+    desc: WNBA Stats API endpoint family overview
+    contents:
+      - '`wnba_stats`'
   - subtitle: WNBA Stats Data Functions
     desc: Functions exported by wehoop to access WNBA Stats API Data
     contents:
-      - starts_with("wnba_")      
+      - starts_with("wnba_")
+
   - subtitle: wehoop Helper Functions
     desc: Internal functions used by wehoop
     contents:

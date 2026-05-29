@@ -2,6 +2,7 @@
 % Please edit documentation in R/utils.R, R/wehoop-package.R
 \docType{package}
 \name{wehoop-package}
+\alias{wehoop}
 \alias{wehoop-package}
 \title{wehoop: Access Women's Basketball Play by Play Data}
 \description{
