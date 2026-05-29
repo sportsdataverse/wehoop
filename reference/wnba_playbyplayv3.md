@@ -78,8 +78,8 @@ Returns a named list of data frames: PlayByPlay, AvailableVideo
 Other WNBA PBP Functions:
 [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md),
 [`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md),
-[`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md),
-[`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md)
+[`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md),
+[`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
 
 ## Author
 

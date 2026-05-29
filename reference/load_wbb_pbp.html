@@ -23,8 +23,13 @@ or writes it into a db using some forwarded arguments in the dots"><meta propert
   </ul></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span>  Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown--articles"><li><a class="dropdown-item" href="../articles/index.html">Vignettes</a></li>
-    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting started</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--articles"><li><a class="dropdown-item" href="../articles/index.html">All Vignettes</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting Started with wehoop</a></li>
+    <li><a class="dropdown-item" href="../articles/espn-endpoints.html">ESPN Endpoints</a></li>
+    <li><a class="dropdown-item" href="../articles/parameter-descriptions.html">Parameter Descriptions</a></li>
+    <li><a class="dropdown-item" href="../articles/wbb-cookbook.html">WBB Cookbook</a></li>
+    <li><a class="dropdown-item" href="../articles/wnba-cookbook.html">WNBA Cookbook</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span> News</a></li>
 <li class="nav-item dropdown">
@@ -124,173 +129,7 @@ the season data into a database (used by <code><a href="update_wbb_db.html">upda
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A dataframe with 55 columns:</p><dl><dt>shooting_play</dt>
-<dd><p>Logical value (TRUE/FALSE) indicating whether the play was a shooting play</p></dd>
-
-<dt>sequence_number</dt>
-<dd><p>Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so)</p></dd>
-
-<dt>period_display_value</dt>
-<dd><p>Long form of period (1st quarter, 2nd Quarter, OT, etc.)</p></dd>
-
-<dt>period_number</dt>
-<dd><p>The numeric period of play in the game</p></dd>
-
-<dt>home_score</dt>
-<dd><p>Home score at the time of the play</p></dd>
-
-<dt>scoring_play</dt>
-<dd><p>Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored</p></dd>
-
-<dt>clock_display_value</dt>
-<dd><p>Time left within the period</p></dd>
-
-<dt>team_id</dt>
-<dd><p>Unique team identification number for the offensive team</p></dd>
-
-<dt>type_id</dt>
-<dd><p>Unique play type identifcation number</p></dd>
-
-<dt>type_text</dt>
-<dd><p>Play type text description</p></dd>
-
-<dt>away_score</dt>
-<dd><p>Away score at the time of the play</p></dd>
-
-<dt>id</dt>
-<dd><p>Unique play identifcation number</p></dd>
-
-<dt>text</dt>
-<dd><p>Text description of the play</p></dd>
-
-<dt>score_value</dt>
-<dd><p>The points value of the shot taken</p></dd>
-
-<dt>participants_0_athlete_id</dt>
-<dd><p>Unique player identification number</p></dd>
-
-<dt>participants_1_athlete_id</dt>
-<dd><p>Unique player identification number</p></dd>
-
-<dt>season</dt>
-<dd><p>Season of the game</p></dd>
-
-<dt>season_type</dt>
-<dd><p>Season type of the game, 1 is pre-season, 2 is regular season, 3 is post-season, 4 is off-season</p></dd>
-
-<dt>away_team_id</dt>
-<dd><p>Unique away team identification number</p></dd>
-
-<dt>away_team_name</dt>
-<dd><p>Away team name</p></dd>
-
-<dt>away_team_mascot</dt>
-<dd><p>Away team mascot</p></dd>
-
-<dt>away_team_abbrev</dt>
-<dd><p>Text abbreviation for the away team</p></dd>
-
-<dt>away_team_name_alt</dt>
-<dd><p>Alternate versions of the away team abbreviation</p></dd>
-
-<dt>home_team_id</dt>
-<dd><p>Unique home team identification number</p></dd>
-
-<dt>home_team_name</dt>
-<dd><p>home team name</p></dd>
-
-<dt>home_team_mascot</dt>
-<dd><p>home team mascot</p></dd>
-
-<dt>home_team_abbrev</dt>
-<dd><p>Text abbreviation for the home team</p></dd>
-
-<dt>home_team_name_alt</dt>
-<dd><p>Alternate versions of the home team abbreviation</p></dd>
-
-<dt>home_team_spread</dt>
-<dd><p>The game spread with respect to the home team</p></dd>
-
-<dt>game_spread</dt>
-<dd><p>Game spread in (-X Team) format</p></dd>
-
-<dt>home_favorite</dt>
-<dd><p>Logical (TRUE/FALSE) indicating whether the home team is favored</p></dd>
-
-<dt>game_spread_available</dt>
-<dd><p>Logical (TRUE/FALSE) indicating whether the spread was available from ESPN. Basically, I would just not recommend using any of the spread information, I think I defaulted a lot of them to -2.5 for the home team. Most games probably do not have spread information. This column should really be listed first</p></dd>
-
-<dt>game_id</dt>
-<dd><p>Unique identifier for the game event</p></dd>
-
-<dt>qtr</dt>
-<dd><p>Quarter of the game</p></dd>
-
-<dt>time</dt>
-<dd><p>Time left within the period</p></dd>
-
-<dt>clock_minutes</dt>
-<dd><p>Clock minutes split from seconds for developer convenience</p></dd>
-
-<dt>clock_seconds</dt>
-<dd><p>Clock seconds split from minutes for developer convenience</p></dd>
-
-<dt>half</dt>
-<dd><p>Half of the game</p></dd>
-
-<dt>game_half</dt>
-<dd><p>Half of the game</p></dd>
-
-<dt>lag_qtr</dt>
-<dd><p>A lag column on the quarter</p></dd>
-
-<dt>lead_qtr</dt>
-<dd><p>A lead column on the quarter</p></dd>
-
-<dt>lag_game_half</dt>
-<dd><p>A lag column on the half</p></dd>
-
-<dt>lead_game_half</dt>
-<dd><p>A lead column on the half</p></dd>
-
-<dt>start_quarter_seconds_remaining</dt>
-<dd><p>Quarter seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously)</p></dd>
-
-<dt>start_half_seconds_remaining</dt>
-<dd><p>Game half seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously)</p></dd>
-
-<dt>start_game_seconds_remaining</dt>
-<dd><p>Game seconds remaining at the start of the play (”')</p></dd>
-
-<dt>game_play_number</dt>
-<dd><p>Game play number</p></dd>
-
-<dt>end_quarter_seconds_remaining</dt>
-<dd><p>Quarter seconds remaining at the end of the play (”')</p></dd>
-
-<dt>end_half_seconds_remaining</dt>
-<dd><p>Game half seconds remaining at the end of the play (”')</p></dd>
-
-<dt>end_game_seconds_remaining</dt>
-<dd><p>Game seconds remaining at the end of the play (”')</p></dd>
-
-<dt>period</dt>
-<dd><p>Period of the game</p></dd>
-
-<dt>coordinate_x</dt>
-<dd><p>The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful.</p></dd>
-
-<dt>coordinate_y</dt>
-<dd></dd>
-
-<dt>week</dt>
-<dd><p>Apparently there are weeks</p></dd>
-
-<dt>media_id</dt>
-<dd><p>Where did you come from</p></dd>
-
-
-</dl></div>
+    <p>A dataframe with 55 columns:</p><table class="table table"><tr><td>col_name</td><td>description</td></tr><tr><td>shooting_play</td><td>Logical value (TRUE/FALSE) indicating whether the play was a shooting play</td></tr><tr><td>sequence_number</td><td>Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so)</td></tr><tr><td>period_display_value</td><td>Long form of period (1st quarter, 2nd Quarter, OT, etc.)</td></tr><tr><td>period_number</td><td>The numeric period of play in the game</td></tr><tr><td>home_score</td><td>Home score at the time of the play</td></tr><tr><td>scoring_play</td><td>Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored</td></tr><tr><td>clock_display_value</td><td>Time left within the period</td></tr><tr><td>team_id</td><td>Unique team identification number for the offensive team</td></tr><tr><td>type_id</td><td>Unique play type identifcation number</td></tr><tr><td>type_text</td><td>Play type text description</td></tr><tr><td>away_score</td><td>Away score at the time of the play</td></tr><tr><td>id</td><td>Unique play identifcation number</td></tr><tr><td>text</td><td>Text description of the play</td></tr><tr><td>score_value</td><td>The points value of the shot taken</td></tr><tr><td>participants_0_athlete_id</td><td>Unique player identification number</td></tr><tr><td>participants_1_athlete_id</td><td>Unique player identification number</td></tr><tr><td>season</td><td>Season of the game</td></tr><tr><td>season_type</td><td>Season type of the game, 1 is pre-season, 2 is regular season, 3 is post-season, 4 is off-season</td></tr><tr><td>away_team_id</td><td>Unique away team identification number</td></tr><tr><td>away_team_name</td><td>Away team name</td></tr><tr><td>away_team_mascot</td><td>Away team mascot</td></tr><tr><td>away_team_abbrev</td><td>Text abbreviation for the away team</td></tr><tr><td>away_team_name_alt</td><td>Alternate versions of the away team abbreviation</td></tr><tr><td>home_team_id</td><td>Unique home team identification number</td></tr><tr><td>home_team_name</td><td>home team name</td></tr><tr><td>home_team_mascot</td><td>home team mascot</td></tr><tr><td>home_team_abbrev</td><td>Text abbreviation for the home team</td></tr><tr><td>home_team_name_alt</td><td>Alternate versions of the home team abbreviation</td></tr><tr><td>home_team_spread</td><td>The game spread with respect to the home team</td></tr><tr><td>game_spread</td><td>Game spread in (-X Team) format</td></tr><tr><td>home_favorite</td><td>Logical (TRUE/FALSE) indicating whether the home team is favored</td></tr><tr><td>game_spread_available</td><td>Logical (TRUE/FALSE) indicating whether the spread was available from ESPN. Basically, I would just not recommend using any of the spread information, I think I defaulted a lot of them to -2.5 for the home team. Most games probably do not have spread information. This column should really be listed first</td></tr><tr><td>game_id</td><td>Unique identifier for the game event</td></tr><tr><td>qtr</td><td>Quarter of the game</td></tr><tr><td>time</td><td>Time left within the period</td></tr><tr><td>clock_minutes</td><td>Clock minutes split from seconds for developer convenience</td></tr><tr><td>clock_seconds</td><td>Clock seconds split from minutes for developer convenience</td></tr><tr><td>half</td><td>Half of the game</td></tr><tr><td>game_half</td><td>Half of the game</td></tr><tr><td>lag_qtr</td><td>A lag column on the quarter</td></tr><tr><td>lead_qtr</td><td>A lead column on the quarter</td></tr><tr><td>lag_game_half</td><td>A lag column on the half</td></tr><tr><td>lead_game_half</td><td>A lead column on the half</td></tr><tr><td>start_quarter_seconds_remaining</td><td>Quarter seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously)</td></tr><tr><td>start_half_seconds_remaining</td><td>Game half seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously)</td></tr><tr><td>start_game_seconds_remaining</td><td>Game seconds remaining at the start of the play (”')</td></tr><tr><td>game_play_number</td><td>Game play number</td></tr><tr><td>end_quarter_seconds_remaining</td><td>Quarter seconds remaining at the end of the play (”')</td></tr><tr><td>end_half_seconds_remaining</td><td>Game half seconds remaining at the end of the play (”')</td></tr><tr><td>end_game_seconds_remaining</td><td>Game seconds remaining at the end of the play (”')</td></tr><tr><td>period</td><td>Period of the game</td></tr><tr><td>coordinate_x</td><td>The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful.</td></tr><tr><td>coordinate_y</td><td></td></tr><tr><td>week</td><td>Apparently there are weeks</td></tr><tr><td>media_id</td><td>Where did you come from</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

@@ -40,252 +40,64 @@ load_wbb_pbp(
 
 A dataframe with 55 columns:
 
-- shooting_play:
-
-  Logical value (TRUE/FALSE) indicating whether the play was a shooting
-  play
-
-- sequence_number:
-
-  Sequence number is supposed to represent a shot-possession, examine
-  the last two numbers to see if there are multiple events that occur
-  within the same shot-possession. A shot-possession is basically any
-  sequence of plays until there is a shot, change in possession, and
-  probably things like technical fouls and the like. So as soon as a
-  shot goes up, a new sequence starts regardless, even if the shooting
-  team retains possession via offensive or deadball rebound. The first
-  portion of the number is usually time related (i.e. the numeric
-  representation of when the sequence started, from a seconds remaining
-  in the period perspective or so)
-
-- period_display_value:
-
-  Long form of period (1st quarter, 2nd Quarter, OT, etc.)
-
-- period_number:
-
-  The numeric period of play in the game
-
-- home_score:
-
-  Home score at the time of the play
-
-- scoring_play:
-
-  Logical value (TRUE/FALSE) indicating whether the play was a play on
-  which the offense scored
-
-- clock_display_value:
-
-  Time left within the period
-
-- team_id:
-
-  Unique team identification number for the offensive team
-
-- type_id:
-
-  Unique play type identifcation number
-
-- type_text:
-
-  Play type text description
-
-- away_score:
-
-  Away score at the time of the play
-
-- id:
-
-  Unique play identifcation number
-
-- text:
-
-  Text description of the play
-
-- score_value:
-
-  The points value of the shot taken
-
-- participants_0_athlete_id:
-
-  Unique player identification number
-
-- participants_1_athlete_id:
-
-  Unique player identification number
-
-- season:
-
-  Season of the game
-
-- season_type:
-
-  Season type of the game, 1 is pre-season, 2 is regular season, 3 is
-  post-season, 4 is off-season
-
-- away_team_id:
-
-  Unique away team identification number
-
-- away_team_name:
-
-  Away team name
-
-- away_team_mascot:
-
-  Away team mascot
-
-- away_team_abbrev:
-
-  Text abbreviation for the away team
-
-- away_team_name_alt:
-
-  Alternate versions of the away team abbreviation
-
-- home_team_id:
-
-  Unique home team identification number
-
-- home_team_name:
-
-  home team name
-
-- home_team_mascot:
-
-  home team mascot
-
-- home_team_abbrev:
-
-  Text abbreviation for the home team
-
-- home_team_name_alt:
-
-  Alternate versions of the home team abbreviation
-
-- home_team_spread:
-
-  The game spread with respect to the home team
-
-- game_spread:
-
-  Game spread in (-X Team) format
-
-- home_favorite:
-
-  Logical (TRUE/FALSE) indicating whether the home team is favored
-
-- game_spread_available:
-
-  Logical (TRUE/FALSE) indicating whether the spread was available from
-  ESPN. Basically, I would just not recommend using any of the spread
-  information, I think I defaulted a lot of them to -2.5 for the home
-  team. Most games probably do not have spread information. This column
-  should really be listed first
-
-- game_id:
-
-  Unique identifier for the game event
-
-- qtr:
-
-  Quarter of the game
-
-- time:
-
-  Time left within the period
-
-- clock_minutes:
-
-  Clock minutes split from seconds for developer convenience
-
-- clock_seconds:
-
-  Clock seconds split from minutes for developer convenience
-
-- half:
-
-  Half of the game
-
-- game_half:
-
-  Half of the game
-
-- lag_qtr:
-
-  A lag column on the quarter
-
-- lead_qtr:
-
-  A lead column on the quarter
-
-- lag_game_half:
-
-  A lag column on the half
-
-- lead_game_half:
-
-  A lead column on the half
-
-- start_quarter_seconds_remaining:
-
-  Quarter seconds remaining at the start of the play (these are more or
-  less code artifacts from other sports, but may eventually be used more
-  seriously)
-
-- start_half_seconds_remaining:
-
-  Game half seconds remaining at the start of the play (these are more
-  or less code artifacts from other sports, but may eventually be used
-  more seriously)
-
-- start_game_seconds_remaining:
-
-  Game seconds remaining at the start of the play (”')
-
-- game_play_number:
-
-  Game play number
-
-- end_quarter_seconds_remaining:
-
-  Quarter seconds remaining at the end of the play (”')
-
-- end_half_seconds_remaining:
-
-  Game half seconds remaining at the end of the play (”')
-
-- end_game_seconds_remaining:
-
-  Game seconds remaining at the end of the play (”')
-
-- period:
-
-  Period of the game
-
-- coordinate_x:
-
-  The entire scale is a rectangle of size 25x47, intended as a
-  half-court representation of the basketball court (i.e. on the side of
-  the offense), with each coordinate unit representing a foot. It
-  appears that the basket is roughly represented as the (25, 0) point.
-  This is a nonsensical definition when considering that the basket
-  overhangs the court, with the backboard aligned 48 inches from the
-  baseline, then the center of the hoop being roughly 11 inches from
-  there. This is an idiosyncracy of either sensor placement or software
-  and data entry. Use your best judgement in making your charts, I think
-  you will find that making some translations will be helpful.
-
-- coordinate_y:
-
-- week:
-
-  Apparently there are weeks
-
-- media_id:
-
-  Where did you come from
+|  |  |
+|----|----|
+| col_name | description |
+| shooting_play | Logical value (TRUE/FALSE) indicating whether the play was a shooting play |
+| sequence_number | Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) |
+| period_display_value | Long form of period (1st quarter, 2nd Quarter, OT, etc.) |
+| period_number | The numeric period of play in the game |
+| home_score | Home score at the time of the play |
+| scoring_play | Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored |
+| clock_display_value | Time left within the period |
+| team_id | Unique team identification number for the offensive team |
+| type_id | Unique play type identifcation number |
+| type_text | Play type text description |
+| away_score | Away score at the time of the play |
+| id | Unique play identifcation number |
+| text | Text description of the play |
+| score_value | The points value of the shot taken |
+| participants_0_athlete_id | Unique player identification number |
+| participants_1_athlete_id | Unique player identification number |
+| season | Season of the game |
+| season_type | Season type of the game, 1 is pre-season, 2 is regular season, 3 is post-season, 4 is off-season |
+| away_team_id | Unique away team identification number |
+| away_team_name | Away team name |
+| away_team_mascot | Away team mascot |
+| away_team_abbrev | Text abbreviation for the away team |
+| away_team_name_alt | Alternate versions of the away team abbreviation |
+| home_team_id | Unique home team identification number |
+| home_team_name | home team name |
+| home_team_mascot | home team mascot |
+| home_team_abbrev | Text abbreviation for the home team |
+| home_team_name_alt | Alternate versions of the home team abbreviation |
+| home_team_spread | The game spread with respect to the home team |
+| game_spread | Game spread in (-X Team) format |
+| home_favorite | Logical (TRUE/FALSE) indicating whether the home team is favored |
+| game_spread_available | Logical (TRUE/FALSE) indicating whether the spread was available from ESPN. Basically, I would just not recommend using any of the spread information, I think I defaulted a lot of them to -2.5 for the home team. Most games probably do not have spread information. This column should really be listed first |
+| game_id | Unique identifier for the game event |
+| qtr | Quarter of the game |
+| time | Time left within the period |
+| clock_minutes | Clock minutes split from seconds for developer convenience |
+| clock_seconds | Clock seconds split from minutes for developer convenience |
+| half | Half of the game |
+| game_half | Half of the game |
+| lag_qtr | A lag column on the quarter |
+| lead_qtr | A lead column on the quarter |
+| lag_game_half | A lag column on the half |
+| lead_game_half | A lead column on the half |
+| start_quarter_seconds_remaining | Quarter seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously) |
+| start_half_seconds_remaining | Game half seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously) |
+| start_game_seconds_remaining | Game seconds remaining at the start of the play (”') |
+| game_play_number | Game play number |
+| end_quarter_seconds_remaining | Quarter seconds remaining at the end of the play (”') |
+| end_half_seconds_remaining | Game half seconds remaining at the end of the play (”') |
+| end_game_seconds_remaining | Game seconds remaining at the end of the play (”') |
+| period | Period of the game |
+| coordinate_x | The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. |
+| coordinate_y |  |
+| week | Apparently there are weeks |
+| media_id | Where did you come from |
 
 ## Examples
 

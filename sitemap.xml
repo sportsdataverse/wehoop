@@ -27,6 +27,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-resp_text.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-retry_request.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-v3_to_v2_format_wnba.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_basketball.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.html</loc></url>
@@ -253,6 +254,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/most_recent_wnba_stats_season.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb_NET_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/parameter_descriptions.html</loc></url>
@@ -263,6 +265,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/update_wnba_db.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wehoop-package.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/wehoop_loaders.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_alltimeleadersgrids.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_assistleaders.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_assisttracker.html</loc></url>
@@ -366,6 +369,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_shotchartdetail.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_shotchartleaguewide.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_shotchartlineupdetail.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/wnba_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygamesplits.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygeneralsplits.html</loc></url>
