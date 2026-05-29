@@ -134,7 +134,7 @@ Saiem Gilani
   espn_wbb_athlete_stats(athlete_id = "4433404", season = 2025)
 #> $`Season Averages`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 4 × 5
 #>   team_id team_slug         season$year $displayName stats      position
 #>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
@@ -145,7 +145,7 @@ Saiem Gilani
 #> 
 #> $`Season Totals`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 4 × 5
 #>   team_id team_slug         season$year $displayName stats      position
 #>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
@@ -156,7 +156,7 @@ Saiem Gilani
 #> 
 #> $`Season Misc Totals`
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 4 × 5
 #>   team_id team_slug         season$year $displayName stats     position
 #>   <chr>   <chr>                   <int> <chr>        <list>    <chr>   
@@ -167,32 +167,32 @@ Saiem Gilani
 #> 
 #> $General
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:43:34 UTC
+#> ℹ Data updated: 2026-05-29 17:35:21 UTC
 #> # A tibble: 0 × 0
 #> 
 # }
