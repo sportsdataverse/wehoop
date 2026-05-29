@@ -147,7 +147,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_event_odds(event_id = "401736171")
 #> ── ESPN WNBA Event Odds (event_id=401736171) from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-29 14:18:45 UTC
+#> ℹ Data updated: 2026-05-29 14:44:25 UTC
 #> # A tibble: 2 × 12
 #>   event_id  provider_id provider_name  details over_under spread home_money_line
 #>   <chr>     <chr>       <chr>          <chr>        <dbl>  <dbl>           <int>
