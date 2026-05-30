@@ -1,6 +1,6 @@
 ## Release summary
 
-This is a minor release that:
+This is a major release (2.1.0 -> 3.0.0) that:
 
 ### New / restored functionality
 
