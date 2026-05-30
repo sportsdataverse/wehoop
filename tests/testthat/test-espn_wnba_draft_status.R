@@ -10,8 +10,10 @@ test_that("ESPN - WNBA Draft Status", {
   }
 
   required_cols <- c(
+    "league",
     "season",
-    "league"
+    "round",
+    "type_id"
   )
   expect_in(sort(required_cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
