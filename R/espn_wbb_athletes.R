@@ -176,20 +176,31 @@ NULL
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
 #' @param ... Additional arguments; currently unused.
-#' @return A named list of per-category tibbles. Default category names are
-#'   `General`, `Offensive`, `Defensive`, `Rebounding`, `Shooting`, `Misc`.
-#'   Actual names are driven by the ESPN response; additional categories may
-#'   appear. Each tibble has columns depending on the category returned by
-#'   ESPN.
+#' @return A wide `wehoop_data` tibble, one row per athlete-season-team, with
+#'   the ESPN stat categories spread across prefixed columns:
+#'
+#'    |col_name      |types     |description                                              |
+#'    |:-------------|:---------|:--------------------------------------------------------|
+#'    |athlete_id    |character |ESPN athlete identifier (echoed input).                  |
+#'    |season        |integer   |Season year for the stat line.                           |
+#'    |team_id       |character |ESPN team identifier for that season.                    |
+#'    |team_slug     |character |Team slug (e.g. 'iowa-hawkeyes').                        |
+#'    |avg_*         |numeric   |Per-game season-average stats (e.g. `avg_avg_points`).   |
+#'    |tot_*         |numeric   |Season-total stats (e.g. `tot_points`).                  |
+#'    |misc_*        |numeric   |Miscellaneous season totals.                             |
+#'
+#'   Stat column names come from ESPN's positional `names` array per category,
+#'   cleaned via [janitor::make_clean_names()]; the exact set varies by league
+#'   and season.
 #'
 #' @importFrom jsonlite fromJSON
-#' @importFrom dplyr as_tibble select any_of bind_rows
-#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble select any_of bind_rows bind_cols full_join mutate relocate across arrange tibble
+#' @importFrom janitor clean_names make_clean_names
 #' @export
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_stats(athlete_id = "4433404", season = 2025)
+#'   espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
 #' }
 espn_wbb_athlete_stats <- function(athlete_id,
                                    season = most_recent_wbb_season(),

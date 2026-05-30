@@ -3,7 +3,7 @@ test_that("ESPN - WBB Athlete Overview", {
   skip_on_ci()
   skip_espn_test()
 
-  x <- espn_wbb_athlete_overview(athlete_id = "4432755", season = 2025)
+  x <- espn_wbb_athlete_overview(athlete_id = "4433985", season = 2025)
 
   if (length(x) == 0) {
     skip("No data returned from endpoint at test time")

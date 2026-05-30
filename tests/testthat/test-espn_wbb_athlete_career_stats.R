@@ -3,7 +3,7 @@ test_that("ESPN - WBB Athlete Career Stats (Long Format)", {
   skip_on_ci()
   skip_espn_test()
 
-  x <- espn_wbb_athlete_career_stats(athlete_id = "4432755")
+  x <- espn_wbb_athlete_career_stats(athlete_id = "4433985")
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
     skip("No rows returned from espn_wbb_athlete_career_stats at test time")

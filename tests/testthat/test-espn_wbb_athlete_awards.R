@@ -3,7 +3,7 @@ test_that("ESPN - WBB Athlete Awards", {
   skip_on_ci()
   skip_espn_test()
 
-  x <- espn_wbb_athlete_awards(athlete_id = "4432755")
+  x <- espn_wbb_athlete_awards(athlete_id = "4433985")
 
   # Awards endpoint is sparse -- always returns a data frame (possibly empty)
   expect_s3_class(x, "data.frame")

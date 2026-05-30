@@ -3,7 +3,7 @@ test_that("ESPN - WBB Athlete Eventlog", {
   skip_on_ci()
   skip_espn_test()
 
-  x <- espn_wbb_athlete_eventlog(athlete_id = "4432755", season = 2025)
+  x <- espn_wbb_athlete_eventlog(athlete_id = "4433985", season = 2025)
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
     skip("No rows returned from endpoint at test time")

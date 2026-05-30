@@ -349,6 +349,15 @@ The following wrappers were deprecated in 2.1.0 or earlier in 3.0.0 dev when the
 | `wnba_teamyearbyyearstats()` | `TeamStats` with 30 seasons × 34 columns of full franchise-level year-by-year ledger (GP, W, L, win%, conference rank, division rank, ratings) for the Aces. |
 | `wnba_leaguelineupviz()` | `LeagueLineupViz` with 458–4,169 5-player lineup combinations × 25 columns (off/def/net rating, pace, TS%, eFG%) depending on filters, current 2025-26 WNBA season. |
 
+#### *ESPN return-shape streamlining (rectangularization)*
+
+Following an audit of all ESPN wrappers against the package's "single wide, self-describing tibble" preference:
+
+| Function(s) | Change |
+|---|---|
+| `espn_wbb_athlete_stats()`, `espn_wnba_athlete_stats()` | **Return shape changed from a named list of per-category tibbles to a single wide `wehoop_data` tibble.** One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (`avg_*` season averages, `tot_*` totals, `misc_*` miscellaneous). Stat columns are labeled from ESPN's positional `names` array per category. The previous list (mostly empty `General`/`Offensive`/… slots plus nested `stats`/`season` list-columns) is gone; downstream code that indexed `$General` etc. should read the wide columns instead. |
+| `espn_wbb_athlete_gamelog()`, `espn_wnba_athlete_gamelog()`, `espn_*_athlete_splits()`, `espn_*_athlete_eventlog()`, `espn_*_athlete_statisticslog()` | Now echo the `athlete_id` and `season` inputs back as the first two columns, so the returned tibble is self-describing without re-attaching context. Implemented via a new internal `.echo_identity()` helper that preserves the `wehoop_data` class. |
+
 #### *Bug fixes*
 
 | Function | Fix |

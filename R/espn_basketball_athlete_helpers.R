@@ -341,28 +341,41 @@
 #'
 #' Fetches
 #' `site.web.api.espn.com/apis/common/v3/sports/basketball/{league}/athletes/{athlete_id}/stats`
-#' and returns a named list of per-category tibbles.
+#' and returns a single wide tibble: one row per (athlete_id, season, team)
+#' with the per-category stats spread across prefixed columns
+#' (`avg_*` season averages, `tot_*` season totals, `misc_*` miscellaneous
+#' totals). ESPN supplies each category's positional stat keys in a parallel
+#' `names` array, which we use to label the stat values.
 #'
 #' @param league character.
 #' @param athlete_id character or numeric.
 #' @param season numeric.
 #' @param ... Unused.
-#' @return Named list of data frames, one per stats category.
+#' @return A wide `wehoop_data` tibble (one row per athlete-season-team).
 #' @noRd
 .espn_basketball_athlete_stats <- function(league, athlete_id, season, ...) {
   .espn_bball_validate_league(league)
   .args <- list(league = league, athlete_id = athlete_id, season = season)
 
-  result <- list()
+  desc <- paste0("ESPN ", toupper(league), " Athlete Stats from ESPN.com")
+  result <- data.frame() %>%
+    dplyr::as_tibble() %>%
+    make_wehoop_data(desc, Sys.time())
 
   url <- paste0(
     "https://site.web.api.espn.com/apis/common/v3/sports/basketball/",
-    league,
-    "/athletes/",
-    athlete_id,
-    "/stats?season=",
-    season
+    league, "/athletes/", athlete_id, "/stats?season=", season
   )
+
+  # Short, stable column prefixes per ESPN category name. Unknown categories
+  # fall back to a cleaned version of their own name.
+  prefix_for <- function(nm) {
+    switch(tolower(nm),
+      "averages"      = "avg",
+      "totals"        = "tot",
+      "miscellaneous" = "misc",
+      janitor::make_clean_names(nm))
+  }
 
   tryCatch(
     expr = {
@@ -370,98 +383,56 @@
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
 
-      categories_raw <- raw[["categories"]] %||% raw[["statCategories"]]
-
-      # Category name mapping: we expect up to 6 categories from the API.
-      # If categories is absent or empty, return list with 6 empty tibbles.
-      default_cats <- c("General", "Offensive", "Defensive",
-                        "Rebounding", "Shooting", "Misc")
-
-      empty_tbl <- data.frame(stringsAsFactors = FALSE) %>%
-        dplyr::as_tibble() %>%
-        make_wehoop_data(
-          paste0("ESPN ", toupper(league), " Athlete Stats from ESPN.com"),
-          Sys.time()
-        )
-
-      if (is.null(categories_raw) ||
-          (!is.data.frame(categories_raw) && !is.list(categories_raw))) {
-        for (cat_name in default_cats) result[[cat_name]] <- empty_tbl
+      cats <- raw[["categories"]] %||% raw[["statCategories"]]
+      if (is.null(cats) || !is.data.frame(cats) || nrow(cats) == 0) {
         return(result)
       }
 
-      # categories_raw may be a data frame (one row per category) or a list
-      n_cats <- if (is.data.frame(categories_raw)) nrow(categories_raw)
-                else length(categories_raw)
+      per_cat <- list()
+      for (i in seq_len(nrow(cats))) {
+        cat_name   <- as.character(cats[["name"]][[i]] %||% paste0("category", i))
+        pfx        <- prefix_for(cat_name)
+        stat_keys  <- cats[["names"]][[i]] %||% character(0)
+        st         <- cats[["statistics"]][[i]]
+        if (is.null(st) || !is.data.frame(st) || nrow(st) == 0) next
 
-      for (i in seq_len(n_cats)) {
-        cat_row <- if (is.data.frame(categories_raw)) {
-          categories_raw[i, , drop = FALSE]
-        } else {
-          categories_raw[[i]]
-        }
+        # `stats` is a list-column: one length-K character vector per row,
+        # positionally aligned with `stat_keys`.
+        vals <- st[["stats"]]
+        if (is.null(vals)) next
+        mat <- do.call(rbind, lapply(vals, function(v) {
+          length(v) <- length(stat_keys)
+          suppressWarnings(as.numeric(v))
+        }))
+        if (is.null(mat) || ncol(mat) == 0) next
+        colnames(mat) <- paste0(pfx, "_", janitor::make_clean_names(stat_keys))
+        stat_df <- dplyr::as_tibble(as.data.frame(mat, stringsAsFactors = FALSE))
 
-        # Derive a clean category name
-        cat_name_raw <- if (is.data.frame(cat_row)) {
-          cat_row[["displayName"]][[1]] %||%
-            cat_row[["name"]][[1]] %||%
-            paste0("Category", i)
-        } else {
-          cat_row[["displayName"]] %||% cat_row[["name"]] %||% paste0("Category", i)
-        }
-        # Normalize to title-case ASCII name matching expected defaults
-        cat_name <- as.character(cat_name_raw)
-
-        # stats may be a data frame or a list element named "stats"
-        stats_raw <- if (is.data.frame(cat_row)) {
-          cat_row[["stats"]][[1]] %||% cat_row[["statistics"]][[1]]
-        } else {
-          cat_row[["stats"]] %||% cat_row[["statistics"]]
-        }
-
-        if (is.null(stats_raw) || length(stats_raw) == 0) {
-          result[[cat_name]] <- empty_tbl
-          next
-        }
-
-        # stats_raw can be a data frame with name/value columns,
-        # or a named numeric vector
-        cat_df <- tryCatch({
-          if (is.data.frame(stats_raw)) {
-            stats_raw %>%
-              data.frame(stringsAsFactors = FALSE) %>%
-              dplyr::as_tibble() %>%
-              janitor::clean_names() %>%
-              make_wehoop_data(
-                paste0("ESPN ", toupper(league), " Athlete Stats from ESPN.com"),
-                Sys.time()
-              )
-          } else if (is.numeric(stats_raw) || is.character(stats_raw)) {
-            # Flatten named vector into two columns
-            nm <- names(stats_raw)
-            if (is.null(nm)) nm <- paste0("stat_", seq_along(stats_raw))
-            data.frame(
-              stat_name  = nm,
-              stat_value = as.character(stats_raw),
-              stringsAsFactors = FALSE
-            ) %>%
-              dplyr::as_tibble() %>%
-              make_wehoop_data(
-                paste0("ESPN ", toupper(league), " Athlete Stats from ESPN.com"),
-                Sys.time()
-              )
-          } else {
-            empty_tbl
-          }
-        }, error = function(.e) empty_tbl)
-
-        result[[cat_name]] <- cat_df
+        # Flatten the row-level meta (season is a nested {year, displayName}).
+        season_col <- st[["season"]]
+        season_yr  <- if (is.data.frame(season_col)) season_col[["year"]]
+                      else suppressWarnings(as.integer(season_col))
+        meta <- dplyr::tibble(
+          season       = as.integer(season_yr %||% NA_integer_),
+          team_id      = as.character(st[["teamId"]] %||% st[["team_id"]] %||% NA),
+          team_slug    = as.character(st[["teamSlug"]] %||% st[["team_slug"]] %||% NA)
+        )
+        per_cat[[length(per_cat) + 1L]] <- dplyr::bind_cols(meta, stat_df)
       }
 
-      # Ensure canonical default slots are always present
-      for (cat_name in default_cats) {
-        if (is.null(result[[cat_name]])) result[[cat_name]] <- empty_tbl
-      }
+      if (length(per_cat) == 0L) return(result)
+
+      # Merge categories on the shared (season, team) grain.
+      join_keys <- c("season", "team_id", "team_slug")
+      wide <- Reduce(function(a, b) {
+        dplyr::full_join(a, b, by = intersect(join_keys, intersect(names(a), names(b))))
+      }, per_cat)
+
+      result <- wide %>%
+        dplyr::mutate(athlete_id = as.character(athlete_id)) %>%
+        dplyr::relocate(dplyr::any_of(c("athlete_id", "season", "team_id", "team_slug"))) %>%
+        dplyr::arrange(dplyr::across(dplyr::any_of("season"))) %>%
+        make_wehoop_data(desc, Sys.time())
     },
     error = function(e) .report_api_error(
       e,
@@ -626,6 +597,7 @@
     ),
     finally = {}
   )
+  result <- .echo_identity(result, athlete_id = athlete_id, season = season)
   return(result)
 }
 
@@ -754,6 +726,7 @@
     ),
     finally = {}
   )
+  result <- .echo_identity(result, athlete_id = athlete_id, season = season)
   return(result)
 }
 
@@ -912,6 +885,7 @@
     ),
     finally = {}
   )
+  result <- .echo_identity(result, athlete_id = athlete_id, season = season)
   return(result)
 }
 
@@ -1151,5 +1125,6 @@
     ),
     finally = {}
   )
+  result <- .echo_identity(result, athlete_id = athlete_id, season = season)
   return(result)
 }

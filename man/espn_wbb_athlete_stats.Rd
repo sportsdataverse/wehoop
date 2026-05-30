@@ -14,11 +14,22 @@ espn_wbb_athlete_stats(athlete_id, season = most_recent_wbb_season(), ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A named list of per-category tibbles. Default category names are
-\code{General}, \code{Offensive}, \code{Defensive}, \code{Rebounding}, \code{Shooting}, \code{Misc}.
-Actual names are driven by the ESPN response; additional categories may
-appear. Each tibble has columns depending on the category returned by
-ESPN.
+A wide \code{wehoop_data} tibble, one row per athlete-season-team, with
+the ESPN stat categories spread across prefixed columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   athlete_id \tab character \tab ESPN athlete identifier (echoed input). \cr
+   season \tab integer \tab Season year for the stat line. \cr
+   team_id \tab character \tab ESPN team identifier for that season. \cr
+   team_slug \tab character \tab Team slug (e.g. 'iowa-hawkeyes'). \cr
+   avg_* \tab numeric \tab Per-game season-average stats (e.g. \code{avg_avg_points}). \cr
+   tot_* \tab numeric \tab Season-total stats (e.g. \code{tot_points}). \cr
+   misc_* \tab numeric \tab Miscellaneous season totals. \cr
+}
+
+
+Stat column names come from ESPN's positional \code{names} array per category,
+cleaned via \code{\link[janitor:make_clean_names]{janitor::make_clean_names()}}; the exact set varies by league
+and season.
 }
 \description{
 \strong{Get ESPN Women's College Basketball Athlete Stats}
@@ -27,7 +38,7 @@ ESPN.
 }
 \examples{
 \donttest{
-  espn_wbb_athlete_stats(athlete_id = "4433404", season = 2025)
+  espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
 }
 }
 \seealso{

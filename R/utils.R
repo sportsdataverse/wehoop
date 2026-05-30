@@ -453,11 +453,35 @@ NULL
 make_wehoop_data <- function(df, type, timestamp){
   out <- df %>%
     tidyr::as_tibble()
-  
+
   class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
   attr(out,"wehoop_timestamp") <- timestamp
   attr(out,"wehoop_type") <- type
   return(out)
+}
+
+# Echo a wrapper's input parameters back onto its returned tibble as
+# left-most columns so the result is self-describing (e.g. an athlete
+# gamelog carries athlete_id + season on every row). See the
+# rectangularization preference + "Returns must be self-describing".
+#
+# Preserves the wehoop_data class/attributes (dplyr verbs would strip
+# them, so we re-wrap via make_wehoop_data). No-ops on a non-data.frame,
+# a zero-row tibble (nothing to describe), NULL args, or args whose names
+# already exist on the frame (the response value wins).
+.echo_identity <- function(df, ...) {
+  if (!is.data.frame(df) || nrow(df) == 0L) return(df)
+  args <- list(...)
+  args <- args[!vapply(args, is.null, logical(1))]
+  args <- args[!names(args) %in% names(df)]
+  if (length(args) == 0L) return(df)
+
+  ts <- attr(df, "wehoop_timestamp")
+  ty <- attr(df, "wehoop_type")
+  for (nm in names(args)) df[[nm]] <- args[[nm]]
+  df <- df %>% dplyr::relocate(dplyr::any_of(names(args)))
+  if (!is.null(ty)) df <- make_wehoop_data(df, ty, ts %||% Sys.time())
+  df
 }
 
 #' @export
