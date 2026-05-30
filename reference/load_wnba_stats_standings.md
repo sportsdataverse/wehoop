@@ -92,9 +92,31 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_standings(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_standings/standings_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_standings/standings_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 15 × 93
+#>    league_id season_id team_id    team_city    team_name team_slug conference
+#>    <chr>     <chr>     <chr>      <chr>        <chr>     <chr>     <chr>     
+#>  1 10        22026     1611661324 Minnesota    Lynx      lynx      West      
+#>  2 10        22026     1611661331 Golden State Valkyries valkyries West      
+#>  3 10        22026     1611661330 Atlanta      Dream     dream     East      
+#>  4 10        22026     1611661321 Dallas       Wings     wings     West      
+#>  5 10        22026     1611661325 Indiana      Fever     fever     East      
+#>  6 10        22026     1611661319 Las Vegas    Aces      aces      West      
+#>  7 10        22026     1611661320 Los Angeles  Sparks    sparks    West      
+#>  8 10        22026     1611661327 Portland     Fire      fire      West      
+#>  9 10        22026     1611661313 New York     Liberty   liberty   East      
+#> 10 10        22026     1611661332 Toronto      Tempo     tempo     East      
+#> 11 10        22026     1611661322 Washington   Mystics   mystics   East      
+#> 12 10        22026     1611661329 Chicago      Sky       sky       East      
+#> 13 10        22026     1611661328 Seattle      Storm     storm     West      
+#> 14 10        22026     1611661317 Phoenix      Mercury   mercury   West      
+#> 15 10        22026     1611661323 Connecticut  Sun       sun       East      
+#> # ℹ 86 more variables: conference_record <chr>, playoff_rank <chr>,
+#> #   clinch_indicator <chr>, division <chr>, division_record <chr>,
+#> #   division_rank <chr>, wins <chr>, losses <chr>, win_pct <chr>,
+#> #   league_rank <chr>, record <chr>, home <chr>, road <chr>, l10 <chr>,
+#> #   last10home <chr>, last10road <chr>, ot <chr>, three_pts_or_less <chr>,
+#> #   ten_pts_or_more <chr>, long_home_streak <chr>, str_long_home_streak <chr>,
+#> #   long_road_streak <chr>, str_long_road_streak <chr>, …
 # }
 ```

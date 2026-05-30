@@ -71,20 +71,20 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 22 × 29
+#> # A tibble: 118 × 29
 #>    SEASON_ID TEAM_ID TEAM_ABBREVIATION TEAM_NAME GAME_ID GAME_DATE MATCHUP WL   
 #>    <chr>     <chr>   <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
-#>  1 22026     161166… WAS               Washingt… 102260… 2026-05-… WAS vs… L    
-#>  2 22026     161166… NYL               New York… 102260… 2026-05-… NYL @ … W    
-#>  3 22026     161166… GSV               Golden S… 102260… 2026-05-… GSV vs… W    
-#>  4 22026     161166… LAS               Los Ange… 102260… 2026-05-… LAS vs… L    
-#>  5 22026     161166… LVA               Las Vega… 102260… 2026-05-… LVA @ … W    
-#>  6 22026     161166… SEA               Seattle … 102260… 2026-05-… SEA @ … W    
-#>  7 22026     161166… CON               Connecti… 102260… 2026-05-… CON vs… L    
+#>  1 22026     161166… ATL               Atlanta … 102260… 2026-05-… ATL @ … W    
+#>  2 22026     161166… LAS               Los Ange… 102260… 2026-05-… LAS @ … W    
+#>  3 22026     161166… MIN               Minnesot… 102260… 2026-05-… MIN @ … W    
+#>  4 22026     161166… PDX               Portland… 102260… 2026-05-… PDX vs… L    
+#>  5 22026     161166… CHI               Chicago … 102260… 2026-05-… CHI vs… L    
+#>  6 22026     161166… NYL               New York… 102260… 2026-05-… NYL vs… W    
+#>  7 22026     161166… WAS               Washingt… 102260… 2026-05-… WAS vs… L    
 #>  8 22026     161166… PHX               Phoenix … 102260… 2026-05-… PHX @ … L    
-#>  9 22026     161166… PDX               Portland… 102260… 2026-05-… PDX vs… L    
-#> 10 22026     161166… ATL               Atlanta … 102260… 2026-05-… ATL @ … W    
-#> # ℹ 12 more rows
+#>  9 22026     161166… IND               Indiana … 102260… 2026-05-… IND @ … L    
+#> 10 22026     161166… GSV               Golden S… 102260… 2026-05-… GSV vs… W    
+#> # ℹ 108 more rows
 #> # ℹ 21 more variables: MIN <chr>, PTS <chr>, FGM <chr>, FGA <chr>,
 #> #   FG_PCT <chr>, FG3M <chr>, FG3A <chr>, FG3_PCT <chr>, FTM <chr>, FTA <chr>,
 #> #   FT_PCT <chr>, OREB <chr>, DREB <chr>, REB <chr>, AST <chr>, STL <chr>,

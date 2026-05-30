@@ -81,9 +81,20 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_officials/officials_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_officials/officials_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 177 × 6
+#>    official_id first_name last_name        jersey_num game_id    season
+#>    <chr>       <chr>      <chr>            <chr>      <chr>       <int>
+#>  1 100274      Roy        Gulbeyan         "42  "     1022600001   2026
+#>  2 1628169     Ryan       Sassano          "3   "     1022600001   2026
+#>  3 1628482     Tyler      Mirkovich        "27  "     1022600001   2026
+#>  4 200667      Angelica   Suffren          "7   "     1022600003   2026
+#>  5 1641525     Sarah      Williams         "44  "     1022600003   2026
+#>  6 1642142     Josh       Reed             "46  "     1022600003   2026
+#>  7 202764      Charles    Watson           "6   "     1022600002   2026
+#>  8 203891      Fatou      Cissoko-Stephens "15  "     1022600002   2026
+#>  9 1629422     Clare      Simmons          "28  "     1022600002   2026
+#> 10 202297      Tim        Greene           "9   "     1022600004   2026
+#> # ℹ 167 more rows
 # }
 ```

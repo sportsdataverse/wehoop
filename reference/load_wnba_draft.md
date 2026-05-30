@@ -78,9 +78,26 @@ Other WNBA loader functions:
 ``` r
 # \donttest{
   try(load_wnba_draft(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_draft/draft_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_draft/draft_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 45 × 35
+#>    season round round_display_name  pick overall_pick pick_traded pick_notes
+#>     <int> <int> <chr>              <int>        <int> <chr>       <chr>     
+#>  1   2026     1 NA                     1            1 FALSE       NA        
+#>  2   2026     1 NA                     2            2 TRUE        NA        
+#>  3   2026     1 NA                     3            3 TRUE        NA        
+#>  4   2026     1 NA                     4            4 FALSE       NA        
+#>  5   2026     1 NA                     5            5 TRUE        NA        
+#>  6   2026     1 NA                     6            6 FALSE       NA        
+#>  7   2026     1 NA                     7            7 FALSE       NA        
+#>  8   2026     1 NA                     8            8 TRUE        NA        
+#>  9   2026     1 NA                     9            9 TRUE        NA        
+#> 10   2026     1 NA                    10           10 FALSE       NA        
+#> # ℹ 35 more rows
+#> # ℹ 28 more variables: athlete_id <int>, athlete_uid <chr>, athlete_guid <chr>,
+#> #   athlete_first_name <chr>, athlete_last_name <chr>, athlete_full_name <chr>,
+#> #   athlete_display_name <chr>, athlete_short_name <chr>, athlete_height <chr>,
+#> #   athlete_weight <chr>, athlete_position_abbreviation <chr>,
+#> #   athlete_position_name <chr>, athlete_headshot_href <chr>, college_id <int>,
+#> #   college_name <chr>, college_short_name <chr>, college_abbreviation <chr>, …
 # }
 ```

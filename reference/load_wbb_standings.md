@@ -84,9 +84,26 @@ Other WBB loader functions:
 ``` r
 # \donttest{
   try(load_wbb_standings(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_standings/standings_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_standings/standings_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 30,492 × 24
+#>    season group_id group_name        group_abbreviation group_short_name team_id
+#>     <int> <chr>    <chr>             <chr>              <chr>              <int>
+#>  1   2026 1        America East Con… aeast              Am. East            2349
+#>  2   2026 1        America East Con… aeast              Am. East            2349
+#>  3   2026 1        America East Con… aeast              Am. East            2349
+#>  4   2026 1        America East Con… aeast              Am. East            2349
+#>  5   2026 1        America East Con… aeast              Am. East            2349
+#>  6   2026 1        America East Con… aeast              Am. East            2349
+#>  7   2026 1        America East Con… aeast              Am. East            2349
+#>  8   2026 1        America East Con… aeast              Am. East            2349
+#>  9   2026 1        America East Con… aeast              Am. East            2349
+#> 10   2026 1        America East Con… aeast              Am. East            2349
+#> # ℹ 30,482 more rows
+#> # ℹ 18 more variables: team_uid <chr>, team_slug <chr>, team_location <chr>,
+#> #   team_name <chr>, team_abbreviation <chr>, team_display_name <chr>,
+#> #   team_short_display_name <chr>, team_color <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, stat_name <chr>,
+#> #   stat_display_name <chr>, stat_short_display_name <chr>,
+#> #   stat_description <chr>, stat_abbreviation <chr>, stat_type <chr>, …
 # }
 ```

@@ -4,8 +4,8 @@ Loaders for full seasons of pre-scraped data from the
 `sportsdataverse/wehoop-{wnba,wbb}-data` releases on
 `sportsdataverse-data`. Each helper validates the requested seasons,
 builds the per-asset URLs, downloads in parallel (with optional
-progressr progress + optional `DBI` insertion), and tags the result with
-the `wehoop_data` S3 class.
+`progressr` progress + optional `DBI` insertion), and tags the result
+with the `wehoop_data` S3 class.
 
 ## Details
 

@@ -175,10 +175,32 @@ the season data into a database.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wnba_stats_standings</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="most_recent_wnba_stats_season.html">most_recent_wnba_stats_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_standings/standings_2026.rds': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to readRDS from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_standings/standings_2026.rds&gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 93</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    league_id season_id team_id    team_city    team_name team_slug conference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10        22026     1611661324 Minnesota    Lynx      lynx      West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10        22026     1611661331 Golden State Valkyries valkyries West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10        22026     1611661330 Atlanta      Dream     dream     East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10        22026     1611661321 Dallas       Wings     wings     West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10        22026     1611661325 Indiana      Fever     fever     East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10        22026     1611661319 Las Vegas    Aces      aces      West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10        22026     1611661320 Los Angeles  Sparks    sparks    West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10        22026     1611661327 Portland     Fire      fire      West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10        22026     1611661313 New York     Liberty   liberty   East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10        22026     1611661332 Toronto      Tempo     tempo     East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 10        22026     1611661322 Washington   Mystics   mystics   East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 10        22026     1611661329 Chicago      Sky       sky       East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 10        22026     1611661328 Seattle      Storm     storm     West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 10        22026     1611661317 Phoenix      Mercury   mercury   West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> 10        22026     1611661323 Connecticut  Sun       sun       East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 86 more variables: conference_record &lt;chr&gt;, playoff_rank &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   clinch_indicator &lt;chr&gt;, division &lt;chr&gt;, division_record &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   division_rank &lt;chr&gt;, wins &lt;chr&gt;, losses &lt;chr&gt;, win_pct &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_rank &lt;chr&gt;, record &lt;chr&gt;, home &lt;chr&gt;, road &lt;chr&gt;, l10 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   last10home &lt;chr&gt;, last10road &lt;chr&gt;, ot &lt;chr&gt;, three_pts_or_less &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ten_pts_or_more &lt;chr&gt;, long_home_streak &lt;chr&gt;, str_long_home_streak &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   long_road_streak &lt;chr&gt;, str_long_road_streak &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

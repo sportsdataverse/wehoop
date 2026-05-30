@@ -70,9 +70,23 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_rosters(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_rosters/rosters_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_rosters/rosters_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 207 × 18
+#>    team_id    season league_id player nickname player_slug num   position height
+#>    <chr>       <int> <chr>     <chr>  <chr>    <chr>       <chr> <chr>    <chr> 
+#>  1 1611661317   2026 10        Noemi… Noemie   noemie-bro… 1     F-G      5-11  
+#>  2 1611661317   2026 10        Kahle… Kahleah  kahleah-co… 2     G-F      6-1   
+#>  3 1611661317   2026 10        Natas… Natasha  natasha-ma… 4     F-C      6-3   
+#>  4 1611661317   2026 10        Shay … Shay     shay-ciezki 5     G        5-7   
+#>  5 1611661317   2026 10        Moniq… Monique  monique-ak… 8     G        5-10  
+#>  6 1611661317   2026 10        Valer… Valeria… valeriane-… 11    F        6-1   
+#>  7 1611661317   2026 10        Quion… Quionche quionche-c… 20    F        5-11  
+#>  8 1611661317   2026 10        Kiana… Kiana    kiana-will… 23    G        5-8   
+#>  9 1611661317   2026 10        DeWan… DeWanna  dewanna-bo… 24    F-G      6-4   
+#> 10 1611661317   2026 10        Alyss… Alyssa   alyssa-tho… 25    F        6-2   
+#> # ℹ 197 more rows
+#> # ℹ 9 more variables: weight <chr>, birth_date <chr>, age <chr>, exp <chr>,
+#> #   school <chr>, player_id <chr>, how_acquired <chr>, season_2 <int>,
+#> #   team_id_lookup <int>
 # }
 ```

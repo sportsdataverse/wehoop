@@ -76,9 +76,23 @@ Other WBB loader functions:
 ``` r
 # \donttest{
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 17,458 × 11
+#>    season game_id   official_id official_uid official_full_name
+#>     <int> <chr>           <int> <chr>        <chr>             
+#>  1   2026 401811123       18886 NA           Tiffany Bird      
+#>  2   2026 401811123     4078084 NA           Tommi Paris       
+#>  3   2026 401811123     5123944 NA           Gina Cantanzariti 
+#>  4   2026 401822217       19038 NA           Chuck Gonzalez    
+#>  5   2026 401822217     4286788 NA           Nicole Leon       
+#>  6   2026 401822217     4291736 NA           Erica Parker      
+#>  7   2026 401809048       19777 NA           Charles Watson    
+#>  8   2026 401809048     3986420 NA           Angel Kent        
+#>  9   2026 401809048     4602668 NA           Ashley Olsen      
+#> 10   2026 401827851       19126 NA           Kevin Pethtel     
+#> # ℹ 17,448 more rows
+#> # ℹ 6 more variables: official_display_name <chr>, official_first_name <chr>,
+#> #   official_last_name <chr>, official_order <int>, position_name <chr>,
+#> #   position_display_name <chr>
 # }
 ```

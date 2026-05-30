@@ -92,9 +92,21 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_game_rosters/game_rosters_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_game_rosters/game_rosters_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 197 × 10
+#>    player_id first_name last_name        jersey_num team_id  team_city team_name
+#>    <chr>     <chr>      <chr>            <chr>      <chr>    <chr>     <chr>    
+#>  1 1630469   Marine     Fauthoux         "4   "     1611661… New York  Liberty  
+#>  2 1630446   Michaela   Onyenwere        "12  "     1611661… Washingt… Mystics  
+#>  3 1643430   Cotie      McMahon          "23  "     1611661… Washingt… Mystics  
+#>  4 1643440   Darianna   Littlepage-Buggs "5   "     1611661… Washingt… Mystics  
+#>  5 1643644   Alicia     Florez Getino    "2   "     1611661… Washingt… Mystics  
+#>  6 204330    Isabelle   Harrison         "21  "     1611661… Toronto   Tempo    
+#>  7 1643495   Justine    Pissott          "13  "     1611661… Indiana   Fever    
+#>  8 1643424   Costanza   Verona           "6   "     1611661… Dallas    Wings    
+#>  9 1630389   Dana       Evans            "11  "     1611661… Las Vegas Aces     
+#> 10 1643434   Janiah     Barker           "2   "     1611661… Las Vegas Aces     
+#> # ℹ 187 more rows
+#> # ℹ 3 more variables: team_abbreviation <chr>, game_id <chr>, season <int>
 # }
 ```

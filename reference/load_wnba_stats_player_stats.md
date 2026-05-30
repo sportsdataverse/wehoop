@@ -69,9 +69,26 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_player_stats(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_player_season_stats/player_season_stats_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_player_season_stats/player_season_stats_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 1,170 × 209
+#>    player_id player_name    nickname team_id team_abbreviation age   gp    w    
+#>    <chr>     <chr>          <chr>    <chr>   <chr>             <chr> <chr> <chr>
+#>  1 1628932   A'ja Wilson    A'ja     161166… LVA               29    7     4    
+#>  2 1642290   Aaliyah Edwar… Aaliyah  161166… CON               23    6     1    
+#>  3 1642801   Aaliyah Nye    Aaliyah  161166… ATL               23    5     3    
+#>  4 1642786   Aicha Couliba… Aicha    161166… CHI               24    6     2    
+#>  5 1629501   Alanna Smith   Alanna   161166… DAL               29    7     4    
+#>  6 1643525   Alex Fowler    Alex     161166… NYL               24    2     1    
+#>  7 1642775   Alex Wilson    Alex     161166… WAS               32    4     2    
+#>  8 1643644   Alicia Florez… Alicia   161166… WAS               22    2     1    
+#>  9 1641648   Aliyah Boston  Aliyah   161166… IND               24    6     3    
+#> 10 1628277   Allisha Gray   Allisha  161166… ATL               31    7     5    
+#> # ℹ 1,160 more rows
+#> # ℹ 201 more variables: l <chr>, w_pct <chr>, min <chr>, fgm <chr>, fga <chr>,
+#> #   fg_pct <chr>, fg3m <chr>, fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
+#> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,
+#> #   stl <chr>, blk <chr>, blka <chr>, pf <chr>, pfd <chr>, pts <chr>,
+#> #   plus_minus <chr>, nba_fantasy_pts <chr>, dd2 <chr>, td3 <chr>,
+#> #   wnba_fantasy_pts <chr>, gp_rank <chr>, w_rank <chr>, l_rank <chr>, …
 # }
 ```

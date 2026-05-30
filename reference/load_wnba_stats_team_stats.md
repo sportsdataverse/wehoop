@@ -103,9 +103,26 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_team_stats(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_team_season_stats/team_season_stats_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_team_season_stats/team_season_stats_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 90 × 177
+#>    team_id    team_name   gp    w     l     w_pct min   fgm   fga   fg_pct fg3m 
+#>    <chr>      <chr>       <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>  <chr>
+#>  1 1611661330 Atlanta Dr… 7     5     2     0.714 40    29.6  68.3  0.433  8.3  
+#>  2 1611661329 Chicago Sky 8     3     5     0.375 40    28.5  69.8  0.409  5.9  
+#>  3 1611661323 Connecticu… 9     1     8     0.111 40    28.1  69.2  0.406  5.2  
+#>  4 1611661321 Dallas Win… 8     5     3     0.625 40    32.3  69.3  0.466  9.1  
+#>  5 1611661331 Golden Sta… 7     5     2     0.714 40    29.3  71.1  0.412  10.9 
+#>  6 1611661325 Indiana Fe… 7     4     3     0.571 40.7  32.1  71    0.453  9.4  
+#>  7 1611661319 Las Vegas … 7     4     3     0.571 40    35.3  71.6  0.493  7.1  
+#>  8 1611661320 Los Angele… 7     4     3     0.571 40    32.6  64.9  0.502  8.9  
+#>  9 1611661324 Minnesota … 8     6     2     0.75  40    34    68.3  0.498  6.8  
+#> 10 1611661313 New York L… 9     5     4     0.556 40.6  29.3  64.2  0.457  10.1 
+#> # ℹ 80 more rows
+#> # ℹ 166 more variables: fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
+#> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,
+#> #   stl <chr>, blk <chr>, blka <chr>, pf <chr>, pfd <chr>, pts <chr>,
+#> #   plus_minus <chr>, gp_rank <chr>, w_rank <chr>, l_rank <chr>,
+#> #   w_pct_rank <chr>, min_rank <chr>, fgm_rank <chr>, fga_rank <chr>,
+#> #   fg_pct_rank <chr>, fg3m_rank <chr>, fg3a_rank <chr>, fg3_pct_rank <chr>, …
 # }
 ```

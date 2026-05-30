@@ -83,9 +83,23 @@ Other WBB loader functions:
 ``` r
 # \donttest{
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_shots/shots_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_shots/shots_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 907,805 × 15
+#>      game_id season period_number clock_display_value team_id athlete_id_1
+#>        <int>  <int>         <int> <chr>                 <int>        <int>
+#>  1 401856590   2026             1 9:43                     26      5105737
+#>  2 401856590   2026             1 9:20                   2579      5108587
+#>  3 401856590   2026             1 9:14                   2579      5174284
+#>  4 401856590   2026             1 9:08                   2579      5108587
+#>  5 401856590   2026             1 8:43                   2579      5239100
+#>  6 401856590   2026             1 8:28                     26      4703609
+#>  7 401856590   2026             1 8:11                   2579      5108587
+#>  8 401856590   2026             1 7:52                     26      5105737
+#>  9 401856590   2026             1 7:29                   2579      4609797
+#> 10 401856590   2026             1 7:29                   2579      4609797
+#> # ℹ 907,795 more rows
+#> # ℹ 9 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
+#> #   scoring_play <lgl>, score_value <int>, coordinate_x <dbl>,
+#> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>
 # }
 ```

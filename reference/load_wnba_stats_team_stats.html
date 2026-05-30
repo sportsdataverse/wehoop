@@ -175,10 +175,27 @@ the season data into a database.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wnba_stats_team_stats</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="most_recent_wnba_stats_season.html">most_recent_wnba_stats_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_team_season_stats/team_season_stats_2026.rds': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to readRDS from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_team_season_stats/team_season_stats_2026.rds&gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 90 × 177</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    team_id    team_name   gp    w     l     w_pct min   fgm   fga   fg_pct fg3m </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1611661330 Atlanta Dr… 7     5     2     0.714 40    29.6  68.3  0.433  8.3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1611661329 Chicago Sky 8     3     5     0.375 40    28.5  69.8  0.409  5.9  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1611661323 Connecticu… 9     1     8     0.111 40    28.1  69.2  0.406  5.2  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1611661321 Dallas Win… 8     5     3     0.625 40    32.3  69.3  0.466  9.1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1611661331 Golden Sta… 7     5     2     0.714 40    29.3  71.1  0.412  10.9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1611661325 Indiana Fe… 7     4     3     0.571 40.7  32.1  71    0.453  9.4  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1611661319 Las Vegas … 7     4     3     0.571 40    35.3  71.6  0.493  7.1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1611661320 Los Angele… 7     4     3     0.571 40    32.6  64.9  0.502  8.9  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1611661324 Minnesota … 8     6     2     0.75  40    34    68.3  0.498  6.8  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1611661313 New York L… 9     5     4     0.556 40.6  29.3  64.2  0.457  10.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 80 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 166 more variables: fg3a &lt;chr&gt;, fg3_pct &lt;chr&gt;, ftm &lt;chr&gt;, fta &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ft_pct &lt;chr&gt;, oreb &lt;chr&gt;, dreb &lt;chr&gt;, reb &lt;chr&gt;, ast &lt;chr&gt;, tov &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   stl &lt;chr&gt;, blk &lt;chr&gt;, blka &lt;chr&gt;, pf &lt;chr&gt;, pfd &lt;chr&gt;, pts &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   plus_minus &lt;chr&gt;, gp_rank &lt;chr&gt;, w_rank &lt;chr&gt;, l_rank &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   w_pct_rank &lt;chr&gt;, min_rank &lt;chr&gt;, fgm_rank &lt;chr&gt;, fga_rank &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fg_pct_rank &lt;chr&gt;, fg3m_rank &lt;chr&gt;, fg3a_rank &lt;chr&gt;, fg3_pct_rank &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
