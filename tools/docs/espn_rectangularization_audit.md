@@ -33,6 +33,23 @@ Source: `~/.claude/projects/<wehoop-session>/memory/feedback_espn_wide_rectangul
 
 **Bottom line:** wehoop ESPN wrappers are predominantly compliant. The outstanding work is one architectural refactor (`espn_*_athlete_stats()` list → wide) and a batch of 14 identity-column echo patches.
 
+> **Implementation outcome (2026-05-30).** Executing the recommendations
+> revealed the Tier B count was over-stated. Of the 7 flagged pairs, only the
+> **4 athlete-log helpers** (`gamelog`, `splits`, `eventlog`, `statisticslog`)
+> genuinely lacked identity columns — fixed via a new class-preserving
+> `.echo_identity()` helper (`R/utils.R`). The other three —
+> `team_season_roster`, `coach_season`, `team_record_detail` — plus
+> `athlete_eventlog_v2` already build `team_id`/`coach_id`/`season`/`record_id`
+> inline; **no change needed** (the audit, reading excerpts, missed the inline
+> `data.frame(... = ...)` construction). The Tier C `athlete_stats` collapse
+> **was real and shipped**: the live payload turned out to be multi-season
+> categories (`averages`/`totals`/`miscellaneous`) with positional `names`
+> label arrays — not the "6 single-row categories" this doc assumed — and now
+> returns one wide row per athlete-season-team (`avg_*`/`tot_*`/`misc_*`),
+> verified live (WBB 5×46, WNBA 7×47). The other Tier C entries (`game_all`,
+> `team`, `athlete_info`, `athlete_overview`) remain keep-as-list. Shipped in
+> commit `33b84920`.
+
 ---
 
 ## Tier A — Already compliant
