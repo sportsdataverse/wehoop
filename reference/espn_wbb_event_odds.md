@@ -144,7 +144,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_event_odds(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Odds (event_id=401276115) from ESPN.com 
-#> ℹ Data updated: 2026-05-30 20:07:52 UTC
+#> ℹ Data updated: 2026-05-30 20:43:50 UTC
 #> # A tibble: 0 × 12
 #> # ℹ 12 variables: event_id <chr>, provider_id <chr>, provider_name <chr>,
 #> #   details <chr>, over_under <dbl>, spread <dbl>, home_money_line <int>,
