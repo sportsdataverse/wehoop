@@ -733,7 +733,7 @@ espn_wbb_game_rosters <- function(game_id) {
   .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  athlete_roster_df <- NULL
+  athlete_roster_df <- data.frame()
 
   tryCatch(
     expr = {
@@ -1007,7 +1007,21 @@ espn_wbb_conferences <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
-  conferences <- NULL
+  conferences <- data.frame(
+    conference_uid        = character(0),
+    group_id              = integer(0),
+    conference_name       = character(0),
+    conference_short_name = character(0),
+    conference_logo       = character(0),
+    parent_group_id       = integer(0),
+    conference_id         = integer(0),
+    stringsAsFactors      = FALSE
+  ) %>%
+    dplyr::as_tibble() %>%
+    make_wehoop_data(
+      "ESPN WBB Conferences Information from ESPN.com",
+      Sys.time()
+    )
 
   tryCatch(
     expr = {
@@ -1099,7 +1113,7 @@ espn_wbb_teams <- function(year = most_recent_wbb_season()) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
-  teams <- NULL
+  teams <- data.frame()
 
   tryCatch(
     expr = {
@@ -1807,7 +1821,7 @@ espn_wbb_rankings <- function() {
 
   ranks_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/rankings?lang=en&region=us&groups=50"
 
-  ranks <- NULL
+  ranks <- data.frame()
 
   tryCatch(
     expr = {
@@ -1980,7 +1994,7 @@ espn_wbb_standings <- function(year) {
   ## year
   full_url <- paste0(standings_url, "season=", year)
 
-  standings <- NULL
+  standings <- data.frame()
 
   tryCatch(
     expr = {

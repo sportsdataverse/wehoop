@@ -761,7 +761,7 @@ espn_wnba_game_rosters <- function(game_id) {
   .args <- mget(setdiff(names(formals()), "..."))
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  athlete_roster_df <- NULL
+  athlete_roster_df <- data.frame()
 
   tryCatch(
     expr = {
@@ -1032,7 +1032,7 @@ espn_wnba_teams <- function(){
   on.exit(options(old))
   play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000"
 
-  wnba_teams <- NULL
+  wnba_teams <- data.frame()
 
   tryCatch(
     expr = {
@@ -1362,7 +1362,7 @@ espn_wnba_standings <- function(year){
   full_url <- paste0(standings_url,
                      "season=", year)
 
-  standings <- NULL
+  standings <- data.frame()
 
   tryCatch(
     expr = {

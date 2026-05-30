@@ -30,7 +30,7 @@
     as.integer(limit)
   )
 
-  news <- NULL
+  news <- data.frame()
 
   tryCatch(
     expr = {
@@ -148,7 +148,7 @@
     as.integer(limit)
   )
 
-  news <- NULL
+  news <- data.frame()
 
   tryCatch(
     expr = {

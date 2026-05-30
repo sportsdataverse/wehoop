@@ -692,7 +692,7 @@ wnba_scoreboardv3 <- function(
     GameDate = game_date
   )
   
-  games <- NULL
+  games <- data.frame()
 
   tryCatch(
     expr = {
@@ -841,7 +841,7 @@ wnba_todays_scoreboard <- function(
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  games <- NULL
+  games <- data.frame()
 
   tryCatch(
     expr = {

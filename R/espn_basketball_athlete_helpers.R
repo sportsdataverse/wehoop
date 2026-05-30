@@ -503,7 +503,7 @@
   .espn_bball_validate_league(league)
   .args <- list(league = league, athlete_id = athlete_id, season = season)
 
-  result <- NULL
+  result <- data.frame()
 
   url <- paste0(
     "https://site.web.api.espn.com/apis/common/v3/sports/basketball/",
@@ -651,7 +651,7 @@
   .espn_bball_validate_league(league)
   .args <- list(league = league, athlete_id = athlete_id, season = season)
 
-  result <- NULL
+  result <- data.frame()
 
   url <- paste0(
     "https://site.web.api.espn.com/apis/common/v3/sports/basketball/",
@@ -780,7 +780,7 @@
   .espn_bball_validate_league(league)
   .args <- list(league = league, athlete_id = athlete_id, season = season)
 
-  result <- NULL
+  result <- data.frame()
 
   # Eventlog is scoped under /seasons/{year}/athletes/{id}/eventlog;
   # the flat /athletes/{id}/eventlog?season= form 404s.
@@ -1060,7 +1060,7 @@
   .espn_bball_validate_league(league)
   .args <- list(league = league, athlete_id = athlete_id, season = season)
 
-  result <- NULL
+  result <- data.frame()
 
   # ESPN's core-v2 statisticslog endpoint does NOT accept ?season=YYYY
   # (returns 404). It returns the full chronological log; the season arg

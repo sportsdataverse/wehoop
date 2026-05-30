@@ -36,7 +36,7 @@
   .espn_bball_validate_league_cat(league)
   .args <- list(league = league, season = season, season_type = season_type)
 
-  result <- NULL
+  result <- data.frame()
 
   # core-v2 leaders endpoint. The web-common-v3 statistics/byathlete URL the
   # gist documents does not exist for WNBA / WBB basketball -- it 404s. The
@@ -217,7 +217,7 @@
   .espn_bball_validate_league_cat(league)
   .args <- list(league = league)
 
-  result <- NULL
+  result <- data.frame()
 
   base_url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
@@ -336,7 +336,7 @@
   .espn_bball_validate_league_cat(league)
   .args <- list(league = league, season = season)
 
-  result <- NULL
+  result <- data.frame()
 
   base_url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
@@ -445,7 +445,7 @@
     league = league, season = season, active = active, limit = limit
   )
 
-  result <- NULL
+  result <- data.frame()
 
   # The `active` query parameter is NOT supported for basketball leagues
   # (ESPN responds 400 "'active' query param not supported for sport/league").
@@ -623,7 +623,7 @@
   .espn_bball_validate_league_cat(league)
   .args <- list(league = league)
 
-  result <- NULL
+  result <- data.frame()
 
   url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",

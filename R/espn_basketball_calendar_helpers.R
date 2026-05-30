@@ -32,7 +32,7 @@
     as.integer(season)
   )
 
-  calendar <- NULL
+  calendar <- data.frame()
 
   tryCatch(
     expr = {

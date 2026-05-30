@@ -37,7 +37,21 @@ espn_wnba_conferences <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
-  conferences <- NULL
+  conferences <- data.frame(
+    conference_uid        = character(0),
+    group_id              = integer(0),
+    conference_name       = character(0),
+    conference_short_name = character(0),
+    conference_logo       = character(0),
+    parent_group_id       = integer(0),
+    conference_id         = integer(0),
+    stringsAsFactors      = FALSE
+  ) %>%
+    dplyr::as_tibble() %>%
+    make_wehoop_data(
+      "ESPN WNBA Conferences Information from ESPN.com",
+      Sys.time()
+    )
 
   tryCatch(
     expr = {

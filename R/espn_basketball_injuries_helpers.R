@@ -31,7 +31,7 @@
 
   .args <- list(league = league, season = season)
 
-  injuries_df <- NULL
+  injuries_df <- data.frame()
 
   tryCatch(
     expr = {
@@ -133,7 +133,7 @@
 
   .args <- list(league = league, team_id = team_id)
 
-  injuries_df <- NULL
+  injuries_df <- data.frame()
 
   tryCatch(
     expr = {

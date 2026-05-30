@@ -1455,7 +1455,7 @@ wnba_live_pbp <- function(
                      pad_id(game_id),
                      ".json")
   
-  data <- NULL
+  data <- data.frame()
 
   tryCatch(
     expr = {

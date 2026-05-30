@@ -23,7 +23,7 @@
   .espn_bball_validate_league(league)
   .args <- list(league = league, event_id = event_id)
 
-  result <- NULL
+  result <- data.frame()
 
   url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",

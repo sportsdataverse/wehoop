@@ -30,7 +30,7 @@
 ncaa_wbb_NET_rankings <- function(){
   .args <- .capture_args()
 
-  x <- NULL
+  x <- data.frame()
 
   NET_url <- "https://www.ncaa.com/rankings/basketball-women/d1/ncaa-womens-basketball-net-rankings"
   tryCatch(
