@@ -195,20 +195,20 @@ espn_wbb_athlete_info(athlete_id = athlete_id)            # bio
 #> $Draft
 #> # A tibble: 0 × 0
 espn_wbb_athlete_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
-#> # A tibble: 5 × 24
-#>   id       week  at_vs game_date score home_team_id away_team_id home_team_score
-#>   <chr>    <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          
-#> 1 4018186… 7     vs    2025-12-… 93-62 2509         2296         93             
-#> 2 4018186… 6     vs    2025-12-… 80-43 2509         2168         80             
-#> 3 4018186… 6     vs    2025-12-… 88-45 2509         288          88             
-#> 4 4018186… 5     vs    2025-12-… 91-49 2509         339          91             
-#> 5 4018186… 4     vs    2025-11-… 92-62 2509         47           92             
-#> # ℹ 16 more variables: away_team_score <chr>, game_result <chr>,
-#> #   league_name <chr>, league_abbreviation <chr>, league_short_name <chr>,
-#> #   team_id <chr>, team_uid <chr>, team_abbreviation <chr>, team_logo <chr>,
-#> #   team_is_all_star <chr>, opponent_id <chr>, opponent_uid <chr>,
-#> #   opponent_display_name <chr>, opponent_abbreviation <chr>,
-#> #   opponent_logo <chr>, event_id <chr>
+#> # A tibble: 5 × 26
+#>   athlete_id season id     week  at_vs game_date score home_team_id away_team_id
+#>   <chr>       <dbl> <chr>  <chr> <chr> <chr>     <chr> <chr>        <chr>       
+#> 1 5311737      2026 40181… 7     vs    2025-12-… 93-62 2509         2296        
+#> 2 5311737      2026 40181… 6     vs    2025-12-… 80-43 2509         2168        
+#> 3 5311737      2026 40181… 6     vs    2025-12-… 88-45 2509         288         
+#> 4 5311737      2026 40181… 5     vs    2025-12-… 91-49 2509         339         
+#> 5 5311737      2026 40181… 4     vs    2025-11-… 92-62 2509         47          
+#> # ℹ 17 more variables: home_team_score <chr>, away_team_score <chr>,
+#> #   game_result <chr>, league_name <chr>, league_abbreviation <chr>,
+#> #   league_short_name <chr>, team_id <chr>, team_uid <chr>,
+#> #   team_abbreviation <chr>, team_logo <chr>, team_is_all_star <chr>,
+#> #   opponent_id <chr>, opponent_uid <chr>, opponent_display_name <chr>,
+#> #   opponent_abbreviation <chr>, opponent_logo <chr>, event_id <chr>
 espn_wbb_athlete_career_stats(athlete_id = athlete_id)    # career rollup, long format
 #> # A tibble: 87 × 17
 #>    league   athlete_id stat_type_id split_id split_name split_type category_name

@@ -410,6 +410,16 @@ shim has been removed and the original body restored on each:
 | [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md) | `TeamStats` with 30 seasons × 34 columns of full franchise-level year-by-year ledger (GP, W, L, win%, conference rank, division rank, ratings) for the Aces. |
 | [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md) | `LeagueLineupViz` with 458–4,169 5-player lineup combinations × 25 columns (off/def/net rating, pace, TS%, eFG%) depending on filters, current 2025-26 WNBA season. |
 
+##### *ESPN return-shape streamlining (rectangularization)*
+
+Following an audit of all ESPN wrappers against the package’s “single
+wide, self-describing tibble” preference:
+
+| Function(s) | Change |
+|----|----|
+| [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md), [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md) | **Return shape changed from a named list of per-category tibbles to a single wide `wehoop_data` tibble.** One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (`avg_*` season averages, `tot_*` totals, `misc_*` miscellaneous). Stat columns are labeled from ESPN’s positional `names` array per category. The previous list (mostly empty `General`/`Offensive`/… slots plus nested `stats`/`season` list-columns) is gone; downstream code that indexed `$General` etc. should read the wide columns instead. |
+| [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md), [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md), `espn_*_athlete_splits()`, `espn_*_athlete_eventlog()`, `espn_*_athlete_statisticslog()` | Now echo the `athlete_id` and `season` inputs back as the first two columns, so the returned tibble is self-describing without re-attaching context. Implemented via a new internal `.echo_identity()` helper that preserves the `wehoop_data` class. |
+
 ##### *Bug fixes*
 
 | Function | Fix |

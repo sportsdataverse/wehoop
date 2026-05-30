@@ -131,10 +131,10 @@ Saiem Gilani
 # \donttest{
   espn_wbb_athlete_splits(athlete_id = "4433404", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Splits from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-05-30 17:54:02 UTC
-#> # A tibble: 1 × 2
-#>   name  display_name
-#>   <chr> <chr>       
-#> 1 split split       
+#> ℹ Data updated: 2026-05-30 20:07:42 UTC
+#> # A tibble: 1 × 4
+#>   athlete_id season name  display_name
+#>   <chr>       <dbl> <chr> <chr>       
+#> 1 4433404      2025 split split       
 # }
 ```

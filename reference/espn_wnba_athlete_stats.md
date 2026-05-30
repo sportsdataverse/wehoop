@@ -26,11 +26,24 @@ espn_wnba_athlete_stats(athlete_id, season = most_recent_wnba_season(), ...)
 
 ## Value
 
-A named list of per-category tibbles. Default category names are
-`General`, `Offensive`, `Defensive`, `Rebounding`, `Shooting`, `Misc`.
-Actual names are driven by the ESPN response; additional categories may
-appear. Each tibble has columns depending on the category returned by
-ESPN.
+A wide `wehoop_data` tibble, one row per athlete-season-team, with the
+ESPN stat categories spread across prefixed columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| athlete_id | character | ESPN athlete identifier (echoed input). |
+| season | integer | Season year for the stat line. |
+| team_id | character | ESPN team identifier for that season. |
+| team_slug | character | Team slug (e.g. 'phoenix-mercury'). |
+| avg\_\* | numeric | Per-game season-average stats (e.g. `avg_avg_points`). |
+| tot\_\* | numeric | Season-total stats (e.g. `tot_points`). |
+| misc\_\* | numeric | Miscellaneous season totals. |
+
+Stat column names come from ESPN's positional `names` array per
+category, cleaned via
+[`janitor::make_clean_names()`](https://sfirke.github.io/janitor/reference/make_clean_names.html);
+the exact set varies by season.
 
 ## See also
 
@@ -135,84 +148,25 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wnba_athlete_stats(athlete_id = "3149391", season = 2024)
-#> $`Regular Season Averages`
+  espn_wnba_athlete_stats(athlete_id = "4068159", season = 2024)
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 9 × 5
-#>   team_id team_slug      season$year $displayName stats      position
-#>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
-#> 1 17      las-vegas-aces        2018 2018         <chr [18]> C       
-#> 2 17      las-vegas-aces        2019 2019         <chr [18]> C       
-#> 3 17      las-vegas-aces        2020 2020         <chr [18]> C       
-#> 4 17      las-vegas-aces        2021 2021         <chr [18]> C       
-#> 5 17      las-vegas-aces        2022 2022         <chr [18]> C       
-#> 6 17      las-vegas-aces        2023 2023         <chr [18]> C       
-#> 7 17      las-vegas-aces        2024 2024         <chr [18]> C       
-#> 8 17      las-vegas-aces        2025 2025         <chr [18]> C       
-#> 9 17      las-vegas-aces        2026 2026         <chr [18]> C       
-#> 
-#> $`Regular Season Totals`
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 9 × 5
-#>   team_id team_slug      season$year $displayName stats      position
-#>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
-#> 1 17      las-vegas-aces        2018 2018         <chr [15]> C       
-#> 2 17      las-vegas-aces        2019 2019         <chr [15]> C       
-#> 3 17      las-vegas-aces        2020 2020         <chr [15]> C       
-#> 4 17      las-vegas-aces        2021 2021         <chr [15]> C       
-#> 5 17      las-vegas-aces        2022 2022         <chr [15]> C       
-#> 6 17      las-vegas-aces        2023 2023         <chr [15]> C       
-#> 7 17      las-vegas-aces        2024 2024         <chr [15]> C       
-#> 8 17      las-vegas-aces        2025 2025         <chr [15]> C       
-#> 9 17      las-vegas-aces        2026 2026         <chr [15]> C       
-#> 
-#> $`Regular Season Misc Totals`
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 9 × 5
-#>   team_id team_slug      season$year $displayName stats      position
-#>   <chr>   <chr>                <int> <chr>        <list>     <chr>   
-#> 1 17      las-vegas-aces        2018 2018         <chr [10]> C       
-#> 2 17      las-vegas-aces        2019 2019         <chr [10]> C       
-#> 3 17      las-vegas-aces        2020 2020         <chr [10]> C       
-#> 4 17      las-vegas-aces        2021 2021         <chr [10]> C       
-#> 5 17      las-vegas-aces        2022 2022         <chr [10]> C       
-#> 6 17      las-vegas-aces        2023 2023         <chr [10]> C       
-#> 7 17      las-vegas-aces        2024 2024         <chr [10]> C       
-#> 8 17      las-vegas-aces        2025 2025         <chr [10]> C       
-#> 9 17      las-vegas-aces        2026 2026         <chr [10]> C       
-#> 
-#> $General
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Offensive
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Defensive
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Rebounding
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Shooting
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Misc
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 0 × 0
-#> 
+#> ℹ Data updated: 2026-05-30 20:08:25 UTC
+#> # A tibble: 7 × 47
+#>   athlete_id season team_id team_slug         avg_games_played avg_games_started
+#>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
+#> 1 4068159      2020 16      washington-mysti…               12                 0
+#> 2 4068159      2023 11      phoenix-mercury                 40                12
+#> 3 4068159      2024 11      phoenix-mercury                 22                 0
+#> 4 4068159      2024 16      washington-mysti…                7                 0
+#> 5 4068159      2024 NA      2024 Totals                     29                 0
+#> 6 4068159      2025 16      washington-mysti…               43                43
+#> 7 4068159      2026 132052  portland-fire                    3                 2
+#> # ℹ 41 more variables: avg_avg_minutes <dbl>, avg_avg_points <dbl>,
+#> #   avg_avg_offensive_rebounds <dbl>, avg_avg_defensive_rebounds <dbl>,
+#> #   avg_avg_rebounds <dbl>, avg_avg_assists <dbl>, avg_avg_steals <dbl>,
+#> #   avg_avg_blocks <dbl>, avg_avg_turnovers <dbl>,
+#> #   avg_avg_field_goals_made_avg_field_goals_attempted <dbl>,
+#> #   avg_field_goal_pct <dbl>,
+#> #   avg_avg_three_point_field_goals_made_avg_three_point_field_goals_attempted <dbl>, …
 # }
 ```

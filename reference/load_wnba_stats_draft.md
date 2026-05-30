@@ -86,9 +86,23 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_draft(seasons = most_recent_wnba_stats_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_draft/draft_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_draft/draft_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 45 × 15
+#>    person_id player_name  season round_number round_pick overall_pick draft_type
+#>    <chr>     <chr>         <int> <chr>        <chr>      <chr>        <chr>     
+#>  1 257829    Azzi Fudd      2026 1            1          1            Draft     
+#>  2 257831    Olivia Miles   2026 1            2          2            Draft     
+#>  3 257826    Awa Fam Thi…   2026 1            3          3            Draft     
+#>  4 257833    Lauren Betts   2026 1            4          4            Draft     
+#>  5 257920    Gabriela Ja…   2026 1            5          5            Draft     
+#>  6 257922    Kiki Rice      2026 1            6          6            Draft     
+#>  7 257918    Iyana Martí…   2026 1            7          7            Draft     
+#>  8 257840    Flau'jae Jo…   2026 1            8          8            Draft     
+#>  9 257964    Angela Duga…   2026 1            9          9            Draft     
+#> 10 257844    Raven Johns…   2026 1            10         10           Draft     
+#> # ℹ 35 more rows
+#> # ℹ 8 more variables: team_id <chr>, team_city <chr>, team_name <chr>,
+#> #   team_abbreviation <chr>, organization <chr>, organization_type <chr>,
+#> #   player_profile_flag <chr>, season_2 <int>
 # }
 ```

@@ -119,11 +119,9 @@ Get ESPN WNBA Athlete Stats"><meta property="og:image" content="https://raw.gith
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A named list of per-category tibbles. Default category names are
-<code>General</code>, <code>Offensive</code>, <code>Defensive</code>, <code>Rebounding</code>, <code>Shooting</code>, <code>Misc</code>.
-Actual names are driven by the ESPN response; additional categories may
-appear. Each tibble has columns depending on the category returned by
-ESPN.</p>
+    <p>A wide <code>wehoop_data</code> tibble, one row per athlete-season-team, with
+the ESPN stat categories spread across prefixed columns:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>athlete_id</td><td>character</td><td>ESPN athlete identifier (echoed input).</td></tr><tr><td>season</td><td>integer</td><td>Season year for the stat line.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team identifier for that season.</td></tr><tr><td>team_slug</td><td>character</td><td>Team slug (e.g. 'phoenix-mercury').</td></tr><tr><td>avg_*</td><td>numeric</td><td>Per-game season-average stats (e.g. <code>avg_avg_points</code>).</td></tr><tr><td>tot_*</td><td>numeric</td><td>Season-total stats (e.g. <code>tot_points</code>).</td></tr><tr><td>misc_*</td><td>numeric</td><td>Miscellaneous season totals.</td></tr></table><p>Stat column names come from ESPN's positional <code>names</code> array per category,
+cleaned via <code><a href="https://sfirke.github.io/janitor/reference/make_clean_names.html" class="external-link">janitor::make_clean_names()</a></code>; the exact set varies by season.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -228,85 +226,26 @@ ESPN.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">espn_wnba_athlete_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"3149391"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Regular Season Averages`</span>
+<span class="r-in"><span>  <span class="fu">espn_wnba_athlete_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"4068159"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_id team_slug      season$year $displayName stats      position</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>018 2018         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>019 2019         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>020 2020         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>021 2021         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>022 2022         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>023 2023         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>024 2024         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>025 2025         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>026 2026         <span style="color: #949494;">&lt;chr [18]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Regular Season Totals`</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_id team_slug      season$year $displayName stats      position</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>018 2018         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>019 2019         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>020 2020         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>021 2021         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>022 2022         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>023 2023         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>024 2024         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>025 2025         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>026 2026         <span style="color: #949494;">&lt;chr [15]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Regular Season Misc Totals`</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_id team_slug      season$year $displayName stats      position</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>018 2018         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>019 2019         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>020 2020         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>021 2021         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>022 2022         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>023 2023         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>024 2024         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>025 2025         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 17      las-vegas-aces        <span style="text-decoration: underline;">2</span>026 2026         <span style="color: #949494;">&lt;chr [10]&gt;</span> C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $General</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Offensive</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Defensive</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Rebounding</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Shooting</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Misc</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 17:54:51 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-05-30 20:08:25 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 47</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   athlete_id season team_id team_slug         avg_games_played avg_games_started</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 4068159      <span style="text-decoration: underline;">2</span>020 16      washington-mysti…               12                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 4068159      <span style="text-decoration: underline;">2</span>023 11      phoenix-mercury                 40                12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 4068159      <span style="text-decoration: underline;">2</span>024 11      phoenix-mercury                 22                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 4068159      <span style="text-decoration: underline;">2</span>024 16      washington-mysti…                7                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 4068159      <span style="text-decoration: underline;">2</span>024 <span style="color: #BB0000;">NA</span>      2024 Totals                     29                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 4068159      <span style="text-decoration: underline;">2</span>025 16      washington-mysti…               43                43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 4068159      <span style="text-decoration: underline;">2</span>026 132052  portland-fire                    3                 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 41 more variables: avg_avg_minutes &lt;dbl&gt;, avg_avg_points &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_avg_offensive_rebounds &lt;dbl&gt;, avg_avg_defensive_rebounds &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_avg_rebounds &lt;dbl&gt;, avg_avg_assists &lt;dbl&gt;, avg_avg_steals &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_avg_blocks &lt;dbl&gt;, avg_avg_turnovers &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_avg_field_goals_made_avg_field_goals_attempted &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_field_goal_pct &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_avg_three_point_field_goals_made_avg_three_point_field_goals_attempted &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

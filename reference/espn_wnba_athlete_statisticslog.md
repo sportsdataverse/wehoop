@@ -146,10 +146,18 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Statisticslog from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:51 UTC
-#> # A tibble: 1 × 2
-#>   season$`$ref`                                                       statistics
-#>   <chr>                                                               <list>    
-#> 1 http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/… <df>      
+#> ℹ Data updated: 2026-05-30 20:08:24 UTC
+#> # A tibble: 9 × 3
+#>   athlete_id season$`$ref`                                            statistics
+#>   <chr>      <chr>                                                    <list>    
+#> 1 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 2 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 3 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 4 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 5 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 6 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 7 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 8 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
+#> 9 3149391    http://sports.core.api.espn.com/v2/sports/basketball/le… <df>      
 # }
 ```

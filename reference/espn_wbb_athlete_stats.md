@@ -26,11 +26,24 @@ espn_wbb_athlete_stats(athlete_id, season = most_recent_wbb_season(), ...)
 
 ## Value
 
-A named list of per-category tibbles. Default category names are
-`General`, `Offensive`, `Defensive`, `Rebounding`, `Shooting`, `Misc`.
-Actual names are driven by the ESPN response; additional categories may
-appear. Each tibble has columns depending on the category returned by
-ESPN.
+A wide `wehoop_data` tibble, one row per athlete-season-team, with the
+ESPN stat categories spread across prefixed columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| athlete_id | character | ESPN athlete identifier (echoed input). |
+| season | integer | Season year for the stat line. |
+| team_id | character | ESPN team identifier for that season. |
+| team_slug | character | Team slug (e.g. 'iowa-hawkeyes'). |
+| avg\_\* | numeric | Per-game season-average stats (e.g. `avg_avg_points`). |
+| tot\_\* | numeric | Season-total stats (e.g. `tot_points`). |
+| misc\_\* | numeric | Miscellaneous season totals. |
+
+Stat column names come from ESPN's positional `names` array per
+category, cleaned via
+[`janitor::make_clean_names()`](https://sfirke.github.io/janitor/reference/make_clean_names.html);
+the exact set varies by league and season.
 
 ## See also
 
@@ -131,69 +144,23 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_stats(athlete_id = "4433404", season = 2025)
-#> $`Season Averages`
+  espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 4 × 5
-#>   team_id team_slug         season$year $displayName stats      position
-#>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
-#> 1 24      stanford-cardinal        2021 2020-21      <chr [18]> F       
-#> 2 24      stanford-cardinal        2022 2021-22      <chr [18]> F       
-#> 3 24      stanford-cardinal        2023 2022-23      <chr [18]> F       
-#> 4 24      stanford-cardinal        2024 2023-24      <chr [18]> F       
-#> 
-#> $`Season Totals`
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 4 × 5
-#>   team_id team_slug         season$year $displayName stats      position
-#>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
-#> 1 24      stanford-cardinal        2021 2020-21      <chr [15]> F       
-#> 2 24      stanford-cardinal        2022 2021-22      <chr [15]> F       
-#> 3 24      stanford-cardinal        2023 2022-23      <chr [15]> F       
-#> 4 24      stanford-cardinal        2024 2023-24      <chr [15]> F       
-#> 
-#> $`Season Misc Totals`
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 4 × 5
-#>   team_id team_slug         season$year $displayName stats     position
-#>   <chr>   <chr>                   <int> <chr>        <list>    <chr>   
-#> 1 24      stanford-cardinal        2021 2020-21      <chr [9]> F       
-#> 2 24      stanford-cardinal        2022 2021-22      <chr [9]> F       
-#> 3 24      stanford-cardinal        2023 2022-23      <chr [9]> F       
-#> 4 24      stanford-cardinal        2024 2023-24      <chr [9]> F       
-#> 
-#> $General
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Offensive
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Defensive
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Rebounding
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Shooting
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 0 × 0
-#> 
-#> $Misc
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:03 UTC
-#> # A tibble: 0 × 0
-#> 
+#> ℹ Data updated: 2026-05-30 20:07:43 UTC
+#> # A tibble: 5 × 46
+#>   athlete_id season team_id team_slug         avg_games_played avg_games_started
+#>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
+#> 1 4433985      2021 66      iowa-state-cyclo…               28                24
+#> 2 4433985      2022 2294    iowa-hawkeyes                   32                 2
+#> 3 4433985      2024 2294    iowa-hawkeyes                   39                 0
+#> 4 4433985      2025 2294    iowa-hawkeyes                   34                34
+#> 5 4433985      2026 2294    iowa-hawkeyes                   31                30
+#> # ℹ 40 more variables: avg_avg_minutes <dbl>, avg_avg_points <dbl>,
+#> #   avg_avg_rebounds <dbl>, avg_avg_assists <dbl>, avg_avg_steals <dbl>,
+#> #   avg_avg_blocks <dbl>, avg_avg_turnovers <dbl>,
+#> #   avg_avg_field_goals_made_avg_field_goals_attempted <dbl>,
+#> #   avg_field_goal_pct <dbl>,
+#> #   avg_avg_three_point_field_goals_made_avg_three_point_field_goals_attempted <dbl>,
+#> #   avg_three_point_field_goal_pct <dbl>, …
 # }
 ```

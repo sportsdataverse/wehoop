@@ -144,20 +144,21 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Eventlog from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:48 UTC
-#> # A tibble: 25 × 6
-#>    event_ref              competition_ref team_ref statistics_ref team_id played
-#>    <chr>                  <chr>           <chr>    <chr>          <chr>   <lgl> 
-#>  1 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  2 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  3 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  4 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  5 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  6 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  7 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  8 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#>  9 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
-#> 10 http://sports.core.ap… http://sports.… NA       http://sports… 17      TRUE  
+#> ℹ Data updated: 2026-05-30 20:08:22 UTC
+#> # A tibble: 25 × 8
+#>    athlete_id season event_ref   competition_ref team_ref statistics_ref team_id
+#>    <chr>       <dbl> <chr>       <chr>           <chr>    <chr>          <chr>  
+#>  1 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  2 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  3 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  4 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  5 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  6 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  7 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  8 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#>  9 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
+#> 10 3149391      2024 http://spo… http://sports.… NA       http://sports… 17     
 #> # ℹ 15 more rows
+#> # ℹ 1 more variable: played <lgl>
 # }
 ```

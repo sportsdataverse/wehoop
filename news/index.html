@@ -653,6 +653,21 @@
 <code>LeagueLineupViz</code> with 458–4,169 5-player lineup combinations × 25 columns (off/def/net rating, pace, TS%, eFG%) depending on filters, current 2025-26 WNBA season.</td>
 </tr></tbody></table></div>
 <div class="section level5">
+<h5 id="espn-return-shape-streamlining-rectangularization-3-0-0"><em>ESPN return-shape streamlining (rectangularization)</em><a class="anchor" aria-label="anchor" href="#espn-return-shape-streamlining-rectangularization-3-0-0"></a></h5>
+<p>Following an audit of all ESPN wrappers against the package’s “single wide, self-describing tibble” preference:</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function(s)</th>
+<th>Change</th>
+</tr></thead><tbody><tr><td>
+<code><a href="../reference/espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code>, <code><a href="../reference/espn_wnba_athlete_stats.html">espn_wnba_athlete_stats()</a></code>
+</td>
+<td>
+<strong>Return shape changed from a named list of per-category tibbles to a single wide <code>wehoop_data</code> tibble.</strong> One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (<code>avg_*</code> season averages, <code>tot_*</code> totals, <code>misc_*</code> miscellaneous). Stat columns are labeled from ESPN’s positional <code>names</code> array per category. The previous list (mostly empty <code>General</code>/<code>Offensive</code>/… slots plus nested <code>stats</code>/<code>season</code> list-columns) is gone; downstream code that indexed <code>$General</code> etc. should read the wide columns instead.</td>
+</tr><tr><td>
+<code><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog()</a></code>, <code><a href="../reference/espn_wnba_athlete_gamelog.html">espn_wnba_athlete_gamelog()</a></code>, <code>espn_*_athlete_splits()</code>, <code>espn_*_athlete_eventlog()</code>, <code>espn_*_athlete_statisticslog()</code>
+</td>
+<td>Now echo the <code>athlete_id</code> and <code>season</code> inputs back as the first two columns, so the returned tibble is self-describing without re-attaching context. Implemented via a new internal <code>.echo_identity()</code> helper that preserves the <code>wehoop_data</code> class.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="bug-fixes-3-0-0"><em>Bug fixes</em><a class="anchor" aria-label="anchor" href="#bug-fixes-3-0-0"></a></h5>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Fix</th>

@@ -134,26 +134,26 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Gamelog from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-05-30 17:54:49 UTC
-#> # A tibble: 46 × 24
-#>    id        at_vs game_date     score home_team_id away_team_id home_team_score
-#>    <chr>     <chr> <chr>         <chr> <chr>        <chr>        <chr>          
-#>  1 401724941 vs    2024-10-06T1… 76-62 17           9            62             
-#>  2 401724940 vs    2024-10-05T0… 95-81 17           9            95             
-#>  3 401724939 @     2024-10-01T2… 88-84 9            17           88             
-#>  4 401724938 @     2024-09-29T1… 87-77 9            17           87             
-#>  5 401721262 vs    2024-09-25T0… 83-76 17           14           83             
-#>  6 401721256 vs    2024-09-23T0… 78-67 17           14           78             
-#>  7 401620451 @     2024-09-18T0… 85-72 14           17           72             
-#>  8 401620445 vs    2024-09-15T2… 84-71 17           18           84             
-#>  9 401620437 @     2024-09-13T2… 78-74 5            17           74             
-#> 10 401620432 @     2024-09-11T2… 86-75 5            17           75             
+#> ℹ Data updated: 2026-05-30 20:08:23 UTC
+#> # A tibble: 46 × 26
+#>    athlete_id season id        at_vs game_date   score home_team_id away_team_id
+#>    <chr>       <dbl> <chr>     <chr> <chr>       <chr> <chr>        <chr>       
+#>  1 3149391      2024 401724941 vs    2024-10-06… 76-62 17           9           
+#>  2 3149391      2024 401724940 vs    2024-10-05… 95-81 17           9           
+#>  3 3149391      2024 401724939 @     2024-10-01… 88-84 9            17          
+#>  4 3149391      2024 401724938 @     2024-09-29… 87-77 9            17          
+#>  5 3149391      2024 401721262 vs    2024-09-25… 83-76 17           14          
+#>  6 3149391      2024 401721256 vs    2024-09-23… 78-67 17           14          
+#>  7 3149391      2024 401620451 @     2024-09-18… 85-72 14           17          
+#>  8 3149391      2024 401620445 vs    2024-09-15… 84-71 17           18          
+#>  9 3149391      2024 401620437 @     2024-09-13… 78-74 5            17          
+#> 10 3149391      2024 401620432 @     2024-09-11… 86-75 5            17          
 #> # ℹ 36 more rows
-#> # ℹ 17 more variables: away_team_score <chr>, game_result <chr>,
-#> #   league_name <chr>, league_abbreviation <chr>, league_short_name <chr>,
-#> #   event_note <chr>, team_id <chr>, team_uid <chr>, team_abbreviation <chr>,
-#> #   team_logo <chr>, team_is_all_star <chr>, opponent_id <chr>,
-#> #   opponent_uid <chr>, opponent_display_name <chr>,
+#> # ℹ 18 more variables: home_team_score <chr>, away_team_score <chr>,
+#> #   game_result <chr>, league_name <chr>, league_abbreviation <chr>,
+#> #   league_short_name <chr>, event_note <chr>, team_id <chr>, team_uid <chr>,
+#> #   team_abbreviation <chr>, team_logo <chr>, team_is_all_star <chr>,
+#> #   opponent_id <chr>, opponent_uid <chr>, opponent_display_name <chr>,
 #> #   opponent_abbreviation <chr>, opponent_logo <chr>, event_id <chr>
 # }
 ```

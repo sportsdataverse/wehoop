@@ -341,20 +341,20 @@ star-driven sport, and you want a marquee guard’s numbers.</p>
 <span><span class="co">#&gt; $Draft</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 0</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_athlete_gamelog.html">espn_wbb_athlete_gamelog</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 24</span></span></span>
-<span><span class="co">#&gt;   id       week  at_vs game_date score home_team_id away_team_id home_team_score</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 4018186… 7     vs    2025-12-… 93-62 2509         2296         93             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 4018186… 6     vs    2025-12-… 80-43 2509         2168         80             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 4018186… 6     vs    2025-12-… 88-45 2509         288          88             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 4018186… 5     vs    2025-12-… 91-49 2509         339          91             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 4018186… 4     vs    2025-11-… 92-62 2509         47           92             </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 16 more variables: away_team_score &lt;chr&gt;, game_result &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   league_name &lt;chr&gt;, league_abbreviation &lt;chr&gt;, league_short_name &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   team_id &lt;chr&gt;, team_uid &lt;chr&gt;, team_abbreviation &lt;chr&gt;, team_logo &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   team_is_all_star &lt;chr&gt;, opponent_id &lt;chr&gt;, opponent_uid &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   opponent_display_name &lt;chr&gt;, opponent_abbreviation &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   opponent_logo &lt;chr&gt;, event_id &lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 26</span></span></span>
+<span><span class="co">#&gt;   athlete_id season id     week  at_vs game_date score home_team_id away_team_id</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5311737      <span style="text-decoration: underline;">2</span>026 40181… 7     vs    2025-12-… 93-62 2509         2296        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 5311737      <span style="text-decoration: underline;">2</span>026 40181… 6     vs    2025-12-… 80-43 2509         2168        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 5311737      <span style="text-decoration: underline;">2</span>026 40181… 6     vs    2025-12-… 88-45 2509         288         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 5311737      <span style="text-decoration: underline;">2</span>026 40181… 5     vs    2025-12-… 91-49 2509         339         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 5311737      <span style="text-decoration: underline;">2</span>026 40181… 4     vs    2025-11-… 92-62 2509         47          </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 17 more variables: home_team_score &lt;chr&gt;, away_team_score &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   game_result &lt;chr&gt;, league_name &lt;chr&gt;, league_abbreviation &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   league_short_name &lt;chr&gt;, team_id &lt;chr&gt;, team_uid &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   team_abbreviation &lt;chr&gt;, team_logo &lt;chr&gt;, team_is_all_star &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   opponent_id &lt;chr&gt;, opponent_uid &lt;chr&gt;, opponent_display_name &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   opponent_abbreviation &lt;chr&gt;, opponent_logo &lt;chr&gt;, event_id &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_athlete_career_stats.html">espn_wbb_athlete_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="va">athlete_id</span><span class="op">)</span>    <span class="co"># career rollup, long format</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 87 × 17</span></span></span>
 <span><span class="co">#&gt;    league   athlete_id stat_type_id split_id split_name split_type category_name</span></span>
