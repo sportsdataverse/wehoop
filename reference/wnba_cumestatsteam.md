@@ -151,8 +151,8 @@ Returns a named list of data frames: GameByGameStats, TotalTeamStats
 ## See also
 
 Other WNBA Cume Functions:
-[`wnba_cumestatsplayergames()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayergames.md),
 [`wnba_cumestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayer.md),
+[`wnba_cumestatsplayergames()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsplayergames.md),
 [`wnba_cumestatsteamgames()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsteamgames.md)
 
 ## Author

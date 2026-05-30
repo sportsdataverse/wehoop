@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "Lafayette"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:46:25"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:57:03"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2026/teams/2509?"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:46:25"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:57:03"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "3"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Guard"
 #>   ..$ abbreviation: chr "G"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:46:25"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:57:03"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:46:25"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:57:03"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:46:25"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:57:03"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:46:25"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 17:57:03"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -790,7 +790,7 @@ espn_wnba_season_leaders(season = 2024)
 # Award index for a season + per-award detail.
 aw <- espn_wnba_season_awards(season = 2024)
 espn_wnba_award(award_id = aw$award_id[1])
-#> NULL
+#> data frame with 0 columns and 0 rows
 
 # Season group structure (conferences / D-I groups) -- mostly relevant
 # for WBB, which has a deep conference hierarchy.
