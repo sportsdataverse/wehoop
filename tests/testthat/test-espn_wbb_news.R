@@ -1,7 +1,6 @@
 
 test_that("ESPN - WBB News", {
   skip_on_cran()
-  skip_on_ci()
   skip_espn_test()
 
   x <- espn_wbb_news(limit = 10)

@@ -1,6 +1,5 @@
 test_that("ESPN WBB Seasons", {
   skip_on_cran()
-  skip_on_ci()
   skip_espn_test()
 
   x <- espn_wbb_seasons()
