@@ -45,8 +45,8 @@ Return a list of tibbles: VideoStatus
 }
 \seealso{
 Other WNBA Video Functions: 
-\code{\link{wnba_videodetailsasset}()},
 \code{\link{wnba_videodetails}()},
+\code{\link{wnba_videodetailsasset}()},
 \code{\link{wnba_videoevents}()}
 }
 \author{

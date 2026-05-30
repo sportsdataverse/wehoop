@@ -128,8 +128,8 @@ Returns a named list of data frames: HustleStatsTeam
 \seealso{
 Other WNBA Hustle Functions: 
 \code{\link{wnba_hustlestatsboxscore}()},
-\code{\link{wnba_leaguehustlestatsplayerleaders}()},
 \code{\link{wnba_leaguehustlestatsplayer}()},
+\code{\link{wnba_leaguehustlestatsplayerleaders}()},
 \code{\link{wnba_leaguehustlestatsteamleaders}()}
 }
 \author{

@@ -66,8 +66,8 @@ Returns a named list of data frames: DefunctTeams, FranchiseHistory
 }
 \seealso{
 Other WNBA Franchise Functions: 
-\code{\link{wnba_franchiseleaderswrank}()},
 \code{\link{wnba_franchiseleaders}()},
+\code{\link{wnba_franchiseleaderswrank}()},
 \code{\link{wnba_franchiseplayers}()}
 }
 \author{

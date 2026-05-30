@@ -71,8 +71,8 @@ Returns a named list of data frames: FranchisePlayers
 \seealso{
 Other WNBA Franchise Functions: 
 \code{\link{wnba_franchisehistory}()},
-\code{\link{wnba_franchiseleaderswrank}()},
-\code{\link{wnba_franchiseleaders}()}
+\code{\link{wnba_franchiseleaders}()},
+\code{\link{wnba_franchiseleaderswrank}()}
 }
 \author{
 Saiem Gilani

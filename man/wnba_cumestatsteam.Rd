@@ -134,8 +134,8 @@ Returns a named list of data frames: GameByGameStats, TotalTeamStats
 }
 \seealso{
 Other WNBA Cume Functions: 
-\code{\link{wnba_cumestatsplayergames}()},
 \code{\link{wnba_cumestatsplayer}()},
+\code{\link{wnba_cumestatsplayergames}()},
 \code{\link{wnba_cumestatsteamgames}()}
 }
 \author{

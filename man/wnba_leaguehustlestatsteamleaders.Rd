@@ -175,8 +175,8 @@ TeamLooseBallLeaders, TeamScreenAssistLeaders
 \seealso{
 Other WNBA Hustle Functions: 
 \code{\link{wnba_hustlestatsboxscore}()},
-\code{\link{wnba_leaguehustlestatsplayerleaders}()},
 \code{\link{wnba_leaguehustlestatsplayer}()},
+\code{\link{wnba_leaguehustlestatsplayerleaders}()},
 \code{\link{wnba_leaguehustlestatsteam}()}
 }
 \author{
