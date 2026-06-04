@@ -28,6 +28,16 @@
 
 # **wehoop 3.0.0**
 
+### **ESPN endpoint naming convention (game_*/player_*)**
+
+The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse
+taxonomy used by cfbfastR/hoopR: `event_competitor* → game_team*`,
+`event_competition → game`, `event_* → game_*`, and `athlete_* → player_*` (58
+functions). These wrappers are new this release and were never on CRAN (2.1.0), so
+the convention is applied directly without deprecation shims. `*_athlete_stats` is
+kept (it would collide with the existing `*_player_stats`). The long-standing
+`espn_wnba_pbp()` / `espn_wnba_team_box()` / etc. are unaffected.
+
 ### **New exported functions**
 
 #### *New WNBA Stats API V3 endpoints*

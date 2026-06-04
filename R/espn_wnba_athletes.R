@@ -4,15 +4,15 @@
 # espn_basketball_athlete_helpers.R.
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_info
+# espn_wnba_player_info
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Info**
-#' @name espn_wnba_athlete_info
+#' @name espn_wnba_player_info
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Info**
-#' @rdname espn_wnba_athlete_info
+#' @rdname espn_wnba_player_info
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param ... Additional arguments; currently unused but retained for
@@ -80,9 +80,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_info(athlete_id = "3149391")
+#'   espn_wnba_player_info(athlete_id = "3149391")
 #' }
-espn_wnba_athlete_info <- function(athlete_id, ...) {
+espn_wnba_player_info <- function(athlete_id, ...) {
   .espn_basketball_athlete_info(
     league     = "wnba",
     athlete_id = athlete_id,
@@ -91,15 +91,15 @@ espn_wnba_athlete_info <- function(athlete_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_overview
+# espn_wnba_player_overview
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Overview**
-#' @name espn_wnba_athlete_overview
+#' @name espn_wnba_player_overview
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Overview**
-#' @rdname espn_wnba_athlete_overview
+#' @rdname espn_wnba_player_overview
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -149,9 +149,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_overview(athlete_id = "3149391", season = 2024)
+#'   espn_wnba_player_overview(athlete_id = "3149391", season = 2024)
 #' }
-espn_wnba_athlete_overview <- function(athlete_id,
+espn_wnba_player_overview <- function(athlete_id,
                                        season = most_recent_wnba_season(),
                                        ...) {
   .espn_basketball_athlete_overview(
@@ -213,15 +213,15 @@ espn_wnba_athlete_stats <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_gamelog
+# espn_wnba_player_gamelog
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Gamelog**
-#' @name espn_wnba_athlete_gamelog
+#' @name espn_wnba_player_gamelog
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Gamelog**
-#' @rdname espn_wnba_athlete_gamelog
+#' @rdname espn_wnba_player_gamelog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -236,9 +236,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_gamelog(athlete_id = "3149391", season = 2024)
+#'   espn_wnba_player_gamelog(athlete_id = "3149391", season = 2024)
 #' }
-espn_wnba_athlete_gamelog <- function(athlete_id,
+espn_wnba_player_gamelog <- function(athlete_id,
                                       season = most_recent_wnba_season(),
                                       ...) {
   .espn_basketball_athlete_gamelog(
@@ -250,15 +250,15 @@ espn_wnba_athlete_gamelog <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_splits
+# espn_wnba_player_splits
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Splits**
-#' @name espn_wnba_athlete_splits
+#' @name espn_wnba_player_splits
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Splits**
-#' @rdname espn_wnba_athlete_splits
+#' @rdname espn_wnba_player_splits
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -274,9 +274,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_splits(athlete_id = "3149391", season = 2024)
+#'   espn_wnba_player_splits(athlete_id = "3149391", season = 2024)
 #' }
-espn_wnba_athlete_splits <- function(athlete_id,
+espn_wnba_player_splits <- function(athlete_id,
                                      season = most_recent_wnba_season(),
                                      ...) {
   .espn_basketball_athlete_splits(
@@ -288,15 +288,15 @@ espn_wnba_athlete_splits <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_eventlog
+# espn_wnba_player_eventlog
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Eventlog**
-#' @name espn_wnba_athlete_eventlog
+#' @name espn_wnba_player_eventlog
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Eventlog**
-#' @rdname espn_wnba_athlete_eventlog
+#' @rdname espn_wnba_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -320,9 +320,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_eventlog(athlete_id = "3149391", season = 2024)
+#'   espn_wnba_player_eventlog(athlete_id = "3149391", season = 2024)
 #' }
-espn_wnba_athlete_eventlog <- function(athlete_id,
+espn_wnba_player_eventlog <- function(athlete_id,
                                        season = most_recent_wnba_season(),
                                        ...) {
   .espn_basketball_athlete_eventlog(
@@ -334,15 +334,15 @@ espn_wnba_athlete_eventlog <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_awards
+# espn_wnba_player_awards
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Awards**
-#' @name espn_wnba_athlete_awards
+#' @name espn_wnba_player_awards
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Awards**
-#' @rdname espn_wnba_athlete_awards
+#' @rdname espn_wnba_player_awards
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param ... Additional arguments; currently unused.
@@ -366,9 +366,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_awards(athlete_id = "3149391")
+#'   espn_wnba_player_awards(athlete_id = "3149391")
 #' }
-espn_wnba_athlete_awards <- function(athlete_id, ...) {
+espn_wnba_player_awards <- function(athlete_id, ...) {
   .espn_basketball_athlete_awards(
     league     = "wnba",
     athlete_id = athlete_id,
@@ -377,15 +377,15 @@ espn_wnba_athlete_awards <- function(athlete_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_statisticslog
+# espn_wnba_player_statisticslog
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Statisticslog**
-#' @name espn_wnba_athlete_statisticslog
+#' @name espn_wnba_player_statisticslog
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Statisticslog**
-#' @rdname espn_wnba_athlete_statisticslog
+#' @rdname espn_wnba_player_statisticslog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -406,9 +406,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_statisticslog(athlete_id = "3149391", season = 2024)
+#'   espn_wnba_player_statisticslog(athlete_id = "3149391", season = 2024)
 #' }
-espn_wnba_athlete_statisticslog <- function(athlete_id,
+espn_wnba_player_statisticslog <- function(athlete_id,
                                             season = most_recent_wnba_season(),
                                             ...) {
   .espn_basketball_athlete_statisticslog(

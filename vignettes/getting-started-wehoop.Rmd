@@ -275,7 +275,7 @@ names(game)   # play_by_play, Team, Player, Boxscore_team, ...
 leaders <- espn_wnba_leaders(season = 2024, season_type = 2)
 
 # Win probability per play for a single game (handy for charting momentum)
-wp <- espn_wnba_event_probabilities(event_id = "401736171", limit = 200)
+wp <- espn_wnba_game_probabilities(event_id = "401736171", limit = 200)
 ```
 
 The full ESPN surface -- 80 wrappers covering rosters, schedules, news, injuries, athletes, draft, free agency, transactions, venues, coaches, and more -- is documented in the [ESPN basketball endpoints vignette](espn-endpoints.html).

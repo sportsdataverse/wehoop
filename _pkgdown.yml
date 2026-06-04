@@ -294,38 +294,38 @@ reference:
   - subtitle: WBB -- Athlete coverage
     desc: Per-athlete endpoints for women's college basketball
     contents:
-      - espn_wbb_athlete_info
-      - espn_wbb_athlete_overview
+      - espn_wbb_player_info
+      - espn_wbb_player_overview
       - espn_wbb_athlete_stats
-      - espn_wbb_athlete_gamelog
-      - espn_wbb_athlete_splits
-      - espn_wbb_athlete_eventlog
-      - espn_wbb_athlete_awards
-      - espn_wbb_athlete_statisticslog
+      - espn_wbb_player_gamelog
+      - espn_wbb_player_splits
+      - espn_wbb_player_eventlog
+      - espn_wbb_player_awards
+      - espn_wbb_player_statisticslog
       - espn_wbb_player_stats
   - subtitle: WBB -- Event detail
     desc: Per-event enrichments (odds, win probability, officials, broadcasts)
     contents:
-      - espn_wbb_event_odds
-      - espn_wbb_event_probabilities
-      - espn_wbb_event_officials
-      - espn_wbb_event_broadcasts
-      - espn_wbb_event_situation
-      - espn_wbb_event_predictor
-      - espn_wbb_event_powerindex
-      - espn_wbb_event_propbets
-      - espn_wbb_event_competitor_linescores
-      - espn_wbb_event_competitor_leaders
-      - espn_wbb_event_competitor_roster
-      - espn_wbb_event_competitor_statistics
-      - espn_wbb_event_competitor_records
-      - espn_wbb_event_player_box
-      - espn_wbb_event_competitor_roster_entry
-      - espn_wbb_event_play
-      - espn_wbb_event_play_personnel
-      - espn_wbb_event_competitor_score
+      - espn_wbb_game_odds
+      - espn_wbb_game_probabilities
+      - espn_wbb_game_officials
+      - espn_wbb_game_broadcasts
+      - espn_wbb_game_situation
+      - espn_wbb_game_predictor
+      - espn_wbb_game_powerindex
+      - espn_wbb_game_propbets
+      - espn_wbb_game_team_linescores
+      - espn_wbb_game_team_leaders
+      - espn_wbb_game_team_roster
+      - espn_wbb_game_team_statistics
+      - espn_wbb_game_team_records
+      - espn_wbb_game_player_box
+      - espn_wbb_game_team_roster_entry
+      - espn_wbb_game_play
+      - espn_wbb_game_play_personnel
+      - espn_wbb_game_team_score
       - espn_wbb_team_season_statistics
-      - espn_wbb_event_official_detail
+      - espn_wbb_game_official_detail
       - espn_wbb_team_record_detail
       - espn_wbb_coach_record
       - espn_wbb_tournament_season
@@ -374,9 +374,9 @@ reference:
       - espn_wbb_season_group_teams
       - espn_wbb_team_season_roster
       - espn_wbb_coach_season
-      - espn_wbb_athlete_seasons
-      - espn_wbb_athlete_career_stats
-      - espn_wbb_athlete_eventlog_v2
+      - espn_wbb_player_seasons
+      - espn_wbb_player_career_stats
+      - espn_wbb_player_eventlog_v2
   - subtitle: WNBA -- Game data
     desc: Per-game endpoints for the WNBA (play-by-play, box scores, rosters)
     contents:
@@ -408,39 +408,39 @@ reference:
   - subtitle: WNBA -- Athlete coverage
     desc: Per-athlete endpoints for the WNBA
     contents:
-      - espn_wnba_athlete_info
-      - espn_wnba_athlete_overview
+      - espn_wnba_player_info
+      - espn_wnba_player_overview
       - espn_wnba_athlete_stats
-      - espn_wnba_athlete_gamelog
-      - espn_wnba_athlete_splits
-      - espn_wnba_athlete_eventlog
-      - espn_wnba_athlete_awards
-      - espn_wnba_athlete_statisticslog
+      - espn_wnba_player_gamelog
+      - espn_wnba_player_splits
+      - espn_wnba_player_eventlog
+      - espn_wnba_player_awards
+      - espn_wnba_player_statisticslog
       - espn_wnba_player_stats
   - subtitle: WNBA -- Event detail
     desc: Per-event enrichments (odds, win probability, officials, broadcasts)
     contents:
-      - espn_wnba_event_odds
-      - espn_wnba_event_probabilities
-      - espn_wnba_event_officials
-      - espn_wnba_event_broadcasts
-      - espn_wnba_event_situation
-      - espn_wnba_event_predictor
-      - espn_wnba_event_powerindex
-      - espn_wnba_event_propbets
-      - espn_wnba_event_competitor_linescores
-      - espn_wnba_event_competitor_leaders
-      - espn_wnba_event_competitor_roster
-      - espn_wnba_event_competitor_statistics
-      - espn_wnba_event_competitor_records
-      - espn_wnba_event_player_box
-      - espn_wnba_event_competitor_roster_entry
-      - espn_wnba_event_play
-      - espn_wnba_event_play_personnel
-      - espn_wnba_event_competitor_score
+      - espn_wnba_game_odds
+      - espn_wnba_game_probabilities
+      - espn_wnba_game_officials
+      - espn_wnba_game_broadcasts
+      - espn_wnba_game_situation
+      - espn_wnba_game_predictor
+      - espn_wnba_game_powerindex
+      - espn_wnba_game_propbets
+      - espn_wnba_game_team_linescores
+      - espn_wnba_game_team_leaders
+      - espn_wnba_game_team_roster
+      - espn_wnba_game_team_statistics
+      - espn_wnba_game_team_records
+      - espn_wnba_game_player_box
+      - espn_wnba_game_team_roster_entry
+      - espn_wnba_game_play
+      - espn_wnba_game_play_personnel
+      - espn_wnba_game_team_score
       - espn_wnba_team_season_statistics
       - espn_wnba_season_draft
-      - espn_wnba_event_official_detail
+      - espn_wnba_game_official_detail
       - espn_wnba_team_record_detail
       - espn_wnba_draft_athlete_detail
   - subtitle: WNBA -- League catalogs
@@ -492,10 +492,10 @@ reference:
       - espn_wnba_season_group_teams
       - espn_wnba_team_season_roster
       - espn_wnba_coach_season
-      - espn_wnba_athlete_seasons
-      - espn_wnba_athlete_career_stats
+      - espn_wnba_player_seasons
+      - espn_wnba_player_career_stats
       - espn_wnba_draft_pick
-      - espn_wnba_athlete_eventlog_v2
+      - espn_wnba_player_eventlog_v2
       - espn_wnba_draft_rounds
       - espn_wnba_draft_athletes
       - espn_wnba_draft_status

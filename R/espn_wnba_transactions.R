@@ -37,7 +37,7 @@ NULL
 #'    |team_ref    |character |Team ref.                                             |
 #'
 #'    Athlete and team details (name, position, college, abbreviation) are not
-#'    inlined in the draft response; resolve them via `espn_wnba_athlete_info()`
+#'    inlined in the draft response; resolve them via `espn_wnba_player_info()`
 #'    or `espn_wnba_team()` using the returned IDs.
 #'
 #' @importFrom jsonlite fromJSON

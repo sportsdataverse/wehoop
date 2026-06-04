@@ -4,15 +4,15 @@
 # espn_basketball_athlete_helpers.R.
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_info
+# espn_wbb_player_info
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Info**
-#' @name espn_wbb_athlete_info
+#' @name espn_wbb_player_info
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Info**
-#' @rdname espn_wbb_athlete_info
+#' @rdname espn_wbb_player_info
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param ... Additional arguments; currently unused but retained for
@@ -80,9 +80,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_info(athlete_id = "4433404")
+#'   espn_wbb_player_info(athlete_id = "4433404")
 #' }
-espn_wbb_athlete_info <- function(athlete_id, ...) {
+espn_wbb_player_info <- function(athlete_id, ...) {
   .espn_basketball_athlete_info(
     league     = "womens-college-basketball",
     athlete_id = athlete_id,
@@ -91,15 +91,15 @@ espn_wbb_athlete_info <- function(athlete_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_overview
+# espn_wbb_player_overview
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Overview**
-#' @name espn_wbb_athlete_overview
+#' @name espn_wbb_player_overview
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Overview**
-#' @rdname espn_wbb_athlete_overview
+#' @rdname espn_wbb_player_overview
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -149,9 +149,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_overview(athlete_id = "4433404", season = 2025)
+#'   espn_wbb_player_overview(athlete_id = "4433404", season = 2025)
 #' }
-espn_wbb_athlete_overview <- function(athlete_id,
+espn_wbb_player_overview <- function(athlete_id,
                                       season = most_recent_wbb_season(),
                                       ...) {
   .espn_basketball_athlete_overview(
@@ -214,15 +214,15 @@ espn_wbb_athlete_stats <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_gamelog
+# espn_wbb_player_gamelog
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Gamelog**
-#' @name espn_wbb_athlete_gamelog
+#' @name espn_wbb_player_gamelog
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Gamelog**
-#' @rdname espn_wbb_athlete_gamelog
+#' @rdname espn_wbb_player_gamelog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -237,9 +237,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_gamelog(athlete_id = "4433404", season = 2025)
+#'   espn_wbb_player_gamelog(athlete_id = "4433404", season = 2025)
 #' }
-espn_wbb_athlete_gamelog <- function(athlete_id,
+espn_wbb_player_gamelog <- function(athlete_id,
                                      season = most_recent_wbb_season(),
                                      ...) {
   .espn_basketball_athlete_gamelog(
@@ -251,15 +251,15 @@ espn_wbb_athlete_gamelog <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_splits
+# espn_wbb_player_splits
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Splits**
-#' @name espn_wbb_athlete_splits
+#' @name espn_wbb_player_splits
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Splits**
-#' @rdname espn_wbb_athlete_splits
+#' @rdname espn_wbb_player_splits
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -275,9 +275,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_splits(athlete_id = "4433404", season = 2025)
+#'   espn_wbb_player_splits(athlete_id = "4433404", season = 2025)
 #' }
-espn_wbb_athlete_splits <- function(athlete_id,
+espn_wbb_player_splits <- function(athlete_id,
                                     season = most_recent_wbb_season(),
                                     ...) {
   .espn_basketball_athlete_splits(
@@ -289,15 +289,15 @@ espn_wbb_athlete_splits <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_eventlog
+# espn_wbb_player_eventlog
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Eventlog**
-#' @name espn_wbb_athlete_eventlog
+#' @name espn_wbb_player_eventlog
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Eventlog**
-#' @rdname espn_wbb_athlete_eventlog
+#' @rdname espn_wbb_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -321,9 +321,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_eventlog(athlete_id = "4433404", season = 2025)
+#'   espn_wbb_player_eventlog(athlete_id = "4433404", season = 2025)
 #' }
-espn_wbb_athlete_eventlog <- function(athlete_id,
+espn_wbb_player_eventlog <- function(athlete_id,
                                       season = most_recent_wbb_season(),
                                       ...) {
   .espn_basketball_athlete_eventlog(
@@ -335,15 +335,15 @@ espn_wbb_athlete_eventlog <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_awards
+# espn_wbb_player_awards
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Awards**
-#' @name espn_wbb_athlete_awards
+#' @name espn_wbb_player_awards
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Awards**
-#' @rdname espn_wbb_athlete_awards
+#' @rdname espn_wbb_player_awards
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param ... Additional arguments; currently unused.
@@ -367,9 +367,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_awards(athlete_id = "4433404")
+#'   espn_wbb_player_awards(athlete_id = "4433404")
 #' }
-espn_wbb_athlete_awards <- function(athlete_id, ...) {
+espn_wbb_player_awards <- function(athlete_id, ...) {
   .espn_basketball_athlete_awards(
     league     = "womens-college-basketball",
     athlete_id = athlete_id,
@@ -378,15 +378,15 @@ espn_wbb_athlete_awards <- function(athlete_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_athlete_statisticslog
+# espn_wbb_player_statisticslog
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Athlete Statisticslog**
-#' @name espn_wbb_athlete_statisticslog
+#' @name espn_wbb_player_statisticslog
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Statisticslog**
-#' @rdname espn_wbb_athlete_statisticslog
+#' @rdname espn_wbb_player_statisticslog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -407,9 +407,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_athlete_statisticslog(athlete_id = "4433404", season = 2025)
+#'   espn_wbb_player_statisticslog(athlete_id = "4433404", season = 2025)
 #' }
-espn_wbb_athlete_statisticslog <- function(athlete_id,
+espn_wbb_player_statisticslog <- function(athlete_id,
                                            season = most_recent_wbb_season(),
                                            ...) {
   .espn_basketball_athlete_statisticslog(

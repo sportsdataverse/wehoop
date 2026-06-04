@@ -98,7 +98,7 @@ The word you want is **career**.
 
 ```{r}
 # espn / wnba / athlete / career / stats. The name is the sentence.
-aja <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
+aja <- espn_wnba_player_career_stats(athlete_id = 3149391)
 
 # It returns long -- one row per (stat_type x category x stat) --
 # exactly the shape a faceted ggplot wants.
@@ -117,7 +117,7 @@ The season-by-season index is one word away -- swap `career_stats` for
 `seasons`:
 
 ```{r}
-espn_wnba_athlete_seasons(athlete_id = 3149391)
+espn_wnba_player_seasons(athlete_id = 3149391)
 ```
 
 ## Recipe 3: Game flow and the fourth-quarter swing
@@ -129,7 +129,7 @@ Two engines, and the prefix tells you which:
 
 ```{r}
 # Route A -- ESPN's per-play win probability.
-espn_wnba_event_probabilities(event_id = 401736171)
+espn_wnba_game_probabilities(event_id = 401736171)
 
 # Route B -- the V3 play-by-play from the WNBA Stats API itself. The
 # prefix flips to `wnba_` -> different data source, different first
@@ -153,7 +153,7 @@ long and tidy -- not the whole `player_box`.
 # espn / wnba / event / player_box. You pass the (event, team, athlete)
 # trio because that triple is what uniquely names "this player in this
 # game."
-espn_wnba_event_player_box(
+espn_wnba_game_player_box(
   event_id   = 401736171,
   team_id    = 17,
   athlete_id = 2590093
@@ -168,9 +168,9 @@ grain -- the arguments and the grain always move together.
 The event-detail siblings all share the `espn_wnba_event_` stem:
 
 ```{r}
-espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
-espn_wnba_event_officials(event_id = 401736171)
-espn_wnba_event_play(event_id = 401736171, play_id = 4017361714)
+espn_wnba_game_team_linescores(event_id = 401736171, team_id = 17)
+espn_wnba_game_officials(event_id = 401736171)
+espn_wnba_game_play(event_id = 401736171, play_id = 4017361714)
 ```
 
 ## Recipe 5: A team's season at a glance

@@ -4,15 +4,15 @@
 # espn_basketball_event_helpers.R.
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_odds
+# espn_wbb_game_odds
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Event Odds**
-#' @name espn_wbb_event_odds
+#' @name espn_wbb_game_odds
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Event Odds**
-#' @rdname espn_wbb_event_odds
+#' @rdname espn_wbb_game_odds
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused but retained for
@@ -43,9 +43,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_odds(event_id = "401276115")
+#'   espn_wbb_game_odds(event_id = "401276115")
 #' }
-espn_wbb_event_odds <- function(event_id, ...) {
+espn_wbb_game_odds <- function(event_id, ...) {
   .espn_basketball_event_odds(
     league   = "womens-college-basketball",
     event_id = event_id,
@@ -54,15 +54,15 @@ espn_wbb_event_odds <- function(event_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_probabilities
+# espn_wbb_game_probabilities
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Event Win Probabilities**
-#' @name espn_wbb_event_probabilities
+#' @name espn_wbb_game_probabilities
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Event Win Probabilities**
-#' @rdname espn_wbb_event_probabilities
+#' @rdname espn_wbb_game_probabilities
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param limit integer. Maximum number of probability rows to return.
@@ -90,9 +90,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_probabilities(event_id = "401276115", limit = 50)
+#'   espn_wbb_game_probabilities(event_id = "401276115", limit = 50)
 #' }
-espn_wbb_event_probabilities <- function(event_id, limit = 200, ...) {
+espn_wbb_game_probabilities <- function(event_id, limit = 200, ...) {
   .espn_basketball_event_probabilities(
     league   = "womens-college-basketball",
     event_id = event_id,
@@ -102,15 +102,15 @@ espn_wbb_event_probabilities <- function(event_id, limit = 200, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_officials
+# espn_wbb_game_officials
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Event Officials**
-#' @name espn_wbb_event_officials
+#' @name espn_wbb_game_officials
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Event Officials**
-#' @rdname espn_wbb_event_officials
+#' @rdname espn_wbb_game_officials
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused.
@@ -134,9 +134,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_officials(event_id = "401276115")
+#'   espn_wbb_game_officials(event_id = "401276115")
 #' }
-espn_wbb_event_officials <- function(event_id, ...) {
+espn_wbb_game_officials <- function(event_id, ...) {
   .espn_basketball_event_officials(
     league   = "womens-college-basketball",
     event_id = event_id,
@@ -145,15 +145,15 @@ espn_wbb_event_officials <- function(event_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_broadcasts
+# espn_wbb_game_broadcasts
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN Women's College Basketball Event Broadcasts**
-#' @name espn_wbb_event_broadcasts
+#' @name espn_wbb_game_broadcasts
 NULL
 #' @title
 #' **Get ESPN Women's College Basketball Event Broadcasts**
-#' @rdname espn_wbb_event_broadcasts
+#' @rdname espn_wbb_game_broadcasts
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused.
@@ -179,9 +179,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_broadcasts(event_id = "401276115")
+#'   espn_wbb_game_broadcasts(event_id = "401276115")
 #' }
-espn_wbb_event_broadcasts <- function(event_id, ...) {
+espn_wbb_game_broadcasts <- function(event_id, ...) {
   .espn_basketball_event_broadcasts(
     league   = "womens-college-basketball",
     event_id = event_id,
@@ -190,15 +190,15 @@ espn_wbb_event_broadcasts <- function(event_id, ...) {
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_situation
+# espn_wbb_game_situation
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Situation (Live)**
-#' @name espn_wbb_event_situation
+#' @name espn_wbb_game_situation
 NULL
 #' @title
 #' **Get ESPN WBB Event Situation (Live)**
-#' @rdname espn_wbb_event_situation
+#' @rdname espn_wbb_game_situation
 #' @author Saiem Gilani
 #' @description
 #' Returns the live game situation for one WBB event: timeouts remaining,
@@ -213,21 +213,21 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_situation(event_id = 401276115)
+#'   espn_wbb_game_situation(event_id = 401276115)
 #' }
-espn_wbb_event_situation <- function(event_id, ...) {
+espn_wbb_game_situation <- function(event_id, ...) {
   .espn_basketball_event_situation(league = "womens-college-basketball", event_id = event_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_predictor
+# espn_wbb_game_predictor
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Predictor (Pre-game)**
-#' @name espn_wbb_event_predictor
+#' @name espn_wbb_game_predictor
 #' @title
 #' **Get ESPN WBB Event Predictor (Pre-game)**
-#' @rdname espn_wbb_event_predictor
+#' @rdname espn_wbb_game_predictor
 #' @author Saiem Gilani
 #' @description
 #' Returns pre-game predictor statistics for one WBB event in long
@@ -243,21 +243,21 @@ espn_wbb_event_situation <- function(event_id, ...) {
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_predictor(event_id = 401276115)
+#'   espn_wbb_game_predictor(event_id = 401276115)
 #' }
-espn_wbb_event_predictor <- function(event_id, ...) {
+espn_wbb_game_predictor <- function(event_id, ...) {
   .espn_basketball_event_predictor(league = "womens-college-basketball", event_id = event_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_powerindex
+# espn_wbb_game_powerindex
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Power Index Index**
-#' @name espn_wbb_event_powerindex
+#' @name espn_wbb_game_powerindex
 #' @title
 #' **Get ESPN WBB Event Power Index Index**
-#' @rdname espn_wbb_event_powerindex
+#' @rdname espn_wbb_game_powerindex
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-team power-index `$ref` URLs for one WBB event.
@@ -270,21 +270,21 @@ espn_wbb_event_predictor <- function(event_id, ...) {
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_powerindex(event_id = 401276115)
+#'   espn_wbb_game_powerindex(event_id = 401276115)
 #' }
-espn_wbb_event_powerindex <- function(event_id, ...) {
+espn_wbb_game_powerindex <- function(event_id, ...) {
   .espn_basketball_event_powerindex(league = "womens-college-basketball", event_id = event_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_propbets
+# espn_wbb_game_propbets
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Prop Bets (Long Format)**
-#' @name espn_wbb_event_propbets
+#' @name espn_wbb_game_propbets
 #' @title
 #' **Get ESPN WBB Event Prop Bets (Long Format)**
-#' @rdname espn_wbb_event_propbets
+#' @rdname espn_wbb_game_propbets
 #' @author Saiem Gilani
 #' @description
 #' Returns prop-bet markets for one WBB event + provider in long format:
@@ -295,30 +295,30 @@ espn_wbb_event_powerindex <- function(event_id, ...) {
 #'
 #' @param event_id ESPN event identifier.
 #' @param provider_id Sportsbook provider id (e.g. 58 = ESPN BET,
-#'   100 = Caesars). Look up via [espn_wbb_event_odds()].
+#'   100 = Caesars). Look up via [espn_wbb_game_odds()].
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per (athlete × prop type).
 #' @export
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_propbets(event_id = 401276115, provider_id = 58)
+#'   espn_wbb_game_propbets(event_id = 401276115, provider_id = 58)
 #' }
-espn_wbb_event_propbets <- function(event_id, provider_id, ...) {
+espn_wbb_game_propbets <- function(event_id, provider_id, ...) {
   .espn_basketball_event_propbets(league = "womens-college-basketball", event_id = event_id,
                                     provider_id = provider_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_linescores
+# espn_wbb_game_team_linescores
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Linescores (Per-Quarter)**
-#' @name espn_wbb_event_competitor_linescores
+#' @name espn_wbb_game_team_linescores
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Linescores (Per-Quarter)**
-#' @rdname espn_wbb_event_competitor_linescores
+#' @rdname espn_wbb_game_team_linescores
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-quarter scoring breakdown for one team in one NBA
@@ -334,24 +334,24 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_linescores(event_id = 401276115, team_id = 52)
+#'   espn_wbb_game_team_linescores(event_id = 401276115, team_id = 52)
 #' }
-espn_wbb_event_competitor_linescores <- function(event_id, team_id, ...) {
+espn_wbb_game_team_linescores <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_linescores(league = "womens-college-basketball",
                                                   event_id = event_id,
                                                   team_id = team_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_leaders
+# espn_wbb_game_team_leaders
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Leaders (Top Performers)**
-#' @name espn_wbb_event_competitor_leaders
+#' @name espn_wbb_game_team_leaders
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Leaders (Top Performers)**
-#' @rdname espn_wbb_event_competitor_leaders
+#' @rdname espn_wbb_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-team statistical leaders for one WBB event in long
@@ -366,24 +366,24 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_leaders(event_id = 401276115, team_id = 52)
+#'   espn_wbb_game_team_leaders(event_id = 401276115, team_id = 52)
 #' }
-espn_wbb_event_competitor_leaders <- function(event_id, team_id, ...) {
+espn_wbb_game_team_leaders <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_leaders(league = "womens-college-basketball",
                                               event_id = event_id,
                                               team_id = team_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_roster
+# espn_wbb_game_team_roster
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Roster (Game-Day)**
-#' @name espn_wbb_event_competitor_roster
+#' @name espn_wbb_game_team_roster
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Roster (Game-Day)**
-#' @rdname espn_wbb_event_competitor_roster
+#' @rdname espn_wbb_game_team_roster
 #' @author Saiem Gilani
 #' @description
 #' Returns the game-day roster index for one team in one WBB event.
@@ -398,24 +398,24 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_roster(event_id = 401276115, team_id = 52)
+#'   espn_wbb_game_team_roster(event_id = 401276115, team_id = 52)
 #' }
-espn_wbb_event_competitor_roster <- function(event_id, team_id, ...) {
+espn_wbb_game_team_roster <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_roster(league = "womens-college-basketball",
                                              event_id = event_id,
                                              team_id = team_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_statistics
+# espn_wbb_game_team_statistics
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Team Statistics (Long Format)**
-#' @name espn_wbb_event_competitor_statistics
+#' @name espn_wbb_game_team_statistics
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Team Statistics (Long Format)**
-#' @rdname espn_wbb_event_competitor_statistics
+#' @rdname espn_wbb_game_team_statistics
 #' @author Saiem Gilani
 #' @description
 #' Returns full team-game statistics for one team in one WBB event in
@@ -431,24 +431,24 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_statistics(event_id = 401276115, team_id = 52)
+#'   espn_wbb_game_team_statistics(event_id = 401276115, team_id = 52)
 #' }
-espn_wbb_event_competitor_statistics <- function(event_id, team_id, ...) {
+espn_wbb_game_team_statistics <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_statistics(league = "womens-college-basketball",
                                                  event_id = event_id,
                                                  team_id = team_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_records
+# espn_wbb_game_team_records
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Records (At-Game Breakdown)**
-#' @name espn_wbb_event_competitor_records
+#' @name espn_wbb_game_team_records
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Records (At-Game Breakdown)**
-#' @rdname espn_wbb_event_competitor_records
+#' @rdname espn_wbb_game_team_records
 #' @author Saiem Gilani
 #' @description
 #' Returns team records as of the given WBB event: overall, home,
@@ -463,29 +463,29 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_records(event_id = 401276115, team_id = 52)
+#'   espn_wbb_game_team_records(event_id = 401276115, team_id = 52)
 #' }
-espn_wbb_event_competitor_records <- function(event_id, team_id, ...) {
+espn_wbb_game_team_records <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_records(league = "womens-college-basketball",
                                               event_id = event_id,
                                               team_id = team_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_player_box
+# espn_wbb_game_player_box
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Player Box Score (Long Format)**
-#' @name espn_wbb_event_player_box
+#' @name espn_wbb_game_player_box
 NULL
 #' @title
 #' **Get ESPN WBB Event Player Box Score (Long Format)**
-#' @rdname espn_wbb_event_player_box
+#' @rdname espn_wbb_game_player_box
 #' @author Saiem Gilani
 #' @description
 #' Returns the long-format per-game box score for a single athlete in one
 #' WBB event. One row per (category x stat). Same shape as
-#' [espn_wbb_event_competitor_statistics()] but scoped to a single
+#' [espn_wbb_game_team_statistics()] but scoped to a single
 #' athlete-in-event instead of the full team. `stat_type` defaults to 0
 #' (regular-season aggregate as ESPN tags it for finished events).
 #'
@@ -500,10 +500,10 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_player_box(event_id = 401276115, team_id = 52,
+#'   espn_wbb_game_player_box(event_id = 401276115, team_id = 52,
 #'                                athlete_id = 4433404)
 #' }
-espn_wbb_event_player_box <- function(event_id, team_id, athlete_id,
+espn_wbb_game_player_box <- function(event_id, team_id, athlete_id,
                                         stat_type = 0L, ...) {
   .espn_basketball_event_player_box(league = "womens-college-basketball",
                                        event_id = event_id,
@@ -513,22 +513,22 @@ espn_wbb_event_player_box <- function(event_id, team_id, athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_roster_entry
+# espn_wbb_game_team_roster_entry
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Roster Entry (Per-Athlete Game-Day Row)**
-#' @name espn_wbb_event_competitor_roster_entry
+#' @name espn_wbb_game_team_roster_entry
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Roster Entry (Per-Athlete Game-Day Row)**
-#' @rdname espn_wbb_event_competitor_roster_entry
+#' @rdname espn_wbb_game_team_roster_entry
 #' @author Saiem Gilani
 #' @description
 #' Returns a single-row tibble describing one athlete's game-day roster
 #' entry for one WBB event. Carries the **starter** flag, **didNotPlay**
 #' flag with reason, ejection flag, and the substitution slot if the
 #' athlete came in for another player. Pair with
-#' [espn_wbb_event_competitor_roster()] to enumerate the roster.
+#' [espn_wbb_game_team_roster()] to enumerate the roster.
 #'
 #' @param event_id ESPN event identifier.
 #' @param team_id ESPN team identifier.
@@ -539,11 +539,11 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_roster_entry(event_id = 401276115,
+#'   espn_wbb_game_team_roster_entry(event_id = 401276115,
 #'                                             team_id = 2509,
 #'                                             athlete_id = 4433404)
 #' }
-espn_wbb_event_competitor_roster_entry <- function(event_id, team_id,
+espn_wbb_game_team_roster_entry <- function(event_id, team_id,
                                                      athlete_id, ...) {
   .espn_basketball_event_competitor_roster_entry(league = "womens-college-basketball",
                                                    event_id = event_id,
@@ -552,15 +552,15 @@ espn_wbb_event_competitor_roster_entry <- function(event_id, team_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_play
+# espn_wbb_game_play
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Play Detail (Single Play)**
-#' @name espn_wbb_event_play
+#' @name espn_wbb_game_play
 NULL
 #' @title
 #' **Get ESPN WBB Event Play Detail (Single Play)**
-#' @rdname espn_wbb_event_play
+#' @rdname espn_wbb_game_play
 #' @author Saiem Gilani
 #' @description
 #' Returns the rich detail block for a single WBB play: sequence, period,
@@ -577,24 +577,24 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_play(event_id = 401276115, play_id = 401276115101899901)
+#'   espn_wbb_game_play(event_id = 401276115, play_id = 401276115101899901)
 #' }
-espn_wbb_event_play <- function(event_id, play_id, ...) {
+espn_wbb_game_play <- function(event_id, play_id, ...) {
   .espn_basketball_event_play(league = "womens-college-basketball",
                                 event_id = event_id,
                                 play_id = play_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_play_personnel
+# espn_wbb_game_play_personnel
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Play Personnel (On-Court Lineup at Play)**
-#' @name espn_wbb_event_play_personnel
+#' @name espn_wbb_game_play_personnel
 NULL
 #' @title
 #' **Get ESPN WBB Event Play Personnel (On-Court Lineup at Play)**
-#' @rdname espn_wbb_event_play_personnel
+#' @rdname espn_wbb_game_play_personnel
 #' @author Saiem Gilani
 #' @description
 #' Returns the players on court at a specific WBB play in long format
@@ -610,29 +610,29 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_play_personnel(event_id = 401276115, play_id = 401276115101899901)
+#'   espn_wbb_game_play_personnel(event_id = 401276115, play_id = 401276115101899901)
 #' }
-espn_wbb_event_play_personnel <- function(event_id, play_id, ...) {
+espn_wbb_game_play_personnel <- function(event_id, play_id, ...) {
   .espn_basketball_event_play_personnel(league = "womens-college-basketball",
                                           event_id = event_id,
                                           play_id = play_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_competitor_score
+# espn_wbb_game_team_score
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Competitor Score (Single Row)**
-#' @name espn_wbb_event_competitor_score
+#' @name espn_wbb_game_team_score
 NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Score (Single Row)**
-#' @rdname espn_wbb_event_competitor_score
+#' @rdname espn_wbb_game_team_score
 #' @author Saiem Gilani
 #' @description
 #' Returns a one-row tibble with one team's final score for one WBB event:
 #' numeric `value`, display string, `winner` flag, and source metadata.
-#' Quick-lookup wrapper — use [espn_wbb_event_competitor_linescores()] for
+#' Quick-lookup wrapper — use [espn_wbb_game_team_linescores()] for
 #' per-period detail.
 #'
 #' @param event_id ESPN event identifier.
@@ -643,29 +643,29 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_competitor_score(event_id = 401276115, team_id = 52)
+#'   espn_wbb_game_team_score(event_id = 401276115, team_id = 52)
 #' }
-espn_wbb_event_competitor_score <- function(event_id, team_id, ...) {
+espn_wbb_game_team_score <- function(event_id, team_id, ...) {
   .espn_basketball_event_competitor_score(league = "womens-college-basketball",
                                             event_id = event_id,
                                             team_id = team_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wbb_event_official_detail
+# espn_wbb_game_official_detail
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WBB Event Official Detail (Single Official)**
-#' @name espn_wbb_event_official_detail
+#' @name espn_wbb_game_official_detail
 NULL
 #' @title
 #' **Get ESPN WBB Event Official Detail (Single Official)**
-#' @rdname espn_wbb_event_official_detail
+#' @rdname espn_wbb_game_official_detail
 #' @author Saiem Gilani
 #' @description
 #' Returns a single-row tibble for one referee assigned to one WBB event,
 #' with their name, position (Referee / Crew Chief / Umpire), and crew
-#' order. Pair with [espn_wbb_event_officials()] to enumerate the crew.
+#' order. Pair with [espn_wbb_game_officials()] to enumerate the crew.
 #'
 #' @param event_id ESPN event identifier.
 #' @param order Crew order index (1 = first official). Pair with the `order` column from event_officials().
@@ -675,9 +675,9 @@ NULL
 #' @family ESPN WBB Functions
 #' @examples
 #' \donttest{
-#'   espn_wbb_event_official_detail(event_id = 401276115, order = 1)
+#'   espn_wbb_game_official_detail(event_id = 401276115, order = 1)
 #' }
-espn_wbb_event_official_detail <- function(event_id, order, ...) {
+espn_wbb_game_official_detail <- function(event_id, order, ...) {
   .espn_basketball_event_official_detail(league = "womens-college-basketball",
                                            event_id = event_id,
                                            order = order, ...)

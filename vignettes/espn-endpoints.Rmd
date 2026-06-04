@@ -118,14 +118,14 @@ they're the same thing).
 
 | Function | Returns |
 |---|---|
-| `espn_wbb_athlete_info()` / `espn_wnba_athlete_info()` | Bio and profile |
-| `espn_wbb_athlete_overview()` / `espn_wnba_athlete_overview()` | Season overview (web-common-v3) |
+| `espn_wbb_player_info()` / `espn_wnba_player_info()` | Bio and profile |
+| `espn_wbb_player_overview()` / `espn_wnba_player_overview()` | Season overview (web-common-v3) |
 | `espn_wbb_athlete_stats()` / `espn_wnba_athlete_stats()` | Season stats by category |
-| `espn_wbb_athlete_gamelog()` / `espn_wnba_athlete_gamelog()` | Game-by-game log |
-| `espn_wbb_athlete_splits()` / `espn_wnba_athlete_splits()` | Situational splits |
-| `espn_wbb_athlete_eventlog()` / `espn_wnba_athlete_eventlog()` | Event log (`$ref` links) |
-| `espn_wbb_athlete_awards()` / `espn_wnba_athlete_awards()` | Awards history |
-| `espn_wbb_athlete_statisticslog()` / `espn_wnba_athlete_statisticslog()` | Stats log (core-v2) |
+| `espn_wbb_player_gamelog()` / `espn_wnba_player_gamelog()` | Game-by-game log |
+| `espn_wbb_player_splits()` / `espn_wnba_player_splits()` | Situational splits |
+| `espn_wbb_player_eventlog()` / `espn_wnba_player_eventlog()` | Event log (`$ref` links) |
+| `espn_wbb_player_awards()` / `espn_wnba_player_awards()` | Awards history |
+| `espn_wbb_player_statisticslog()` / `espn_wnba_player_statisticslog()` | Stats log (core-v2) |
 | `espn_wbb_player_stats()` / `espn_wnba_player_stats()` | Cross-athlete season stats |
 
 ### Per-event enrichment
@@ -134,10 +134,10 @@ These take an `event_id` and complement the play-by-play.
 
 | Function | Returns |
 |---|---|
-| `espn_wbb_event_odds()` / `espn_wnba_event_odds()` | Opening / closing lines (WNBA only -- empty for WBB) |
-| `espn_wbb_event_probabilities()` / `espn_wnba_event_probabilities()` | Win probability per play |
-| `espn_wbb_event_officials()` / `espn_wnba_event_officials()` | Officials |
-| `espn_wbb_event_broadcasts()` / `espn_wnba_event_broadcasts()` | Broadcast outlets |
+| `espn_wbb_game_odds()` / `espn_wnba_game_odds()` | Opening / closing lines (WNBA only -- empty for WBB) |
+| `espn_wbb_game_probabilities()` / `espn_wnba_game_probabilities()` | Win probability per play |
+| `espn_wbb_game_officials()` / `espn_wnba_game_officials()` | Officials |
+| `espn_wbb_game_broadcasts()` / `espn_wnba_game_broadcasts()` | Broadcast outlets |
 
 ### League-wide catalogs
 
@@ -267,23 +267,23 @@ athlete_name <- uconn_roster$athlete_display_name[1]
 message("Selected: ", athlete_name, " (", athlete_id, ")")
 
 # Bio and profile
-bio <- espn_wbb_athlete_info(athlete_id = athlete_id)
+bio <- espn_wbb_player_info(athlete_id = athlete_id)
 glimpse(bio)
 
 # Season overview (web-common-v3)
-overview <- espn_wbb_athlete_overview(
+overview <- espn_wbb_player_overview(
   athlete_id = athlete_id, season = 2025
 )
 names(overview)
 
 # Game-by-game log
-gamelog <- espn_wbb_athlete_gamelog(
+gamelog <- espn_wbb_player_gamelog(
   athlete_id = athlete_id, season = 2025
 )
 head(gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")])
 
 # Situational splits (home/away, by month, vs ranked, ...)
-splits <- espn_wbb_athlete_splits(
+splits <- espn_wbb_player_splits(
   athlete_id = athlete_id, season = 2025
 )
 head(splits)
@@ -319,7 +319,7 @@ library(ggplot2)
 game_id <- "401736171"
 
 pbp   <- espn_wnba_pbp(game_id = game_id)
-probs <- espn_wnba_event_probabilities(event_id = game_id, limit = 200)
+probs <- espn_wnba_game_probabilities(event_id = game_id, limit = 200)
 
 plot_data <- probs %>%
   mutate(seq = as.integer(sequence_number)) %>%
@@ -342,19 +342,19 @@ contextual annotations.
 
 ```{r odds-and-officials}
 # Pre-game odds (populated when ESPN carries lines)
-odds <- espn_wnba_event_odds(event_id = game_id)
+odds <- espn_wnba_game_odds(event_id = game_id)
 
 # Officials
-officials <- espn_wnba_event_officials(event_id = game_id)
+officials <- espn_wnba_game_officials(event_id = game_id)
 officials[, c("full_name", "position")]
 
 # Broadcast outlets
-broadcasts <- espn_wnba_event_broadcasts(event_id = game_id)
+broadcasts <- espn_wnba_game_broadcasts(event_id = game_id)
 broadcasts[, c("market", "names")]
 ```
 
 ESPN doesn't carry betting lines for NCAA games, so
-`espn_wbb_event_odds()` always returns an empty tibble. The function
+`espn_wbb_game_odds()` always returns an empty tibble. The function
 exists for API symmetry; it's not a bug. Win probabilities, officials,
 and broadcasts are all populated for both leagues.
 
@@ -501,15 +501,15 @@ library(wehoop)
 # Career stats — long format, one row per (stat_type x category x stat).
 # Default `stat_type = c(0L, 1L)` fetches regular season + postseason and
 # binds them so a single call gives you the player's full career sheet.
-caitlin_career <- espn_wbb_athlete_career_stats(athlete_id = 4433404)
-aja_career     <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
+caitlin_career <- espn_wbb_player_career_stats(athlete_id = 4433404)
+aja_career     <- espn_wnba_player_career_stats(athlete_id = 3149391)
 
 # Per-(athlete x season) event log -- core-v2 variant. Returns
 # event_id + result + per-event stats in long format.
-espn_wnba_athlete_eventlog_v2(athlete_id = 3149391, season = 2024)
+espn_wnba_player_eventlog_v2(athlete_id = 3149391, season = 2024)
 
 # Index of seasons an athlete has on file (good for iterating).
-espn_wnba_athlete_seasons(athlete_id = 3149391)
+espn_wnba_player_seasons(athlete_id = 3149391)
 ```
 
 ### Franchises, tournaments, and league dictionaries
@@ -585,16 +585,16 @@ espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 EID <- "401736171"
 
 # Live game situation -- timeouts, fouls, bonus state, last play $ref.
-espn_wnba_event_situation(event_id = EID)
+espn_wnba_game_situation(event_id = EID)
 
 # Pre-game predictor -- one row per (team x stat). Empty for past games.
-espn_wnba_event_predictor(event_id = EID)
+espn_wnba_game_predictor(event_id = EID)
 
 # Per-event power index. Coverage is sparse -- many events return zero.
-espn_wnba_event_powerindex(event_id = EID)
+espn_wnba_game_powerindex(event_id = EID)
 
 # Prop bet markets per (event x provider). 58 = ESPN BET.
-espn_wnba_event_propbets(event_id = EID, provider_id = 58)
+espn_wnba_game_propbets(event_id = EID, provider_id = 58)
 ```
 
 ### Event competitor sub-resources
@@ -607,22 +607,22 @@ each shimmed for WNBA + WBB. Pair `team_id` with `event_id` from
 EID <- "401736171"; TID <- 17  # team_id of one competitor
 
 # Per-quarter scoring for one team in one event.
-espn_wnba_event_competitor_linescores(event_id = EID, team_id = TID)
+espn_wnba_game_team_linescores(event_id = EID, team_id = TID)
 
 # Top performers per team in long format (category x rank).
-espn_wnba_event_competitor_leaders(event_id = EID, team_id = TID)
+espn_wnba_game_team_leaders(event_id = EID, team_id = TID)
 
 # Game-day roster index. Returns athlete ids + core-v2 $refs.
-espn_wnba_event_competitor_roster(event_id = EID, team_id = TID)
+espn_wnba_game_team_roster(event_id = EID, team_id = TID)
 
 # Full team-game statistics in long format.
-espn_wnba_event_competitor_statistics(event_id = EID, team_id = TID)
+espn_wnba_game_team_statistics(event_id = EID, team_id = TID)
 
 # Team records as of the event: overall / home / away / conf / div.
-espn_wnba_event_competitor_records(event_id = EID, team_id = TID)
+espn_wnba_game_team_records(event_id = EID, team_id = TID)
 
 # One-row final score, quick lookup.
-espn_wnba_event_competitor_score(event_id = EID, team_id = TID)
+espn_wnba_game_team_score(event_id = EID, team_id = TID)
 ```
 
 ### Per-game player box score, play detail, and on-court lineups
@@ -635,21 +635,21 @@ EID <- "401736171"; TID <- 17; AID <- 3149391  # event, team, athlete
 
 # Per-game box score for one athlete -- one row per (category x stat).
 # Same shape as event_competitor_statistics() but scoped to an athlete.
-espn_wnba_event_player_box(event_id = EID, team_id = TID,
+espn_wnba_game_player_box(event_id = EID, team_id = TID,
                            athlete_id = AID)
 
 # Per-athlete game-day row: starter flag, did_not_play + reason,
 # ejected flag, period of entry, for_player_id (substitution slot).
-espn_wnba_event_competitor_roster_entry(event_id = EID, team_id = TID,
+espn_wnba_game_team_roster_entry(event_id = EID, team_id = TID,
                                         athlete_id = AID)
 
 # Single-play detail. play_id comes from espn_wnba_pbp() output.
 PID <- "401736171001"  # example play id
-espn_wnba_event_play(event_id = EID, play_id = PID)
+espn_wnba_game_play(event_id = EID, play_id = PID)
 
 # Players on court at a specific play (long format). Coverage is
 # sparse -- many plays return zero rows.
-espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
+espn_wnba_game_play_personnel(event_id = EID, play_id = PID)
 ```
 
 ### Officials, team records, and the draft
@@ -657,8 +657,8 @@ espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
 ```{r}
 # Single official detail. The URL segment is the CREW ORDER, not the
 # ESPN-stable official_id -- so pair this with the `order` column from
-# espn_wnba_event_officials() rather than `official_id`.
-espn_wnba_event_official_detail(event_id = "401736171", order = 1)
+# espn_wnba_game_officials() rather than `official_id`.
+espn_wnba_game_official_detail(event_id = "401736171", order = 1)
 
 # Per-record stat array. Use espn_wnba_team_record() to discover
 # valid record_id values for a (team_id, season) pair.
@@ -703,7 +703,7 @@ And a handful of endpoints we do wrap that have known data quirks:
 
 - **`espn_wbb_injuries()` and `espn_wbb_team_injuries()`** -- ESPN
   rarely populates injury data for college basketball.
-- **`espn_wbb_event_odds()`** -- always empty; ESPN doesn't carry NCAA
+- **`espn_wbb_game_odds()`** -- always empty; ESPN doesn't carry NCAA
   lines.
 - **`espn_wnba_freeagents()`** -- empty outside the FA window.
 - **`espn_*_athlete_awards()`** -- sparse for most athletes.

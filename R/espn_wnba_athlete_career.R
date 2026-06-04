@@ -2,15 +2,15 @@
 # Public WNBA shims for athlete career-level core-v2 endpoints.
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_seasons
+# espn_wnba_player_seasons
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Career Seasons**
-#' @name espn_wnba_athlete_seasons
+#' @name espn_wnba_player_seasons
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Career Seasons**
-#' @rdname espn_wnba_athlete_seasons
+#' @rdname espn_wnba_player_seasons
 #' @author Saiem Gilani
 #' @description
 #' Returns the list of seasons an WNBA athlete appeared in. Useful for
@@ -34,22 +34,22 @@ NULL
 #' @examples
 #' \donttest{
 #'   # LeBron James (1966): 23 career seasons
-#'   espn_wnba_athlete_seasons(athlete_id = 3149391)
+#'   espn_wnba_player_seasons(athlete_id = 3149391)
 #' }
-espn_wnba_athlete_seasons <- function(athlete_id, ...) {
+espn_wnba_player_seasons <- function(athlete_id, ...) {
   .espn_basketball_athlete_seasons(league = "wnba",
                                      athlete_id = athlete_id, ...)
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_career_stats
+# espn_wnba_player_career_stats
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Career Stats (Long Format)**
-#' @name espn_wnba_athlete_career_stats
+#' @name espn_wnba_player_career_stats
 #' @title
 #' **Get ESPN WNBA Athlete Career Stats (Long Format)**
-#' @rdname espn_wnba_athlete_career_stats
+#' @rdname espn_wnba_player_career_stats
 #' @author Saiem Gilani
 #' @description
 #' Returns career stats for a WNBA athlete in long format. Default
@@ -95,11 +95,11 @@ espn_wnba_athlete_seasons <- function(athlete_id, ...) {
 #' @examples
 #' \donttest{
 #'   # LeBron James — regular + postseason combined
-#'   espn_wnba_athlete_career_stats(athlete_id = 3149391)
+#'   espn_wnba_player_career_stats(athlete_id = 3149391)
 #'   # Just career aggregate
-#'   espn_wnba_athlete_career_stats(athlete_id = 3149391, stat_type = 2L)
+#'   espn_wnba_player_career_stats(athlete_id = 3149391, stat_type = 2L)
 #' }
-espn_wnba_athlete_career_stats <- function(athlete_id,
+espn_wnba_player_career_stats <- function(athlete_id,
                                            stat_type = 0L,
                                            ...) {
   .espn_basketball_athlete_career_stats(league = "wnba",
@@ -156,19 +156,19 @@ espn_wnba_draft_pick <- function(season = most_recent_wnba_season(),
                                 round = round, pick = pick, ...)
 }
 
-# espn_wnba_athlete_eventlog_v2 (core-v2 per-season event log)
+# espn_wnba_player_eventlog_v2 (core-v2 per-season event log)
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Per-Season Event Log (core-v2)**
-#' @name espn_wnba_athlete_eventlog_v2
+#' @name espn_wnba_player_eventlog_v2
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Per-Season Event Log (core-v2)**
-#' @rdname espn_wnba_athlete_eventlog_v2
+#' @rdname espn_wnba_player_eventlog_v2
 #' @author Saiem Gilani
 #' @description
 #' Returns one row per (event x team) for an WNBA athlete's appearances
-#' in a given season. Distinct from [espn_wnba_athlete_eventlog()] which
+#' in a given season. Distinct from [espn_wnba_player_eventlog()] which
 #' wraps the web-common-v3 gamelog endpoint returning stats per game;
 #' this core-v2 variant returns refs + `played` flag and is era-correct.
 #'
@@ -181,9 +181,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_eventlog_v2(athlete_id = 2999102, season = 2025)
+#'   espn_wnba_player_eventlog_v2(athlete_id = 2999102, season = 2025)
 #' }
-espn_wnba_athlete_eventlog_v2 <- function(athlete_id,
+espn_wnba_player_eventlog_v2 <- function(athlete_id,
                                           season = most_recent_wnba_season(),
                                           ...) {
   .espn_basketball_athlete_eventlog_v2(league = "wnba",
