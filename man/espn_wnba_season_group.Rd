@@ -55,7 +55,6 @@ children groups, member teams, and standings.
 }
 \seealso{
 Other ESPN WNBA Functions: 
-\code{\link{espn_wnba_athlete_stats}()},
 \code{\link{espn_wnba_athletes_index}()},
 \code{\link{espn_wnba_award}()},
 \code{\link{espn_wnba_calendar}()},
@@ -109,6 +108,7 @@ Other ESPN WNBA Functions:
 \code{\link{espn_wnba_player_splits}()},
 \code{\link{espn_wnba_player_statisticslog}()},
 \code{\link{espn_wnba_player_stats}()},
+\code{\link{espn_wnba_player_stats_v3}()},
 \code{\link{espn_wnba_position}()},
 \code{\link{espn_wnba_positions}()},
 \code{\link{espn_wnba_powerindex}()},

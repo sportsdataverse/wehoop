@@ -34,8 +34,9 @@ The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdatavers
 taxonomy used by cfbfastR/hoopR: `event_competitor* → game_team*`,
 `event_competition → game`, `event_* → game_*`, and `athlete_* → player_*` (58
 functions). These wrappers are new this release and were never on CRAN (2.1.0), so
-the convention is applied directly without deprecation shims. `*_athlete_stats` is
-kept (it would collide with the existing `*_player_stats`). The long-standing
+the convention is applied directly without deprecation shims. The web-common-v3
+`/athletes/{id}/stats` wrapper becomes `*_player_stats_v3` (kept alongside the
+core-v2 `*_player_stats`, a different endpoint). The long-standing
 `espn_wnba_pbp()` / `espn_wnba_team_box()` / etc. are unaffected.
 
 ### **New exported functions**

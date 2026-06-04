@@ -30,7 +30,6 @@ pass an ID to \code{\link[=espn_wbb_franchise]{espn_wbb_franchise()}} for full f
 }
 \seealso{
 Other ESPN WBB Functions: 
-\code{\link{espn_wbb_athlete_stats}()},
 \code{\link{espn_wbb_athletes_index}()},
 \code{\link{espn_wbb_award}()},
 \code{\link{espn_wbb_calendar}()},
@@ -77,6 +76,7 @@ Other ESPN WBB Functions:
 \code{\link{espn_wbb_player_splits}()},
 \code{\link{espn_wbb_player_statisticslog}()},
 \code{\link{espn_wbb_player_stats}()},
+\code{\link{espn_wbb_player_stats_v3}()},
 \code{\link{espn_wbb_position}()},
 \code{\link{espn_wbb_positions}()},
 \code{\link{espn_wbb_powerindex}()},

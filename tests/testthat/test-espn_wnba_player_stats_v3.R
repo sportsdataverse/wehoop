@@ -1,9 +1,9 @@
-test_that("ESPN - WBB Athlete Stats", {
+test_that("ESPN - WNBA Athlete Stats", {
   skip_on_cran()
   skip_on_ci()
   skip_espn_test()
 
-  x <- espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
+  x <- espn_wnba_player_stats_v3(athlete_id = "3149391", season = 2024)
 
   if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
     skip("No data returned from endpoint at test time")

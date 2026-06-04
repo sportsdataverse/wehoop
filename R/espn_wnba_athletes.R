@@ -163,15 +163,15 @@ espn_wnba_player_overview <- function(athlete_id,
 }
 
 # ---------------------------------------------------------------------------
-# espn_wnba_athlete_stats
+# espn_wnba_player_stats_v3
 # ---------------------------------------------------------------------------
 
 #' **Get ESPN WNBA Athlete Stats**
-#' @name espn_wnba_athlete_stats
+#' @name espn_wnba_player_stats_v3
 NULL
 #' @title
 #' **Get ESPN WNBA Athlete Stats**
-#' @rdname espn_wnba_athlete_stats
+#' @rdname espn_wnba_player_stats_v3
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -199,9 +199,9 @@ NULL
 #' @family ESPN WNBA Functions
 #' @examples
 #' \donttest{
-#'   espn_wnba_athlete_stats(athlete_id = "4068159", season = 2024)
+#'   espn_wnba_player_stats_v3(athlete_id = "4068159", season = 2024)
 #' }
-espn_wnba_athlete_stats <- function(athlete_id,
+espn_wnba_player_stats_v3 <- function(athlete_id,
                                     season = most_recent_wnba_season(),
                                     ...) {
   .espn_basketball_athlete_stats(

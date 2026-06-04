@@ -120,7 +120,7 @@ they're the same thing).
 |---|---|
 | `espn_wbb_player_info()` / `espn_wnba_player_info()` | Bio and profile |
 | `espn_wbb_player_overview()` / `espn_wnba_player_overview()` | Season overview (web-common-v3) |
-| `espn_wbb_athlete_stats()` / `espn_wnba_athlete_stats()` | Season stats by category |
+| `espn_wbb_player_stats_v3()` / `espn_wnba_player_stats_v3()` | Season stats by category |
 | `espn_wbb_player_gamelog()` / `espn_wnba_player_gamelog()` | Game-by-game log |
 | `espn_wbb_player_splits()` / `espn_wnba_player_splits()` | Situational splits |
 | `espn_wbb_player_eventlog()` / `espn_wnba_player_eventlog()` | Event log (`$ref` links) |

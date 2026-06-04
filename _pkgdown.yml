@@ -296,7 +296,7 @@ reference:
     contents:
       - espn_wbb_player_info
       - espn_wbb_player_overview
-      - espn_wbb_athlete_stats
+      - espn_wbb_player_stats_v3
       - espn_wbb_player_gamelog
       - espn_wbb_player_splits
       - espn_wbb_player_eventlog
@@ -410,7 +410,7 @@ reference:
     contents:
       - espn_wnba_player_info
       - espn_wnba_player_overview
-      - espn_wnba_athlete_stats
+      - espn_wnba_player_stats_v3
       - espn_wnba_player_gamelog
       - espn_wnba_player_splits
       - espn_wnba_player_eventlog
