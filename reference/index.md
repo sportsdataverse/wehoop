@@ -366,12 +366,12 @@ Single-team endpoints for women’s college basketball
 
 Per-athlete endpoints for women’s college basketball
 
-- [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md)
+- [`espn_wbb_player_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_info.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Info**
 
-- [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md)
+- [`espn_wbb_player_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_overview.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Overview**
@@ -381,27 +381,27 @@ Per-athlete endpoints for women’s college basketball
 
   **Get ESPN Women's College Basketball Athlete Stats**
 
-- [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md)
+- [`espn_wbb_player_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_gamelog.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Gamelog**
 
-- [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md)
+- [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Splits**
 
-- [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md)
+- [`espn_wbb_player_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_eventlog.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Eventlog**
 
-- [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md)
+- [`espn_wbb_player_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_awards.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Awards**
 
-- [`espn_wbb_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_statisticslog.md)
+- [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Statisticslog**
@@ -415,93 +415,93 @@ Per-athlete endpoints for women’s college basketball
 
 Per-event enrichments (odds, win probability, officials, broadcasts)
 
-- [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md)
+- [`espn_wbb_game_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_odds.md)
   :
 
   **Get ESPN Women's College Basketball Event Odds**
 
-- [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md)
+- [`espn_wbb_game_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_probabilities.md)
   :
 
   **Get ESPN Women's College Basketball Event Win Probabilities**
 
-- [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md)
+- [`espn_wbb_game_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_officials.md)
   :
 
   **Get ESPN Women's College Basketball Event Officials**
 
-- [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md)
+- [`espn_wbb_game_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_broadcasts.md)
   :
 
   **Get ESPN Women's College Basketball Event Broadcasts**
 
-- [`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md)
+- [`espn_wbb_game_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_situation.md)
   :
 
   **Get ESPN WBB Event Situation (Live)**
 
-- [`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md)
+- [`espn_wbb_game_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_predictor.md)
   :
 
   **Get ESPN WBB Event Predictor (Pre-game)**
 
-- [`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md)
+- [`espn_wbb_game_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_powerindex.md)
   :
 
   **Get ESPN WBB Event Power Index Index**
 
-- [`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md)
+- [`espn_wbb_game_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_propbets.md)
   :
 
   **Get ESPN WBB Event Prop Bets (Long Format)**
 
-- [`espn_wbb_event_competitor_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_linescores.md)
+- [`espn_wbb_game_team_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_linescores.md)
   :
 
   **Get ESPN WBB Event Competitor Linescores (Per-Quarter)**
 
-- [`espn_wbb_event_competitor_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_leaders.md)
+- [`espn_wbb_game_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_leaders.md)
   :
 
   **Get ESPN WBB Event Competitor Leaders (Top Performers)**
 
-- [`espn_wbb_event_competitor_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_roster.md)
+- [`espn_wbb_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_roster.md)
   :
 
   **Get ESPN WBB Event Competitor Roster (Game-Day)**
 
-- [`espn_wbb_event_competitor_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_statistics.md)
+- [`espn_wbb_game_team_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_statistics.md)
   :
 
   **Get ESPN WBB Event Competitor Team Statistics (Long Format)**
 
-- [`espn_wbb_event_competitor_records()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_records.md)
+- [`espn_wbb_game_team_records()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_records.md)
   :
 
   **Get ESPN WBB Event Competitor Records (At-Game Breakdown)**
 
-- [`espn_wbb_event_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_player_box.md)
+- [`espn_wbb_game_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_player_box.md)
   :
 
   **Get ESPN WBB Event Player Box Score (Long Format)**
 
-- [`espn_wbb_event_competitor_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_roster_entry.md)
+- [`espn_wbb_game_team_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_roster_entry.md)
   :
 
   **Get ESPN WBB Event Competitor Roster Entry (Per-Athlete Game-Day
   Row)**
 
-- [`espn_wbb_event_play()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_play.md)
+- [`espn_wbb_game_play()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_play.md)
   :
 
   **Get ESPN WBB Event Play Detail (Single Play)**
 
-- [`espn_wbb_event_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_play_personnel.md)
+- [`espn_wbb_game_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_play_personnel.md)
   :
 
   **Get ESPN WBB Event Play Personnel (On-Court Lineup at Play)**
 
-- [`espn_wbb_event_competitor_score()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_score.md)
+- [`espn_wbb_game_team_score()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_score.md)
   :
 
   **Get ESPN WBB Event Competitor Score (Single Row)**
@@ -511,7 +511,7 @@ Per-event enrichments (odds, win probability, officials, broadcasts)
 
   **Get ESPN WBB Team Season Statistics (Long Format with Rank)**
 
-- [`espn_wbb_event_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_official_detail.md)
+- [`espn_wbb_game_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_official_detail.md)
   :
 
   **Get ESPN WBB Event Official Detail (Single Official)**
@@ -724,17 +724,17 @@ BPI, season metadata)
 
   **Get ESPN WBB Coach-in-Season Detail**
 
-- [`espn_wbb_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_seasons.md)
+- [`espn_wbb_player_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_seasons.md)
   :
 
   **Get ESPN WBB Athlete Career Seasons**
 
-- [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md)
+- [`espn_wbb_player_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_career_stats.md)
   :
 
   **Get ESPN WBB Athlete Career Stats (Long Format)**
 
-- [`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md)
+- [`espn_wbb_player_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_eventlog_v2.md)
   :
 
   **Get ESPN WBB Athlete Per-Season Event Log (core-v2)**
@@ -840,12 +840,12 @@ Single-team endpoints for the WNBA
 
 Per-athlete endpoints for the WNBA
 
-- [`espn_wnba_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_info.md)
+- [`espn_wnba_player_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_info.md)
   :
 
   **Get ESPN WNBA Athlete Info**
 
-- [`espn_wnba_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_overview.md)
+- [`espn_wnba_player_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_overview.md)
   :
 
   **Get ESPN WNBA Athlete Overview**
@@ -855,27 +855,27 @@ Per-athlete endpoints for the WNBA
 
   **Get ESPN WNBA Athlete Stats**
 
-- [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md)
+- [`espn_wnba_player_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_gamelog.md)
   :
 
   **Get ESPN WNBA Athlete Gamelog**
 
-- [`espn_wnba_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_splits.md)
+- [`espn_wnba_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.md)
   :
 
   **Get ESPN WNBA Athlete Splits**
 
-- [`espn_wnba_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.md)
+- [`espn_wnba_player_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_eventlog.md)
   :
 
   **Get ESPN WNBA Athlete Eventlog**
 
-- [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md)
+- [`espn_wnba_player_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_awards.md)
   :
 
   **Get ESPN WNBA Athlete Awards**
 
-- [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md)
+- [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.md)
   :
 
   **Get ESPN WNBA Athlete Statisticslog**
@@ -889,93 +889,93 @@ Per-athlete endpoints for the WNBA
 
 Per-event enrichments (odds, win probability, officials, broadcasts)
 
-- [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md)
+- [`espn_wnba_game_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_odds.md)
   :
 
   **Get ESPN WNBA Event Odds**
 
-- [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md)
+- [`espn_wnba_game_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_probabilities.md)
   :
 
   **Get ESPN WNBA Event Win Probabilities**
 
-- [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md)
+- [`espn_wnba_game_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_officials.md)
   :
 
   **Get ESPN WNBA Event Officials**
 
-- [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md)
+- [`espn_wnba_game_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_broadcasts.md)
   :
 
   **Get ESPN WNBA Event Broadcasts**
 
-- [`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md)
+- [`espn_wnba_game_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_situation.md)
   :
 
   **Get ESPN WNBA Event Situation (Live)**
 
-- [`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md)
+- [`espn_wnba_game_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_predictor.md)
   :
 
   **Get ESPN WNBA Event Predictor (Pre-game)**
 
-- [`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md)
+- [`espn_wnba_game_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_powerindex.md)
   :
 
   **Get ESPN WNBA Event Power Index Index**
 
-- [`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md)
+- [`espn_wnba_game_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_propbets.md)
   :
 
   **Get ESPN WNBA Event Prop Bets (Long Format)**
 
-- [`espn_wnba_event_competitor_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_linescores.md)
+- [`espn_wnba_game_team_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_linescores.md)
   :
 
   **Get ESPN WNBA Event Competitor Linescores (Per-Quarter)**
 
-- [`espn_wnba_event_competitor_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_leaders.md)
+- [`espn_wnba_game_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_leaders.md)
   :
 
   **Get ESPN WNBA Event Competitor Leaders (Top Performers)**
 
-- [`espn_wnba_event_competitor_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_roster.md)
+- [`espn_wnba_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_roster.md)
   :
 
   **Get ESPN WNBA Event Competitor Roster (Game-Day)**
 
-- [`espn_wnba_event_competitor_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_statistics.md)
+- [`espn_wnba_game_team_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_statistics.md)
   :
 
   **Get ESPN WNBA Event Competitor Team Statistics (Long Format)**
 
-- [`espn_wnba_event_competitor_records()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_records.md)
+- [`espn_wnba_game_team_records()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_records.md)
   :
 
   **Get ESPN WNBA Event Competitor Records (At-Game Breakdown)**
 
-- [`espn_wnba_event_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_player_box.md)
+- [`espn_wnba_game_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_player_box.md)
   :
 
   **Get ESPN WNBA Event Player Box Score (Long Format)**
 
-- [`espn_wnba_event_competitor_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_roster_entry.md)
+- [`espn_wnba_game_team_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_roster_entry.md)
   :
 
   **Get ESPN WNBA Event Competitor Roster Entry (Per-Athlete Game-Day
   Row)**
 
-- [`espn_wnba_event_play()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_play.md)
+- [`espn_wnba_game_play()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_play.md)
   :
 
   **Get ESPN WNBA Event Play Detail (Single Play)**
 
-- [`espn_wnba_event_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_play_personnel.md)
+- [`espn_wnba_game_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_play_personnel.md)
   :
 
   **Get ESPN WNBA Event Play Personnel (On-Court Lineup at Play)**
 
-- [`espn_wnba_event_competitor_score()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_score.md)
+- [`espn_wnba_game_team_score()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_score.md)
   :
 
   **Get ESPN WNBA Event Competitor Score (Single Row)**
@@ -990,7 +990,7 @@ Per-event enrichments (odds, win probability, officials, broadcasts)
 
   **Get ESPN WNBA Season Draft (Top-Level Metadata)**
 
-- [`espn_wnba_event_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_official_detail.md)
+- [`espn_wnba_game_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_official_detail.md)
   :
 
   **Get ESPN WNBA Event Official Detail (Single Official)**
@@ -1207,12 +1207,12 @@ season metadata)
 
   **Get ESPN WNBA Coach-in-Season Detail**
 
-- [`espn_wnba_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_seasons.md)
+- [`espn_wnba_player_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_seasons.md)
   :
 
   **Get ESPN WNBA Athlete Career Seasons**
 
-- [`espn_wnba_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_career_stats.md)
+- [`espn_wnba_player_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_career_stats.md)
   :
 
   **Get ESPN WNBA Athlete Career Stats (Long Format)**
@@ -1222,7 +1222,7 @@ season metadata)
 
   **Get ESPN WNBA Draft Pick Detail**
 
-- [`espn_wnba_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog_v2.md)
+- [`espn_wnba_player_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_eventlog_v2.md)
   :
 
   **Get ESPN WNBA Athlete Per-Season Event Log (core-v2)**

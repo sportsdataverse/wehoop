@@ -284,7 +284,7 @@ of it, tidy enough to plot – not just this season.</p>
 <p>The word you want is <strong>career</strong>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># espn / wnba / athlete / career / stats. The name is the sentence.</span></span>
-<span><span class="va">aja</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_athlete_career_stats.html">espn_wnba_athlete_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span>
+<span><span class="va">aja</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_player_career_stats.html">espn_wnba_player_career_stats</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># It returns long -- one row per (stat_type x category x stat) --</span></span>
 <span><span class="co"># exactly the shape a faceted ggplot wants.</span></span>
@@ -304,7 +304,7 @@ you get both and filter. Want just one? Pass
 <p>The season-by-season index is one word away – swap
 <code>career_stats</code> for <code>seasons</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wnba_athlete_seasons.html">espn_wnba_athlete_seasons</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wnba_player_seasons.html">espn_wnba_player_seasons</a></span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 9 × 4</span></span></span>
 <span><span class="co">#&gt;   league athlete_id season ref                                                  </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                </span></span>
@@ -326,7 +326,7 @@ run. You want to <em>see</em> it – a win-probability line.</p>
 <p>Two engines, and the prefix tells you which:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Route A -- ESPN's per-play win probability.</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_event_probabilities.html">espn_wnba_event_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_probabilities.html">espn_wnba_game_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 200 × 10</span></span></span>
 <span><span class="co">#&gt;    event_id  sequence_number play_id period clock home_win_percentage</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -350,32 +350,7 @@ run. You want to <em>see</em> it – a win-probability line.</p>
 <span><span class="co"># so lift a real one off the schedule first.</span></span>
 <span><span class="va">sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wnba_schedule.html">wnba_schedule</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">sched</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $PlayByPlay</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 471 × 24</span></span></span>
-<span><span class="co">#&gt;    game_id action_number clock period team_id team_tricode person_id player_name</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 101260…             2 PT10…      1  0   <span style="color: #949494;"> </span>  <span style="color: #949494;">""</span>                   0 <span style="color: #949494;">""</span>         </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 101260…             4 PT10…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">627</span>673 <span style="color: #949494;">"</span>Jones<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 101260…             7 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>IND<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">642</span>286 <span style="color: #949494;">"</span>Clark<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 101260…             8 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">627</span>668 <span style="color: #949494;">"</span>Stewart<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 101260…             9 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>IND<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">629</span>482 <span style="color: #949494;">"</span>Cunningha…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 101260…            10 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>IND<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">629</span>482 <span style="color: #949494;">"</span>Cunningha…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 101260…            12 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">204</span>335 <span style="color: #949494;">"</span>Laney-Ham…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 101260…            14 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">204</span>335 <span style="color: #949494;">"</span>Laney-Ham…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 101260…            15 PT08…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>IND<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">642</span>286 <span style="color: #949494;">"</span>Clark<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 101260…            16 PT08…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">204</span>335 <span style="color: #949494;">"</span>Laney-Ham…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 461 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 16 more variables: player_name_i &lt;chr&gt;, x_legacy &lt;int&gt;, y_legacy &lt;int&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   shot_distance &lt;int&gt;, shot_result &lt;chr&gt;, is_field_goal &lt;int&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   score_home &lt;chr&gt;, score_away &lt;chr&gt;, points_total &lt;int&gt;, location &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   description &lt;chr&gt;, action_type &lt;chr&gt;, sub_type &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   video_available &lt;int&gt;, shot_value &lt;int&gt;, action_id &lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $AvailableVideo</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 1</span></span></span>
-<span><span class="co">#&gt;   video_available</span></span>
-<span><span class="co">#&gt;             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>               1</span></span></code></pre></div>
+<span><span class="co">#&gt; list()</span></span></code></pre></div>
 <p>The grammar doing real work: when two functions look like
 near-synonyms, the <em>prefix</em> is the tiebreaker.
 <code>espn_wnba_*</code> is ESPN’s take; <code>wnba_*</code> is
@@ -392,7 +367,7 @@ from a single game, long and tidy – not the whole
 <code class="sourceCode R"><span><span class="co"># espn / wnba / event / player_box. You pass the (event, team, athlete)</span></span>
 <span><span class="co"># trio because that triple is what uniquely names "this player in this</span></span>
 <span><span class="co"># game."</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_event_player_box.html">espn_wnba_event_player_box</a></span><span class="op">(</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_player_box.html">espn_wnba_game_player_box</a></span><span class="op">(</span></span>
 <span>  event_id   <span class="op">=</span> <span class="fl">401736171</span>,</span>
 <span>  team_id    <span class="op">=</span> <span class="fl">17</span>,</span>
 <span>  athlete_id <span class="op">=</span> <span class="fl">2590093</span></span>
@@ -421,7 +396,7 @@ grain – the arguments and the grain always move together.</p>
 <p>The event-detail siblings all share the <code>espn_wnba_event_</code>
 stem:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wnba_event_competitor_linescores.html">espn_wnba_event_competitor_linescores</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wnba_game_team_linescores.html">espn_wnba_game_team_linescores</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 7</span></span></span>
 <span><span class="co">#&gt;   league event_id  team_id period value display_value source      </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
@@ -433,7 +408,7 @@ stem:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> wnba   401736171 17           3    24 24            Basic/Manual</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> wnba   401736171 17           4    24 24            1           </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> wnba   401736171 17           4    24 24            Basic/Manual</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_event_officials.html">espn_wnba_event_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_officials.html">espn_wnba_game_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 8</span></span></span>
 <span><span class="co">#&gt;   event_id  official_id full_name         display_name position_id position_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
@@ -441,7 +416,7 @@ stem:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 401736171 52044       Fatou Cissoko-St… Fatou Cisso… 40          Referee      </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 401736171 4879757     Jason Alabanza    Jason Alaba… 40          Referee      </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: position_type &lt;chr&gt;, order &lt;int&gt;</span></span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_event_play.html">espn_wnba_event_play</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, play_id <span class="op">=</span> <span class="fl">4017361714</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_play.html">espn_wnba_game_play</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, play_id <span class="op">=</span> <span class="fl">4017361714</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 19</span></span></span>
 <span><span class="co">#&gt;   league event_id  play_id    sequence_number type_id type_text text  short_text</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
@@ -579,16 +554,16 @@ assist leaders – the bones of every MVP argument.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 375 × 11</span></span></span>
 <span><span class="co">#&gt;    season season_type category      abbreviation athlete_id athlete_name team_id</span></span>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3065570    <span style="color: #BB0000;">NA</span>           6      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3149391    <span style="color: #BB0000;">NA</span>           17     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433403    <span style="color: #BB0000;">NA</span>           5      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3142191    <span style="color: #BB0000;">NA</span>           5      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3149391    <span style="color: #BB0000;">NA</span>           17     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3058901    <span style="color: #BB0000;">NA</span>           20     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3142191    <span style="color: #BB0000;">NA</span>           5      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433403    <span style="color: #BB0000;">NA</span>           5      </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2988756    <span style="color: #BB0000;">NA</span>           131935 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3058901    <span style="color: #BB0000;">NA</span>           20     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433730    <span style="color: #BB0000;">NA</span>           3      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4280892    <span style="color: #BB0000;">NA</span>           17     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2998928    <span style="color: #BB0000;">NA</span>           9      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3904576    <span style="color: #BB0000;">NA</span>           131935 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4398674    <span style="color: #BB0000;">NA</span>           20     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2998928    <span style="color: #BB0000;">NA</span>           9      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3904576    <span style="color: #BB0000;">NA</span>           131935 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433730    <span style="color: #BB0000;">NA</span>           3      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2998938    <span style="color: #BB0000;">NA</span>           11     </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 365 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: team_abbrev &lt;chr&gt;, value &lt;dbl&gt;, rank &lt;int&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   display_value &lt;chr&gt;</span></span></span></code></pre></div>
@@ -704,32 +679,7 @@ layer, so you can override the proxy for a single call:</p>
 <span>  game_id <span class="op">=</span> <span class="st">"1022400001"</span>,</span>
 <span>  proxy   <span class="op">=</span> <span class="st">"http://other-proxy.company.com:3128"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; $PlayByPlay</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 434 × 24</span></span></span>
-<span><span class="co">#&gt;    game_id action_number clock period team_id team_tricode person_id player_name</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 102240…             2 PT10…      1  0   <span style="color: #949494;"> </span>  <span style="color: #949494;">""</span>                   0 <span style="color: #949494;">""</span>         </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 102240…             4 PT10…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>WAS<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">631</span>022 <span style="color: #949494;">"</span>Austin<span style="color: #949494;">"</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 102240…             7 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">202</span>664 <span style="color: #949494;">"</span>Vanderslo…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 102240…             8 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>WAS<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">628</span>878 <span style="color: #949494;">"</span>Atkins<span style="color: #949494;">"</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 102240…             9 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">627</span>673 <span style="color: #949494;">"</span>Jones<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 102240…            10 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">202</span>664 <span style="color: #949494;">"</span>Vanderslo…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 102240…            11 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>WAS<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">631</span>022 <span style="color: #949494;">"</span>Austin<span style="color: #949494;">"</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 102240…            14 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">627</span>668 <span style="color: #949494;">"</span>Stewart<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 102240…            16 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>WAS<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">631</span>022 <span style="color: #949494;">"</span>Austin<span style="color: #949494;">"</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 102240…            17 PT09…      1  1.61<span style="color: #949494;">e</span>9 <span style="color: #949494;">"</span>NYL<span style="color: #949494;">"</span>          1<span style="text-decoration: underline;">629</span>477 <span style="color: #949494;">"</span>Ionescu<span style="color: #949494;">"</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 424 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 16 more variables: player_name_i &lt;chr&gt;, x_legacy &lt;int&gt;, y_legacy &lt;int&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   shot_distance &lt;int&gt;, shot_result &lt;chr&gt;, is_field_goal &lt;int&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   score_home &lt;chr&gt;, score_away &lt;chr&gt;, points_total &lt;int&gt;, location &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   description &lt;chr&gt;, action_type &lt;chr&gt;, sub_type &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   video_available &lt;int&gt;, shot_value &lt;int&gt;, action_id &lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $AvailableVideo</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 1</span></span></span>
-<span><span class="co">#&gt;   video_available</span></span>
-<span><span class="co">#&gt;             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>               1</span></span></code></pre></div>
+<span><span class="co">#&gt; list()</span></span></code></pre></div>
 <p>A grammar-flavored caveat: per-call <code>proxy =</code> works for
 the <code>wnba_*</code> Stats API functions because they pass
 <code>...</code> through. The <code>espn_*</code> and

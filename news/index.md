@@ -2,6 +2,21 @@
 
 ## **wehoop 3.0.0**
 
+#### **ESPN endpoint naming convention (game\_*/player\_*)**
+
+The new-in-3.0.0 ESPN endpoint wrappers are named with the shared
+sportsdataverse taxonomy used by cfbfastR/hoopR:
+`event_competitor* → game_team*`, `event_competition → game`,
+`event_* → game_*`, and `athlete_* → player_*` (58 functions). These
+wrappers are new this release and were never on CRAN (2.1.0), so the
+convention is applied directly without deprecation shims.
+`*_athlete_stats` is kept (it would collide with the existing
+`*_player_stats`). The long-standing
+[`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+/
+[`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
+/ etc. are unaffected.
+
 #### **New exported functions**
 
 ##### *New WNBA Stats API V3 endpoints*
@@ -50,14 +65,14 @@ empty tibble (rather than erroring) when no injuries are reported.
 
 | Function | Endpoint family | Description |
 |----|----|----|
-| [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md) / [`espn_wnba_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_info.md) | site-v2 | Athlete bio/team/position/status/college/draft info. |
-| [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md) / [`espn_wnba_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_overview.md) | web-common-v3 | Season overview and last-5-games. |
+| `espn_wbb_athlete_info()` / `espn_wnba_athlete_info()` | site-v2 | Athlete bio/team/position/status/college/draft info. |
+| `espn_wbb_athlete_overview()` / `espn_wnba_athlete_overview()` | web-common-v3 | Season overview and last-5-games. |
 | [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md) / [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md) | web-common-v3 | Per-category stats as a named list. |
-| [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md) / [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md) | web-common-v3 | Game-by-game log. |
-| [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md) / [`espn_wnba_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_splits.md) | web-common-v3 | Long-format home/away/opponent splits. |
-| [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md) / [`espn_wnba_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.md) | core-v2 | Per-event log; `statistics.$ref` URLs returned as a `statistics_ref` character column (not auto-resolved). |
-| [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md) / [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md) | core-v2 | Awards (sparse / often empty). Empty payload returns a canonical-shape empty tibble. |
-| [`espn_wbb_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_statisticslog.md) / [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md) | core-v2 | Statistics log. |
+| `espn_wbb_athlete_gamelog()` / `espn_wnba_athlete_gamelog()` | web-common-v3 | Game-by-game log. |
+| `espn_wbb_athlete_splits()` / `espn_wnba_athlete_splits()` | web-common-v3 | Long-format home/away/opponent splits. |
+| `espn_wbb_athlete_eventlog()` / `espn_wnba_athlete_eventlog()` | core-v2 | Per-event log; `statistics.$ref` URLs returned as a `statistics_ref` character column (not auto-resolved). |
+| `espn_wbb_athlete_awards()` / `espn_wnba_athlete_awards()` | core-v2 | Awards (sparse / often empty). Empty payload returns a canonical-shape empty tibble. |
+| `espn_wbb_athlete_statisticslog()` / `espn_wnba_athlete_statisticslog()` | core-v2 | Statistics log. |
 
 *WNBA-only ESPN endpoints*
 
@@ -72,10 +87,10 @@ empty tibble (rather than erroring) when no injuries are reported.
 
 | Function | Description |
 |----|----|
-| [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md) / [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md) | Game-level odds (one row per provider; WBB typically empty). |
-| [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md) / [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md) | Paginated play-level win probabilities (`/probabilities`); internal page loop capped at 50 pages, respects `limit` parameter. |
-| [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md) / [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md) | Per-game officials. |
-| [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md) / [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md) | Broadcast outlets. |
+| `espn_wbb_event_odds()` / `espn_wnba_event_odds()` | Game-level odds (one row per provider; WBB typically empty). |
+| `espn_wbb_event_probabilities()` / `espn_wnba_event_probabilities()` | Paginated play-level win probabilities (`/probabilities`); internal page loop capped at 50 pages, respects `limit` parameter. |
+| `espn_wbb_event_officials()` / `espn_wnba_event_officials()` | Per-game officials. |
+| `espn_wbb_event_broadcasts()` / `espn_wnba_event_broadcasts()` | Broadcast outlets. |
 
 *League-wide catalog* (6 endpoints × 2 leagues = 12 functions)
 
@@ -273,8 +288,8 @@ in hoopR.)
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_seasons.md) / [`espn_wbb_athlete_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_seasons.md) | List of seasons an athlete appeared in. |
-| [`espn_wnba_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_career_stats.md) / [`espn_wbb_athlete_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_career_stats.md) | Long-format career stats. Default `stat_type = 0L` fetches the standard “All Splits” / regular-season view; pass a vector like `c(0L, 1L, 2L)` to bind multiple types via a `stat_type_id` column. Coverage of types 1 and 2 is sparse. |
+| `espn_wnba_athlete_seasons()` / `espn_wbb_athlete_seasons()` | List of seasons an athlete appeared in. |
+| `espn_wnba_athlete_career_stats()` / `espn_wbb_athlete_career_stats()` | Long-format career stats. Default `stat_type = 0L` fetches the standard “All Splits” / regular-season view; pass a vector like `c(0L, 1L, 2L)` to bind multiple types via a `stat_type_id` column. Coverage of types 1 and 2 is sparse. |
 | [`espn_wnba_draft_pick()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_pick.md) | Single WNBA draft-pick detail. WBB has no draft endpoint, so this wrapper is WNBA-only on the wehoop side. |
 
 ##### *Tier 2B core-v2 expansion — athlete event log + draft completion*
@@ -283,7 +298,7 @@ in hoopR.)
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog_v2.md) / [`espn_wbb_athlete_eventlog_v2()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog_v2.md) | Per-season event log from core-v2. One row per (event × team) with `played` flag + refs. Distinct from `espn_*_athlete_eventlog()` (web-common-v3 with stats per game). |
+| `espn_wnba_athlete_eventlog_v2()` / `espn_wbb_athlete_eventlog_v2()` | Per-season event log from core-v2. One row per (event × team) with `played` flag + refs. Distinct from `espn_*_athlete_eventlog()` (web-common-v3 with stats per game). |
 | [`espn_wnba_draft_rounds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_rounds.md) | Round-level summary for one WNBA draft year. |
 | [`espn_wnba_draft_athletes()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Index of every athlete in a given WNBA draft year. |
 | [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md) | Single-row snapshot of one draft year’s current state. |
@@ -296,10 +311,10 @@ release.
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_situation.md) / [`espn_wbb_event_situation()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_situation.md) | Live game situation: timeouts, fouls, bonus state. |
-| [`espn_wnba_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_predictor.md) / [`espn_wbb_event_predictor()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_predictor.md) | Pre-game predictor stats in long format (per team × stat). |
-| [`espn_wnba_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_powerindex.md) / [`espn_wbb_event_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_powerindex.md) | Per-event power-index `$ref` index (sparse coverage). |
-| [`espn_wnba_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_propbets.md) / [`espn_wbb_event_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_propbets.md) | Per-(event × provider) prop-bet markets in long format. |
+| `espn_wnba_event_situation()` / `espn_wbb_event_situation()` | Live game situation: timeouts, fouls, bonus state. |
+| `espn_wnba_event_predictor()` / `espn_wbb_event_predictor()` | Pre-game predictor stats in long format (per team × stat). |
+| `espn_wnba_event_powerindex()` / `espn_wbb_event_powerindex()` | Per-event power-index `$ref` index (sparse coverage). |
+| `espn_wnba_event_propbets()` / `espn_wbb_event_propbets()` | Per-(event × provider) prop-bet markets in long format. |
 
 ##### *Tier 2B core-v2 expansion — event competitor sub-resources*
 
@@ -310,11 +325,11 @@ release.
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_event_competitor_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_linescores.md) / [`espn_wbb_event_competitor_linescores()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_linescores.md) | Per-quarter scoring for one team in one event. One row per period (regulation + OT). |
-| [`espn_wnba_event_competitor_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_leaders.md) / [`espn_wbb_event_competitor_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_leaders.md) | Per-team top performers in long format (one row per category × athlete rank). |
-| [`espn_wnba_event_competitor_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_roster.md) / [`espn_wbb_event_competitor_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_roster.md) | Game-day roster index — athlete ids + core-v2 `$ref` URLs for deferred dereferencing. |
-| [`espn_wnba_event_competitor_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_statistics.md) / [`espn_wbb_event_competitor_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_statistics.md) | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
-| [`espn_wnba_event_competitor_records()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_records.md) / [`espn_wbb_event_competitor_records()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_records.md) | Team records as of the event: overall / home / away / conference / division breakdowns. |
+| `espn_wnba_event_competitor_linescores()` / `espn_wbb_event_competitor_linescores()` | Per-quarter scoring for one team in one event. One row per period (regulation + OT). |
+| `espn_wnba_event_competitor_leaders()` / `espn_wbb_event_competitor_leaders()` | Per-team top performers in long format (one row per category × athlete rank). |
+| `espn_wnba_event_competitor_roster()` / `espn_wbb_event_competitor_roster()` | Game-day roster index — athlete ids + core-v2 `$ref` URLs for deferred dereferencing. |
+| `espn_wnba_event_competitor_statistics()` / `espn_wbb_event_competitor_statistics()` | Full team-game statistics in long format (one row per category × stat) with raw values and display strings. |
+| `espn_wnba_event_competitor_records()` / `espn_wbb_event_competitor_records()` | Team records as of the event: overall / home / away / conference / division breakdowns. |
 
 ##### *Tier 2F core-v2 expansion — typed-detail companions*
 
@@ -324,7 +339,7 @@ wrappers — those families ship in the leagues where the index exists.
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_event_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_official_detail.md) / [`espn_wbb_event_official_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_official_detail.md) | Per-official details for one event. URL segment is the **crew order** (1-indexed), not the ESPN stable official_id — wrapper takes `order =` to match `event_officials()$order`. |
+| `espn_wnba_event_official_detail()` / `espn_wbb_event_official_detail()` | Per-official details for one event. URL segment is the **crew order** (1-indexed), not the ESPN stable official_id — wrapper takes `order =` to match `event_officials()$order`. |
 | [`espn_wnba_team_record_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_record_detail.md) / [`espn_wbb_team_record_detail()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_record_detail.md) | Per-record stat array in long format (overall / home / away / conference / per-opponent). |
 | [`espn_wbb_coach_record()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_coach_record.md) | Coach career record by type (Total / Pre Season / Regular Season / Post Season). |
 | [`espn_wbb_tournament_season()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_tournament_season.md) | Single tournament-year detail. |
@@ -340,7 +355,7 @@ is WNBA-only). Paired with hoopR’s matching release.
 | Function | Description |
 |----|----|
 | [`espn_wnba_team_season_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_statistics.md) / [`espn_wbb_team_season_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_statistics.md) | **Full team-season-type stat sheet in long format**, with `rank` + `rank_display_value` per stat. |
-| [`espn_wnba_event_competitor_score()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_score.md) / [`espn_wbb_event_competitor_score()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_score.md) | Single-row final score for one team in one event: `value`, `display_value`, `winner` flag, source. |
+| `espn_wnba_event_competitor_score()` / `espn_wbb_event_competitor_score()` | Single-row final score for one team in one event: `value`, `display_value`, `winner` flag, source. |
 | [`espn_wnba_season_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_draft.md) | Draft-year top-level metadata: `year`, `number_of_rounds`, `display_name`, plus sub-refs. |
 
 `_pkgdown.yml` updated to surface the new entries.
@@ -353,10 +368,10 @@ functions). Paired with hoopR’s matching release.
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_event_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_player_box.md) / [`espn_wbb_event_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_player_box.md) | **Per-game box score for one athlete** in long format (one row per category × stat). |
-| [`espn_wnba_event_competitor_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_competitor_roster_entry.md) / [`espn_wbb_event_competitor_roster_entry()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_competitor_roster_entry.md) | Per-athlete game-day roster row: starter, DNP + reason, ejected, period, substitution slot. |
-| [`espn_wnba_event_play()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_play.md) / [`espn_wbb_event_play()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_play.md) | Rich single-play detail (sequence, period, clock, text, scoring flags, shot coordinates). |
-| [`espn_wnba_event_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_play_personnel.md) / [`espn_wbb_event_play_personnel()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_play_personnel.md) | Players on court at a specific play (long format). Sparse coverage. |
+| `espn_wnba_event_player_box()` / `espn_wbb_event_player_box()` | **Per-game box score for one athlete** in long format (one row per category × stat). |
+| `espn_wnba_event_competitor_roster_entry()` / `espn_wbb_event_competitor_roster_entry()` | Per-athlete game-day roster row: starter, DNP + reason, ejected, period, substitution slot. |
+| `espn_wnba_event_play()` / `espn_wbb_event_play()` | Rich single-play detail (sequence, period, clock, text, scoring flags, shot coordinates). |
+| `espn_wnba_event_play_personnel()` / `espn_wbb_event_play_personnel()` | Players on court at a specific play (long format). Sparse coverage. |
 
 ##### *Tier 2D core-v2 expansion — position dictionary*
 
@@ -418,7 +433,7 @@ wide, self-describing tibble” preference:
 | Function(s) | Change |
 |----|----|
 | [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md), [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md) | **Return shape changed from a named list of per-category tibbles to a single wide `wehoop_data` tibble.** One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (`avg_*` season averages, `tot_*` totals, `misc_*` miscellaneous). Stat columns are labeled from ESPN’s positional `names` array per category. The previous list (mostly empty `General`/`Offensive`/… slots plus nested `stats`/`season` list-columns) is gone; downstream code that indexed `$General` etc. should read the wide columns instead. |
-| [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md), [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md), `espn_*_athlete_splits()`, `espn_*_athlete_eventlog()`, `espn_*_athlete_statisticslog()` | Now echo the `athlete_id` and `season` inputs back as the first two columns, so the returned tibble is self-describing without re-attaching context. Implemented via a new internal `.echo_identity()` helper that preserves the `wehoop_data` class. |
+| `espn_wbb_athlete_gamelog()`, `espn_wnba_athlete_gamelog()`, `espn_*_athlete_splits()`, `espn_*_athlete_eventlog()`, `espn_*_athlete_statisticslog()` | Now echo the `athlete_id` and `season` inputs back as the first two columns, so the returned tibble is self-describing without re-attaching context. Implemented via a new internal `.echo_identity()` helper that preserves the `wehoop_data` class. |
 
 ##### *Bug fixes*
 

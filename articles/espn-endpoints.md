@@ -104,14 +104,14 @@ they’re the same thing).
 
 | Function | Returns |
 |----|----|
-| [`espn_wbb_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_info.md) / [`espn_wnba_athlete_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_info.md) | Bio and profile |
-| [`espn_wbb_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_overview.md) / [`espn_wnba_athlete_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_overview.md) | Season overview (web-common-v3) |
+| [`espn_wbb_player_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_info.md) / [`espn_wnba_player_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_info.md) | Bio and profile |
+| [`espn_wbb_player_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_overview.md) / [`espn_wnba_player_overview()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_overview.md) | Season overview (web-common-v3) |
 | [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md) / [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md) | Season stats by category |
-| [`espn_wbb_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_gamelog.md) / [`espn_wnba_athlete_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_gamelog.md) | Game-by-game log |
-| [`espn_wbb_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_splits.md) / [`espn_wnba_athlete_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_splits.md) | Situational splits |
-| [`espn_wbb_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_eventlog.md) / [`espn_wnba_athlete_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_eventlog.md) | Event log (`$ref` links) |
-| [`espn_wbb_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_awards.md) / [`espn_wnba_athlete_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_awards.md) | Awards history |
-| [`espn_wbb_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_statisticslog.md) / [`espn_wnba_athlete_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_statisticslog.md) | Stats log (core-v2) |
+| [`espn_wbb_player_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_gamelog.md) / [`espn_wnba_player_gamelog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_gamelog.md) | Game-by-game log |
+| [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md) / [`espn_wnba_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.md) | Situational splits |
+| [`espn_wbb_player_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_eventlog.md) / [`espn_wnba_player_eventlog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_eventlog.md) | Event log (`$ref` links) |
+| [`espn_wbb_player_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_awards.md) / [`espn_wnba_player_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_awards.md) | Awards history |
+| [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md) / [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.md) | Stats log (core-v2) |
 | [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md) / [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md) | Cross-athlete season stats |
 
 ### Per-event enrichment
@@ -120,10 +120,10 @@ These take an `event_id` and complement the play-by-play.
 
 | Function | Returns |
 |----|----|
-| [`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md) / [`espn_wnba_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_odds.md) | Opening / closing lines (WNBA only – empty for WBB) |
-| [`espn_wbb_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_probabilities.md) / [`espn_wnba_event_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_probabilities.md) | Win probability per play |
-| [`espn_wbb_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_officials.md) / [`espn_wnba_event_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_officials.md) | Officials |
-| [`espn_wbb_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_broadcasts.md) / [`espn_wnba_event_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_event_broadcasts.md) | Broadcast outlets |
+| [`espn_wbb_game_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_odds.md) / [`espn_wnba_game_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_odds.md) | Opening / closing lines (WNBA only – empty for WBB) |
+| [`espn_wbb_game_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_probabilities.md) / [`espn_wnba_game_probabilities()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_probabilities.md) | Win probability per play |
+| [`espn_wbb_game_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_officials.md) / [`espn_wnba_game_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_officials.md) | Officials |
+| [`espn_wbb_game_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_broadcasts.md) / [`espn_wnba_game_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_broadcasts.md) | Broadcast outlets |
 
 ### League-wide catalogs
 
@@ -173,12 +173,12 @@ head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
 #>   headline                                                            published 
 #>   <chr>                                                               <chr>     
-#> 1 How top 2027 women's basketball commits fit at their schools        2026-05-2…
-#> 2 Lauren Hassell, top-10 women's hoops recruit, commits to Vanderbilt 2026-05-2…
-#> 3 Big 12 first power conference to have full CSC participation        2026-05-2…
-#> 4 UNCW's Nicole Woods revived after nearly drowning in rip current    2026-05-2…
-#> 5 Bipartisan college sports bill proposes salary cap, transfer limit  2026-05-2…
-#> 6 Ex-Clemson AD Terry Don Phillips, who hired Swinney, dies at 78     2026-05-2…
+#> 1 Nick Saban asks Congress to 'bring order' via college sports bill   2026-06-0…
+#> 2 SEC, Big Ten withhold support for landmark college sports bill      2026-06-0…
+#> 3 Vanderbilt, Iowa women's hoops square off, 1st time since '97       2026-06-0…
+#> 4 How top 2027 women's basketball commits fit at their schools        2026-05-2…
+#> 5 Lauren Hassell, top-10 women's hoops recruit, commits to Vanderbilt 2026-05-2…
+#> 6 Big 12 first power conference to have full CSC participation        2026-05-2…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -291,7 +291,7 @@ athlete_name <- uconn_roster$athlete_display_name[1]
 message("Selected: ", athlete_name, " (", athlete_id, ")")
 
 # Bio and profile
-bio <- espn_wbb_athlete_info(athlete_id = athlete_id)
+bio <- espn_wbb_player_info(athlete_id = athlete_id)
 glimpse(bio)
 #> List of 6
 #>  $ Bio     : wehop_dt [1 × 16] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "Lafayette"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 20:46:22"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-06-04 12:01:25"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2026/teams/2509?"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 20:46:22"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-06-04 12:01:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "3"
@@ -323,26 +323,26 @@ glimpse(bio)
 #>   ..$ display_name: chr "Guard"
 #>   ..$ abbreviation: chr "G"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 20:46:22"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-06-04 12:01:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 20:46:22"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-06-04 12:01:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 20:46:22"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-06-04 12:01:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-05-30 20:46:22"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-06-04 12:01:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
-overview <- espn_wbb_athlete_overview(
+overview <- espn_wbb_player_overview(
   athlete_id = athlete_id, season = 2025
 )
 names(overview)
@@ -350,7 +350,7 @@ names(overview)
 #> [5] "FantasyOutlook"
 
 # Game-by-game log
-gamelog <- espn_wbb_athlete_gamelog(
+gamelog <- espn_wbb_player_gamelog(
   athlete_id = athlete_id, season = 2025
 )
 head(gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")])
@@ -359,7 +359,7 @@ head(gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")])
 #> ✖ Columns `game_date`, `opponent`, `points`, `rebounds`, and `assists` don't exist.
 
 # Situational splits (home/away, by month, vs ranked, ...)
-splits <- espn_wbb_athlete_splits(
+splits <- espn_wbb_player_splits(
   athlete_id = athlete_id, season = 2025
 )
 head(splits)
@@ -399,7 +399,7 @@ library(ggplot2)
 game_id <- "401736171"
 
 pbp   <- espn_wnba_pbp(game_id = game_id)
-probs <- espn_wnba_event_probabilities(event_id = game_id, limit = 200)
+probs <- espn_wnba_game_probabilities(event_id = game_id, limit = 200)
 
 plot_data <- probs %>%
   mutate(seq = as.integer(sequence_number)) %>%
@@ -425,17 +425,17 @@ contextual annotations.
 ``` r
 
 # Pre-game odds (populated when ESPN carries lines)
-odds <- espn_wnba_event_odds(event_id = game_id)
+odds <- espn_wnba_game_odds(event_id = game_id)
 
 # Officials
-officials <- espn_wnba_event_officials(event_id = game_id)
+officials <- espn_wnba_game_officials(event_id = game_id)
 officials[, c("full_name", "position")]
 #> Error in `officials[, c("full_name", "position")]`:
 #> ! Can't subset columns that don't exist.
 #> ✖ Column `position` doesn't exist.
 
 # Broadcast outlets
-broadcasts <- espn_wnba_event_broadcasts(event_id = game_id)
+broadcasts <- espn_wnba_game_broadcasts(event_id = game_id)
 broadcasts[, c("market", "names")]
 #> Error in `broadcasts[, c("market", "names")]`:
 #> ! Can't subset columns that don't exist.
@@ -443,7 +443,7 @@ broadcasts[, c("market", "names")]
 ```
 
 ESPN doesn’t carry betting lines for NCAA games, so
-[`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md)
+[`espn_wbb_game_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_odds.md)
 always returns an empty tibble. The function exists for API symmetry;
 it’s not a bug. Win probabilities, officials, and broadcasts are all
 populated for both leagues.
@@ -529,7 +529,7 @@ wnba_athletes <- espn_wnba_athletes_index(
   season = 2025, active = TRUE, limit = 5000
 )
 nrow(wnba_athletes)
-#> [1] 228
+#> [1] 224
 head(wnba_athletes[, c("display_name", "position_name", "team_name")])
 #> Error in `wnba_athletes[, c("display_name", "position_name", "team_name")]`:
 #> ! Can't subset columns that don't exist.
@@ -630,12 +630,12 @@ library(wehoop)
 # Career stats — long format, one row per (stat_type x category x stat).
 # Default `stat_type = c(0L, 1L)` fetches regular season + postseason and
 # binds them so a single call gives you the player's full career sheet.
-caitlin_career <- espn_wbb_athlete_career_stats(athlete_id = 4433404)
-aja_career     <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
+caitlin_career <- espn_wbb_player_career_stats(athlete_id = 4433404)
+aja_career     <- espn_wnba_player_career_stats(athlete_id = 3149391)
 
 # Per-(athlete x season) event log -- core-v2 variant. Returns
 # event_id + result + per-event stats in long format.
-espn_wnba_athlete_eventlog_v2(athlete_id = 3149391, season = 2024)
+espn_wnba_player_eventlog_v2(athlete_id = 3149391, season = 2024)
 #> # A tibble: 25 × 8
 #>    league athlete_id season event_id  team_id played event_ref   competition_ref
 #>    <chr>  <chr>       <int> <chr>     <chr>   <lgl>  <chr>       <chr>          
@@ -652,7 +652,7 @@ espn_wnba_athlete_eventlog_v2(athlete_id = 3149391, season = 2024)
 #> # ℹ 15 more rows
 
 # Index of seasons an athlete has on file (good for iterating).
-espn_wnba_athlete_seasons(athlete_id = 3149391)
+espn_wnba_player_seasons(athlete_id = 3149391)
 #> # A tibble: 9 × 4
 #>   league athlete_id season ref                                                  
 #>   <chr>  <chr>       <int> <chr>                                                
@@ -928,7 +928,7 @@ espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 EID <- "401736171"
 
 # Live game situation -- timeouts, fouls, bonus state, last play $ref.
-espn_wnba_event_situation(event_id = EID)
+espn_wnba_game_situation(event_id = EID)
 #> # A tibble: 1 × 15
 #>   league event_id  home_timeouts_current home_timeouts_remaining
 #>   <chr>  <chr>                     <int>                   <int>
@@ -941,7 +941,7 @@ espn_wnba_event_situation(event_id = EID)
 #> #   away_bonus_state <chr>, last_play_ref <chr>
 
 # Pre-game predictor -- one row per (team x stat). Empty for past games.
-espn_wnba_event_predictor(event_id = EID)
+espn_wnba_game_predictor(event_id = EID)
 #> # A tibble: 6 × 13
 #>   league event_id  name         short_name last_modified side  team_id stat_name
 #>   <chr>  <chr>     <chr>        <chr>      <chr>         <chr> <chr>   <chr>    
@@ -955,7 +955,7 @@ espn_wnba_event_predictor(event_id = EID)
 #> #   display_value <chr>, team_ref <chr>
 
 # Per-event power index. Coverage is sparse -- many events return zero.
-espn_wnba_event_powerindex(event_id = EID)
+espn_wnba_game_powerindex(event_id = EID)
 #> # A tibble: 2 × 4
 #>   league event_id  team_id ref                                                  
 #>   <chr>  <chr>     <chr>   <chr>                                                
@@ -963,7 +963,7 @@ espn_wnba_event_powerindex(event_id = EID)
 #> 2 wnba   401736171 17      http://sports.core.api.espn.com/v2/sports/basketball…
 
 # Prop bet markets per (event x provider). 58 = ESPN BET.
-espn_wnba_event_propbets(event_id = EID, provider_id = 58)
+espn_wnba_game_propbets(event_id = EID, provider_id = 58)
 #> NULL
 ```
 
@@ -979,7 +979,7 @@ for WNBA + WBB. Pair `team_id` with `event_id` from
 EID <- "401736171"; TID <- 17  # team_id of one competitor
 
 # Per-quarter scoring for one team in one event.
-espn_wnba_event_competitor_linescores(event_id = EID, team_id = TID)
+espn_wnba_game_team_linescores(event_id = EID, team_id = TID)
 #> # A tibble: 8 × 7
 #>   league event_id  team_id period value display_value source      
 #>   <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr>       
@@ -993,7 +993,7 @@ espn_wnba_event_competitor_linescores(event_id = EID, team_id = TID)
 #> 8 wnba   401736171 17           4    24 24            Basic/Manual
 
 # Top performers per team in long format (category x rank).
-espn_wnba_event_competitor_leaders(event_id = EID, team_id = TID)
+espn_wnba_game_team_leaders(event_id = EID, team_id = TID)
 #> # A tibble: 28 × 11
 #>    league event_id  team_id category_name category_display category_abbrev  rank
 #>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>           <int>
@@ -1012,13 +1012,13 @@ espn_wnba_event_competitor_leaders(event_id = EID, team_id = TID)
 #> #   athlete_ref <chr>
 
 # Game-day roster index. Returns athlete ids + core-v2 $refs.
-espn_wnba_event_competitor_roster(event_id = EID, team_id = TID)
+espn_wnba_game_team_roster(event_id = EID, team_id = TID)
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
 #> #   ref <chr>
 
 # Full team-game statistics in long format.
-espn_wnba_event_competitor_statistics(event_id = EID, team_id = TID)
+espn_wnba_game_team_statistics(event_id = EID, team_id = TID)
 #> # A tibble: 99 × 10
 #>    league event_id  team_id category_name category_display stat_name stat_abbrev
 #>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>     <chr>      
@@ -1036,7 +1036,7 @@ espn_wnba_event_competitor_statistics(event_id = EID, team_id = TID)
 #> # ℹ 3 more variables: stat_display <chr>, value <dbl>, display_value <chr>
 
 # Team records as of the event: overall / home / away / conf / div.
-espn_wnba_event_competitor_records(event_id = EID, team_id = TID)
+espn_wnba_game_team_records(event_id = EID, team_id = TID)
 #> # A tibble: 3 × 11
 #>   league event_id  team_id record_id name    abbreviation display_name       
 #>   <chr>  <chr>     <chr>   <chr>     <chr>   <chr>        <chr>              
@@ -1047,7 +1047,7 @@ espn_wnba_event_competitor_records(event_id = EID, team_id = TID)
 #> #   value <dbl>
 
 # One-row final score, quick lookup.
-espn_wnba_event_competitor_score(event_id = EID, team_id = TID)
+espn_wnba_game_team_score(event_id = EID, team_id = TID)
 #> # A tibble: 1 × 8
 #>   league event_id  team_id value display_value winner source_id
 #>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    
@@ -1066,7 +1066,7 @@ EID <- "401736171"; TID <- 17; AID <- 3149391  # event, team, athlete
 
 # Per-game box score for one athlete -- one row per (category x stat).
 # Same shape as event_competitor_statistics() but scoped to an athlete.
-espn_wnba_event_player_box(event_id = EID, team_id = TID,
+espn_wnba_game_player_box(event_id = EID, team_id = TID,
                            athlete_id = AID)
 #> # A tibble: 97 × 12
 #>    league event_id  team_id athlete_id stat_type category_name category_display
@@ -1087,7 +1087,7 @@ espn_wnba_event_player_box(event_id = EID, team_id = TID,
 
 # Per-athlete game-day row: starter flag, did_not_play + reason,
 # ejected flag, period of entry, for_player_id (substitution slot).
-espn_wnba_event_competitor_roster_entry(event_id = EID, team_id = TID,
+espn_wnba_game_team_roster_entry(event_id = EID, team_id = TID,
                                         athlete_id = AID)
 #> # A tibble: 1 × 16
 #>   league event_id  team_id athlete_id player_id period active starter
@@ -1099,12 +1099,12 @@ espn_wnba_event_competitor_roster_entry(event_id = EID, team_id = TID,
 
 # Single-play detail. play_id comes from espn_wnba_pbp() output.
 PID <- "401736171001"  # example play id
-espn_wnba_event_play(event_id = EID, play_id = PID)
+espn_wnba_game_play(event_id = EID, play_id = PID)
 #> NULL
 
 # Players on court at a specific play (long format). Coverage is
 # sparse -- many plays return zero rows.
-espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
+espn_wnba_game_play_personnel(event_id = EID, play_id = PID)
 #> NULL
 ```
 
@@ -1114,8 +1114,8 @@ espn_wnba_event_play_personnel(event_id = EID, play_id = PID)
 
 # Single official detail. The URL segment is the CREW ORDER, not the
 # ESPN-stable official_id -- so pair this with the `order` column from
-# espn_wnba_event_officials() rather than `official_id`.
-espn_wnba_event_official_detail(event_id = "401736171", order = 1)
+# espn_wnba_game_officials() rather than `official_id`.
+espn_wnba_game_official_detail(event_id = "401736171", order = 1)
 #> # A tibble: 1 × 10
 #>   league event_id  official_id first_name last_name full_name     display_name 
 #>   <chr>  <chr>     <chr>       <chr>      <chr>     <chr>         <chr>        
@@ -1223,7 +1223,7 @@ And a handful of endpoints we do wrap that have known data quirks:
   and
   [`espn_wbb_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_injuries.md)**
   – ESPN rarely populates injury data for college basketball.
-- **[`espn_wbb_event_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_event_odds.md)**
+- **[`espn_wbb_game_odds()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_odds.md)**
   – always empty; ESPN doesn’t carry NCAA lines.
 - **[`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md)**
   – empty outside the FA window.

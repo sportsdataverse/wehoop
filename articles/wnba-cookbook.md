@@ -139,7 +139,7 @@ The word you want is **career**.
 ``` r
 
 # espn / wnba / athlete / career / stats. The name is the sentence.
-aja <- espn_wnba_athlete_career_stats(athlete_id = 3149391)
+aja <- espn_wnba_player_career_stats(athlete_id = 3149391)
 
 # It returns long -- one row per (stat_type x category x stat) --
 # exactly the shape a faceted ggplot wants.
@@ -163,7 +163,7 @@ The season-by-season index is one word away – swap `career_stats` for
 
 ``` r
 
-espn_wnba_athlete_seasons(athlete_id = 3149391)
+espn_wnba_player_seasons(athlete_id = 3149391)
 #> # A tibble: 9 × 4
 #>   league athlete_id season ref                                                  
 #>   <chr>  <chr>       <int> <chr>                                                
@@ -188,7 +188,7 @@ Two engines, and the prefix tells you which:
 ``` r
 
 # Route A -- ESPN's per-play win probability.
-espn_wnba_event_probabilities(event_id = 401736171)
+espn_wnba_game_probabilities(event_id = 401736171)
 #> # A tibble: 200 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>
@@ -212,32 +212,7 @@ espn_wnba_event_probabilities(event_id = 401736171)
 # so lift a real one off the schedule first.
 sched <- wnba_schedule()
 wnba_playbyplayv3(game_id = sched$game_id[1])
-#> $PlayByPlay
-#> # A tibble: 471 × 24
-#>    game_id action_number clock period team_id team_tricode person_id player_name
-#>    <chr>           <int> <chr>  <int>   <int> <chr>            <int> <chr>      
-#>  1 101260…             2 PT10…      1  0      ""                   0 ""         
-#>  2 101260…             4 PT10…      1  1.61e9 "NYL"          1627673 "Jones"    
-#>  3 101260…             7 PT09…      1  1.61e9 "IND"          1642286 "Clark"    
-#>  4 101260…             8 PT09…      1  1.61e9 "NYL"          1627668 "Stewart"  
-#>  5 101260…             9 PT09…      1  1.61e9 "IND"          1629482 "Cunningha…
-#>  6 101260…            10 PT09…      1  1.61e9 "IND"          1629482 "Cunningha…
-#>  7 101260…            12 PT09…      1  1.61e9 "NYL"           204335 "Laney-Ham…
-#>  8 101260…            14 PT09…      1  1.61e9 "NYL"           204335 "Laney-Ham…
-#>  9 101260…            15 PT08…      1  1.61e9 "IND"          1642286 "Clark"    
-#> 10 101260…            16 PT08…      1  1.61e9 "NYL"           204335 "Laney-Ham…
-#> # ℹ 461 more rows
-#> # ℹ 16 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
-#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
-#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
-#> #   description <chr>, action_type <chr>, sub_type <chr>,
-#> #   video_available <int>, shot_value <int>, action_id <int>
-#> 
-#> $AvailableVideo
-#> # A tibble: 1 × 1
-#>   video_available
-#>             <int>
-#> 1               1
+#> list()
 ```
 
 The grammar doing real work: when two functions look like near-synonyms,
@@ -255,7 +230,7 @@ long and tidy – not the whole `player_box`.
 # espn / wnba / event / player_box. You pass the (event, team, athlete)
 # trio because that triple is what uniquely names "this player in this
 # game."
-espn_wnba_event_player_box(
+espn_wnba_game_player_box(
   event_id   = 401736171,
   team_id    = 17,
   athlete_id = 2590093
@@ -287,7 +262,7 @@ The event-detail siblings all share the `espn_wnba_event_` stem:
 
 ``` r
 
-espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
+espn_wnba_game_team_linescores(event_id = 401736171, team_id = 17)
 #> # A tibble: 8 × 7
 #>   league event_id  team_id period value display_value source      
 #>   <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr>       
@@ -299,7 +274,7 @@ espn_wnba_event_competitor_linescores(event_id = 401736171, team_id = 17)
 #> 6 wnba   401736171 17           3    24 24            Basic/Manual
 #> 7 wnba   401736171 17           4    24 24            1           
 #> 8 wnba   401736171 17           4    24 24            Basic/Manual
-espn_wnba_event_officials(event_id = 401736171)
+espn_wnba_game_officials(event_id = 401736171)
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name         display_name position_id position_name
 #>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        
@@ -307,7 +282,7 @@ espn_wnba_event_officials(event_id = 401736171)
 #> 2 401736171 52044       Fatou Cissoko-St… Fatou Cisso… 40          Referee      
 #> 3 401736171 4879757     Jason Alabanza    Jason Alaba… 40          Referee      
 #> # ℹ 2 more variables: position_type <chr>, order <int>
-espn_wnba_event_play(event_id = 401736171, play_id = 4017361714)
+espn_wnba_game_play(event_id = 401736171, play_id = 4017361714)
 #> # A tibble: 1 × 19
 #>   league event_id  play_id    sequence_number type_id type_text text  short_text
 #>   <chr>  <chr>     <chr>      <chr>           <chr>   <chr>     <chr> <chr>     
@@ -450,16 +425,16 @@ espn_wnba_leaders(season = most_recent_wnba_season())
 #> # A tibble: 375 × 11
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
-#>  1   2026           2 pointsPerGame PTS          3065570    NA           6      
-#>  2   2026           2 pointsPerGame PTS          3149391    NA           17     
-#>  3   2026           2 pointsPerGame PTS          4433403    NA           5      
-#>  4   2026           2 pointsPerGame PTS          3142191    NA           5      
+#>  1   2026           2 pointsPerGame PTS          3149391    NA           17     
+#>  2   2026           2 pointsPerGame PTS          3058901    NA           20     
+#>  3   2026           2 pointsPerGame PTS          3142191    NA           5      
+#>  4   2026           2 pointsPerGame PTS          4433403    NA           5      
 #>  5   2026           2 pointsPerGame PTS          2988756    NA           131935 
-#>  6   2026           2 pointsPerGame PTS          3058901    NA           20     
-#>  7   2026           2 pointsPerGame PTS          4433730    NA           3      
-#>  8   2026           2 pointsPerGame PTS          4280892    NA           17     
-#>  9   2026           2 pointsPerGame PTS          2998928    NA           9      
-#> 10   2026           2 pointsPerGame PTS          3904576    NA           131935 
+#>  6   2026           2 pointsPerGame PTS          4398674    NA           20     
+#>  7   2026           2 pointsPerGame PTS          2998928    NA           9      
+#>  8   2026           2 pointsPerGame PTS          3904576    NA           131935 
+#>  9   2026           2 pointsPerGame PTS          4433730    NA           3      
+#> 10   2026           2 pointsPerGame PTS          2998938    NA           11     
 #> # ℹ 365 more rows
 #> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
 #> #   display_value <chr>
@@ -596,32 +571,7 @@ wnba_playbyplayv3(
   game_id = "1022400001",
   proxy   = "http://other-proxy.company.com:3128"
 )
-#> $PlayByPlay
-#> # A tibble: 434 × 24
-#>    game_id action_number clock period team_id team_tricode person_id player_name
-#>    <chr>           <int> <chr>  <int>   <int> <chr>            <int> <chr>      
-#>  1 102240…             2 PT10…      1  0      ""                   0 ""         
-#>  2 102240…             4 PT10…      1  1.61e9 "WAS"          1631022 "Austin"   
-#>  3 102240…             7 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
-#>  4 102240…             8 PT09…      1  1.61e9 "WAS"          1628878 "Atkins"   
-#>  5 102240…             9 PT09…      1  1.61e9 "NYL"          1627673 "Jones"    
-#>  6 102240…            10 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
-#>  7 102240…            11 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
-#>  8 102240…            14 PT09…      1  1.61e9 "NYL"          1627668 "Stewart"  
-#>  9 102240…            16 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
-#> 10 102240…            17 PT09…      1  1.61e9 "NYL"          1629477 "Ionescu"  
-#> # ℹ 424 more rows
-#> # ℹ 16 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
-#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
-#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
-#> #   description <chr>, action_type <chr>, sub_type <chr>,
-#> #   video_available <int>, shot_value <int>, action_id <int>
-#> 
-#> $AvailableVideo
-#> # A tibble: 1 × 1
-#>   video_available
-#>             <int>
-#> 1               1
+#> list()
 ```
 
 A grammar-flavored caveat: per-call `proxy =` works for the `wnba_*`

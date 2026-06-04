@@ -161,7 +161,7 @@ so the reliable move is to pull the current roster first and lift an
 roster     <- espn_wbb_team_roster(team_id = 2509, season = most_recent_wbb_season())
 athlete_id <- roster$athlete_id[1]   # whoever is first on the roster
 
-espn_wbb_athlete_info(athlete_id = athlete_id)            # bio
+espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Bio
 #> # A tibble: 1 × 16
 #>   id      uid       guid  first_name last_name full_name display_name short_name
@@ -194,7 +194,7 @@ espn_wbb_athlete_info(athlete_id = athlete_id)            # bio
 #> 
 #> $Draft
 #> # A tibble: 0 × 0
-espn_wbb_athlete_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
+espn_wbb_player_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
 #> # A tibble: 5 × 26
 #>   athlete_id season id     week  at_vs game_date score home_team_id away_team_id
 #>   <chr>       <dbl> <chr>  <chr> <chr> <chr>     <chr> <chr>        <chr>       
@@ -209,7 +209,7 @@ espn_wbb_athlete_gamelog(athlete_id = athlete_id, season = most_recent_wbb_seaso
 #> #   team_abbreviation <chr>, team_logo <chr>, team_is_all_star <chr>,
 #> #   opponent_id <chr>, opponent_uid <chr>, opponent_display_name <chr>,
 #> #   opponent_abbreviation <chr>, opponent_logo <chr>, event_id <chr>
-espn_wbb_athlete_career_stats(athlete_id = athlete_id)    # career rollup, long format
+espn_wbb_player_career_stats(athlete_id = athlete_id)    # career rollup, long format
 #> # A tibble: 87 × 17
 #>    league   athlete_id stat_type_id split_id split_name split_type category_name
 #>    <chr>    <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
@@ -395,7 +395,7 @@ espn_wbb_pbp(game_id = game_id)           # play-by-play
 #> #   play_id <chr>, athlete_id_1 <int>, athlete_id_2 <int>, …
 
 # ESPN's win-probability-per-play for the same game.
-espn_wbb_event_probabilities(event_id = game_id)
+espn_wbb_game_probabilities(event_id = game_id)
 #> # A tibble: 200 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>
@@ -428,7 +428,7 @@ not the whole `player_box`.
 
 # event + team + athlete -- three IDs, because you're naming one cell
 # of one game. More identifiers = finer grain. Always.
-espn_wbb_event_player_box(
+espn_wbb_game_player_box(
   event_id   = 401276115,
   team_id    = 52,
   athlete_id = 4398583
