@@ -42,7 +42,6 @@ Retrieve ESPN WNBA news. Uses `getOption("wehoop.proxy")` or
 ## See also
 
 Other ESPN WNBA Functions:
-[`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md),
 [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
 [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md),
 [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md),
@@ -95,6 +94,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.md),
 [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.md),
 [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md),
+[`espn_wnba_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats_v3.md),
 [`espn_wnba_position()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_position.md),
 [`espn_wnba_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_positions.md),
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
@@ -144,14 +144,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:59:35 UTC
-#> # A tibble: 5 × 8
-#>         id type    headline     description published premium link_web league_id
-#>      <int> <chr>   <chr>        <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 48962854 Preview Sky face th… Connecticu… 2026-06-… FALSE   http://… 59       
-#> 2 48962853 Preview Portland an… Phoenix Me… 2026-06-… FALSE   http://… 59       
-#> 3 48962852 Preview Wings take … Dallas Win… 2026-06-… FALSE   http://… 59       
-#> 4 48962504 Media   Seattle Sto… Watch the … 2026-06-… FALSE   https:/… 59       
-#> 5 48962492 Recap   Natasha Mac… — Natasha … 2026-06-… FALSE   http://… 59       
+#> ℹ Data updated: 2026-06-04 12:21:26 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  4.90e7 Story WNBA gr… Another ex… 2026-06-… FALSE   Micha… https:/… 59       
+#> 2  4.90e7 Prev… Sky fac… Connecticu… 2026-06-… FALSE   NA     http://… 59       
+#> 3  4.90e7 Prev… Portlan… Phoenix Me… 2026-06-… FALSE   NA     http://… 59       
+#> 4  4.90e7 Prev… Wings t… Dallas Win… 2026-06-… FALSE   NA     http://… 59       
+#> 5  4.90e7 Media Seattle… Watch the … 2026-06-… FALSE   NA     https:/… 59       
 # }
 ```

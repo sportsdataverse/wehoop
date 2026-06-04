@@ -200,7 +200,6 @@ A named list of dataframes: Plays, Team, Player
 ## See also
 
 Other ESPN WBB Functions:
-[`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
 [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
@@ -247,6 +246,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md),
 [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md),
 [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md),
+[`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md),
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md),
 [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md),
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
@@ -299,7 +299,7 @@ Saiem Gilani
   try(espn_wbb_game_all(game_id = 401276115))
 #> $Plays
 #> ── ESPN WBB Play-by-Play Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:58:47 UTC
+#> ℹ Data updated: 2026-06-04 12:20:36 UTC
 #> # A tibble: 386 × 53
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -323,7 +323,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WBB Team Box Information from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:58:47 UTC
+#> ℹ Data updated: 2026-06-04 12:20:36 UTC
 #> # A tibble: 2 × 56
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -339,7 +339,7 @@ Saiem Gilani
 #> 
 #> $Player
 #> ── ESPN WBB Player Box Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:58:47 UTC
+#> ℹ Data updated: 2026-06-04 12:20:36 UTC
 #> # A tibble: 25 × 54
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>

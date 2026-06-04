@@ -42,7 +42,6 @@ A tibble with one row per winner.
 ## See also
 
 Other ESPN WNBA Functions:
-[`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md),
 [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
 [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md),
 [`espn_wnba_coach_season()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_coach_season.md),
@@ -95,6 +94,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.md),
 [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.md),
 [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md),
+[`espn_wnba_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats_v3.md),
 [`espn_wnba_position()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_position.md),
 [`espn_wnba_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_positions.md),
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
@@ -144,7 +144,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_award(award_id = 247, season = 2024)
 #> ── ESPN WNBA Season Award Detail from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:59:19 UTC
+#> ℹ Data updated: 2026-06-04 12:21:10 UTC
 #> # A tibble: 1 × 9
 #>   league season award_id name         description athlete_id team_id athlete_ref
 #>   <chr>   <int> <chr>    <chr>        <chr>       <chr>      <chr>   <chr>      

@@ -28,7 +28,6 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-retry_request.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-v3_to_v2_format_wnba.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_basketball.html</loc></url>
-<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_award.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.html</loc></url>
@@ -76,6 +75,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_position.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.html</loc></url>
@@ -116,7 +116,6 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_venues.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_week_rankings.html</loc></url>
-<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_award.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.html</loc></url>
@@ -170,6 +169,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats_v3.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_position.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_positions.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.html</loc></url>

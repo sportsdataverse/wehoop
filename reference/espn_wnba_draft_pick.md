@@ -60,7 +60,6 @@ A single-row tibble.
 ## See also
 
 Other ESPN WNBA Functions:
-[`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md),
 [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
 [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md),
 [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md),
@@ -113,6 +112,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.md),
 [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.md),
 [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md),
+[`espn_wnba_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats_v3.md),
 [`espn_wnba_position()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_position.md),
 [`espn_wnba_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_positions.md),
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_pick(season = 2024, round = 1, pick = 1)
 #> ── ESPN WNBA Draft Pick Detail ───────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:59:22 UTC
+#> ℹ Data updated: 2026-06-04 12:21:13 UTC
 #> # A tibble: 1 × 12
 #>   league season round  pick overall traded trade_note status  athlete_id team_id
 #>   <chr>   <int> <int> <int>   <int> <lgl>  <chr>      <chr>   <chr>      <chr>  

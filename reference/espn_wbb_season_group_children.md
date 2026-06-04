@@ -53,7 +53,6 @@ A tibble with one row per child group.
 ## See also
 
 Other ESPN WBB Functions:
-[`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
 [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
@@ -101,6 +100,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md),
 [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md),
 [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md),
+[`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md),
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md),
 [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md),
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
@@ -151,7 +151,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_group_children(group_id = 5, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Group Children Index ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:59:05 UTC
+#> ℹ Data updated: 2026-06-04 12:20:55 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   parent_group_id <chr>, child_group_id <chr>, ref <chr>

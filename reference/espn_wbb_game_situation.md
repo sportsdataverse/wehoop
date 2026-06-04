@@ -28,7 +28,6 @@ A single-row tibble with timeouts + fouls for both teams.
 ## See also
 
 Other ESPN WBB Functions:
-[`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
 [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
@@ -75,6 +74,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md),
 [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md),
 [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md),
+[`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md),
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md),
 [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md),
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
@@ -126,7 +126,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_situation(event_id = 401276115)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Situation ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:58:52 UTC
+#> ℹ Data updated: 2026-06-04 12:20:41 UTC
 #> # A tibble: 1 × 15
 #>   league                   event_id home_timeouts_current home_timeouts_remain…¹
 #>   <chr>                    <chr>                    <int>                  <int>

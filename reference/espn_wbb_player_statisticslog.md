@@ -44,7 +44,6 @@ endpoints.
 ## See also
 
 Other ESPN WBB Functions:
-[`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
 [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
@@ -91,6 +90,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_player_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_seasons.md),
 [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md),
 [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md),
+[`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md),
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md),
 [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md),
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
@@ -142,7 +142,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_player_statisticslog(athlete_id = "4433404", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Statisticslog from ESPN.com ──────────
-#> ℹ Data updated: 2026-06-04 11:59:00 UTC
+#> ℹ Data updated: 2026-06-04 12:20:49 UTC
 #> # A tibble: 4 × 3
 #>   athlete_id season$`$ref`                                            statistics
 #>   <chr>      <chr>                                                    <list>    

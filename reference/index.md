@@ -376,7 +376,7 @@ Per-athlete endpoints for women’s college basketball
 
   **Get ESPN Women's College Basketball Athlete Overview**
 
-- [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md)
+- [`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md)
   :
 
   **Get ESPN Women's College Basketball Athlete Stats**
@@ -850,7 +850,7 @@ Per-athlete endpoints for the WNBA
 
   **Get ESPN WNBA Athlete Overview**
 
-- [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md)
+- [`espn_wnba_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats_v3.md)
   :
 
   **Get ESPN WNBA Athlete Stats**

@@ -9,9 +9,10 @@ sportsdataverse taxonomy used by cfbfastR/hoopR:
 `event_competitor* → game_team*`, `event_competition → game`,
 `event_* → game_*`, and `athlete_* → player_*` (58 functions). These
 wrappers are new this release and were never on CRAN (2.1.0), so the
-convention is applied directly without deprecation shims.
-`*_athlete_stats` is kept (it would collide with the existing
-`*_player_stats`). The long-standing
+convention is applied directly without deprecation shims. The
+web-common-v3 `/athletes/{id}/stats` wrapper becomes `*_player_stats_v3`
+(kept alongside the core-v2 `*_player_stats`, a different endpoint). The
+long-standing
 [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
 /
 [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
@@ -67,7 +68,7 @@ empty tibble (rather than erroring) when no injuries are reported.
 |----|----|----|
 | `espn_wbb_athlete_info()` / `espn_wnba_athlete_info()` | site-v2 | Athlete bio/team/position/status/college/draft info. |
 | `espn_wbb_athlete_overview()` / `espn_wnba_athlete_overview()` | web-common-v3 | Season overview and last-5-games. |
-| [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md) / [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md) | web-common-v3 | Per-category stats as a named list. |
+| `espn_wbb_athlete_stats()` / `espn_wnba_athlete_stats()` | web-common-v3 | Per-category stats as a named list. |
 | `espn_wbb_athlete_gamelog()` / `espn_wnba_athlete_gamelog()` | web-common-v3 | Game-by-game log. |
 | `espn_wbb_athlete_splits()` / `espn_wnba_athlete_splits()` | web-common-v3 | Long-format home/away/opponent splits. |
 | `espn_wbb_athlete_eventlog()` / `espn_wnba_athlete_eventlog()` | core-v2 | Per-event log; `statistics.$ref` URLs returned as a `statistics_ref` character column (not auto-resolved). |
@@ -432,7 +433,7 @@ wide, self-describing tibble” preference:
 
 | Function(s) | Change |
 |----|----|
-| [`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md), [`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md) | **Return shape changed from a named list of per-category tibbles to a single wide `wehoop_data` tibble.** One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (`avg_*` season averages, `tot_*` totals, `misc_*` miscellaneous). Stat columns are labeled from ESPN’s positional `names` array per category. The previous list (mostly empty `General`/`Offensive`/… slots plus nested `stats`/`season` list-columns) is gone; downstream code that indexed `$General` etc. should read the wide columns instead. |
+| `espn_wbb_athlete_stats()`, `espn_wnba_athlete_stats()` | **Return shape changed from a named list of per-category tibbles to a single wide `wehoop_data` tibble.** One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (`avg_*` season averages, `tot_*` totals, `misc_*` miscellaneous). Stat columns are labeled from ESPN’s positional `names` array per category. The previous list (mostly empty `General`/`Offensive`/… slots plus nested `stats`/`season` list-columns) is gone; downstream code that indexed `$General` etc. should read the wide columns instead. |
 | `espn_wbb_athlete_gamelog()`, `espn_wnba_athlete_gamelog()`, `espn_*_athlete_splits()`, `espn_*_athlete_eventlog()`, `espn_*_athlete_statisticslog()` | Now echo the `athlete_id` and `season` inputs back as the first two columns, so the returned tibble is self-describing without re-attaching context. Implemented via a new internal `.echo_identity()` helper that preserves the `wehoop_data` class. |
 
 ##### *Bug fixes*

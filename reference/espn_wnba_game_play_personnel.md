@@ -32,7 +32,6 @@ A long tibble with one row per on-court athlete.
 ## See also
 
 Other ESPN WNBA Functions:
-[`espn_wnba_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athlete_stats.md),
 [`espn_wnba_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_athletes_index.md),
 [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md),
 [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md),
@@ -85,6 +84,7 @@ Other ESPN WNBA Functions:
 [`espn_wnba_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_splits.md),
 [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_statisticslog.md),
 [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md),
+[`espn_wnba_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats_v3.md),
 [`espn_wnba_position()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_position.md),
 [`espn_wnba_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_positions.md),
 [`espn_wnba_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_powerindex.md),
@@ -134,7 +134,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_play_personnel(event_id = 401736171, play_id = 4017361714)
 #> ── ESPN WNBA Event Play Personnel ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:59:27 UTC
+#> ℹ Data updated: 2026-06-04 12:21:18 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: league <chr>, event_id <chr>, play_id <chr>, team_id <chr>,
 #> #   athlete_id <chr>, athlete_ref <chr>, competitor_ref <chr>

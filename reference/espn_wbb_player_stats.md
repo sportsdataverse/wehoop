@@ -163,7 +163,6 @@ Returns a tibble with the player stats data
 ## See also
 
 Other ESPN WBB Functions:
-[`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
 [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
@@ -210,6 +209,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_player_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_seasons.md),
 [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md),
 [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md),
+[`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md),
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md),
 [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md),
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
@@ -261,7 +261,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_player_stats(athlete_id = 2984250, year = 2022))
 #> ── ESPN WBB Player Season Stats from ESPN.com ────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:59:00 UTC
+#> ℹ Data updated: 2026-06-04 12:20:50 UTC
 #> # A tibble: 1 × 218
 #>   athlete_id athlete_uid   athlete_guid athlete_type    sdr first_name last_name
 #>        <int> <chr>         <chr>        <chr>         <int> <chr>      <chr>    

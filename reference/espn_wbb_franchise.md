@@ -47,7 +47,6 @@ A single-row tibble.
 ## See also
 
 Other ESPN WBB Functions:
-[`espn_wbb_athlete_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athlete_stats.md),
 [`espn_wbb_athletes_index()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.md),
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md),
 [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md),
@@ -94,6 +93,7 @@ Other ESPN WBB Functions:
 [`espn_wbb_player_splits()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_splits.md),
 [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_statisticslog.md),
 [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md),
+[`espn_wbb_player_stats_v3()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats_v3.md),
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md),
 [`espn_wbb_positions()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_positions.md),
 [`espn_wbb_powerindex()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_powerindex.md),
@@ -145,7 +145,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_franchise(franchise_id = 2509)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchise from ESPN.com ────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:58:46 UTC
+#> ℹ Data updated: 2026-06-04 12:20:34 UTC
 #> # A tibble: 1 × 16
 #>   id    uid              slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>            <chr> <chr>    <chr> <chr>    <chr>        <chr>       

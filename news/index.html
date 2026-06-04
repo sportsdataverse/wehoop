@@ -92,7 +92,7 @@
 <h2 class="pkg-version" data-toc-text="3.0.0" id="wehoop-300"><strong>wehoop 3.0.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-300"></a></h2>
 <div class="section level4">
 <h4 id="espn-endpoint-naming-convention-game_player_-3-0-0"><strong>ESPN endpoint naming convention (game_<em>/player_</em>)</strong><a class="anchor" aria-label="anchor" href="#espn-endpoint-naming-convention-game_player_-3-0-0"></a></h4>
-<p>The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse taxonomy used by cfbfastR/hoopR: <code>event_competitor* → game_team*</code>, <code>event_competition → game</code>, <code>event_* → game_*</code>, and <code>athlete_* → player_*</code> (58 functions). These wrappers are new this release and were never on CRAN (2.1.0), so the convention is applied directly without deprecation shims. <code>*_athlete_stats</code> is kept (it would collide with the existing <code>*_player_stats</code>). The long-standing <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code> / etc. are unaffected.</p>
+<p>The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse taxonomy used by cfbfastR/hoopR: <code>event_competitor* → game_team*</code>, <code>event_competition → game</code>, <code>event_* → game_*</code>, and <code>athlete_* → player_*</code> (58 functions). These wrappers are new this release and were never on CRAN (2.1.0), so the convention is applied directly without deprecation shims. The web-common-v3 <code>/athletes/{id}/stats</code> wrapper becomes <code>*_player_stats_v3</code> (kept alongside the core-v2 <code>*_player_stats</code>, a different endpoint). The long-standing <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code> / etc. are unaffected.</p>
 </div>
 <div class="section level4">
 <h4 id="new-exported-functions-3-0-0"><strong>New exported functions</strong><a class="anchor" aria-label="anchor" href="#new-exported-functions-3-0-0"></a></h4>
@@ -171,7 +171,7 @@
 <td>web-common-v3</td>
 <td>Season overview and last-5-games.</td>
 </tr><tr><td>
-<code><a href="../reference/espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code> / <code><a href="../reference/espn_wnba_athlete_stats.html">espn_wnba_athlete_stats()</a></code>
+<code>espn_wbb_athlete_stats()</code> / <code>espn_wnba_athlete_stats()</code>
 </td>
 <td>web-common-v3</td>
 <td>Per-category stats as a named list.</td>
@@ -662,7 +662,7 @@
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function(s)</th>
 <th>Change</th>
 </tr></thead><tbody><tr><td>
-<code><a href="../reference/espn_wbb_athlete_stats.html">espn_wbb_athlete_stats()</a></code>, <code><a href="../reference/espn_wnba_athlete_stats.html">espn_wnba_athlete_stats()</a></code>
+<code>espn_wbb_athlete_stats()</code>, <code>espn_wnba_athlete_stats()</code>
 </td>
 <td>
 <strong>Return shape changed from a named list of per-category tibbles to a single wide <code>wehoop_data</code> tibble.</strong> One row per athlete-season-team, with each ESPN stat category spread across prefixed columns (<code>avg_*</code> season averages, <code>tot_*</code> totals, <code>misc_*</code> miscellaneous). Stat columns are labeled from ESPN’s positional <code>names</code> array per category. The previous list (mostly empty <code>General</code>/<code>Offensive</code>/… slots plus nested <code>stats</code>/<code>season</code> list-columns) is gone; downstream code that indexed <code>$General</code> etc. should read the wide columns instead.</td>

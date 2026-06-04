@@ -7,7 +7,7 @@
 ## Usage
 
 ``` r
-espn_wbb_athlete_stats(athlete_id, season = most_recent_wbb_season(), ...)
+espn_wbb_player_stats_v3(athlete_id, season = most_recent_wbb_season(), ...)
 ```
 
 ## Arguments
@@ -144,9 +144,9 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_wbb_athlete_stats(athlete_id = "4433985", season = 2025)
+  espn_wbb_player_stats_v3(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 11:58:39 UTC
+#> ℹ Data updated: 2026-06-04 12:20:51 UTC
 #> # A tibble: 5 × 46
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
