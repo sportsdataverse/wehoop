@@ -28,6 +28,26 @@
 
 # **wehoop 3.0.0**
 
+### **WNBA Basketball-Reference (`bref_wnba_*`)**
+
+New `bref_wnba_*()` family scraping WNBA data from
+[Basketball-Reference](https://www.basketball-reference.com/wnba/) — a deep
+historical source (back to 1997) wehoop did not previously cover, complementing
+the WNBA Stats API and ESPN wrappers. No account or API key is required:
+
+- **`bref_wnba_player_stats(season, table)`** — league-wide player season stats
+  (`table = "per_game"` / `"totals"` / `"advanced"`).
+- **`bref_wnba_team_stats(season, table)`** — team season stats
+  (`table = "per_game"` / `"totals"` / `"per_poss"` / `"advanced"`).
+- **`bref_wnba_standings(season)`** — both conferences, labelled `Eastern` /
+  `Western`.
+
+All echo the requested `season` (and the stat `table`) as columns. The two
+Sports-Reference scraping quirks are handled internally (comment-hidden tables
+are un-commented; columns are read from each cell's `data-stat` attribute).
+Basketball-Reference rate-limits aggressive scraping (~20 requests/minute);
+examples are `\donttest{}` and tests are network-gated.
+
 ### **ESPN endpoint naming convention (game_*/player_*)**
 
 The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse

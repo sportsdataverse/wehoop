@@ -509,6 +509,11 @@ reference:
     contents:
       - starts_with("wnba_")
 
+  - subtitle: WNBA Basketball-Reference Functions
+    desc: Functions exported by wehoop to scrape WNBA data from basketball-reference.com/wnba
+    contents:
+      - starts_with("bref_wnba_")
+
   - subtitle: wehoop Helper Functions
     desc: Internal functions used by wehoop
     contents:

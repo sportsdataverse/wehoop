@@ -4,6 +4,12 @@ This is a major release (2.1.0 -> 3.0.0) that:
 
 ### New / restored functionality
 
+* Adds a `bref_wnba_*()` family scraping WNBA data from basketball-reference.com/wnba
+  (`bref_wnba_player_stats()`, `bref_wnba_team_stats()`, `bref_wnba_standings()`) --
+  a deep historical source not previously covered. The two Sports-Reference scraping
+  quirks (comment-hidden tables; `data-stat`-keyed columns) are handled internally;
+  no new dependencies (`rvest`/`data.table`/`janitor` already in Imports).
+  `\donttest{}` examples, network-gated tests.
 * Adds V3 WNBA Stats API wrappers: `wnba_playbyplayv3()`, `wnba_boxscoresummaryv3()`, `wnba_boxscoreusagev3()`, plus a V3 → V2 compatibility pipeline used by `wnba_pbp()` that retains V2-compatible columns while adding V3-only columns (`x_legacy`, `y_legacy`, `shot_distance`, `shot_result`, `is_field_goal`, `points_total`, `shot_value`).
 * Adds 28 new bulk-data loaders backed by new `sportsdataverse-data` release tags, all following the existing `load_wnba_pbp()` shape (`(seasons, ..., dbConnection = NULL, tablename = NULL)`, `progressively()` decorator, optional DB write, `wehoop_data` class on the in-memory result):
     * Rosters / per-player stats (8): `load_wbb_rosters()`, `load_wbb_player_stats()`, `load_wnba_rosters()`, `load_wnba_player_stats()`, `load_wnba_stats_rosters()`, `load_wnba_stats_coaches()`, `load_wnba_stats_player_stats()`, `load_wnba_stats_lineups()`.
