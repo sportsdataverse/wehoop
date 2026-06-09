@@ -149,7 +149,7 @@ aja |>
 #> # A tibble: 1 × 2
 #>   stat_type_id value
 #>   <chr>        <dbl>
-#> 1 0             21.5
+#> 1 0             21.6
 ```
 
 Margin note: `athlete_career_stats()` defaults to pulling *both* regular
@@ -425,16 +425,16 @@ espn_wnba_leaders(season = most_recent_wnba_season())
 #> # A tibble: 375 × 11
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
-#>  1   2026           2 pointsPerGame PTS          3149391    NA           17     
-#>  2   2026           2 pointsPerGame PTS          3058901    NA           20     
+#>  1   2026           2 pointsPerGame PTS          3065570    NA           6      
+#>  2   2026           2 pointsPerGame PTS          3149391    NA           17     
 #>  3   2026           2 pointsPerGame PTS          3142191    NA           5      
-#>  4   2026           2 pointsPerGame PTS          4433403    NA           5      
-#>  5   2026           2 pointsPerGame PTS          2988756    NA           131935 
-#>  6   2026           2 pointsPerGame PTS          4398674    NA           20     
-#>  7   2026           2 pointsPerGame PTS          2998928    NA           9      
-#>  8   2026           2 pointsPerGame PTS          3904576    NA           131935 
-#>  9   2026           2 pointsPerGame PTS          4433730    NA           3      
-#> 10   2026           2 pointsPerGame PTS          2998938    NA           11     
+#>  4   2026           2 pointsPerGame PTS          2988756    NA           131935 
+#>  5   2026           2 pointsPerGame PTS          2998928    NA           9      
+#>  6   2026           2 pointsPerGame PTS          3058901    NA           20     
+#>  7   2026           2 pointsPerGame PTS          4433403    NA           5      
+#>  8   2026           2 pointsPerGame PTS          4433730    NA           3      
+#>  9   2026           2 pointsPerGame PTS          2998938    NA           11     
+#> 10   2026           2 pointsPerGame PTS          4398674    NA           20     
 #> # ℹ 365 more rows
 #> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
 #> #   display_value <chr>

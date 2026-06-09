@@ -192,7 +192,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 12:21:40 UTC
+#> ℹ Data updated: 2026-06-09 07:53:26 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -202,25 +202,25 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 12:21:40 UTC
+#> ℹ Data updated: 2026-06-09 07:53:26 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 6-3     <df [20 × 2]>
-#> 2 Home Record    home  0-2     <df [5 × 2]> 
+#> 1 Overall Record total 8-3     <df [20 × 2]>
+#> 2 Home Record    home  2-2     <df [5 × 2]> 
 #> 3 Away Record    road  6-1     <df [5 × 2]> 
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 12:21:40 UTC
+#> ℹ Data updated: 2026-06-09 07:53:26 UTC
 #> # A tibble: 1 × 4
-#>   id        date              name                                    short_name
-#>   <chr>     <chr>             <chr>                                   <chr>     
-#> 1 401856967 2026-06-06T19:00Z Golden State Valkyries at Las Vegas Ac… GS @ LV   
+#>   id        date              name                            short_name
+#>   <chr>     <chr>             <chr>                           <chr>     
+#> 1 401856974 2026-06-09T02:00Z Seattle Storm at Las Vegas Aces SEA @ LV  
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-04 12:21:40 UTC
+#> ℹ Data updated: 2026-06-09 07:53:26 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

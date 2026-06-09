@@ -130,7 +130,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_game_predictor(event_id = 401276115)
-#> ✖ 2026-06-04 12:20:39.092856: Failed to retrieve ESPN womens-college-basketball event predictor for event_id=401276115
+#> ✖ 2026-06-09 07:52:16.0336: Failed to retrieve ESPN womens-college-basketball event predictor for event_id=401276115
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115
 #> ✖ Error: The API returned an error
 #> NULL

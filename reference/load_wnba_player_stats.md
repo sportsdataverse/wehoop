@@ -66,7 +66,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 8,639 × 16
+#> # A tibble: 8,672 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
 #>  1   2026       1054 Tiffany Hayes        Tiffany            Hayes            
@@ -79,7 +79,7 @@ Other WNBA loader functions:
 #>  8   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #>  9   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #> 10   2026       1054 Tiffany Hayes        Tiffany            Hayes            
-#> # ℹ 8,629 more rows
+#> # ℹ 8,662 more rows
 #> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
 #> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
 #> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,
