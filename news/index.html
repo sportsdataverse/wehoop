@@ -86,6 +86,17 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="3.0.0" id="wehoop-300"><strong>wehoop 3.0.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-300"></a></h2>
 <div class="section level4">
+<h4 id="her-hoop-stats-hhs_--subscription-3-0-0"><strong>Her Hoop Stats (<code>hhs_*</code>) — subscription</strong><a class="anchor" aria-label="anchor" href="#her-hoop-stats-hhs_--subscription-3-0-0"></a></h4>
+<p>New <code>hhs_*()</code> family for <a href="https://herhoopstats.com" class="external-link">Her Hoop Stats</a>, a subscription women’s-basketball statistics service. Like hoopR’s KenPom <code>kp_*()</code> wrappers, these log in with the subscriber’s <em>own</em> credentials (read from the <code>email</code>/<code>password</code> arguments, the <code>wehoop.herhoopstats_email</code> / <code>wehoop.herhoopstats_password</code> options, or the <code>HERHOOPSTATS_EMAIL</code> / <code>HERHOOPSTATS_PW</code> environment variables — never bundled) and reuse the session cookie:</p>
+<ul><li>
+<strong><code>hhs_teams(min_season, max_season, division)</code></strong> — NCAA women’s team single-season summary index (with a <code>team_link</code> per row).</li>
+<li>
+<strong><code>hhs_team_stats(team_link)</code></strong> — a team’s statistics page.</li>
+<li>
+<strong><code>hhs_team_roster(team_link)</code></strong> — a team’s player roster.</li>
+</ul><p>Examples are <code>\dontrun{}</code> and tests skip unless credentials are present, so <code>R CMD check</code> never attempts a login. Because the service is subscriber-only, the login flow and member-table selectors are provided as a starting point and may need adjustment if the site changes.</p>
+</div>
+<div class="section level4">
 <h4 id="wnba-basketball-reference-bref_wnba_-3-0-0"><strong>WNBA Basketball-Reference (<code>bref_wnba_*</code>)</strong><a class="anchor" aria-label="anchor" href="#wnba-basketball-reference-bref_wnba_-3-0-0"></a></h4>
 <p>New <code>bref_wnba_*()</code> family scraping WNBA data from <a href="https://www.basketball-reference.com/wnba/" class="external-link">Basketball-Reference</a> — a deep historical source (back to 1997) wehoop did not previously cover, complementing the WNBA Stats API and ESPN wrappers. No account or API key is required:</p>
 <ul><li>

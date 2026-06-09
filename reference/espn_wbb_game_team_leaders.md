@@ -129,7 +129,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_leaders(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Leaders ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 22:48:08 UTC
+#> ℹ Data updated: 2026-06-09 22:57:41 UTC
 #> # A tibble: 41 × 11
 #>    league  event_id team_id category_name category_display category_abbrev  rank
 #>    <chr>   <chr>    <chr>   <chr>         <chr>            <chr>           <int>

@@ -2,6 +2,26 @@
 
 ## **wehoop 3.0.0**
 
+#### **Her Hoop Stats (`hhs_*`) — subscription**
+
+New `hhs_*()` family for [Her Hoop Stats](https://herhoopstats.com), a
+subscription women’s-basketball statistics service. Like hoopR’s KenPom
+`kp_*()` wrappers, these log in with the subscriber’s *own* credentials
+(read from the `email`/`password` arguments, the
+`wehoop.herhoopstats_email` / `wehoop.herhoopstats_password` options, or
+the `HERHOOPSTATS_EMAIL` / `HERHOOPSTATS_PW` environment variables —
+never bundled) and reuse the session cookie:
+
+- **`hhs_teams(min_season, max_season, division)`** — NCAA women’s team
+  single-season summary index (with a `team_link` per row).
+- **`hhs_team_stats(team_link)`** — a team’s statistics page.
+- **`hhs_team_roster(team_link)`** — a team’s player roster.
+
+Examples are `\dontrun{}` and tests skip unless credentials are present,
+so `R CMD check` never attempts a login. Because the service is
+subscriber-only, the login flow and member-table selectors are provided
+as a starting point and may need adjustment if the site changes.
+
 #### **WNBA Basketball-Reference (`bref_wnba_*`)**
 
 New `bref_wnba_*()` family scraping WNBA data from

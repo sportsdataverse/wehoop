@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft(season = 2024)
 #> ── ESPN WNBA Draft Picks from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 22:48:35 UTC
+#> ℹ Data updated: 2026-06-09 22:58:13 UTC
 #> # A tibble: 36 × 11
 #>    season round  pick overall traded trade_note    status athlete_id athlete_ref
 #>     <int> <int> <int>   <int> <lgl>  <chr>         <chr>  <chr>      <chr>      

@@ -1907,6 +1907,27 @@ basketball-reference.com/wnba
 
   **Basketball-Reference WNBA Team Season Stats**
 
+### Her Hoop Stats Functions
+
+Functions exported by wehoop to access Her Hoop Stats
+(herhoopstats.com). Her Hoop Stats is a subscription service; these
+require your own login.
+
+- [`hhs_team_roster()`](https://wehoop.sportsdataverse.org/reference/hhs_team_roster.md)
+  :
+
+  **Her Hoop Stats Team Roster**
+
+- [`hhs_team_stats()`](https://wehoop.sportsdataverse.org/reference/hhs_team_stats.md)
+  :
+
+  **Her Hoop Stats Team Statistics**
+
+- [`hhs_teams()`](https://wehoop.sportsdataverse.org/reference/hhs_teams.md)
+  :
+
+  **Her Hoop Stats NCAA Team Single-Season Index**
+
 ### wehoop Helper Functions
 
 Internal functions used by wehoop

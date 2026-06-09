@@ -24,6 +24,9 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-bref_wnba_text.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-build_player_roster_wnba.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-capture_args.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-hhs_doc.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-hhs_login.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-hhs_request.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-interp_braces.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-players_on_court.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-players_on_court_v3_wnba.html</loc></url>
@@ -213,12 +216,16 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_venues.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wnba_week_rankings.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/has_hhs_login.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_player_box.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_team_box.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_pbp.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_player_box.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_team_box.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/hhs_team_roster.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/hhs_team_stats.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/hhs_teams.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/index.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_officials.html</loc></url>
