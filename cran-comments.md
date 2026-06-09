@@ -4,6 +4,12 @@ This is a major release (2.1.0 -> 3.0.0) that:
 
 ### New / restored functionality
 
+* Adds an `hhs_*()` family for Her Hoop Stats (herhoopstats.com), a *subscription*
+  women's-basketball statistics service. Mirrors the established credential-gated
+  scraper pattern (KenPom `kp_*` in hoopR): credentials are read from arguments /
+  options / env vars (`HERHOOPSTATS_EMAIL`/`HERHOOPSTATS_PW`) and never bundled.
+  Examples are `\dontrun{}` and tests skip unless credentials are present, so
+  `R CMD check` never performs a login. No new dependencies.
 * Adds a `bref_wnba_*()` family scraping WNBA data from basketball-reference.com/wnba
   (`bref_wnba_player_stats()`, `bref_wnba_team_stats()`, `bref_wnba_standings()`) --
   a deep historical source not previously covered. The two Sports-Reference scraping

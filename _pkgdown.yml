@@ -514,6 +514,13 @@ reference:
     contents:
       - starts_with("bref_wnba_")
 
+  - subtitle: Her Hoop Stats Functions
+    desc: >
+      Functions exported by wehoop to access Her Hoop Stats (herhoopstats.com).
+      Her Hoop Stats is a subscription service; these require your own login.
+    contents:
+      - starts_with("hhs_")
+
   - subtitle: wehoop Helper Functions
     desc: Internal functions used by wehoop
     contents:
