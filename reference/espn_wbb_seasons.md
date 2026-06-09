@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_seasons()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Seasons from ESPN.com ──────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 18:13:17 UTC
+#> ℹ Data updated: 2026-06-09 19:57:44 UTC
 #> # A tibble: 1 × 5
 #>   season start_date end_date display_name season_type_count
 #>    <int> <chr>      <chr>    <chr>                    <int>
