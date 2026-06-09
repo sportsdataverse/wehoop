@@ -190,7 +190,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_game_rosters(game_id = 401276115))
 #> ── ESPN WBB Game Roster Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 19:57:24 UTC
+#> ℹ Data updated: 2026-06-09 22:48:07 UTC
 #> # A tibble: 25 × 147
 #>    athlete_id athlete_uid  athlete_guid athlete_type    sdr first_name last_name
 #>         <int> <chr>        <chr>        <chr>         <int> <chr>      <chr>    

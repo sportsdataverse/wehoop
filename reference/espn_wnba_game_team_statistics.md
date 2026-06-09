@@ -133,7 +133,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_statistics(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Statistics ───────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 19:58:08 UTC
+#> ℹ Data updated: 2026-06-09 22:48:46 UTC
 #> # A tibble: 99 × 10
 #>    league event_id  team_id category_name category_display stat_name stat_abbrev
 #>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>     <chr>      

@@ -15,8 +15,13 @@
 <url><loc>https://wehoop.sportsdataverse.org/copilot-instructions.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/index.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/news/index.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/bref_wnba_player_stats.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/bref_wnba_standings.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/bref_wnba_team_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/check_status.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/csv_from_url.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-bref_wnba_table.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/dot-bref_wnba_text.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-build_player_roster_wnba.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-capture_args.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-interp_braces.html</loc></url>

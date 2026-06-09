@@ -128,7 +128,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_linescores(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Linescores ──────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 19:57:25 UTC
+#> ℹ Data updated: 2026-06-09 22:48:08 UTC
 #> # A tibble: 8 × 7
 #>   league                    event_id  team_id period value display_value source 
 #>   <chr>                     <chr>     <chr>    <int> <dbl> <chr>         <chr>  

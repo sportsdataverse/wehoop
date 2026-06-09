@@ -86,6 +86,17 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="3.0.0" id="wehoop-300"><strong>wehoop 3.0.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-300"></a></h2>
 <div class="section level4">
+<h4 id="wnba-basketball-reference-bref_wnba_-3-0-0"><strong>WNBA Basketball-Reference (<code>bref_wnba_*</code>)</strong><a class="anchor" aria-label="anchor" href="#wnba-basketball-reference-bref_wnba_-3-0-0"></a></h4>
+<p>New <code>bref_wnba_*()</code> family scraping WNBA data from <a href="https://www.basketball-reference.com/wnba/" class="external-link">Basketball-Reference</a> — a deep historical source (back to 1997) wehoop did not previously cover, complementing the WNBA Stats API and ESPN wrappers. No account or API key is required:</p>
+<ul><li>
+<strong><code>bref_wnba_player_stats(season, table)</code></strong> — league-wide player season stats (<code>table = "per_game"</code> / <code>"totals"</code> / <code>"advanced"</code>).</li>
+<li>
+<strong><code>bref_wnba_team_stats(season, table)</code></strong> — team season stats (<code>table = "per_game"</code> / <code>"totals"</code> / <code>"per_poss"</code> / <code>"advanced"</code>).</li>
+<li>
+<strong><code>bref_wnba_standings(season)</code></strong> — both conferences, labelled <code>Eastern</code> / <code>Western</code>.</li>
+</ul><p>All echo the requested <code>season</code> (and the stat <code>table</code>) as columns. The two Sports-Reference scraping quirks are handled internally (comment-hidden tables are un-commented; columns are read from each cell’s <code>data-stat</code> attribute). Basketball-Reference rate-limits aggressive scraping (~20 requests/minute); examples are <code>\donttest{}</code> and tests are network-gated.</p>
+</div>
+<div class="section level4">
 <h4 id="espn-endpoint-naming-convention-game_player_-3-0-0"><strong>ESPN endpoint naming convention (game_<em>/player_</em>)</strong><a class="anchor" aria-label="anchor" href="#espn-endpoint-naming-convention-game_player_-3-0-0"></a></h4>
 <p>The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse taxonomy used by cfbfastR/hoopR: <code>event_competitor* → game_team*</code>, <code>event_competition → game</code>, <code>event_* → game_*</code>, and <code>athlete_* → player_*</code> (58 functions). These wrappers are new this release and were never on CRAN (2.1.0), so the convention is applied directly without deprecation shims. The web-common-v3 <code>/athletes/{id}/stats</code> wrapper becomes <code>*_player_stats_v3</code> (kept alongside the core-v2 <code>*_player_stats</code>, a different endpoint). The long-standing <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code> / etc. are unaffected.</p>
 </div>

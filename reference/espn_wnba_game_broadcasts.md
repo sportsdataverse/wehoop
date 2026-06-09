@@ -143,7 +143,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_broadcasts(event_id = "401736171")
 #> ── ESPN WNBA Event Broadcasts (event_id=401736171) from ESPN.com ───────────────
-#> ℹ Data updated: 2026-06-09 19:58:00 UTC
+#> ℹ Data updated: 2026-06-09 22:48:39 UTC
 #> # A tibble: 3 × 10
 #>   event_id  broadcast_id type_id type_short_name      type_long_name   market_id
 #>   <chr>     <chr>        <chr>   <chr>                <chr>            <chr>    

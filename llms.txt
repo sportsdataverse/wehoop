@@ -2044,6 +2044,26 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Video Status**
 
+### WNBA Basketball-Reference Functions
+
+Functions exported by wehoop to scrape WNBA data from
+basketball-reference.com/wnba
+
+- [`bref_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/bref_wnba_player_stats.md)
+  :
+
+  **Basketball-Reference WNBA Player Season Stats**
+
+- [`bref_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/bref_wnba_standings.md)
+  :
+
+  **Basketball-Reference WNBA Standings**
+
+- [`bref_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/bref_wnba_team_stats.md)
+  :
+
+  **Basketball-Reference WNBA Team Season Stats**
+
 ### wehoop Helper Functions
 
 Internal functions used by wehoop

@@ -305,7 +305,7 @@ Saiem Gilani
   try(espn_wnba_game_all(game_id = 401244185))
 #> $Plays
 #> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 19:57:59 UTC
+#> ℹ Data updated: 2026-06-09 22:48:38 UTC
 #> # A tibble: 388 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -329,7 +329,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 19:58:00 UTC
+#> ℹ Data updated: 2026-06-09 22:48:38 UTC
 #> # A tibble: 2 × 57
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -345,7 +345,7 @@ Saiem Gilani
 #> 
 #> $Player
 #> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 19:58:00 UTC
+#> ℹ Data updated: 2026-06-09 22:48:38 UTC
 #> # A tibble: 25 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
