@@ -192,7 +192,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 07:53:26 UTC
+#> ℹ Data updated: 2026-06-09 18:14:02 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -202,7 +202,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 07:53:26 UTC
+#> ℹ Data updated: 2026-06-09 18:14:02 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -212,15 +212,15 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 07:53:26 UTC
+#> ℹ Data updated: 2026-06-09 18:14:02 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401856974 2026-06-09T02:00Z Seattle Storm at Las Vegas Aces SEA @ LV  
+#> 1 401856983 2026-06-12T02:00Z Las Vegas Aces at Portland Fire LV @ POR  
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 07:53:26 UTC
+#> ℹ Data updated: 2026-06-09 18:14:02 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

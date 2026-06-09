@@ -104,25 +104,30 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_team_stats(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 90 × 177
-#>    team_id    team_name   gp    w     l     w_pct min   fgm   fga   fg_pct fg3m 
-#>    <chr>      <chr>       <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>  <chr>
-#>  1 1611661330 Atlanta Dr… 10    7     3     0.7   40    29.4  67.9  0.433  9.1  
-#>  2 1611661329 Chicago Sky 11    4     7     0.364 40    28.2  68.5  0.411  5.9  
-#>  3 1611661323 Connecticu… 12    2     10    0.167 40    28.1  68    0.413  5.1  
-#>  4 1611661321 Dallas Win… 10    7     3     0.7   40    32.8  71.2  0.461  8.8  
-#>  5 1611661331 Golden Sta… 11    6     5     0.545 40    29.1  71.7  0.406  12.3 
-#>  6 1611661325 Indiana Fe… 10    5     5     0.5   40.5  30.8  69    0.446  9    
-#>  7 1611661319 Las Vegas … 10    7     3     0.7   40    33.8  70.2  0.481  7.9  
-#>  8 1611661320 Los Angele… 11    5     6     0.455 40    31.2  66.1  0.472  8.5  
-#>  9 1611661324 Minnesota … 11    9     2     0.818 40    34.7  69.5  0.499  7.7  
-#> 10 1611661313 New York L… 11    7     4     0.636 40.5  29.2  65    0.449  9.7  
-#> # ℹ 80 more rows
-#> # ℹ 166 more variables: fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
-#> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,
-#> #   stl <chr>, blk <chr>, blka <chr>, pf <chr>, pfd <chr>, pts <chr>,
+#> # A tibble: 15 × 57
+#>    team_id    team_name gp    w     l     w_pct min   opp_fgm opp_fga opp_fg_pct
+#>    <chr>      <chr>     <chr> <chr> <chr> <chr> <chr> <chr>   <chr>   <chr>     
+#>  1 1611661330 Atlanta … 10    7     3     0.7   40    29.8    65.5    0.455     
+#>  2 1611661329 Chicago … 11    4     7     0.364 40    30.2    71.4    0.423     
+#>  3 1611661323 Connecti… 13    2     11    0.154 40    30.3    63.8    0.475     
+#>  4 1611661321 Dallas W… 10    7     3     0.7   40    31.1    66.4    0.468     
+#>  5 1611661331 Golden S… 11    6     5     0.545 40    27.4    64.3    0.426     
+#>  6 1611661325 Indiana … 11    6     5     0.545 40.5  29.3    65.7    0.445     
+#>  7 1611661319 Las Vega… 11    8     3     0.727 37.2  27.4    67.1    0.408     
+#>  8 1611661320 Los Ange… 11    5     6     0.455 40    32.2    68.5    0.469     
+#>  9 1611661324 Minnesot… 11    9     2     0.818 40    26.2    69.1    0.379     
+#> 10 1611661313 New York… 12    8     4     0.667 40.4  30      70.7    0.425     
+#> 11 1611661317 Phoenix … 12    4     8     0.333 40    30.7    66.8    0.459     
+#> 12 1611661327 Portland… 13    6     7     0.462 40    29.2    64.2    0.454     
+#> 13 1611661328 Seattle … 13    3     10    0.231 37.7  27      64.5    0.419     
+#> 14 1611661332 Toronto … 11    6     5     0.545 40    31.6    66.8    0.473     
+#> 15 1611661322 Washingt… 10    4     6     0.4   41    28.9    67.8    0.426     
+#> # ℹ 47 more variables: opp_fg3m <chr>, opp_fg3a <chr>, opp_fg3_pct <chr>,
+#> #   opp_ftm <chr>, opp_fta <chr>, opp_ft_pct <chr>, opp_oreb <chr>,
+#> #   opp_dreb <chr>, opp_reb <chr>, opp_ast <chr>, opp_tov <chr>, opp_stl <chr>,
+#> #   opp_blk <chr>, opp_blka <chr>, opp_pf <chr>, opp_pfd <chr>, opp_pts <chr>,
 #> #   plus_minus <chr>, gp_rank <chr>, w_rank <chr>, l_rank <chr>,
-#> #   w_pct_rank <chr>, min_rank <chr>, fgm_rank <chr>, fga_rank <chr>,
-#> #   fg_pct_rank <chr>, fg3m_rank <chr>, fg3a_rank <chr>, fg3_pct_rank <chr>, …
+#> #   w_pct_rank <chr>, min_rank <chr>, opp_fgm_rank <chr>, opp_fga_rank <chr>,
+#> #   opp_fg_pct_rank <chr>, opp_fg3m_rank <chr>, opp_fg3a_rank <chr>, …
 # }
 ```

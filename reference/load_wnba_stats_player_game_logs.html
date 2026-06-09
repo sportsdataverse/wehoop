@@ -58,22 +58,18 @@ without downloading any season's full data."><meta property="og:image" content="
     <li><a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a></li>
     <li><a class="dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a></li>
     <li><a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a></li>
-    <li><a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a></li>
     <li><a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a></li>
     <li><a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a></li>
-    <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a></li>
     <li><a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a></li>
     <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a></li>
     <li><a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a></li>
     <li><a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a></li>
-    <li><a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a></li>
     <li><a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a></li>
     <li><a class="external-link dropdown-item" href="https://camdenk.github.io/mlbplotR/">mlbplotR</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/softballR/">softballR</a></li>
     <li><a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a></li>
-    <li><a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a></li>
     <li><a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -81,7 +77,6 @@ without downloading any season's full data."><meta property="og:image" content="
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
@@ -180,7 +175,7 @@ the season data into a database.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wnba_stats_player_game_logs</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="most_recent_wnba_stats_season.html">most_recent_wnba_stats_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,634 × 34</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,694 × 34</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season_id player_id player_name   team_id team_abbreviation team_name game_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 22026       1<span style="text-decoration: underline;">643</span>449 Charlisse Le…  1.61<span style="color: #949494;">e</span>9 CON               Connecti… 102260…</span>
@@ -193,7 +188,7 @@ the season data into a database.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 22026       1<span style="text-decoration: underline;">631</span>135 Olivia Nelso…  1.61<span style="color: #949494;">e</span>9 CON               Connecti… 102260…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 22026       1<span style="text-decoration: underline;">629</span>568 Kennedy Burke  1.61<span style="color: #949494;">e</span>9 CON               Connecti… 102260…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 22026        <span style="text-decoration: underline;">203</span>398 Brittney Gri…  1.61<span style="color: #949494;">e</span>9 CON               Connecti… 102260…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,624 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,684 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27 more variables: game_date &lt;chr&gt;, matchup &lt;chr&gt;, wl &lt;chr&gt;, min &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fgm &lt;chr&gt;, fga &lt;chr&gt;, fg_pct &lt;chr&gt;, fg3m &lt;chr&gt;, fg3a &lt;chr&gt;, fg3_pct &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ftm &lt;chr&gt;, fta &lt;chr&gt;, ft_pct &lt;chr&gt;, oreb &lt;chr&gt;, dreb &lt;chr&gt;, reb &lt;chr&gt;,</span></span>
