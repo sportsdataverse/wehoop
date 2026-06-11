@@ -28,6 +28,19 @@
 
 # **wehoop 3.0.0**
 
+### **Fox Sports basketball wrappers (`fox_wnba_*` / `fox_wbb_*`)**
+
+Read-only Fox Sports "Bifrost" basketball wrappers over
+`api.foxsports.com/bifrost/v1/{wnba,wcbk}/*`, complementing the `espn_wnba_*` /
+`espn_wbb_*` families. Eight wrappers per league flatten Fox's layout-oriented
+JSON (sections → tables → rows → cells) into tidy `wehoop_data` tibbles:
+`fox_<lg>_pbp` (period-based play-by-play), `_boxscore`, `_odds`,
+`_team_roster`, `_team_stats`, `_team_gamelog`, `_standings`,
+`_league_leaders`. A shared internal layer backs both leagues. Verified live;
+reverse-engineering notes + an OpenAPI 3.1 spec live in the `sdv-internal-refs`
+repo. Parallels the cfbfastR / hoopR / fastRhockey / baseballr /
+sportsdataverse-py `fox_*` families.
+
 ### **Her Hoop Stats (`hhs_*`) — subscription**
 
 New `hhs_*()` family for [Her Hoop Stats](https://herhoopstats.com), a

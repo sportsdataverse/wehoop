@@ -171,6 +171,10 @@ reference:
     desc: wehoop loader family overview (WNBA + WBB release loaders)
     contents:
       - '`wehoop_loaders`'
+  - subtitle: Fox Sports Data Functions
+    desc: Read-only Fox Sports (Bifrost) WNBA + WBB wrappers (play-by-play, boxscore, odds, roster, stats, game log, standings, leaders)
+    contents:
+      - starts_with("fox_")
   - subtitle: WNBA Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
     contents:
