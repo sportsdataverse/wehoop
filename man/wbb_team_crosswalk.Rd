@@ -53,6 +53,11 @@ for common divergences (e.g. "UConn" / "Connecticut", "Ole Miss" /
   try(wbb_team_crosswalk(season = 2025))
 }
 }
+\seealso{
+Other WBB Crosswalk Functions: 
+\code{\link{wbb_player_crosswalk}()},
+\code{\link{wbb_schedule_crosswalk}()}
+}
 \author{
 Saiem Gilani
 }

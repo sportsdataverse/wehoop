@@ -279,3 +279,411 @@ wbb_team_crosswalk <- function(season = most_recent_wbb_season(),
   )
   out
 }
+
+# ---------------------------------------------------------------------------
+# wbb_schedule_crosswalk
+# ---------------------------------------------------------------------------
+
+#' @keywords internal
+#' @importFrom dplyr transmute full_join mutate select case_when if_else
+.bb_assemble_schedule_crosswalk_wbb <- function(espn_games, bart_games, team_xwalk, season) {
+  # Build a lookup: normalized Torvik team name -> espn_team_id
+  # Use the same alias pass that wbb_team_crosswalk uses, then normalize via
+  # .bb_normalize_college_team. The team_xwalk has espn_location (school name)
+  # and bart_team (Torvik name); we need bart_team -> espn_team_id.
+  bart_lookup <- team_xwalk[!is.na(team_xwalk$bart_team), , drop = FALSE]
+  # key: normalized Torvik team name (after alias already applied in team_xwalk)
+  bart_lookup$.bart_key <- .bb_normalize_college_team(
+    .wbb_apply_bart_alias(as.character(bart_lookup$bart_team))
+  )
+
+  # Resolve Torvik team1/team2 names -> espn_team_id
+  bart_key1 <- .bb_normalize_college_team(.wbb_apply_bart_alias(as.character(bart_games$team1)))
+  bart_key2 <- .bb_normalize_college_team(.wbb_apply_bart_alias(as.character(bart_games$team2)))
+
+  t1_espn_id <- bart_lookup$espn_team_id[match(bart_key1, bart_lookup$.bart_key)]
+  t2_espn_id <- bart_lookup$espn_team_id[match(bart_key2, bart_lookup$.bart_key)]
+
+  # Pair key: sort espn ids and paste so team1/team2 ordering doesn't matter
+  .pair_key <- function(a, b) {
+    ids <- matrix(c(as.integer(a), as.integer(b)), ncol = 2)
+    apply(ids, 1, function(row) {
+      if (any(is.na(row))) NA_character_
+      else paste(sort(row), collapse = "_")
+    })
+  }
+
+  # ESPN side
+  espn2 <- dplyr::transmute(
+    espn_games,
+    game_date        = .data$game_date,
+    home_espn_team_id = as.integer(.data$home_espn_team_id),
+    away_espn_team_id = as.integer(.data$away_espn_team_id),
+    espn_game_id     = as.character(.data$espn_game_id),
+    .pair_key        = .pair_key(.data$home_espn_team_id, .data$away_espn_team_id)
+  )
+
+  # Torvik side — only keep games where both teams resolved to ESPN ids
+  bart2 <- data.frame(
+    game_date        = bart_games$game_date,
+    bart_muid        = as.character(bart_games$muid),
+    bart_team1       = as.character(bart_games$team1),
+    bart_team2       = as.character(bart_games$team2),
+    bart_winner      = as.character(bart_games$winner),
+    .t1_id           = t1_espn_id,
+    .t2_id           = t2_espn_id,
+    stringsAsFactors = FALSE
+  )
+  # Resolve home/away from Torvik: Torvik doesn't guarantee order; use pair key
+  # and set home/away based on ESPN anchor when both exist. For bart-only rows
+  # the home_espn_team_id is the first espn_id resolved (t1_espn_id).
+  bart2 <- bart2[!is.na(bart2$.t1_id) & !is.na(bart2$.t2_id), , drop = FALSE]
+  bart2$.pair_key <- .pair_key(bart2$.t1_id, bart2$.t2_id)
+  bart2$.t1_id <- NULL
+  bart2$.t2_id <- NULL
+
+  key <- c("game_date", ".pair_key")
+  out <- dplyr::full_join(espn2, bart2, by = key) |>
+    dplyr::mutate(
+      season         = as.integer(season),
+      fox_game_id    = NA_character_,
+      yahoo_game_id  = NA_character_,
+      match_method   = dplyr::case_when(
+        !is.na(.data$espn_game_id) & !is.na(.data$bart_muid) ~ "both",
+        !is.na(.data$espn_game_id)                           ~ "espn_only",
+        TRUE                                                  ~ "bart_only"
+      ),
+      match_confidence = dplyr::if_else(.data$match_method == "both", 1, NA_real_)
+    ) |>
+    dplyr::select(
+      "season", "game_date",
+      "home_espn_team_id", "away_espn_team_id",
+      "espn_game_id", "bart_muid", "bart_team1", "bart_team2", "bart_winner",
+      "fox_game_id", "yahoo_game_id",
+      "match_method", "match_confidence"
+    )
+  out
+}
+
+#' **Get the WBB cross-source schedule crosswalk**
+#' @name wbb_schedule_crosswalk
+NULL
+#' @title
+#' **Get the WBB cross-source schedule crosswalk**
+#' @rdname wbb_schedule_crosswalk
+#' @author Saiem Gilani
+#' @description
+#' Build a wide, one-row-per-game crosswalk linking ESPN and Bart Torvik
+#' (barttorvik.com/ncaaw) game identifiers for a WBB season. Fox Sports and
+#' Yahoo game IDs are NA placeholders. Dates are reduced to Eastern-Time game
+#' dates before joining; Torvik `team1`/`team2` are unordered (the join uses
+#' a sorted team-pair key, so home/away from the Torvik side is not preserved).
+#' Games where either Torvik team name cannot be resolved to an ESPN id via
+#' `wbb_team_crosswalk()` are kept as `bart_only` rows.
+#'
+#' @param season Season year (4-digit, e.g. `2025`). Defaults to
+#'   `most_recent_wbb_season()`.
+#' @return A `wehoop_data` tibble, one row per game:
+#'
+#'    |col_name            |types     |description                                       |
+#'    |:-------------------|:---------|:-------------------------------------------------|
+#'    |season              |integer   |Season year.                                      |
+#'    |game_date           |Date      |ET game date.                                     |
+#'    |home_espn_team_id   |integer   |ESPN home team id (NA for bart-only rows).        |
+#'    |away_espn_team_id   |integer   |ESPN away team id (NA for bart-only rows).        |
+#'    |espn_game_id        |character |ESPN game id (NA for bart-only rows).             |
+#'    |bart_muid           |character |Torvik muid (NA for espn-only rows).              |
+#'    |bart_team1          |character |Torvik team1 name (NA for espn-only rows).        |
+#'    |bart_team2          |character |Torvik team2 name (NA for espn-only rows).        |
+#'    |bart_winner         |character |Torvik winner name (NA for espn-only rows).       |
+#'    |fox_game_id         |character |Fox game id (NA placeholder).                     |
+#'    |yahoo_game_id       |character |Yahoo game id (NA placeholder).                   |
+#'    |match_method        |character |"both"/"espn_only"/"bart_only".                   |
+#'    |match_confidence    |numeric   |1 for matched, NA for unmatched.                  |
+#'
+#' @importFrom dplyr transmute bind_rows
+#' @export
+#' @family WBB Crosswalk Functions
+#' @examples
+#' \donttest{
+#'   try(wbb_schedule_crosswalk(season = 2025))
+#' }
+wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
+  .args <- .capture_args()
+  out <- data.frame()
+  tryCatch(
+    expr = {
+      team_xwalk <- wbb_team_crosswalk(season = season)
+
+      # --- Torvik side -------------------------------------------------------
+      bart_raw  <- bart_wbb_game_schedule(year = season)
+      bart_games <- dplyr::transmute(
+        bart_raw,
+        muid    = as.character(.data$muid),
+        game_date = as.Date(as.character(.data$date), format = "%m/%d/%y"),
+        team1   = as.character(.data$team1),
+        team2   = as.character(.data$team2),
+        winner  = as.character(.data$winner)
+      )
+      # Drop rows with unparseable dates
+      bart_games <- bart_games[!is.na(bart_games$game_date), , drop = FALSE]
+
+      # --- ESPN side ---------------------------------------------------------
+      # Derive unique ET dates from Torvik and call the WBB scoreboard once
+      # per date. ~150 calls for a full season.
+      dates <- sort(unique(bart_games$game_date))
+      espn_list <- lapply(dates, function(d) {
+        sb <- tryCatch(
+          espn_wbb_scoreboard(season = as.integer(format(d, "%Y%m%d"))),
+          error = function(e) NULL
+        )
+        if (is.null(sb) || !nrow(sb)) return(NULL)
+        dplyr::transmute(
+          sb,
+          espn_game_id      = as.character(.data$game_id),
+          game_date         = .bb_to_eastern(.data$game_date_time),
+          home_espn_team_id = as.integer(.data$home_team_id),
+          away_espn_team_id = as.integer(.data$away_team_id)
+        )
+      })
+      espn_games <- dplyr::bind_rows(espn_list)
+
+      out <- .bb_assemble_schedule_crosswalk_wbb(
+        espn_games  = espn_games,
+        bart_games  = bart_games,
+        team_xwalk  = as.data.frame(team_xwalk),
+        season      = season
+      ) |>
+        make_wehoop_data("WBB schedule crosswalk (ESPN / Torvik)", Sys.time())
+    },
+    error   = function(e) .report_api_error(
+      e, hint = "Could not build WBB schedule crosswalk for {season}!", args = .args
+    ),
+    warning = function(w) .report_api_warning(
+      w, hint = "Warning building WBB schedule crosswalk for {season}", args = .args
+    ),
+    finally = {}
+  )
+  out
+}
+
+# ---------------------------------------------------------------------------
+# wbb_player_crosswalk
+# ---------------------------------------------------------------------------
+
+#' @keywords internal
+#' @importFrom dplyr transmute left_join mutate select
+.bb_assemble_player_crosswalk_wbb <- function(espn, fox, season, min_confidence = 0.92) {
+  espn2 <- dplyr::mutate(
+    espn,
+    .block    = as.character(.data$espn_team_id),
+    .name_key = .bb_normalize_name(.data$espn_full_name)
+  )
+
+  l <- dplyr::transmute(
+    espn2,
+    .block    = .data$.block,
+    .id       = .data$espn_athlete_id,
+    .name_key = .data$.name_key,
+    .jersey   = as.character(.data$espn_jersey)
+  )
+
+  if (nrow(fox)) {
+    rf <- dplyr::transmute(
+      fox,
+      .block    = as.character(.data$espn_team_id),
+      .id       = as.character(.data$fox_athlete_id),
+      .name_key = .bb_normalize_name(.data$fox_player),
+      .jersey   = as.character(.data$fox_jersey)
+    )
+    lf <- dplyr::transmute(
+      espn2,
+      .block    = .data$.block,
+      .id       = .data$espn_athlete_id,
+      .name_key = .data$.name_key,
+      .jersey   = as.character(.data$espn_jersey)
+    )
+    m_fox <- .bb_fuzzy_match(lf, rf, min_confidence = min_confidence)
+  } else {
+    m_fox <- data.frame(
+      left_id          = l$.id,
+      right_id         = NA_character_,
+      match_method     = "unmatched",
+      match_confidence = NA_real_,
+      stringsAsFactors = FALSE
+    )
+  }
+
+  out <- espn2 |>
+    dplyr::transmute(
+      season            = as.integer(season),
+      espn_team_id      = as.integer(.data$espn_team_id),
+      team_abbreviation = as.character(.data$team_abbreviation),
+      player_name       = .data$.name_key,
+      espn_athlete_id   = as.character(.data$espn_athlete_id),
+      espn_full_name    = as.character(.data$espn_full_name),
+      espn_jersey       = as.character(.data$espn_jersey),
+      espn_position     = as.character(.data$espn_position)
+    ) |>
+    dplyr::left_join(
+      dplyr::transmute(
+        m_fox,
+        espn_athlete_id  = .data$left_id,
+        fox_athlete_id   = .data$right_id,
+        match_method     = .data$match_method,
+        match_confidence = .data$match_confidence
+      ),
+      by = "espn_athlete_id"
+    )
+
+  if (nrow(fox)) {
+    out <- dplyr::left_join(
+      out,
+      dplyr::transmute(
+        fox,
+        fox_athlete_id   = as.character(.data$fox_athlete_id),
+        fox_player       = .data$fox_player,
+        fox_jersey       = as.character(.data$fox_jersey),
+        fox_position_group = .data$fox_position_group
+      ),
+      by = "fox_athlete_id"
+    )
+  } else {
+    out$fox_player        <- NA_character_
+    out$fox_jersey        <- NA_character_
+    out$fox_position_group <- NA_character_
+  }
+
+  out |>
+    dplyr::mutate(
+      yahoo_player_id   = NA_character_,
+      yahoo_player_name = NA_character_,
+      match_keys        = NA_character_
+    ) |>
+    dplyr::select(
+      "season", "espn_team_id", "team_abbreviation", "player_name",
+      "espn_athlete_id", "espn_full_name", "espn_jersey", "espn_position",
+      "fox_athlete_id", "fox_player", "fox_jersey", "fox_position_group",
+      "yahoo_player_id", "yahoo_player_name",
+      "match_method", "match_confidence", "match_keys"
+    )
+}
+
+#' **Get the WBB cross-source player crosswalk**
+#' @name wbb_player_crosswalk
+NULL
+#' @title
+#' **Get the WBB cross-source player crosswalk**
+#' @rdname wbb_player_crosswalk
+#' @author Saiem Gilani
+#' @description
+#' Build a wide, one-row-per-player-per-team crosswalk linking ESPN and Fox
+#' Sports (Bifrost) WBB player identities for a season. ESPN is the anchor
+#' source; Fox is matched by normalized name (exact first, then Jaro-Winkler
+#' fuzzy with jersey tiebreaker) within each team block. Yahoo columns are NA
+#' placeholders. Torvik and the WNBA Stats API have no per-player tables for
+#' WBB, so neither source is joined.
+#'
+#' @param season Season year (4-digit, e.g. `2025`). Defaults to
+#'   `most_recent_wbb_season()`.
+#' @param min_confidence Jaro-Winkler similarity floor for fuzzy matches
+#'   (default 0.92).
+#' @return A `wehoop_data` tibble, one row per player per team (ESPN-anchored):
+#'
+#'    |col_name            |types     |description                                       |
+#'    |:-------------------|:---------|:-------------------------------------------------|
+#'    |season              |integer   |Season year.                                      |
+#'    |espn_team_id        |integer   |ESPN team id (canonical key).                     |
+#'    |team_abbreviation   |character |ESPN team abbreviation.                           |
+#'    |player_name         |character |Normalized player name (matching key).            |
+#'    |espn_athlete_id     |character |ESPN athlete id.                                  |
+#'    |espn_full_name      |character |ESPN full name.                                   |
+#'    |espn_jersey         |character |ESPN jersey number.                               |
+#'    |espn_position       |character |ESPN position abbreviation.                       |
+#'    |fox_athlete_id      |character |Fox athlete id (NA if unmatched).                 |
+#'    |fox_player          |character |Fox player name (NA if unmatched).                |
+#'    |fox_jersey          |character |Fox jersey number (NA if unmatched).              |
+#'    |fox_position_group  |character |Fox position group label (NA if unmatched).       |
+#'    |yahoo_player_id     |character |Yahoo player id (NA placeholder).                 |
+#'    |yahoo_player_name   |character |Yahoo player name (NA placeholder).               |
+#'    |match_method        |character |"exact_name"/"fuzzy_jw"/"unmatched".              |
+#'    |match_confidence    |numeric   |Jaro-Winkler score or 1 for exact (NA if none).  |
+#'    |match_keys          |character |NA (reserved for future use).                     |
+#'
+#' @importFrom dplyr transmute bind_rows
+#' @importFrom purrr map list_rbind
+#' @export
+#' @family WBB Crosswalk Functions
+#' @examples
+#' \donttest{
+#'   try(wbb_player_crosswalk(season = 2025))
+#' }
+wbb_player_crosswalk <- function(season = most_recent_wbb_season(),
+                                  min_confidence = 0.92) {
+  .args <- .capture_args()
+  out <- data.frame()
+  tryCatch(
+    expr = {
+      team_xwalk <- wbb_team_crosswalk(season = season)
+
+      fetch_team <- function(i) {
+        espn_id <- team_xwalk$espn_team_id[i]
+        fox_id  <- team_xwalk$fox_team_id[i]
+        abbr    <- team_xwalk$espn_abbreviation[i]
+
+        er <- tryCatch(
+          espn_wbb_team_roster(team_id = espn_id, season = season),
+          error = function(e) NULL
+        )
+        if (is.null(er) || !nrow(er)) return(NULL)
+        espn <- dplyr::transmute(
+          er,
+          espn_team_id      = as.integer(espn_id),
+          team_abbreviation = abbr,
+          espn_athlete_id   = as.character(.data$athlete_id),
+          espn_full_name    = .data$full_name,
+          espn_jersey       = .data$jersey,
+          espn_position     = .data$position_abbrev
+        )
+
+        fr <- if (!is.na(fox_id))
+          tryCatch(fox_wbb_team_roster(team_id = fox_id), error = function(e) NULL)
+        else
+          NULL
+        fox <- if (!is.null(fr) && nrow(fr)) dplyr::transmute(
+          fr,
+          espn_team_id   = as.integer(espn_id),
+          fox_athlete_id = as.character(.data$athlete_id),
+          fox_player     = .data$player,
+          fox_jersey     = if ("x" %in% names(fr)) as.character(.data$x)
+                           else if ("jersey" %in% names(fr)) as.character(.data$jersey)
+                           else NA_character_,
+          fox_position_group = .data$position_group
+        )
+        else
+          data.frame(
+            espn_team_id       = integer(),
+            fox_athlete_id     = character(),
+            fox_player         = character(),
+            fox_jersey         = character(),
+            fox_position_group = character(),
+            stringsAsFactors   = FALSE
+          )
+
+        .bb_assemble_player_crosswalk_wbb(espn, fox, season, min_confidence)
+      }
+
+      out <- purrr::map(seq_len(nrow(team_xwalk)), fetch_team) |>
+        purrr::list_rbind() |>
+        make_wehoop_data("WBB player crosswalk (ESPN / Fox)", Sys.time())
+    },
+    error   = function(e) .report_api_error(
+      e, hint = "Could not build WBB player crosswalk for {season}!", args = .args
+    ),
+    warning = function(w) .report_api_warning(
+      w, hint = "Warning building WBB player crosswalk for {season}", args = .args
+    ),
+    finally = {}
+  )
+  out
+}
