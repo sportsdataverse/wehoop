@@ -50,6 +50,9 @@ WBB, so neither source is joined.
 }
 \seealso{
 Other WBB Crosswalk Functions: 
+\code{\link{load_wbb_player_crosswalk}()},
+\code{\link{load_wbb_schedule_crosswalk}()},
+\code{\link{load_wbb_team_crosswalk}()},
 \code{\link{wbb_schedule_crosswalk}()},
 \code{\link{wbb_team_crosswalk}()}
 }

@@ -55,6 +55,9 @@ for common divergences (e.g. "UConn" / "Connecticut", "Ole Miss" /
 }
 \seealso{
 Other WBB Crosswalk Functions: 
+\code{\link{load_wbb_player_crosswalk}()},
+\code{\link{load_wbb_schedule_crosswalk}()},
+\code{\link{load_wbb_team_crosswalk}()},
 \code{\link{wbb_player_crosswalk}()},
 \code{\link{wbb_schedule_crosswalk}()}
 }
