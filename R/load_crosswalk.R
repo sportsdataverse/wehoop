@@ -41,7 +41,6 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 2002)
 #' @return A `wehoop_data` tibble of cached team-crosswalk rows.
-#' @author Saiem Gilani
 #' @export
 #' @family WNBA Crosswalk Functions
 #' @examples
@@ -71,7 +70,6 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 2002)
 #' @return A `wehoop_data` tibble of cached schedule-crosswalk rows.
-#' @author Saiem Gilani
 #' @export
 #' @family WNBA Crosswalk Functions
 #' @examples
@@ -102,7 +100,6 @@ NULL
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 2002)
 #' @return A `wehoop_data` tibble of cached player-crosswalk rows.
-#' @author Saiem Gilani
 #' @export
 #' @family WNBA Crosswalk Functions
 #' @examples

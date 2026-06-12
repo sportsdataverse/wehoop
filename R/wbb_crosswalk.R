@@ -196,7 +196,6 @@ NULL
 #' @title
 #' **Get the WBB cross-source team crosswalk**
 #' @rdname wbb_team_crosswalk
-#' @author Saiem Gilani
 #' @description
 #' Build a wide, one-row-per-team-per-season crosswalk linking ESPN,
 #' Fox Sports (Bifrost), and Bart Torvik (barttorvik.com/ncaaw) women's
@@ -372,7 +371,6 @@ NULL
 #' @title
 #' **Get the WBB cross-source schedule crosswalk**
 #' @rdname wbb_schedule_crosswalk
-#' @author Saiem Gilani
 #' @description
 #' Build a wide, one-row-per-game crosswalk linking ESPN and Bart Torvik
 #' (barttorvik.com/ncaaw) game identifiers for a WBB season. Fox Sports and
@@ -587,7 +585,6 @@ NULL
 #' @title
 #' **Get the WBB cross-source player crosswalk**
 #' @rdname wbb_player_crosswalk
-#' @author Saiem Gilani
 #' @description
 #' Build a wide, one-row-per-player-per-team crosswalk linking ESPN and Fox
 #' Sports (Bifrost) WBB player identities for a season. ESPN is the anchor

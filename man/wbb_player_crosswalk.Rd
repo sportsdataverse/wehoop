@@ -56,7 +56,4 @@ Other WBB Crosswalk Functions:
 \code{\link{wbb_schedule_crosswalk}()},
 \code{\link{wbb_team_crosswalk}()}
 }
-\author{
-Saiem Gilani
-}
 \concept{WBB Crosswalk Functions}
