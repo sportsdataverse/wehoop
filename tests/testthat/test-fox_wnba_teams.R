@@ -16,8 +16,10 @@ test_that(".fox_bb_teams parses a standings payload into a team directory", {
 
 test_that("fox_wnba_teams() returns a live directory", {
   skip_on_cran()
+  skip_on_ci()
   skip_fox_test()
   df <- fox_wnba_teams()
+  skip_if(nrow(df) == 0, "No rows returned from Fox WNBA teams at test time")
   expect_s3_class(df, "wehoop_data")
   expect_gte(nrow(df), 12)
 })

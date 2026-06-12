@@ -464,6 +464,7 @@ fox_wbb_standings <- function(team_id) .fox_bb_resource("wcbk", "standings", tea
 #'   league sections.
 #' @return A `wehoop_data` tibble, one row per team: `fox_team_id`,
 #'   `fox_team_name`, `fox_section`.
+#' @author Saiem Gilani
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble bind_rows
 #' @export
