@@ -26,8 +26,8 @@
   x <- stringi::stri_trans_general(as.character(x), "Latin-ASCII")
   x <- tolower(x)
   x <- stringr::str_replace_all(x, "[^a-z ]", " ")
-  x <- stringr::str_remove(x, "^the ")
   x <- stringr::str_squish(x)
+  x <- stringr::str_remove(x, "^the ")
   x[is.na(x)] <- ""
   x
 }
