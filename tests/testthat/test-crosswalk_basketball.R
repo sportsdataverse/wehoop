@@ -22,6 +22,18 @@ test_that(".bb_to_eastern returns the correct local ET game date", {
   expect_true(is.na(.bb_to_eastern(NA_character_)))
 })
 
+test_that(".bb_normalize_college_team gives a consistent contracting key", {
+  expect_equal(.bb_normalize_college_team("Missouri State"), .bb_normalize_college_team("Missouri St."))
+  expect_equal(.bb_normalize_college_team("Texas A&M"), "texas a and m")
+  expect_equal(
+    .bb_normalize_college_team("Saint Mary's"),
+    .bb_normalize_college_team("St. Mary's")
+  )
+  expect_equal(.bb_normalize_college_team("Ohio State"), "ohio st")
+  expect_equal(.bb_normalize_college_team("Kansas St."), "kansas st")
+  expect_equal(.bb_normalize_college_team(NA_character_), "")
+})
+
 test_that(".bb_fuzzy_match does exact, fuzzy, tiebreak, and unmatched", {
   left <- data.frame(
     .block = c("A", "A", "A", "B"),
