@@ -377,10 +377,16 @@ wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
       espn_full_name = .data$full_name, espn_jersey = .data$jersey,
       espn_position = .data$position_abbrev, espn_birth_date = .data$birth_date)
 
-    sr <- if (!is.na(wnba_id))
+    sr_raw <- if (!is.na(wnba_id))
       tryCatch(wnba_commonteamroster(season = season, team_id = wnba_id),
                error = function(e) NULL) else NULL
-    stats <- if (!is.null(sr) && nrow(sr)) dplyr::transmute(sr,
+    # wnba_commonteamroster returns a named list {CommonTeamRoster, Coaches};
+    # extract the roster element when present.
+    sr <- if (is.list(sr_raw) && !is.data.frame(sr_raw) && "CommonTeamRoster" %in% names(sr_raw))
+      sr_raw[["CommonTeamRoster"]]
+    else
+      sr_raw
+    stats <- if (!is.null(sr) && is.data.frame(sr) && nrow(sr)) dplyr::transmute(sr,
       espn_team_id = as.integer(espn_id),
       wnba_player_id = as.character(.data$PLAYER_ID), wnba_player_name = .data$PLAYER,
       wnba_jersey_num = .data$NUM, wnba_position = .data$POSITION,
