@@ -53,3 +53,32 @@ test_that(".bb_assemble_schedule_crosswalk_wnba full-outer joins on ET date + te
   expect_equal(out$match_method, "both")
   expect_true(all(c("fox_game_id", "yahoo_game_id") %in% names(out)))
 })
+
+test_that(".bb_assemble_player_crosswalk_wnba matches ESPN/Stats within team blocks", {
+  espn <- data.frame(
+    espn_team_id = c(17L, 17L), team_abbreviation = c("LV", "LV"),
+    espn_athlete_id = c("a1", "a2"),
+    espn_full_name = c("A'ja Wilson", "Chelsea Gray"),
+    espn_jersey = c("22", "12"), espn_position = c("F", "G"),
+    espn_birth_date = c("1996-08-08", "1992-10-08"),
+    stringsAsFactors = FALSE
+  )
+  stats <- data.frame(
+    espn_team_id = c(17L, 17L),
+    wnba_player_id = c("p1", "p2"),
+    wnba_player_name = c("Aja Wilson", "Chelsea Gray"),
+    wnba_jersey_num = c("22", "12"), wnba_position = c("F", "G"),
+    wnba_birth_date = c("1996-08-08", "1992-10-08"),
+    stringsAsFactors = FALSE
+  )
+  fox <- data.frame(
+    espn_team_id = integer(), fox_athlete_id = character(),
+    fox_player = character(), fox_jersey = character(),
+    fox_position_group = character(), stringsAsFactors = FALSE
+  )
+  out <- .bb_assemble_player_crosswalk_wnba(espn, stats, fox, season = 2024, min_confidence = 0.92)
+  expect_equal(nrow(out), 2)
+  expect_equal(out$wnba_player_id[out$espn_athlete_id == "a1"], "p1")
+  expect_equal(out$wnba_player_id[out$espn_athlete_id == "a2"], "p2")
+  expect_true(all(c("fox_athlete_id", "yahoo_player_id") %in% names(out)))
+})

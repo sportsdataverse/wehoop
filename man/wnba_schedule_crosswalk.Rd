@@ -29,6 +29,7 @@ current-season; historical coverage comes from cached release artifacts.
 }
 \seealso{
 Other WNBA Crosswalk Functions: 
+\code{\link{wnba_player_crosswalk}()},
 \code{\link{wnba_team_crosswalk}()}
 }
 \author{
