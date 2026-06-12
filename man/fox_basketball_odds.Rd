@@ -14,12 +14,30 @@ fox_wbb_odds(game_id)
 \item{game_id}{Fox Bifrost event id.}
 }
 \value{
-A \code{hoopR_data} tibble, one row per team: \code{game_id}, \code{team}, plus the
+A \code{wehoop_data} tibble, one row per team: \code{game_id}, \code{team}, plus the
 six-pack odds columns (spread / to-win / total). Empty when no market.
 }
 \description{
-\strong{Get Fox Sports basketball game odds}
+\strong{Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) game
+odds.} \code{fox_wnba_odds()} hits the \code{wnba} slug; \code{fox_wbb_odds()} hits the
+\code{wcbk} slug.
 }
 \examples{
-\donttest{ try(fox_wnba_odds("2215")) }
+\donttest{
+  try(fox_wnba_odds("2215"))
 }
+\donttest{
+  try(fox_wbb_odds("388986"))
+}
+}
+\seealso{
+Other Fox Sports Functions: 
+\code{\link{fox_basketball_boxscore}},
+\code{\link{fox_basketball_league_leaders}},
+\code{\link{fox_basketball_pbp}},
+\code{\link{fox_basketball_standings}},
+\code{\link{fox_basketball_team_gamelog}},
+\code{\link{fox_basketball_team_roster}},
+\code{\link{fox_basketball_team_stats}}
+}
+\concept{Fox Sports Functions}

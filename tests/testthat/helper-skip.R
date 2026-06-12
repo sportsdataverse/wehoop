@@ -22,6 +22,14 @@ skip_ncaa_wbb_test <- function(){
   }
 }
 
+skip_fox_test <- function(){
+  if(Sys.getenv("FOX_TESTS") != "1"){
+    skip("User can't run Fox Sports tests")
+  } else {
+    invisible()
+  }
+}
+
 # Gates tests for `load_*()` functions that download release-asset .rds/.parquet
 # files from `github.com/sportsdataverse/sportsdataverse-data/releases/...`.
 # Triggered by `WEHOOP_LOAD_TESTS=1`.

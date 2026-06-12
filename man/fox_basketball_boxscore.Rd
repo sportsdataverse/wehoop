@@ -14,12 +14,30 @@ fox_wbb_boxscore(game_id)
 \item{game_id}{Fox Bifrost event id.}
 }
 \value{
-A \code{hoopR_data} tibble (long), one row per (player, stat): \code{game_id},
+A \code{wehoop_data} tibble (long), one row per (player, stat): \code{game_id},
 \code{team}, \code{stat_group}, \code{player}, \code{athlete_id}, \code{stat}, \code{value}.
 }
 \description{
-\strong{Get Fox Sports basketball boxscore}
+\strong{Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) boxscore.}
+\code{fox_wnba_boxscore()} hits the \code{wnba} slug; \code{fox_wbb_boxscore()} hits the
+\code{wcbk} slug.
 }
 \examples{
-\donttest{ try(fox_wnba_boxscore("2215")) }
+\donttest{
+  try(fox_wnba_boxscore("2215"))
 }
+\donttest{
+  try(fox_wbb_boxscore("388986"))
+}
+}
+\seealso{
+Other Fox Sports Functions: 
+\code{\link{fox_basketball_league_leaders}},
+\code{\link{fox_basketball_odds}},
+\code{\link{fox_basketball_pbp}},
+\code{\link{fox_basketball_standings}},
+\code{\link{fox_basketball_team_gamelog}},
+\code{\link{fox_basketball_team_roster}},
+\code{\link{fox_basketball_team_stats}}
+}
+\concept{Fox Sports Functions}

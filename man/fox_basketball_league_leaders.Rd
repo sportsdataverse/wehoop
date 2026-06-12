@@ -18,11 +18,29 @@ fox_wbb_league_leaders(category = "scoring", who = "player", page = 0)
 \item{page}{0-based page index (default \code{0}).}
 }
 \value{
-A \code{hoopR_data} tibble of leaderboard rows (\code{entity_id} + stat columns).
+A \code{wehoop_data} tibble of leaderboard rows (\code{entity_id} + stat columns).
 }
 \description{
-\strong{Get Fox Sports basketball statistical leaders}
+\strong{Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB)
+statistical leaders.} \code{fox_wnba_league_leaders()} hits the \code{wnba} slug;
+\code{fox_wbb_league_leaders()} hits the \code{wcbk} slug.
 }
 \examples{
-\donttest{ try(fox_wnba_league_leaders("scoring")) }
+\donttest{
+  try(fox_wnba_league_leaders("scoring"))
 }
+\donttest{
+  try(fox_wbb_league_leaders("scoring"))
+}
+}
+\seealso{
+Other Fox Sports Functions: 
+\code{\link{fox_basketball_boxscore}},
+\code{\link{fox_basketball_odds}},
+\code{\link{fox_basketball_pbp}},
+\code{\link{fox_basketball_standings}},
+\code{\link{fox_basketball_team_gamelog}},
+\code{\link{fox_basketball_team_roster}},
+\code{\link{fox_basketball_team_stats}}
+}
+\concept{Fox Sports Functions}

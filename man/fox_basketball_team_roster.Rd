@@ -14,12 +14,30 @@ fox_wbb_team_roster(team_id)
 \item{team_id}{Fox Bifrost team id (e.g. \code{"1"}). Discover via the league team directory.}
 }
 \value{
-A \code{hoopR_data} tibble, one row per player: \code{team_id}, \code{position_group},
+A \code{wehoop_data} tibble, one row per player: \code{team_id}, \code{position_group},
 \code{player}, position/age/etc. columns, \code{athlete_id}.
 }
 \description{
-\strong{Get Fox Sports basketball team roster}
+\strong{Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team
+roster.} \code{fox_wnba_team_roster()} hits the \code{wnba} slug;
+\code{fox_wbb_team_roster()} hits the \code{wcbk} slug.
 }
 \examples{
-\donttest{ try(fox_wnba_team_roster("1")) }
+\donttest{
+  try(fox_wnba_team_roster("1"))
 }
+\donttest{
+  try(fox_wbb_team_roster("11"))
+}
+}
+\seealso{
+Other Fox Sports Functions: 
+\code{\link{fox_basketball_boxscore}},
+\code{\link{fox_basketball_league_leaders}},
+\code{\link{fox_basketball_odds}},
+\code{\link{fox_basketball_pbp}},
+\code{\link{fox_basketball_standings}},
+\code{\link{fox_basketball_team_gamelog}},
+\code{\link{fox_basketball_team_stats}}
+}
+\concept{Fox Sports Functions}

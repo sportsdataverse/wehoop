@@ -3,26 +3,37 @@
 # Read-only wrappers over api.foxsports.com/bifrost/v1/{wnba,wcbk}/*, flattening
 # Fox's layout JSON (sections -> tables -> rows -> cells) into tidy wehoop
 # tibbles. Basketball play-by-play is period-based (QUARTER/HALF -> plays).
-# WNBA uses the `wnba` slug; women's college basketball uses the `wcbk` slug.
-# Reverse-engineering notes + an OpenAPI spec live in the sdv-internal-refs repo.
+# WNBA uses the `wnba` slug; women's college basketball (WBB) uses the `wcbk`
+# slug. Reverse-engineering notes + an OpenAPI spec live in the
+# sdv-internal-refs repo.
 
-.FOX_BB_KEY <- "jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq"
+# Fox's public Bifrost apikey. Resolvable from `getOption("wehoop.fox_data_key")`
+# or the `WEHOOP_FOX_DATA_KEY` env var, with the literal as the final fallback.
+.fox_bb_key <- function() {
+  getOption(
+    "wehoop.fox_data_key",
+    Sys.getenv("WEHOOP_FOX_DATA_KEY", unset = "jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq")
+  )
+}
 .fox_or <- function(a, b) if (is.null(a) || length(a) == 0) b else a
 
+# Internal: GET a Fox Bifrost layout document and parse it. Routes through the
+# shared `.retry_request()` helper so the Fox path inherits the package-wide
+# timeout, jittered exponential backoff, and proxy resolution (explicit arg ->
+# `getOption("wehoop.proxy")` -> `http(s)_proxy` env vars).
 #' @keywords internal
-#' @importFrom httr2 request req_url_query req_headers req_retry req_perform resp_body_string
 #' @importFrom jsonlite fromJSON
 .fox_bb_get <- function(path, query = list()) {
-  query[["apikey"]] <- .fox_or(query[["apikey"]], getOption("wehoop.fox_key", .FOX_BB_KEY))
+  query[["apikey"]] <- .fox_or(query[["apikey"]], .fox_bb_key())
   query[["api-version"]] <- .fox_or(query[["api-version"]], "1.1")
-  res <- httr2::request(paste0("https://api.foxsports.com/bifrost/v1/", path)) |>
-    httr2::req_url_query(!!!query) |>
-    httr2::req_headers(Origin = "https://www.foxsports.com",
-                       Referer = "https://www.foxsports.com/") |>
-    httr2::req_retry(max_tries = 3, backoff = ~ 2) |>
-    httr2::req_perform()
-  res |>
-    httr2::resp_body_string(encoding = "UTF-8") |>
+  resp <- .retry_request(
+    url = paste0("https://api.foxsports.com/bifrost/v1/", path),
+    params = query,
+    headers = c(Origin = "https://www.foxsports.com",
+                Referer = "https://www.foxsports.com/")
+  )
+  check_status(resp)
+  .resp_text(resp) |>
     jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
 }
 
@@ -184,6 +195,8 @@
 #' @importFrom dplyr as_tibble bind_rows
 .fox_bb_resource <- function(sport, resource, game_id = NULL, team_id = NULL,
                              category = "scoring", who = "player", page = 0) {
+  .args <- .capture_args()
+
   out <- data.frame()
   tryCatch(
     expr = {
@@ -208,112 +221,238 @@
         make_wehoop_data(paste0("Fox Sports ", toupper(sport), " ", resource), Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: invalid arguments or no Fox {sport} {resource} data available!"))
+      .report_api_error(
+        e, hint = "Invalid arguments or no Fox {sport} {resource} data available!", args = .args)
+    },
+    warning = function(w) {
+      .report_api_warning(
+        w, hint = "Warning fetching Fox {sport} {resource}", args = .args)
+    },
+    finally = {
     }
   )
   out
 }
 
-# ---- public wrappers (nba + mbb share each resource via @rdname) -----------
+# ---- public wrappers (WNBA + WBB share each resource via @rdname) -----------
+#' @title
 #' **Get Fox Sports basketball play-by-play**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB)
+#' play-by-play.** `fox_wnba_pbp()` hits the `wnba` slug; `fox_wbb_pbp()` hits
+#' the `wcbk` slug.
 #' @name fox_basketball_pbp
 #' @param game_id Fox Bifrost event id (e.g. `"2215"`).
-#' @return A `hoopR_data` tibble, one row per play: `game_id`, `period`,
+#' @return A `wehoop_data` tibble, one row per play: `game_id`, `period`,
 #'   `left_team`, `right_team`, `play_id`, `clock`, `team`, `left_score_change`,
 #'   `right_score_change`, `play_text`.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_pbp("2215")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_pbp("2215"))
+#' }
 fox_wnba_pbp <- function(game_id) .fox_bb_resource("wnba", "pbp", game_id = game_id)
 #' @rdname fox_basketball_pbp
 #' @export
-#' @examples \donttest{ try(fox_wbb_pbp("388986")) }
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_pbp("388986"))
+#' }
 fox_wbb_pbp <- function(game_id) .fox_bb_resource("wcbk", "pbp", game_id = game_id)
 
+#' @title
 #' **Get Fox Sports basketball boxscore**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) boxscore.**
+#' `fox_wnba_boxscore()` hits the `wnba` slug; `fox_wbb_boxscore()` hits the
+#' `wcbk` slug.
 #' @name fox_basketball_boxscore
 #' @param game_id Fox Bifrost event id.
-#' @return A `hoopR_data` tibble (long), one row per (player, stat): `game_id`,
+#' @return A `wehoop_data` tibble (long), one row per (player, stat): `game_id`,
 #'   `team`, `stat_group`, `player`, `athlete_id`, `stat`, `value`.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_boxscore("2215")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_boxscore("2215"))
+#' }
 fox_wnba_boxscore <- function(game_id) .fox_bb_resource("wnba", "boxscore", game_id = game_id)
 #' @rdname fox_basketball_boxscore
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_boxscore("388986"))
+#' }
 fox_wbb_boxscore <- function(game_id) .fox_bb_resource("wcbk", "boxscore", game_id = game_id)
 
+#' @title
 #' **Get Fox Sports basketball game odds**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) game
+#' odds.** `fox_wnba_odds()` hits the `wnba` slug; `fox_wbb_odds()` hits the
+#' `wcbk` slug.
 #' @name fox_basketball_odds
 #' @param game_id Fox Bifrost event id.
-#' @return A `hoopR_data` tibble, one row per team: `game_id`, `team`, plus the
+#' @return A `wehoop_data` tibble, one row per team: `game_id`, `team`, plus the
 #'   six-pack odds columns (spread / to-win / total). Empty when no market.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_odds("2215")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_odds("2215"))
+#' }
 fox_wnba_odds <- function(game_id) .fox_bb_resource("wnba", "odds", game_id = game_id)
 #' @rdname fox_basketball_odds
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_odds("388986"))
+#' }
 fox_wbb_odds <- function(game_id) .fox_bb_resource("wcbk", "odds", game_id = game_id)
 
+#' @title
 #' **Get Fox Sports basketball team roster**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team
+#' roster.** `fox_wnba_team_roster()` hits the `wnba` slug;
+#' `fox_wbb_team_roster()` hits the `wcbk` slug.
 #' @name fox_basketball_team_roster
 #' @param team_id Fox Bifrost team id (e.g. `"1"`). Discover via the league team directory.
-#' @return A `hoopR_data` tibble, one row per player: `team_id`, `position_group`,
+#' @return A `wehoop_data` tibble, one row per player: `team_id`, `position_group`,
 #'   `player`, position/age/etc. columns, `athlete_id`.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_team_roster("1")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_team_roster("1"))
+#' }
 fox_wnba_team_roster <- function(team_id) .fox_bb_resource("wnba", "roster", team_id = team_id)
 #' @rdname fox_basketball_team_roster
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_team_roster("11"))
+#' }
 fox_wbb_team_roster <- function(team_id) .fox_bb_resource("wcbk", "roster", team_id = team_id)
 
+#' @title
 #' **Get Fox Sports basketball team stat leaders**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team stat
+#' leaders.** `fox_wnba_team_stats()` hits the `wnba` slug;
+#' `fox_wbb_team_stats()` hits the `wcbk` slug.
 #' @name fox_basketball_team_stats
 #' @param team_id Fox Bifrost team id.
-#' @return A `hoopR_data` tibble: `team_id`, `category`, `stat`,
+#' @return A `wehoop_data` tibble: `team_id`, `category`, `stat`,
 #'   `stat_abbreviation`, `player`, `value`.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_team_stats("1")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_team_stats("1"))
+#' }
 fox_wnba_team_stats <- function(team_id) .fox_bb_resource("wnba", "team_stats", team_id = team_id)
 #' @rdname fox_basketball_team_stats
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_team_stats("11"))
+#' }
 fox_wbb_team_stats <- function(team_id) .fox_bb_resource("wcbk", "team_stats", team_id = team_id)
 
+#' @title
 #' **Get Fox Sports basketball team game log**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team game
+#' log.** `fox_wnba_team_gamelog()` hits the `wnba` slug;
+#' `fox_wbb_team_gamelog()` hits the `wcbk` slug.
 #' @name fox_basketball_team_gamelog
 #' @param team_id Fox Bifrost team id.
-#' @return A `hoopR_data` tibble (long): `team_id`, `season_type`, `category`,
+#' @return A `wehoop_data` tibble (long): `team_id`, `season_type`, `category`,
 #'   `game_id`, `game_date`, `opponent`, `stat`, `value`.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_team_gamelog("1")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_team_gamelog("1"))
+#' }
 fox_wnba_team_gamelog <- function(team_id) .fox_bb_resource("wnba", "gamelog", team_id = team_id)
 #' @rdname fox_basketball_team_gamelog
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_team_gamelog("11"))
+#' }
 fox_wbb_team_gamelog <- function(team_id) .fox_bb_resource("wcbk", "gamelog", team_id = team_id)
 
+#' @title
 #' **Get Fox Sports basketball standings**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB)
+#' standings.** `fox_wnba_standings()` hits the `wnba` slug;
+#' `fox_wbb_standings()` hits the `wcbk` slug.
 #' @name fox_basketball_standings
 #' @param team_id Fox Bifrost team id (standings of that team's conference/division).
-#' @return A `hoopR_data` tibble of standings rows (`team_id`, `section`, the
+#' @return A `wehoop_data` tibble of standings rows (`team_id`, `section`, the
 #'   standings columns, `entity_id`).
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_standings("1")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_standings("1"))
+#' }
 fox_wnba_standings <- function(team_id) .fox_bb_resource("wnba", "standings", team_id = team_id)
 #' @rdname fox_basketball_standings
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_standings("11"))
+#' }
 fox_wbb_standings <- function(team_id) .fox_bb_resource("wcbk", "standings", team_id = team_id)
 
+#' @title
 #' **Get Fox Sports basketball statistical leaders**
+#' @description
+#' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB)
+#' statistical leaders.** `fox_wnba_league_leaders()` hits the `wnba` slug;
+#' `fox_wbb_league_leaders()` hits the `wcbk` slug.
 #' @name fox_basketball_league_leaders
 #' @param category Stat category (default `"scoring"`).
 #' @param who `"player"` or `"team"` (default `"player"`).
 #' @param page 0-based page index (default `0`).
-#' @return A `hoopR_data` tibble of leaderboard rows (`entity_id` + stat columns).
+#' @return A `wehoop_data` tibble of leaderboard rows (`entity_id` + stat columns).
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
 #' @export
-#' @examples \donttest{ try(fox_wnba_league_leaders("scoring")) }
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_league_leaders("scoring"))
+#' }
 fox_wnba_league_leaders <- function(category = "scoring", who = "player", page = 0) {
   .fox_bb_resource("wnba", "league_leaders", category = category, who = who, page = page)
 }
 #' @rdname fox_basketball_league_leaders
 #' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_league_leaders("scoring"))
+#' }
 fox_wbb_league_leaders <- function(category = "scoring", who = "player", page = 0) {
   .fox_bb_resource("wcbk", "league_leaders", category = category, who = who, page = page)
 }

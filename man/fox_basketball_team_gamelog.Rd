@@ -14,12 +14,30 @@ fox_wbb_team_gamelog(team_id)
 \item{team_id}{Fox Bifrost team id.}
 }
 \value{
-A \code{hoopR_data} tibble (long): \code{team_id}, \code{season_type}, \code{category},
+A \code{wehoop_data} tibble (long): \code{team_id}, \code{season_type}, \code{category},
 \code{game_id}, \code{game_date}, \code{opponent}, \code{stat}, \code{value}.
 }
 \description{
-\strong{Get Fox Sports basketball team game log}
+\strong{Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team game
+log.} \code{fox_wnba_team_gamelog()} hits the \code{wnba} slug;
+\code{fox_wbb_team_gamelog()} hits the \code{wcbk} slug.
 }
 \examples{
-\donttest{ try(fox_wnba_team_gamelog("1")) }
+\donttest{
+  try(fox_wnba_team_gamelog("1"))
 }
+\donttest{
+  try(fox_wbb_team_gamelog("11"))
+}
+}
+\seealso{
+Other Fox Sports Functions: 
+\code{\link{fox_basketball_boxscore}},
+\code{\link{fox_basketball_league_leaders}},
+\code{\link{fox_basketball_odds}},
+\code{\link{fox_basketball_pbp}},
+\code{\link{fox_basketball_standings}},
+\code{\link{fox_basketball_team_roster}},
+\code{\link{fox_basketball_team_stats}}
+}
+\concept{Fox Sports Functions}

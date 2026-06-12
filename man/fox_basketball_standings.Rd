@@ -14,12 +14,30 @@ fox_wbb_standings(team_id)
 \item{team_id}{Fox Bifrost team id (standings of that team's conference/division).}
 }
 \value{
-A \code{hoopR_data} tibble of standings rows (\code{team_id}, \code{section}, the
+A \code{wehoop_data} tibble of standings rows (\code{team_id}, \code{section}, the
 standings columns, \code{entity_id}).
 }
 \description{
-\strong{Get Fox Sports basketball standings}
+\strong{Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB)
+standings.} \code{fox_wnba_standings()} hits the \code{wnba} slug;
+\code{fox_wbb_standings()} hits the \code{wcbk} slug.
 }
 \examples{
-\donttest{ try(fox_wnba_standings("1")) }
+\donttest{
+  try(fox_wnba_standings("1"))
 }
+\donttest{
+  try(fox_wbb_standings("11"))
+}
+}
+\seealso{
+Other Fox Sports Functions: 
+\code{\link{fox_basketball_boxscore}},
+\code{\link{fox_basketball_league_leaders}},
+\code{\link{fox_basketball_odds}},
+\code{\link{fox_basketball_pbp}},
+\code{\link{fox_basketball_team_gamelog}},
+\code{\link{fox_basketball_team_roster}},
+\code{\link{fox_basketball_team_stats}}
+}
+\concept{Fox Sports Functions}
