@@ -3,7 +3,7 @@
 
 # Internal: assemble the wide team crosswalk from already-fetched source frames.
 #' @keywords internal
-#' @importFrom dplyr transmute left_join mutate select coalesce if_else
+#' @importFrom dplyr transmute left_join mutate select if_else
 .bb_assemble_team_crosswalk_wnba <- function(espn, stats, fox, season) {
   espn2 <- dplyr::transmute(
     espn,
@@ -235,13 +235,24 @@ wnba_schedule_crosswalk <- function(season = most_recent_wnba_season()) {
     )
   })
   espn_games <- dplyr::bind_rows(espn_list)
+  # Guard: if every scoreboard call returned NULL, build a properly-typed empty
+  # frame so the assembler's transmute() does not error on missing columns.
+  if (!nrow(espn_games)) {
+    espn_games <- data.frame(
+      espn_game_id   = character(),
+      game_date      = as.Date(character()),
+      espn_home_team_id = integer(),
+      espn_away_team_id = integer(),
+      stringsAsFactors = FALSE
+    )
+  }
 
   .bb_assemble_schedule_crosswalk_wnba(espn_games, stats_games, team_xwalk, season) |>
     make_wehoop_data("WNBA schedule crosswalk (ESPN / WNBA Stats)", Sys.time())
 }
 
 #' @keywords internal
-#' @importFrom dplyr transmute left_join mutate select bind_rows
+#' @importFrom dplyr transmute left_join mutate select
 .bb_assemble_player_crosswalk_wnba <- function(espn, stats, fox, season, min_confidence = 0.92) {
   espn2 <- dplyr::mutate(espn, .block = as.character(.data$espn_team_id),
                          .name_key = .bb_normalize_name(.data$espn_full_name))
@@ -352,7 +363,7 @@ NULL
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
 #' @param min_confidence Jaro-Winkler similarity floor for fuzzy matches (default 0.92).
 #' @return A `wehoop_data` tibble, one row per player per team (ESPN-anchored).
-#' @importFrom dplyr transmute bind_rows
+#' @importFrom dplyr transmute
 #' @importFrom purrr map list_rbind
 #' @export
 #' @family WNBA Crosswalk Functions

@@ -44,4 +44,7 @@ Other Fox Sports Functions:
 \code{\link{fox_basketball_team_stats}},
 \code{\link{fox_wbb_teams_all}()}
 }
+\author{
+Saiem Gilani
+}
 \concept{Fox Sports Functions}

@@ -28,6 +28,21 @@
 
 # **wehoop 3.0.0**
 
+### **WNBA cross-source crosswalk (`wnba_*_crosswalk` / `load_wnba_*_crosswalk`)**
+
+Three new live builders — `wnba_team_crosswalk()`, `wnba_schedule_crosswalk()`,
+`wnba_player_crosswalk()` — and three cached loaders —
+`load_wnba_team_crosswalk()`, `load_wnba_schedule_crosswalk()`,
+`load_wnba_player_crosswalk()` — link ESPN, WNBA Stats API, and Fox Sports
+team/game/player identities into wide, one-row-per-entity tibbles keyed on
+`espn_team_id`. Team and schedule crosswalks use deterministic normalized-name
+joins; player matching uses blocked Jaro-Winkler fuzzy matching with
+jersey/DOB tiebreakers (`min_confidence = 0.92`). Yahoo columns are NA
+placeholders reserved for a future source. A new `fox_wnba_teams()` /
+`fox_wbb_teams()` wrapper provides the Fox Bifrost team directory used by
+the crosswalk engine. Cached artifacts are backed by the `wnba_crosswalk`
+release tag in `sportsdataverse-data`.
+
 ### **Fox Sports basketball wrappers (`fox_wnba_*` / `fox_wbb_*`)**
 
 Read-only Fox Sports "Bifrost" basketball wrappers over

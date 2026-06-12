@@ -172,9 +172,20 @@ reference:
     contents:
       - '`wehoop_loaders`'
   - subtitle: Fox Sports Data Functions
-    desc: Read-only Fox Sports (Bifrost) WNBA + WBB wrappers (play-by-play, boxscore, odds, roster, stats, game log, standings, leaders)
+    desc: Read-only Fox Sports (Bifrost) WNBA + WBB wrappers (play-by-play, boxscore, odds, roster, stats, game log, standings, teams, leaders)
     contents:
       - starts_with("fox_")
+  - subtitle: WNBA Crosswalk Functions
+    desc: >
+      Live builders and cached loaders that link ESPN, WNBA Stats API, and Fox
+      team/game/player identities. Keyed on `espn_team_id`.
+    contents:
+      - '`wnba_team_crosswalk`'
+      - '`wnba_schedule_crosswalk`'
+      - '`wnba_player_crosswalk`'
+      - '`load_wnba_team_crosswalk`'
+      - '`load_wnba_schedule_crosswalk`'
+      - '`load_wnba_player_crosswalk`'
   - subtitle: WNBA Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
     contents:
