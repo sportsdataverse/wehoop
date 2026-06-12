@@ -73,16 +73,16 @@ Other WNBA Stats loader functions:
 #> # A tibble: 1,206 × 209
 #>    player_id player_name    nickname team_id team_abbreviation age   gp    w    
 #>    <chr>     <chr>          <chr>    <chr>   <chr>             <chr> <chr> <chr>
-#>  1 1628932   A'ja Wilson    A'ja     161166… LVA               29    11    8    
+#>  1 1628932   A'ja Wilson    A'ja     161166… LVA               29    12    9    
 #>  2 1642290   Aaliyah Edwar… Aaliyah  161166… CON               23    8     1    
-#>  3 1642801   Aaliyah Nye    Aaliyah  161166… ATL               23    9     6    
-#>  4 1642786   Aicha Couliba… Aicha    161166… CHI               24    6     2    
-#>  5 1629501   Alanna Smith   Alanna   161166… DAL               29    10    6    
+#>  3 1642801   Aaliyah Nye    Aaliyah  161166… ATL               23    10    6    
+#>  4 1642786   Aicha Couliba… Aicha    161166… CHI               24    7     2    
+#>  5 1629501   Alanna Smith   Alanna   161166… DAL               29    11    7    
 #>  6 1643525   Alex Fowler    Alex     161166… NYL               24    2     1    
 #>  7 1642775   Alex Wilson    Alex     161166… WAS               32    4     2    
 #>  8 1643644   Alicia Florez  Alicia   161166… WAS               22    5     2    
-#>  9 1641648   Aliyah Boston  Aliyah   161166… IND               24    10    5    
-#> 10 1628277   Allisha Gray   Allisha  161166… ATL               31    11    8    
+#>  9 1641648   Aliyah Boston  Aliyah   161166… IND               24    11    6    
+#> 10 1628277   Allisha Gray   Allisha  161166… ATL               31    12    8    
 #> # ℹ 1,196 more rows
 #> # ℹ 201 more variables: l <chr>, w_pct <chr>, min <chr>, fgm <chr>, fga <chr>,
 #> #   fg_pct <chr>, fg3m <chr>, fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,

@@ -39,7 +39,8 @@ Other Fox Sports Functions:
 [`fox_basketball_standings`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md),
 [`fox_basketball_team_gamelog`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_gamelog.md),
 [`fox_basketball_team_roster`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md),
-[`fox_basketball_team_stats`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md)
+[`fox_basketball_team_stats`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md),
+[`fox_basketball_teams`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
 
 ## Examples
 
@@ -47,26 +48,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:21 UTC
+#> ℹ Data updated: 2026-06-12 14:20:40 UTC
 #> # A tibble: 75 × 6
-#>    players v2              gp    entity_id min   mpg  
-#>    <chr>   <chr>           <chr> <chr>     <chr> <chr>
-#>  1 1       S. Dolson       14    31        NA    NA   
-#>  2 2       N. Hiedeman     14    239       NA    NA   
-#>  3 3       J. Melbourne    14    640       NA    NA   
-#>  4 4       D. Miller       14    718       NA    NA   
-#>  5 5       J. Horston      14    720       NA    NA   
-#>  6 6       Z. Cooke        14    726       NA    NA   
-#>  7 7       M. Holmes       14    738       NA    NA   
-#>  8 8       S. Rivers       14    848       NA    NA   
-#>  9 9       F. Johnson      14    917       NA    NA   
-#> 10 10      C. Leger-Walker 14    922       NA    NA   
+#>    players v2             gp    entity_id min   mpg  
+#>    <chr>   <chr>          <chr> <chr>     <chr> <chr>
+#>  1 1       S. Dolson      14    31        NA    NA   
+#>  2 2       D. Bonner      14    211       NA    NA   
+#>  3 3       N. Hiedeman    14    239       NA    NA   
+#>  4 4       M. Gustafson   14    264       NA    NA   
+#>  5 5       L. Geiselsöder 14    562       NA    NA   
+#>  6 6       N. Mack        14    574       NA    NA   
+#>  7 7       E. Engstler    14    635       NA    NA   
+#>  8 8       J. Melbourne   14    640       NA    NA   
+#>  9 9       D. Miller      14    718       NA    NA   
+#> 10 10      J. Horston     14    720       NA    NA   
 #> # ℹ 65 more rows
 # }
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:21 UTC
+#> ℹ Data updated: 2026-06-12 14:20:40 UTC
 #> # A tibble: 100 × 8
 #>    players v2          gp    entity_id gs    mpg   ppg   pts  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>

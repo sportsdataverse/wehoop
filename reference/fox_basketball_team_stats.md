@@ -32,7 +32,8 @@ Other Fox Sports Functions:
 [`fox_basketball_pbp`](https://wehoop.sportsdataverse.org/reference/fox_basketball_pbp.md),
 [`fox_basketball_standings`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md),
 [`fox_basketball_team_gamelog`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_gamelog.md),
-[`fox_basketball_team_roster`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md)
+[`fox_basketball_team_roster`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md),
+[`fox_basketball_teams`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
 
 ## Examples
 
@@ -40,32 +41,32 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:24 UTC
+#> ℹ Data updated: 2026-06-12 14:20:44 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
-#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.2 
-#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   12.2 
-#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   55.0 
-#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 6.6  
-#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  31   
-#>  6 1       PLAYER STATS DEFENSE    BLK               Angel Reese   10   
+#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.1 
+#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   11.9 
+#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   56.1 
+#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 6.7  
+#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  35   
+#>  6 1       PLAYER STATS DEFENSE    BLK               Angel Reese   11   
 #>  7 1       PLAYER STATS MISC       DBL DBL           Angel Reese   8    
-#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  122.1
-#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.5 
-#> 10 1       TEAM STATS   SCORING    PPG               NA            85.5 
-#> 11 1       TEAM STATS   REBOUNDING RPG               NA            37.0 
+#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  121.6
+#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.6 
+#> 10 1       TEAM STATS   SCORING    PPG               NA            85.8 
+#> 11 1       TEAM STATS   REBOUNDING RPG               NA            35.9 
 #> 12 1       TEAM STATS   SHOOTING   FG%               NA            43.4 
-#> 13 1       TEAM STATS   ASSISTS    APG               NA            19.5 
-#> 14 1       TEAM STATS   DEFENSE    STL               NA            103  
-#> 15 1       TEAM STATS   DEFENSE    BLK               NA            32   
+#> 13 1       TEAM STATS   ASSISTS    APG               NA            19.7 
+#> 14 1       TEAM STATS   DEFENSE    STL               NA            114  
+#> 15 1       TEAM STATS   DEFENSE    BLK               NA            34   
 #> 16 1       TEAM STATS   MISC       DBL DBL           NA            11   
-#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            8.4  
+#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            6.2  
 # }
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:24 UTC
+#> ℹ Data updated: 2026-06-12 14:20:44 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>

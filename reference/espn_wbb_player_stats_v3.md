@@ -146,7 +146,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_player_stats_v3(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:19:23 UTC
+#> ℹ Data updated: 2026-06-12 14:19:35 UTC
 #> # A tibble: 5 × 46
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>

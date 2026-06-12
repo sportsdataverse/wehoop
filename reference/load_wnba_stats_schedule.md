@@ -71,20 +71,20 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 180 × 29
+#> # A tibble: 188 × 29
 #>    SEASON_ID TEAM_ID TEAM_ABBREVIATION TEAM_NAME GAME_ID GAME_DATE MATCHUP WL   
 #>    <chr>     <chr>   <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
-#>  1 22026     161166… LAS               Los Ange… 102260… 2026-06-… LAS @ … W    
-#>  2 22026     161166… TOR               Toronto … 102260… 2026-06-… TOR vs… W    
-#>  3 22026     161166… SEA               Seattle … 102260… 2026-06-… SEA vs… L    
-#>  4 22026     161166… CON               Connecti… 102260… 2026-06-… CON @ … L    
-#>  5 22026     161166… MIN               Minnesot… 102260… 2026-06-… MIN vs… W    
-#>  6 22026     161166… DAL               Dallas W… 102260… 2026-06-… DAL @ … L    
-#>  7 22026     161166… ATL               Atlanta … 102260… 2026-06-… ATL @ … W    
-#>  8 22026     161166… PHX               Phoenix … 102260… 2026-06-… PHX @ … L    
-#>  9 22026     161166… CHI               Chicago … 102260… 2026-06-… CHI vs… L    
-#> 10 22026     161166… GSV               Golden S… 102260… 2026-06-… GSV vs… W    
-#> # ℹ 170 more rows
+#>  1 22026     161166… PDX               Portland… 102260… 2026-06-… PDX vs… L    
+#>  2 22026     161166… CHI               Chicago … 102260… 2026-06-… CHI @ … L    
+#>  3 22026     161166… ATL               Atlanta … 102260… 2026-06-… ATL vs… L    
+#>  4 22026     161166… DAL               Dallas W… 102260… 2026-06-… DAL vs… W    
+#>  5 22026     161166… NYL               New York… 102260… 2026-06-… NYL @ … W    
+#>  6 22026     161166… LVA               Las Vega… 102260… 2026-06-… LVA @ … W    
+#>  7 22026     161166… PHX               Phoenix … 102260… 2026-06-… PHX @ … L    
+#>  8 22026     161166… IND               Indiana … 102260… 2026-06-… IND vs… W    
+#>  9 22026     161166… LAS               Los Ange… 102260… 2026-06-… LAS @ … W    
+#> 10 22026     161166… SEA               Seattle … 102260… 2026-06-… SEA vs… L    
+#> # ℹ 178 more rows
 #> # ℹ 21 more variables: MIN <chr>, PTS <chr>, FGM <chr>, FGA <chr>,
 #> #   FG_PCT <chr>, FG3M <chr>, FG3A <chr>, FG3_PCT <chr>, FTM <chr>, FTA <chr>,
 #> #   FT_PCT <chr>, OREB <chr>, DREB <chr>, REB <chr>, AST <chr>, STL <chr>,

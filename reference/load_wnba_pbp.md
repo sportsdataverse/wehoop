@@ -92,20 +92,20 @@ A dataframe with 42 columns
 # \donttest{
   try(load_wnba_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 37,416 × 64
+#> # A tibble: 39,166 × 64
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  Oliv…          0
-#>  2                2   4.02e 9               7     144 Driving … Mari…          0
-#>  3                3   4.02e 9               8     156 Offensiv… Laur…          0
-#>  4                4   4.02e 9               9      92 Jump Shot Mari…          0
-#>  5                5   4.02e10              11     114 Turnarou… Aali…          2
-#>  6                6   4.02e10              13     141 Cutting … Laur…          2
-#>  7                7   4.02e10              16     128 Driving … Aali…          4
-#>  8                8   4.02e10              17      90 Out of B… Mari…          4
-#>  9                9   4.02e10              18      90 Out of B… Aali…          4
-#> 10               10   4.02e10              19      92 Jump Shot Mari…          4
-#> # ℹ 37,406 more rows
+#>  1                1   4.02e 9               4     615 Jumpball  Kami…          0
+#>  2                2   4.02e 9               7     128 Driving … Kels…          0
+#>  3                3   4.02e 9               8     156 Offensiv… Moni…          0
+#>  4                4   4.02e 9               9      92 Jump Shot Aliy…          0
+#>  5                5   4.02e10              10     156 Offensiv… Lexi…          0
+#>  6                6   4.02e10              11     125 Layup Sh… Lexi…          0
+#>  7                7   4.02e10              12     156 Offensiv… Lexi…          0
+#>  8                8   4.02e10              14      92 Jump Shot Kels…          0
+#>  9                9   4.02e10              15     155 Defensiv… Azur…          0
+#> 10               10   4.02e10              16      45 Personal… Moni…          0
+#> # ℹ 39,156 more rows
 #> # ℹ 57 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,

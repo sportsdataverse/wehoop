@@ -54,7 +54,7 @@ Other WNBA Basketball-Reference Functions:
 # \donttest{
   try(bref_wnba_player_stats(season = 2024, table = "per_game"))
 #> ── WNBA player season stats from basketball-reference.com ────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:18:54 UTC
+#> ℹ Data updated: 2026-06-12 14:19:05 UTC
 #> # A tibble: 183 × 30
 #>    player team  pos       g    mp   g_1    gs mp_per_g fg_per_g fga_per_g fg_pct
 #>    <chr>  <chr> <chr> <dbl> <dbl> <dbl> <dbl>    <dbl>    <dbl>     <dbl>  <dbl>

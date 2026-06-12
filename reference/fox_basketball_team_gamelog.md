@@ -32,7 +32,8 @@ Other Fox Sports Functions:
 [`fox_basketball_pbp`](https://wehoop.sportsdataverse.org/reference/fox_basketball_pbp.md),
 [`fox_basketball_standings`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md),
 [`fox_basketball_team_roster`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md),
-[`fox_basketball_team_stats`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md)
+[`fox_basketball_team_stats`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md),
+[`fox_basketball_teams`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
 
 ## Examples
 
@@ -40,7 +41,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:23 UTC
+#> ℹ Data updated: 2026-06-12 14:20:43 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -59,7 +60,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 02:20:23 UTC
+#> ℹ Data updated: 2026-06-12 14:20:43 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>

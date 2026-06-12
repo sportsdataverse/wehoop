@@ -107,16 +107,16 @@ Other WNBA Stats loader functions:
 #> # A tibble: 90 × 177
 #>    team_id    team_name   gp    w     l     w_pct min   fgm   fga   fg_pct fg3m 
 #>    <chr>      <chr>       <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>  <chr>
-#>  1 1611661330 Atlanta Dr… 11    8     3     0.727 40    29.5  68.1  0.434  8.7  
-#>  2 1611661329 Chicago Sky 12    4     8     0.333 40    27.8  67.3  0.414  6.1  
+#>  1 1611661330 Atlanta Dr… 12    8     4     0.667 40    29.8  68.7  0.434  8.8  
+#>  2 1611661329 Chicago Sky 13    4     9     0.308 40.4  28.3  68    0.416  6.2  
 #>  3 1611661323 Connecticu… 14    2     12    0.143 40.4  28.8  68.6  0.42   5.2  
-#>  4 1611661321 Dallas Win… 11    7     4     0.636 40    32.5  71.7  0.452  8.7  
+#>  4 1611661321 Dallas Win… 12    8     4     0.667 40    32.8  71.7  0.458  8.3  
 #>  5 1611661331 Golden Sta… 12    7     5     0.583 40    28.9  70.8  0.408  12.1 
-#>  6 1611661325 Indiana Fe… 11    6     5     0.545 40.5  30.6  68.7  0.446  9.1  
-#>  7 1611661319 Las Vegas … 11    8     3     0.727 40    33.9  70.2  0.483  8.1  
+#>  6 1611661325 Indiana Fe… 12    7     5     0.583 40.8  31.3  70.3  0.446  8.9  
+#>  7 1611661319 Las Vegas … 12    9     3     0.75  40    34.1  70.3  0.485  8.6  
 #>  8 1611661320 Los Angele… 12    6     6     0.5   40    31    66.8  0.464  8.5  
 #>  9 1611661324 Minnesota … 12    10    2     0.833 40    35    69.7  0.502  7.7  
-#> 10 1611661313 New York L… 12    8     4     0.667 40.4  29.2  64.7  0.451  9.4  
+#> 10 1611661313 New York L… 13    9     4     0.692 40.4  29.4  64.2  0.457  9.9  
 #> # ℹ 80 more rows
 #> # ℹ 166 more variables: fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
 #> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,

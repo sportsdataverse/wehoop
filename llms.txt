@@ -173,7 +173,7 @@ wehoop loader family overview (WNBA + WBB release loaders)
 ### Fox Sports Data Functions
 
 Read-only Fox Sports (Bifrost) WNBA + WBB wrappers (play-by-play,
-boxscore, odds, roster, stats, game log, standings, leaders)
+boxscore, odds, roster, stats, game log, standings, teams, leaders)
 
 - [`fox_wnba_boxscore()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md)
   [`fox_wbb_boxscore()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md)
@@ -222,6 +222,48 @@ boxscore, odds, roster, stats, game log, standings, leaders)
   :
 
   **Get Fox Sports basketball team stat leaders**
+
+- [`fox_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+  [`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+  :
+
+  **Get Fox Sports basketball team directory**
+
+### WNBA Crosswalk Functions
+
+Live builders and cached loaders that link ESPN, WNBA Stats API, and Fox
+team/game/player identities. Team and player crosswalks are keyed on
+`espn_team_id`; schedule crosswalk is keyed on `espn_game_id`.
+
+- [`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)
+  :
+
+  **Get the WNBA cross-source team crosswalk**
+
+- [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)
+  :
+
+  **Get the WNBA cross-source schedule crosswalk**
+
+- [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
+  :
+
+  **Get the WNBA cross-source player crosswalk**
+
+- [`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_crosswalk.md)
+  :
+
+  **Load cached WNBA team crosswalk**
+
+- [`load_wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule_crosswalk.md)
+  :
+
+  **Load cached WNBA schedule crosswalk**
+
+- [`load_wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_crosswalk.md)
+  :
+
+  **Load cached WNBA player crosswalk**
 
 ### WNBA Data Functions
 
@@ -1816,6 +1858,11 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Play-by-Play V3**
 
+- [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
+  :
+
+  **Get the WNBA cross-source player crosswalk**
+
 - [`wnba_playerawards()`](https://wehoop.sportsdataverse.org/reference/wnba_playerawards.md)
   :
 
@@ -1941,6 +1988,11 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Season Schedule**
 
+- [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)
+  :
+
+  **Get the WNBA cross-source schedule crosswalk**
+
 - [`wnba_scoreboardv2()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboardv2.md)
   :
 
@@ -1971,6 +2023,11 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **WNBA Stats API Endpoint Overview**
+
+- [`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)
+  :
+
+  **Get the WNBA cross-source team crosswalk**
 
 - [`wnba_teamdashboardbyclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md)
   :

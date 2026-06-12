@@ -82,7 +82,7 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 270 × 6
+#> # A tibble: 282 × 6
 #>    official_id first_name last_name        jersey_num game_id    season
 #>    <chr>       <chr>      <chr>            <chr>      <chr>       <int>
 #>  1 202764      Charles    Watson           "6   "     1022600002   2026
@@ -95,6 +95,6 @@ Other WNBA Stats loader functions:
 #>  8 1641525     Sarah      Williams         "44  "     1022600003   2026
 #>  9 1642142     Josh       Reed             "46  "     1022600003   2026
 #> 10 201538      Maj        Forsberg         "34  "     1022600005   2026
-#> # ℹ 260 more rows
+#> # ℹ 272 more rows
 # }
 ```

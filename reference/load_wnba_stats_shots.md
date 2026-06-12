@@ -98,9 +98,9 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 10,777 × 15
+#> # A tibble: 12,144 × 15
 #>    game_id    season period clock         team_id person_id action_type sub_type
-#>    <chr>       <int>  <int> <chr>           <int>     <int> <chr>       <chr>   
+#>    <chr>       <int>  <dbl> <chr>           <int>     <int> <chr>       <chr>   
 #>  1 1022600001   2026      1 PT09M44.00S    1.61e9   1642800 Missed Shot Jump Sh…
 #>  2 1022600001   2026      1 PT09M25.00S    1.61e9   1627668 Made Shot   Turnaro…
 #>  3 1022600001   2026      1 PT09M17.00S    1.61e9   1641649 Made Shot   Driving…
@@ -111,7 +111,7 @@ Other WNBA Stats loader functions:
 #>  8 1022600001   2026      1 PT07M36.00S    1.61e9    203398 Made Shot   Turnaro…
 #>  9 1022600001   2026      1 PT07M20.00S    1.61e9   1629546 Missed Shot Step Ba…
 #> 10 1022600001   2026      1 PT07M06.00S    1.61e9    204335 Missed Shot Running…
-#> # ℹ 10,767 more rows
+#> # ℹ 12,134 more rows
 #> # ℹ 7 more variables: description <chr>, x_legacy <int>, y_legacy <int>,
 #> #   shot_distance <int>, shot_value <int>, shot_result <chr>,
 #> #   points_total <int>
