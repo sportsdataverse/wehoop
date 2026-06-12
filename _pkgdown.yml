@@ -178,7 +178,8 @@ reference:
   - subtitle: WNBA Crosswalk Functions
     desc: >
       Live builders and cached loaders that link ESPN, WNBA Stats API, and Fox
-      team/game/player identities. Keyed on `espn_team_id`.
+      team/game/player identities. Team and player crosswalks are keyed on
+      `espn_team_id`; schedule crosswalk is keyed on `espn_game_id`.
     contents:
       - '`wnba_team_crosswalk`'
       - '`wnba_schedule_crosswalk`'
