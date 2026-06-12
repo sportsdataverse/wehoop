@@ -45,6 +45,9 @@ columns are placeholders (NA) until that source is implemented.
 }
 \seealso{
 Other WNBA Crosswalk Functions: 
+\code{\link{load_wnba_player_crosswalk}()},
+\code{\link{load_wnba_schedule_crosswalk}()},
+\code{\link{load_wnba_team_crosswalk}()},
 \code{\link{wnba_player_crosswalk}()},
 \code{\link{wnba_schedule_crosswalk}()}
 }
