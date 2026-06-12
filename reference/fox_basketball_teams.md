@@ -36,7 +36,8 @@ Other Fox Sports Functions:
 [`fox_basketball_standings`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md),
 [`fox_basketball_team_gamelog`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_gamelog.md),
 [`fox_basketball_team_roster`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md),
-[`fox_basketball_team_stats`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md)
+[`fox_basketball_team_stats`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md),
+[`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
 
 ## Examples
 
@@ -44,43 +45,43 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:20:44 UTC
+#> ℹ Data updated: 2026-06-12 14:53:05 UTC
 #> # A tibble: 15 × 3
-#>    fox_team_id fox_team_name          fox_section
-#>    <chr>       <chr>                  <chr>      
-#>  1 5           New York Liberty       CONFERENCE 
-#>  2 1           Atlanta Dream          CONFERENCE 
-#>  3 4           Indiana Fever          CONFERENCE 
-#>  4 29          Toronto Tempo          CONFERENCE 
-#>  5 6           Washington Mystics     CONFERENCE 
-#>  6 2           Chicago Sky            CONFERENCE 
-#>  7 3           Connecticut Sun        CONFERENCE 
-#>  8 9           Minnesota Lynx         CONFERENCE 
-#>  9 11          Las Vegas Aces         CONFERENCE 
-#> 10 7           Dallas Wings           CONFERENCE 
-#> 11 23          Golden State Valkyries CONFERENCE 
-#> 12 8           Los Angeles Sparks     CONFERENCE 
-#> 13 30          Portland Fire          CONFERENCE 
-#> 14 10          Phoenix Mercury        CONFERENCE 
-#> 15 12          Seattle Storm          CONFERENCE 
+#>    fox_team_id fox_team_name          fox_section    
+#>    <chr>       <chr>                  <chr>          
+#>  1 5           New York Liberty       Connecticut Sun
+#>  2 1           Atlanta Dream          Connecticut Sun
+#>  3 4           Indiana Fever          Connecticut Sun
+#>  4 29          Toronto Tempo          Connecticut Sun
+#>  5 6           Washington Mystics     Connecticut Sun
+#>  6 2           Chicago Sky            Connecticut Sun
+#>  7 3           Connecticut Sun        Connecticut Sun
+#>  8 9           Minnesota Lynx         Connecticut Sun
+#>  9 11          Las Vegas Aces         Connecticut Sun
+#> 10 7           Dallas Wings           Connecticut Sun
+#> 11 23          Golden State Valkyries Connecticut Sun
+#> 12 8           Los Angeles Sparks     Connecticut Sun
+#> 13 30          Portland Fire          Connecticut Sun
+#> 14 10          Phoenix Mercury        Connecticut Sun
+#> 15 12          Seattle Storm          Connecticut Sun
 # }
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:20:44 UTC
+#> ℹ Data updated: 2026-06-12 14:53:05 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      
-#>  1 11          Uconn Huskies           CONFERENCE 
-#>  2 77          Villanova Wildcats      CONFERENCE 
-#>  3 73          Marquette Golden Eagles CONFERENCE 
-#>  4 75          Seton Hall Pirates      CONFERENCE 
-#>  5 76          St. John's Red Storm    CONFERENCE 
-#>  6 70          Creighton Bluejays      CONFERENCE 
-#>  7 74          Providence Friars       CONFERENCE 
-#>  8 72          Georgetown Hoyas        CONFERENCE 
-#>  9 69          Butler Bulldogs         CONFERENCE 
-#> 10 71          Depaul Blue Demons      CONFERENCE 
-#> 11 78          Xavier Musketeers       CONFERENCE 
+#>  1 11          Uconn Huskies           Big East   
+#>  2 77          Villanova Wildcats      Big East   
+#>  3 73          Marquette Golden Eagles Big East   
+#>  4 75          Seton Hall Pirates      Big East   
+#>  5 76          St. John's Red Storm    Big East   
+#>  6 70          Creighton Bluejays      Big East   
+#>  7 74          Providence Friars       Big East   
+#>  8 72          Georgetown Hoyas        Big East   
+#>  9 69          Butler Bulldogs         Big East   
+#> 10 71          Depaul Blue Demons      Big East   
+#> 11 78          Xavier Musketeers       Big East   
 # }
 ```

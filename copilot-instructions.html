@@ -291,6 +291,24 @@
 </ul></li>
 </ul></div>
 <div class="section level2">
+<h2 id="cross-source-crosswalk-surface">Cross-Source Crosswalk Surface<a class="anchor" aria-label="anchor" href="#cross-source-crosswalk-surface"></a></h2>
+<p>The package has a cross-source identity crosswalk layer for both WNBA and WBB, producing wide tibbles keyed on <code>espn_team_id</code>.</p>
+<p><strong>Public surface:</strong> <code><a href="reference/wnba_team_crosswalk.html">wnba_team_crosswalk()</a></code> / <code><a href="reference/wbb_team_crosswalk.html">wbb_team_crosswalk()</a></code>, <code><a href="reference/wnba_schedule_crosswalk.html">wnba_schedule_crosswalk()</a></code> / <code><a href="reference/wbb_schedule_crosswalk.html">wbb_schedule_crosswalk()</a></code>, <code><a href="reference/wnba_player_crosswalk.html">wnba_player_crosswalk()</a></code> / <code><a href="reference/wbb_player_crosswalk.html">wbb_player_crosswalk()</a></code>, plus cached <code>load_wnba_*_crosswalk()</code> / <code>load_wbb_*_crosswalk()</code> loaders. Supporting scrapers: <code><a href="reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code>, <code><a href="reference/bart_wbb_game_schedule.html">bart_wbb_game_schedule()</a></code>, <code><a href="reference/fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code>.</p>
+<p><strong>Engine (<code>R/crosswalk_basketball.R</code>) — internal <code>.bb_*</code> helpers:</strong></p>
+<ul><li>
+<code>.bb_normalize_college_team(x)</code> — contracting key normalizer: <code>&amp;</code> → “and”, “State” → “St”, “Saint”/“St.” → “st”; stable across spelling variants.</li>
+<li>
+<code>.bb_to_eastern(x)</code> — UTC datetime/Date → Eastern-Time <code>Date</code> (no <code>lubridate</code>; offset derived from the date itself).</li>
+<li>
+<code>.bb_fuzzy_match(left, right, min_confidence = 0.92)</code> — blocked Jaro-Winkler player matching with exact-name first pass and jersey tiebreaker; operates within <code>espn_team_id</code> blocks.</li>
+</ul><p><strong>Key conventions:</strong></p>
+<ul><li>
+<code><a href="reference/wbb_schedule_crosswalk.html">wbb_schedule_crosswalk()</a></code> passes <code>fox = &lt;empty frame&gt;</code> to <code><a href="reference/wbb_team_crosswalk.html">wbb_team_crosswalk()</a></code> to skip the expensive <code><a href="reference/fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code> enumeration (~40–60 calls). <code><a href="reference/wbb_player_crosswalk.html">wbb_player_crosswalk()</a></code> uses <code>fox = NULL</code> (default) so Fox data is fetched for player matching.</li>
+<li>Torvik games where either team cannot resolve to an ESPN id surface as <code>bart_only</code> rows (ESPN columns NA) — they are never silently dropped.</li>
+<li>WBB alias tables (<code>.wbb_bart_alias</code>, <code>.wbb_fox_display_alias</code>) bridge name divergences before normalization.</li>
+<li>Live crosswalk tests carry <code>skip_on_cran()</code> + <code>skip_on_ci()</code> + a source-specific env-var skip + a <code>skip_if(nrow(...) == 0, ...)</code> empty guard immediately after each fetch.</li>
+</ul></div>
+<div class="section level2">
 <h2 id="v3-api-notes">V3 API Notes<a class="anchor" aria-label="anchor" href="#v3-api-notes"></a></h2>
 <ul><li>V3 endpoints return nested JSON – use <code><a href="https://purrr.tidyverse.org/reference/pluck.html" class="external-link">purrr::pluck()</a></code> for extraction.</li>
 <li>V3 PBP clock format is <code>"PT10M30.00S"</code> not <code>"MM:SS"</code>. Parsed with base R <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">regexec()</a></code>/<code><a href="https://rdrr.io/r/base/regmatches.html" class="external-link">regmatches()</a></code>.</li>

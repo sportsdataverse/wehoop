@@ -282,6 +282,57 @@ regions by hand.
     `@keywords internal` excludes a function from the rendered index by
     default.
 
+## Cross-Source Crosswalk Surface
+
+The package has a cross-source identity crosswalk layer for both WNBA
+and WBB, producing wide tibbles keyed on `espn_team_id`.
+
+**Public surface:**
+[`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)
+/
+[`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md),
+[`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)
+/
+[`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md),
+[`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
+/
+[`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md),
+plus cached `load_wnba_*_crosswalk()` / `load_wbb_*_crosswalk()`
+loaders. Supporting scrapers:
+[`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md),
+[`bart_wbb_game_schedule()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_game_schedule.md),
+[`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md).
+
+**Engine (`R/crosswalk_basketball.R`) — internal `.bb_*` helpers:**
+
+- `.bb_normalize_college_team(x)` — contracting key normalizer: `&` →
+  “and”, “State” → “St”, “Saint”/“St.” → “st”; stable across spelling
+  variants.
+- `.bb_to_eastern(x)` — UTC datetime/Date → Eastern-Time `Date` (no
+  `lubridate`; offset derived from the date itself).
+- `.bb_fuzzy_match(left, right, min_confidence = 0.92)` — blocked
+  Jaro-Winkler player matching with exact-name first pass and jersey
+  tiebreaker; operates within `espn_team_id` blocks.
+
+**Key conventions:**
+
+- [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md)
+  passes `fox = <empty frame>` to
+  [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
+  to skip the expensive
+  [`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
+  enumeration (~40–60 calls).
+  [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md)
+  uses `fox = NULL` (default) so Fox data is fetched for player
+  matching.
+- Torvik games where either team cannot resolve to an ESPN id surface as
+  `bart_only` rows (ESPN columns NA) — they are never silently dropped.
+- WBB alias tables (`.wbb_bart_alias`, `.wbb_fox_display_alias`) bridge
+  name divergences before normalization.
+- Live crosswalk tests carry `skip_on_cran()` + `skip_on_ci()` + a
+  source-specific env-var skip + a `skip_if(nrow(...) == 0, ...)` empty
+  guard immediately after each fetch.
+
 ## V3 API Notes
 
 - V3 endpoints return nested JSON – use

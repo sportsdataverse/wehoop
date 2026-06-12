@@ -133,7 +133,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_leaders(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Leaders ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:20:12 UTC
+#> ℹ Data updated: 2026-06-12 14:52:33 UTC
 #> # A tibble: 28 × 11
 #>    league event_id  team_id category_name category_display category_abbrev  rank
 #>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>           <int>

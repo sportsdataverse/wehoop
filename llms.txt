@@ -229,6 +229,11 @@ boxscore, odds, roster, stats, game log, standings, teams, leaders)
 
   **Get Fox Sports basketball team directory**
 
+- [`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
+  :
+
+  **Get the full Fox Sports women's college basketball team directory**
+
 ### WNBA Crosswalk Functions
 
 Live builders and cached loaders that link ESPN, WNBA Stats API, and Fox
@@ -264,6 +269,58 @@ team/game/player identities. Team and player crosswalks are keyed on
   :
 
   **Load cached WNBA player crosswalk**
+
+### WBB Crosswalk Functions
+
+Live builders and cached loaders that link ESPN, Fox Sports (Bifrost),
+and Bart Torvik (barttorvik.com/ncaaw) WBB team/game/player identities.
+Keyed on `espn_team_id`. Also includes women’s Torvik ratings/schedule
+scrapers and the Fox full-directory enumerator.
+
+- [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
+  :
+
+  **Get the WBB cross-source team crosswalk**
+
+- [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md)
+  :
+
+  **Get the WBB cross-source schedule crosswalk**
+
+- [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md)
+  :
+
+  **Get the WBB cross-source player crosswalk**
+
+- [`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_crosswalk.md)
+  :
+
+  **Load cached WBB team crosswalk**
+
+- [`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule_crosswalk.md)
+  :
+
+  **Load cached WBB schedule crosswalk**
+
+- [`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
+  :
+
+  **Load cached WBB player crosswalk**
+
+- [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md)
+  :
+
+  **Bart Torvik Women's T-Rank Ratings**
+
+- [`bart_wbb_game_schedule()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_game_schedule.md)
+  :
+
+  **Bart Torvik Women's Season Schedule & Results**
+
+- [`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
+  :
+
+  **Get the full Fox Sports women's college basketball team directory**
 
 ### WNBA Data Functions
 

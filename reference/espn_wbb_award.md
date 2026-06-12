@@ -139,7 +139,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_award(award_id = 344, season = 2024)
-#> ✖ 2026-06-12 14:19:10.619281: Failed to retrieve ESPN womens-college-basketball award 344 for season=2024
+#> ✖ 2026-06-12 14:51:35.59663: Failed to retrieve ESPN womens-college-basketball award 344 for season=2024
 #> ✖ Args: league = "womens-college-basketball", season = 2024, award_id = 344
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

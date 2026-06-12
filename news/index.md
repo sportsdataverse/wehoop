@@ -2,6 +2,39 @@
 
 ## **wehoop 3.0.0**
 
+#### **WBB cross-source crosswalk (`wbb_*_crosswalk` / `load_wbb_*_crosswalk`)**
+
+Three new live builders —
+[`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md),
+[`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md),
+[`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md)
+— and three cached loaders —
+[`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_crosswalk.md),
+[`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule_crosswalk.md),
+[`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
+— link ESPN, Fox Sports (Bifrost), and Bart Torvik
+(barttorvik.com/ncaaw) WBB team/game/player identities into wide,
+one-row-per-entity tibbles keyed on `espn_team_id`. Team and schedule
+crosswalks use deterministic normalized-name joins with curated alias
+tables for known ESPN/Fox/Torvik name divergences (e.g. “UConn” /
+“Connecticut”, “Ole Miss” / “Mississippi”); player matching uses blocked
+Jaro-Winkler fuzzy matching with jersey tiebreakers
+(`min_confidence = 0.92`). Yahoo columns are NA placeholders reserved
+for a future source.
+
+Two new women’s Bart Torvik scrapers —
+[`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md)
+(T-Rank team ratings) and
+[`bart_wbb_game_schedule()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_game_schedule.md)
+(full season schedule + results) — pull CSV/JSON from
+barttorvik.com/ncaaw. A new
+[`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
+enumerator walks unseen Fox team ids to assemble the complete WBB team
+directory (single
+[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+calls only return one conference at a time). Parallels the WNBA
+crosswalk surface added in the same release.
+
 #### **WNBA cross-source crosswalk (`wnba_*_crosswalk` / `load_wnba_*_crosswalk`)**
 
 Three new live builders —
