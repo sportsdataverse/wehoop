@@ -187,6 +187,22 @@ reference:
       - '`load_wnba_team_crosswalk`'
       - '`load_wnba_schedule_crosswalk`'
       - '`load_wnba_player_crosswalk`'
+  - subtitle: WBB Crosswalk Functions
+    desc: >
+      Live builders and cached loaders that link ESPN, Fox Sports (Bifrost),
+      and Bart Torvik (barttorvik.com/ncaaw) WBB team/game/player identities.
+      Keyed on `espn_team_id`. Also includes women's Torvik ratings/schedule
+      scrapers and the Fox full-directory enumerator.
+    contents:
+      - '`wbb_team_crosswalk`'
+      - '`wbb_schedule_crosswalk`'
+      - '`wbb_player_crosswalk`'
+      - '`load_wbb_team_crosswalk`'
+      - '`load_wbb_schedule_crosswalk`'
+      - '`load_wbb_player_crosswalk`'
+      - '`bart_wbb_ratings`'
+      - '`bart_wbb_game_schedule`'
+      - '`fox_wbb_teams_all`'
   - subtitle: WNBA Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's WNBA Data
     contents:

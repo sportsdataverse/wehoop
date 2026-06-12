@@ -1,0 +1,10 @@
+test_that("fox_wbb_teams_all() enumerates the full league", {
+  skip_on_cran()
+  skip_on_ci()
+  if (Sys.getenv("FOX_TESTS") != "1") skip("FOX_TESTS not set")
+  df <- fox_wbb_teams_all()
+  skip_if(nrow(df) == 0, "fox_wbb_teams_all() returned 0 rows at test time")
+  expect_s3_class(df, "wehoop_data")
+  expect_gt(nrow(df), 300)
+  expect_false(any(duplicated(df$fox_team_id)))
+})

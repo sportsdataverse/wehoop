@@ -1,20 +1,15 @@
-# load_crosswalk.R -- cached-snapshot loaders for the WNBA crosswalks.
+# load_crosswalk.R -- cached-snapshot loaders for WNBA and WBB crosswalks.
 # Reuse the rds_from_url + progressively + rbindlist plumbing used by the
-# other load_wnba_* functions. No join logic lives here.
+# other load_wnba_* / load_wbb_* functions. No join logic lives here.
 
-.load_wnba_crosswalk <- function(seasons, tag, prefix) {
+# Generic helper parameterised on release tag + file prefix.
+# Season validation (bounds, numeric check) is handled in each public wrapper
+# before delegating here, keeping the helper sport-agnostic.
+.load_wehoop_crosswalk <- function(seasons, tag, prefix) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
   loader <- rds_from_url
-
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(
-    is.numeric(seasons),
-    seasons >= 2002,
-    seasons <= most_recent_wnba_season()
-  )
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -30,6 +25,9 @@
   out
 }
 
+# ---------------------------------------------------------------------------
+# WNBA loaders
+# ---------------------------------------------------------------------------
 
 #' **Load cached WNBA team crosswalk**
 #' @name load_wnba_team_crosswalk
@@ -50,7 +48,13 @@ NULL
 #'   try(load_wnba_team_crosswalk(seasons = most_recent_wnba_season()))
 #' }
 load_wnba_team_crosswalk <- function(seasons = most_recent_wnba_season()) {
-  .load_wnba_crosswalk(seasons, "wnba_crosswalk", "wnba_team_crosswalk")
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2002,
+    seasons <= most_recent_wnba_season()
+  )
+  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_team_crosswalk")
 }
 
 
@@ -73,7 +77,13 @@ NULL
 #'   try(load_wnba_schedule_crosswalk(seasons = most_recent_wnba_season()))
 #' }
 load_wnba_schedule_crosswalk <- function(seasons = most_recent_wnba_season()) {
-  .load_wnba_crosswalk(seasons, "wnba_crosswalk", "wnba_schedule_crosswalk")
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2002,
+    seasons <= most_recent_wnba_season()
+  )
+  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_schedule_crosswalk")
 }
 
 
@@ -97,5 +107,104 @@ NULL
 #'   try(load_wnba_player_crosswalk(seasons = most_recent_wnba_season()))
 #' }
 load_wnba_player_crosswalk <- function(seasons = most_recent_wnba_season()) {
-  .load_wnba_crosswalk(seasons, "wnba_crosswalk", "wnba_player_crosswalk")
+  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2002,
+    seasons <= most_recent_wnba_season()
+  )
+  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_player_crosswalk")
+}
+
+# ---------------------------------------------------------------------------
+# WBB loaders
+# ---------------------------------------------------------------------------
+
+#' **Load cached WBB team crosswalk**
+#' @name load_wbb_team_crosswalk
+NULL
+#' @title
+#' **Load cached WBB team crosswalk from the data repo**
+#' @rdname load_wbb_team_crosswalk
+#' @description Loads cached team-crosswalk snapshots that map ESPN team
+#'   identifiers to Fox Sports and Bart Torvik team identifiers for Women's
+#'   College Basketball. One row per team-season. Backed by the
+#'   `wbb_crosswalk` release tag in `sportsdataverse-data`.
+#' @param seasons A vector of 4-digit years associated with given WBB seasons.
+#'   (Min: 2014)
+#' @return A `wehoop_data` tibble of cached WBB team-crosswalk rows.
+#' @export
+#' @family WBB Crosswalk Functions
+#' @examples
+#' \donttest{
+#'   try(load_wbb_team_crosswalk(seasons = most_recent_wbb_season()))
+#' }
+load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
+  if (isTRUE(seasons)) seasons <- 2014:most_recent_wbb_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2014,
+    seasons <= most_recent_wbb_season()
+  )
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_team_crosswalk")
+}
+
+
+#' **Load cached WBB schedule crosswalk**
+#' @name load_wbb_schedule_crosswalk
+NULL
+#' @title
+#' **Load cached WBB schedule crosswalk from the data repo**
+#' @rdname load_wbb_schedule_crosswalk
+#' @description Loads cached schedule-crosswalk snapshots that map ESPN game
+#'   identifiers to Bart Torvik game identifiers for Women's College
+#'   Basketball. One row per game-season. Backed by the `wbb_crosswalk`
+#'   release tag in `sportsdataverse-data`.
+#' @param seasons A vector of 4-digit years associated with given WBB seasons.
+#'   (Min: 2014)
+#' @return A `wehoop_data` tibble of cached WBB schedule-crosswalk rows.
+#' @export
+#' @family WBB Crosswalk Functions
+#' @examples
+#' \donttest{
+#'   try(load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season()))
+#' }
+load_wbb_schedule_crosswalk <- function(seasons = most_recent_wbb_season()) {
+  if (isTRUE(seasons)) seasons <- 2014:most_recent_wbb_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2014,
+    seasons <= most_recent_wbb_season()
+  )
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_schedule_crosswalk")
+}
+
+
+#' **Load cached WBB player crosswalk**
+#' @name load_wbb_player_crosswalk
+NULL
+#' @title
+#' **Load cached WBB player crosswalk from the data repo**
+#' @rdname load_wbb_player_crosswalk
+#' @description Loads cached player-crosswalk snapshots that map ESPN athlete
+#'   identifiers to Fox Sports player identifiers for Women's College
+#'   Basketball. One row per athlete-season. Backed by the `wbb_crosswalk`
+#'   release tag in `sportsdataverse-data`.
+#' @param seasons A vector of 4-digit years associated with given WBB seasons.
+#'   (Min: 2014)
+#' @return A `wehoop_data` tibble of cached WBB player-crosswalk rows.
+#' @export
+#' @family WBB Crosswalk Functions
+#' @examples
+#' \donttest{
+#'   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
+#' }
+load_wbb_player_crosswalk <- function(seasons = most_recent_wbb_season()) {
+  if (isTRUE(seasons)) seasons <- 2014:most_recent_wbb_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2014,
+    seasons <= most_recent_wbb_season()
+  )
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_player_crosswalk")
 }

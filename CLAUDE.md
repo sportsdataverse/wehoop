@@ -9,6 +9,7 @@
 - [Project Structure](#project-structure)
 - [Key Coding Conventions](#key-coding-conventions)
 - [Testing](#testing)
+- [Cross-Source Crosswalk Surface](#cross-source-crosswalk-surface)
 - [WNBA-Specific Details](#wnba-specific-details)
 - [NAMESPACE](#namespace)
 - [Documentation Maintenance](#documentation-maintenance)
@@ -373,6 +374,61 @@ Note: in CI, many live API tests still include `skip_on_ci()` guards. Env vars a
 ### Rate Limiting
 
 WNBA Stats API: Always add `Sys.sleep(3)` at the end of each test.
+
+## Cross-Source Crosswalk Surface
+
+The package provides a cross-source identity crosswalk layer for both WNBA and
+WBB, linking ESPN, WNBA Stats API / Bart Torvik, and Fox Sports Bifrost into
+wide, one-row-per-entity tibbles keyed on `espn_team_id`.
+
+**Public builders and loaders:**
+
+| Sport | Live builders | Cached loaders |
+|-------|--------------|----------------|
+| WNBA  | `wnba_team_crosswalk()`, `wnba_schedule_crosswalk()`, `wnba_player_crosswalk()` | `load_wnba_team_crosswalk()`, `load_wnba_schedule_crosswalk()`, `load_wnba_player_crosswalk()` |
+| WBB   | `wbb_team_crosswalk()`, `wbb_schedule_crosswalk()`, `wbb_player_crosswalk()` | `load_wbb_team_crosswalk()`, `load_wbb_schedule_crosswalk()`, `load_wbb_player_crosswalk()` |
+
+**Supporting scrapers:** `bart_wbb_ratings()` and `bart_wbb_game_schedule()`
+pull T-Rank ratings and game-by-game schedules from barttorvik.com/ncaaw.
+`fox_wbb_teams_all()` enumerates the full Fox WBB team directory by walking
+unseen team ids (a single `fox_wbb_teams()` call only returns one conference).
+
+**Engine — `R/crosswalk_basketball.R`:**
+
+Internal `.bb_*` helpers shared by both WNBA and WBB:
+
+- `.bb_normalize_name(x)` — strip accents, suffixes (Jr./II/etc.), and
+  punctuation for player name matching.
+- `.bb_normalize_team(x)` — lowercase full team name, strip leading "The ".
+- `.bb_normalize_college_team(x)` — contracting normalizer: expands `&` to
+  "and", contracts "State" → "St", "Saint"/"St." → "st", handles
+  `NA`/empty; produces a stable key regardless of spelling variant.
+- `.bb_to_eastern(x)` — convert a UTC datetime string or `Date` to an
+  Eastern-Time `Date` (uses a UTC-4 / UTC-5 offset derived from the
+  date itself; no `lubridate` dependency).
+- `.bb_fuzzy_match(left, right, min_confidence)` — blocked Jaro-Winkler
+  player matching: exact name first, then JW similarity ≥ `min_confidence`
+  (default 0.92) within team-id blocks, with jersey-number tiebreaker.
+
+**Alias tables** (WBB-specific, in `R/wbb_crosswalk.R`):
+
+- `.wbb_bart_alias` — maps Torvik team names to ESPN location names before
+  normalization (e.g. "Connecticut" → "UConn", "Mississippi" → "Ole Miss").
+- `.wbb_fox_display_alias` — maps normalized Fox mascot keys to normalized
+  ESPN keys where the two sources differ (e.g. "fdu knights" →
+  "fairleigh dickinson knights").
+
+**Conventions:**
+
+- `wbb_schedule_crosswalk()` passes `fox = <empty frame>` to
+  `wbb_team_crosswalk()` so the Fox enumeration is skipped (the schedule
+  crosswalk only needs `espn_team_id` + `bart_team`). `wbb_player_crosswalk()`
+  uses the default `fox = NULL` to fetch Fox data (needed for player matching).
+- Torvik games where either team cannot be resolved to an ESPN id get
+  `pair_key = NA` and surface as `bart_only` rows (ESPN columns NA) rather
+  than being silently dropped.
+- ET date conversion (`game_date`) is applied to ESPN game datetimes before
+  the date-plus-sorted-team-pair-key join with Torvik.
 
 ## WNBA-Specific Details
 

@@ -172,7 +172,17 @@
 .fox_bb_teams <- function(raw) {
   rows <- list()
   for (s in .fox_or(raw[["standingsSections"]], list())) {
-    section <- .fox_or(s[["title"]], NA_character_)
+    # Prefer the conference name from metadata$parameters[[3]] (e.g. "America
+    # East"), fall back to pageTitle, then the generic title ("CONFERENCE").
+    meta_params <- .fox_or(s[["metadata"]][["parameters"]], list())
+    conf_name <- if (length(meta_params) >= 3) {
+      v <- meta_params[[3]]
+      if (is.character(v) && length(v) == 1 && nzchar(trimws(v))) trimws(v) else NULL
+    } else NULL
+    section <- if (!is.null(conf_name)) conf_name else {
+      pt <- .fox_or(s[["pageTitle"]], NULL)
+      if (!is.null(pt) && nchar(trimws(pt)) > 0) trimws(pt) else .fox_or(s[["title"]], NA_character_)
+    }
     for (tbl in .fox_or(s[["standings"]], list())) {
       for (r in .fox_or(tbl[["rows"]], list())) {
         cells <- .fox_cells(r[["columns"]])
@@ -481,6 +491,43 @@ fox_wnba_teams <- function(team_id = "3") .fox_bb_resource("wnba", "teams", team
 #'   try(fox_wbb_teams("11"))
 #' }
 fox_wbb_teams <- function(team_id = "11") .fox_bb_resource("wcbk", "teams", team_id = team_id)
+
+#' @title
+#' **Get the full Fox Sports women's college basketball team directory**
+#' @description
+#' **Enumerate every WBB team in the Fox Sports (Bifrost) directory.** A single
+#' `fox_wbb_teams()` call only returns the seed team's conference, so this walks
+#' unseen team ids (calling one seed per conference) and unions the results.
+#' @param max_id Highest Fox team id to probe as a seed (default `500`).
+#' @param max_calls Safety cap on the number of standings calls (default `60`).
+#' @return A `wehoop_data` tibble, one row per team: `fox_team_id`,
+#'   `fox_team_name`, `fox_section`.
+#' @importFrom dplyr bind_rows
+#' @export
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_teams_all())
+#' }
+fox_wbb_teams_all <- function(max_id = 500, max_calls = 60) {
+  seen <- character(0)
+  parts <- list()
+  calls <- 0L
+  for (cand in seq_len(max_id)) {
+    if (calls >= max_calls) break
+    if (as.character(cand) %in% seen) next
+    df <- tryCatch(fox_wbb_teams(team_id = as.character(cand)), error = function(e) NULL)
+    calls <- calls + 1L
+    if (is.null(df) || !nrow(df)) next
+    parts[[length(parts) + 1L]] <- df
+    seen <- union(seen, as.character(df$fox_team_id))
+  }
+  out <- if (length(parts)) dplyr::bind_rows(parts) else data.frame(
+    fox_team_id = character(), fox_team_name = character(), fox_section = character(),
+    stringsAsFactors = FALSE)
+  out <- out[!duplicated(out$fox_team_id), , drop = FALSE]
+  make_wehoop_data(out, "Fox Sports WBB full team directory", Sys.time())
+}
 
 #' @title
 #' **Get Fox Sports basketball statistical leaders**
