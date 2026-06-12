@@ -38,6 +38,7 @@ Other Fox Sports Functions:
 \code{\link{fox_basketball_pbp}},
 \code{\link{fox_basketball_standings}},
 \code{\link{fox_basketball_team_gamelog}},
-\code{\link{fox_basketball_team_roster}}
+\code{\link{fox_basketball_team_roster}},
+\code{\link{fox_basketball_teams}}
 }
 \concept{Fox Sports Functions}

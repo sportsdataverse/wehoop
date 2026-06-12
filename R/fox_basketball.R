@@ -169,6 +169,32 @@
   }
   dplyr::bind_rows(parts)
 }
+.fox_bb_teams <- function(raw) {
+  rows <- list()
+  for (s in .fox_or(raw[["standingsSections"]], list())) {
+    section <- .fox_or(s[["title"]], NA_character_)
+    for (tbl in .fox_or(s[["standings"]], list())) {
+      for (r in .fox_or(tbl[["rows"]], list())) {
+        cells <- .fox_cells(r[["columns"]])
+        eid <- .fox_uri_id(.fox_or(r[["entityLink"]][["contentUri"]], NULL))
+        if (is.na(eid)) next
+        # entityLink$title carries the full team name (e.g. "NEW YORK LIBERTY");
+        # the table cells lead with the rank, so fall back to the second cell.
+        title <- .fox_or(r[["entityLink"]][["title"]], NA_character_)
+        has_title <- !is.na(title) && nzchar(trimws(title))
+        nm <- if (has_title) stringr::str_to_title(tolower(title)) else .fox_or(cells[2], NA_character_)
+        rows[[length(rows) + 1]] <- data.frame(
+          fox_team_id = eid,
+          fox_team_name = nm,
+          fox_section = section,
+          stringsAsFactors = FALSE)
+      }
+    }
+  }
+  if (!length(rows)) return(data.frame())
+  out <- dplyr::bind_rows(rows)
+  out[!duplicated(out$fox_team_id), , drop = FALSE]
+}
 .fox_bb_leaders <- function(raw) {
   parts <- lapply(.fox_or(raw[["sectionList"]], list()), function(s) .fox_table_df(s[["table"]]))
   dplyr::bind_rows(parts)
@@ -208,13 +234,15 @@
         roster = .fox_bb_get(paste0(sport, "/team/", team_id, "/roster")),
         team_stats = .fox_bb_get(paste0(sport, "/team/", team_id, "/stats")),
         gamelog = .fox_bb_get(paste0(sport, "/team/", team_id, "/gamelog")),
-        standings = .fox_bb_get(paste0(sport, "/team/", team_id, "/standings")))
+        standings = .fox_bb_get(paste0(sport, "/team/", team_id, "/standings")),
+        teams = .fox_bb_get(paste0(sport, "/team/", team_id, "/standings")))
       df <- switch(
         resource,
         pbp = .fox_bb_pbp(raw, game_id), boxscore = .fox_bb_boxscore(raw, game_id),
         odds = .fox_bb_odds(raw, game_id), roster = .fox_bb_roster(raw, team_id),
         team_stats = .fox_bb_team_stats(raw, team_id), gamelog = .fox_bb_gamelog(raw, team_id),
-        standings = .fox_bb_standings(raw, team_id), league_leaders = .fox_bb_leaders(raw))
+        standings = .fox_bb_standings(raw, team_id), league_leaders = .fox_bb_leaders(raw),
+        teams = .fox_bb_teams(raw))
       out <- df |>
         dplyr::as_tibble() |>
         janitor::clean_names() |>
@@ -424,6 +452,35 @@ fox_wnba_standings <- function(team_id) .fox_bb_resource("wnba", "standings", te
 #'   try(fox_wbb_standings("11"))
 #' }
 fox_wbb_standings <- function(team_id) .fox_bb_resource("wcbk", "standings", team_id = team_id)
+
+#' @title
+#' **Get Fox Sports basketball team directory**
+#' @description
+#' **Get the Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team
+#' directory**, derived from the standings endpoint. `fox_wnba_teams()` hits the
+#' `wnba` slug; `fox_wbb_teams()` hits the `wcbk` slug.
+#' @name fox_basketball_teams
+#' @param team_id Fox Bifrost seed team id used to fetch league standings
+#'   (default `"3"`). The standings response enumerates every team in the seed's
+#'   league sections.
+#' @return A `wehoop_data` tibble, one row per team: `fox_team_id`,
+#'   `fox_team_name`, `fox_section`.
+#' @importFrom janitor clean_names
+#' @importFrom dplyr as_tibble bind_rows
+#' @export
+#' @family Fox Sports Functions
+#' @examples
+#' \donttest{
+#'   try(fox_wnba_teams())
+#' }
+fox_wnba_teams <- function(team_id = "3") .fox_bb_resource("wnba", "teams", team_id = team_id)
+#' @rdname fox_basketball_teams
+#' @export
+#' @examples
+#' \donttest{
+#'   try(fox_wbb_teams("11"))
+#' }
+fox_wbb_teams <- function(team_id = "11") .fox_bb_resource("wcbk", "teams", team_id = team_id)
 
 #' @title
 #' **Get Fox Sports basketball statistical leaders**
