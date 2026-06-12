@@ -13,6 +13,59 @@ wehoop loader family overview (WNBA + WBB release loaders)
 
   **wehoop Data Loaders Overview**
 
+### Fox Sports Data Functions
+
+Read-only Fox Sports (Bifrost) WNBA + WBB wrappers (play-by-play,
+boxscore, odds, roster, stats, game log, standings, leaders)
+
+- [`fox_wnba_boxscore()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md)
+  [`fox_wbb_boxscore()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md)
+  :
+
+  **Get Fox Sports basketball boxscore**
+
+- [`fox_wnba_league_leaders()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_league_leaders.md)
+  [`fox_wbb_league_leaders()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_league_leaders.md)
+  :
+
+  **Get Fox Sports basketball statistical leaders**
+
+- [`fox_wnba_odds()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_odds.md)
+  [`fox_wbb_odds()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_odds.md)
+  :
+
+  **Get Fox Sports basketball game odds**
+
+- [`fox_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_pbp.md)
+  [`fox_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_pbp.md)
+  :
+
+  **Get Fox Sports basketball play-by-play**
+
+- [`fox_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md)
+  [`fox_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md)
+  :
+
+  **Get Fox Sports basketball standings**
+
+- [`fox_wnba_team_gamelog()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_gamelog.md)
+  [`fox_wbb_team_gamelog()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_gamelog.md)
+  :
+
+  **Get Fox Sports basketball team game log**
+
+- [`fox_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md)
+  [`fox_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_roster.md)
+  :
+
+  **Get Fox Sports basketball team roster**
+
+- [`fox_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md)
+  [`fox_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_team_stats.md)
+  :
+
+  **Get Fox Sports basketball team stat leaders**
+
 ### WNBA Data Functions
 
 Functions exported by wehoop to access the wehoop-data repository’s WNBA

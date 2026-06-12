@@ -71,20 +71,20 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_lineups(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 3,216 × 95
+#> # A tibble: 3,406 × 95
 #>    group_set group_id     group_name team_id team_abbreviation gp    w     l    
 #>    <chr>     <chr>        <chr>      <chr>   <chr>             <chr> <chr> <chr>
-#>  1 Lineups   -203825-203… K. McBrid… 161166… MIN               11    9     2    
-#>  2 Lineups   -1628277-16… A. Gray -… 161166… ATL               9     7     2    
-#>  3 Lineups   -201886-163… D. Bonner… 161166… PHX               1     1     0    
-#>  4 Lineups   -203398-162… B. Griner… 161166… CON               1     0     1    
-#>  5 Lineups   -202252-162… A. Clark … 161166… DAL               1     1     0    
-#>  6 Lineups   -203400-164… S. Diggin… 161166… CHI               3     2     1    
-#>  7 Lineups   -1630446-16… M. Onyenw… 161166… WAS               1     1     0    
-#>  8 Lineups   -203014-204… N. Ogwumi… 161166… LAS               3     2     1    
-#>  9 Lineups   -1627668-16… B. Stewar… 161166… NYL               4     4     0    
-#> 10 Lineups   -1627668-16… B. Stewar… 161166… NYL               1     0     1    
-#> # ℹ 3,206 more rows
+#>  1 Lineups   -1628277-16… A. Gray -… 161166… ATL               10    8     2    
+#>  2 Lineups   -203825-203… K. McBrid… 161166… MIN               12    10    2    
+#>  3 Lineups   -203398-162… B. Griner… 161166… CON               1     0     1    
+#>  4 Lineups   -202252-162… A. Clark … 161166… DAL               1     1     0    
+#>  5 Lineups   -203400-164… S. Diggin… 161166… CHI               3     2     1    
+#>  6 Lineups   -1630446-16… M. Onyenw… 161166… WAS               1     1     0    
+#>  7 Lineups   -1631135-16… O. Nelson… 161166… CON               2     0     2    
+#>  8 Lineups   -1627668-16… B. Stewar… 161166… NYL               4     4     0    
+#>  9 Lineups   -1627668-16… B. Stewar… 161166… NYL               1     0     1    
+#> 10 Lineups   -203014-204… N. Ogwumi… 161166… LAS               4     3     1    
+#> # ℹ 3,396 more rows
 #> # ℹ 87 more variables: w_pct <chr>, min <chr>, fgm <chr>, fga <chr>,
 #> #   fg_pct <chr>, fg3m <chr>, fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
 #> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,

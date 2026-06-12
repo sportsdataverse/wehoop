@@ -135,7 +135,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_score(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Event Competitor Score ──────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-09 22:58:26 UTC
+#> ℹ Data updated: 2026-06-12 02:19:57 UTC
 #> # A tibble: 1 × 8
 #>   league event_id  team_id value display_value winner source_id
 #>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    

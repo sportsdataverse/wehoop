@@ -99,13 +99,13 @@ Other WNBA Stats loader functions:
 #>  1 10        22026     1611661324 Minnesota    Lynx      lynx      West      
 #>  2 10        22026     1611661319 Las Vegas    Aces      aces      West      
 #>  3 10        22026     1611661330 Atlanta      Dream     dream     East      
-#>  4 10        22026     1611661321 Dallas       Wings     wings     West      
-#>  5 10        22026     1611661313 New York     Liberty   liberty   East      
-#>  6 10        22026     1611661325 Indiana      Fever     fever     East      
-#>  7 10        22026     1611661331 Golden State Valkyries valkyries West      
-#>  8 10        22026     1611661332 Toronto      Tempo     tempo     East      
-#>  9 10        22026     1611661327 Portland     Fire      fire      West      
-#> 10 10        22026     1611661320 Los Angeles  Sparks    sparks    West      
+#>  4 10        22026     1611661313 New York     Liberty   liberty   East      
+#>  5 10        22026     1611661321 Dallas       Wings     wings     West      
+#>  6 10        22026     1611661331 Golden State Valkyries valkyries West      
+#>  7 10        22026     1611661332 Toronto      Tempo     tempo     East      
+#>  8 10        22026     1611661325 Indiana      Fever     fever     East      
+#>  9 10        22026     1611661320 Los Angeles  Sparks    sparks    West      
+#> 10 10        22026     1611661327 Portland     Fire      fire      West      
 #> 11 10        22026     1611661322 Washington   Mystics   mystics   East      
 #> 12 10        22026     1611661329 Chicago      Sky       sky       East      
 #> 13 10        22026     1611661317 Phoenix      Mercury   mercury   West      

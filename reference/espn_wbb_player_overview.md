@@ -171,12 +171,12 @@ Saiem Gilani
   espn_wbb_player_overview(athlete_id = "4433404", season = 2025)
 #> $Statistics
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────
-#> ℹ Data updated: 2026-06-09 22:57:47 UTC
+#> ℹ Data updated: 2026-06-12 02:19:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────
-#> ℹ Data updated: 2026-06-09 22:57:47 UTC
+#> ℹ Data updated: 2026-06-12 02:19:21 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -184,30 +184,30 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────
-#> ℹ Data updated: 2026-06-09 22:57:47 UTC
+#> ℹ Data updated: 2026-06-12 02:19:21 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────
-#> ℹ Data updated: 2026-06-09 22:57:47 UTC
-#> # A tibble: 24 × 5
+#> ℹ Data updated: 2026-06-12 02:19:21 UTC
+#> # A tibble: 25 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
-#>  1 Cameron Brink makes the bucket             Cameron Br… 2026-06-… NA     Media
-#>  2 WNBA awards: A'ja Wilson a familiar MVP f… Andre Snel… 2026-06-… Andre… Story
-#>  3 Cameron Brink drains the shot              Cameron Br… 2026-05-… NA     Media
-#>  4 Cameron Brink with the last basket of the… Cameron Br… 2026-05-… NA     Media
-#>  5 Cameron Brink drills the trey              Cameron Br… 2026-05-… NA     Media
-#>  6 Cameron Brink knocks down the shot         Cameron Br… 2026-05-… NA     Media
-#>  7 Cameron Brink hits the basket              Cameron Br… 2026-05-… NA     Media
-#>  8 Cameron Brink makes the bucket             Cameron Br… 2026-05-… NA     Media
-#>  9 Cameron Brink drains the shot              Cameron Br… 2026-05-… NA     Media
-#> 10 Cameron Brink knocks down the shot         Cameron Br… 2026-05-… NA     Media
-#> # ℹ 14 more rows
+#>  1 Cameron Brink hits the basket              Cameron Br… 2026-06-… NA     Media
+#>  2 Cameron Brink makes the bucket             Cameron Br… 2026-06-… NA     Media
+#>  3 WNBA awards: A'ja Wilson a familiar MVP f… Andre Snel… 2026-06-… Andre… Story
+#>  4 Cameron Brink drains the shot              Cameron Br… 2026-05-… NA     Media
+#>  5 Cameron Brink with the last basket of the… Cameron Br… 2026-05-… NA     Media
+#>  6 Cameron Brink drills the trey              Cameron Br… 2026-05-… NA     Media
+#>  7 Cameron Brink knocks down the shot         Cameron Br… 2026-05-… NA     Media
+#>  8 Cameron Brink hits the basket              Cameron Br… 2026-05-… NA     Media
+#>  9 Cameron Brink makes the bucket             Cameron Br… 2026-05-… NA     Media
+#> 10 Cameron Brink drains the shot              Cameron Br… 2026-05-… NA     Media
+#> # ℹ 15 more rows
 #> 
 #> $FantasyOutlook
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com 
-#> ℹ Data updated: 2026-06-09 22:57:47 UTC
+#> ℹ Data updated: 2026-06-12 02:19:21 UTC
 #> # A tibble: 0 × 0
 #> 
 # }
