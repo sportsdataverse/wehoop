@@ -1,6 +1,7 @@
 url: https://wehoop.sportsdataverse.org/
 template:
   bootstrap: 5
+  light-switch: true
   bootswatch: flatly
   ganalytics: G-9CQMXE1XGT
   includes:
@@ -56,7 +57,7 @@ home:
 navbar:
   structure:
     left:  [home, reference, articles, news, network, data]
-    right: [twitter, github]
+    right: [search, twitter, github, lightswitch]
   icon: https://raw.githubusercontent.com/sportsdataverse/wehoop/main/man/figures/logo.ico
   title: "wehoop"
   components:
@@ -160,9 +161,11 @@ navbar:
         href: https://github.com/sportsdataverse/wehoop-data
     twitter:
       icon: "fab fa-x-twitter fa-lg"
+      aria-label: "X (Twitter)"
       href: https://x.com/saiemgilani
     github:
       icon: "fab fa-github fa-lg"
+      aria-label: "GitHub"
       href: https://github.com/sportsdataverse/wehoop/
       
 reference:
