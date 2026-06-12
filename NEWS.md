@@ -55,14 +55,15 @@ Three new live builders — `wnba_team_crosswalk()`, `wnba_schedule_crosswalk()`
 `wnba_player_crosswalk()` — and three cached loaders —
 `load_wnba_team_crosswalk()`, `load_wnba_schedule_crosswalk()`,
 `load_wnba_player_crosswalk()` — link ESPN, WNBA Stats API, and Fox Sports
-team/game/player identities into wide, one-row-per-entity tibbles keyed on
-`espn_team_id`. Team and schedule crosswalks use deterministic normalized-name
-joins; player matching uses blocked Jaro-Winkler fuzzy matching with
-jersey/DOB tiebreakers (`min_confidence = 0.92`). Yahoo columns are NA
-placeholders reserved for a future source. A new `fox_wnba_teams()` /
-`fox_wbb_teams()` wrapper provides the Fox Bifrost team directory used by
-the crosswalk engine. Cached artifacts are backed by the `wnba_crosswalk`
-release tag in `sportsdataverse-data`.
+team/game/player identities into wide, one-row-per-entity tibbles.
+`wnba_team_crosswalk()` and `wnba_player_crosswalk()` are keyed on
+`espn_team_id`; `wnba_schedule_crosswalk()` is keyed on `espn_game_id`.
+Team and schedule crosswalks use deterministic normalized-name joins; player
+matching uses blocked Jaro-Winkler fuzzy matching with jersey/DOB tiebreakers
+(`min_confidence = 0.92`). Yahoo columns are NA placeholders reserved for a
+future source. A new `fox_wnba_teams()` / `fox_wbb_teams()` wrapper provides
+the Fox Bifrost team directory used by the crosswalk engine. Cached artifacts
+are backed by the `wnba_crosswalk` release tag in `sportsdataverse-data`.
 
 ### **Fox Sports basketball wrappers (`fox_wnba_*` / `fox_wbb_*`)**
 

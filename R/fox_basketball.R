@@ -191,7 +191,8 @@
         # entityLink$title carries the full team name (e.g. "NEW YORK LIBERTY");
         # the table cells lead with the rank, so fall back to the second cell.
         title <- .fox_or(r[["entityLink"]][["title"]], NA_character_)
-        nm <- if (!is.na(title)) stringr::str_to_title(tolower(title)) else .fox_or(cells[2], NA_character_)
+        has_title <- !is.na(title) && nzchar(trimws(title))
+        nm <- if (has_title) stringr::str_to_title(tolower(title)) else .fox_or(cells[2], NA_character_)
         rows[[length(rows) + 1]] <- data.frame(
           fox_team_id = eid,
           fox_team_name = nm,
