@@ -178,9 +178,13 @@
         cells <- .fox_cells(r[["columns"]])
         eid <- .fox_uri_id(.fox_or(r[["entityLink"]][["contentUri"]], NULL))
         if (is.na(eid)) next
+        # entityLink$title carries the full team name (e.g. "NEW YORK LIBERTY");
+        # the table cells lead with the rank, so fall back to the second cell.
+        title <- .fox_or(r[["entityLink"]][["title"]], NA_character_)
+        nm <- if (!is.na(title)) stringr::str_to_title(tolower(title)) else .fox_or(cells[2], NA_character_)
         rows[[length(rows) + 1]] <- data.frame(
           fox_team_id = eid,
-          fox_team_name = .fox_or(cells[1], NA_character_),
+          fox_team_name = nm,
           fox_section = section,
           stringsAsFactors = FALSE)
       }

@@ -8,6 +8,10 @@ test_that(".fox_bb_teams parses a standings payload into a team directory", {
   expect_true(all(c("fox_team_id", "fox_team_name", "fox_section") %in% names(df)))
   expect_gt(nrow(df), 0)
   expect_false(any(duplicated(df$fox_team_id)))
+  # fox_team_name must be the team name, not the rank number, and the full
+  # (multi-word) name so it matches ESPN display names in the crosswalk.
+  expect_false(any(grepl("^[0-9]+$", df$fox_team_name)))
+  expect_true(any(grepl(" ", df$fox_team_name)))
 })
 
 test_that("fox_wnba_teams() returns a live directory", {
