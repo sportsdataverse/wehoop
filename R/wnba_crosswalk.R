@@ -64,7 +64,6 @@ NULL
 #' @title
 #' **Get the WNBA cross-source team crosswalk**
 #' @rdname wnba_team_crosswalk
-#' @author Saiem Gilani
 #' @description
 #' Build a wide, one-row-per-team-per-season crosswalk linking ESPN, the WNBA
 #' Stats API, and Fox Sports team identities, keyed on `espn_team_id`. Yahoo
@@ -178,7 +177,6 @@ NULL
 #' @title
 #' **Get the WNBA cross-source schedule crosswalk**
 #' @rdname wnba_schedule_crosswalk
-#' @author Saiem Gilani
 #' @description
 #' Build a wide, one-row-per-game crosswalk linking ESPN and WNBA Stats game ids
 #' (with NA Fox/Yahoo placeholders) for a season. Dates from both sources are
@@ -354,7 +352,6 @@ NULL
 #' @title
 #' **Get the WNBA cross-source player crosswalk**
 #' @rdname wnba_player_crosswalk
-#' @author Saiem Gilani
 #' @description
 #' Build a wide, one-row-per-player-per-team crosswalk linking ESPN, WNBA Stats,
 #' and Fox player identities for a season. Matching is deterministic: normalized

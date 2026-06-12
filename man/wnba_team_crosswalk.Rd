@@ -54,7 +54,4 @@ Other WNBA Crosswalk Functions:
 \code{\link{wnba_player_crosswalk}()},
 \code{\link{wnba_schedule_crosswalk}()}
 }
-\author{
-Saiem Gilani
-}
 \concept{WNBA Crosswalk Functions}
