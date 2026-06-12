@@ -59,7 +59,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
 #> ── WBB schedule crosswalk (ESPN / Torvik) ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:58:13 UTC
+#> ℹ Data updated: 2026-06-12 23:32:48 UTC
 #> # A tibble: 24,364 × 13
 #>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
 #>     <int> <date>                 <int>             <int> <chr>        <chr>     

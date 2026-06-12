@@ -35,7 +35,7 @@ Other Bart Torvik Functions:
 # \donttest{
   try(bart_wbb_ratings(year = 2024))
 #> ── Bart Torvik women's T-Rank ratings from barttorvik.com ────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:51:27 UTC
+#> ℹ Data updated: 2026-06-12 23:26:18 UTC
 #> # A tibble: 360 × 46
 #>     rank team     conf  record adjoe oe_rank adjde de_rank barthag rank_2 proj_w
 #>    <int> <chr>    <chr> <chr>  <dbl>   <int> <dbl>   <int>   <dbl>  <int>  <dbl>

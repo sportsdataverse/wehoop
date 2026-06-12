@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_score(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Competitor Score ─────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:51:49 UTC
+#> ℹ Data updated: 2026-06-12 23:26:38 UTC
 #> # A tibble: 1 × 8
 #>   league                   event_id team_id value display_value winner source_id
 #>   <chr>                    <chr>    <chr>   <dbl> <chr>         <lgl>  <chr>    

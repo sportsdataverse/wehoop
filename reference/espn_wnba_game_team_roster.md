@@ -133,7 +133,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_roster(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Roster ───────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:52:34 UTC
+#> ℹ Data updated: 2026-06-12 23:27:19 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
 #> #   ref <chr>
