@@ -26,6 +26,7 @@
 #' @return A `wehoop_data` tibble, one row per team: `rank`, `team`, `conf`,
 #'   `record`, `adjoe`, `adjde`, `barthag`, plus projection / SOS / quality
 #'   columns, and `year`.
+#' @author Saiem Gilani
 #' @importFrom data.table fread
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble
@@ -64,6 +65,7 @@ bart_wbb_ratings <- function(year = most_recent_wbb_season()) {
 #' @return A `wehoop_data` tibble, one row per game: `muid`, `date`, `team1`,
 #'   `team2`, `t1pts`, `t2pts`, `winner`, `loser`, plus efficiency / quality
 #'   columns, and `year`.
+#' @author Saiem Gilani
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
 #' @importFrom dplyr as_tibble

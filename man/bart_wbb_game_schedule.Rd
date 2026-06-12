@@ -29,4 +29,7 @@ columns, and \code{year}.
 Other Bart Torvik Functions: 
 \code{\link{bart_wbb_ratings}()}
 }
+\author{
+Saiem Gilani
+}
 \concept{Bart Torvik Functions}

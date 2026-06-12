@@ -323,7 +323,10 @@ wbb_team_crosswalk <- function(season = most_recent_wbb_season(),
     .pair_key        = .pair_key(.data$home_espn_team_id, .data$away_espn_team_id)
   )
 
-  # Torvik side — only keep games where both teams resolved to ESPN ids
+  # Torvik side — keep ALL games; those where either team name cannot be
+  # resolved to an ESPN id get a NA pair_key and surface as bart_only rows
+  # (home_espn_team_id / away_espn_team_id / espn_game_id all NA) rather than
+  # being silently dropped.
   bart2 <- data.frame(
     game_date        = bart_games$game_date,
     bart_muid        = as.character(bart_games$muid),
@@ -334,10 +337,8 @@ wbb_team_crosswalk <- function(season = most_recent_wbb_season(),
     .t2_id           = t2_espn_id,
     stringsAsFactors = FALSE
   )
-  # Resolve home/away from Torvik: Torvik doesn't guarantee order; use pair key
-  # and set home/away based on ESPN anchor when both exist. For bart-only rows
-  # the home_espn_team_id is the first espn_id resolved (t1_espn_id).
-  bart2 <- bart2[!is.na(bart2$.t1_id) & !is.na(bart2$.t2_id), , drop = FALSE]
+  # Pair key is NA when either team couldn't be resolved; those rows will land
+  # in the full_join as bart_only (no ESPN match possible without a pair key).
   bart2$.pair_key <- .pair_key(bart2$.t1_id, bart2$.t2_id)
   bart2$.t1_id <- NULL
   bart2$.t2_id <- NULL
@@ -413,7 +414,18 @@ wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
   out <- data.frame()
   tryCatch(
     expr = {
-      team_xwalk <- wbb_team_crosswalk(season = season)
+      # Pass an empty Fox frame so wbb_team_crosswalk() skips the expensive
+      # fox_wbb_teams_all() enumeration (~40-60 network calls). The schedule
+      # crosswalk only needs espn_team_id + bart_team from the team crosswalk;
+      # fox_team_id is not required here (wbb_player_crosswalk() does need Fox,
+      # so its call to wbb_team_crosswalk() is left as-is with fox = NULL).
+      .empty_fox <- data.frame(
+        fox_team_id   = character(),
+        fox_team_name = character(),
+        fox_section   = character(),
+        stringsAsFactors = FALSE
+      )
+      team_xwalk <- wbb_team_crosswalk(season = season, fox = .empty_fox)
 
       # --- Torvik side -------------------------------------------------------
       bart_raw  <- bart_wbb_game_schedule(year = season)

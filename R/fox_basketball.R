@@ -176,7 +176,8 @@
     # East"), fall back to pageTitle, then the generic title ("CONFERENCE").
     meta_params <- .fox_or(s[["metadata"]][["parameters"]], list())
     conf_name <- if (length(meta_params) >= 3) {
-      v <- meta_params[[3]]; if (!is.null(v) && nchar(trimws(v)) > 0) trimws(v) else NULL
+      v <- meta_params[[3]]
+      if (is.character(v) && length(v) == 1 && nzchar(trimws(v))) trimws(v) else NULL
     } else NULL
     section <- if (!is.null(conf_name)) conf_name else {
       pt <- .fox_or(s[["pageTitle"]], NULL)

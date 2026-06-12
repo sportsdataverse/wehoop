@@ -180,6 +180,42 @@ Two regeneration steps are part of the commit workflow whenever the relevant sou
   - `cran-comments.md` — every user-visible / behavioral change in `NEWS.md` should be reflected in `cran-comments.md` before submission. Internal-only changes (refactors, test infra, dev tooling) can be omitted.
   - `_pkgdown.yml` — new exports go in the right `reference:` section. `starts_with()` selectors auto-pick up `wnba_*` / `espn_*` / `ncaa_*` prefixes; explicitly-listed functions need a manual entry. `lifecycle::deprecate_stop()` + `@keywords internal` excludes a function from the rendered index by default.
 
+## Cross-Source Crosswalk Surface
+
+The package has a cross-source identity crosswalk layer for both WNBA and WBB,
+producing wide tibbles keyed on `espn_team_id`.
+
+**Public surface:** `wnba_team_crosswalk()` / `wbb_team_crosswalk()`,
+`wnba_schedule_crosswalk()` / `wbb_schedule_crosswalk()`,
+`wnba_player_crosswalk()` / `wbb_player_crosswalk()`, plus cached
+`load_wnba_*_crosswalk()` / `load_wbb_*_crosswalk()` loaders.
+Supporting scrapers: `bart_wbb_ratings()`, `bart_wbb_game_schedule()`,
+`fox_wbb_teams_all()`.
+
+**Engine (`R/crosswalk_basketball.R`) — internal `.bb_*` helpers:**
+
+- `.bb_normalize_college_team(x)` — contracting key normalizer: `&` → "and",
+  "State" → "St", "Saint"/"St." → "st"; stable across spelling variants.
+- `.bb_to_eastern(x)` — UTC datetime/Date → Eastern-Time `Date` (no
+  `lubridate`; offset derived from the date itself).
+- `.bb_fuzzy_match(left, right, min_confidence = 0.92)` — blocked
+  Jaro-Winkler player matching with exact-name first pass and jersey
+  tiebreaker; operates within `espn_team_id` blocks.
+
+**Key conventions:**
+
+- `wbb_schedule_crosswalk()` passes `fox = <empty frame>` to
+  `wbb_team_crosswalk()` to skip the expensive `fox_wbb_teams_all()`
+  enumeration (~40–60 calls). `wbb_player_crosswalk()` uses `fox = NULL`
+  (default) so Fox data is fetched for player matching.
+- Torvik games where either team cannot resolve to an ESPN id surface as
+  `bart_only` rows (ESPN columns NA) — they are never silently dropped.
+- WBB alias tables (`.wbb_bart_alias`, `.wbb_fox_display_alias`) bridge
+  name divergences before normalization.
+- Live crosswalk tests carry `skip_on_cran()` + `skip_on_ci()` + a
+  source-specific env-var skip + a `skip_if(nrow(...) == 0, ...)` empty
+  guard immediately after each fetch.
+
 ## V3 API Notes
 
 - V3 endpoints return nested JSON -- use `purrr::pluck()` for extraction.

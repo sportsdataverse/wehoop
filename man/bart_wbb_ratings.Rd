@@ -29,4 +29,7 @@ efficiencies from \href{https://barttorvik.com/ncaaw}{barttorvik.com}.} Pulls th
 Other Bart Torvik Functions: 
 \code{\link{bart_wbb_game_schedule}()}
 }
+\author{
+Saiem Gilani
+}
 \concept{Bart Torvik Functions}
