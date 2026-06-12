@@ -4,10 +4,13 @@
 \alias{wnba_team_crosswalk}
 \title{\strong{Get the WNBA cross-source team crosswalk}}
 \usage{
-wnba_team_crosswalk(season = most_recent_wnba_season())
+wnba_team_crosswalk(season = most_recent_wnba_season(), .schedule = NULL)
 }
 \arguments{
 \item{season}{Season year (numeric). Defaults to the most recent WNBA season.}
+
+\item{.schedule}{Internal. An already-fetched \code{wnba_schedule()} frame, supplied
+by \code{wnba_schedule_crosswalk()} to avoid a duplicate CDN request. Leave \code{NULL}.}
 }
 \value{
 A \code{wehoop_data} tibble, one row per team:\tabular{lll}{

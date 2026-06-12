@@ -70,6 +70,8 @@ NULL
 #' Stats API, and Fox Sports team identities, keyed on `espn_team_id`. Yahoo
 #' columns are placeholders (NA) until that source is implemented.
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
+#' @param .schedule Internal. An already-fetched `wnba_schedule()` frame, supplied
+#'   by `wnba_schedule_crosswalk()` to avoid a duplicate CDN request. Leave `NULL`.
 #' @return A `wehoop_data` tibble, one row per team:
 #'
 #'    |col_name          |types     |description                             |
@@ -101,9 +103,9 @@ NULL
 #' \donttest{
 #'   try(wnba_team_crosswalk(season = 2024))
 #' }
-wnba_team_crosswalk <- function(season = most_recent_wnba_season()) {
+wnba_team_crosswalk <- function(season = most_recent_wnba_season(), .schedule = NULL) {
   espn <- espn_wnba_teams()
-  sched <- wnba_schedule(season = season)
+  sched <- if (is.null(.schedule)) wnba_schedule(season = season) else .schedule
   stats <- dplyr::bind_rows(
     dplyr::transmute(sched,
       wnba_team_id = .data$home_team_id, wnba_team_tricode = .data$home_team_tricode,
@@ -148,8 +150,6 @@ wnba_team_crosswalk <- function(season = most_recent_wnba_season()) {
   out <- dplyr::full_join(espn2, stats2, by = key) |>
     dplyr::mutate(
       season = as.integer(season),
-      espn_home_team_id = .data$home_espn_team_id,
-      espn_away_team_id = .data$away_espn_team_id,
       fox_game_id = NA_character_,
       fox_home_team_id = NA_character_,
       fox_away_team_id = NA_character_,
@@ -164,8 +164,8 @@ wnba_team_crosswalk <- function(season = most_recent_wnba_season()) {
     dplyr::select(
       "season", "season_type", "game_date",
       "home_espn_team_id", "away_espn_team_id",
-      "espn_game_id", "espn_home_team_id", "espn_away_team_id",
-      "wnba_game_id", "wnba_game_code", "wnba_home_team_id", "wnba_away_team_id",
+      "espn_game_id", "wnba_game_id", "wnba_game_code",
+      "wnba_home_team_id", "wnba_away_team_id",
       "fox_game_id", "fox_home_team_id", "fox_away_team_id",
       "yahoo_game_id", "match_method", "match_confidence"
     )
@@ -198,9 +198,11 @@ NULL
 #'   try(wnba_schedule_crosswalk(season = 2024))
 #' }
 wnba_schedule_crosswalk <- function(season = most_recent_wnba_season()) {
-  team_xwalk <- wnba_team_crosswalk(season = season)
-
+  # Fetch the WNBA Stats schedule once and reuse it for both the team
+  # crosswalk (id resolver) and the stats-side game frame.
   stats <- wnba_schedule(season = season)
+  team_xwalk <- wnba_team_crosswalk(season = season, .schedule = stats)
+
   st <- if ("season_type_description" %in% names(stats)) {
     stats$season_type_description
   } else if ("week_name" %in% names(stats)) {
@@ -350,7 +352,7 @@ NULL
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
 #' @param min_confidence Jaro-Winkler similarity floor for fuzzy matches (default 0.92).
 #' @return A `wehoop_data` tibble, one row per player per team (ESPN-anchored).
-#' @importFrom dplyr transmute bind_rows filter
+#' @importFrom dplyr transmute bind_rows
 #' @importFrom purrr map list_rbind
 #' @export
 #' @family WNBA Crosswalk Functions
