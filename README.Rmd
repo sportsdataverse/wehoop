@@ -5,7 +5,7 @@ output:
     toc_depth: 2
 ---
 
-# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px"/></a>
+# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px" alt="wehoop logo"/></a>
 ```{r setup_readme, include = FALSE}
 require(knitr)
 # You can install using the pak package using the following code:

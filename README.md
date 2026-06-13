@@ -1,6 +1,6 @@
 
   - [wehoop
-    <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px"/></a>](#wehoop-)
+    <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px" alt="wehoop logo"/></a>](#wehoop-)
       - [**Installation**](#installation)
       - [**Quick Start**](#quick-start)
       - [**Documentation**](#documentation)
@@ -11,7 +11,7 @@
   - [**Our Authors**](#our-authors)
       - [**Citations**](#citations)
 
-# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px"/></a>
+# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px" alt="wehoop logo"/></a>
 
 <!-- badges: start -->
 
