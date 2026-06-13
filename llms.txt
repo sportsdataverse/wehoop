@@ -1,7 +1,7 @@
 # wehoop
 
-- [wehoop](#wehoop-)
-  [![](https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png)](https://wehoop.sportsdataverse.org)
+- [wehoop](#wehoop-) [![wehoop
+  logo](https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png)](https://wehoop.sportsdataverse.org)
   - [**Installation**](#installation)
   - [**Quick Start**](#quick-start)
   - [**Documentation**](#documentation)

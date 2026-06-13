@@ -58,24 +58,12 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
-#> ── WBB schedule crosswalk (ESPN / Torvik) ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 23:32:48 UTC
-#> # A tibble: 24,364 × 13
-#>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
-#>     <int> <date>                 <int>             <int> <chr>        <chr>     
-#>  1   2025 2024-11-04              2579               130 401713576    MichiganS…
-#>  2   2025 2024-11-04                30               145 401720643    Mississip…
-#>  3   2025 2024-11-04                26                97 401720402    Louisvill…
-#>  4   2025 2024-11-04                87              2385 401711562    NA        
-#>  5   2025 2024-11-04                99              2198 401713679    Eastern K…
-#>  6   2025 2024-11-04                66              2130 401703035    Chicago S…
-#>  7   2025 2024-11-04               201              2582 401725988    SouthernO…
-#>  8   2025 2024-11-04               150              2515 401702871    RadfordDu…
-#>  9   2025 2024-11-04              2306              2739 401714674    Green Bay…
-#> 10   2025 2024-11-04               153              2127 401711554    Charlesto…
-#> # ℹ 24,354 more rows
-#> # ℹ 7 more variables: bart_team1 <chr>, bart_team2 <chr>, bart_winner <chr>,
-#> #   fox_game_id <chr>, yahoo_game_id <chr>, match_method <chr>,
-#> #   match_confidence <dbl>
+#> ✖ 2026-06-13 02:27:07.382774: No women's schedule available for 2025!
+#> ✖ Args: year = 2025
+#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
+#> ✖ 2026-06-13 02:27:07.422913: Could not build WBB schedule crosswalk for 2025!
+#> ✖ Args: season = 2025
+#> ✖ Error: ℹ In argument: `muid = as.character(.data$muid)`. Caused by error in `.data$muid`: ! Column `muid` not found in `.data`.
+#> data frame with 0 columns and 0 rows
 # }
 ```

@@ -42,15 +42,15 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 23:27:46 UTC
+#> ℹ Data updated: 2026-06-13 02:23:00 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
 #>  1 1       CONFER… 1       Libe… 9-4   .692  -     89.0  83.0  5-3   4-1   6-0  
 #>  2 1       CONFER… 2       Dream 8-4   .667  0.5   86.0  81.0  4-2   4-2   3-2  
 #>  3 1       CONFER… 3       Fever 7-5   .583  1.5   90.0  87.0  5-2   2-3   3-2  
-#>  4 1       CONFER… 4       Tempo 7-5   .583  1.5   90.0  89.0  4-2   3-3   3-2  
-#>  5 1       CONFER… 5       Myst… 4-6   .400  3.5   83.0  87.0  1-3   3-3   3-3  
+#>  4 1       CONFER… 4       Tempo 7-6   .538  2.0   90.0  89.0  4-2   3-4   3-3  
+#>  5 1       CONFER… 5       Myst… 5-6   .455  3.0   83.0  87.0  2-3   3-3   4-3  
 #>  6 1       CONFER… 6       Sky   4-9   .308  5.0   82.0  88.0  1-5   3-4   1-5  
 #>  7 1       CONFER… 7       Sun   2-12  .143  7.5   78.0  89.0  1-4   1-8   0-5  
 #>  8 1       CONFER… NA      Lynx  10-2  .833  -     91.0  78.0  5-2   5-0   6-0  
@@ -62,7 +62,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-12 23:27:46 UTC
+#> ℹ Data updated: 2026-06-13 02:23:00 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
