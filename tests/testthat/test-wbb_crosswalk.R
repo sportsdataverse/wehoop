@@ -228,6 +228,26 @@ test_that(".bb_assemble_schedule_crosswalk_wbb joins ESPN + Torvik on date + pai
   expect_equal(result$away_espn_team_id, 200L)
 })
 
+test_that(".bb_assemble_schedule_crosswalk_wbb dedupes ESPN games repeated across scoreboard groups", {
+  # espn_wbb_scoreboard() returns each game once per ESPN group (D-I, conference
+  # tournaments, etc.), so the per-date pull can contain several identical rows
+  # for one game. The assembler must collapse them to a single joined row.
+  # Regression for the WBB schedule crosswalk 24,683-row (~4x) blow-up.
+  xw <- .make_xwalk_for_sched()
+  eg <- .make_espn_games()
+  eg <- eg[rep(1L, 4L), , drop = FALSE]   # 4 identical copies of the same game
+  bg <- .make_bart_games_for_sched()
+
+  result <- .bb_assemble_schedule_crosswalk_wbb(
+    espn_games = eg, bart_games = bg, team_xwalk = xw, season = 2025L
+  )
+
+  expect_equal(nrow(result), 1L)
+  expect_equal(result$match_method, "both")
+  expect_equal(result$espn_game_id, "401234567")
+  expect_equal(result$bart_muid, "BT-001")
+})
+
 test_that(".bb_assemble_schedule_crosswalk_wbb espn-only row when Torvik absent", {
   xw <- .make_xwalk_for_sched()
   eg <- .make_espn_games()
