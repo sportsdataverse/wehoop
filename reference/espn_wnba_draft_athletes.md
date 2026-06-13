@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_athletes(season = 2024)
 #> ── ESPN WNBA Draft Athletes ──────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:25:12 UTC
+#> ℹ Data updated: 2026-06-13 04:19:17 UTC
 #> # A tibble: 112 × 4
 #>    league season athlete_id ref                                                 
 #>    <chr>   <int> <chr>      <chr>                                               

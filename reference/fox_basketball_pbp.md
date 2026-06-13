@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_pbp("2215"))
 #> ── Fox Sports WNBA pbp ───────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:25:50 UTC
+#> ℹ Data updated: 2026-06-13 04:19:52 UTC
 #> # A tibble: 382 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            
@@ -63,7 +63,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_pbp("388986"))
 #> ── Fox Sports WCBK pbp ───────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:25:50 UTC
+#> ℹ Data updated: 2026-06-13 04:19:52 UTC
 #> # A tibble: 312 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            

@@ -137,7 +137,7 @@ Saiem Gilani
   # LeBron James (1966): 23 career seasons
   espn_wnba_player_seasons(athlete_id = 3149391)
 #> ── ESPN WNBA Athlete Seasons ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 03:25:29 UTC
+#> ℹ Data updated: 2026-06-13 04:19:34 UTC
 #> # A tibble: 9 × 4
 #>   league athlete_id season ref                                                  
 #>   <chr>  <chr>       <int> <chr>                                                
