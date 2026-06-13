@@ -36,9 +36,25 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 5,018 × 17
+#>    season espn_team_id team_abbreviation player_name     espn_athlete_id
+#>     <int>        <int> <chr>             <chr>           <chr>          
+#>  1   2026         2000 ACU               natalia chavez  5109756        
+#>  2   2026         2000 ACU               jordyn coleman  5315743        
+#>  3   2026         2000 ACU               emma daugherty  5315740        
+#>  4   2026         2000 ACU               molly daugherty 5315739        
+#>  5   2026         2000 ACU               breanna davis   5108299        
+#>  6   2026         2000 ACU               aimee flippen   5241475        
+#>  7   2026         2000 ACU               riley grohman   5315742        
+#>  8   2026         2000 ACU               payton hull     5175545        
+#>  9   2026         2000 ACU               meredith mayes  5175546        
+#> 10   2026         2000 ACU               bree riley      5315741        
+#> # ℹ 5,008 more rows
+#> # ℹ 12 more variables: espn_full_name <chr>, espn_jersey <chr>,
+#> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
+#> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,
+#> #   yahoo_player_name <chr>, match_method <chr>, match_confidence <dbl>,
+#> #   match_keys <chr>
 # }
 ```

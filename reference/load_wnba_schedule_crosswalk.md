@@ -35,9 +35,24 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(load_wnba_schedule_crosswalk(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_crosswalk/wnba_schedule_crosswalk_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_crosswalk/wnba_schedule_crosswalk_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 355 × 16
+#>    season season_type game_date  home_espn_team_id away_espn_team_id
+#>     <int> <chr>       <date>                 <int>             <int>
+#>  1   2026 Pre-Season  2026-04-25                 9                 5
+#>  2   2026 NA          2026-04-25                 6             17476
+#>  3   2026 Pre-Season  2026-04-25                11                19
+#>  4   2026 Pre-Season  2026-04-25                16                 8
+#>  5   2026 Pre-Season  2026-04-25            129689                14
+#>  6   2026 NA          2026-04-26                17             17475
+#>  7   2026 NA          2026-04-27                 8             17476
+#>  8   2026 Pre-Season  2026-04-29            131935                18
+#>  9   2026 Pre-Season  2026-04-29                19                20
+#> 10   2026 Pre-Season  2026-04-29                14            132052
+#> # ℹ 345 more rows
+#> # ℹ 11 more variables: espn_game_id <chr>, wnba_game_id <chr>,
+#> #   wnba_game_code <chr>, wnba_home_team_id <chr>, wnba_away_team_id <chr>,
+#> #   fox_game_id <chr>, fox_home_team_id <chr>, fox_away_team_id <chr>,
+#> #   yahoo_game_id <chr>, match_method <chr>, match_confidence <dbl>
 # }
 ```

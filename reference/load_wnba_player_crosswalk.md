@@ -36,9 +36,26 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(load_wnba_player_crosswalk(seasons = most_recent_wnba_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_crosswalk/wnba_player_crosswalk_2026.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_crosswalk/wnba_player_crosswalk_2026.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 203 × 21
+#>    season espn_team_id team_abbreviation player_name    espn_athlete_id
+#>     <int>        <int> <chr>             <chr>          <chr>          
+#>  1   2026           20 ATL               isobel borlase 5208983        
+#>  2   2026           20 ATL               jordin canada  3142250        
+#>  3   2026           20 ATL               allisha gray   3058901        
+#>  4   2026           20 ATL               naz hillmon    4398915        
+#>  5   2026           20 ATL               rhyne howard   4398674        
+#>  6   2026           20 ATL               brionna jones  3058895        
+#>  7   2026           20 ATL               sika kone      5017721        
+#>  8   2026           20 ATL               indya nivar    5105740        
+#>  9   2026           20 ATL               aaliyah nye    4597509        
+#> 10   2026           20 ATL               amy okonkwo    3142242        
+#> # ℹ 193 more rows
+#> # ℹ 16 more variables: espn_full_name <chr>, espn_jersey <chr>,
+#> #   espn_position <chr>, wnba_player_id <chr>, wnba_player_name <chr>,
+#> #   wnba_jersey_num <chr>, wnba_position <chr>, fox_athlete_id <chr>,
+#> #   fox_player <chr>, fox_jersey <chr>, fox_position_group <chr>,
+#> #   yahoo_player_id <chr>, yahoo_player_name <chr>, match_method <chr>,
+#> #   match_confidence <dbl>, match_keys <chr>
 # }
 ```
