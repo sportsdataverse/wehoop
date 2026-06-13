@@ -155,7 +155,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_freeagents(season = 2025)
-#> ✖ 2026-06-13 02:22:31.024829: Failed to retrieve ESPN WNBA free agents for season 2025
+#> ✖ 2026-06-13 03:25:13.726613: Failed to retrieve ESPN WNBA free agents for season 2025
 #> ✖ Args: season = 2025
 #> ✖ Error: The API returned an error
 #> data frame with 0 columns and 0 rows

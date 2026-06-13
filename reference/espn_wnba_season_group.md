@@ -165,7 +165,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_group(group_id = 5, season = 2025)
 #> ── ESPN WNBA Season Group Detail ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 02:22:47 UTC
+#> ℹ Data updated: 2026-06-13 03:25:33 UTC
 #> # A tibble: 1 × 15
 #>   league season season_type group_id uid           name  abbreviation short_name
 #>   <chr>   <int>       <int> <chr>    <chr>         <chr> <chr>        <chr>     

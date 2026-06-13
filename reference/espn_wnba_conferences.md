@@ -129,10 +129,10 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wnba_conferences())
-#> ✖ 2026-06-13 02:22:28.989766: Invalid arguments or no conferences info available!
+#> ✖ 2026-06-13 03:25:11.442992: Invalid arguments or no conferences info available!
 #> ✖ Error: The API returned an error
 #> ── ESPN WNBA Conferences Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 02:22:28 UTC
+#> ℹ Data updated: 2026-06-13 03:25:11 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: conference_uid <chr>, group_id <int>, conference_name <chr>,
 #> #   conference_short_name <chr>, conference_logo <chr>, parent_group_id <int>,

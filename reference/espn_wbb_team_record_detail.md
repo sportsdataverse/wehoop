@@ -139,7 +139,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_record_detail(team_id = 2509, season = 2024, record_id = 0)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Record Detail ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 02:22:21 UTC
+#> ℹ Data updated: 2026-06-13 03:25:02 UTC
 #> # A tibble: 20 × 15
 #>    league         team_id season season_type record_id record_name record_abbrev
 #>    <chr>          <chr>    <int>       <int> <chr>     <chr>       <chr>        

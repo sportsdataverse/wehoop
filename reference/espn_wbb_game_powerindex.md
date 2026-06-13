@@ -128,7 +128,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_powerindex(event_id = 401276115)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Power Index ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 02:22:00 UTC
+#> ℹ Data updated: 2026-06-13 03:24:37 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, event_id <chr>, team_id <chr>, ref <chr>
 # }
