@@ -93,7 +93,7 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 299 × 10
+#> # A tibble: 383 × 10
 #>    player_id first_name last_name        jersey_num team_id  team_city team_name
 #>    <chr>     <chr>      <chr>            <chr>      <chr>    <chr>     <chr>    
 #>  1 1630446   Michaela   Onyenwere        "12  "     1611661… Washingt… Mystics  
@@ -106,7 +106,7 @@ Other WNBA Stats loader functions:
 #>  8 1643434   Janiah     Barker           "2   "     1611661… Las Vegas Aces     
 #>  9 1643438   Marta      Suarez           "77  "     1611661… Phoenix   Mercury  
 #> 10 1643470   Shay       Ciezki           "5   "     1611661… Phoenix   Mercury  
-#> # ℹ 289 more rows
+#> # ℹ 373 more rows
 #> # ℹ 3 more variables: team_abbreviation <chr>, game_id <chr>, season <int>
 # }
 ```

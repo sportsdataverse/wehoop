@@ -23,8 +23,19 @@
 wehoop is an R package providing clean, tidy women’s basketball
 play-by-play and box score data. It wraps the WNBA Stats API, ESPN API
 (WNBA & WBB), and NCAA women’s basketball endpoints, exporting 200+
-functions across multiple data source families: `wnba_*()`,
-`espn_wnba_*()`, `espn_wbb_*()`, and `ncaa_wbb_*()`.
+functions across multiple data-source families: `wnba_*()` (WNBA Stats
+API), `espn_wnba_*()` / `espn_wbb_*()` (ESPN), `ncaa_wbb_*()` (NCAA),
+`fox_*()` (Fox Sports Bifrost), `bref_wnba_*()` (Basketball-Reference),
+`hhs_*()` (Her Hoop Stats, subscription), and `bart_wbb_*()` (Bart
+Torvik T-Rank). The `load_wnba_*()` / `load_wbb_*()` loaders pull
+pre-built season parquet/rds from the sibling `wehoop-data` (and
+`wehoop-{wnba,wbb}-data`, `wehoop-wnba-stats-data`) release repos rather
+than hitting the live APIs.
+
+`wehoop` is the women’s-basketball analogue of `hoopR` (men’s) and
+shares its architecture; companion data repos are
+`wehoop-wbb-raw/-data`, `wehoop-wnba-raw/-data`, and
+`wehoop-wnba-stats-raw/-data`.
 
 When this guide differs from current repository docs, treat
 `CONTRIBUTING.md` and current test implementations as authoritative.
@@ -95,7 +106,17 @@ pkgdown::build_site()
 | ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
 | ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
 | NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
+| Fox Sports Bifrost | `fox_` | [`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md), [`fox_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_pbp.md) |
+| Basketball-Reference | `bref_wnba_` | `bref_wnba_player_box()` |
+| Her Hoop Stats | `hhs_` | (subscription; requires your own login) |
+| Bart Torvik T-Rank | `bart_wbb_` | [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md), [`bart_wbb_game_schedule()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_game_schedule.md) |
 | Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
+
+`load_*()` loaders are the bulk path: they read pre-built per-season
+parquet/rds released from the sibling `wehoop-data` /
+`wehoop-{wnba,wbb}-data` / `wehoop-wnba-stats-data` repos. The `wnba_*`
+/ `espn_*` / `fox_*` etc. functions are the live scrapers that hit the
+source APIs directly.
 
 ### Function Pattern (WNBA Stats API)
 
@@ -476,16 +497,24 @@ Tests are gated by source-specific env-var helpers in
 `tests/testthat/helper-skip.R`. Each helper short-circuits unless the
 corresponding variable is set:
 
-| Variable             | Description                 | Helper                   |
-|----------------------|-----------------------------|--------------------------|
+| Variable | Description | Helper |
+|----|----|----|
 | `WNBA_STATS_TESTS=1` | Enable WNBA Stats API tests | `skip_wnba_stats_test()` |
-| `ESPN_TESTS=1`       | Enable ESPN API tests       | `skip_espn_test()`       |
-| `NCAA_WBB_TESTS=1`   | Enable NCAA WBB tests       | `skip_ncaa_wbb_test()`   |
+| `ESPN_TESTS=1` | Enable ESPN API tests | `skip_espn_test()` |
+| `NCAA_WBB_TESTS=1` | Enable NCAA WBB tests | `skip_ncaa_wbb_test()` |
+| `FOX_TESTS=1` | Enable Fox Sports tests | `skip_fox_test()` |
+| `WEHOOP_LOAD_TESTS=1` | Enable `load_*()` release-asset tests | (gated in `helper-skip.R`) |
+
+`WEHOOP_LOAD_TESTS` is kept separate from the API gates because
+`load_*()` tests pull multi-megabyte release assets per season (vs the
+small JSON requests the API tests issue); bundling them would force
+every contributor to download the full data repo for a routine local
+check.
 
 Use the source-specific helper for the endpoint under test: -
 `skip_wnba_stats_test()` for `test-wnba_*.R` - `skip_espn_test()` for
 `test-espn_wbb_*.R` and `test-espn_wnba_*.R` - `skip_ncaa_wbb_test()`
-for `test-ncaa_wbb_*.R`
+for `test-ncaa_wbb_*.R` - `skip_fox_test()` for `test-fox_*.R`
 
 Note: in CI, many live API tests still include `skip_on_ci()` guards.
 Env vars alone do not override those guards unless tests are

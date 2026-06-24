@@ -65,31 +65,10 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(wnba_team_crosswalk(season = 2024))
-#> ℹ WNBA CDN schedule is for season 2026, not 2024. For historical seasons use `load_wnba_schedule(seasons = 2024)`.
-#> ── WNBA team crosswalk (ESPN / WNBA Stats / Fox) ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 06:06:30 UTC
-#> # A tibble: 15 × 19
-#>    season espn_team_id espn_abbreviation espn_display_name      espn_short_name
-#>     <int>        <int> <chr>             <chr>                  <chr>          
-#>  1   2024           20 ATL               Atlanta Dream          Dream          
-#>  2   2024           19 CHI               Chicago Sky            Sky            
-#>  3   2024           18 CON               Connecticut Sun        Sun            
-#>  4   2024            3 DAL               Dallas Wings           Wings          
-#>  5   2024       129689 GS                Golden State Valkyries Valkyries      
-#>  6   2024            5 IND               Indiana Fever          Fever          
-#>  7   2024           17 LV                Las Vegas Aces         Aces           
-#>  8   2024            6 LA                Los Angeles Sparks     Sparks         
-#>  9   2024            8 MIN               Minnesota Lynx         Lynx           
-#> 10   2024            9 NY                New York Liberty       Liberty        
-#> 11   2024           11 PHX               Phoenix Mercury        Mercury        
-#> 12   2024       132052 POR               Portland Fire          Fire           
-#> 13   2024           14 SEA               Seattle Storm          Storm          
-#> 14   2024       131935 TOR               Toronto Tempo          Tempo          
-#> 15   2024           16 WSH               Washington Mystics     Mystics        
-#> # ℹ 14 more variables: espn_location <chr>, espn_mascot <chr>,
-#> #   wnba_team_id <chr>, wnba_team_tricode <chr>, wnba_team_name <chr>,
-#> #   wnba_team_city <chr>, wnba_team_slug <chr>, fox_team_id <chr>,
-#> #   fox_team_name <chr>, yahoo_team_id <chr>, yahoo_team_abbreviation <chr>,
-#> #   yahoo_team_name <chr>, match_method <chr>, match_confidence <dbl>
+#> ✖ 2026-06-24 02:09:30.106728: Invalid arguments or no league schedule data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024
+#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
+#> Error in UseMethod("transmute") : 
+#>   no applicable method for 'transmute' applied to an object of class "NULL"
 # }
 ```

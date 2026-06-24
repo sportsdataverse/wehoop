@@ -300,7 +300,7 @@ of it, tidy enough to plot – not just this season.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
 <span><span class="co">#&gt;   stat_type_id value</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 0             21.6</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 0             21.7</span></span></code></pre></div>
 <p>Margin note: <code>athlete_career_stats()</code> defaults to pulling
 <em>both</em> regular season and postseason and stacking them, keyed by
 <code>stat_type_id</code>. Many of the newer <code>espn_wnba_*</code>
@@ -356,7 +356,8 @@ run. You want to <em>see</em> it – a win-probability line.</p>
 <span><span class="co"># so lift a real one off the schedule first.</span></span>
 <span><span class="va">sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wnba_schedule.html">wnba_schedule</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">sched</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; list()</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `if (zeros == 0) ...`:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> argument is of length zero</span></span></code></pre></div>
 <p>The grammar doing real work: when two functions look like
 near-synonyms, the <em>prefix</em> is the tiebreaker.
 <code>espn_wnba_*</code> is ESPN’s take; <code>wnba_*</code> is
@@ -455,7 +456,7 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   awards_ref &lt;chr&gt;, franchise_ref &lt;chr&gt;, depth_charts_ref &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   events_ref &lt;chr&gt;, transactions_ref &lt;chr&gt;, coaches_ref &lt;chr&gt;, …</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_team_schedule.html">espn_wnba_team_schedule</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 44 × 21</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 45 × 21</span></span></span>
 <span><span class="co">#&gt;    event_id  season season_type  week date          name  short_name opponent_id</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 401856894   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2026-05-09T1… Phoe… PHX @ LV   <span style="color: #BB0000;">NA</span>         </span></span>
@@ -468,7 +469,7 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401856952   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2026-05-31T1… Las … LV @ GS    <span style="color: #BB0000;">NA</span>         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401856958   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2026-06-03T0… Las … LV @ LA    <span style="color: #BB0000;">NA</span>         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 401856967   <span style="text-decoration: underline;">2</span>026          <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span> 2026-06-06T1… Gold… GS @ LV    <span style="color: #BB0000;">NA</span>         </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 34 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 35 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 13 more variables: opponent_abbrev &lt;chr&gt;, home_away &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   neutral_site &lt;lgl&gt;, conference_competition &lt;lgl&gt;, venue_id &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   venue_name &lt;chr&gt;, venue_city &lt;chr&gt;, venue_state &lt;chr&gt;, broadcast &lt;chr&gt;,</span></span></span>
@@ -485,7 +486,7 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2987869    Jewell L… 24     G               Guard         <span style="color: #949494;">"</span>5' 1… 175 l… 32   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2529458    Cheyenne… 32     F               Forward       <span style="color: #949494;">"</span>6' 4… 193 l… 33   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 4398776    NaLyssa … 3      F               Forward       <span style="color: #949494;">"</span>6' 4… 185 l… 25   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 3099736    Stephani… 7      F               Forward       <span style="color: #949494;">"</span>6' 2… 192 l… 31   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 3099736    Stephani… 7      F               Forward       <span style="color: #949494;">"</span>6' 2… 192 l… 32   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 3142086    Brianna … 21     F               Forward       <span style="color: #949494;">"</span>6' 3… 175 l… 29   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 3149391    A'ja Wil… 22     C               Center        <span style="color: #949494;">"</span>6' 4… 195 l… 29   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 4065870    Jackie Y… 0      G               Guard         <span style="color: #949494;">"</span>6' 0… 165 l… 28   </span></span>
@@ -562,14 +563,14 @@ assist leaders – the bones of every MVP argument.</p>
 <span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3149391    <span style="color: #BB0000;">NA</span>           17     </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3065570    <span style="color: #BB0000;">NA</span>           6      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2988756    <span style="color: #BB0000;">NA</span>           131935 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433403    <span style="color: #BB0000;">NA</span>           5      </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3142191    <span style="color: #BB0000;">NA</span>           5      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2998928    <span style="color: #BB0000;">NA</span>           9      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433403    <span style="color: #BB0000;">NA</span>           5      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433730    <span style="color: #BB0000;">NA</span>           3      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3058901    <span style="color: #BB0000;">NA</span>           20     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4398674    <span style="color: #BB0000;">NA</span>           20     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3904576    <span style="color: #BB0000;">NA</span>           131935 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2988756    <span style="color: #BB0000;">NA</span>           131935 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3058901    <span style="color: #BB0000;">NA</span>           20     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2998928    <span style="color: #BB0000;">NA</span>           9      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          3904576    <span style="color: #BB0000;">NA</span>           131935 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          4433730    <span style="color: #BB0000;">NA</span>           3      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>026           2 pointsPerGame PTS          2998938    <span style="color: #BB0000;">NA</span>           11     </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 365 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: team_abbrev &lt;chr&gt;, value &lt;dbl&gt;, rank &lt;int&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   display_value &lt;chr&gt;</span></span></span></code></pre></div>

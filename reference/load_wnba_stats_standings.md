@@ -98,17 +98,17 @@ Other WNBA Stats loader functions:
 #>    <chr>     <chr>     <chr>      <chr>        <chr>     <chr>     <chr>     
 #>  1 10        22026     1611661324 Minnesota    Lynx      lynx      West      
 #>  2 10        22026     1611661319 Las Vegas    Aces      aces      West      
-#>  3 10        22026     1611661313 New York     Liberty   liberty   East      
-#>  4 10        22026     1611661330 Atlanta      Dream     dream     East      
-#>  5 10        22026     1611661321 Dallas       Wings     wings     West      
+#>  3 10        22026     1611661330 Atlanta      Dream     dream     East      
+#>  4 10        22026     1611661321 Dallas       Wings     wings     West      
+#>  5 10        22026     1611661313 New York     Liberty   liberty   East      
 #>  6 10        22026     1611661325 Indiana      Fever     fever     East      
 #>  7 10        22026     1611661331 Golden State Valkyries valkyries West      
-#>  8 10        22026     1611661332 Toronto      Tempo     tempo     East      
+#>  8 10        22026     1611661322 Washington   Mystics   mystics   East      
 #>  9 10        22026     1611661320 Los Angeles  Sparks    sparks    West      
 #> 10 10        22026     1611661327 Portland     Fire      fire      West      
-#> 11 10        22026     1611661322 Washington   Mystics   mystics   East      
-#> 12 10        22026     1611661329 Chicago      Sky       sky       East      
-#> 13 10        22026     1611661317 Phoenix      Mercury   mercury   West      
+#> 11 10        22026     1611661332 Toronto      Tempo     tempo     East      
+#> 12 10        22026     1611661317 Phoenix      Mercury   mercury   West      
+#> 13 10        22026     1611661329 Chicago      Sky       sky       East      
 #> 14 10        22026     1611661328 Seattle      Storm     storm     West      
 #> 15 10        22026     1611661323 Connecticut  Sun       sun       East      
 #> # ℹ 86 more variables: conference_record <chr>, playoff_rank <chr>,

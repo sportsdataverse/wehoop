@@ -152,7 +152,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Roster from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:46:05 UTC
+#> ℹ Data updated: 2026-06-24 02:03:01 UTC
 #> # A tibble: 12 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
@@ -164,7 +164,7 @@ Saiem Gilani
 #>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
 #>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 33   
 #>  8 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 25   
-#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 31   
+#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
 #> 10 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 29   
 #> 11 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 29   
 #> 12 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   

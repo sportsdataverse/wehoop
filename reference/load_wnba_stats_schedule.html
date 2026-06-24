@@ -180,20 +180,20 @@ the season data into a database.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_wnba_stats_schedule</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="most_recent_wnba_stats_season.html">most_recent_wnba_stats_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 188 × 29</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 252 × 29</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    SEASON_ID TEAM_ID TEAM_ABBREVIATION TEAM_NAME GAME_ID GAME_DATE MATCHUP WL   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 22026     161166… PDX               Portland… 102260… 2026-06-… PDX vs… L    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 22026     161166… DAL               Dallas W… 102260… 2026-06-… DAL @ … W    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 22026     161166… CHI               Chicago … 102260… 2026-06-… CHI @ … L    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 22026     161166… ATL               Atlanta … 102260… 2026-06-… ATL vs… L    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 22026     161166… DAL               Dallas W… 102260… 2026-06-… DAL vs… W    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 22026     161166… NYL               New York… 102260… 2026-06-… NYL @ … W    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 22026     161166… LVA               Las Vega… 102260… 2026-06-… LVA @ … W    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 22026     161166… SEA               Seattle … 102260… 2026-06-… SEA vs… L    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 22026     161166… CON               Connecti… 102260… 2026-06-… CON vs… W    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 22026     161166… IND               Indiana … 102260… 2026-06-… IND vs… W    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 22026     161166… ATL               Atlanta … 102260… 2026-06-… ATL vs… W    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 22026     161166… PHX               Phoenix … 102260… 2026-06-… PHX @ … L    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 22026     161166… IND               Indiana … 102260… 2026-06-… IND vs… W    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 22026     161166… LAS               Los Ange… 102260… 2026-06-… LAS @ … W    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 22026     161166… SEA               Seattle … 102260… 2026-06-… SEA vs… L    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 178 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 22026     161166… TOR               Toronto … 102260… 2026-06-… TOR @ … L    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 22026     161166… LVA               Las Vega… 102260… 2026-06-… LVA vs… W    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 22026     161166… MIN               Minnesot… 102260… 2026-06-… MIN vs… L    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 242 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more variables: MIN &lt;chr&gt;, PTS &lt;chr&gt;, FGM &lt;chr&gt;, FGA &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   FG_PCT &lt;chr&gt;, FG3M &lt;chr&gt;, FG3A &lt;chr&gt;, FG3_PCT &lt;chr&gt;, FTM &lt;chr&gt;, FTA &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   FT_PCT &lt;chr&gt;, OREB &lt;chr&gt;, DREB &lt;chr&gt;, REB &lt;chr&gt;, AST &lt;chr&gt;, STL &lt;chr&gt;,</span></span>

@@ -110,7 +110,8 @@
 
 <div class="section level2">
 <h2 id="package-overview">Package Overview<a class="anchor" aria-label="anchor" href="#package-overview"></a></h2>
-<p>wehoop is an R package providing clean, tidy women’s basketball play-by-play and box score data. It wraps the WNBA Stats API, ESPN API (WNBA &amp; WBB), and NCAA women’s basketball endpoints, exporting 200+ functions across multiple data source families: <code>wnba_*()</code>, <code>espn_wnba_*()</code>, <code>espn_wbb_*()</code>, and <code>ncaa_wbb_*()</code>.</p>
+<p>wehoop is an R package providing clean, tidy women’s basketball play-by-play and box score data. It wraps the WNBA Stats API, ESPN API (WNBA &amp; WBB), and NCAA women’s basketball endpoints, exporting 200+ functions across multiple data-source families: <code>wnba_*()</code> (WNBA Stats API), <code>espn_wnba_*()</code> / <code>espn_wbb_*()</code> (ESPN), <code>ncaa_wbb_*()</code> (NCAA), <code>fox_*()</code> (Fox Sports Bifrost), <code>bref_wnba_*()</code> (Basketball-Reference), <code>hhs_*()</code> (Her Hoop Stats, subscription), and <code>bart_wbb_*()</code> (Bart Torvik T-Rank). The <code>load_wnba_*()</code> / <code>load_wbb_*()</code> loaders pull pre-built season parquet/rds from the sibling <code>wehoop-data</code> (and <code>wehoop-{wnba,wbb}-data</code>, <code>wehoop-wnba-stats-data</code>) release repos rather than hitting the live APIs.</p>
+<p><code>wehoop</code> is the women’s-basketball analogue of <code>hoopR</code> (men’s) and shares its architecture; companion data repos are <code>wehoop-wbb-raw/-data</code>, <code>wehoop-wnba-raw/-data</code>, and <code>wehoop-wnba-stats-raw/-data</code>.</p>
 <p>When this guide differs from current repository docs, treat <code>CONTRIBUTING.md</code> and current test implementations as authoritative.</p>
 <ul><li>
 <strong>Version</strong>: 3.0.0 (dev)</li>
@@ -174,7 +175,7 @@
 <h2 id="key-coding-conventions">Key Coding Conventions<a class="anchor" aria-label="anchor" href="#key-coding-conventions"></a></h2>
 <div class="section level3">
 <h3 id="function-naming">Function Naming<a class="anchor" aria-label="anchor" href="#function-naming"></a></h3>
-<table class="table"><colgroup><col width="17%"><col width="28%"><col width="54%"></colgroup><thead><tr><th>Data Source</th>
+<table class="table"><colgroup><col width="19%"><col width="27%"><col width="52%"></colgroup><thead><tr><th>Data Source</th>
 <th>Prefix</th>
 <th>Example</th>
 </tr></thead><tbody><tr><td>WNBA Stats API</td>
@@ -195,6 +196,22 @@
 </tr><tr><td>NCAA WBB</td>
 <td><code>ncaa_wbb_</code></td>
 <td><code><a href="reference/ncaa_wbb_teams.html">ncaa_wbb_teams()</a></code></td>
+</tr><tr><td>Fox Sports Bifrost</td>
+<td><code>fox_</code></td>
+<td>
+<code><a href="reference/fox_basketball_teams.html">fox_wbb_teams()</a></code>, <code><a href="reference/fox_basketball_pbp.html">fox_wnba_pbp()</a></code>
+</td>
+</tr><tr><td>Basketball-Reference</td>
+<td><code>bref_wnba_</code></td>
+<td><code>bref_wnba_player_box()</code></td>
+</tr><tr><td>Her Hoop Stats</td>
+<td><code>hhs_</code></td>
+<td>(subscription; requires your own login)</td>
+</tr><tr><td>Bart Torvik T-Rank</td>
+<td><code>bart_wbb_</code></td>
+<td>
+<code><a href="reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code>, <code><a href="reference/bart_wbb_game_schedule.html">bart_wbb_game_schedule()</a></code>
+</td>
 </tr><tr><td>Data loaders</td>
 <td>
 <code>load_wnba_</code> / <code>load_wbb_</code>
@@ -202,7 +219,8 @@
 <td>
 <code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_team_box.html">load_wbb_team_box()</a></code>
 </td>
-</tr></tbody></table></div>
+</tr></tbody></table><p><code>load_*()</code> loaders are the bulk path: they read pre-built per-season parquet/rds released from the sibling <code>wehoop-data</code> / <code>wehoop-{wnba,wbb}-data</code> / <code>wehoop-wnba-stats-data</code> repos. The <code>wnba_*</code> / <code>espn_*</code> / <code>fox_*</code> etc. functions are the live scrapers that hit the source APIs directly.</p>
+</div>
 <div class="section level3">
 <h3 id="function-pattern-wnba-stats-api">Function Pattern (WNBA Stats API)<a class="anchor" aria-label="anchor" href="#function-pattern-wnba-stats-api"></a></h3>
 <p>WNBA Stats API and NCAA wrappers historically use the <code>@details</code>-with-fenced-code-block pattern for runnable examples. Example:</p>
@@ -440,7 +458,7 @@
 <div class="section level3">
 <h3 id="environment-variables-for-tests">Environment Variables for Tests<a class="anchor" aria-label="anchor" href="#environment-variables-for-tests"></a></h3>
 <p>Tests are gated by source-specific env-var helpers in <code>tests/testthat/helper-skip.R</code>. Each helper short-circuits unless the corresponding variable is set:</p>
-<table class="table"><colgroup><col width="27%"><col width="37%"><col width="34%"></colgroup><thead><tr><th>Variable</th>
+<table class="table"><colgroup><col width="27%"><col width="41%"><col width="31%"></colgroup><thead><tr><th>Variable</th>
 <th>Description</th>
 <th>Helper</th>
 </tr></thead><tbody><tr><td><code>WNBA_STATS_TESTS=1</code></td>
@@ -452,7 +470,14 @@
 </tr><tr><td><code>NCAA_WBB_TESTS=1</code></td>
 <td>Enable NCAA WBB tests</td>
 <td><code>skip_ncaa_wbb_test()</code></td>
-</tr></tbody></table><p>Use the source-specific helper for the endpoint under test: - <code>skip_wnba_stats_test()</code> for <code>test-wnba_*.R</code> - <code>skip_espn_test()</code> for <code>test-espn_wbb_*.R</code> and <code>test-espn_wnba_*.R</code> - <code>skip_ncaa_wbb_test()</code> for <code>test-ncaa_wbb_*.R</code></p>
+</tr><tr><td><code>FOX_TESTS=1</code></td>
+<td>Enable Fox Sports tests</td>
+<td><code>skip_fox_test()</code></td>
+</tr><tr><td><code>WEHOOP_LOAD_TESTS=1</code></td>
+<td>Enable <code>load_*()</code> release-asset tests</td>
+<td>(gated in <code>helper-skip.R</code>)</td>
+</tr></tbody></table><p><code>WEHOOP_LOAD_TESTS</code> is kept separate from the API gates because <code>load_*()</code> tests pull multi-megabyte release assets per season (vs the small JSON requests the API tests issue); bundling them would force every contributor to download the full data repo for a routine local check.</p>
+<p>Use the source-specific helper for the endpoint under test: - <code>skip_wnba_stats_test()</code> for <code>test-wnba_*.R</code> - <code>skip_espn_test()</code> for <code>test-espn_wbb_*.R</code> and <code>test-espn_wnba_*.R</code> - <code>skip_ncaa_wbb_test()</code> for <code>test-ncaa_wbb_*.R</code> - <code>skip_fox_test()</code> for <code>test-fox_*.R</code></p>
 <p>Note: in CI, many live API tests still include <code>skip_on_ci()</code> guards. Env vars alone do not override those guards unless tests are intentionally changed.</p>
 </div>
 <div class="section level3">

@@ -58,55 +58,12 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
-#> ✖ 2026-06-13 05:49:54.622919: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250206"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:49:54.683928: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250206"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:02.67144: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250216"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:04.256984: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250219"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:04.313357: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250219"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:07.751628: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250223"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:21.27553: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250313"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:21.33004: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250313"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:21.384649: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250313"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:21.440548: Error: Error: The API returned an error 
-#> ✖ Args: group = "50", season_dates = "20250313"
-#> ✖ Error: The API returned an error
-#> ✖ 2026-06-13 05:50:21.450525: Invalid arguments or no scoreboard data available!
-#> ── WBB schedule crosswalk (ESPN / Torvik) ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:50:32 UTC
-#> # A tibble: 6,415 × 13
-#>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
-#>     <int> <date>                 <int>             <int> <chr>        <chr>     
-#>  1   2025 2024-11-04              2579               130 401713576    MichiganS…
-#>  2   2025 2024-11-04                30               145 401720643    Mississip…
-#>  3   2025 2024-11-04                26                97 401720402    Louisvill…
-#>  4   2025 2024-11-04                87              2385 401711562    NA        
-#>  5   2025 2024-11-04                99              2198 401713679    Eastern K…
-#>  6   2025 2024-11-04                66              2130 401703035    Chicago S…
-#>  7   2025 2024-11-04               201              2582 401725988    SouthernO…
-#>  8   2025 2024-11-04               150              2515 401702871    RadfordDu…
-#>  9   2025 2024-11-04              2306              2739 401714674    Green Bay…
-#> 10   2025 2024-11-04               153              2127 401711554    Charlesto…
-#> # ℹ 6,405 more rows
-#> # ℹ 7 more variables: bart_team1 <chr>, bart_team2 <chr>, bart_winner <chr>,
-#> #   fox_game_id <chr>, yahoo_game_id <chr>, match_method <chr>,
-#> #   match_confidence <dbl>
+#> ✖ 2026-06-24 02:09:00.76138: No women's schedule available for 2025!
+#> ✖ Args: year = 2025
+#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
+#> ✖ 2026-06-24 02:09:00.81161: Could not build WBB schedule crosswalk for 2025!
+#> ✖ Args: season = 2025
+#> ✖ Error: ℹ In argument: `muid = as.character(.data$muid)`. Caused by error in `.data$muid`: ! Column `muid` not found in `.data`.
+#> data frame with 0 columns and 0 rows
 # }
 ```

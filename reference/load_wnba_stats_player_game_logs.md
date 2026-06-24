@@ -72,7 +72,7 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 1,873 × 34
+#> # A tibble: 2,508 × 34
 #>    season_id player_id player_name   team_id team_abbreviation team_name game_id
 #>    <chr>         <int> <chr>           <int> <chr>             <chr>     <chr>  
 #>  1 22026       1627668 Breanna Stew…  1.61e9 NYL               New York… 102260…
@@ -85,7 +85,7 @@ Other WNBA Stats loader functions:
 #>  8 22026       1643467 Cassandre Pr…  1.61e9 WAS               Washingt… 102260…
 #>  9 22026       1631135 Olivia Nelso…  1.61e9 CON               Connecti… 102260…
 #> 10 22026       1643429 Gianna Kneep…  1.61e9 CON               Connecti… 102260…
-#> # ℹ 1,863 more rows
+#> # ℹ 2,498 more rows
 #> # ℹ 27 more variables: game_date <chr>, matchup <chr>, wl <chr>, min <chr>,
 #> #   fgm <chr>, fga <chr>, fg_pct <chr>, fg3m <chr>, fg3a <chr>, fg3_pct <chr>,
 #> #   ftm <chr>, fta <chr>, ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>,

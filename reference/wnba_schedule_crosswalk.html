@@ -142,27 +142,14 @@ current-season; historical coverage comes from cached release artifacts.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wnba_schedule_crosswalk</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> WNBA CDN schedule is for season 2026, not 2024. For historical seasons use `load_wnba_schedule(seasons = 2024)`.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── WNBA schedule crosswalk (ESPN / WNBA Stats) ───────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-13 06:06:28 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 355 × 16</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type game_date  home_espn_team_id away_espn_team_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-25                 9                 5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>024 <span style="color: #BB0000;">NA</span>          2026-04-25                 6             <span style="text-decoration: underline;">17</span>476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-25                11                19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-25                16                 8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-25            <span style="text-decoration: underline;">129</span>689                14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>024 <span style="color: #BB0000;">NA</span>          2026-04-26                17             <span style="text-decoration: underline;">17</span>475</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>024 <span style="color: #BB0000;">NA</span>          2026-04-27                 8             <span style="text-decoration: underline;">17</span>476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-29            <span style="text-decoration: underline;">131</span>935                18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-29                19                20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>024 Pre-Season  2026-04-29                14            <span style="text-decoration: underline;">132</span>052</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 345 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 11 more variables: espn_game_id &lt;chr&gt;, wnba_game_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   wnba_game_code &lt;chr&gt;, wnba_home_team_id &lt;chr&gt;, wnba_away_team_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fox_game_id &lt;chr&gt;, fox_home_team_id &lt;chr&gt;, fox_away_team_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   yahoo_game_id &lt;chr&gt;, match_method &lt;chr&gt;, match_confidence &lt;dbl&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-06-24 02:09:28.477729: Invalid arguments or no league schedule data for 2024 available!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league_id = "10", season = 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: lexical error: invalid char in json text.                                        &lt;!DOCTYPE html&gt; &lt;html&gt;  &lt;head&gt;                       (right here) ------^ </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-06-24 02:09:28.610222: Invalid arguments or no league schedule data for 2024 available!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league_id = "10", season = 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: lexical error: invalid char in json text.                                        &lt;!DOCTYPE html&gt; &lt;html&gt;  &lt;head&gt;                       (right here) ------^ </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in UseMethod("transmute") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   no applicable method for 'transmute' applied to an object of class "NULL"</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

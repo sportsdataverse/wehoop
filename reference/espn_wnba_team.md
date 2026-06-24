@@ -192,7 +192,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:46:02 UTC
+#> ℹ Data updated: 2026-06-24 02:02:58 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -202,25 +202,25 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:46:02 UTC
+#> ℹ Data updated: 2026-06-24 02:02:58 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 9-3     <df [20 × 2]>
-#> 2 Home Record    home  2-2     <df [5 × 2]> 
-#> 3 Away Record    road  7-1     <df [5 × 2]> 
+#> 1 Overall Record total 12-4    <df [20 × 2]>
+#> 2 Home Record    home  4-2     <df [5 × 2]> 
+#> 3 Away Record    road  8-2     <df [5 × 2]> 
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:46:02 UTC
+#> ℹ Data updated: 2026-06-24 02:02:58 UTC
 #> # A tibble: 1 × 4
-#>   id        date              name                             short_name
-#>   <chr>     <chr>             <chr>                            <chr>     
-#> 1 401856987 2026-06-14T00:00Z Minnesota Lynx at Las Vegas Aces MIN @ LV  
+#>   id        date              name                               short_name
+#>   <chr>     <chr>             <chr>                              <chr>     
+#> 1 401857016 2026-06-24T02:00Z New York Liberty at Las Vegas Aces NY @ LV   
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:46:02 UTC
+#> ℹ Data updated: 2026-06-24 02:02:58 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

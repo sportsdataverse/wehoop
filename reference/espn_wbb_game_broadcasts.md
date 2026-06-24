@@ -139,7 +139,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_broadcasts(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Broadcasts (event_id=401276115) from ESP
-#> ℹ Data updated: 2026-06-13 05:45:01 UTC
+#> ℹ Data updated: 2026-06-24 02:01:48 UTC
 #> # A tibble: 1 × 10
 #>   event_id  broadcast_id type_id type_short_name type_long_name market_id
 #>   <chr>     <chr>        <chr>   <chr>           <chr>          <chr>    

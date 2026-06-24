@@ -72,7 +72,7 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 37,012 × 85
+#> # A tibble: 37,044 × 85
 #>    game_id    event_num event_type event_action_type period clock    minute_game
 #>    <chr>      <chr>     <chr>      <chr>              <int> <chr>          <dbl>
 #>  1 1022600001 2         12         0                      1 PT10M00…        0   
@@ -85,7 +85,7 @@ Other WNBA Stats loader functions:
 #>  8 1022600001 15        5          8                      1 PT08M50…        1.17
 #>  9 1022600001 16        7          1                      1 PT08M50…        1.17
 #> 10 1022600001 17        1          80                     1 PT08M34…        1.43
-#> # ℹ 37,002 more rows
+#> # ℹ 37,034 more rows
 #> # ℹ 78 more variables: time_remaining <dbl>, time_quarter <chr>,
 #> #   minute_remaining_quarter <int>, seconds_remaining_quarter <int>,
 #> #   action_type <chr>, sub_type <chr>, neutral_description <chr>,

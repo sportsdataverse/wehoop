@@ -149,7 +149,7 @@ aja |>
 #> # A tibble: 1 × 2
 #>   stat_type_id value
 #>   <chr>        <dbl>
-#> 1 0             21.6
+#> 1 0             21.7
 ```
 
 Margin note: `athlete_career_stats()` defaults to pulling *both* regular
@@ -212,7 +212,8 @@ espn_wnba_game_probabilities(event_id = 401736171)
 # so lift a real one off the schedule first.
 sched <- wnba_schedule()
 wnba_playbyplayv3(game_id = sched$game_id[1])
-#> list()
+#> Error in `if (zeros == 0) ...`:
+#> ! argument is of length zero
 ```
 
 The grammar doing real work: when two functions look like near-synonyms,
@@ -317,7 +318,7 @@ espn_wnba_team_season_profile(team_id = team_id, season = season)
 #> #   awards_ref <chr>, franchise_ref <chr>, depth_charts_ref <chr>,
 #> #   events_ref <chr>, transactions_ref <chr>, coaches_ref <chr>, …
 espn_wnba_team_schedule(team_id = team_id, season = season)
-#> # A tibble: 44 × 21
+#> # A tibble: 45 × 21
 #>    event_id  season season_type  week date          name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      
 #>  1 401856894   2026          NA    NA 2026-05-09T1… Phoe… PHX @ LV   NA         
@@ -330,7 +331,7 @@ espn_wnba_team_schedule(team_id = team_id, season = season)
 #>  8 401856952   2026          NA    NA 2026-05-31T1… Las … LV @ GS    NA         
 #>  9 401856958   2026          NA    NA 2026-06-03T0… Las … LV @ LA    NA         
 #> 10 401856967   2026          NA    NA 2026-06-06T1… Gold… GS @ LV    NA         
-#> # ℹ 34 more rows
+#> # ℹ 35 more rows
 #> # ℹ 13 more variables: opponent_abbrev <chr>, home_away <chr>,
 #> #   neutral_site <lgl>, conference_competition <lgl>, venue_id <chr>,
 #> #   venue_name <chr>, venue_city <chr>, venue_state <chr>, broadcast <chr>,
@@ -347,7 +348,7 @@ espn_wnba_team_roster(team_id = team_id, season = season)
 #>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
 #>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 33   
 #>  8 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 25   
-#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 31   
+#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
 #> 10 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 29   
 #> 11 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 29   
 #> 12 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
@@ -427,14 +428,14 @@ espn_wnba_leaders(season = most_recent_wnba_season())
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
 #>  1   2026           2 pointsPerGame PTS          3149391    NA           17     
 #>  2   2026           2 pointsPerGame PTS          3065570    NA           6      
-#>  3   2026           2 pointsPerGame PTS          2988756    NA           131935 
+#>  3   2026           2 pointsPerGame PTS          4433403    NA           5      
 #>  4   2026           2 pointsPerGame PTS          3142191    NA           5      
-#>  5   2026           2 pointsPerGame PTS          2998928    NA           9      
-#>  6   2026           2 pointsPerGame PTS          4433403    NA           5      
-#>  7   2026           2 pointsPerGame PTS          4433730    NA           3      
-#>  8   2026           2 pointsPerGame PTS          3058901    NA           20     
-#>  9   2026           2 pointsPerGame PTS          4398674    NA           20     
-#> 10   2026           2 pointsPerGame PTS          3904576    NA           131935 
+#>  5   2026           2 pointsPerGame PTS          2988756    NA           131935 
+#>  6   2026           2 pointsPerGame PTS          3058901    NA           20     
+#>  7   2026           2 pointsPerGame PTS          2998928    NA           9      
+#>  8   2026           2 pointsPerGame PTS          3904576    NA           131935 
+#>  9   2026           2 pointsPerGame PTS          4433730    NA           3      
+#> 10   2026           2 pointsPerGame PTS          2998938    NA           11     
 #> # ℹ 365 more rows
 #> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
 #> #   display_value <chr>

@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_official_detail(event_id = 401276115, order = 1)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Official Detail ──────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-13 05:45:01 UTC
+#> ℹ Data updated: 2026-06-24 02:01:49 UTC
 #> # A tibble: 1 × 10
 #>   league        event_id official_id first_name last_name full_name display_name
 #>   <chr>         <chr>    <chr>       <chr>      <chr>     <chr>     <chr>       

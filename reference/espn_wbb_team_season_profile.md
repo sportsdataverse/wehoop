@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Profile from ESPN.com ────────────
-#> ℹ Data updated: 2026-06-13 05:45:27 UTC
+#> ℹ Data updated: 2026-06-24 02:02:21 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <chr>    <chr>        <chr>       

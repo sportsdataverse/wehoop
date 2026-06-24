@@ -132,28 +132,10 @@ columns, and <code>year</code>.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bart_wbb_game_schedule</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Bart Torvik women's season schedule from barttorvik.com ───── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-13 05:44:47 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,899 × 56</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    muid    date  conmatch matchup prediction   ttq  conf venue team1  t1oe  t1de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Missou… 2/17… MVC at … 107 Mi… Missouri … 22.8      1     0 Miss…  97.0  90.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> New Me… 11/2… MWC vs.… 146 Ne… Georgia T… 51.3      0     1 New …  91.1  89.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Cal St… 11/2… BW at N… 307 Ca… Cal St. B…  5.40     0     0 Cal …  85.6 105. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Missou… 11/2… SEC vs.… 85 Mis… Missouri … 36.9      0     1 Miss… 103.   91.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> TulsaA… 11/2… Amer vs… 92 Tul… Tulsa -11… 47.1      0     1 Tulsa  99.6  89.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Montan… 12/8… BSky at… 164 Mo… Montana S… 53.6      0     0 Mont…  85.6  87.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Prairi… 3/9/… SWAC at… 318 Pr… Texas Sou… 34.9      1     0 Prai…  82.2 102. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> UC San… 3/9/… BW at BW 237 UC… UC Rivers… 33.0      1     0 UC S…  90.4 101. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Missis… 3/9/… SWAC at… 345 Mi… Jackson S… 19.3      1     0 Miss…  77.8 104. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Southe… 3/9/… SWAC at… 241 So… Southern … 43.4      1     0 Sout…  83.4  94.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5,889 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 45 more variables: t1py &lt;dbl&gt;, t1wp &lt;int&gt;, t1propt &lt;dbl&gt;, team2 &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   t2oe &lt;dbl&gt;, t2de &lt;dbl&gt;, t2py &lt;dbl&gt;, t2wp &lt;int&gt;, t2propt &lt;dbl&gt;, tpro &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   t1qual &lt;chr&gt;, t2qual &lt;chr&gt;, gp &lt;int&gt;, result &lt;chr&gt;, tempo &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   possessions &lt;dbl&gt;, t1pts &lt;int&gt;, t2pts &lt;int&gt;, winner &lt;chr&gt;, loser &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   t1adjt &lt;dbl&gt;, t2adjt &lt;dbl&gt;, t1adjo &lt;dbl&gt;, t1adjd &lt;dbl&gt;, t2adjo &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   t2adjd &lt;dbl&gt;, gamevalue &lt;dbl&gt;, mismatch &lt;dbl&gt;, blowout &lt;dbl&gt;, …</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-06-24 02:01:32.625949: No women's schedule available for 2024!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: year = 2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: lexical error: invalid char in json text.                                        &lt;!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
