@@ -99,5 +99,8 @@ NULL
 #' }
 wnba_shot_zones <- function(game_id, ...) {
   pbp <- wnba_pbp(game_id = game_id, on_court = FALSE, version = "v3")
-  .add_shot_zones(pbp)
+  .add_shot_zones(pbp) |>
+    dplyr::as_tibble() |>
+    janitor::clean_names() |>
+    make_wehoop_data("WNBA Shot Zones", Sys.time())
 }
