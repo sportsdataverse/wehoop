@@ -75,6 +75,8 @@ Other WNBA Boxscore Functions:
 Other WNBA Lineup Functions: 
 \code{\link{wnba_leaguedashlineups}()},
 \code{\link{wnba_leaguelineupviz}()},
+\code{\link{wnba_possession_lineups}()},
+\code{\link{wnba_rapm}()},
 \code{\link{wnba_shotchartlineupdetail}()},
 \code{\link{wnba_teamdashlineups}()}
 }

@@ -543,3 +543,18 @@ test_that("wnba_rapm runs end-to-end on a real WNBA game (offline smoke)", {
     out2[order(out2$player_id), ]$rapm
   )
 })
+
+# ===========================================================================
+# wnba_possession_lineups + wnba_rapm -- gated live test
+# Requires WNBA_STATS_TESTS=1 (live network access to stats.wnba.com).
+# Game 1022400003 (PHO @ LVA, 2024) has full rotation data.
+# ===========================================================================
+
+test_that("wnba_possession_lineups + wnba_rapm work live", {
+  skip_wnba_stats_test()
+  poss <- wnba_possession_lineups(game_id = "1022400003")
+  expect_true(nrow(poss) > 0)
+  out <- wnba_rapm(poss)
+  expect_true(nrow(out) > 0)
+  expect_true(all(is.finite(out$rapm)))
+})

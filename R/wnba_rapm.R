@@ -54,6 +54,7 @@ NULL
 #'   possessions return identical output with no need to set a seed.
 #' @keywords WNBA Lineup Functions
 #' @family WNBA Lineup Functions
+#' @export
 wnba_rapm <- function(possessions, ...) {
   # Build sparse design (handles empty / all-NA → 0-player sentinel)
   des <- .build_rapm_design(possessions)

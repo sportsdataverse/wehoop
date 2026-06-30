@@ -581,6 +581,7 @@ NULL
 #'
 #' @keywords WNBA Lineup Functions
 #' @family WNBA Lineup Functions
+#' @export
 wnba_possession_lineups <- function(game_id, ...) {
   pbp  <- wnba_pbp(game_id = game_id, on_court = TRUE, version = "v3")
   poss <- .build_possessions(pbp)
