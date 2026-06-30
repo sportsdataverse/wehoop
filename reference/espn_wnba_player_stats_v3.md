@@ -150,7 +150,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_stats_v3(athlete_id = "4068159", season = 2024)
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:02:50 UTC
+#> ℹ Data updated: 2026-06-30 19:33:17 UTC
 #> # A tibble: 9 × 47
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
@@ -161,8 +161,8 @@ Saiem Gilani
 #> 5 4068159      2024 NA      2024 Totals                     29                 0
 #> 6 4068159      2025 16      washington-mysti…               43                43
 #> 7 4068159      2026 132052  portland-fire                    3                 2
-#> 8 4068159      2026 3       dallas-wings                     4                 0
-#> 9 4068159      2026 NA      2026 Totals                      7                 2
+#> 8 4068159      2026 3       dallas-wings                     6                 0
+#> 9 4068159      2026 NA      2026 Totals                      9                 2
 #> # ℹ 41 more variables: avg_avg_minutes <dbl>, avg_avg_points <dbl>,
 #> #   avg_avg_offensive_rebounds <dbl>, avg_avg_defensive_rebounds <dbl>,
 #> #   avg_avg_rebounds <dbl>, avg_avg_assists <dbl>, avg_avg_steals <dbl>,

@@ -137,7 +137,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_officials(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Officials (event_id=401276115) from ESPN
-#> ℹ Data updated: 2026-06-24 02:01:49 UTC
+#> ℹ Data updated: 2026-06-30 19:32:25 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name     display_name  position_id position_name
 #>   <chr>     <chr>       <chr>         <chr>         <chr>       <chr>        

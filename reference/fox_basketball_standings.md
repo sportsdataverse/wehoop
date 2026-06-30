@@ -42,27 +42,27 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:09 UTC
+#> ℹ Data updated: 2026-06-30 19:33:35 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
-#>  1 1       CONFER… 1       Dream 12-4  .750  -     90.0  83.0  6-2   6-2   7-2  
-#>  2 1       CONFER… 2       Libe… 11-6  .647  1.5   89.0  83.0  6-4   5-2   8-1  
-#>  3 1       CONFER… 3       Fever 10-7  .588  2.5   92.0  89.0  7-3   3-4   5-4  
-#>  4 1       CONFER… 4       Myst… 8-7   .533  3.5   82.0  86.0  2-3   6-4   6-4  
-#>  5 1       CONFER… 5       Tempo 8-9   .471  4.5   89.0  92.0  4-3   4-6   4-6  
-#>  6 1       CONFER… 6       Sky   4-12  .250  8.0   82.0  89.0  1-6   3-6   1-7  
-#>  7 1       CONFER… 7       Sun   3-15  .167  10.0  80.0  88.0  2-7   1-8   1-8  
-#>  8 1       CONFER… NA      Lynx  13-4  .765  -     92.0  80.0  6-3   7-1   9-1  
-#>  9 1       CONFER… NA      Aces  12-4  .750  0.5   90.0  86.0  4-2   8-2   9-4  
-#> 10 1       CONFER… NA      Wings 11-6  .647  2.0   89.0  85.0  6-2   5-4   6-4  
+#>  1 1       CONFER… 1       Dream 12-7  .632  -     88.0  84.0  6-2   6-5   7-2  
+#>  2 1       CONFER… 2       Libe… 12-8  .600  0.5   88.0  84.0  6-4   6-4   8-1  
+#>  3 1       CONFER… 3       Fever 11-8  .579  1.0   94.0  90.0  8-4   3-4   5-4  
+#>  4 1       CONFER… 4       Myst… 9-9   .500  2.5   83.0  86.0  3-4   6-5   6-5  
+#>  5 1       CONFER… 5       Tempo 9-10  .474  3.0   91.0  92.0  5-4   4-6   4-6  
+#>  6 1       CONFER… 6       Sky   6-13  .316  6.0   86.0  90.0  3-7   3-6   1-7  
+#>  7 1       CONFER… 7       Sun   4-15  .211  8.0   79.0  87.0  3-7   1-8   2-8  
+#>  8 1       CONFER… NA      Lynx  15-4  .789  -     90.0  79.0  6-3   9-1   10-1 
+#>  9 1       CONFER… NA      Aces  14-5  .737  1.0   91.0  86.0  5-3   9-2   10-4 
+#> 10 1       CONFER… NA      Valk… 13-7  .650  2.5   83.0  78.0  10-3  3-4   7-5  
 #> # ℹ 20 more rows
 #> # ℹ 4 more variables: l10 <chr>, strk <chr>, entity_id <chr>, western <chr>
 # }
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:10 UTC
+#> ℹ Data updated: 2026-06-30 19:33:35 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>

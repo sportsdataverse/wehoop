@@ -134,7 +134,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_play_personnel(event_id = 401736171, play_id = 4017361714)
 #> ── ESPN WNBA Event Play Personnel ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:02:35 UTC
+#> ℹ Data updated: 2026-06-30 19:33:03 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: league <chr>, event_id <chr>, play_id <chr>, team_id <chr>,
 #> #   athlete_id <chr>, athlete_ref <chr>, competitor_ref <chr>

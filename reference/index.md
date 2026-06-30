@@ -1883,6 +1883,16 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Player vs Player**
 
+- [`wnba_possession_lineups()`](https://wehoop.sportsdataverse.org/reference/wnba_possession_lineups.md)
+  :
+
+  **Get WNBA Possession-Level Stint Matrix**
+
+- [`wnba_rapm()`](https://wehoop.sportsdataverse.org/reference/wnba_rapm.md)
+  :
+
+  **Fit a Ridge-Regression RAPM Model from WNBA Possession Data**
+
 - [`wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule.md)
   :
 
@@ -1902,6 +1912,12 @@ Functions exported by wehoop to access WNBA Stats API Data
   :
 
   **Get WNBA Stats API Scoreboard V3**
+
+- [`wnba_shot_zones()`](https://wehoop.sportsdataverse.org/reference/wnba_shot_zones.md)
+  :
+
+  **Fetch WNBA Play-by-Play and Classify Field-Goal Attempts by Shot
+  Zone**
 
 - [`wnba_shotchartdetail()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartdetail.md)
   :

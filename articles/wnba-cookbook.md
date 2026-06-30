@@ -427,15 +427,15 @@ espn_wnba_leaders(season = most_recent_wnba_season())
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  
 #>  1   2026           2 pointsPerGame PTS          3149391    NA           17     
-#>  2   2026           2 pointsPerGame PTS          3065570    NA           6      
-#>  3   2026           2 pointsPerGame PTS          4433403    NA           5      
-#>  4   2026           2 pointsPerGame PTS          3142191    NA           5      
+#>  2   2026           2 pointsPerGame PTS          3142191    NA           5      
+#>  3   2026           2 pointsPerGame PTS          3904576    NA           131935 
+#>  4   2026           2 pointsPerGame PTS          4433403    NA           5      
 #>  5   2026           2 pointsPerGame PTS          2988756    NA           131935 
-#>  6   2026           2 pointsPerGame PTS          3058901    NA           20     
-#>  7   2026           2 pointsPerGame PTS          2998928    NA           9      
-#>  8   2026           2 pointsPerGame PTS          3904576    NA           131935 
-#>  9   2026           2 pointsPerGame PTS          4433730    NA           3      
-#> 10   2026           2 pointsPerGame PTS          2998938    NA           11     
+#>  6   2026           2 pointsPerGame PTS          2998938    NA           11     
+#>  7   2026           2 pointsPerGame PTS          4433730    NA           3      
+#>  8   2026           2 pointsPerGame PTS          2998928    NA           9      
+#>  9   2026           2 pointsPerGame PTS          4433791    NA           8      
+#> 10   2026           2 pointsPerGame PTS          4433524    NA           16     
 #> # ℹ 365 more rows
 #> # ℹ 4 more variables: team_abbrev <chr>, value <dbl>, rank <int>,
 #> #   display_value <chr>

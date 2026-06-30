@@ -148,9 +148,15 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_team_news(team_id = "17", limit = 5)
-#> ✖ 2026-06-24 02:02:59.992654: Failed to retrieve ESPN wnba team news for team_id=17
-#> ✖ Args: league = "wnba", team_id = "17", limit = 5
-#> ✖ Error: The API returned an error
-#> data frame with 0 columns and 0 rows
+#> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── wehoop 3.0.0 ──
+#> ℹ Data updated: 2026-06-30 19:33:26 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  4.55e7 Story What is… The WNBA C… 2026-06-… FALSE   ESPN   https:/… 59       
+#> 2  4.92e7 Story WNBA Co… New York h… 2026-06-… FALSE   Karee… https:/… 59       
+#> 3  4.92e7 Head… Aces' W… A'ja Wilso… 2026-06-… FALSE   Alexa… https:/… 59       
+#> 4  4.92e7 Story WNBA Po… The Dream … 2026-06-… FALSE   Micha… https:/… 59       
+#> 5  4.92e7 Head… A'ja Wi… Four-time … 2026-06-… FALSE   Alexa… https:/… 59       
 # }
 ```

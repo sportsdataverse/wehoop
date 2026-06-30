@@ -49,26 +49,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:06 UTC
+#> ℹ Data updated: 2026-06-30 19:33:32 UTC
 #> # A tibble: 75 × 6
-#>    players v2              gp    entity_id min   mpg  
-#>    <chr>   <chr>           <chr> <chr>     <chr> <chr>
-#>  1 1       S. Dolson       18    31        NA    NA   
-#>  2 2       D. Bonner       18    211       NA    NA   
-#>  3 3       N. Hiedeman     18    239       NA    NA   
-#>  4 4       N. Mack         18    574       NA    NA   
-#>  5 5       D. Miller       18    718       NA    NA   
-#>  6 6       Z. Cooke        18    726       NA    NA   
-#>  7 7       S. Rivers       18    848       NA    NA   
-#>  8 8       F. Johnson      18    917       NA    NA   
-#>  9 9       C. Leger-Walker 18    922       NA    NA   
-#> 10 10      N. Brochant     18    955       NA    NA   
+#>    players v2           gp    entity_id min   mpg  
+#>    <chr>   <chr>        <chr> <chr>     <chr> <chr>
+#>  1 1       S. Dolson    20    31        NA    NA   
+#>  2 2       K. Stokes    20    39        NA    NA   
+#>  3 3       K. Thornton  20    136       NA    NA   
+#>  4 4       G. Williams  20    177       NA    NA   
+#>  5 5       D. Bonner    20    211       NA    NA   
+#>  6 6       M. Johannes  20    217       NA    NA   
+#>  7 7       H. Xu        20    224       NA    NA   
+#>  8 8       N. Hiedeman  20    239       NA    NA   
+#>  9 9       M. Gustafson 20    264       NA    NA   
+#> 10 10      K. Charles   20    557       NA    NA   
 #> # ℹ 65 more rows
 # }
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:07 UTC
+#> ℹ Data updated: 2026-06-30 19:33:32 UTC
 #> # A tibble: 100 × 8
 #>    players v2          gp    entity_id gs    mpg   ppg   pts  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>

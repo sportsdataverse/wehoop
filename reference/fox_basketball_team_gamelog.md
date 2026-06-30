@@ -42,26 +42,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:11 UTC
+#> ℹ Data updated: 2026-06-30 19:33:35 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 1       REGULAR SEASON scoring  2476    6/22      TOR      fgm          34   
-#>  2 1       REGULAR SEASON scoring  2476    6/22      TOR      fga          78   
-#>  3 1       REGULAR SEASON scoring  2476    6/22      TOR      fg_percent   43.6 
-#>  4 1       REGULAR SEASON scoring  2476    6/22      TOR      ftm          17   
-#>  5 1       REGULAR SEASON scoring  2476    6/22      TOR      fta          21   
-#>  6 1       REGULAR SEASON scoring  2476    6/22      TOR      ft_percent   81.0 
-#>  7 1       REGULAR SEASON scoring  2476    6/22      TOR      x3fgm        9    
-#>  8 1       REGULAR SEASON scoring  2476    6/22      TOR      x3fga        29   
-#>  9 1       REGULAR SEASON scoring  2476    6/22      TOR      x3fg_percent 31.0 
-#> 10 1       REGULAR SEASON scoring  2476    6/22      TOR      pts          94   
+#>  1 1       REGULAR SEASON scoring  2403    6/27      @SEA     fgm          30   
+#>  2 1       REGULAR SEASON scoring  2403    6/27      @SEA     fga          70   
+#>  3 1       REGULAR SEASON scoring  2403    6/27      @SEA     fg_percent   42.9 
+#>  4 1       REGULAR SEASON scoring  2403    6/27      @SEA     ftm          23   
+#>  5 1       REGULAR SEASON scoring  2403    6/27      @SEA     fta          26   
+#>  6 1       REGULAR SEASON scoring  2403    6/27      @SEA     ft_percent   88.0 
+#>  7 1       REGULAR SEASON scoring  2403    6/27      @SEA     x3fgm        7    
+#>  8 1       REGULAR SEASON scoring  2403    6/27      @SEA     x3fga        29   
+#>  9 1       REGULAR SEASON scoring  2403    6/27      @SEA     x3fg_percent 24.1 
+#> 10 1       REGULAR SEASON scoring  2403    6/27      @SEA     pts          90   
 #> # ℹ 155 more rows
 # }
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:11 UTC
+#> ℹ Data updated: 2026-06-30 19:33:36 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>

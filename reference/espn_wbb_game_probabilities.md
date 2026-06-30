@@ -144,7 +144,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_probabilities(event_id = "401276115", limit = 50)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Probabilities (event_id=401276115) from 
-#> ℹ Data updated: 2026-06-24 02:01:51 UTC
+#> ℹ Data updated: 2026-06-30 19:32:26 UTC
 #> # A tibble: 50 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>

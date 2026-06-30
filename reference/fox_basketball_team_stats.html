@@ -141,32 +141,32 @@ leaders.</strong> <code>fox_wnba_team_stats()</code> hits the <code>wnba</code> 
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fox_wnba_team_stats</span><span class="op">(</span><span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Fox Sports WNBA team_stats ────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-24 02:03:12 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-30 19:33:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 17 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_id category     stat       stat_abbreviation player        value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1       PLAYER STATS REBOUNDING RPG               Angel Reese   11.8 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1       PLAYER STATS SHOOTING   FG%               Madina Okot   57.7 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.4  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  40   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1       PLAYER STATS DEFENSE    BLK               Angel Reese   14   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1       PLAYER STATS MISC       DBL DBL           Angel Reese   10   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  124.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1       PLAYER STATS SCORING    PPG               Rhyne Howard  18.6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1       PLAYER STATS REBOUNDING RPG               Angel Reese   11.6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1       PLAYER STATS SHOOTING   FG%               Madina Okot   60.0 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  45   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1       PLAYER STATS DEFENSE    BLK               Rhyne Howard  14   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1       PLAYER STATS MISC       DBL DBL           Angel Reese   12   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  121.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.9 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1       TEAM STATS   SCORING    PPG               <span style="color: #BB0000;">NA</span>            90.4 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 1       TEAM STATS   REBOUNDING RPG               <span style="color: #BB0000;">NA</span>            35.7 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 1       TEAM STATS   SHOOTING   FG%               <span style="color: #BB0000;">NA</span>            44.6 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 1       TEAM STATS   ASSISTS    APG               <span style="color: #BB0000;">NA</span>            20.4 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 1       TEAM STATS   DEFENSE    STL               <span style="color: #BB0000;">NA</span>            151  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> 1       TEAM STATS   DEFENSE    BLK               <span style="color: #BB0000;">NA</span>            47   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> 1       TEAM STATS   MISC       DBL DBL           <span style="color: #BB0000;">NA</span>            15   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> 1       TEAM STATS   ADVANCED   NET RTG           <span style="color: #BB0000;">NA</span>            8.9  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1       TEAM STATS   SCORING    PPG               <span style="color: #BB0000;">NA</span>            88.3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 1       TEAM STATS   REBOUNDING RPG               <span style="color: #BB0000;">NA</span>            34.6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 1       TEAM STATS   SHOOTING   FG%               <span style="color: #BB0000;">NA</span>            43.7 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 1       TEAM STATS   ASSISTS    APG               <span style="color: #BB0000;">NA</span>            19.7 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 1       TEAM STATS   DEFENSE    STL               <span style="color: #BB0000;">NA</span>            178  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> 1       TEAM STATS   DEFENSE    BLK               <span style="color: #BB0000;">NA</span>            54   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> 1       TEAM STATS   MISC       DBL DBL           <span style="color: #BB0000;">NA</span>            17   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> 1       TEAM STATS   ADVANCED   NET RTG           <span style="color: #BB0000;">NA</span>            5.6  </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fox_wbb_team_stats</span><span class="op">(</span><span class="st">"11"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Fox Sports WCBK team_stats ────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-24 02:03:12 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-30 19:33:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 29 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_id category     stat                      stat_abbreviation player value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>

@@ -46,7 +46,7 @@ Returns a tibble
 # \donttest{
   try(load_wnba_schedule())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 325 × 77
+#> # A tibble: 332 × 77
 #>         id uid   date  attendance time_valid neutral_site conference_competition
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
 #>  1  4.02e8 s:40… 2026…          0 TRUE       FALSE        FALSE                 
@@ -59,7 +59,7 @@ Returns a tibble
 #>  8  4.02e8 s:40… 2026…          0 TRUE       FALSE        FALSE                 
 #>  9  4.02e8 s:40… 2026…          0 TRUE       FALSE        FALSE                 
 #> 10  4.02e8 s:40… 2026…          0 TRUE       FALSE        FALSE                 
-#> # ℹ 315 more rows
+#> # ℹ 322 more rows
 #> # ℹ 70 more variables: play_by_play_available <lgl>, recent <lgl>,
 #> #   start_date <chr>, broadcast <chr>, highlights <chr>, notes_type <chr>,
 #> #   notes_headline <chr>, broadcast_market <chr>, broadcast_name <chr>,

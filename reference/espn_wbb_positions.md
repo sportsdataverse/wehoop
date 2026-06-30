@@ -122,7 +122,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_positions()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Positions Index ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:02:04 UTC
+#> ℹ Data updated: 2026-06-30 19:32:37 UTC
 #> # A tibble: 14 × 3
 #>    position_id ref                                                        league
 #>    <chr>       <chr>                                                      <chr> 

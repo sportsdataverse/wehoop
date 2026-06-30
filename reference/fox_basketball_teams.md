@@ -45,7 +45,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:13 UTC
+#> ℹ Data updated: 2026-06-30 19:33:36 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -58,8 +58,8 @@ Other Fox Sports Functions:
 #>  7 3           Connecticut Sun        Connecticut Sun
 #>  8 9           Minnesota Lynx         Connecticut Sun
 #>  9 11          Las Vegas Aces         Connecticut Sun
-#> 10 7           Dallas Wings           Connecticut Sun
-#> 11 23          Golden State Valkyries Connecticut Sun
+#> 10 23          Golden State Valkyries Connecticut Sun
+#> 11 7           Dallas Wings           Connecticut Sun
 #> 12 8           Los Angeles Sparks     Connecticut Sun
 #> 13 30          Portland Fire          Connecticut Sun
 #> 14 10          Phoenix Mercury        Connecticut Sun
@@ -68,7 +68,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:03:13 UTC
+#> ℹ Data updated: 2026-06-30 19:33:37 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      
