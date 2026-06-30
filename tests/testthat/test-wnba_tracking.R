@@ -45,9 +45,24 @@ FG_PCT_COLS <- grep("_FG_PCT$", colnames(FRAME_2024), value = TRUE)  # DRIVE_FG_
 FT_PCT_COLS <- grep("_FT_PCT$", colnames(FRAME_2024), value = TRUE)  # DRIVE_FT_PCT
 
 ## Additive count columns (everything that is not identity / pct-drop / pct-recompute)
+## AND whose CONTENT is numeric — mirroring the engine's `.is_numeric_content`
+## routing so the identity/additivity gate loops never call as.numeric() on a
+## non-numeric string column (e.g. TEAM_CITY, NICKNAME). Those columns stay in
+## the fixtures to exercise the numeric-content gate (test #5); they are simply
+## excluded from the additive-iteration set here so the test helper agrees with
+## the engine's classification (no spurious "NAs introduced by coercion").
+.test_is_numeric_content <- function(vals) {
+  v <- vals[!is.na(vals) & vals != ""]
+  if (length(v) == 0L) return(FALSE)
+  suppressWarnings(all(!is.na(as.numeric(v))))
+}
 ADDITIVE_COLS <- setdiff(
   colnames(FRAME_2024),
   c(IDENTITY_COLS, FG_PCT_COLS, FT_PCT_COLS, PCT_DROP_COLS)
+)
+ADDITIVE_COLS <- Filter(
+  function(col) .test_is_numeric_content(FRAME_2024[[col]]),
+  ADDITIVE_COLS
 )
 
 ## ===========================================================================
