@@ -29,11 +29,14 @@ the season data into a database.}
 Returns a \code{wehoop_data} tibble of lineup stats.
 }
 \description{
-Loads season-level WNBA lineup statistics scraped from the
-WNBA Stats API (\code{leaguedashlineups}-style outputs). Backed by the
-\code{wehoop-wnba-stats-data} pipeline that reads raw JSONs from
-\code{wehoop-wnba-stats-raw} and publishes parquet/rds artifacts to the
-\code{wnba_stats_lineups} release tag.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Loads season-level WNBA
+5-man lineup statistics (\code{leaguedashlineups}-style outputs).
+\strong{Deprecated}: the \code{wnba_stats_lineups} release tag (R-scraped,
+\code{Base}/\code{Advanced} measures, 5-man only) is superseded by the
+\code{wnba_stats_leaguedash} tag (Python-scraped parameter cube: 6 measure
+types x 2/3/4/5-man). This function reshapes the cube back into the old
+5-man \code{Base}+\code{Advanced} contract for compatibility; call the cube's
+\verb{lineups_*} / \code{lineups_master} assets directly for the full surface.
 
 \code{load_wnba_stats_lineups_manifest()} returns the per-season
 manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},

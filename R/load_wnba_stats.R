@@ -124,10 +124,15 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API player season stats from the data repo**
 #' @rdname load_wnba_stats_player_stats
-#' @description Loads season-level WNBA player statistics scraped from the
-#'   WNBA Stats API. Backed by the `wehoop-wnba-stats-data` pipeline that
-#'   reads raw JSONs from `wehoop-wnba-stats-raw` and publishes parquet/rds
-#'   artifacts to the `wnba_stats_player_season_stats` release tag.
+#' @description `r lifecycle::badge("deprecated")` Loads season-level WNBA
+#'   player statistics. **Deprecated**: the `wnba_stats_player_season_stats`
+#'   release tag (R-scraped, `Base`/`Advanced`/`Misc`/`Scoring`/`Usage`/
+#'   `Defense` measures) is superseded by the `wnba_stats_leaguedash` tag
+#'   (Python-scraped parameter cube, same 6 measure types plus `player_bio`
+#'   and a wide `player_master` mega). This function reshapes the cube back
+#'   into the old stacked-by-`measure_type` contract for compatibility; call
+#'   the cube's `player_stats_*` / `player_master` assets directly for the
+#'   full surface.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -144,11 +149,15 @@ NULL
 load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season(),
                                          ...,
                                          dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "load_wnba_stats_player_stats()",
+    details = "Backing data moved from the wnba_stats_player_season_stats release tag to the wnba_stats_leaguedash release tag (a Python-scraped parameter cube). This call reshapes the cube's player_stats_{base,advanced,misc,scoring,usage,defense} assets back into the old stacked-by-measure_type contract."
+  )
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
   if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
@@ -157,15 +166,26 @@ load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season
             seasons >= 1997,
             seasons <= most_recent_wnba_stats_season())
 
-  urls <- paste0(
+  measures <- c(base = "Base", advanced = "Advanced", misc = "Misc",
+                scoring = "Scoring", usage = "Usage", defense = "Defense")
+  base_url <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_stats_player_season_stats/player_season_stats_", seasons, ".rds"
+    "wnba_stats_leaguedash/"
   )
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
-  out <- lapply(urls, progressively(loader, p))
+  out <- lapply(seasons, function(season) {
+    per_measure <- lapply(names(measures), function(slug) {
+      df <- parquet_from_url(paste0(base_url, "player_stats_", slug, "_", season, ".parquet"))
+      if (nrow(df) == 0) return(df)
+      df[, measure_type := measures[[slug]]]
+      df
+    })
+    if (!is.null(p)) p("loading...")
+    data.table::rbindlist(per_measure, use.names = TRUE, fill = TRUE)
+  })
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
@@ -183,11 +203,14 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API season lineups from the data repo**
 #' @rdname load_wnba_stats_lineups
-#' @description Loads season-level WNBA lineup statistics scraped from the
-#'   WNBA Stats API (`leaguedashlineups`-style outputs). Backed by the
-#'   `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
-#'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
-#'   `wnba_stats_lineups` release tag.
+#' @description `r lifecycle::badge("deprecated")` Loads season-level WNBA
+#'   5-man lineup statistics (`leaguedashlineups`-style outputs).
+#'   **Deprecated**: the `wnba_stats_lineups` release tag (R-scraped,
+#'   `Base`/`Advanced` measures, 5-man only) is superseded by the
+#'   `wnba_stats_leaguedash` tag (Python-scraped parameter cube: 6 measure
+#'   types x 2/3/4/5-man). This function reshapes the cube back into the old
+#'   5-man `Base`+`Advanced` contract for compatibility; call the cube's
+#'   `lineups_*` / `lineups_master` assets directly for the full surface.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -204,11 +227,15 @@ NULL
 load_wnba_stats_lineups <- function(seasons = most_recent_wnba_stats_season(),
                                     ...,
                                     dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "load_wnba_stats_lineups()",
+    details = "Backing data moved from the wnba_stats_lineups release tag (5-man Base+Advanced only) to the wnba_stats_leaguedash release tag (a Python-scraped parameter cube covering 2/3/4/5-man x 6 measure types). This call filters the cube's lineups_{base,advanced} assets down to group_quantity == 5 to match the old contract."
+  )
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
   if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
@@ -217,15 +244,26 @@ load_wnba_stats_lineups <- function(seasons = most_recent_wnba_stats_season(),
             seasons >= 1997,
             seasons <= most_recent_wnba_stats_season())
 
-  urls <- paste0(
+  measures <- c(base = "Base", advanced = "Advanced")
+  base_url <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_stats_lineups/lineups_", seasons, ".rds"
+    "wnba_stats_leaguedash/"
   )
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
-  out <- lapply(urls, progressively(loader, p))
+  out <- lapply(seasons, function(season) {
+    per_measure <- lapply(names(measures), function(slug) {
+      df <- parquet_from_url(paste0(base_url, "lineups_", slug, "_", season, ".parquet"))
+      if (nrow(df) == 0) return(df)
+      df <- df[df$group_quantity == 5, ]
+      df[, measure_type := measures[[slug]]]
+      df
+    })
+    if (!is.null(p)) p("loading...")
+    data.table::rbindlist(per_measure, use.names = TRUE, fill = TRUE)
+  })
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
@@ -243,11 +281,15 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API team season stats from the data repo**
 #' @rdname load_wnba_stats_team_stats
-#' @description Loads season-level team statistics scraped from the WNBA
-#'   Stats API (`leaguedashteamstats`-style outputs). Backed by the
-#'   `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
-#'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
-#'   `wnba_stats_team_season_stats` release tag.
+#' @description `r lifecycle::badge("deprecated")` Loads season-level team
+#'   statistics (`leaguedashteamstats`-style outputs). **Deprecated**: the
+#'   `wnba_stats_team_season_stats` release tag (R-scraped, `Base`/
+#'   `Advanced`/`Misc`/`Scoring`/`Defense`/`Opponent` measures) is superseded
+#'   by the `wnba_stats_leaguedash` tag (Python-scraped parameter cube, same
+#'   6 measures plus `Four Factors` and a wide `team_master` mega). This
+#'   function reshapes the cube back into the old stacked-by-`measure_type`
+#'   contract for compatibility; call the cube's `team_stats_*` /
+#'   `team_master` assets directly for the full surface.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -297,11 +339,15 @@ NULL
 load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season(),
                                        ...,
                                        dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "load_wnba_stats_team_stats()",
+    details = "Backing data moved from the wnba_stats_team_season_stats release tag to the wnba_stats_leaguedash release tag (a Python-scraped parameter cube). This call reshapes the cube's team_stats_{base,advanced,misc,scoring,defense,opponent} assets back into the old stacked-by-measure_type contract."
+  )
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
   if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
@@ -310,15 +356,26 @@ load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season()
             seasons >= 1997,
             seasons <= most_recent_wnba_stats_season())
 
-  urls <- paste0(
+  measures <- c(base = "Base", advanced = "Advanced", misc = "Misc",
+                scoring = "Scoring", defense = "Defense", opponent = "Opponent")
+  base_url <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_stats_team_season_stats/team_season_stats_", seasons, ".rds"
+    "wnba_stats_leaguedash/"
   )
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
-  out <- lapply(urls, progressively(loader, p))
+  out <- lapply(seasons, function(season) {
+    per_measure <- lapply(names(measures), function(slug) {
+      df <- parquet_from_url(paste0(base_url, "team_stats_", slug, "_", season, ".parquet"))
+      if (nrow(df) == 0) return(df)
+      df[, measure_type := measures[[slug]]]
+      df
+    })
+    if (!is.null(p)) p("loading...")
+    data.table::rbindlist(per_measure, use.names = TRUE, fill = TRUE)
+  })
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
@@ -336,11 +393,12 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API season standings from the data repo**
 #' @rdname load_wnba_stats_standings
-#' @description Loads season-level WNBA standings scraped from the WNBA Stats
-#'   API (`leaguestandingsv3`-style outputs). One row per team-season. Backed
-#'   by the `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
-#'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
-#'   `wnba_stats_standings` release tag.
+#' @description `r lifecycle::badge("deprecated")` Loads season-level WNBA
+#'   standings (`leaguestandingsv3`-style outputs). One row per team-season.
+#'   **Deprecated**: the `wnba_stats_standings` release tag (R-scraped) is
+#'   superseded by the `wnba_stats_leaguedash` tag's `standings` asset
+#'   (same underlying endpoint/params, Python-scraped) — this is close to a
+#'   pure passthrough.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -379,11 +437,16 @@ NULL
 load_wnba_stats_standings <- function(seasons = most_recent_wnba_stats_season(),
                                       ...,
                                       dbConnection = NULL, tablename = NULL) {
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "load_wnba_stats_standings()",
+    details = "Backing data moved from the wnba_stats_standings release tag to the wnba_stats_leaguedash release tag's standings_{season}.parquet asset (same underlying leaguestandingsv3 endpoint/params, Python-scraped)."
+  )
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
+  loader <- parquet_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
   if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
@@ -394,7 +457,7 @@ load_wnba_stats_standings <- function(seasons = most_recent_wnba_stats_season(),
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_stats_standings/standings_", seasons, ".rds"
+    "wnba_stats_leaguedash/standings_", seasons, ".parquet"
   )
 
   p <- NULL

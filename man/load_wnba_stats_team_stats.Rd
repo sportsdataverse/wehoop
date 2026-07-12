@@ -60,11 +60,15 @@ Returns a \code{wehoop_data} tibble of team season stats.\tabular{lll}{
 }
 }
 \description{
-Loads season-level team statistics scraped from the WNBA
-Stats API (\code{leaguedashteamstats}-style outputs). Backed by the
-\code{wehoop-wnba-stats-data} pipeline that reads raw JSONs from
-\code{wehoop-wnba-stats-raw} and publishes parquet/rds artifacts to the
-\code{wnba_stats_team_season_stats} release tag.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Loads season-level team
+statistics (\code{leaguedashteamstats}-style outputs). \strong{Deprecated}: the
+\code{wnba_stats_team_season_stats} release tag (R-scraped, \code{Base}/
+\code{Advanced}/\code{Misc}/\code{Scoring}/\code{Defense}/\code{Opponent} measures) is superseded
+by the \code{wnba_stats_leaguedash} tag (Python-scraped parameter cube, same
+6 measures plus \verb{Four Factors} and a wide \code{team_master} mega). This
+function reshapes the cube back into the old stacked-by-\code{measure_type}
+contract for compatibility; call the cube's \verb{team_stats_*} /
+\code{team_master} assets directly for the full surface.
 
 \code{load_wnba_stats_team_stats_manifest()} returns the per-season
 manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},

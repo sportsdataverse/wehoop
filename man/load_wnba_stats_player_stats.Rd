@@ -29,10 +29,15 @@ the season data into a database.}
 Returns a \code{wehoop_data} tibble of player season stats.
 }
 \description{
-Loads season-level WNBA player statistics scraped from the
-WNBA Stats API. Backed by the \code{wehoop-wnba-stats-data} pipeline that
-reads raw JSONs from \code{wehoop-wnba-stats-raw} and publishes parquet/rds
-artifacts to the \code{wnba_stats_player_season_stats} release tag.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Loads season-level WNBA
+player statistics. \strong{Deprecated}: the \code{wnba_stats_player_season_stats}
+release tag (R-scraped, \code{Base}/\code{Advanced}/\code{Misc}/\code{Scoring}/\code{Usage}/
+\code{Defense} measures) is superseded by the \code{wnba_stats_leaguedash} tag
+(Python-scraped parameter cube, same 6 measure types plus \code{player_bio}
+and a wide \code{player_master} mega). This function reshapes the cube back
+into the old stacked-by-\code{measure_type} contract for compatibility; call
+the cube's \verb{player_stats_*} / \code{player_master} assets directly for the
+full surface.
 
 \code{load_wnba_stats_player_stats_manifest()} returns the
 per-season manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},
