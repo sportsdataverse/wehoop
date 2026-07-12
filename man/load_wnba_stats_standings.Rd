@@ -49,11 +49,12 @@ Returns a \code{wehoop_data} tibble of team standings.\tabular{lll}{
 }
 }
 \description{
-Loads season-level WNBA standings scraped from the WNBA Stats
-API (\code{leaguestandingsv3}-style outputs). One row per team-season. Backed
-by the \code{wehoop-wnba-stats-data} pipeline that reads raw JSONs from
-\code{wehoop-wnba-stats-raw} and publishes parquet/rds artifacts to the
-\code{wnba_stats_standings} release tag.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Loads season-level WNBA
+standings (\code{leaguestandingsv3}-style outputs). One row per team-season.
+\strong{Deprecated}: the \code{wnba_stats_standings} release tag (R-scraped) is
+superseded by the \code{wnba_stats_leaguedash} tag's \code{standings} asset
+(same underlying endpoint/params, Python-scraped) — this is close to a
+pure passthrough.
 
 \code{load_wnba_stats_standings_manifest()} returns the per-season
 manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},
