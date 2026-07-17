@@ -48,6 +48,7 @@ Other WNBA loader functions:
 \code{\link{load_wnba_draft_manifest}()},
 \code{\link{load_wnba_game_rosters_manifest}()},
 \code{\link{load_wnba_officials_manifest}()},
+\code{\link{load_wnba_player_core}()},
 \code{\link{load_wnba_player_stats_manifest}()},
 \code{\link{load_wnba_shots_manifest}()},
 \code{\link{load_wnba_standings_manifest}()},
