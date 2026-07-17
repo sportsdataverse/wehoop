@@ -2347,7 +2347,11 @@ helper_espn_wnba_team_box <- function(resp){
     lubridate::with_tz(tzone = "America/New_York")
   
   game_date <- as.Date(substr(game_date_time, 0, 10))
-  box_score_available <- game_json[["header"]][["competitions"]][["boxscoreAvailable"]]
+  # ESPN's header `boxscoreAvailable` flag is unreliable for archival games
+  # (the WBB twin drops pre-2014 boxscores over it), so availability is
+  # derived from the payload itself; the statistics-length check below
+  # remains the real gate.
+  box_score_available <- length(game_json[["boxscore"]][["teams"]]) > 0
   if (box_score_available == TRUE) {
     teams_box_score_df <- game_json[["boxscore"]][["teams"]] %>%
       jsonlite::toJSON() %>%
@@ -2580,7 +2584,10 @@ helper_espn_wnba_player_box <- function(resp){
       purrr::pluck(7) %>% 
       as.numeric()
   )
-  if (boxScoreAvailable == TRUE &&
+  # Payload presence replaces ESPN's unreliable header `boxscoreAvailable`
+  # flag (archival games carry stats while the flag says FALSE); the athlete
+  # and stat validity conjuncts below remain the real gate.
+  if (length(game_json[["boxscore"]][["players"]]) > 0 &&
       length(players_box_score_df[["statistics"]][[1]][["athletes"]][[1]]) > 1 &&
       !is.na(valid_stats)) {
       players_df <- players_box_score_df %>%
