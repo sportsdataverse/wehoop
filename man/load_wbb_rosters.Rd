@@ -48,6 +48,7 @@ to the \code{espn_womens_college_basketball_rosters} release tag.
 Other WBB loader functions: 
 \code{\link{load_wbb_game_rosters_manifest}()},
 \code{\link{load_wbb_officials_manifest}()},
+\code{\link{load_wbb_player_core}()},
 \code{\link{load_wbb_player_stats_manifest}()},
 \code{\link{load_wbb_shots_manifest}()},
 \code{\link{load_wbb_standings_manifest}()},

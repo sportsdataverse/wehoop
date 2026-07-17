@@ -60,6 +60,7 @@ the \code{wehoop-wbb-data} pipeline that reads raw JSONs from
 \seealso{
 Other WBB loader functions: 
 \code{\link{load_wbb_officials_manifest}()},
+\code{\link{load_wbb_player_core}()},
 \code{\link{load_wbb_player_stats_manifest}()},
 \code{\link{load_wbb_rosters_manifest}()},
 \code{\link{load_wbb_shots_manifest}()},
