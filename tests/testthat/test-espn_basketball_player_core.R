@@ -192,3 +192,27 @@ test_that("espn_basketball_player_core() keeps athlete_id an integer join key", 
   expect_equal(out$athlete_id, 1966L)
   expect_false(is.character(out$athlete_id))
 })
+
+test_that("espn_basketball_player_core() finalizes both paths as wehoop_data", {
+  # Without these assertions the suite passes even if make_wehoop_data() is deleted: the
+  # golden-master test compares values and column names, and neither changes
+  # when the class and attributes are dropped. The finalized contract was added
+  # in response to review, so it needs a test that fails when it regresses.
+  fx <- testthat::test_path("fixtures", "player_core")
+  populated <- espn_basketball_player_core(
+    jsonlite::fromJSON(file.path(fx, "wnba_1002.json"), simplifyVector = FALSE),
+    athlete_id = 1002L
+  )
+  empty <- espn_basketball_player_core(list(), athlete_id = 1L)
+
+  for (out in list(populated, empty)) {
+    expect_s3_class(out, "wehoop_data")
+    expect_equal(attr(out, "wehoop_type"),
+                 "ESPN Basketball Player Core from ESPN.com")
+    expect_s3_class(attr(out, "wehoop_timestamp"), "POSIXct")
+    # The finalizer must not disturb the 35-column contract it wraps.
+    expect_equal(ncol(out), 35L)
+  }
+  expect_equal(nrow(populated), 1L)
+  expect_equal(nrow(empty), 0L)
+})
