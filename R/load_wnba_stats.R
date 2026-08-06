@@ -1,8 +1,3 @@
-# `:=` is data.table's assignment operator (the package Imports data.table) and
-# `measure_type` is the new column it creates -- both are NSE, not missing
-# objects. Declared so R CMD check does not report them as undefined globals.
-utils::globalVariables(c(":=", "measure_type"))
-
 #' **Load wehoop WNBA Stats Rosters**
 #' @name load_wnba_stats_rosters
 NULL
@@ -185,7 +180,7 @@ load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season
     per_measure <- lapply(names(measures), function(slug) {
       df <- parquet_from_url(paste0(base_url, "player_stats_", slug, "_", season, ".parquet"))
       if (nrow(df) == 0) return(df)
-      df[, measure_type := measures[[slug]]]
+      data.table::set(df, j = "measure_type", value = measures[[slug]])
       df
     })
     if (!is.null(p)) p("loading...")
@@ -263,7 +258,7 @@ load_wnba_stats_lineups <- function(seasons = most_recent_wnba_stats_season(),
       df <- parquet_from_url(paste0(base_url, "lineups_", slug, "_", season, ".parquet"))
       if (nrow(df) == 0) return(df)
       df <- df[df$group_quantity == 5, ]
-      df[, measure_type := measures[[slug]]]
+      data.table::set(df, j = "measure_type", value = measures[[slug]])
       df
     })
     if (!is.null(p)) p("loading...")
@@ -375,7 +370,7 @@ load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season()
     per_measure <- lapply(names(measures), function(slug) {
       df <- parquet_from_url(paste0(base_url, "team_stats_", slug, "_", season, ".parquet"))
       if (nrow(df) == 0) return(df)
-      df[, measure_type := measures[[slug]]]
+      data.table::set(df, j = "measure_type", value = measures[[slug]])
       df
     })
     if (!is.null(p)) p("loading...")
