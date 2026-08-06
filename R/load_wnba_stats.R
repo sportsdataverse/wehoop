@@ -1,3 +1,8 @@
+# `:=` is data.table's assignment operator (the package Imports data.table) and
+# `measure_type` is the new column it creates -- both are NSE, not missing
+# objects. Declared so R CMD check does not report them as undefined globals.
+utils::globalVariables(c(":=", "measure_type"))
+
 #' **Load wehoop WNBA Stats Rosters**
 #' @name load_wnba_stats_rosters
 NULL

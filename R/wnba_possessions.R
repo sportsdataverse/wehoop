@@ -1,5 +1,10 @@
 #' @importFrom stringr str_detect str_match
 
+# NSE column names used via dplyr data-masking (dplyr::pull(possessions, x)).
+# Declared so R CMD check does not report them as undefined globals; they are
+# columns of the possessions frame, not missing objects.
+utils::globalVariables(c("start_event_idx", "offense_team_id"))
+
 # ---------------------------------------------------------------------------
 # WNBA possession event-classification helpers
 #
