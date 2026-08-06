@@ -1,7 +1,7 @@
 # **Bart Torvik Women's Season Schedule & Results**
 
 **Get the full women's game-by-game schedule and results for a season
-from [barttorvik.com](https://barttorvik.com/ncaaw).** Pulls the
+from [barttorvik.com](https://barttorvik.com/ncaaw/).** Pulls the
 `/ncaaw/{year}_super_sked.json` file (one row per game). No API key
 required.
 
@@ -34,7 +34,7 @@ Other Bart Torvik Functions:
 ``` r
 # \donttest{
   try(bart_wbb_game_schedule(year = 2024))
-#> ✖ 2026-06-30 19:32:10.808769: No women's schedule available for 2024!
+#> ✖ 2026-08-06 03:59:24.938544: No women's schedule available for 2024!
 #> ✖ Args: year = 2024
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
 #> data frame with 0 columns and 0 rows

@@ -193,11 +193,11 @@ Other ESPN WBB Functions:
 # \donttest{
   try(espn_wbb_standings(2021))
 #> ── ESPN WBB Standings Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-30 19:32:47 UTC
+#> ℹ Data updated: 2026-08-06 04:00:01 UTC
 #> # A tibble: 346 × 86
 #>    team_id team       avgpointsagainst avgpointsfor gamesbehind leaguewinpercent
 #>      <int> <chr>                 <dbl>        <dbl>       <dbl>            <dbl>
-#>  1    2856 Californi…             61.9         77.8         0              1    
+#>  1    2856 Californi…             61.9         77.8        -7.5            1    
 #>  2      24 Stanford …             53.7         77.7        -5              0.905
 #>  3      41 UConn Hus…             52.6         81.9         0              1    
 #>  4     239 Baylor Be…             55.3         81.9         0              0.944

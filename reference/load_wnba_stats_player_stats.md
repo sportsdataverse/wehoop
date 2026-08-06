@@ -1,9 +1,14 @@
 # **Load wehoop WNBA Stats Player Season Stats**
 
-Loads season-level WNBA player statistics scraped from the WNBA Stats
-API. Backed by the `wehoop-wnba-stats-data` pipeline that reads raw
-JSONs from `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts
-to the `wnba_stats_player_season_stats` release tag.
+**\[deprecated\]** Loads season-level WNBA player statistics.
+**Deprecated**: the `wnba_stats_player_season_stats` release tag
+(R-scraped, `Base`/`Advanced`/`Misc`/`Scoring`/`Usage`/ `Defense`
+measures) is superseded by the `wnba_stats_leaguedash` tag
+(Python-scraped parameter cube, same 6 measure types plus `player_bio`
+and a wide `player_master` mega). This function reshapes the cube back
+into the old stacked-by-`measure_type` contract for compatibility; call
+the cube's `player_stats_*` / `player_master` assets directly for the
+full surface.
 
 `load_wnba_stats_player_stats_manifest()` returns the per-season
 manifest CSV (`season`, `row_count`, `generated_at_utc`,
@@ -69,26 +74,31 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_player_stats(seasons = most_recent_wnba_stats_season()))
+#> Warning: `load_wnba_stats_player_stats()` was deprecated in wehoop 3.0.0.
+#> ℹ Backing data moved from the wnba_stats_player_season_stats release tag to the
+#>   wnba_stats_leaguedash release tag (a Python-scraped parameter cube). This
+#>   call reshapes the cube's
+#>   player_stats_{base,advanced,misc,scoring,usage,defense} assets back into the
+#>   old stacked-by-measure_type contract.
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_base_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_base_2026.parquet>
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_advanced_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_advanced_2026.parquet>
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_misc_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_misc_2026.parquet>
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_scoring_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_scoring_2026.parquet>
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_usage_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_usage_2026.parquet>
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_defense_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/player_stats_defense_2026.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 1,248 × 209
-#>    player_id player_name    nickname team_id team_abbreviation age   gp    w    
-#>    <chr>     <chr>          <chr>    <chr>   <chr>             <chr> <chr> <chr>
-#>  1 1628932   A'ja Wilson    A'ja     161166… LVA               29    19    14   
-#>  2 1642290   Aaliyah Edwar… Aaliyah  161166… CON               23    13    3    
-#>  3 1642801   Aaliyah Nye    Aaliyah  161166… ATL               23    11    7    
-#>  4 1642786   Aicha Couliba… Aicha    161166… CHI               24    10    3    
-#>  5 1629501   Alanna Smith   Alanna   161166… DAL               29    15    9    
-#>  6 1643525   Alex Fowler    Alex     161166… NYL               24    2     1    
-#>  7 1642775   Alex Wilson    Alex     161166… WAS               32    4     2    
-#>  8 1643644   Alicia Florez  Alicia   161166… WAS               22    9     4    
-#>  9 1641648   Aliyah Boston  Aliyah   161166… IND               24    18    10   
-#> 10 1628277   Allisha Gray   Allisha  161166… ATL               31    19    12   
-#> # ℹ 1,238 more rows
-#> # ℹ 201 more variables: l <chr>, w_pct <chr>, min <chr>, fgm <chr>, fga <chr>,
-#> #   fg_pct <chr>, fg3m <chr>, fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
-#> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,
-#> #   stl <chr>, blk <chr>, blka <chr>, pf <chr>, pfd <chr>, pts <chr>,
-#> #   plus_minus <chr>, nba_fantasy_pts <chr>, dd2 <chr>, td3 <chr>,
-#> #   wnba_fantasy_pts <chr>, gp_rank <chr>, w_rank <chr>, l_rank <chr>, …
+#> # A tibble: 0 × 0
 # }
 ```

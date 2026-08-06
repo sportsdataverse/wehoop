@@ -1,10 +1,13 @@
 # **Load wehoop WNBA Stats Lineups**
 
-Loads season-level WNBA lineup statistics scraped from the WNBA Stats
-API (`leaguedashlineups`-style outputs). Backed by the
-`wehoop-wnba-stats-data` pipeline that reads raw JSONs from
-`wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
-`wnba_stats_lineups` release tag.
+**\[deprecated\]** Loads season-level WNBA 5-man lineup statistics
+(`leaguedashlineups`-style outputs). **Deprecated**: the
+`wnba_stats_lineups` release tag (R-scraped, `Base`/`Advanced` measures,
+5-man only) is superseded by the `wnba_stats_leaguedash` tag
+(Python-scraped parameter cube: 6 measure types x 2/3/4/5-man). This
+function reshapes the cube back into the old 5-man `Base`+`Advanced`
+contract for compatibility; call the cube's `lineups_*` /
+`lineups_master` assets directly for the full surface.
 
 `load_wnba_stats_lineups_manifest()` returns the per-season manifest CSV
 (`season`, `row_count`, `generated_at_utc`, `source_endpoint`) for the
@@ -70,26 +73,19 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_lineups(seasons = most_recent_wnba_stats_season()))
+#> Warning: `load_wnba_stats_lineups()` was deprecated in wehoop 3.0.0.
+#> ℹ Backing data moved from the wnba_stats_lineups release tag (5-man
+#>   Base+Advanced only) to the wnba_stats_leaguedash release tag (a
+#>   Python-scraped parameter cube covering 2/3/4/5-man x 6 measure types). This
+#>   call filters the cube's lineups_{base,advanced} assets down to group_quantity
+#>   == 5 to match the old contract.
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_base_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_base_2026.parquet>
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_advanced_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_advanced_2026.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 4,000 × 95
-#>    group_set group_id     group_name team_id team_abbreviation gp    w     l    
-#>    <chr>     <chr>        <chr>      <chr>   <chr>             <chr> <chr> <chr>
-#>  1 Lineups   -203825-203… K. McBrid… 161166… MIN               19    15    4    
-#>  2 Lineups   -1628277-16… A. Gray -… 161166… ATL               17    12    5    
-#>  3 Lineups   -203398-162… B. Griner… 161166… CON               1     0     1    
-#>  4 Lineups   -202252-162… A. Clark … 161166… DAL               1     1     0    
-#>  5 Lineups   -1630446-16… M. Onyenw… 161166… WAS               1     1     0    
-#>  6 Lineups   -1629484-16… M. Gustaf… 161166… PDX               14    6     8    
-#>  7 Lineups   -203400-164… S. Diggin… 161166… CHI               3     2     1    
-#>  8 Lineups   -1627668-16… B. Stewar… 161166… NYL               1     0     1    
-#>  9 Lineups   -203014-204… N. Ogwumi… 161166… LAS               7     5     2    
-#> 10 Lineups   -1629481-16… A. Ogunbo… 161166… DAL               11    8     3    
-#> # ℹ 3,990 more rows
-#> # ℹ 87 more variables: w_pct <chr>, min <chr>, fgm <chr>, fga <chr>,
-#> #   fg_pct <chr>, fg3m <chr>, fg3a <chr>, fg3_pct <chr>, ftm <chr>, fta <chr>,
-#> #   ft_pct <chr>, oreb <chr>, dreb <chr>, reb <chr>, ast <chr>, tov <chr>,
-#> #   stl <chr>, blk <chr>, blka <chr>, pf <chr>, pfd <chr>, pts <chr>,
-#> #   plus_minus <chr>, gp_rank <chr>, w_rank <chr>, l_rank <chr>,
-#> #   w_pct_rank <chr>, min_rank <chr>, fgm_rank <chr>, fga_rank <chr>, …
+#> # A tibble: 0 × 0
 # }
 ```

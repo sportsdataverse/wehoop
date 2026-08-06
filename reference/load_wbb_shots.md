@@ -73,6 +73,7 @@ Returns a `wehoop_data` tibble with one row per shot attempt.
 Other WBB loader functions:
 [`load_wbb_game_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
 [`load_wbb_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_officials.md),
+[`load_wbb_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_core.md),
 [`load_wbb_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.md),
 [`load_wbb_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.md),
 [`load_wbb_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wbb_standings.md),
@@ -84,7 +85,7 @@ Other WBB loader functions:
 # \donttest{
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 907,805 × 15
+#> # A tibble: 907,805 × 20
 #>      game_id season period_number clock_display_value team_id athlete_id_1
 #>        <int>  <int>         <int> <chr>                 <int>        <int>
 #>  1 401856590   2026             1 9:43                     26      5105737
@@ -98,8 +99,10 @@ Other WBB loader functions:
 #>  9 401856590   2026             1 7:29                   2579      4609797
 #> 10 401856590   2026             1 7:29                   2579      4609797
 #> # ℹ 907,795 more rows
-#> # ℹ 9 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
+#> # ℹ 14 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
 #> #   scoring_play <lgl>, score_value <int>, coordinate_x <dbl>,
-#> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>
+#> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>,
+#> #   athlete_name_1 <chr>, athlete_name_2 <chr>, team_name <chr>,
+#> #   team_mascot <chr>, team_abbrev <chr>
 # }
 ```

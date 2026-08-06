@@ -1,10 +1,11 @@
 # **Load wehoop WNBA Stats Standings**
 
-Loads season-level WNBA standings scraped from the WNBA Stats API
-(`leaguestandingsv3`-style outputs). One row per team-season. Backed by
-the `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
-`wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
-`wnba_stats_standings` release tag.
+**\[deprecated\]** Loads season-level WNBA standings
+(`leaguestandingsv3`-style outputs). One row per team-season.
+**Deprecated**: the `wnba_stats_standings` release tag (R-scraped) is
+superseded by the `wnba_stats_leaguedash` tag's `standings` asset (same
+underlying endpoint/params, Python-scraped) — this is close to a pure
+passthrough.
 
 `load_wnba_stats_standings_manifest()` returns the per-season manifest
 CSV (`season`, `row_count`, `generated_at_utc`, `source_endpoint`) for
@@ -92,31 +93,14 @@ Other WNBA Stats loader functions:
 ``` r
 # \donttest{
   try(load_wnba_stats_standings(seasons = most_recent_wnba_stats_season()))
+#> Warning: `load_wnba_stats_standings()` was deprecated in wehoop 3.0.0.
+#> ℹ Backing data moved from the wnba_stats_standings release tag to the
+#>   wnba_stats_leaguedash release tag's standings_{season}.parquet asset (same
+#>   underlying leaguestandingsv3 endpoint/params, Python-scraped).
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/standings_2026.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/standings_2026.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 15 × 93
-#>    league_id season_id team_id    team_city    team_name team_slug conference
-#>    <chr>     <chr>     <chr>      <chr>        <chr>     <chr>     <chr>     
-#>  1 10        22026     1611661324 Minnesota    Lynx      lynx      West      
-#>  2 10        22026     1611661319 Las Vegas    Aces      aces      West      
-#>  3 10        22026     1611661331 Golden State Valkyries valkyries West      
-#>  4 10        22026     1611661330 Atlanta      Dream     dream     East      
-#>  5 10        22026     1611661313 New York     Liberty   liberty   East      
-#>  6 10        22026     1611661321 Dallas       Wings     wings     West      
-#>  7 10        22026     1611661325 Indiana      Fever     fever     East      
-#>  8 10        22026     1611661322 Washington   Mystics   mystics   East      
-#>  9 10        22026     1611661332 Toronto      Tempo     tempo     East      
-#> 10 10        22026     1611661320 Los Angeles  Sparks    sparks    West      
-#> 11 10        22026     1611661327 Portland     Fire      fire      West      
-#> 12 10        22026     1611661317 Phoenix      Mercury   mercury   West      
-#> 13 10        22026     1611661329 Chicago      Sky       sky       East      
-#> 14 10        22026     1611661328 Seattle      Storm     storm     West      
-#> 15 10        22026     1611661323 Connecticut  Sun       sun       East      
-#> # ℹ 86 more variables: conference_record <chr>, playoff_rank <chr>,
-#> #   clinch_indicator <chr>, division <chr>, division_record <chr>,
-#> #   division_rank <chr>, wins <chr>, losses <chr>, win_pct <chr>,
-#> #   league_rank <chr>, record <chr>, home <chr>, road <chr>, l10 <chr>,
-#> #   last10home <chr>, last10road <chr>, ot <chr>, three_pts_or_less <chr>,
-#> #   ten_pts_or_more <chr>, long_home_streak <chr>, str_long_home_streak <chr>,
-#> #   long_road_streak <chr>, str_long_road_streak <chr>, …
+#> # A tibble: 0 × 0
 # }
 ```

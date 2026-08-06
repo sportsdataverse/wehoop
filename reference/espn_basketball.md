@@ -51,3 +51,8 @@ ESPN wrappers call
 directly without `...`, so per-call proxy overrides aren't supported.
 Use `options(wehoop.proxy = ...)` or the `http_proxy` / `https_proxy`
 env vars for proxy routing.
+
+## See also
+
+Other ESPN Basketball:
+[`espn_basketball_player_core()`](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_core.md)

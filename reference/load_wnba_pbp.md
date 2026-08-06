@@ -92,21 +92,21 @@ A dataframe with 42 columns
 # \donttest{
   try(load_wnba_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 59,829 × 64
+#> # A tibble: 90,198 × 67
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  Nata…          0
-#>  2                2   4.02e 9               8     128 Driving … Oliv…          0
-#>  3                3   4.02e 9               9     155 Defensiv… Jess…          0
-#>  4                4   4.02e10              10     119 Driving … Awak…          0
-#>  5                5   4.02e10              14     132 Step Bac… Nia …          3
-#>  6                6   4.02e10              16      90 Out of B… Paig…          3
-#>  7                7   4.02e10              17      92 Jump Shot Kayl…          6
-#>  8                8   4.02e10              20      92 Jump Shot Awak…          6
-#>  9                9   4.02e10              21     155 Defensiv… Oliv…          6
-#> 10               10   4.02e10              22      44 Shooting… Paig…          6
-#> # ℹ 59,819 more rows
-#> # ℹ 57 more variables: home_score <int>, period_number <int>,
+#>  1                1   4.02e 9               4     615 Jumpball  NaLy…          0
+#>  2                2   4.02e 9               7     114 Turnarou… Kami…          0
+#>  3                3   4.02e 9               8     156 Offensiv… Kami…          0
+#>  4                4   4.02e 9               9     615 Jumpball  Jack…          0
+#>  5                5   4.02e10              12      63 Lost Bal… Kami…          0
+#>  6                6   4.02e10              14     109 Running … Jack…          2
+#>  7                7   4.02e10              15     141 Cutting … A'ja…          2
+#>  8                8   4.02e10              17     156 Offensiv… Sky …          2
+#>  9                9   4.02e10              19      92 Jump Shot Sydn…          2
+#> 10               10   4.02e10              20     155 Defensiv… A'ja…          2
+#> # ℹ 90,188 more rows
+#> # ℹ 60 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,
 #> #   athlete_id_3 <int>, wallclock <chr>, shooting_play <lgl>,

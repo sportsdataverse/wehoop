@@ -66,6 +66,7 @@ Returns a `wehoop_data` tibble with one row per athlete-team-game.
 Other WNBA loader functions:
 [`load_wnba_draft_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md),
 [`load_wnba_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md),
+[`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.md),
 [`load_wnba_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.md),
 [`load_wnba_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md),
 [`load_wnba_shots_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_shots.md),
@@ -78,7 +79,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_game_rosters(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 3,475 × 22
+#> # A tibble: 5,271 × 22
 #>    season game_id   team_id team_slug       team_abbreviation team_display_name
 #>     <int> <chr>       <int> <chr>           <chr>             <chr>            
 #>  1   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
@@ -91,7 +92,7 @@ Other WNBA loader functions:
 #>  8   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
 #>  9   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
 #> 10   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
-#> # ℹ 3,465 more rows
+#> # ℹ 5,261 more rows
 #> # ℹ 16 more variables: home_away <chr>, athlete_id <int>, athlete_uid <chr>,
 #> #   athlete_guid <chr>, athlete_display_name <chr>, athlete_short_name <chr>,
 #> #   athlete_first_name <chr>, athlete_last_name <chr>, athlete_jersey <chr>,

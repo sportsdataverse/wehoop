@@ -71,21 +71,21 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_coaches(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 91 × 12
-#>    team_id    season coach_id first_name last_name   coach_name     is_assistant
-#>    <chr>       <int> <chr>    <chr>      <chr>       <chr>          <chr>       
-#>  1 1611661317   2026 202891   Nate       Tibbetts    Nate Tibbetts  1           
-#>  2 1611661317   2026 201911   Kristi     Toliver     Kristi Toliver 9           
-#>  3 1611661317   2026 201069   Megan      Vogel       Megan Vogel    2           
-#>  4 1611661317   2026 1628240  John       McCullough  John McCullou… 2           
-#>  5 1611661317   2026 1643602  TC         Swirsky     TC Swirsky     2           
-#>  6 1611661317   2026 1643603  Chevelle   Saunsoci    Chevelle Saun… 2           
-#>  7 1611661317   2026 1643607  Tangela    Smith       Tangela Smith  2           
-#>  8 1611661317   2026 1630682  Hannah     Wengertsman Hannah Wenger… 3           
-#>  9 1611661332   2026 101168   Sandy      Brondello   Sandy Brondel… 1           
-#> 10 1611661332   2026 201117   Olaf       Lange       Olaf Lange     9           
-#> # ℹ 81 more rows
-#> # ℹ 5 more variables: coach_type <chr>, sort_sequence <chr>,
-#> #   sub_sort_sequence <chr>, season_2 <int>, team_id_lookup <int>
+#> # A tibble: 89 × 11
+#>       team_id season coach_id first_name last_name  coach_name      is_assistant
+#>         <int>  <int>    <int> <chr>      <chr>      <chr>                  <int>
+#>  1 1611661313   2026  1627666 Chris      DeMarco    Chris DeMarco              1
+#>  2 1611661313   2026  1643608 Andrew     Wade       Andrew Wade                2
+#>  3 1611661313   2026  1643609 Will       Sheehey    Will Sheehey               2
+#>  4 1611661313   2026  1643610 Addi       Walters    Addi Walters               2
+#>  5 1611661313   2026   201907 Courtney   Paris      Courtney Paris             2
+#>  6 1611661313   2026  1642971 Norielis   Subero     Norielis Subero            3
+#>  7 1611661317   2026   202891 Nate       Tibbetts   Nate Tibbetts              1
+#>  8 1611661317   2026   201911 Kristi     Toliver    Kristi Toliver             9
+#>  9 1611661317   2026   201069 Megan      Vogel      Megan Vogel                2
+#> 10 1611661317   2026  1628240 John       McCullough John McCullough            2
+#> # ℹ 79 more rows
+#> # ℹ 4 more variables: coach_type <chr>, sort_sequence <lgl>,
+#> #   sub_sort_sequence <int>, season_type <chr>
 # }
 ```

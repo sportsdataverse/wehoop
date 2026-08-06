@@ -98,22 +98,22 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 12,144 × 15
-#>    game_id    season period clock         team_id person_id action_type sub_type
-#>    <chr>       <int>  <int> <chr>           <int>     <int> <chr>       <chr>   
-#>  1 1022600001   2026      1 PT09M44.00S    1.61e9   1642800 Missed Shot Jump Sh…
-#>  2 1022600001   2026      1 PT09M25.00S    1.61e9   1627668 Made Shot   Turnaro…
-#>  3 1022600001   2026      1 PT09M17.00S    1.61e9   1641649 Made Shot   Driving…
-#>  4 1022600001   2026      1 PT08M34.00S    1.61e9   1629546 Made Shot   Step Ba…
-#>  5 1022600001   2026      1 PT08M21.00S    1.61e9    203398 Missed Shot Jump Sh…
-#>  6 1022600001   2026      1 PT08M15.00S    1.61e9   1631136 Made Shot   Running…
-#>  7 1022600001   2026      1 PT07M56.00S    1.61e9   1631136 Made Shot   Running…
-#>  8 1022600001   2026      1 PT07M36.00S    1.61e9    203398 Made Shot   Turnaro…
-#>  9 1022600001   2026      1 PT07M20.00S    1.61e9   1629546 Missed Shot Step Ba…
-#> 10 1022600001   2026      1 PT07M06.00S    1.61e9    204335 Missed Shot Running…
-#> # ℹ 12,134 more rows
-#> # ℹ 7 more variables: description <chr>, x_legacy <int>, y_legacy <int>,
-#> #   shot_distance <int>, shot_value <int>, shot_result <chr>,
-#> #   points_total <int>
+#> # A tibble: 27,606 × 18
+#>    game_id    season period clock     team_id team_tricode person_id player_name
+#>    <chr>       <int>  <int> <chr>       <int> <chr>            <int> <chr>      
+#>  1 1022600001   2026      1 PT09M44.…  1.61e9 CON            1642800 Morrow     
+#>  2 1022600001   2026      1 PT09M25.…  1.61e9 NYL            1627668 Stewart    
+#>  3 1022600001   2026      1 PT09M17.…  1.61e9 CON            1641649 Miller     
+#>  4 1022600001   2026      1 PT08M34.…  1.61e9 NYL            1629546 Johannes   
+#>  5 1022600001   2026      1 PT08M21.…  1.61e9 CON             203398 Griner     
+#>  6 1022600001   2026      1 PT08M15.…  1.61e9 NYL            1631136 Astier     
+#>  7 1022600001   2026      1 PT07M56.…  1.61e9 NYL            1631136 Astier     
+#>  8 1022600001   2026      1 PT07M36.…  1.61e9 CON             203398 Griner     
+#>  9 1022600001   2026      1 PT07M20.…  1.61e9 NYL            1629546 Johannes   
+#> 10 1022600001   2026      1 PT07M06.…  1.61e9 NYL             204335 Laney-Hami…
+#> # ℹ 27,596 more rows
+#> # ℹ 10 more variables: action_type <chr>, sub_type <chr>, shot_result <chr>,
+#> #   shot_value <int>, shot_distance <int>, x_legacy <int>, y_legacy <int>,
+#> #   description <chr>, score_home <chr>, score_away <chr>
 # }
 ```

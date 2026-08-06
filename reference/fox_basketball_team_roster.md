@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-30 19:33:36 UTC
+#> ℹ Data updated: 2026-08-06 04:00:51 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -55,17 +55,17 @@ Other Fox Sports Functions:
 #>  6 1       GUARD          Aaliyah Nye G/F   23    "6'0… -     -       854       
 #>  7 1       GUARD          Te-Hina Pa… G     23    "5'9… -     -       859       
 #>  8 1       GUARD          Jaylyn She… G     24    "5'7… 147 … -       822       
-#>  9 1       FORWARD        Naz Hillmon F     26    "6'2… 190 … -       646       
-#> 10 1       FORWARD        Brionna Jo… F     30    "6'3… 215 … Maryla… 111       
-#> 11 1       FORWARD        Sika Koné   F     23    "6'3… 180 … -       630       
-#> 12 1       FORWARD        Amy Okonkwo F     29    "6'2… -     -       606       
+#>  9 1       GUARD          Shatori Wa… G     31    "5'9… 140 … Maryla… 116       
+#> 10 1       FORWARD        Naz Hillmon F     26    "6'2… 190 … -       646       
+#> 11 1       FORWARD        Brionna Jo… F     30    "6'3… 215 … Maryla… 111       
+#> 12 1       FORWARD        Sika Koné   F     24    "6'3… 180 … -       630       
 #> 13 1       FORWARD        Angel Reese F     24    "6'4… 165 … -       799       
 #> 14 1       CENTER         Madina Okot C     21    "6'6… -     -       921       
 # }
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-30 19:33:36 UTC
+#> ℹ Data updated: 2026-08-06 04:00:52 UTC
 #> # A tibble: 16 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     

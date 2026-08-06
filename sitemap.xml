@@ -44,6 +44,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-retry_request.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/dot-v3_to_v2_format_wnba.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_basketball.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/espn_basketball_player_core.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_athletes_index.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_award.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.html</loc></url>
@@ -249,6 +250,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_officials.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_box.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_core.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.html</loc></url>
@@ -264,6 +266,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_officials.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_box.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_crosswalk.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.html</loc></url>
@@ -294,6 +297,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb_NET_rankings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/parameter_descriptions.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/parquet_from_url.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/progressively.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/rds_from_url.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/request_with_proxy.html</loc></url>

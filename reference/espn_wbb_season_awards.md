@@ -135,7 +135,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_awards(season = 2024)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Awards Index ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-30 19:32:41 UTC
+#> ℹ Data updated: 2026-08-06 03:59:55 UTC
 #> # A tibble: 11 × 4
 #>    season award_id ref                                                    league
 #>     <int> <chr>    <chr>                                                  <chr> 

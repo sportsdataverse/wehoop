@@ -62,12 +62,7 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> #   logo <chr>, logo_dark <chr>
 #> 
 #> $Record
-#> # A tibble: 3 × 4
-#>   description    type  summary stats        
-#>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 13-17   <df [20 × 2]>
-#> 2 Home Record    home  11-6    <df [20 × 2]>
-#> 3 Away Record    road  2-10    <df [20 × 2]>
+#> data frame with 0 columns and 0 rows
 #> 
 #> $NextEvent
 #> # A tibble: 1 × 4
@@ -103,24 +98,7 @@ espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
 #> #   venue_name <chr>, venue_city <chr>, venue_state <chr>, broadcast <chr>,
 #> #   result <chr>, team_score <chr>, opponent_score <chr>, winner <lgl>
 espn_wbb_team_roster(team_id = team_id, season = season)      # the players
-#> # A tibble: 13 × 15
-#>    athlete_id full_name jersey position_abbrev position_name height weight age  
-#>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
-#>  1 5311737    Carley B… 24     G               Guard         "5' 7… NA     NA   
-#>  2 5106182    Tara Daye 44     G               Guard         "5' 1… NA     NA   
-#>  3 5107710    Taylor F… 5      G               Guard         "5' 8… NA     NA   
-#>  4 5311739    Avery Go… 55     F               Forward       "6' 7… NA     NA   
-#>  5 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
-#>  6 5311736    Hila Kar… 8      G               Guard         "5' 8… NA     NA   
-#>  7 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
-#>  8 4433438    Madison … 33     G               Guard         "6' 1… NA     NA   
-#>  9 5240041    Lana McC… 35     F               Forward       "6' 4… NA     NA   
-#> 10 5240040    Kendall … 22     F               Forward       "6' 3… NA     NA   
-#> 11 5239064    Kiki Smi… 23     G               Guard         "5' 7… NA     NA   
-#> 12 5243531    Nya Smith 3      G               Guard         "5' 9… NA     NA   
-#> 13 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
-#> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
-#> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
+#> # A tibble: 0 × 0
 espn_wbb_team_season_statistics(team_id = team_id, season = season)
 #> # A tibble: 77 × 13
 #>    league    season season_type team_id category_name category_display stat_name
@@ -163,31 +141,16 @@ athlete_id <- roster$athlete_id[1]   # whoever is first on the roster
 
 espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Bio
-#> # A tibble: 1 × 16
-#>   id      uid       guid  first_name last_name full_name display_name short_name
-#>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
-#> 1 5311737 s:40~l:5… e082… Carley     Barrett   Carley B… Carley Barr… C. Barrett
-#> # ℹ 8 more variables: height <dbl>, display_height <chr>, jersey <chr>,
-#> #   active <lgl>, headshot_href <chr>, birth_city <chr>, birth_state <chr>,
-#> #   birth_country <chr>
+#> # A tibble: 0 × 0
 #> 
 #> $Team
-#> # A tibble: 1 × 1
-#>   x_ref                                                                         
-#>   <chr>                                                                         
-#> 1 http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-b…
+#> # A tibble: 0 × 0
 #> 
 #> $Position
-#> # A tibble: 1 × 5
-#>   id    name  display_name abbreviation leaf 
-#>   <chr> <chr> <chr>        <chr>        <lgl>
-#> 1 3     Guard Guard        G            FALSE
+#> # A tibble: 0 × 0
 #> 
 #> $Status
-#> # A tibble: 1 × 4
-#>   id    name   type   abbreviation
-#>   <chr> <chr>  <chr>  <chr>       
-#> 1 1     Active active Active      
+#> # A tibble: 0 × 0
 #> 
 #> $College
 #> # A tibble: 0 × 0
@@ -195,39 +158,14 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Draft
 #> # A tibble: 0 × 0
 espn_wbb_player_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
-#> # A tibble: 5 × 26
-#>   athlete_id season id     week  at_vs game_date score home_team_id away_team_id
-#>   <chr>       <dbl> <chr>  <chr> <chr> <chr>     <chr> <chr>        <chr>       
-#> 1 5311737      2026 40181… 7     vs    2025-12-… 93-62 2509         2296        
-#> 2 5311737      2026 40181… 6     vs    2025-12-… 80-43 2509         2168        
-#> 3 5311737      2026 40181… 6     vs    2025-12-… 88-45 2509         288         
-#> 4 5311737      2026 40181… 5     vs    2025-12-… 91-49 2509         339         
-#> 5 5311737      2026 40181… 4     vs    2025-11-… 92-62 2509         47          
-#> # ℹ 17 more variables: home_team_score <chr>, away_team_score <chr>,
-#> #   game_result <chr>, league_name <chr>, league_abbreviation <chr>,
-#> #   league_short_name <chr>, team_id <chr>, team_uid <chr>,
-#> #   team_abbreviation <chr>, team_logo <chr>, team_is_all_star <chr>,
-#> #   opponent_id <chr>, opponent_uid <chr>, opponent_display_name <chr>,
-#> #   opponent_abbreviation <chr>, opponent_logo <chr>, event_id <chr>
+#> data frame with 0 columns and 0 rows
 espn_wbb_player_career_stats(athlete_id = athlete_id)    # career rollup, long format
-#> # A tibble: 87 × 17
-#>    league   athlete_id stat_type_id split_id split_name split_type category_name
-#>    <chr>    <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
-#>  1 womens-… 5311737    0            0        Season     season     defensive    
-#>  2 womens-… 5311737    0            0        Season     season     defensive    
-#>  3 womens-… 5311737    0            0        Season     season     defensive    
-#>  4 womens-… 5311737    0            0        Season     season     defensive    
-#>  5 womens-… 5311737    0            0        Season     season     defensive    
-#>  6 womens-… 5311737    0            0        Season     season     defensive    
-#>  7 womens-… 5311737    0            0        Season     season     defensive    
-#>  8 womens-… 5311737    0            0        Season     season     defensive    
-#>  9 womens-… 5311737    0            0        Season     season     general      
-#> 10 womens-… 5311737    0            0        Season     season     general      
-#> # ℹ 77 more rows
-#> # ℹ 10 more variables: category_display <chr>, category_short <chr>,
-#> #   category_abbrev <chr>, stat_name <chr>, stat_abbrev <chr>,
-#> #   stat_display <chr>, stat_short <chr>, description <chr>, value <dbl>,
-#> #   display_value <chr>
+#> # A tibble: 0 × 17
+#> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
+#> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,
+#> #   category_display <chr>, category_short <chr>, category_abbrev <chr>,
+#> #   stat_name <chr>, stat_abbrev <chr>, stat_display <chr>, stat_short <chr>,
+#> #   description <chr>, value <dbl>, display_value <chr>
 ```
 
 That “pull the index, lift an ID, drill down” move is the single most

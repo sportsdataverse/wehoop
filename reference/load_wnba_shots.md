@@ -73,6 +73,7 @@ Other WNBA loader functions:
 [`load_wnba_draft_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md),
 [`load_wnba_game_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_game_rosters.md),
 [`load_wnba_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md),
+[`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.md),
 [`load_wnba_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.md),
 [`load_wnba_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md),
 [`load_wnba_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_standings.md),
@@ -84,22 +85,24 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_shots(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 25,932 × 15
+#> # A tibble: 39,350 × 20
 #>      game_id season period_number clock_display_value team_id athlete_id_1
 #>        <int>  <int>         <int> <chr>                 <int>        <int>
-#>  1 401857030   2026             1 9:42                      8      4433791
-#>  2 401857030   2026             1 9:35                      3      4790266
-#>  3 401857030   2026             1 9:13                      8      3054590
-#>  4 401857030   2026             1 8:44                      8      2529205
-#>  5 401857030   2026             1 8:26                      3      4790266
-#>  6 401857030   2026             1 8:17                      8      2529130
-#>  7 401857030   2026             1 8:17                      8      2529130
-#>  8 401857030   2026             1 8:02                      3      3904577
-#>  9 401857030   2026             1 7:45                      8      2529205
-#> 10 401857030   2026             1 7:34                      8      4433791
-#> # ℹ 25,922 more rows
-#> # ℹ 9 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
+#>  1 401857105   2026             1 9:43                     19      4433405
+#>  2 401857105   2026             1 9:33                     17      4065870
+#>  3 401857105   2026             1 9:24                     19      4433405
+#>  4 401857105   2026             1 9:13                     19      4594786
+#>  5 401857105   2026             1 8:47                     17      4065870
+#>  6 401857105   2026             1 8:32                     19      4433405
+#>  7 401857105   2026             1 8:07                     17      4065870
+#>  8 401857105   2026             1 8:00                     19      4594786
+#>  9 401857105   2026             1 7:43                     17      3149391
+#> 10 401857105   2026             1 7:18                     17      3099736
+#> # ℹ 39,340 more rows
+#> # ℹ 14 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
 #> #   scoring_play <lgl>, score_value <int>, coordinate_x <dbl>,
-#> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>
+#> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>,
+#> #   athlete_name_1 <chr>, athlete_name_2 <chr>, team_name <chr>,
+#> #   team_mascot <chr>, team_abbrev <chr>
 # }
 ```

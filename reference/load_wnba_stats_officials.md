@@ -82,19 +82,19 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 432 × 6
-#>    official_id first_name last_name        jersey_num game_id    season
-#>    <chr>       <chr>      <chr>            <chr>      <chr>       <int>
-#>  1 100274      Roy        Gulbeyan         "42  "     1022600001   2026
-#>  2 1628169     Ryan       Sassano          "3   "     1022600001   2026
-#>  3 1628482     Tyler      Mirkovich        "27  "     1022600001   2026
-#>  4 202764      Charles    Watson           "6   "     1022600002   2026
-#>  5 203891      Fatou      Cissoko-Stephens "15  "     1022600002   2026
-#>  6 1629422     Clare      Simmons          "28  "     1022600002   2026
-#>  7 200667      Angelica   Suffren          "7   "     1022600003   2026
-#>  8 1641525     Sarah      Williams         "44  "     1022600003   2026
-#>  9 1642142     Josh       Reed             "46  "     1022600003   2026
-#> 10 201538      Maj        Forsberg         "34  "     1022600005   2026
-#> # ℹ 422 more rows
+#> # A tibble: 606 × 6
+#>    official_id first_name last_name        jersey_num season game_id   
+#>          <int> <chr>      <chr>            <chr>       <int> <chr>     
+#>  1      100274 Roy        Gulbeyan         "42  "       2026 1022600001
+#>  2     1628169 Ryan       Sassano          "3   "       2026 1022600001
+#>  3     1628482 Tyler      Mirkovich        "27  "       2026 1022600001
+#>  4      202764 Charles    Watson           "6   "       2026 1022600002
+#>  5      203891 Fatou      Cissoko-Stephens "15  "       2026 1022600002
+#>  6     1629422 Clare      Simmons          "28  "       2026 1022600002
+#>  7      200667 Angelica   Suffren          "7   "       2026 1022600003
+#>  8     1641525 Sarah      Williams         "44  "       2026 1022600003
+#>  9     1642142 Josh       Reed             "46  "       2026 1022600003
+#> 10      202297 Tim        Greene           "9   "       2026 1022600004
+#> # ℹ 596 more rows
 # }
 ```

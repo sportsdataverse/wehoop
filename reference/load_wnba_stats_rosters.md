@@ -71,22 +71,22 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_rosters(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 204 × 18
-#>    team_id    season league_id player nickname player_slug num   position height
-#>    <chr>       <int> <chr>     <chr>  <chr>    <chr>       <chr> <chr>    <chr> 
-#>  1 1611661317   2026 10        Noemi… Noemie   noemie-bro… 1     F-G      5-11  
-#>  2 1611661317   2026 10        Kahle… Kahleah  kahleah-co… 2     G-F      6-1   
-#>  3 1611661317   2026 10        Natas… Natasha  natasha-ma… 4     F-C      6-3   
-#>  4 1611661317   2026 10        Shay … Shay     shay-ciezki 5     G        5-7   
-#>  5 1611661317   2026 10        Moniq… Monique  monique-ak… 8     G        5-10  
-#>  6 1611661317   2026 10        Lexi … Lexi     lexi-held   10    G        5-9   
-#>  7 1611661317   2026 10        Valer… Valeria… valeriane-… 11    F        6-1   
-#>  8 1611661317   2026 10        Quion… Quionche quionche-c… 20    F        5-11  
-#>  9 1611661317   2026 10        DeWan… DeWanna  dewanna-bo… 24    F-G      6-4   
-#> 10 1611661317   2026 10        Alyss… Alyssa   alyssa-tho… 25    F        6-2   
-#> # ℹ 194 more rows
-#> # ℹ 9 more variables: weight <chr>, birth_date <chr>, age <chr>, exp <chr>,
-#> #   school <chr>, player_id <chr>, how_acquired <chr>, season_2 <int>,
-#> #   team_id_lookup <int>
+#> # A tibble: 206 × 18
+#>       team_id season league_id player nickname player_slug num   position height
+#>         <int>  <int> <chr>     <chr>  <chr>    <chr>       <chr> <chr>    <chr> 
+#>  1 1611661313   2026 10        Satou… Satou    satou-saba… 0     F        6-4   
+#>  2 1611661313   2026 10        Marin… Marine   marine-fau… 4     G        5-9   
+#>  3 1611661313   2026 10        Rebek… Rebekah  rebekah-ga… 7     G        6-1   
+#>  4 1611661313   2026 10        Rebec… Rebecca  rebecca-al… 9     F-G      6-2   
+#>  5 1611661313   2026 10        Leoni… Leonie   leonie-fie… 13    F        6-4   
+#>  6 1611661313   2026 10        Raque… Raquel   raquel-car… 14    C        6-3   
+#>  7 1611661313   2026 10        Pauli… Pauline  pauline-as… 18    G        5-11  
+#>  8 1611661313   2026 10        Sabri… Sabrina  sabrina-io… 20    G        5-11  
+#>  9 1611661313   2026 10        Han Xu Xu       xu-han      21    C        6-11  
+#> 10 1611661313   2026 10        Marin… Marine   marine-joh… 23    G        5-10  
+#> # ℹ 196 more rows
+#> # ℹ 9 more variables: weight <chr>, birth_date <chr>, age <dbl>, exp <chr>,
+#> #   school <chr>, player_id <int>, how_acquired <chr>,
+#> #   supplemental_status <int>, season_type <chr>
 # }
 ```

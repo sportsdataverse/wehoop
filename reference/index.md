@@ -238,6 +238,11 @@ Data
 
   **Load wehoop WNBA Officials**
 
+- [`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.md)
+  :
+
+  **Load cleaned WNBA player core (identity + bio) from the data repo**
+
 - [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
   :
 
@@ -310,6 +315,11 @@ Women’s College Basketball Data
 
   **Load wehoop WBB Officials**
 
+- [`load_wbb_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_core.md)
+  :
+
+  **Load cleaned WBB player core (identity + bio) from the data repo**
+
 - [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md)
   :
 
@@ -352,25 +362,25 @@ API artifacts
 
 - [`load_wnba_stats_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md)
   [`load_wnba_stats_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md)
-  :
+  **\[deprecated\]** :
 
   **Load wehoop WNBA Stats Player Season Stats**
 
 - [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md)
   [`load_wnba_stats_lineups_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md)
-  :
+  **\[deprecated\]** :
 
   **Load wehoop WNBA Stats Lineups**
 
 - [`load_wnba_stats_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_team_stats.md)
   [`load_wnba_stats_team_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_team_stats.md)
-  :
+  **\[deprecated\]** :
 
   **Load wehoop WNBA Stats Team Season Stats**
 
 - [`load_wnba_stats_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_standings.md)
   [`load_wnba_stats_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_standings.md)
-  :
+  **\[deprecated\]** :
 
   **Load wehoop WNBA Stats Standings**
 
@@ -415,6 +425,11 @@ ESPN basketball endpoint family overview (WNBA + WBB)
   :
 
   **ESPN Basketball Endpoint Overview (WNBA + WBB)**
+
+- [`espn_basketball_player_core()`](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_core.md)
+  :
+
+  **Project an ESPN core-v2 athlete record into a `player_core` row**
 
 ### WBB – Game data
 
@@ -2127,6 +2142,11 @@ Internal functions used by wehoop
   :
 
   **Load .rds file from a remote connection**
+
+- [`parquet_from_url()`](https://wehoop.sportsdataverse.org/reference/parquet_from_url.md)
+  :
+
+  **Load .parquet file from a remote connection**
 
 - [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md)
   : Most Recent Women's College Basketball Season

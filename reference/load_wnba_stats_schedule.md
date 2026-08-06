@@ -71,23 +71,25 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 288 × 29
-#>    SEASON_ID TEAM_ID TEAM_ABBREVIATION TEAM_NAME GAME_ID GAME_DATE MATCHUP WL   
-#>    <chr>     <chr>   <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
-#>  1 22026     161166… MIN               Minnesot… 102260… 2026-06-… MIN @ … W    
-#>  2 22026     161166… PDX               Portland… 102260… 2026-06-… PDX @ … L    
-#>  3 22026     161166… WAS               Washingt… 102260… 2026-06-… WAS vs… W    
-#>  4 22026     161166… GSV               Golden S… 102260… 2026-06-… GSV vs… W    
-#>  5 22026     161166… CHI               Chicago … 102260… 2026-06-… CHI vs… L    
-#>  6 22026     161166… DAL               Dallas W… 102260… 2026-06-… DAL vs… L    
-#>  7 22026     161166… LVA               Las Vega… 102260… 2026-06-… LVA @ … W    
-#>  8 22026     161166… NYL               New York… 102260… 2026-06-… NYL @ … L    
-#>  9 22026     161166… LAS               Los Ange… 102260… 2026-06-… LAS @ … L    
-#> 10 22026     161166… PHX               Phoenix … 102260… 2026-06-… PHX @ … W    
-#> # ℹ 278 more rows
-#> # ℹ 21 more variables: MIN <chr>, PTS <chr>, FGM <chr>, FGA <chr>,
-#> #   FG_PCT <chr>, FG3M <chr>, FG3A <chr>, FG3_PCT <chr>, FTM <chr>, FTA <chr>,
-#> #   FT_PCT <chr>, OREB <chr>, DREB <chr>, REB <chr>, AST <chr>, STL <chr>,
-#> #   BLK <chr>, TOV <chr>, PF <chr>, PLUS_MINUS <chr>, season <int>
+#> # A tibble: 4,415 × 35
+#>    season_id team_id team_abbreviation team_name game_id game_date matchup wl   
+#>    <chr>       <int> <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
+#>  1 22026      1.61e9 CON               Connecti… 102260… 2026-05-… CON @ … L    
+#>  2 22026      1.61e9 TOR               Toronto … 102260… 2026-05-… TOR vs… L    
+#>  3 22026      1.61e9 NYL               New York… 102260… 2026-05-… NYL vs… W    
+#>  4 22026      1.61e9 GSV               Golden S… 102260… 2026-05-… GSV @ … W    
+#>  5 22026      1.61e9 SEA               Seattle … 102260… 2026-05-… SEA vs… L    
+#>  6 22026      1.61e9 WAS               Washingt… 102260… 2026-05-… WAS @ … W    
+#>  7 22026      1.61e9 IND               Indiana … 102260… 2026-05-… IND vs… L    
+#>  8 22026      1.61e9 ATL               Atlanta … 102260… 2026-05-… ATL @ … W    
+#>  9 22026      1.61e9 DAL               Dallas W… 102260… 2026-05-… DAL @ … W    
+#> 10 22026      1.61e9 CHI               Chicago … 102260… 2026-05-… CHI @ … W    
+#> # ℹ 4,405 more rows
+#> # ℹ 27 more variables: min <int>, fgm <int>, fga <int>, fg_pct <dbl>,
+#> #   fg3m <int>, fg3a <int>, fg3_pct <dbl>, ftm <int>, fta <int>, ft_pct <dbl>,
+#> #   oreb <int>, dreb <int>, reb <int>, ast <int>, stl <int>, blk <int>,
+#> #   tov <int>, pf <int>, pts <int>, plus_minus <int>, video_available <int>,
+#> #   season <int>, season_type <chr>, player_id <int>, player_name <chr>,
+#> #   fantasy_pts <dbl>, measure_type <chr>
 # }
 ```

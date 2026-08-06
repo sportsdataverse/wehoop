@@ -55,6 +55,7 @@ Other WNBA loader functions:
 [`load_wnba_draft_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md),
 [`load_wnba_game_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_game_rosters.md),
 [`load_wnba_officials_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md),
+[`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.md),
 [`load_wnba_rosters_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md),
 [`load_wnba_shots_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_shots.md),
 [`load_wnba_standings_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_standings.md),
@@ -66,7 +67,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 8,715 × 16
+#> # A tibble: 9,583 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
 #>  1   2026       1054 Tiffany Hayes        Tiffany            Hayes            
@@ -79,7 +80,7 @@ Other WNBA loader functions:
 #>  8   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #>  9   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #> 10   2026       1054 Tiffany Hayes        Tiffany            Hayes            
-#> # ℹ 8,705 more rows
+#> # ℹ 9,573 more rows
 #> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
 #> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
 #> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,

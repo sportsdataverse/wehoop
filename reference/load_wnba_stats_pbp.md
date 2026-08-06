@@ -72,25 +72,25 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 59,175 × 88
-#>    game_id    event_num event_type event_action_type period clock    minute_game
-#>    <chr>      <chr>     <chr>      <chr>              <dbl> <chr>          <dbl>
-#>  1 1022600001 2         12         0                      1 PT10M00…        0   
-#>  2 1022600001 4         10         0                      1 PT10M00…        0   
-#>  3 1022600001 7         2          1                      1 PT09M44…        0.27
-#>  4 1022600001 8         4          0                      1 PT09M39…        0.35
-#>  5 1022600001 9         1          47                     1 PT09M25…        0.58
-#>  6 1022600001 11        1          73                     1 PT09M17…        0.72
-#>  7 1022600001 13        5          4                      1 PT09M06…        0.9 
-#>  8 1022600001 15        5          8                      1 PT08M50…        1.17
-#>  9 1022600001 16        7          1                      1 PT08M50…        1.17
-#> 10 1022600001 17        1          80                     1 PT08M34…        1.43
-#> # ℹ 59,165 more rows
-#> # ℹ 81 more variables: time_remaining <dbl>, wc_time_string <chr>,
-#> #   time_quarter <chr>, minute_remaining_quarter <dbl>,
-#> #   seconds_remaining_quarter <dbl>, action_type <chr>, sub_type <chr>,
-#> #   home_description <chr>, neutral_description <chr>,
-#> #   visitor_description <chr>, description <chr>, location <chr>, score <chr>,
-#> #   away_score <dbl>, home_score <dbl>, score_margin <chr>, …
+#> # A tibble: 86,784 × 25
+#>    action_number clock       period   team_id team_tricode person_id player_name
+#>            <int> <chr>        <int>     <int> <chr>            <int> <chr>      
+#>  1             2 PT10M00.00S      1    0      ""              0      ""         
+#>  2             4 PT10M00.00S      1    1.61e9 "NYL"           1.63e6 "Jones"    
+#>  3             7 PT09M44.00S      1    1.61e9 "CON"           1.64e6 "Morrow"   
+#>  4             8 PT09M39.00S      1    1.61e9 "NYL"           1.63e6 "Johannes" 
+#>  5             9 PT09M25.00S      1    1.61e9 "NYL"           1.63e6 "Stewart"  
+#>  6            11 PT09M17.00S      1    1.61e9 "CON"           1.64e6 "Miller"   
+#>  7            13 PT09M06.00S      1    1.61e9 "NYL"           1.63e6 "Stewart"  
+#>  8            15 PT08M50.00S      1    1.61e9 "CON"           2.03e5 "Griner"   
+#>  9            16 PT08M50.00S      1    0      ""              1.61e9 ""         
+#> 10            17 PT08M34.00S      1    1.61e9 "NYL"           1.63e6 "Johannes" 
+#> # ℹ 86,774 more rows
+#> # ℹ 18 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
+#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
+#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
+#> #   description <chr>, action_type <chr>, sub_type <chr>,
+#> #   video_available <int>, shot_value <int>, action_id <int>, game_id <chr>,
+#> #   season <int>
 # }
 ```

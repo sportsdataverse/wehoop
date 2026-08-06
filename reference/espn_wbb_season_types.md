@@ -136,7 +136,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_types(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Types Index ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-30 19:32:45 UTC
+#> ℹ Data updated: 2026-08-06 03:59:59 UTC
 #> # A tibble: 4 × 4
 #>   league                    season season_type ref                              
 #>   <chr>                      <int>       <int> <chr>                            

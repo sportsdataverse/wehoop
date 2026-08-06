@@ -105,25 +105,25 @@ A dataframe with 55 columns:
 # \donttest{
   try(load_wbb_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 2,824,090 × 62
+#> # A tibble: 2,824,090 × 67
 #>    game_play_number      id sequence_number type_id type_text   text  away_score
 #>               <int>   <dbl>           <int>   <int> <chr>       <chr>      <int>
-#>  1                1 4.02e17       120415188     615 Jumpball    "Sta…          0
-#>  2                2 4.02e17       120415189     615 Jumpball    "Jum…          0
-#>  3                3 4.02e17       120415190     615 Jumpball    "Jum…          0
-#>  4                4 4.02e17       120415191     558 JumpShot    "Lau…          0
-#>  5                5 4.02e17       120415193     558 JumpShot    "Mad…          0
-#>  6                6 4.02e17       120415194     586 Offensive … "Tes…          0
-#>  7                7 4.02e17       120415195     572 LayUpShot   "Tes…          0
-#>  8                8 4.02e17       120415196     586 Offensive … "Rav…          0
-#>  9                9 4.02e17       120415197     572 LayUpShot   "Mad…          2
-#> 10               10 4.02e17       120415199     598 Lost Ball … "Gab…          2
+#>  1                1 4.02e17       115103884     615 Jumpball    Star…          0
+#>  2                2 4.02e17       115103886     615 Jumpball    Jump…          0
+#>  3                3 4.02e17       115103888     615 Jumpball    Jump…          0
+#>  4                4 4.02e17       115103895     558 JumpShot    Tana…          0
+#>  5                5 4.02e17       115103896     587 Defensive … Amar…          0
+#>  6                6 4.02e17       115103913     598 Lost Ball … Hale…          0
+#>  7                7 4.02e17       115103914     607 Steal       Iman…          0
+#>  8                8 4.02e17       115103922     558 JumpShot    Iman…          0
+#>  9                9 4.02e17       115103924     587 Defensive … Mica…          0
+#> 10               10 4.02e17       115103936     558 JumpShot    Mica…          3
 #> # ℹ 2,824,080 more rows
-#> # ℹ 55 more variables: home_score <int>, period_number <int>,
+#> # ℹ 60 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, wallclock <chr>, shooting_play <lgl>,
 #> #   coordinate_x_raw <dbl>, coordinate_y_raw <dbl>, points_attempted <int>,
-#> #   short_description <chr>, game_id <int>, season <int>, season_type <int>,
-#> #   home_team_id <int>, home_team_name <chr>, home_team_mascot <chr>, …
+#> #   short_description <chr>, team_id <int>, athlete_id_1 <int>,
+#> #   athlete_id_2 <int>, game_id <int>, season <int>, season_type <int>, …
 # }
 ```

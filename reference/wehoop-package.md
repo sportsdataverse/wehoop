@@ -24,19 +24,14 @@ Useful links:
 
 - Report bugs at <https://github.com/sportsdataverse/wehoop/issues>
 
-Useful links:
-
-- <https://wehoop.sportsdataverse.org>
-
-- <https://github.com/sportsdataverse/wehoop>
-
-- Report bugs at <https://github.com/sportsdataverse/wehoop/issues>
-
 ## Author
 
 **Maintainer**: Saiem Gilani <saiem.gilani@gmail.com>
 ([ORCID](https://orcid.org/0000-0002-7194-9067)) \[copyright holder\]
 
 Authors:
+
+- Saiem Gilani <saiem.gilani@gmail.com>
+  ([ORCID](https://orcid.org/0000-0002-7194-9067)) \[copyright holder\]
 
 - Geoffery Hutchinson <geoffery.hutchinson@gmail.com>

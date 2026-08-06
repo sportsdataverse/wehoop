@@ -147,7 +147,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_ranking(ranking_id = 1, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Ranking Snapshots Index ───────────────
-#> ℹ Data updated: 2026-06-30 19:32:44 UTC
+#> ℹ Data updated: 2026-08-06 03:59:58 UTC
 #> # A tibble: 21 × 9
 #>    league       season ranking_id name  short_name type  season_type  week ref  
 #>    <chr>         <int> <chr>      <chr> <chr>      <chr>       <int> <int> <chr>

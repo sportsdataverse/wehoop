@@ -148,8 +148,8 @@ Saiem Gilani
 # \donttest{
   espn_wnba_futures(season = 2025)
 #> ── ESPN WNBA Season Futures ──────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-06-30 19:33:00 UTC
-#> # A tibble: 153 × 11
+#> ℹ Data updated: 2026-08-06 04:00:15 UTC
+#> # A tibble: 144 × 11
 #>    season league market_id market_name   market_type market_display provider_id
 #>     <int> <chr>      <int> <chr>         <chr>       <chr>          <chr>      
 #>  1   2025 wnba        8146 WNBA - Winner NA          WNBA - Winner  58         
@@ -162,7 +162,7 @@ Saiem Gilani
 #>  8   2025 wnba        8146 WNBA - Winner NA          WNBA - Winner  58         
 #>  9   2025 wnba        8146 WNBA - Winner NA          WNBA - Winner  58         
 #> 10   2025 wnba        8146 WNBA - Winner NA          WNBA - Winner  58         
-#> # ℹ 143 more rows
+#> # ℹ 134 more rows
 #> # ℹ 4 more variables: provider_name <chr>, team_id <chr>, odds_value <chr>,
 #> #   team_ref <chr>
 # }
