@@ -517,6 +517,7 @@ importFrom(stringr,
   str_split,
   str_squish
 )
+importFrom(tibble,as_tibble)
 importFrom(tidyr,
   everything,
   hoist,

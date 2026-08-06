@@ -229,6 +229,7 @@ reference:
       - '`load_wnba_game_rosters_manifest`'
       - '`load_wnba_officials`'
       - '`load_wnba_officials_manifest`'
+      - '`load_wnba_player_core`'
       - '`update_wnba_db`'
   - subtitle: Women's College Basketball Data Functions
     desc: Functions exported by wehoop to access the wehoop-data repository's Women's College Basketball Data
@@ -251,6 +252,7 @@ reference:
       - '`load_wbb_game_rosters_manifest`'
       - '`load_wbb_officials`'
       - '`load_wbb_officials_manifest`'
+      - '`load_wbb_player_core`'
       - '`update_wbb_db`'
   - subtitle: WNBA Stats API Data Loaders
     desc: Functions exported by wehoop to access wehoop-wnba-stats-data WNBA Stats API artifacts
@@ -287,6 +289,7 @@ reference:
     desc: ESPN basketball endpoint family overview (WNBA + WBB)
     contents:
       - '`espn_basketball`'
+      - '`espn_basketball_player_core`'
   - subtitle: WBB -- Game data
     desc: Per-game endpoints for women's college basketball (play-by-play, box scores, rosters)
     contents:
@@ -562,6 +565,7 @@ reference:
       - '`check_status`'
       - '`csv_from_url`'
       - '`rds_from_url`'
+      - '`parquet_from_url`'
       - '`most_recent_wbb_season`'
       - '`most_recent_wnba_season`'
       - '`most_recent_wnba_stats_season`'

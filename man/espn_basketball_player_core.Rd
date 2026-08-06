@@ -85,3 +85,31 @@ against a golden fixture captured from that function; see
 \code{tests/testthat/fixtures/player_core/README.md} for provenance. Neither
 implementation is authoritative — a divergence is a review item.
 }
+\section{Twin}{
+
+\code{hoopR::espn_basketball_player_core()} is the identical function for the
+men's leagues. The core-v2 athlete resource is the same payload shape for
+nba/wnba/mbb/wbb, so the projection is league-agnostic -- sdv-py implements
+it once and re-exports it per league. hoopR and wehoop are independently
+published and neither depends on the other, so here it is duplicated:
+\strong{a change to one must land in the other in the same session, verified.}
+}
+
+\examples{
+\donttest{
+  payload <- list(
+    guid = "abc", fullName = "Jane Doe", jersey = "23",
+    position = list(id = "5", abbreviation = "G"),
+    team = list(`$ref` = "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/teams/22")
+  )
+  espn_basketball_player_core(payload, athlete_id = 1966)
+}
+}
+\seealso{
+Other ESPN Basketball:
+\code{\link{espn_basketball}}
+}
+\author{
+Saiem Gilani
+}
+\concept{ESPN Basketball}

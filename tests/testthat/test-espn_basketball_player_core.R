@@ -96,7 +96,7 @@ test_that("espn_basketball_player_core() reproduces the sdv-py oracle", {
 
 test_that("espn_basketball_player_core() covers the branches the fixtures encode", {
   fx <- testthat::test_path("fixtures", "player_core")
-  read_one <- function(file, aid) {
+  .read_one <- function(file, aid) {
     espn_basketball_player_core(
       jsonlite::fromJSON(file.path(fx, file), simplifyVector = FALSE),
       athlete_id = aid
@@ -104,15 +104,15 @@ test_that("espn_basketball_player_core() covers the branches the fixtures encode
   }
 
   # wnba 1007 has no college node: college_id NA, not 0 and not an error.
-  expect_true(is.na(read_one("wnba_1007.json", 1007L)$college_id))
+  expect_true(is.na(.read_one("wnba_1007.json", 1007L)$college_id))
   # wnba 1002 is the fully-populated pro path.
-  full <- read_one("wnba_1002.json", 1002L)
+  full <- .read_one("wnba_1002.json", 1002L)
   expect_false(is.na(full$college_id))
   expect_false(is.na(full$draft_year))
   # wbb 10000 is the college case that the men's fixtures cannot reach: it has
   # NO college node yet still resolves a birth_country, because college payloads
   # carry birthCountry at the TOP LEVEL rather than nested under birthPlace.
-  college <- read_one("wbb_10000.json", 10000L)
+  college <- .read_one("wbb_10000.json", 10000L)
   expect_true(is.na(college$college_id))
   expect_equal(college$birth_country, "USA")
 })

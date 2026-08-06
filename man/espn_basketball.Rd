@@ -54,5 +54,9 @@ per-call proxy overrides aren't supported. Use
 \code{https_proxy} env vars for proxy routing.
 }
 }
+\seealso{
+Other ESPN Basketball:
+\code{\link[=espn_basketball_player_core]{espn_basketball_player_core()}}
+}
 \concept{ESPN Basketball}
 \keyword{ESPN}
