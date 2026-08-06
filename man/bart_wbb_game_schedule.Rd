@@ -17,7 +17,7 @@ columns, and \code{year}.
 }
 \description{
 \strong{Get the full women's game-by-game schedule and results for a season from
-\href{https://barttorvik.com/ncaaw}{barttorvik.com}.} Pulls the
+\href{https://barttorvik.com/ncaaw/}{barttorvik.com}.} Pulls the
 \verb{/ncaaw/\{year\}_super_sked.json} file (one row per game). No API key required.
 }
 \examples{
