@@ -13,3 +13,6 @@ wbb_pbp_db*
 .claude/
 .understand-anything/
 .gemini/
+debug.log
+nul
+*.log

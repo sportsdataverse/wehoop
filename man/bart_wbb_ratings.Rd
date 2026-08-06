@@ -17,7 +17,7 @@ columns, and \code{year}.
 }
 \description{
 \strong{Get women's college basketball T-Rank team ratings and adjusted
-efficiencies from \href{https://barttorvik.com/ncaaw}{barttorvik.com}.} Pulls the
+efficiencies from \href{https://barttorvik.com/ncaaw/}{barttorvik.com}.} Pulls the
 \verb{/ncaaw/\{year\}_team_results.csv} file (one row per team). No API key required.
 }
 \examples{

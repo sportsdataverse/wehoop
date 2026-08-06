@@ -2,6 +2,9 @@
 # Mirrors hoopR's men's torvik_* functions against the /ncaaw/ raw data files,
 # using wehoop's shared HTTP + data-class helpers. No API key required.
 
+# No trailing slash: callers pass paths that begin with "/" (see
+# .bart_wbb_text() below), so a slash here would build ".../ncaaw//2024_...".
+# The trailing slash the URL checker wants belongs on the DOC links only.
 .bart_wbb_base_url <- "https://barttorvik.com/ncaaw"
 .bart_wbb_user_agent <- "Mozilla/5.0 (wehoop; +https://wehoop.sportsdataverse.org)"
 
@@ -19,7 +22,7 @@
 #' **Bart Torvik Women's T-Rank Ratings**
 #' @description
 #' **Get women's college basketball T-Rank team ratings and adjusted
-#' efficiencies from [barttorvik.com](https://barttorvik.com/ncaaw).** Pulls the
+#' efficiencies from [barttorvik.com](https://barttorvik.com/ncaaw/).** Pulls the
 #' `/ncaaw/{year}_team_results.csv` file (one row per team). No API key required.
 #' @param year Season, 4-digit ending-year format (e.g. `2024`). Defaults to
 #'   `most_recent_wbb_season()`.
@@ -57,7 +60,7 @@ bart_wbb_ratings <- function(year = most_recent_wbb_season()) {
 #' **Bart Torvik Women's Season Schedule & Results**
 #' @description
 #' **Get the full women's game-by-game schedule and results for a season from
-#' [barttorvik.com](https://barttorvik.com/ncaaw).** Pulls the
+#' [barttorvik.com](https://barttorvik.com/ncaaw/).** Pulls the
 #' `/ncaaw/{year}_super_sked.json` file (one row per game). No API key required.
 #' @param year Season, 4-digit ending-year format (e.g. `2024`). Defaults to
 #'   `most_recent_wbb_season()`.

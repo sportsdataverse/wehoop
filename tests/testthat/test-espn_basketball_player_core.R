@@ -96,7 +96,7 @@ test_that("espn_basketball_player_core() reproduces the sdv-py oracle", {
 
 test_that("espn_basketball_player_core() covers the branches the fixtures encode", {
   fx <- testthat::test_path("fixtures", "player_core")
-  read_one <- function(file, aid) {
+  .read_one <- function(file, aid) {
     espn_basketball_player_core(
       jsonlite::fromJSON(file.path(fx, file), simplifyVector = FALSE),
       athlete_id = aid
@@ -104,15 +104,15 @@ test_that("espn_basketball_player_core() covers the branches the fixtures encode
   }
 
   # wnba 1007 has no college node: college_id NA, not 0 and not an error.
-  expect_true(is.na(read_one("wnba_1007.json", 1007L)$college_id))
+  expect_true(is.na(.read_one("wnba_1007.json", 1007L)$college_id))
   # wnba 1002 is the fully-populated pro path.
-  full <- read_one("wnba_1002.json", 1002L)
+  full <- .read_one("wnba_1002.json", 1002L)
   expect_false(is.na(full$college_id))
   expect_false(is.na(full$draft_year))
   # wbb 10000 is the college case that the men's fixtures cannot reach: it has
   # NO college node yet still resolves a birth_country, because college payloads
   # carry birthCountry at the TOP LEVEL rather than nested under birthPlace.
-  college <- read_one("wbb_10000.json", 10000L)
+  college <- .read_one("wbb_10000.json", 10000L)
   expect_true(is.na(college$college_id))
   expect_equal(college$birth_country, "USA")
 })
@@ -191,4 +191,28 @@ test_that("espn_basketball_player_core() keeps athlete_id an integer join key", 
   out <- espn_basketball_player_core(list(guid = "g"), athlete_id = "1966")
   expect_equal(out$athlete_id, 1966L)
   expect_false(is.character(out$athlete_id))
+})
+
+test_that("espn_basketball_player_core() finalizes both paths as wehoop_data", {
+  # Without these assertions the suite passes even if make_wehoop_data() is deleted: the
+  # golden-master test compares values and column names, and neither changes
+  # when the class and attributes are dropped. The finalized contract was added
+  # in response to review, so it needs a test that fails when it regresses.
+  fx <- testthat::test_path("fixtures", "player_core")
+  populated <- espn_basketball_player_core(
+    jsonlite::fromJSON(file.path(fx, "wnba_1002.json"), simplifyVector = FALSE),
+    athlete_id = 1002L
+  )
+  empty <- espn_basketball_player_core(list(), athlete_id = 1L)
+
+  for (out in list(populated, empty)) {
+    expect_s3_class(out, "wehoop_data")
+    expect_equal(attr(out, "wehoop_type"),
+                 "ESPN Basketball Player Core from ESPN.com")
+    expect_s3_class(attr(out, "wehoop_timestamp"), "POSIXct")
+    # The finalizer must not disturb the 35-column contract it wraps.
+    expect_equal(ncol(out), 35L)
+  }
+  expect_equal(nrow(populated), 1L)
+  expect_equal(nrow(empty), 0L)
 })

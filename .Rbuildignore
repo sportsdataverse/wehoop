@@ -25,3 +25,15 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^\.omc$
+^\.remember$
+^\.ruff_cache$
+^\.pytest_cache$
+^\.understand-anything$
+^\.superpowers$
+^\.claude$
+^\.vscode$
+^debug\.log$
+^nul$
+^.*\.log$
+^data-raw$
