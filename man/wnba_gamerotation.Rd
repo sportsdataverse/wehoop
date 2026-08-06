@@ -61,25 +61,25 @@ Returns a named list of data frames: AwayTeam, HomeTeam
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Boxscore Functions: 
-\code{\link{wnba_boxscoreadvancedv2}()},
-\code{\link{wnba_boxscorefourfactorsv2}()},
-\code{\link{wnba_boxscoremiscv2}()},
-\code{\link{wnba_boxscoreplayertrackv2}()},
-\code{\link{wnba_boxscorescoringv2}()},
-\code{\link{wnba_boxscoresummaryv2}()},
-\code{\link{wnba_boxscoretraditionalv2}()},
-\code{\link{wnba_boxscoreusagev2}()},
-\code{\link{wnba_hustlestatsboxscore}()}
+Other WNBA Boxscore Functions:
+\code{\link[=wnba_boxscoreadvancedv2]{wnba_boxscoreadvancedv2()}},
+\code{\link[=wnba_boxscorefourfactorsv2]{wnba_boxscorefourfactorsv2()}},
+\code{\link[=wnba_boxscoremiscv2]{wnba_boxscoremiscv2()}},
+\code{\link[=wnba_boxscoreplayertrackv2]{wnba_boxscoreplayertrackv2()}},
+\code{\link[=wnba_boxscorescoringv2]{wnba_boxscorescoringv2()}},
+\code{\link[=wnba_boxscoresummaryv2]{wnba_boxscoresummaryv2()}},
+\code{\link[=wnba_boxscoretraditionalv2]{wnba_boxscoretraditionalv2()}},
+\code{\link[=wnba_boxscoreusagev2]{wnba_boxscoreusagev2()}},
+\code{\link[=wnba_hustlestatsboxscore]{wnba_hustlestatsboxscore()}}
 
-Other WNBA Lineup Functions: 
-\code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_leaguelineupviz}()},
-\code{\link{wnba_possession_lineups}()},
-\code{\link{wnba_rapm}()},
-\code{\link{wnba_shot_zones}()},
-\code{\link{wnba_shotchartlineupdetail}()},
-\code{\link{wnba_teamdashlineups}()}
+Other WNBA Lineup Functions:
+\code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},
+\code{\link[=wnba_leaguelineupviz]{wnba_leaguelineupviz()}},
+\code{\link[=wnba_possession_lineups]{wnba_possession_lineups()}},
+\code{\link[=wnba_rapm]{wnba_rapm()}},
+\code{\link[=wnba_shot_zones]{wnba_shot_zones()}},
+\code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}},
+\code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}}
 }
 \author{
 Saiem Gilani

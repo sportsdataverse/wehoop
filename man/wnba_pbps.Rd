@@ -92,11 +92,11 @@ wnba_pbps(game_ids = y, version = "v2")
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA PBP Functions: 
-\code{\link{wnba_data_pbp}()},
-\code{\link{wnba_live_pbp}()},
-\code{\link{wnba_pbp}()},
-\code{\link{wnba_playbyplayv3}()}
+Other WNBA PBP Functions:
+\code{\link[=wnba_data_pbp]{wnba_data_pbp()}},
+\code{\link[=wnba_live_pbp]{wnba_live_pbp()}},
+\code{\link[=wnba_pbp]{wnba_pbp()}},
+\code{\link[=wnba_playbyplayv3]{wnba_playbyplayv3()}}
 }
 \author{
 Jason Lee

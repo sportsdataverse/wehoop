@@ -62,11 +62,11 @@ Returns a named list of data frames: PlayByPlay, AvailableVideo
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA PBP Functions: 
-\code{\link{wnba_data_pbp}()},
-\code{\link{wnba_live_pbp}()},
-\code{\link{wnba_pbp}()},
-\code{\link{wnba_pbps}()}
+Other WNBA PBP Functions:
+\code{\link[=wnba_data_pbp]{wnba_data_pbp()}},
+\code{\link[=wnba_live_pbp]{wnba_live_pbp()}},
+\code{\link[=wnba_pbp]{wnba_pbp()}},
+\code{\link[=wnba_pbps]{wnba_pbps()}}
 }
 \author{
 Saiem Gilani

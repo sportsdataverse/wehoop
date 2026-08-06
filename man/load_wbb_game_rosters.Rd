@@ -58,13 +58,13 @@ the \code{wehoop-wbb-data} pipeline that reads raw JSONs from
 }
 }
 \seealso{
-Other WBB loader functions: 
-\code{\link{load_wbb_officials_manifest}()},
-\code{\link{load_wbb_player_core}()},
-\code{\link{load_wbb_player_stats_manifest}()},
-\code{\link{load_wbb_rosters_manifest}()},
-\code{\link{load_wbb_shots_manifest}()},
-\code{\link{load_wbb_standings_manifest}()},
-\code{\link{load_wbb_team_stats_manifest}()}
+Other WBB loader functions:
+\code{\link[=load_wbb_officials_manifest]{load_wbb_officials_manifest()}},
+\code{\link[=load_wbb_player_core]{load_wbb_player_core()}},
+\code{\link[=load_wbb_player_stats_manifest]{load_wbb_player_stats_manifest()}},
+\code{\link[=load_wbb_rosters_manifest]{load_wbb_rosters_manifest()}},
+\code{\link[=load_wbb_shots_manifest]{load_wbb_shots_manifest()}},
+\code{\link[=load_wbb_standings_manifest]{load_wbb_standings_manifest()}},
+\code{\link[=load_wbb_team_stats_manifest]{load_wbb_team_stats_manifest()}}
 }
 \concept{WBB loader functions}

@@ -36,8 +36,8 @@ One row per team for a season. No account or API key is required.
 }
 }
 \seealso{
-Other WNBA Basketball-Reference Functions: 
-\code{\link{bref_wnba_player_stats}()},
-\code{\link{bref_wnba_standings}()}
+Other WNBA Basketball-Reference Functions:
+\code{\link[=bref_wnba_player_stats]{bref_wnba_player_stats()}},
+\code{\link[=bref_wnba_standings]{bref_wnba_standings()}}
 }
 \concept{WNBA Basketball-Reference Functions}

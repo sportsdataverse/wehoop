@@ -42,14 +42,14 @@ Returns a data frame with one row per possession:\tabular{lll}{
 \strong{Get WNBA Possession-Level Stint Matrix}
 }
 \seealso{
-Other WNBA Lineup Functions: 
-\code{\link{wnba_gamerotation}()},
-\code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_leaguelineupviz}()},
-\code{\link{wnba_rapm}()},
-\code{\link{wnba_shot_zones}()},
-\code{\link{wnba_shotchartlineupdetail}()},
-\code{\link{wnba_teamdashlineups}()}
+Other WNBA Lineup Functions:
+\code{\link[=wnba_gamerotation]{wnba_gamerotation()}},
+\code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},
+\code{\link[=wnba_leaguelineupviz]{wnba_leaguelineupviz()}},
+\code{\link[=wnba_rapm]{wnba_rapm()}},
+\code{\link[=wnba_shot_zones]{wnba_shot_zones()}},
+\code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}},
+\code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}}
 }
 \author{
 Saiem Gilani

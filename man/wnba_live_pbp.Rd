@@ -82,14 +82,14 @@ Returns a data frame: PlayByPlay\tabular{lll}{
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA PBP Functions: 
-\code{\link{wnba_data_pbp}()},
-\code{\link{wnba_pbp}()},
-\code{\link{wnba_pbps}()},
-\code{\link{wnba_playbyplayv3}()}
+Other WNBA PBP Functions:
+\code{\link[=wnba_data_pbp]{wnba_data_pbp()}},
+\code{\link[=wnba_pbp]{wnba_pbp()}},
+\code{\link[=wnba_pbps]{wnba_pbps()}},
+\code{\link[=wnba_playbyplayv3]{wnba_playbyplayv3()}}
 
-Other WNBA Live Functions: 
-\code{\link{wnba_todays_scoreboard}()}
+Other WNBA Live Functions:
+\code{\link[=wnba_todays_scoreboard]{wnba_todays_scoreboard()}}
 }
 \author{
 Saiem Gilani

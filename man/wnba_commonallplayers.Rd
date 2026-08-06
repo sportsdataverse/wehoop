@@ -54,9 +54,9 @@ Return a named list of data frames: CommonAllPlayers
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Roster Functions: 
-\code{\link{wnba_commonplayerinfo}()},
-\code{\link{wnba_commonteamroster}()}
+Other WNBA Roster Functions:
+\code{\link[=wnba_commonplayerinfo]{wnba_commonplayerinfo()}},
+\code{\link[=wnba_commonteamroster]{wnba_commonteamroster()}}
 }
 \author{
 Saiem Gilani

@@ -21,20 +21,13 @@ Useful links:
   \item Report bugs at \url{https://github.com/sportsdataverse/wehoop/issues}
 }
 
-
-Useful links:
-\itemize{
-  \item \url{https://wehoop.sportsdataverse.org}
-  \item \url{https://github.com/sportsdataverse/wehoop}
-  \item Report bugs at \url{https://github.com/sportsdataverse/wehoop/issues}
-}
-
 }
 \author{
 \strong{Maintainer}: Saiem Gilani \email{saiem.gilani@gmail.com} (\href{https://orcid.org/0000-0002-7194-9067}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
+  \item Saiem Gilani \email{saiem.gilani@gmail.com} (\href{https://orcid.org/0000-0002-7194-9067}{ORCID}) [copyright holder]
   \item Geoffery Hutchinson \email{geoffery.hutchinson@gmail.com}
 }
 

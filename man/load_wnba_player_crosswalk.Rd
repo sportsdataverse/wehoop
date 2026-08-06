@@ -25,11 +25,11 @@ athlete-season. Backed by the \code{wnba_crosswalk} release tag in
 }
 }
 \seealso{
-Other WNBA Crosswalk Functions: 
-\code{\link{load_wnba_schedule_crosswalk}()},
-\code{\link{load_wnba_team_crosswalk}()},
-\code{\link{wnba_player_crosswalk}()},
-\code{\link{wnba_schedule_crosswalk}()},
-\code{\link{wnba_team_crosswalk}()}
+Other WNBA Crosswalk Functions:
+\code{\link[=load_wnba_schedule_crosswalk]{load_wnba_schedule_crosswalk()}},
+\code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
+\code{\link[=wnba_player_crosswalk]{wnba_player_crosswalk()}},
+\code{\link[=wnba_schedule_crosswalk]{wnba_schedule_crosswalk()}},
+\code{\link[=wnba_team_crosswalk]{wnba_team_crosswalk()}}
 }
 \concept{WNBA Crosswalk Functions}

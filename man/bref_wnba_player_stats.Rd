@@ -40,8 +40,8 @@ space repeated calls with \code{Sys.sleep()}.
 }
 }
 \seealso{
-Other WNBA Basketball-Reference Functions: 
-\code{\link{bref_wnba_standings}()},
-\code{\link{bref_wnba_team_stats}()}
+Other WNBA Basketball-Reference Functions:
+\code{\link[=bref_wnba_standings]{bref_wnba_standings()}},
+\code{\link[=bref_wnba_team_stats]{bref_wnba_team_stats()}}
 }
 \concept{WNBA Basketball-Reference Functions}

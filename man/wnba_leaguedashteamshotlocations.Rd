@@ -144,29 +144,29 @@ Returns a named list of data frames: ShotLocations
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA League Functions: 
-\code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_leaguedashplayerbiostats}()},
-\code{\link{wnba_leaguedashplayerclutch}()},
-\code{\link{wnba_leaguedashplayershotlocations}()},
-\code{\link{wnba_leaguedashplayerstats}()},
-\code{\link{wnba_leaguedashteamclutch}()},
-\code{\link{wnba_leaguedashteamstats}()},
-\code{\link{wnba_leaguegamefinder}()},
-\code{\link{wnba_leaguegamelog}()},
-\code{\link{wnba_leaguelineupviz}()},
-\code{\link{wnba_leagueplayerondetails}()},
-\code{\link{wnba_leagueseasonmatchups}()},
-\code{\link{wnba_leaguestandingsv3}()},
-\code{\link{wnba_shotchartleaguewide}()}
+Other WNBA League Functions:
+\code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},
+\code{\link[=wnba_leaguedashplayerbiostats]{wnba_leaguedashplayerbiostats()}},
+\code{\link[=wnba_leaguedashplayerclutch]{wnba_leaguedashplayerclutch()}},
+\code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
+\code{\link[=wnba_leaguedashplayerstats]{wnba_leaguedashplayerstats()}},
+\code{\link[=wnba_leaguedashteamclutch]{wnba_leaguedashteamclutch()}},
+\code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
+\code{\link[=wnba_leaguegamefinder]{wnba_leaguegamefinder()}},
+\code{\link[=wnba_leaguegamelog]{wnba_leaguegamelog()}},
+\code{\link[=wnba_leaguelineupviz]{wnba_leaguelineupviz()}},
+\code{\link[=wnba_leagueplayerondetails]{wnba_leagueplayerondetails()}},
+\code{\link[=wnba_leagueseasonmatchups]{wnba_leagueseasonmatchups()}},
+\code{\link[=wnba_leaguestandingsv3]{wnba_leaguestandingsv3()}},
+\code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}}
 
-Other WNBA Shooting Functions: 
-\code{\link{wnba_leaguedashplayershotlocations}()},
-\code{\link{wnba_playerdashboardbyshootingsplits}()},
-\code{\link{wnba_shotchartdetail}()},
-\code{\link{wnba_shotchartleaguewide}()},
-\code{\link{wnba_shotchartlineupdetail}()},
-\code{\link{wnba_teamdashboardbyshootingsplits}()}
+Other WNBA Shooting Functions:
+\code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
+\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
+\code{\link[=wnba_shotchartdetail]{wnba_shotchartdetail()}},
+\code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}},
+\code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}},
+\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}}
 }
 \author{
 Saiem Gilani

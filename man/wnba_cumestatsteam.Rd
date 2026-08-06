@@ -133,10 +133,10 @@ Returns a named list of data frames: GameByGameStats, TotalTeamStats
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Cume Functions: 
-\code{\link{wnba_cumestatsplayer}()},
-\code{\link{wnba_cumestatsplayergames}()},
-\code{\link{wnba_cumestatsteamgames}()}
+Other WNBA Cume Functions:
+\code{\link[=wnba_cumestatsplayer]{wnba_cumestatsplayer()}},
+\code{\link[=wnba_cumestatsplayergames]{wnba_cumestatsplayergames()}},
+\code{\link[=wnba_cumestatsteamgames]{wnba_cumestatsteamgames()}}
 }
 \author{
 Saiem Gilani

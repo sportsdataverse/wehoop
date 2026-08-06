@@ -228,11 +228,11 @@ OREBLeaders, PFLeaders, PTSLeaders, REBLeaders, STLLeaders, TOVLeaders
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Leaders Functions: 
-\code{\link{wnba_assistleaders}()},
-\code{\link{wnba_assisttracker}()},
-\code{\link{wnba_homepagewidget}()},
-\code{\link{wnba_leagueleaders}()}
+Other WNBA Leaders Functions:
+\code{\link[=wnba_assistleaders]{wnba_assistleaders()}},
+\code{\link[=wnba_assisttracker]{wnba_assisttracker()}},
+\code{\link[=wnba_homepagewidget]{wnba_homepagewidget()}},
+\code{\link[=wnba_leagueleaders]{wnba_leagueleaders()}}
 }
 \author{
 Saiem Gilani

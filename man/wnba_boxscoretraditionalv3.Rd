@@ -320,15 +320,15 @@ home_team_bench_totals, away_team_bench_totals
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Boxscore V3 Functions: 
-\code{\link{wnba_boxscoreadvancedv3}()},
-\code{\link{wnba_boxscorefourfactorsv3}()},
-\code{\link{wnba_boxscorehustlev2}()},
-\code{\link{wnba_boxscoremiscv3}()},
-\code{\link{wnba_boxscoreplayertrackv3}()},
-\code{\link{wnba_boxscorescoringv3}()},
-\code{\link{wnba_boxscoresummaryv3}()},
-\code{\link{wnba_boxscoreusagev3}()}
+Other WNBA Boxscore V3 Functions:
+\code{\link[=wnba_boxscoreadvancedv3]{wnba_boxscoreadvancedv3()}},
+\code{\link[=wnba_boxscorefourfactorsv3]{wnba_boxscorefourfactorsv3()}},
+\code{\link[=wnba_boxscorehustlev2]{wnba_boxscorehustlev2()}},
+\code{\link[=wnba_boxscoremiscv3]{wnba_boxscoremiscv3()}},
+\code{\link[=wnba_boxscoreplayertrackv3]{wnba_boxscoreplayertrackv3()}},
+\code{\link[=wnba_boxscorescoringv3]{wnba_boxscorescoringv3()}},
+\code{\link[=wnba_boxscoresummaryv3]{wnba_boxscoresummaryv3()}},
+\code{\link[=wnba_boxscoreusagev3]{wnba_boxscoreusagev3()}}
 }
 \author{
 Saiem Gilani

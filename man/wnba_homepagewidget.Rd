@@ -493,11 +493,11 @@ PCT_PTS_2PT, PCT_PTS_2PT_MR
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Leaders Functions: 
-\code{\link{wnba_alltimeleadersgrids}()},
-\code{\link{wnba_assistleaders}()},
-\code{\link{wnba_assisttracker}()},
-\code{\link{wnba_leagueleaders}()}
+Other WNBA Leaders Functions:
+\code{\link[=wnba_alltimeleadersgrids]{wnba_alltimeleadersgrids()}},
+\code{\link[=wnba_assistleaders]{wnba_assistleaders()}},
+\code{\link[=wnba_assisttracker]{wnba_assisttracker()}},
+\code{\link[=wnba_leagueleaders]{wnba_leagueleaders()}}
 }
 \author{
 Saiem Gilani

@@ -108,10 +108,10 @@ Return a tibble with the following scoreboard data:\tabular{lll}{
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Schedule Functions: 
-\code{\link{wnba_schedule}()},
-\code{\link{wnba_scoreboardv2}()},
-\code{\link{wnba_todays_scoreboard}()}
+Other WNBA Schedule Functions:
+\code{\link[=wnba_schedule]{wnba_schedule()}},
+\code{\link[=wnba_scoreboardv2]{wnba_scoreboardv2()}},
+\code{\link[=wnba_todays_scoreboard]{wnba_todays_scoreboard()}}
 }
 \author{
 Saiem Gilani

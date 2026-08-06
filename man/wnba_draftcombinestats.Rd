@@ -81,13 +81,13 @@ Returns a named list of data frames: DraftCombineStats
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Draft Functions: 
-\code{\link{wnba_draftboard}()},
-\code{\link{wnba_draftcombinedrillresults}()},
-\code{\link{wnba_draftcombinenonstationaryshooting}()},
-\code{\link{wnba_draftcombineplayeranthro}()},
-\code{\link{wnba_draftcombinespotshooting}()},
-\code{\link{wnba_drafthistory}()}
+Other WNBA Draft Functions:
+\code{\link[=wnba_draftboard]{wnba_draftboard()}},
+\code{\link[=wnba_draftcombinedrillresults]{wnba_draftcombinedrillresults()}},
+\code{\link[=wnba_draftcombinenonstationaryshooting]{wnba_draftcombinenonstationaryshooting()}},
+\code{\link[=wnba_draftcombineplayeranthro]{wnba_draftcombineplayeranthro()}},
+\code{\link[=wnba_draftcombinespotshooting]{wnba_draftcombinespotshooting()}},
+\code{\link[=wnba_drafthistory]{wnba_drafthistory()}}
 }
 \author{
 Saiem Gilani

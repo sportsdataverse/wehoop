@@ -26,7 +26,7 @@ efficiencies from \href{https://barttorvik.com/ncaaw}{barttorvik.com}.} Pulls th
 }
 }
 \seealso{
-Other Bart Torvik Functions: 
-\code{\link{bart_wbb_game_schedule}()}
+Other Bart Torvik Functions:
+\code{\link[=bart_wbb_game_schedule]{bart_wbb_game_schedule()}}
 }
 \concept{Bart Torvik Functions}

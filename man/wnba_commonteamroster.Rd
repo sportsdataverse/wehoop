@@ -68,9 +68,9 @@ Return a named list of data frames: Coaches, CommonTeamRoster
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Roster Functions: 
-\code{\link{wnba_commonallplayers}()},
-\code{\link{wnba_commonplayerinfo}()}
+Other WNBA Roster Functions:
+\code{\link[=wnba_commonallplayers]{wnba_commonallplayers()}},
+\code{\link[=wnba_commonplayerinfo]{wnba_commonplayerinfo()}}
 }
 \author{
 Saiem Gilani
