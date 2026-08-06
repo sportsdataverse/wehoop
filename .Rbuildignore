@@ -33,3 +33,6 @@
 ^\.superpowers$
 ^\.claude$
 ^\.vscode$
+^debug\.log$
+^nul$
+^.*\.log$
