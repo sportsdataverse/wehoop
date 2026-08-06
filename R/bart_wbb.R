@@ -2,7 +2,10 @@
 # Mirrors hoopR's men's torvik_* functions against the /ncaaw/ raw data files,
 # using wehoop's shared HTTP + data-class helpers. No API key required.
 
-.bart_wbb_base_url <- "https://barttorvik.com/ncaaw/"
+# No trailing slash: callers pass paths that begin with "/" (see
+# .bart_wbb_text() below), so a slash here would build ".../ncaaw//2024_...".
+# The trailing slash the URL checker wants belongs on the DOC links only.
+.bart_wbb_base_url <- "https://barttorvik.com/ncaaw"
 .bart_wbb_user_agent <- "Mozilla/5.0 (wehoop; +https://wehoop.sportsdataverse.org)"
 
 #' Internal: GET a barttorvik.com/ncaaw resource and return the response text
