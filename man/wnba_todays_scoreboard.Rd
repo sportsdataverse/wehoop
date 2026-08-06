@@ -76,13 +76,13 @@ Return a data frame with the following columns:\tabular{lll}{
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Schedule Functions: 
-\code{\link{wnba_schedule}()},
-\code{\link{wnba_scoreboardv2}()},
-\code{\link{wnba_scoreboardv3}()}
+Other WNBA Schedule Functions:
+\code{\link[=wnba_schedule]{wnba_schedule()}},
+\code{\link[=wnba_scoreboardv2]{wnba_scoreboardv2()}},
+\code{\link[=wnba_scoreboardv3]{wnba_scoreboardv3()}}
 
-Other WNBA Live Functions: 
-\code{\link{wnba_live_pbp}()}
+Other WNBA Live Functions:
+\code{\link[=wnba_live_pbp]{wnba_live_pbp()}}
 }
 \author{
 Saiem Gilani

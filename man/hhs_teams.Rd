@@ -47,8 +47,8 @@ change over time; selectors here are a starting point.
 }
 }
 \seealso{
-Other Her Hoop Stats Functions: 
-\code{\link{hhs_team_roster}()},
-\code{\link{hhs_team_stats}()}
+Other Her Hoop Stats Functions:
+\code{\link[=hhs_team_roster]{hhs_team_roster()}},
+\code{\link[=hhs_team_stats]{hhs_team_stats()}}
 }
 \concept{Her Hoop Stats Functions}

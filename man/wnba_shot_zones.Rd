@@ -60,14 +60,14 @@ the basket and within 80 legacy units of the paint center
 }
 }
 \seealso{
-Other WNBA Lineup Functions: 
-\code{\link{wnba_gamerotation}()},
-\code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_leaguelineupviz}()},
-\code{\link{wnba_possession_lineups}()},
-\code{\link{wnba_rapm}()},
-\code{\link{wnba_shotchartlineupdetail}()},
-\code{\link{wnba_teamdashlineups}()}
+Other WNBA Lineup Functions:
+\code{\link[=wnba_gamerotation]{wnba_gamerotation()}},
+\code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},
+\code{\link[=wnba_leaguelineupviz]{wnba_leaguelineupviz()}},
+\code{\link[=wnba_possession_lineups]{wnba_possession_lineups()}},
+\code{\link[=wnba_rapm]{wnba_rapm()}},
+\code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}},
+\code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}}
 }
 \author{
 Saiem Gilani

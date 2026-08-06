@@ -25,11 +25,11 @@ College Basketball. One row per team-season. Backed by the
 }
 }
 \seealso{
-Other WBB Crosswalk Functions: 
-\code{\link{load_wbb_player_crosswalk}()},
-\code{\link{load_wbb_schedule_crosswalk}()},
-\code{\link{wbb_player_crosswalk}()},
-\code{\link{wbb_schedule_crosswalk}()},
-\code{\link{wbb_team_crosswalk}()}
+Other WBB Crosswalk Functions:
+\code{\link[=load_wbb_player_crosswalk]{load_wbb_player_crosswalk()}},
+\code{\link[=load_wbb_schedule_crosswalk]{load_wbb_schedule_crosswalk()}},
+\code{\link[=wbb_player_crosswalk]{wbb_player_crosswalk()}},
+\code{\link[=wbb_schedule_crosswalk]{wbb_schedule_crosswalk()}},
+\code{\link[=wbb_team_crosswalk]{wbb_team_crosswalk()}}
 }
 \concept{WBB Crosswalk Functions}

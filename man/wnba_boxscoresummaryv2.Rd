@@ -162,16 +162,16 @@ InactivePlayers, LastMeeting, LineScore, Officials, OtherStats, SeasonSeries
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Boxscore Functions: 
-\code{\link{wnba_boxscoreadvancedv2}()},
-\code{\link{wnba_boxscorefourfactorsv2}()},
-\code{\link{wnba_boxscoremiscv2}()},
-\code{\link{wnba_boxscoreplayertrackv2}()},
-\code{\link{wnba_boxscorescoringv2}()},
-\code{\link{wnba_boxscoretraditionalv2}()},
-\code{\link{wnba_boxscoreusagev2}()},
-\code{\link{wnba_gamerotation}()},
-\code{\link{wnba_hustlestatsboxscore}()}
+Other WNBA Boxscore Functions:
+\code{\link[=wnba_boxscoreadvancedv2]{wnba_boxscoreadvancedv2()}},
+\code{\link[=wnba_boxscorefourfactorsv2]{wnba_boxscorefourfactorsv2()}},
+\code{\link[=wnba_boxscoremiscv2]{wnba_boxscoremiscv2()}},
+\code{\link[=wnba_boxscoreplayertrackv2]{wnba_boxscoreplayertrackv2()}},
+\code{\link[=wnba_boxscorescoringv2]{wnba_boxscorescoringv2()}},
+\code{\link[=wnba_boxscoretraditionalv2]{wnba_boxscoretraditionalv2()}},
+\code{\link[=wnba_boxscoreusagev2]{wnba_boxscoreusagev2()}},
+\code{\link[=wnba_gamerotation]{wnba_gamerotation()}},
+\code{\link[=wnba_hustlestatsboxscore]{wnba_hustlestatsboxscore()}}
 }
 \author{
 Saiem Gilani

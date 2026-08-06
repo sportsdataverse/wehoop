@@ -48,10 +48,10 @@ Returns a named list of data frames: FranchiseLeaders
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Franchise Functions: 
-\code{\link{wnba_franchisehistory}()},
-\code{\link{wnba_franchiseleaderswrank}()},
-\code{\link{wnba_franchiseplayers}()}
+Other WNBA Franchise Functions:
+\code{\link[=wnba_franchisehistory]{wnba_franchisehistory()}},
+\code{\link[=wnba_franchiseleaderswrank]{wnba_franchiseleaderswrank()}},
+\code{\link[=wnba_franchiseplayers]{wnba_franchiseplayers()}}
 }
 \author{
 Saiem Gilani

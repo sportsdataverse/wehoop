@@ -87,22 +87,22 @@ Returns a named list of data frames: HustleStatsAvailable, PlayerStats, TeamStat
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Boxscore Functions: 
-\code{\link{wnba_boxscoreadvancedv2}()},
-\code{\link{wnba_boxscorefourfactorsv2}()},
-\code{\link{wnba_boxscoremiscv2}()},
-\code{\link{wnba_boxscoreplayertrackv2}()},
-\code{\link{wnba_boxscorescoringv2}()},
-\code{\link{wnba_boxscoresummaryv2}()},
-\code{\link{wnba_boxscoretraditionalv2}()},
-\code{\link{wnba_boxscoreusagev2}()},
-\code{\link{wnba_gamerotation}()}
+Other WNBA Boxscore Functions:
+\code{\link[=wnba_boxscoreadvancedv2]{wnba_boxscoreadvancedv2()}},
+\code{\link[=wnba_boxscorefourfactorsv2]{wnba_boxscorefourfactorsv2()}},
+\code{\link[=wnba_boxscoremiscv2]{wnba_boxscoremiscv2()}},
+\code{\link[=wnba_boxscoreplayertrackv2]{wnba_boxscoreplayertrackv2()}},
+\code{\link[=wnba_boxscorescoringv2]{wnba_boxscorescoringv2()}},
+\code{\link[=wnba_boxscoresummaryv2]{wnba_boxscoresummaryv2()}},
+\code{\link[=wnba_boxscoretraditionalv2]{wnba_boxscoretraditionalv2()}},
+\code{\link[=wnba_boxscoreusagev2]{wnba_boxscoreusagev2()}},
+\code{\link[=wnba_gamerotation]{wnba_gamerotation()}}
 
-Other WNBA Hustle Functions: 
-\code{\link{wnba_leaguehustlestatsplayer}()},
-\code{\link{wnba_leaguehustlestatsplayerleaders}()},
-\code{\link{wnba_leaguehustlestatsteam}()},
-\code{\link{wnba_leaguehustlestatsteamleaders}()}
+Other WNBA Hustle Functions:
+\code{\link[=wnba_leaguehustlestatsplayer]{wnba_leaguehustlestatsplayer()}},
+\code{\link[=wnba_leaguehustlestatsplayerleaders]{wnba_leaguehustlestatsplayerleaders()}},
+\code{\link[=wnba_leaguehustlestatsteam]{wnba_leaguehustlestatsteam()}},
+\code{\link[=wnba_leaguehustlestatsteamleaders]{wnba_leaguehustlestatsteamleaders()}}
 }
 \author{
 Saiem Gilani

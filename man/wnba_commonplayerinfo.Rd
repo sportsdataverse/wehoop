@@ -82,9 +82,9 @@ AvailableSeasons
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Roster Functions: 
-\code{\link{wnba_commonallplayers}()},
-\code{\link{wnba_commonteamroster}()}
+Other WNBA Roster Functions:
+\code{\link[=wnba_commonallplayers]{wnba_commonallplayers()}},
+\code{\link[=wnba_commonteamroster]{wnba_commonteamroster()}}
 }
 \author{
 Saiem Gilani

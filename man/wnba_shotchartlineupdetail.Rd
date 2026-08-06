@@ -231,22 +231,22 @@ Return a named list of data frames: ShotChartLineupDetail, ShotChartLineupLeague
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Shooting Functions: 
-\code{\link{wnba_leaguedashplayershotlocations}()},
-\code{\link{wnba_leaguedashteamshotlocations}()},
-\code{\link{wnba_playerdashboardbyshootingsplits}()},
-\code{\link{wnba_shotchartdetail}()},
-\code{\link{wnba_shotchartleaguewide}()},
-\code{\link{wnba_teamdashboardbyshootingsplits}()}
+Other WNBA Shooting Functions:
+\code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
+\code{\link[=wnba_leaguedashteamshotlocations]{wnba_leaguedashteamshotlocations()}},
+\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
+\code{\link[=wnba_shotchartdetail]{wnba_shotchartdetail()}},
+\code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}},
+\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}}
 
-Other WNBA Lineup Functions: 
-\code{\link{wnba_gamerotation}()},
-\code{\link{wnba_leaguedashlineups}()},
-\code{\link{wnba_leaguelineupviz}()},
-\code{\link{wnba_possession_lineups}()},
-\code{\link{wnba_rapm}()},
-\code{\link{wnba_shot_zones}()},
-\code{\link{wnba_teamdashlineups}()}
+Other WNBA Lineup Functions:
+\code{\link[=wnba_gamerotation]{wnba_gamerotation()}},
+\code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},
+\code{\link[=wnba_leaguelineupviz]{wnba_leaguelineupviz()}},
+\code{\link[=wnba_possession_lineups]{wnba_possession_lineups()}},
+\code{\link[=wnba_rapm]{wnba_rapm()}},
+\code{\link[=wnba_shot_zones]{wnba_shot_zones()}},
+\code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}}
 }
 \author{
 Saiem Gilani

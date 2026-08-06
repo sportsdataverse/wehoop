@@ -34,8 +34,8 @@ column (\code{Eastern} / \code{Western}). No account or API key is required.
 }
 }
 \seealso{
-Other WNBA Basketball-Reference Functions: 
-\code{\link{bref_wnba_player_stats}()},
-\code{\link{bref_wnba_team_stats}()}
+Other WNBA Basketball-Reference Functions:
+\code{\link[=bref_wnba_player_stats]{bref_wnba_player_stats()}},
+\code{\link[=bref_wnba_team_stats]{bref_wnba_team_stats()}}
 }
 \concept{WNBA Basketball-Reference Functions}

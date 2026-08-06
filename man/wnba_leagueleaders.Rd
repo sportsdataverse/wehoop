@@ -77,11 +77,11 @@ Returns a named list of data frames: LeagueLeaders
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Leaders Functions: 
-\code{\link{wnba_alltimeleadersgrids}()},
-\code{\link{wnba_assistleaders}()},
-\code{\link{wnba_assisttracker}()},
-\code{\link{wnba_homepagewidget}()}
+Other WNBA Leaders Functions:
+\code{\link[=wnba_alltimeleadersgrids]{wnba_alltimeleadersgrids()}},
+\code{\link[=wnba_assistleaders]{wnba_assistleaders()}},
+\code{\link[=wnba_assisttracker]{wnba_assisttracker()}},
+\code{\link[=wnba_homepagewidget]{wnba_homepagewidget()}}
 }
 \author{
 Saiem Gilani

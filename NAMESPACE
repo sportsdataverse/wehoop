@@ -6,6 +6,7 @@ export(bart_wbb_ratings)
 export(bref_wnba_player_stats)
 export(bref_wnba_standings)
 export(bref_wnba_team_stats)
+export(espn_basketball_player_core)
 export(espn_wbb_athletes_index)
 export(espn_wbb_award)
 export(espn_wbb_calendar)
@@ -439,68 +440,88 @@ import(rvest)
 import(utils)
 importFrom(Rcpp,getRcppVersion)
 importFrom(RcppParallel,defaultNumThreads)
-importFrom(data.table,data.table)
-importFrom(data.table,fread)
-importFrom(data.table,rbindlist)
-importFrom(data.table,setDT)
-importFrom(dplyr,"%>%")
-importFrom(dplyr,across)
-importFrom(dplyr,any_of)
-importFrom(dplyr,arrange)
-importFrom(dplyr,as_tibble)
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,case_when)
-importFrom(dplyr,distinct)
-importFrom(dplyr,filter)
-importFrom(dplyr,full_join)
-importFrom(dplyr,group_by)
-importFrom(dplyr,if_else)
-importFrom(dplyr,left_join)
-importFrom(dplyr,mutate)
-importFrom(dplyr,relocate)
-importFrom(dplyr,rename)
-importFrom(dplyr,row_number)
-importFrom(dplyr,select)
-importFrom(dplyr,tibble)
-importFrom(dplyr,transmute)
-importFrom(dplyr,ungroup)
-importFrom(janitor,clean_names)
-importFrom(janitor,make_clean_names)
-importFrom(jsonlite,fromJSON)
-importFrom(jsonlite,toJSON)
-importFrom(lubridate,as_datetime)
-importFrom(lubridate,date)
-importFrom(lubridate,with_tz)
-importFrom(lubridate,ymd_hm)
+importFrom(data.table,
+  data.table,
+  fread,
+  rbindlist,
+  setDT
+)
+importFrom(dplyr,
+  "%>%",
+  across,
+  any_of,
+  arrange,
+  as_tibble,
+  bind_cols,
+  bind_rows,
+  case_when,
+  distinct,
+  filter,
+  full_join,
+  group_by,
+  if_else,
+  left_join,
+  mutate,
+  relocate,
+  rename,
+  row_number,
+  select,
+  tibble,
+  transmute,
+  ungroup
+)
+importFrom(janitor,
+  clean_names,
+  make_clean_names
+)
+importFrom(jsonlite,
+  fromJSON,
+  toJSON
+)
+importFrom(lubridate,
+  as_datetime,
+  date,
+  with_tz,
+  ymd_hm
+)
 importFrom(magrittr,"%>%")
-importFrom(purrr,list_rbind)
-importFrom(purrr,map)
-importFrom(purrr,map2_dfr)
-importFrom(purrr,map_dfr)
-importFrom(purrr,possibly)
-importFrom(purrr,quietly)
-importFrom(rlang,"%||%")
-importFrom(rlang,.data)
-importFrom(rvest,html_attr)
-importFrom(rvest,html_element)
-importFrom(rvest,html_elements)
-importFrom(rvest,html_table)
-importFrom(rvest,html_text2)
-importFrom(rvest,read_html)
+importFrom(purrr,
+  list_rbind,
+  map,
+  map2_dfr,
+  map_dfr,
+  possibly,
+  quietly
+)
+importFrom(rlang,
+  "%||%",
+  .data
+)
+importFrom(rvest,
+  html_attr,
+  html_element,
+  html_elements,
+  html_table,
+  html_text2,
+  read_html
+)
 importFrom(stringdist,stringsim)
 importFrom(stringi,stri_trans_general)
-importFrom(stringr,str_c)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_match)
-importFrom(stringr,str_remove)
-importFrom(stringr,str_remove_all)
-importFrom(stringr,str_replace_all)
-importFrom(stringr,str_split)
-importFrom(stringr,str_squish)
-importFrom(tidyr,everything)
-importFrom(tidyr,hoist)
-importFrom(tidyr,pivot_wider)
-importFrom(tidyr,unchop)
-importFrom(tidyr,unnest)
-importFrom(tidyr,unnest_wider)
+importFrom(stringr,
+  str_c,
+  str_detect,
+  str_match,
+  str_remove,
+  str_remove_all,
+  str_replace_all,
+  str_split,
+  str_squish
+)
+importFrom(tidyr,
+  everything,
+  hoist,
+  pivot_wider,
+  unchop,
+  unnest,
+  unnest_wider
+)

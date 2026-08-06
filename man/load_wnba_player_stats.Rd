@@ -46,14 +46,14 @@ and publishes parquet/rds artifacts to the
 }
 }
 \seealso{
-Other WNBA loader functions: 
-\code{\link{load_wnba_draft_manifest}()},
-\code{\link{load_wnba_game_rosters_manifest}()},
-\code{\link{load_wnba_officials_manifest}()},
-\code{\link{load_wnba_player_core}()},
-\code{\link{load_wnba_rosters_manifest}()},
-\code{\link{load_wnba_shots_manifest}()},
-\code{\link{load_wnba_standings_manifest}()},
-\code{\link{load_wnba_team_stats_manifest}()}
+Other WNBA loader functions:
+\code{\link[=load_wnba_draft_manifest]{load_wnba_draft_manifest()}},
+\code{\link[=load_wnba_game_rosters_manifest]{load_wnba_game_rosters_manifest()}},
+\code{\link[=load_wnba_officials_manifest]{load_wnba_officials_manifest()}},
+\code{\link[=load_wnba_player_core]{load_wnba_player_core()}},
+\code{\link[=load_wnba_rosters_manifest]{load_wnba_rosters_manifest()}},
+\code{\link[=load_wnba_shots_manifest]{load_wnba_shots_manifest()}},
+\code{\link[=load_wnba_standings_manifest]{load_wnba_standings_manifest()}},
+\code{\link[=load_wnba_team_stats_manifest]{load_wnba_team_stats_manifest()}}
 }
 \concept{WNBA loader functions}

@@ -127,13 +127,13 @@ Return a named list of data frames: LeagueAverages, Shot_Chart_Detail
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Shooting Functions: 
-\code{\link{wnba_leaguedashplayershotlocations}()},
-\code{\link{wnba_leaguedashteamshotlocations}()},
-\code{\link{wnba_playerdashboardbyshootingsplits}()},
-\code{\link{wnba_shotchartleaguewide}()},
-\code{\link{wnba_shotchartlineupdetail}()},
-\code{\link{wnba_teamdashboardbyshootingsplits}()}
+Other WNBA Shooting Functions:
+\code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
+\code{\link[=wnba_leaguedashteamshotlocations]{wnba_leaguedashteamshotlocations()}},
+\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
+\code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}},
+\code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}},
+\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}}
 }
 \author{
 Saiem Gilani

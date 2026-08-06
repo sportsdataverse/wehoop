@@ -50,18 +50,18 @@ without downloading any season's full data.
 }
 }
 \seealso{
-Other WNBA Stats loader functions: 
-\code{\link{load_wnba_stats_coaches}()},
-\code{\link{load_wnba_stats_draft}()},
-\code{\link{load_wnba_stats_game_rosters}()},
-\code{\link{load_wnba_stats_lineups}()},
-\code{\link{load_wnba_stats_officials}()},
-\code{\link{load_wnba_stats_pbp}()},
-\code{\link{load_wnba_stats_player_game_logs}()},
-\code{\link{load_wnba_stats_rosters}()},
-\code{\link{load_wnba_stats_schedule}()},
-\code{\link{load_wnba_stats_shots}()},
-\code{\link{load_wnba_stats_standings}()},
-\code{\link{load_wnba_stats_team_stats}()}
+Other WNBA Stats loader functions:
+\code{\link[=load_wnba_stats_coaches]{load_wnba_stats_coaches()}},
+\code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
+\code{\link[=load_wnba_stats_game_rosters]{load_wnba_stats_game_rosters()}},
+\code{\link[=load_wnba_stats_lineups]{load_wnba_stats_lineups()}},
+\code{\link[=load_wnba_stats_officials]{load_wnba_stats_officials()}},
+\code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},
+\code{\link[=load_wnba_stats_player_game_logs]{load_wnba_stats_player_game_logs()}},
+\code{\link[=load_wnba_stats_rosters]{load_wnba_stats_rosters()}},
+\code{\link[=load_wnba_stats_schedule]{load_wnba_stats_schedule()}},
+\code{\link[=load_wnba_stats_shots]{load_wnba_stats_shots()}},
+\code{\link[=load_wnba_stats_standings]{load_wnba_stats_standings()}},
+\code{\link[=load_wnba_stats_team_stats]{load_wnba_stats_team_stats()}}
 }
 \concept{WNBA Stats loader functions}

@@ -65,15 +65,15 @@ officials, line_score, inactive_players, last_five_meetings, other_stats, availa
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Boxscore V3 Functions: 
-\code{\link{wnba_boxscoreadvancedv3}()},
-\code{\link{wnba_boxscorefourfactorsv3}()},
-\code{\link{wnba_boxscorehustlev2}()},
-\code{\link{wnba_boxscoremiscv3}()},
-\code{\link{wnba_boxscoreplayertrackv3}()},
-\code{\link{wnba_boxscorescoringv3}()},
-\code{\link{wnba_boxscoretraditionalv3}()},
-\code{\link{wnba_boxscoreusagev3}()}
+Other WNBA Boxscore V3 Functions:
+\code{\link[=wnba_boxscoreadvancedv3]{wnba_boxscoreadvancedv3()}},
+\code{\link[=wnba_boxscorefourfactorsv3]{wnba_boxscorefourfactorsv3()}},
+\code{\link[=wnba_boxscorehustlev2]{wnba_boxscorehustlev2()}},
+\code{\link[=wnba_boxscoremiscv3]{wnba_boxscoremiscv3()}},
+\code{\link[=wnba_boxscoreplayertrackv3]{wnba_boxscoreplayertrackv3()}},
+\code{\link[=wnba_boxscorescoringv3]{wnba_boxscorescoringv3()}},
+\code{\link[=wnba_boxscoretraditionalv3]{wnba_boxscoretraditionalv3()}},
+\code{\link[=wnba_boxscoreusagev3]{wnba_boxscoreusagev3()}}
 }
 \author{
 Saiem Gilani

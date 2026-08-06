@@ -31,7 +31,7 @@ log.} \code{fox_wnba_team_gamelog()} hits the \code{wnba} slug;
 }
 }
 \seealso{
-Other Fox Sports Functions: 
+Other Fox Sports Functions:
 \code{\link{fox_basketball_boxscore}},
 \code{\link{fox_basketball_league_leaders}},
 \code{\link{fox_basketball_odds}},
@@ -40,6 +40,6 @@ Other Fox Sports Functions:
 \code{\link{fox_basketball_team_roster}},
 \code{\link{fox_basketball_team_stats}},
 \code{\link{fox_basketball_teams}},
-\code{\link{fox_wbb_teams_all}()}
+\code{\link[=fox_wbb_teams_all]{fox_wbb_teams_all()}}
 }
 \concept{Fox Sports Functions}

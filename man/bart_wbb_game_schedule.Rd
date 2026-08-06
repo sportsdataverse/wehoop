@@ -26,7 +26,7 @@ columns, and \code{year}.
 }
 }
 \seealso{
-Other Bart Torvik Functions: 
-\code{\link{bart_wbb_ratings}()}
+Other Bart Torvik Functions:
+\code{\link[=bart_wbb_ratings]{bart_wbb_ratings()}}
 }
 \concept{Bart Torvik Functions}

@@ -31,7 +31,7 @@ A \code{wehoop_data} tibble (long), one row per (player, stat): \code{game_id},
 }
 }
 \seealso{
-Other Fox Sports Functions: 
+Other Fox Sports Functions:
 \code{\link{fox_basketball_league_leaders}},
 \code{\link{fox_basketball_odds}},
 \code{\link{fox_basketball_pbp}},
@@ -40,6 +40,6 @@ Other Fox Sports Functions:
 \code{\link{fox_basketball_team_roster}},
 \code{\link{fox_basketball_team_stats}},
 \code{\link{fox_basketball_teams}},
-\code{\link{fox_wbb_teams_all}()}
+\code{\link[=fox_wbb_teams_all]{fox_wbb_teams_all()}}
 }
 \concept{Fox Sports Functions}

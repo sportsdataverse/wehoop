@@ -31,8 +31,8 @@ Requires a Her Hoop Stats subscription. Member-table layout may change.
 }
 }
 \seealso{
-Other Her Hoop Stats Functions: 
-\code{\link{hhs_team_stats}()},
-\code{\link{hhs_teams}()}
+Other Her Hoop Stats Functions:
+\code{\link[=hhs_team_stats]{hhs_team_stats()}},
+\code{\link[=hhs_teams]{hhs_teams()}}
 }
 \concept{Her Hoop Stats Functions}

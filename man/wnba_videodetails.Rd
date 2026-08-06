@@ -152,10 +152,10 @@ Return a list of tibbles: videoUrls, playlist
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Video Functions: 
-\code{\link{wnba_videodetailsasset}()},
-\code{\link{wnba_videoevents}()},
-\code{\link{wnba_videostatus}()}
+Other WNBA Video Functions:
+\code{\link[=wnba_videodetailsasset]{wnba_videodetailsasset()}},
+\code{\link[=wnba_videoevents]{wnba_videoevents()}},
+\code{\link[=wnba_videostatus]{wnba_videostatus()}}
 }
 \author{
 Saiem Gilani

@@ -77,11 +77,11 @@ Event Message Types (event_type):
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA PBP Functions: 
-\code{\link{wnba_live_pbp}()},
-\code{\link{wnba_pbp}()},
-\code{\link{wnba_pbps}()},
-\code{\link{wnba_playbyplayv3}()}
+Other WNBA PBP Functions:
+\code{\link[=wnba_live_pbp]{wnba_live_pbp()}},
+\code{\link[=wnba_pbp]{wnba_pbp()}},
+\code{\link[=wnba_pbps]{wnba_pbps()}},
+\code{\link[=wnba_playbyplayv3]{wnba_playbyplayv3()}}
 }
 \author{
 Saiem Gilani

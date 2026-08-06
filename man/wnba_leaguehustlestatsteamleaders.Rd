@@ -173,11 +173,11 @@ TeamLooseBallLeaders, TeamScreenAssistLeaders
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Hustle Functions: 
-\code{\link{wnba_hustlestatsboxscore}()},
-\code{\link{wnba_leaguehustlestatsplayer}()},
-\code{\link{wnba_leaguehustlestatsplayerleaders}()},
-\code{\link{wnba_leaguehustlestatsteam}()}
+Other WNBA Hustle Functions:
+\code{\link[=wnba_hustlestatsboxscore]{wnba_hustlestatsboxscore()}},
+\code{\link[=wnba_leaguehustlestatsplayer]{wnba_leaguehustlestatsplayer()}},
+\code{\link[=wnba_leaguehustlestatsplayerleaders]{wnba_leaguehustlestatsplayerleaders()}},
+\code{\link[=wnba_leaguehustlestatsteam]{wnba_leaguehustlestatsteam()}}
 }
 \author{
 Saiem Gilani

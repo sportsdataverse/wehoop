@@ -135,11 +135,11 @@ Returns a named list of data frames: HustleStatsPlayer
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Hustle Functions: 
-\code{\link{wnba_hustlestatsboxscore}()},
-\code{\link{wnba_leaguehustlestatsplayerleaders}()},
-\code{\link{wnba_leaguehustlestatsteam}()},
-\code{\link{wnba_leaguehustlestatsteamleaders}()}
+Other WNBA Hustle Functions:
+\code{\link[=wnba_hustlestatsboxscore]{wnba_hustlestatsboxscore()}},
+\code{\link[=wnba_leaguehustlestatsplayerleaders]{wnba_leaguehustlestatsplayerleaders()}},
+\code{\link[=wnba_leaguehustlestatsteam]{wnba_leaguehustlestatsteam()}},
+\code{\link[=wnba_leaguehustlestatsteamleaders]{wnba_leaguehustlestatsteamleaders()}}
 }
 \author{
 Saiem Gilani
