@@ -26,7 +26,25 @@ the season data into a database.}
 \item{tablename}{The name of the schedules data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of per-season schedules.
+Returns a \code{wehoop_data} tibble of per-season schedules, one row per
+game with the home/away sides pre-joined into \verb{home_*} / \verb{away_*} columns.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_id \tab character \tab Unique game identifier. \cr
+   season \tab integer \tab Season identifier (4-digit year). \cr
+   season_type \tab character \tab Portion of the season: \code{regular-season} or \code{playoffs}. \cr
+   game_date \tab character \tab Date the game was played, as an ISO \code{YYYY-MM-DD} string. \cr
+   matchup \tab character \tab Matchup string, home side first (e.g. \verb{WAS vs. NYL}). \cr
+   home_team_id \tab integer \tab Unique WNBA Stats team identifier for the home team. \cr
+   home_team_abbreviation \tab character \tab Home team abbreviation. \cr
+   home_team_name \tab character \tab Home team full name. \cr
+   home_pts \tab integer \tab Points scored by the home team. \cr
+   home_wl \tab character \tab Home team result, \code{W} or \code{L}. \cr
+   away_team_id \tab integer \tab Unique WNBA Stats team identifier for the away team. \cr
+   away_team_abbreviation \tab character \tab Away team abbreviation. \cr
+   away_team_name \tab character \tab Away team full name. \cr
+   away_pts \tab integer \tab Points scored by the away team. \cr
+   away_wl \tab character \tab Away team result, \code{W} or \code{L}. \cr
+}
 }
 \description{
 Loads season-level WNBA schedules scraped from

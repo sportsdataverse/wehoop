@@ -29,10 +29,10 @@ the season data into a database.}
 Returns a \code{wehoop_data} tibble of per-event play-by-play rows.
 }
 \description{
-Loads season-level WNBA play-by-play (V3 with on-court
-five-on-each-side player IDs, supplied by \code{\link[=wnba_pbp]{wnba_pbp()}} in the upstream
-compile script). Backed by the \code{wehoop-wnba-stats-data} pipeline that
-publishes parquet/rds artifacts to the \code{wnba_stats_pbp} release tag.
+Loads season-level WNBA play-by-play (V3), supplied by
+\code{\link[=wnba_pbp]{wnba_pbp()}} in the upstream compile script. Backed by the
+\code{wehoop-wnba-stats-data} pipeline that publishes parquet/rds artifacts to
+the \code{wnba_stats_pbp} release tag.
 
 \code{load_wnba_stats_pbp_manifest()} returns the per-season
 manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},
