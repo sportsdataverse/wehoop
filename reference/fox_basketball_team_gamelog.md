@@ -42,26 +42,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:51 UTC
+#> ℹ Data updated: 2026-08-12 21:56:50 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 1       REGULAR SEASON scoring  2348    8/5       PHX      fgm          33   
-#>  2 1       REGULAR SEASON scoring  2348    8/5       PHX      fga          70   
-#>  3 1       REGULAR SEASON scoring  2348    8/5       PHX      fg_percent   47.1 
-#>  4 1       REGULAR SEASON scoring  2348    8/5       PHX      ftm          16   
-#>  5 1       REGULAR SEASON scoring  2348    8/5       PHX      fta          17   
-#>  6 1       REGULAR SEASON scoring  2348    8/5       PHX      ft_percent   94.0 
-#>  7 1       REGULAR SEASON scoring  2348    8/5       PHX      x3fgm        14   
-#>  8 1       REGULAR SEASON scoring  2348    8/5       PHX      x3fga        33   
-#>  9 1       REGULAR SEASON scoring  2348    8/5       PHX      x3fg_percent 42.4 
-#> 10 1       REGULAR SEASON scoring  2348    8/5       PHX      pts          96   
+#>  1 1       REGULAR SEASON scoring  2490    8/10      TOR      fgm          36   
+#>  2 1       REGULAR SEASON scoring  2490    8/10      TOR      fga          70   
+#>  3 1       REGULAR SEASON scoring  2490    8/10      TOR      fg_percent   51.4 
+#>  4 1       REGULAR SEASON scoring  2490    8/10      TOR      ftm          21   
+#>  5 1       REGULAR SEASON scoring  2490    8/10      TOR      fta          30   
+#>  6 1       REGULAR SEASON scoring  2490    8/10      TOR      ft_percent   70.0 
+#>  7 1       REGULAR SEASON scoring  2490    8/10      TOR      x3fgm        14   
+#>  8 1       REGULAR SEASON scoring  2490    8/10      TOR      x3fga        32   
+#>  9 1       REGULAR SEASON scoring  2490    8/10      TOR      x3fg_percent 43.8 
+#> 10 1       REGULAR SEASON scoring  2490    8/10      TOR      pts          107  
 #> # ℹ 155 more rows
 # }
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:51 UTC
+#> ℹ Data updated: 2026-08-12 21:56:50 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>

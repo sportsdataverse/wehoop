@@ -87,20 +87,20 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_draft(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 1,201 × 14
+#> # A tibble: 45 × 14
 #>    person_id player_name  season round_number round_pick overall_pick draft_type
 #>        <int> <chr>         <int>        <int>      <int>        <int> <chr>     
-#>  1   1642784 Paige Bueck…   2026            1          1            1 Draft     
-#>  2   1642798 Dominique M…   2026            1          2            2 Draft     
-#>  3   1642785 Sonia Citron   2026            1          3            3 Draft     
-#>  4   1642792 Kiki Iriafen   2026            1          4            4 Draft     
-#>  5   1642794 Juste Jocyte   2026            1          5            5 Draft     
-#>  6   1642781 Georgia Amo…   2026            1          6            6 Draft     
-#>  7   1642800 Aneesah Mor…   2026            1          7            7 Draft     
-#>  8   1642809 Saniya Rive…   2026            1          8            8 Draft     
-#>  9   1642782 Sarah Ashle…   2026            1          9            9 Draft     
-#> 10   1642812 Ajsa Sivka     2026            1         10           10 Draft     
-#> # ℹ 1,191 more rows
+#>  1   1643425 Azzi Fudd      2026            1          1            1 Draft     
+#>  2   1643426 Olivia Miles   2026            1          2            2 Draft     
+#>  3   1643443 Awa Fam        2026            1          3            3 Draft     
+#>  4   1643427 Lauren Betts   2026            1          4            4 Draft     
+#>  5   1643447 Gabriela Ja…   2026            1          5            5 Draft     
+#>  6   1643445 Kiki Rice      2026            1          6            6 Draft     
+#>  7   1643446 Iyana Martin   2026            1          7            7 Draft     
+#>  8   1643428 Flau'jae Jo…   2026            1          8            8 Draft     
+#>  9   1643455 Angela Duga…   2026            1          9            9 Draft     
+#> 10   1643433 Raven Johns…   2026            1         10           10 Draft     
+#> # ℹ 35 more rows
 #> # ℹ 7 more variables: team_id <int>, team_city <chr>, team_name <chr>,
 #> #   team_abbreviation <chr>, organization <chr>, organization_type <chr>,
 #> #   player_profile_flag <int>

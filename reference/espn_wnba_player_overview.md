@@ -175,12 +175,12 @@ Saiem Gilani
   espn_wnba_player_overview(athlete_id = "3149391", season = 2024)
 #> $Statistics
 #> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:31 UTC
+#> ℹ Data updated: 2026-08-12 21:56:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:31 UTC
+#> ℹ Data updated: 2026-08-12 21:56:31 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -188,30 +188,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:31 UTC
+#> ℹ Data updated: 2026-08-12 21:56:31 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:31 UTC
-#> # A tibble: 21 × 5
+#> ℹ Data updated: 2026-08-12 21:56:31 UTC
+#> # A tibble: 13 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
-#>  1 Tracking WNBA MVP race: Caitlin Clark ent… A'ja Wilso… 2026-08-… Micha… Story
-#>  2 WNBA Power Rankings: Fever, Aces and Drea… After meet… 2026-08-… Karee… Story
-#>  3 A'ja Wilson gets the basket plus the foul  A'ja Wilso… 2026-08-… NA     Media
-#>  4 Sky win 84-83 thriller over Aces           Sky win 84… 2026-08-… NA     Media
-#>  5 A'ja Wilson hits the basket                A'ja Wilso… 2026-08-… NA     Media
-#>  6 Las Vegas Aces vs. New York Liberty - Gam… Watch the … 2026-07-… NA     Media
-#>  7 A'ja Wilson puts up big 33-point double-d… A'ja Wilso… 2026-07-… NA     Media
-#>  8 A'ja Wilson fired up after crucial and-1 … A'ja Wilso… 2026-07-… NA     Media
-#>  9 A'ja Wilson makes the bucket               A'ja Wilso… 2026-07-… NA     Media
-#> 10 Las Vegas Aces vs. Fire - Game Highlights  Watch the … 2026-07-… NA     Media
-#> # ℹ 11 more rows
+#>  1 WNBA betting: Best bets to make on MVP, M… Andre Snel… 2026-08-… Andre… Story
+#>  2 A'ja Wilson scores 26 vs. Washington Myst… A'ja Wilso… 2026-08-… NA     Media
+#>  3 A'ja Wilson fights off defender for and-1  A'ja Wilso… 2026-08-… NA     Media
+#>  4 WNBA Power Rankings: Lynx, Aces, Fever, V… The time t… 2026-08-… Karee… Story
+#>  5 Does Olivia Miles belong in the WNBA MVP … Does Olivi… 2026-08-… NA     Media
+#>  6 Indiana Fever vs. Las Vegas Aces - Game H… Watch the … 2026-08-… NA     Media
+#>  7 Clark, Bueckers on Team USA women's roste… USA Basket… 2026-08-… Alexa… Head…
+#>  8 Tracking WNBA MVP race: Caitlin Clark ent… A'ja Wilso… 2026-08-… Micha… Story
+#>  9 WNBA Power Rankings: Fever, Aces and Drea… After meet… 2026-08-… Karee… Story
+#> 10 A'ja Wilson gets the basket plus the foul  A'ja Wilso… 2026-08-… NA     Media
+#> 11 Sky win 84-83 thriller over Aces           Sky win 84… 2026-08-… NA     Media
+#> 12 A'ja Wilson hits the basket                A'ja Wilso… 2026-08-… NA     Media
+#> 13 Las Vegas Aces vs. New York Liberty - Gam… Watch the … 2026-07-… NA     Media
 #> 
 #> $FantasyOutlook
 #> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:31 UTC
+#> ℹ Data updated: 2026-08-12 21:56:31 UTC
 #> # A tibble: 1 × 1
 #>   outlook
 #>   <chr>  

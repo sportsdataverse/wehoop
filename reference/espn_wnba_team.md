@@ -192,7 +192,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:41 UTC
+#> ℹ Data updated: 2026-08-12 21:56:41 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -202,29 +202,29 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:41 UTC
+#> ℹ Data updated: 2026-08-12 21:56:41 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 21-9    <df [20 × 2]>
-#> 2 Home Record    home  9-5     <df [5 × 2]> 
-#> 3 Away Record    road  12-4    <df [5 × 2]> 
+#> 1 Overall Record total 23-11   <df [20 × 2]>
+#> 2 Home Record    home  10-5    <df [5 × 2]> 
+#> 3 Away Record    road  13-6    <df [5 × 2]> 
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:41 UTC
+#> ℹ Data updated: 2026-08-12 21:56:41 UTC
 #> # A tibble: 1 × 4
-#>   id        date              name                            short_name
-#>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401857119 2026-08-06T23:00Z Las Vegas Aces at Indiana Fever LV @ IND  
+#>   id        date              name                                 short_name
+#>   <chr>     <chr>             <chr>                                <chr>     
+#> 1 401857142 2026-08-14T02:00Z Washington Mystics at Las Vegas Aces WSH @ LV  
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:41 UTC
+#> ℹ Data updated: 2026-08-12 21:56:41 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
-#> 1 2nd in Western Conference Division
+#> 1 3rd in Western Conference Division
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows

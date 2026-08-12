@@ -157,7 +157,7 @@ Saiem Gilani
   espn_wbb_athletes_index(season = 2025, limit = 50)
 #> Fetching page 1 of 1 for womens-college-basketball athletes (season=2025)...
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athletes Index from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-08-06 03:59:31 UTC
+#> ℹ Data updated: 2026-08-12 21:55:32 UTC
 #> # A tibble: 50 × 9
 #>    athlete_id full_name jersey position team_id headshot status link     ref_url
 #>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>    <chr>  

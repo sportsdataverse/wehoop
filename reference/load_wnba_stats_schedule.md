@@ -47,7 +47,27 @@ load_wnba_stats_schedule_manifest()
 
 ## Value
 
-Returns a `wehoop_data` tibble of per-season schedules.
+Returns a `wehoop_data` tibble of per-season schedules, one row per game
+with the home/away sides pre-joined into `home_*` / `away_*` columns.
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| game_id | character | Unique game identifier. |
+| season | integer | Season identifier (4-digit year). |
+| season_type | character | Portion of the season: `regular-season` or `playoffs`. |
+| game_date | character | Date the game was played, as an ISO `YYYY-MM-DD` string. |
+| matchup | character | Matchup string, home side first (e.g. `WAS vs. NYL`). |
+| home_team_id | integer | Unique WNBA Stats team identifier for the home team. |
+| home_team_abbreviation | character | Home team abbreviation. |
+| home_team_name | character | Home team full name. |
+| home_pts | integer | Points scored by the home team. |
+| home_wl | character | Home team result, `W` or `L`. |
+| away_team_id | integer | Unique WNBA Stats team identifier for the away team. |
+| away_team_abbreviation | character | Away team abbreviation. |
+| away_team_name | character | Away team full name. |
+| away_pts | integer | Points scored by the away team. |
+| away_wl | character | Away team result, `W` or `L`. |
 
 ## See also
 
@@ -71,25 +91,23 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 4,415 × 35
-#>    season_id team_id team_abbreviation team_name game_id game_date matchup wl   
-#>    <chr>       <int> <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
-#>  1 22026      1.61e9 CON               Connecti… 102260… 2026-05-… CON @ … L    
-#>  2 22026      1.61e9 TOR               Toronto … 102260… 2026-05-… TOR vs… L    
-#>  3 22026      1.61e9 NYL               New York… 102260… 2026-05-… NYL vs… W    
-#>  4 22026      1.61e9 GSV               Golden S… 102260… 2026-05-… GSV @ … W    
-#>  5 22026      1.61e9 SEA               Seattle … 102260… 2026-05-… SEA vs… L    
-#>  6 22026      1.61e9 WAS               Washingt… 102260… 2026-05-… WAS @ … W    
-#>  7 22026      1.61e9 IND               Indiana … 102260… 2026-05-… IND vs… L    
-#>  8 22026      1.61e9 ATL               Atlanta … 102260… 2026-05-… ATL @ … W    
-#>  9 22026      1.61e9 DAL               Dallas W… 102260… 2026-05-… DAL @ … W    
-#> 10 22026      1.61e9 CHI               Chicago … 102260… 2026-05-… CHI @ … W    
-#> # ℹ 4,405 more rows
-#> # ℹ 27 more variables: min <int>, fgm <int>, fga <int>, fg_pct <dbl>,
-#> #   fg3m <int>, fg3a <int>, fg3_pct <dbl>, ftm <int>, fta <int>, ft_pct <dbl>,
-#> #   oreb <int>, dreb <int>, reb <int>, ast <int>, stl <int>, blk <int>,
-#> #   tov <int>, pf <int>, pts <int>, plus_minus <int>, video_available <int>,
-#> #   season <int>, season_type <chr>, player_id <int>, player_name <chr>,
-#> #   fantasy_pts <dbl>, measure_type <chr>
+#> # A tibble: 202 × 15
+#>    game_id    season season_type    game_date  matchup     home_team_id
+#>    <chr>       <int> <chr>          <chr>      <chr>              <int>
+#>  1 1022600001   2026 regular-season 2026-05-08 NYL vs. CON   1611661313
+#>  2 1022600002   2026 regular-season 2026-05-08 TOR vs. WAS   1611661332
+#>  3 1022600003   2026 regular-season 2026-05-08 SEA vs. GSV   1611661328
+#>  4 1022600004   2026 regular-season 2026-05-09 IND vs. DAL   1611661325
+#>  5 1022600005   2026 regular-season 2026-05-09 LVA vs. PHX   1611661319
+#>  6 1022600006   2026 regular-season 2026-05-09 PDX vs. CHI   1611661327
+#>  7 1022600007   2026 regular-season 2026-05-10 CON vs. SEA   1611661323
+#>  8 1022600008   2026 regular-season 2026-05-10 WAS vs. NYL   1611661322
+#>  9 1022600009   2026 regular-season 2026-05-10 LAS vs. LVA   1611661320
+#> 10 1022600010   2026 regular-season 2026-05-09 MIN vs. ATL   1611661324
+#> # ℹ 192 more rows
+#> # ℹ 9 more variables: home_team_abbreviation <chr>, home_team_name <chr>,
+#> #   home_pts <int>, home_wl <chr>, away_team_id <int>,
+#> #   away_team_abbreviation <chr>, away_team_name <chr>, away_pts <int>,
+#> #   away_wl <chr>
 # }
 ```

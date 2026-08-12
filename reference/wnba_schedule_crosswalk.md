@@ -41,10 +41,10 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(wnba_schedule_crosswalk(season = 2024))
-#> ✖ 2026-08-06 04:03:27.725865: Invalid arguments or no league schedule data for 2024 available!
+#> ✖ 2026-08-12 22:00:16.180432: Invalid arguments or no league schedule data for 2024 available!
 #> ✖ Args: league_id = "10", season = 2024
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
-#> ✖ 2026-08-06 04:03:27.816925: Invalid arguments or no league schedule data for 2024 available!
+#> ✖ 2026-08-12 22:00:16.287413: Invalid arguments or no league schedule data for 2024 available!
 #> ✖ Args: league_id = "10", season = 2024
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
 #> Error in UseMethod("transmute") : 

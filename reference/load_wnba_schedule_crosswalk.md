@@ -36,7 +36,7 @@ Other WNBA Crosswalk Functions:
 # \donttest{
   try(load_wnba_schedule_crosswalk(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 355 × 16
+#> # A tibble: 357 × 16
 #>    season season_type game_date  home_espn_team_id away_espn_team_id
 #>     <int> <chr>       <date>                 <int>             <int>
 #>  1   2026 Pre-Season  2026-04-25                 9                 5
@@ -49,7 +49,7 @@ Other WNBA Crosswalk Functions:
 #>  8   2026 Pre-Season  2026-04-29            131935                18
 #>  9   2026 Pre-Season  2026-04-29                19                20
 #> 10   2026 Pre-Season  2026-04-29                14            132052
-#> # ℹ 345 more rows
+#> # ℹ 347 more rows
 #> # ℹ 11 more variables: espn_game_id <chr>, wnba_game_id <chr>,
 #> #   wnba_game_code <chr>, wnba_home_team_id <chr>, wnba_away_team_id <chr>,
 #> #   fox_game_id <chr>, fox_home_team_id <chr>, fox_away_team_id <chr>,

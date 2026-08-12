@@ -144,14 +144,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:26 UTC
-#> # A tibble: 5 × 8
-#>         id type  headline       description published premium link_web league_id
-#>      <int> <chr> <chr>          <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 49542242 Recap Sky scores 34… — Natasha … 2026-08-… FALSE   http://… 59       
-#> 2 49542172 Media Chicago Sky v… Watch the … 2026-08-… FALSE   https:/… 59       
-#> 3 49541754 Recap Mystics beat … — Shakira … 2026-08-… FALSE   http://… 59       
-#> 4 49541726 Media Washington My… Watch the … 2026-08-… FALSE   https:/… 59       
-#> 5 49541527 Recap Rhyne Howard … — Rhyne Ho… 2026-08-… FALSE   http://… 59       
+#> ℹ Data updated: 2026-08-12 21:56:27 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  4.96e7 Story WNBA be… Andre Snel… 2026-08-… FALSE   Andre… https:/… 59       
+#> 2  4.96e7 Story Portlan… The Portla… 2026-08-… FALSE   Colin… https:/… 59       
+#> 3  3.41e7 Story Lakers'… The Lakers… 2026-08-… FALSE   ESPN   https:/… 28       
+#> 4  4.84e7 Story Updated… The Fantas… 2026-08-… FALSE   ESPN … https:/… 59       
+#> 5  4.96e7 Prev… New Yor… Los Angele… 2026-08-… FALSE   NA     http://… 59       
 # }
 ```

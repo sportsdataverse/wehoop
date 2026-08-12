@@ -1,9 +1,8 @@
 # **Load wehoop WNBA Stats Play-by-Play**
 
-Loads season-level WNBA play-by-play (V3 with on-court five-on-each-side
-player IDs, supplied by
+Loads season-level WNBA play-by-play (V3), supplied by
 [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
-in the upstream compile script). Backed by the `wehoop-wnba-stats-data`
+in the upstream compile script. Backed by the `wehoop-wnba-stats-data`
 pipeline that publishes parquet/rds artifacts to the `wnba_stats_pbp`
 release tag.
 
@@ -72,25 +71,25 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 86,784 × 25
-#>    action_number clock       period   team_id team_tricode person_id player_name
-#>            <int> <chr>        <int>     <int> <chr>            <int> <chr>      
-#>  1             2 PT10M00.00S      1    0      ""              0      ""         
-#>  2             4 PT10M00.00S      1    1.61e9 "NYL"           1.63e6 "Jones"    
-#>  3             7 PT09M44.00S      1    1.61e9 "CON"           1.64e6 "Morrow"   
-#>  4             8 PT09M39.00S      1    1.61e9 "NYL"           1.63e6 "Johannes" 
-#>  5             9 PT09M25.00S      1    1.61e9 "NYL"           1.63e6 "Stewart"  
-#>  6            11 PT09M17.00S      1    1.61e9 "CON"           1.64e6 "Miller"   
-#>  7            13 PT09M06.00S      1    1.61e9 "NYL"           1.63e6 "Stewart"  
-#>  8            15 PT08M50.00S      1    1.61e9 "CON"           2.03e5 "Griner"   
-#>  9            16 PT08M50.00S      1    0      ""              1.61e9 ""         
-#> 10            17 PT08M34.00S      1    1.61e9 "NYL"           1.63e6 "Johannes" 
+#> # A tibble: 86,784 × 38
+#>    order_index action_number clock       period   team_id team_tricode person_id
+#>          <int>         <int> <chr>        <int>     <int> <chr>            <int>
+#>  1           0             2 PT10M00.00S      1    0      ""              0     
+#>  2           1             4 PT10M00.00S      1    1.61e9 "NYL"           1.63e6
+#>  3           2             7 PT09M44.00S      1    1.61e9 "CON"           1.64e6
+#>  4           3             8 PT09M39.00S      1    1.61e9 "NYL"           1.63e6
+#>  5           4             9 PT09M25.00S      1    1.61e9 "NYL"           1.63e6
+#>  6           5            11 PT09M17.00S      1    1.61e9 "CON"           1.64e6
+#>  7           6            13 PT09M06.00S      1    1.61e9 "NYL"           1.63e6
+#>  8           7            15 PT08M50.00S      1    1.61e9 "CON"           2.03e5
+#>  9           8            16 PT08M50.00S      1    0      ""              1.61e9
+#> 10           9            17 PT08M34.00S      1    1.61e9 "NYL"           1.63e6
 #> # ℹ 86,774 more rows
-#> # ℹ 18 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
-#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
-#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
-#> #   description <chr>, action_type <chr>, sub_type <chr>,
-#> #   video_available <int>, shot_value <int>, action_id <int>, game_id <chr>,
-#> #   season <int>
+#> # ℹ 31 more variables: player_name <chr>, player_name_i <chr>, x_legacy <int>,
+#> #   y_legacy <int>, shot_distance <int>, shot_result <chr>,
+#> #   is_field_goal <int>, score_home <chr>, score_away <chr>,
+#> #   points_total <int>, location <chr>, description <chr>, action_type <chr>,
+#> #   sub_type <chr>, video_available <int>, shot_value <int>, action_id <int>,
+#> #   game_id <chr>, seconds_remaining <dbl>, event_type <chr>, …
 # }
 ```

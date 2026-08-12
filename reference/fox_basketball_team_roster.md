@@ -43,12 +43,12 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:51 UTC
+#> ℹ Data updated: 2026-08-12 21:56:50 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
 #>  1 1       GUARD          Isobel Bor… G     21    "5'1… -     -       809       
-#>  2 1       GUARD          Jordin Can… G     30    "5'6… 135 … UCLA    203       
+#>  2 1       GUARD          Jordin Can… G     31    "5'6… 135 … UCLA    203       
 #>  3 1       GUARD          Allisha Gr… G     31    "6'0… 167 … South … 138       
 #>  4 1       GUARD          Rhyne Howa… G     26    "6'2… 175 … -       638       
 #>  5 1       GUARD          Indya Nivar G     22    "5'1… -     -       934       
@@ -65,7 +65,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-06 04:00:52 UTC
+#> ℹ Data updated: 2026-08-12 21:56:51 UTC
 #> # A tibble: 16 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
