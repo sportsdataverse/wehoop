@@ -871,7 +871,8 @@ NULL
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the schedules data table within the database
-#' @return Returns a `wehoop_data` tibble of per-season schedules.
+#' @return Returns a `wehoop_data` tibble of per-season schedules, one row per
+#'   game with the home/away sides pre-joined into `home_*` / `away_*` columns.
 #' @export
 #' @family WNBA Stats loader functions
 #' @examples
@@ -896,7 +897,7 @@ load_wnba_stats_schedule <- function(seasons = most_recent_wnba_stats_season(),
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_stats_schedules/wnba_stats_schedule_", seasons, ".rds"
+    "wnba_stats_schedules/wnba_schedule_", seasons, ".rds"
   )
 
   p <- NULL
@@ -920,10 +921,10 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API play-by-play from the data repo**
 #' @rdname load_wnba_stats_pbp
-#' @description Loads season-level WNBA play-by-play (V3 with on-court
-#'   five-on-each-side player IDs, supplied by [wnba_pbp()] in the upstream
-#'   compile script). Backed by the `wehoop-wnba-stats-data` pipeline that
-#'   publishes parquet/rds artifacts to the `wnba_stats_pbp` release tag.
+#' @description Loads season-level WNBA play-by-play (V3), supplied by
+#'   [wnba_pbp()] in the upstream compile script. Backed by the
+#'   `wehoop-wnba-stats-data` pipeline that publishes parquet/rds artifacts to
+#'   the `wnba_stats_pbp` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -955,7 +956,7 @@ load_wnba_stats_pbp <- function(seasons = most_recent_wnba_stats_season(),
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_stats_pbp/play_by_play_", seasons, ".rds"
+    "wnba_stats_pbp/wnba_play_by_play_", seasons, ".rds"
   )
 
   p <- NULL

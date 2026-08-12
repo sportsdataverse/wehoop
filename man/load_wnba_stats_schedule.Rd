@@ -26,7 +26,8 @@ the season data into a database.}
 \item{tablename}{The name of the schedules data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of per-season schedules.
+Returns a \code{wehoop_data} tibble of per-season schedules, one row per
+game with the home/away sides pre-joined into \verb{home_*} / \verb{away_*} columns.
 }
 \description{
 Loads season-level WNBA schedules scraped from
