@@ -873,6 +873,25 @@ NULL
 #' @param tablename The name of the schedules data table within the database
 #' @return Returns a `wehoop_data` tibble of per-season schedules, one row per
 #'   game with the home/away sides pre-joined into `home_*` / `away_*` columns.
+#'
+#'    |col_name               |types     |description                                                       |
+#'    |:----------------------|:---------|:-----------------------------------------------------------------|
+#'    |game_id                |character |Unique game identifier.                                           |
+#'    |season                 |integer   |Season identifier (4-digit year).                                 |
+#'    |season_type            |character |Portion of the season: `regular-season` or `playoffs`.            |
+#'    |game_date              |character |Date the game was played, as an ISO `YYYY-MM-DD` string.          |
+#'    |matchup                |character |Matchup string, home side first (e.g. `WAS vs. NYL`).             |
+#'    |home_team_id           |integer   |Unique WNBA Stats team identifier for the home team.              |
+#'    |home_team_abbreviation |character |Home team abbreviation.                                           |
+#'    |home_team_name         |character |Home team full name.                                              |
+#'    |home_pts               |integer   |Points scored by the home team.                                   |
+#'    |home_wl                |character |Home team result, `W` or `L`.                                     |
+#'    |away_team_id           |integer   |Unique WNBA Stats team identifier for the away team.              |
+#'    |away_team_abbreviation |character |Away team abbreviation.                                           |
+#'    |away_team_name         |character |Away team full name.                                              |
+#'    |away_pts               |integer   |Points scored by the away team.                                   |
+#'    |away_wl                |character |Away team result, `W` or `L`.                                     |
+#'
 #' @export
 #' @family WNBA Stats loader functions
 #' @examples
