@@ -1085,7 +1085,6 @@ load_wnba_stats_leaguedash <- function(seasons = most_recent_wnba_stats_season()
                                        dbConnection = NULL, tablename = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  dots <- rlang::dots_list(...)
 
   if (is.null(table) || length(table) != 1 ||
       !table %in% wnba_stats_leaguedash_tables) {
@@ -1115,7 +1114,7 @@ load_wnba_stats_leaguedash <- function(seasons = most_recent_wnba_stats_season()
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
