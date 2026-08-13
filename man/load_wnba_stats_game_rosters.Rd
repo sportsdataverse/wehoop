@@ -16,7 +16,8 @@ load_wnba_stats_game_rosters_manifest()
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)}
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass \code{seasons = TRUE} for every published season. (Min: 1997)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -26,34 +27,36 @@ the season data into a database.}
 \item{tablename}{The name of the game rosters data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble with one row per athlete-team-game.\tabular{lll}{
+Returns a \code{wehoop_data} tibble with one row per inactive
+athlete-game pair.\tabular{lll}{
    col_name \tab types \tab description \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   team_id \tab character \tab Unique team identifier. \cr
+   player_id \tab integer \tab Unique player identifier. \cr
+   first_name \tab character \tab Player's first name. \cr
+   last_name \tab character \tab Player's last name. \cr
+   jersey_num \tab character \tab Jersey number worn by the player. \cr
+   team_id \tab integer \tab Unique team identifier. \cr
    team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
    team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   first_name \tab character \tab Player's first name. \cr
-   family_name \tab character \tab Player's family / last name. \cr
-   name_i \tab character \tab Initialed name (e.g. 'A. Wilson'). \cr
-   player_slug \tab character \tab URL-safe player identifier. \cr
-   jersey_num \tab character \tab Jersey number worn by the player. \cr
-   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   starter \tab logical \tab TRUE if the player was in the starting lineup; FALSE otherwise. \cr
-   did_not_play \tab logical \tab TRUE if the player did not appear in the game. \cr
-   status \tab character \tab Status label. \cr
-   comment \tab character \tab Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive'). \cr
+   team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+   season \tab integer \tab Season identifier (4-digit year). \cr
+   game_id \tab character \tab Unique game identifier. \cr
 }
 }
 \description{
-Loads per-game rosters scraped from the WNBA Stats API
-(\code{boxscoretraditionalv3}-style outputs). One row per athlete-team-game
-triple with jersey, position, starter flag, and DNP status. Backed by
-the \code{wehoop-wnba-stats-data} pipeline that reads raw JSONs from
-\code{wehoop-wnba-stats-raw} and publishes parquet/rds artifacts to the
-\code{wnba_stats_game_rosters} release tag.
+Loads the per-game \strong{inactive player} list scraped from the
+WNBA Stats API -- the \code{InactivePlayers} result set of
+\code{boxscoresummaryv2}. One row per inactive athlete-game pair, not a full
+per-game roster: use \code{\link[=load_wnba_stats_player_game_logs]{load_wnba_stats_player_game_logs()}} for the
+athletes who did play. Backed by the \code{wehoop-wnba-stats-data} pipeline
+that reads raw JSONs from \code{wehoop-wnba-stats-raw} and publishes
+parquet/rds artifacts to the \code{wnba_stats_game_rosters} release tag.
+
+Coverage is thin by construction because the upstream result set is
+thin: stats.wnba.com reports inactives for only a fraction of games,
+and most heavily for 2006-2008 and 2021 onward. Season row counts range
+from 1 (1997) to 610 across 184 games (2026); 2009-2012 carry fewer
+than 10 rows each. A season with almost no rows is upstream sparsity,
+not a download failure.
 
 \code{load_wnba_stats_game_rosters_manifest()} returns the
 per-season manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},
@@ -69,6 +72,7 @@ downloading any season's full data.
 Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_coaches]{load_wnba_stats_coaches()}},
 \code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
 \code{\link[=load_wnba_stats_lineups]{load_wnba_stats_lineups()}},
 \code{\link[=load_wnba_stats_officials]{load_wnba_stats_officials()}},
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},

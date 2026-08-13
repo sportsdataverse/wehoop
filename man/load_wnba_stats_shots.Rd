@@ -16,7 +16,8 @@ load_wnba_stats_shots_manifest()
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)}
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass \code{seasons = TRUE} for every published season. (Min: 1997)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -28,35 +29,31 @@ the season data into a database.}
 \value{
 Returns a \code{wehoop_data} tibble with one row per shot attempt.\tabular{lll}{
    col_name \tab types \tab description \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
    game_id \tab character \tab Unique game identifier. \cr
-   game_event_id \tab character \tab Unique identifier for game event. \cr
-   player_id \tab character \tab Unique player identifier. \cr
-   player_name \tab character \tab Player name. \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+   season \tab integer \tab Season identifier (4-digit year). \cr
    period \tab integer \tab Period of the game (1-4 quarters; 5+ for OT). \cr
-   minutes_remaining \tab integer \tab Minutes remaining. \cr
-   seconds_remaining \tab integer \tab Seconds remaining in the period. \cr
-   event_type \tab character \tab Event / play type code (V2 PBP). \cr
-   action_type \tab character \tab Action type label (e.g. 'Made Shot', 'Substitution'). \cr
-   shot_type \tab character \tab Shot type label (e.g. 'Jump Shot', 'Layup'). \cr
-   shot_zone_basic \tab character \tab Shot zone (e.g. 'Restricted Area', 'Mid-Range', 'Above the Break 3'). \cr
-   shot_zone_area \tab character \tab Shot zone area ('Left Side', 'Right Side', 'Center'). \cr
-   shot_zone_range \tab character \tab Shot zone range ('Less Than 8 ft.', '8-16 ft.', '16-24 ft.', etc.). \cr
-   shot_distance \tab numeric \tab Shot distance from the basket, in feet. \cr
-   loc_x \tab numeric \tab X coordinate on the court (units of inches; 0 = basket center). \cr
-   loc_y \tab numeric \tab Y coordinate on the court (units of inches; baseline at 0). \cr
-   coordinate_x \tab numeric \tab X coordinate on the court (half-court layout). \cr
-   coordinate_y \tab numeric \tab Y coordinate on the court (half-court layout). \cr
-   shot_attempted_flag \tab integer \tab 1 if a shot was attempted on this event. \cr
-   shot_made_flag \tab integer \tab 1 if the shot was made; 0 if missed. \cr
+   clock \tab character \tab Game clock remaining in the period (ISO 8601 duration). \cr
+   team_id \tab integer \tab Unique team identifier for the shooting team. \cr
+   team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
+   person_id \tab integer \tab Unique player identifier for the shooter. \cr
+   player_name \tab character \tab Shooter's name. \cr
+   action_type \tab character \tab Action type label ('Made Shot' or 'Missed Shot'). \cr
+   sub_type \tab character \tab Shot sub type (e.g. 'Jump Shot', 'Layup', 'DUNK'). \cr
+   shot_result \tab character \tab Shot result, 'Made' or 'Missed'. \cr
+   shot_value \tab integer \tab Points the shot was worth (2 or 3). \cr
+   shot_distance \tab integer \tab Shot distance from the basket, in feet. \cr
+   x_legacy \tab integer \tab Legacy X coordinate on the court (0 = basket center). \cr
+   y_legacy \tab integer \tab Legacy Y coordinate on the court (baseline at 0). \cr
+   description \tab character \tab Text description of the play. \cr
+   score_home \tab character \tab Home team score after the play. \cr
+   score_away \tab character \tab Away team score after the play. \cr
 }
 }
 \description{
-Loads shot events scraped from the WNBA Stats API
-(\code{shotchartdetail}-style outputs). One row per shot attempt with court
-coordinates, shot type, distance, and made/missed flag. Backed by the
+Loads shot events scraped from the WNBA Stats API. One row
+per shot attempt with legacy court coordinates, action/sub type,
+distance, and made/missed result, carried through from the V3
+play-by-play feed (not \code{shotchartdetail}). Backed by the
 \code{wehoop-wnba-stats-data} pipeline that reads raw JSONs from
 \code{wehoop-wnba-stats-raw} and publishes parquet/rds artifacts to the
 \code{wnba_stats_shots} release tag.
@@ -76,6 +73,7 @@ Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_coaches]{load_wnba_stats_coaches()}},
 \code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
 \code{\link[=load_wnba_stats_game_rosters]{load_wnba_stats_game_rosters()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
 \code{\link[=load_wnba_stats_lineups]{load_wnba_stats_lineups()}},
 \code{\link[=load_wnba_stats_officials]{load_wnba_stats_officials()}},
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},

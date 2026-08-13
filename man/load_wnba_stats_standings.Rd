@@ -16,7 +16,8 @@ load_wnba_stats_standings_manifest()
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)}
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass \code{seasons = TRUE} for every published season. (Min: 1997)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -71,6 +72,7 @@ Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_coaches]{load_wnba_stats_coaches()}},
 \code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
 \code{\link[=load_wnba_stats_game_rosters]{load_wnba_stats_game_rosters()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
 \code{\link[=load_wnba_stats_lineups]{load_wnba_stats_lineups()}},
 \code{\link[=load_wnba_stats_officials]{load_wnba_stats_officials()}},
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},

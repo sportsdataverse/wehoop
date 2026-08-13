@@ -12,6 +12,6 @@ test_that("load_wnba_stats_officials returns a wehoop_data tibble for the most r
   expect_s3_class(officials, "wehoop_data")
   expect_s3_class(officials, "data.frame")
 
-  core_cols <- c("game_id", "display_name")
+  core_cols <- c("game_id", "official_id")
   expect_in(sort(core_cols), sort(colnames(officials)))
 })
