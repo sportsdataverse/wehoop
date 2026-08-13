@@ -360,6 +360,11 @@ API artifacts
 
   **Load wehoop WNBA Stats Coaches**
 
+- [`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md)
+  :
+
+  **Load wehoop WNBA Stats League Dashboard cube**
+
 - [`load_wnba_stats_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md)
   [`load_wnba_stats_player_stats_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md)
   **\[deprecated\]** :

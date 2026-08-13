@@ -7,7 +7,8 @@ by the wnba_stats_leaguedash tag (Python-scraped parameter cube, same
 6 measures plus Four Factors and a wide team_master mega). This
 function reshapes the cube back into the old stacked-by-measure_type
 contract for compatibility; call the cube's team_stats_* /
-team_master assets directly for the full surface.
+team_master assets directly with
+load_wnba_stats_leaguedash() for the full surface.
 load_wnba_stats_team_stats_manifest() returns the per-season
 manifest CSV (season, row_count, generated_at_utc,
 source_endpoint) for the WNBA Stats team season stats release tag
@@ -19,7 +20,8 @@ by the wnba_stats_leaguedash tag (Python-scraped parameter cube, same
 6 measures plus Four Factors and a wide team_master mega). This
 function reshapes the cube back into the old stacked-by-measure_type
 contract for compatibility; call the cube's team_stats_* /
-team_master assets directly for the full surface.
+team_master assets directly with
+load_wnba_stats_leaguedash() for the full surface.
 load_wnba_stats_team_stats_manifest() returns the per-season
 manifest CSV (season, row_count, generated_at_utc,
 source_endpoint) for the WNBA Stats team season stats release tag
@@ -125,7 +127,8 @@ by the <code>wnba_stats_leaguedash</code> tag (Python-scraped parameter cube, sa
 6 measures plus <code>Four Factors</code> and a wide <code>team_master</code> mega). This
 function reshapes the cube back into the old stacked-by-<code>measure_type</code>
 contract for compatibility; call the cube's <code>team_stats_*</code> /
-<code>team_master</code> assets directly for the full surface.</p>
+<code>team_master</code> assets directly with
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code> for the full surface.</p>
 <p><code>load_wnba_stats_team_stats_manifest()</code> returns the per-season
 manifest CSV (<code>season</code>, <code>row_count</code>, <code>generated_at_utc</code>,
 <code>source_endpoint</code>) for the WNBA Stats team season stats release tag
@@ -150,7 +153,8 @@ without downloading any season's full data.</p>
 
 <dl><dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
 <dd><p>A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)</p></dd>
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass <code>seasons = TRUE</code> for every published season. (Min: 1997)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -175,6 +179,7 @@ the season data into a database.</p></dd>
 <code><a href="load_wnba_stats_coaches.html">load_wnba_stats_coaches()</a></code>,
 <code><a href="load_wnba_stats_draft.html">load_wnba_stats_draft()</a></code>,
 <code><a href="load_wnba_stats_game_rosters.html">load_wnba_stats_game_rosters()</a></code>,
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>,
 <code><a href="load_wnba_stats_lineups.html">load_wnba_stats_lineups()</a></code>,
 <code><a href="load_wnba_stats_officials.html">load_wnba_stats_officials()</a></code>,
 <code><a href="load_wnba_stats_pbp.html">load_wnba_stats_pbp()</a></code>,
@@ -196,26 +201,27 @@ the season data into a database.</p></dd>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   call reshapes the cube's</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   team_stats_{base,advanced,misc,scoring,defense,opponent} assets back into the</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   old stacked-by-measure_type contract.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_base_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_base_2026.parquet&gt;</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_advanced_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_advanced_2026.parquet&gt;</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_misc_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_misc_2026.parquet&gt;</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_scoring_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_scoring_2026.parquet&gt;</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_defense_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_defense_2026.parquet&gt;</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_opponent_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_opponent_2026.parquet&gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 90 × 179</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       team_id team_name      gp     w     l w_pct   min   fgm   fga fg_pct fg3_m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>330 Atlanta Dr…    32    20    12 0.625 <span style="text-decoration: underline;">1</span>280.   992  <span style="text-decoration: underline;">2</span>270  0.437   266</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>329 Chicago Sky    34    12    22 0.353 <span style="text-decoration: underline;">1</span>370   <span style="text-decoration: underline;">1</span>056  <span style="text-decoration: underline;">2</span>369  0.446   254</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>323 Connecticu…    31     8    23 0.258 <span style="text-decoration: underline;">1</span>245    915  <span style="text-decoration: underline;">2</span>109  0.434   172</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>321 Dallas Win…    34    20    14 0.588 <span style="text-decoration: underline;">1</span>370   <span style="text-decoration: underline;">1</span>130  <span style="text-decoration: underline;">2</span>436  0.464   279</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>331 Golden Sta…    33    24     9 0.727 <span style="text-decoration: underline;">1</span>320    955  <span style="text-decoration: underline;">2</span>235  0.427   356</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>325 Indiana Fe…    33    21    12 0.636 <span style="text-decoration: underline;">1</span>335   <span style="text-decoration: underline;">1</span>105  <span style="text-decoration: underline;">2</span>270  0.487   343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>319 Las Vegas …    34    23    11 0.676 <span style="text-decoration: underline;">1</span>370   <span style="text-decoration: underline;">1</span>132  <span style="text-decoration: underline;">2</span>325  0.487   285</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>320 Los Angele…    32    12    20 0.375 <span style="text-decoration: underline;">1</span>285   <span style="text-decoration: underline;">1</span>031  <span style="text-decoration: underline;">2</span>215  0.465   285</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>324 Minnesota …    35    28     7 0.8   <span style="text-decoration: underline;">1</span>400   <span style="text-decoration: underline;">1</span>211  <span style="text-decoration: underline;">2</span>501  0.484   325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>313 New York L…    34    20    14 0.588 <span style="text-decoration: underline;">1</span>370   <span style="text-decoration: underline;">1</span>061  <span style="text-decoration: underline;">2</span>281  0.465   350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 80 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 168 more variables: fg3_a &lt;int&gt;, fg3_pct &lt;dbl&gt;, ftm &lt;int&gt;, fta &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ft_pct &lt;dbl&gt;, oreb &lt;int&gt;, dreb &lt;int&gt;, reb &lt;int&gt;, ast &lt;int&gt;, tov &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   stl &lt;int&gt;, blk &lt;int&gt;, blka &lt;int&gt;, pf &lt;int&gt;, pfd &lt;int&gt;, pts &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   plus_minus &lt;dbl&gt;, gp_rank &lt;int&gt;, w_rank &lt;int&gt;, l_rank &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   w_pct_rank &lt;int&gt;, min_rank &lt;int&gt;, fgm_rank &lt;int&gt;, fga_rank &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fg_pct_rank &lt;int&gt;, fg3_m_rank &lt;int&gt;, fg3_a_rank &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_pbp(game_id = 401498717))
 #> ── ESPN WBB Play-by-Play Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-12 21:55:49 UTC
+#> ℹ Data updated: 2026-08-13 08:24:46 UTC
 #> # A tibble: 369 × 49
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>

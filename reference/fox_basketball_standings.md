@@ -42,7 +42,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-12 21:56:50 UTC
+#> ℹ Data updated: 2026-08-13 08:25:48 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -50,19 +50,19 @@ Other Fox Sports Functions:
 #>  2 1       CONFER… 2       Dream 20-12 .625  0.5   90.0  86.0  12-5  8-7   10-4 
 #>  3 1       CONFER… 3       Myst… 19-13 .594  1.5   82.0  83.0  11-6  8-7   10-5 
 #>  4 1       CONFER… 4       Libe… 20-14 .588  1.5   91.0  88.0  11-5  9-9   9-4  
-#>  5 1       CONFER… 5       Sky   12-21 .364  9.0   88.0  90.0  8-9   4-12  2-10 
-#>  6 1       CONFER… 6       Tempo 10-22 .312  10.5  88.0  94.0  6-11  4-11  5-9  
+#>  5 1       CONFER… 5       Sky   12-22 .353  9.5   88.0  90.0  8-9   4-13  2-10 
+#>  6 1       CONFER… 6       Tempo 10-23 .303  11.0  88.0  94.0  6-11  4-12  5-9  
 #>  7 1       CONFER… 7       Sun   8-23  .258  12.0  80.0  87.0  5-10  3-13  2-11 
-#>  8 1       CONFER… NA      Lynx  27-7  .794  -     93.0  84.0  14-5  13-2  17-2 
-#>  9 1       CONFER… NA      Valk… 23-9  .719  3.0   83.0  77.0  13-4  10-5  9-6  
-#> 10 1       CONFER… NA      Aces  23-11 .676  4.0   91.0  87.0  10-5  13-6  13-5 
+#>  8 1       CONFER… NA      Lynx  28-7  .800  -     93.0  84.0  14-5  14-2  18-2 
+#>  9 1       CONFER… NA      Valk… 24-9  .727  3.0   84.0  77.0  14-4  10-5  9-6  
+#> 10 1       CONFER… NA      Aces  23-11 .676  4.5   91.0  87.0  10-5  13-6  13-5 
 #> # ℹ 20 more rows
 #> # ℹ 4 more variables: l10 <chr>, strk <chr>, entity_id <chr>, western <chr>
 # }
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-12 21:56:50 UTC
+#> ℹ Data updated: 2026-08-13 08:25:48 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>

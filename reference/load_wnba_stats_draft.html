@@ -138,7 +138,9 @@ downloading any season's full data.</p>
 
 <dl><dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
 <dd><p>A vector of 4-digit years associated with given WNBA draft
-seasons. (Min: 1997)</p></dd>
+seasons. Published coverage runs 1997 through the most recent season,
+with no gaps. Pass <code>seasons = TRUE</code> for every published season.
+(Min: 1997)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -156,12 +158,13 @@ the season data into a database.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a <code>wehoop_data</code> tibble of WNBA draft picks.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season identifier (4-digit year or 'YYYY-YY' string).</td></tr><tr><td>person_id</td><td>character</td><td>Unique player identifier (V3 endpoints).</td></tr><tr><td>player_name</td><td>character</td><td>Player name.</td></tr><tr><td>round_number</td><td>integer</td><td>Numeric round.</td></tr><tr><td>round_pick</td><td>integer</td><td>Round pick.</td></tr><tr><td>overall_pick</td><td>integer</td><td>Overall pick.</td></tr><tr><td>team_id</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>team_city</td><td>character</td><td>Team city or region (e.g. 'Las Vegas').</td></tr><tr><td>team_name</td><td>character</td><td>Full team display name (e.g. 'Las Vegas Aces').</td></tr><tr><td>team_abbreviation</td><td>character</td><td>Short team abbreviation (e.g. 'LAS').</td></tr><tr><td>organization</td><td>character</td><td>Organization.</td></tr><tr><td>organization_type</td><td>character</td><td>Organization type.</td></tr><tr><td>player_profile_flag</td><td>character</td><td>Player profile flag.</td></tr></table></div>
+    <p>Returns a <code>wehoop_data</code> tibble of WNBA draft picks.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>person_id</td><td>integer</td><td>Unique player identifier (V3 endpoints).</td></tr><tr><td>player_name</td><td>character</td><td>Player name.</td></tr><tr><td>season</td><td>integer</td><td>Season identifier (4-digit year).</td></tr><tr><td>round_number</td><td>integer</td><td>Numeric round.</td></tr><tr><td>round_pick</td><td>integer</td><td>Round pick.</td></tr><tr><td>overall_pick</td><td>integer</td><td>Overall pick.</td></tr><tr><td>draft_type</td><td>character</td><td>Draft type ('Draft', 'Allocation' or 'Elite').</td></tr><tr><td>team_id</td><td>integer</td><td>Unique team identifier.</td></tr><tr><td>team_city</td><td>character</td><td>Team city or region (e.g. 'Las Vegas').</td></tr><tr><td>team_name</td><td>character</td><td>Full team display name (e.g. 'Las Vegas Aces').</td></tr><tr><td>team_abbreviation</td><td>character</td><td>Short team abbreviation (e.g. 'LAS').</td></tr><tr><td>organization</td><td>character</td><td>Organization.</td></tr><tr><td>organization_type</td><td>character</td><td>Organization type.</td></tr><tr><td>player_profile_flag</td><td>integer</td><td>Player profile flag.</td></tr></table></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other WNBA Stats loader functions:
 <code><a href="load_wnba_stats_coaches.html">load_wnba_stats_coaches()</a></code>,
 <code><a href="load_wnba_stats_game_rosters.html">load_wnba_stats_game_rosters()</a></code>,
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>,
 <code><a href="load_wnba_stats_lineups.html">load_wnba_stats_lineups()</a></code>,
 <code><a href="load_wnba_stats_officials.html">load_wnba_stats_officials()</a></code>,
 <code><a href="load_wnba_stats_pbp.html">load_wnba_stats_pbp()</a></code>,

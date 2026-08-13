@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_status(season = 2024)
 #> ── ESPN WNBA Draft Status ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-12 21:56:16 UTC
+#> ℹ Data updated: 2026-08-13 08:25:12 UTC
 #> # A tibble: 1 × 7
 #>   league season round type_id type_name type_state description
 #>   <chr>   <int> <int> <chr>   <chr>     <chr>      <chr>      

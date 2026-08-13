@@ -6,7 +6,8 @@ Base/Advanced measures, 5-man only) is superseded by the
 wnba_stats_leaguedash tag (Python-scraped parameter cube: 6 measure
 types x 2/3/4/5-man). This function reshapes the cube back into the old
 5-man Base+Advanced contract for compatibility; call the cube's
-lineups_* / lineups_master assets directly for the full surface.
+lineups_* / lineups_master assets directly with
+load_wnba_stats_leaguedash() for the full surface.
 load_wnba_stats_lineups_manifest() returns the per-season
 manifest CSV (season, row_count, generated_at_utc,
 source_endpoint) for the WNBA Stats lineups release tag without
@@ -17,7 +18,8 @@ Base/Advanced measures, 5-man only) is superseded by the
 wnba_stats_leaguedash tag (Python-scraped parameter cube: 6 measure
 types x 2/3/4/5-man). This function reshapes the cube back into the old
 5-man Base+Advanced contract for compatibility; call the cube's
-lineups_* / lineups_master assets directly for the full surface.
+lineups_* / lineups_master assets directly with
+load_wnba_stats_leaguedash() for the full surface.
 load_wnba_stats_lineups_manifest() returns the per-season
 manifest CSV (season, row_count, generated_at_utc,
 source_endpoint) for the WNBA Stats lineups release tag without
@@ -122,7 +124,8 @@ downloading any season's full data."><meta property="og:image" content="https://
 <code>wnba_stats_leaguedash</code> tag (Python-scraped parameter cube: 6 measure
 types x 2/3/4/5-man). This function reshapes the cube back into the old
 5-man <code>Base</code>+<code>Advanced</code> contract for compatibility; call the cube's
-<code>lineups_*</code> / <code>lineups_master</code> assets directly for the full surface.</p>
+<code>lineups_*</code> / <code>lineups_master</code> assets directly with
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code> for the full surface.</p>
 <p><code>load_wnba_stats_lineups_manifest()</code> returns the per-season
 manifest CSV (<code>season</code>, <code>row_count</code>, <code>generated_at_utc</code>,
 <code>source_endpoint</code>) for the WNBA Stats lineups release tag without
@@ -147,7 +150,8 @@ downloading any season's full data.</p>
 
 <dl><dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
 <dd><p>A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)</p></dd>
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass <code>seasons = TRUE</code> for every published season. (Min: 1997)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -173,6 +177,7 @@ the season data into a database.</p></dd>
 <code><a href="load_wnba_stats_coaches.html">load_wnba_stats_coaches()</a></code>,
 <code><a href="load_wnba_stats_draft.html">load_wnba_stats_draft()</a></code>,
 <code><a href="load_wnba_stats_game_rosters.html">load_wnba_stats_game_rosters()</a></code>,
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>,
 <code><a href="load_wnba_stats_officials.html">load_wnba_stats_officials()</a></code>,
 <code><a href="load_wnba_stats_pbp.html">load_wnba_stats_pbp()</a></code>,
 <code><a href="load_wnba_stats_player_game_logs.html">load_wnba_stats_player_game_logs()</a></code>,
@@ -194,14 +199,27 @@ the season data into a database.</p></dd>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   Python-scraped parameter cube covering 2/3/4/5-man x 6 measure types). This</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   call filters the cube's lineups_{base,advanced} assets down to group_quantity</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   == 5 to match the old contract.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_base_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_base_2026.parquet&gt;</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_advanced_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/lineups_advanced_2026.parquet&gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,000 × 98</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    group_set group_id     group_name team_id team_abbreviation    gp     w     l</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Lineups   -1628277-16… A. Gray -…  1.61<span style="color: #949494;">e</span>9 ATL                  29    20     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Lineups   -203825-203… K. McBrid…  1.61<span style="color: #949494;">e</span>9 MIN                  27    21     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Lineups   -203014-204… N. Ogwumi…  1.61<span style="color: #949494;">e</span>9 LAS                  24     8    16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Lineups   -203833-203… C. Gray -…  1.61<span style="color: #949494;">e</span>9 LVA                  30    21     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Lineups   -203866-204… K. Thornt…  1.61<span style="color: #949494;">e</span>9 GSV                  25    19     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Lineups   -1629484-16… M. DiLeo …  1.61<span style="color: #949494;">e</span>9 PDX                  18     7    11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Lineups   -1629481-16… A. Ogunbo…  1.61<span style="color: #949494;">e</span>9 DAL                  21    15     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Lineups   -203833-204… C. Gray -…  1.61<span style="color: #949494;">e</span>9 LVA                  28    19     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Lineups   -1630446-16… M. Onyenw…  1.61<span style="color: #949494;">e</span>9 WAS                  22    13     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Lineups   -1628881-16… M. Billin…  1.61<span style="color: #949494;">e</span>9 IND                  25    15    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,990 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 90 more variables: w_pct &lt;dbl&gt;, min &lt;dbl&gt;, fgm &lt;int&gt;, fga &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fg_pct &lt;dbl&gt;, fg3_m &lt;int&gt;, fg3_a &lt;int&gt;, fg3_pct &lt;dbl&gt;, ftm &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fta &lt;int&gt;, ft_pct &lt;dbl&gt;, oreb &lt;int&gt;, dreb &lt;int&gt;, reb &lt;int&gt;, ast &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tov &lt;dbl&gt;, stl &lt;int&gt;, blk &lt;int&gt;, blka &lt;int&gt;, pf &lt;int&gt;, pfd &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pts &lt;int&gt;, plus_minus &lt;dbl&gt;, gp_rank &lt;int&gt;, w_rank &lt;int&gt;, l_rank &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   w_pct_rank &lt;int&gt;, min_rank &lt;int&gt;, fgm_rank &lt;int&gt;, fga_rank &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -138,7 +138,13 @@ downloading any season's full data.</p>
 
 <dl><dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
 <dd><p>A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)</p></dd>
+Published coverage runs 1997 through the most recent season with one
+gap: <strong>2019 is absent upstream</strong> – <code>commonteamroster</code> returns no
+coaching staff for that season (confirmed by positive controls on 2018
+and 2020), so no 2019 asset is published. Requesting 2019 emits a
+download warning and contributes no rows. Historical seasons also lack
+the <code>sub_sort_sequence</code> column added in 2026. Pass <code>seasons = TRUE</code> for
+every published season. (Min: 1997)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -163,6 +169,7 @@ the season data into a database.</p></dd>
     <div class="dont-index"><p>Other WNBA Stats loader functions:
 <code><a href="load_wnba_stats_draft.html">load_wnba_stats_draft()</a></code>,
 <code><a href="load_wnba_stats_game_rosters.html">load_wnba_stats_game_rosters()</a></code>,
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>,
 <code><a href="load_wnba_stats_lineups.html">load_wnba_stats_lineups()</a></code>,
 <code><a href="load_wnba_stats_officials.html">load_wnba_stats_officials()</a></code>,
 <code><a href="load_wnba_stats_pbp.html">load_wnba_stats_pbp()</a></code>,

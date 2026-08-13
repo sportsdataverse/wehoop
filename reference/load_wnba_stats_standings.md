@@ -29,8 +29,9 @@ load_wnba_stats_standings_manifest()
 
 - seasons:
 
-  A vector of 4-digit years associated with given WNBA seasons. (Min:
-  1997)
+  A vector of 4-digit years associated with given WNBA seasons.
+  Published coverage runs 1997 through the most recent season, with no
+  gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 
 - ...:
 
@@ -78,6 +79,7 @@ Other WNBA Stats loader functions:
 [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
 [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md),
 [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
 [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md),
 [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md),
 [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md),
@@ -97,10 +99,31 @@ Other WNBA Stats loader functions:
 #> ℹ Backing data moved from the wnba_stats_standings release tag to the
 #>   wnba_stats_leaguedash release tag's standings_{season}.parquet asset (same
 #>   underlying leaguestandingsv3 endpoint/params, Python-scraped).
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/standings_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/standings_2026.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 15 × 94
+#>    league_id season_id    team_id team_city    team_name team_slug conference
+#>    <chr>     <chr>          <int> <chr>        <chr>     <chr>     <chr>     
+#>  1 10        22026     1611661324 Minnesota    Lynx      lynx      West      
+#>  2 10        22026     1611661331 Golden State Valkyries valkyries West      
+#>  3 10        22026     1611661319 Las Vegas    Aces      aces      West      
+#>  4 10        22026     1611661325 Indiana      Fever     fever     East      
+#>  5 10        22026     1611661330 Atlanta      Dream     dream     East      
+#>  6 10        22026     1611661322 Washington   Mystics   mystics   East      
+#>  7 10        22026     1611661321 Dallas       Wings     wings     West      
+#>  8 10        22026     1611661313 New York     Liberty   liberty   East      
+#>  9 10        22026     1611661327 Portland     Fire      fire      West      
+#> 10 10        22026     1611661320 Los Angeles  Sparks    sparks    West      
+#> 11 10        22026     1611661317 Phoenix      Mercury   mercury   West      
+#> 12 10        22026     1611661329 Chicago      Sky       sky       East      
+#> 13 10        22026     1611661332 Toronto      Tempo     tempo     East      
+#> 14 10        22026     1611661323 Connecticut  Sun       sun       East      
+#> 15 10        22026     1611661328 Seattle      Storm     storm     West      
+#> # ℹ 87 more variables: conference_record <chr>, playoff_rank <int>,
+#> #   clinch_indicator <chr>, division <???>, division_record <chr>,
+#> #   division_rank <int>, wins <int>, losses <int>, win_pct <dbl>,
+#> #   league_rank <int>, record <chr>, home <chr>, road <chr>, l10 <chr>,
+#> #   last10_home <chr>, last10_road <chr>, ot <chr>, three_pts_or_less <chr>,
+#> #   ten_pts_or_more <chr>, long_home_streak <int>, str_long_home_streak <chr>,
+#> #   long_road_streak <int>, str_long_road_streak <chr>, …
 # }
 ```

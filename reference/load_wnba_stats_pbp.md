@@ -28,8 +28,9 @@ load_wnba_stats_pbp_manifest()
 
 - seasons:
 
-  A vector of 4-digit years associated with given WNBA seasons. (Min:
-  1997)
+  A vector of 4-digit years associated with given WNBA seasons.
+  Published coverage runs 1997 through the most recent season, with no
+  gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 
 - ...:
 
@@ -55,6 +56,7 @@ Other WNBA Stats loader functions:
 [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
 [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md),
 [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
 [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md),
 [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md),
 [`load_wnba_stats_player_game_logs()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_game_logs.md),

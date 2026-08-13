@@ -28,8 +28,13 @@ load_wnba_stats_officials_manifest()
 
 - seasons:
 
-  A vector of 4-digit years associated with given WNBA seasons. (Min:
-  1997)
+  A vector of 4-digit years associated with given WNBA seasons.
+  Published coverage runs 2004 through the most recent season, with no
+  gaps. 2004 is an enforced floor: `boxscoresummaryv2` does return an
+  `Officials` block for a handful of pre-2004 games, but only 1-2 games
+  per season are covered (e.g. 2/158 games in one season), so those
+  fragments are deliberately not published. Pass `seasons = TRUE` for
+  every published season. (Min: 2004)
 
 - ...:
 
@@ -49,16 +54,15 @@ load_wnba_stats_officials_manifest()
 
 Returns a `wehoop_data` tibble with one row per official-game pair.
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
-| game_id | character | Unique game identifier. |
-| official_id | character | Unique official / referee identifier. |
-| display_name | character | Display name. |
-| first_name | character | Player's first name. |
-| last_name | character | Player's last name. |
-| jersey_num | character | Jersey number worn by the player. |
+|             |           |                                       |
+|-------------|-----------|---------------------------------------|
+| col_name    | types     | description                           |
+| official_id | integer   | Unique official / referee identifier. |
+| first_name  | character | Official's first name.                |
+| last_name   | character | Official's last name.                 |
+| jersey_num  | character | Jersey number worn by the official.   |
+| season      | integer   | Season identifier (4-digit year).     |
+| game_id     | character | Unique game identifier.               |
 
 ## See also
 
@@ -66,6 +70,7 @@ Other WNBA Stats loader functions:
 [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
 [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md),
 [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
 [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md),
 [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md),
 [`load_wnba_stats_player_game_logs()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_game_logs.md),

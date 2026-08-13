@@ -141,7 +141,8 @@ downloading any season's full data.</p>
 
 <dl><dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
 <dd><p>A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)</p></dd>
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass <code>seasons = TRUE</code> for every published season. (Min: 1997)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -166,6 +167,7 @@ the season data into a database.</p></dd>
 <code><a href="load_wnba_stats_coaches.html">load_wnba_stats_coaches()</a></code>,
 <code><a href="load_wnba_stats_draft.html">load_wnba_stats_draft()</a></code>,
 <code><a href="load_wnba_stats_game_rosters.html">load_wnba_stats_game_rosters()</a></code>,
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>,
 <code><a href="load_wnba_stats_lineups.html">load_wnba_stats_lineups()</a></code>,
 <code><a href="load_wnba_stats_officials.html">load_wnba_stats_officials()</a></code>,
 <code><a href="load_wnba_stats_pbp.html">load_wnba_stats_pbp()</a></code>,
@@ -185,11 +187,32 @@ the season data into a database.</p></dd>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Backing data moved from the wnba_stats_standings release tag to the</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   wnba_stats_leaguedash release tag's standings_{season}.parquet asset (same</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   underlying leaguestandingsv3 endpoint/params, Python-scraped).</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>downloaded length 0 != reported length 9</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/standings_2026.parquet': HTTP status was '404 Not Found'</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to download parquet from &lt;https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/standings_2026.parquet&gt;</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ──────────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 94</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    league_id season_id    team_id team_city    team_name team_slug conference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>324 Minnesota    Lynx      lynx      West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>331 Golden State Valkyries valkyries West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>319 Las Vegas    Aces      aces      West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>325 Indiana      Fever     fever     East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>330 Atlanta      Dream     dream     East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>322 Washington   Mystics   mystics   East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>321 Dallas       Wings     wings     West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>313 New York     Liberty   liberty   East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>327 Portland     Fire      fire      West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>320 Los Angeles  Sparks    sparks    West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>317 Phoenix      Mercury   mercury   West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>329 Chicago      Sky       sky       East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>332 Toronto      Tempo     tempo     East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>323 Connecticut  Sun       sun       East      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> 10        22026     <span style="text-decoration: underline;">1</span>611<span style="text-decoration: underline;">661</span>328 Seattle      Storm     storm     West      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 87 more variables: conference_record &lt;chr&gt;, playoff_rank &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   clinch_indicator &lt;chr&gt;, division &lt;???&gt;, division_record &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   division_rank &lt;int&gt;, wins &lt;int&gt;, losses &lt;int&gt;, win_pct &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_rank &lt;int&gt;, record &lt;chr&gt;, home &lt;chr&gt;, road &lt;chr&gt;, l10 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   last10_home &lt;chr&gt;, last10_road &lt;chr&gt;, ot &lt;chr&gt;, three_pts_or_less &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ten_pts_or_more &lt;chr&gt;, long_home_streak &lt;int&gt;, str_long_home_streak &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   long_road_streak &lt;int&gt;, str_long_road_streak &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -28,7 +28,8 @@ load_wnba_stats_draft_manifest()
 - seasons:
 
   A vector of 4-digit years associated with given WNBA draft seasons.
-  (Min: 1997)
+  Published coverage runs 1997 through the most recent season, with no
+  gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 
 - ...:
 
@@ -51,25 +52,27 @@ Returns a `wehoop_data` tibble of WNBA draft picks.
 |  |  |  |
 |----|----|----|
 | col_name | types | description |
-| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
-| person_id | character | Unique player identifier (V3 endpoints). |
+| person_id | integer | Unique player identifier (V3 endpoints). |
 | player_name | character | Player name. |
+| season | integer | Season identifier (4-digit year). |
 | round_number | integer | Numeric round. |
 | round_pick | integer | Round pick. |
 | overall_pick | integer | Overall pick. |
-| team_id | character | Unique team identifier. |
+| draft_type | character | Draft type ('Draft', 'Allocation' or 'Elite'). |
+| team_id | integer | Unique team identifier. |
 | team_city | character | Team city or region (e.g. 'Las Vegas'). |
 | team_name | character | Full team display name (e.g. 'Las Vegas Aces'). |
 | team_abbreviation | character | Short team abbreviation (e.g. 'LAS'). |
 | organization | character | Organization. |
 | organization_type | character | Organization type. |
-| player_profile_flag | character | Player profile flag. |
+| player_profile_flag | integer | Player profile flag. |
 
 ## See also
 
 Other WNBA Stats loader functions:
 [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
 [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
 [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md),
 [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md),
 [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md),

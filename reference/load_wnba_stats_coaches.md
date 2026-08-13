@@ -28,8 +28,14 @@ load_wnba_stats_coaches_manifest()
 
 - seasons:
 
-  A vector of 4-digit years associated with given WNBA seasons. (Min:
-  1997)
+  A vector of 4-digit years associated with given WNBA seasons.
+  Published coverage runs 1997 through the most recent season with one
+  gap: **2019 is absent upstream** – `commonteamroster` returns no
+  coaching staff for that season (confirmed by positive controls on 2018
+  and 2020), so no 2019 asset is published. Requesting 2019 emits a
+  download warning and contributes no rows. Historical seasons also lack
+  the `sub_sort_sequence` column added in 2026. Pass `seasons = TRUE`
+  for every published season. (Min: 1997)
 
 - ...:
 
@@ -54,6 +60,7 @@ Returns a `wehoop_data` tibble with one row per coach-team-season.
 Other WNBA Stats loader functions:
 [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md),
 [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
 [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md),
 [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md),
 [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md),

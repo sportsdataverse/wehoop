@@ -8,7 +8,9 @@ by the `wnba_stats_leaguedash` tag (Python-scraped parameter cube, same
 6 measures plus `Four Factors` and a wide `team_master` mega). This
 function reshapes the cube back into the old stacked-by-`measure_type`
 contract for compatibility; call the cube's `team_stats_*` /
-`team_master` assets directly for the full surface.
+`team_master` assets directly with
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md)
+for the full surface.
 
 `load_wnba_stats_team_stats_manifest()` returns the per-season manifest
 CSV (`season`, `row_count`, `generated_at_utc`, `source_endpoint`) for
@@ -32,8 +34,9 @@ load_wnba_stats_team_stats_manifest()
 
 - seasons:
 
-  A vector of 4-digit years associated with given WNBA seasons. (Min:
-  1997)
+  A vector of 4-digit years associated with given WNBA seasons.
+  Published coverage runs 1997 through the most recent season, with no
+  gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 
 - ...:
 
@@ -92,6 +95,7 @@ Other WNBA Stats loader functions:
 [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
 [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md),
 [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
 [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md),
 [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md),
 [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md),
@@ -113,25 +117,26 @@ Other WNBA Stats loader functions:
 #>   call reshapes the cube's
 #>   team_stats_{base,advanced,misc,scoring,defense,opponent} assets back into the
 #>   old stacked-by-measure_type contract.
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_base_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_base_2026.parquet>
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_advanced_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_advanced_2026.parquet>
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_misc_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_misc_2026.parquet>
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_scoring_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_scoring_2026.parquet>
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_defense_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_defense_2026.parquet>
-#> Warning: downloaded length 0 != reported length 9
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_opponent_2026.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_stats_leaguedash/team_stats_opponent_2026.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 90 × 179
+#>       team_id team_name      gp     w     l w_pct   min   fgm   fga fg_pct fg3_m
+#>         <int> <chr>       <int> <int> <int> <dbl> <dbl> <int> <int>  <dbl> <int>
+#>  1 1611661330 Atlanta Dr…    32    20    12 0.625 1280.   992  2270  0.437   266
+#>  2 1611661329 Chicago Sky    34    12    22 0.353 1370   1056  2369  0.446   254
+#>  3 1611661323 Connecticu…    31     8    23 0.258 1245    915  2109  0.434   172
+#>  4 1611661321 Dallas Win…    34    20    14 0.588 1370   1130  2436  0.464   279
+#>  5 1611661331 Golden Sta…    33    24     9 0.727 1320    955  2235  0.427   356
+#>  6 1611661325 Indiana Fe…    33    21    12 0.636 1335   1105  2270  0.487   343
+#>  7 1611661319 Las Vegas …    34    23    11 0.676 1370   1132  2325  0.487   285
+#>  8 1611661320 Los Angele…    32    12    20 0.375 1285   1031  2215  0.465   285
+#>  9 1611661324 Minnesota …    35    28     7 0.8   1400   1211  2501  0.484   325
+#> 10 1611661313 New York L…    34    20    14 0.588 1370   1061  2281  0.465   350
+#> # ℹ 80 more rows
+#> # ℹ 168 more variables: fg3_a <int>, fg3_pct <dbl>, ftm <int>, fta <int>,
+#> #   ft_pct <dbl>, oreb <int>, dreb <int>, reb <int>, ast <int>, tov <dbl>,
+#> #   stl <int>, blk <int>, blka <int>, pf <int>, pfd <int>, pts <int>,
+#> #   plus_minus <dbl>, gp_rank <int>, w_rank <int>, l_rank <int>,
+#> #   w_pct_rank <int>, min_rank <int>, fgm_rank <int>, fga_rank <int>,
+#> #   fg_pct_rank <int>, fg3_m_rank <int>, fg3_a_rank <int>, …
 # }
 ```
