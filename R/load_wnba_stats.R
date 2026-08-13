@@ -10,7 +10,8 @@ NULL
 #'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
 #'   `wnba_stats_rosters` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -70,7 +71,13 @@ NULL
 #'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
 #'   `wnba_stats_coaches` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season with one
+#'   gap: **2019 is absent upstream** -- `commonteamroster` returns no
+#'   coaching staff for that season (confirmed by positive controls on 2018
+#'   and 2020), so no 2019 asset is published. Requesting 2019 emits a
+#'   download warning and contributes no rows. Historical seasons also lack
+#'   the `sub_sort_sequence` column added in 2026. Pass `seasons = TRUE` for
+#'   every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -131,10 +138,11 @@ NULL
 #'   (Python-scraped parameter cube, same 6 measure types plus `player_bio`
 #'   and a wide `player_master` mega). This function reshapes the cube back
 #'   into the old stacked-by-`measure_type` contract for compatibility; call
-#'   the cube's `player_stats_*` / `player_master` assets directly for the
-#'   full surface.
+#'   the cube's `player_stats_*` / `player_master` assets directly with
+#'   [load_wnba_stats_leaguedash()] for the full surface.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -210,9 +218,11 @@ NULL
 #'   `wnba_stats_leaguedash` tag (Python-scraped parameter cube: 6 measure
 #'   types x 2/3/4/5-man). This function reshapes the cube back into the old
 #'   5-man `Base`+`Advanced` contract for compatibility; call the cube's
-#'   `lineups_*` / `lineups_master` assets directly for the full surface.
+#'   `lineups_*` / `lineups_master` assets directly with
+#'   [load_wnba_stats_leaguedash()] for the full surface.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -289,9 +299,11 @@ NULL
 #'   6 measures plus `Four Factors` and a wide `team_master` mega). This
 #'   function reshapes the cube back into the old stacked-by-`measure_type`
 #'   contract for compatibility; call the cube's `team_stats_*` /
-#'   `team_master` assets directly for the full surface.
+#'   `team_master` assets directly with
+#'   [load_wnba_stats_leaguedash()] for the full surface.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -400,7 +412,8 @@ NULL
 #'   (same underlying endpoint/params, Python-scraped) — this is close to a
 #'   pure passthrough.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -487,28 +500,31 @@ NULL
 #'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
 #'   `wnba_stats_draft` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA draft
-#'   seasons. (Min: 1997)
+#'   seasons. Published coverage runs 1997 through the most recent season,
+#'   with no gaps. Pass `seasons = TRUE` for every published season.
+#'   (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the draft data table within the database
 #' @return Returns a `wehoop_data` tibble of WNBA draft picks.
 #'
-#'    |col_name            |types     |description                                           |
-#'    |:-------------------|:---------|:-----------------------------------------------------|
-#'    |season              |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |person_id           |character |Unique player identifier (V3 endpoints).              |
-#'    |player_name         |character |Player name.                                          |
-#'    |round_number        |integer   |Numeric round.                                        |
-#'    |round_pick          |integer   |Round pick.                                           |
-#'    |overall_pick        |integer   |Overall pick.                                         |
-#'    |team_id             |character |Unique team identifier.                               |
-#'    |team_city           |character |Team city or region (e.g. 'Las Vegas').               |
-#'    |team_name           |character |Full team display name (e.g. 'Las Vegas Aces').       |
-#'    |team_abbreviation   |character |Short team abbreviation (e.g. 'LAS').                 |
-#'    |organization        |character |Organization.                                         |
-#'    |organization_type   |character |Organization type.                                    |
-#'    |player_profile_flag |character |Player profile flag.                                  |
+#'    |col_name            |types     |description                                     |
+#'    |:-------------------|:---------|:-----------------------------------------------|
+#'    |person_id           |integer   |Unique player identifier (V3 endpoints).        |
+#'    |player_name         |character |Player name.                                    |
+#'    |season              |integer   |Season identifier (4-digit year).               |
+#'    |round_number        |integer   |Numeric round.                                  |
+#'    |round_pick          |integer   |Round pick.                                     |
+#'    |overall_pick        |integer   |Overall pick.                                   |
+#'    |draft_type          |character |Draft type ('Draft', 'Allocation' or 'Elite').  |
+#'    |team_id             |integer   |Unique team identifier.                         |
+#'    |team_city           |character |Team city or region (e.g. 'Las Vegas').         |
+#'    |team_name           |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |team_abbreviation   |character |Short team abbreviation (e.g. 'LAS').           |
+#'    |organization        |character |Organization.                                   |
+#'    |organization_type   |character |Organization type.                              |
+#'    |player_profile_flag |integer   |Player profile flag.                            |
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -558,45 +574,42 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API shot events from the data repo**
 #' @rdname load_wnba_stats_shots
-#' @description Loads shot events scraped from the WNBA Stats API
-#'   (`shotchartdetail`-style outputs). One row per shot attempt with court
-#'   coordinates, shot type, distance, and made/missed flag. Backed by the
+#' @description Loads shot events scraped from the WNBA Stats API. One row
+#'   per shot attempt with legacy court coordinates, action/sub type,
+#'   distance, and made/missed result, carried through from the V3
+#'   play-by-play feed (not `shotchartdetail`). Backed by the
 #'   `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
 #'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
 #'   `wnba_stats_shots` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the shots data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per shot attempt.
 #'
-#'    |col_name            |types     |description                                                           |
-#'    |:-------------------|:---------|:---------------------------------------------------------------------|
-#'    |season              |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                 |
-#'    |game_id             |character |Unique game identifier.                                               |
-#'    |game_event_id       |character |Unique identifier for game event.                                     |
-#'    |player_id           |character |Unique player identifier.                                             |
-#'    |player_name         |character |Player name.                                                          |
-#'    |team_id             |character |Unique team identifier.                                               |
-#'    |team_name           |character |Full team display name (e.g. 'Las Vegas Aces').                       |
-#'    |period              |integer   |Period of the game (1-4 quarters; 5+ for OT).                         |
-#'    |minutes_remaining   |integer   |Minutes remaining.                                                    |
-#'    |seconds_remaining   |integer   |Seconds remaining in the period.                                      |
-#'    |event_type          |character |Event / play type code (V2 PBP).                                      |
-#'    |action_type         |character |Action type label (e.g. 'Made Shot', 'Substitution').                 |
-#'    |shot_type           |character |Shot type label (e.g. 'Jump Shot', 'Layup').                          |
-#'    |shot_zone_basic     |character |Shot zone (e.g. 'Restricted Area', 'Mid-Range', 'Above the Break 3'). |
-#'    |shot_zone_area      |character |Shot zone area ('Left Side', 'Right Side', 'Center').                 |
-#'    |shot_zone_range     |character |Shot zone range ('Less Than 8 ft.', '8-16 ft.', '16-24 ft.', etc.).   |
-#'    |shot_distance       |numeric   |Shot distance from the basket, in feet.                               |
-#'    |loc_x               |numeric   |X coordinate on the court (units of inches; 0 = basket center).       |
-#'    |loc_y               |numeric   |Y coordinate on the court (units of inches; baseline at 0).           |
-#'    |coordinate_x        |numeric   |X coordinate on the court (half-court layout).                        |
-#'    |coordinate_y        |numeric   |Y coordinate on the court (half-court layout).                        |
-#'    |shot_attempted_flag |integer   |1 if a shot was attempted on this event.                              |
-#'    |shot_made_flag      |integer   |1 if the shot was made; 0 if missed.                                  |
+#'    |col_name      |types     |description                                                    |
+#'    |:-------------|:---------|:--------------------------------------------------------------|
+#'    |game_id       |character |Unique game identifier.                                        |
+#'    |season        |integer   |Season identifier (4-digit year).                              |
+#'    |period        |integer   |Period of the game (1-4 quarters; 5+ for OT).                  |
+#'    |clock         |character |Game clock remaining in the period (ISO 8601 duration).        |
+#'    |team_id       |integer   |Unique team identifier for the shooting team.                  |
+#'    |team_tricode  |character |Three-letter team code (e.g. 'LAS' / 'NYL').                   |
+#'    |person_id     |integer   |Unique player identifier for the shooter.                      |
+#'    |player_name   |character |Shooter's name.                                                |
+#'    |action_type   |character |Action type label ('Made Shot' or 'Missed Shot').              |
+#'    |sub_type      |character |Shot sub type (e.g. 'Jump Shot', 'Layup', 'DUNK').             |
+#'    |shot_result   |character |Shot result, 'Made' or 'Missed'.                               |
+#'    |shot_value    |integer   |Points the shot was worth (2 or 3).                            |
+#'    |shot_distance |integer   |Shot distance from the basket, in feet.                        |
+#'    |x_legacy      |integer   |Legacy X coordinate on the court (0 = basket center).          |
+#'    |y_legacy      |integer   |Legacy Y coordinate on the court (baseline at 0).              |
+#'    |description   |character |Text description of the play.                                  |
+#'    |score_home    |character |Home team score after the play.                                |
+#'    |score_away    |character |Away team score after the play.                                |
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -646,39 +659,42 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API per-game rosters from the data repo**
 #' @rdname load_wnba_stats_game_rosters
-#' @description Loads per-game rosters scraped from the WNBA Stats API
-#'   (`boxscoretraditionalv3`-style outputs). One row per athlete-team-game
-#'   triple with jersey, position, starter flag, and DNP status. Backed by
-#'   the `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
-#'   `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
-#'   `wnba_stats_game_rosters` release tag.
+#' @description Loads the per-game **inactive player** list scraped from the
+#'   WNBA Stats API -- the `InactivePlayers` result set of
+#'   `boxscoresummaryv2`. One row per inactive athlete-game pair, not a full
+#'   per-game roster: use [load_wnba_stats_player_game_logs()] for the
+#'   athletes who did play. Backed by the `wehoop-wnba-stats-data` pipeline
+#'   that reads raw JSONs from `wehoop-wnba-stats-raw` and publishes
+#'   parquet/rds artifacts to the `wnba_stats_game_rosters` release tag.
+#'
+#'   Coverage is thin by construction because the upstream result set is
+#'   thin: stats.wnba.com reports inactives for only a fraction of games,
+#'   and most heavily for 2006-2008 and 2021 onward. Season row counts range
+#'   from 1 (1997) to 610 across 184 games (2026); 2009-2012 carry fewer
+#'   than 10 rows each. A season with almost no rows is upstream sparsity,
+#'   not a download failure.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the game rosters data table within the database
-#' @return Returns a `wehoop_data` tibble with one row per athlete-team-game.
+#' @return Returns a `wehoop_data` tibble with one row per inactive
+#'   athlete-game pair.
 #'
-#'    |col_name     |types     |description                                                                  |
-#'    |:------------|:---------|:----------------------------------------------------------------------------|
-#'    |season       |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                        |
-#'    |game_id      |character |Unique game identifier.                                                      |
-#'    |team_id      |character |Unique team identifier.                                                      |
-#'    |team_city    |character |Team city or region (e.g. 'Las Vegas').                                      |
-#'    |team_name    |character |Full team display name (e.g. 'Las Vegas Aces').                              |
-#'    |team_tricode |character |Three-letter team code (e.g. 'LAS' / 'NYL').                                 |
-#'    |athlete_id   |character |Unique athlete identifier (ESPN).                                            |
-#'    |first_name   |character |Player's first name.                                                         |
-#'    |family_name  |character |Player's family / last name.                                                 |
-#'    |name_i       |character |Initialed name (e.g. 'A. Wilson').                                           |
-#'    |player_slug  |character |URL-safe player identifier.                                                  |
-#'    |jersey_num   |character |Jersey number worn by the player.                                            |
-#'    |position     |character |Listed roster position (G, F, C, etc.).                                      |
-#'    |starter      |logical   |TRUE if the player was in the starting lineup; FALSE otherwise.              |
-#'    |did_not_play |logical   |TRUE if the player did not appear in the game.                               |
-#'    |status       |character |Status label.                                                                |
-#'    |comment      |character |Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive'). |
+#'    |col_name          |types     |description                                     |
+#'    |:-----------------|:---------|:-----------------------------------------------|
+#'    |player_id         |integer   |Unique player identifier.                       |
+#'    |first_name        |character |Player's first name.                            |
+#'    |last_name         |character |Player's last name.                             |
+#'    |jersey_num        |character |Jersey number worn by the player.               |
+#'    |team_id           |integer   |Unique team identifier.                         |
+#'    |team_city         |character |Team city or region (e.g. 'Las Vegas').         |
+#'    |team_name         |character |Full team display name (e.g. 'Las Vegas Aces'). |
+#'    |team_abbreviation |character |Short team abbreviation (e.g. 'LAS').           |
+#'    |season            |integer   |Season identifier (4-digit year).               |
+#'    |game_id           |character |Unique game identifier.                         |
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -734,22 +750,26 @@ NULL
 #'   from `wehoop-wnba-stats-raw` and publishes parquet/rds artifacts to the
 #'   `wnba_stats_officials` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 2004 through the most recent season, with no
+#'   gaps. 2004 is an enforced floor: `boxscoresummaryv2` does return an
+#'   `Officials` block for a handful of pre-2004 games, but only 1-2 games
+#'   per season are covered (e.g. 2/158 games in one season), so those
+#'   fragments are deliberately not published. Pass `seasons = TRUE` for
+#'   every published season. (Min: 2004)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the officials data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per official-game pair.
 #'
-#'    |col_name     |types     |description                                           |
-#'    |:------------|:---------|:-----------------------------------------------------|
-#'    |season       |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |game_id      |character |Unique game identifier.                               |
-#'    |official_id  |character |Unique official / referee identifier.                 |
-#'    |display_name |character |Display name.                                         |
-#'    |first_name   |character |Player's first name.                                  |
-#'    |last_name    |character |Player's last name.                                   |
-#'    |jersey_num   |character |Jersey number worn by the player.                     |
+#'    |col_name    |types     |description                                     |
+#'    |:-----------|:---------|:-----------------------------------------------|
+#'    |official_id |integer   |Unique official / referee identifier.           |
+#'    |first_name  |character |Official's first name.                          |
+#'    |last_name   |character |Official's last name.                           |
+#'    |jersey_num  |character |Jersey number worn by the official.             |
+#'    |season      |integer   |Season identifier (4-digit year).               |
+#'    |game_id     |character |Unique game identifier.                         |
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -767,10 +787,13 @@ load_wnba_stats_officials <- function(seasons = most_recent_wnba_stats_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
+  # Officials publication starts at 2004 -- pre-2004 seasons exist upstream
+  # only as 1-2 game fragments and are deliberately withheld, so expanding
+  # `seasons = TRUE` from 1997 would issue seven guaranteed-404 downloads.
+  if (isTRUE(seasons)) seasons <- 2004:most_recent_wnba_stats_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 1997,
+            seasons >= 2004,
             seasons <= most_recent_wnba_stats_season())
 
   urls <- paste0(
@@ -806,7 +829,8 @@ NULL
 #'   `wehoop-wnba-stats-data` pipeline that publishes parquet/rds artifacts
 #'   to the `wnba_stats_player_game_logs` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -866,7 +890,8 @@ NULL
 #'   pipeline that publishes parquet/rds artifacts to the
 #'   `wnba_stats_schedules` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -945,7 +970,8 @@ NULL
 #'   `wehoop-wnba-stats-data` pipeline that publishes parquet/rds artifacts to
 #'   the `wnba_stats_pbp` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 1997)
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -985,6 +1011,110 @@ load_wnba_stats_pbp <- function(seasons = most_recent_wnba_stats_season(),
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+
+#' **Load wehoop WNBA Stats League Dashboard cube**
+#' @name load_wnba_stats_leaguedash
+NULL
+
+#' Valid `table` values for [load_wnba_stats_leaguedash()].
+#' @keywords Internal
+#' @noRd
+wnba_stats_leaguedash_tables <- c(
+  "player_bio", "player_master",
+  "player_stats_base", "player_stats_advanced", "player_stats_misc",
+  "player_stats_scoring", "player_stats_usage", "player_stats_defense",
+  "team_master",
+  "team_stats_base", "team_stats_advanced", "team_stats_misc",
+  "team_stats_scoring", "team_stats_defense", "team_stats_opponent",
+  "team_stats_fourfactors",
+  "lineups_master",
+  "lineups_base", "lineups_advanced", "lineups_misc",
+  "lineups_scoring", "lineups_opponent", "lineups_fourfactors",
+  "standings"
+)
+
+#' @title
+#' **Load a single table of the WNBA Stats league dashboard cube**
+#' @rdname load_wnba_stats_leaguedash
+#' @description Loads one asset of the `wnba_stats_leaguedash` release tag --
+#'   the Python-scraped `leaguedash*` parameter cube that supersedes the old
+#'   R-scraped player / team / lineups / standings tags. The cube publishes
+#'   24 tables per season and is the full surface behind the compatibility
+#'   reshapes in [load_wnba_stats_player_stats()],
+#'   [load_wnba_stats_team_stats()], [load_wnba_stats_lineups()] and
+#'   [load_wnba_stats_standings()]; several tables (`player_bio`,
+#'   `*_master`, `team_stats_fourfactors`, the non-5-man and non-Base/Advanced
+#'   `lineups_*` measures) are reachable only through this function.
+#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
+#'   Published coverage runs 1997 through the most recent season, with no
+#'   gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
+#' @param table Name of the cube table to load. One of `player_bio`,
+#'   `player_master`, `player_stats_base`, `player_stats_advanced`,
+#'   `player_stats_misc`, `player_stats_scoring`, `player_stats_usage`,
+#'   `player_stats_defense`, `team_master`, `team_stats_base`,
+#'   `team_stats_advanced`, `team_stats_misc`, `team_stats_scoring`,
+#'   `team_stats_defense`, `team_stats_opponent`, `team_stats_fourfactors`,
+#'   `lineups_master`, `lineups_base`, `lineups_advanced`, `lineups_misc`,
+#'   `lineups_scoring`, `lineups_opponent`, `lineups_fourfactors`,
+#'   `standings`.
+#' @param ... Additional arguments passed to an underlying function that writes
+#'   the season data into a database.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the data table within the database
+#' @return Returns a `wehoop_data` tibble of the requested cube table, one
+#'   row per player-season, team-season or lineup-season depending on
+#'   `table`. Column sets differ per table; the `*_master` tables are wide
+#'   joins of every measure type for that entity.
+#' @export
+#' @family WNBA Stats loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wnba_stats_leaguedash(seasons = most_recent_wnba_stats_season(),
+#'                                  table = "player_bio"))
+#' }
+load_wnba_stats_leaguedash <- function(seasons = most_recent_wnba_stats_season(),
+                                       table = NULL,
+                                       ...,
+                                       dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+
+  if (is.null(table) || length(table) != 1 ||
+      !table %in% wnba_stats_leaguedash_tables) {
+    cli::cli_abort(c(
+      "x" = "{.arg table} must be exactly one of the published cube tables.",
+      "i" = "Valid choices: {.val {wnba_stats_leaguedash_tables}}."
+    ))
+  }
+
+  loader <- parquet_from_url
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
+
+  stopifnot(is.numeric(seasons),
+            seasons >= 1997,
+            seasons <= most_recent_wnba_stats_season())
+
+  urls <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_leaguedash/", table, "_", seasons, ".parquet"
+  )
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")

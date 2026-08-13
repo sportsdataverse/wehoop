@@ -12,6 +12,6 @@ test_that("load_wnba_stats_game_rosters returns a wehoop_data tibble for the mos
   expect_s3_class(game_rosters, "wehoop_data")
   expect_s3_class(game_rosters, "data.frame")
 
-  core_cols <- c("game_id", "team_id", "athlete_id")
+  core_cols <- c("game_id", "team_id", "player_id")
   expect_in(sort(core_cols), sort(colnames(game_rosters)))
 })

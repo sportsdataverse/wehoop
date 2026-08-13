@@ -267,8 +267,12 @@ possession assignment, and a garbage-time flag:
 ```{r eval = FALSE}
 load_wnba_stats_pbp(seasons = 2024)
 load_wnba_stats_player_game_logs(seasons = 2024)
-load_wnba_stats_lineups(seasons = 2024)
+load_wnba_stats_leaguedash(seasons = 2024, table = "lineups_master")
 ```
+
+Every `load_wnba_stats_` family is published back to **1997**, with two
+documented exceptions: officials start in 2004, and the coaches tag has no
+2019 season. Pass `seasons = TRUE` to any of them for the full history.
 
 The grammar lesson: `load_wnba_` and `load_wnba_stats_` are two bulk
 families, and the extra `stats_` token tells you the *source* -- the

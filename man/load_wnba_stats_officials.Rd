@@ -16,7 +16,12 @@ load_wnba_stats_officials_manifest()
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)}
+Published coverage runs 2004 through the most recent season, with no
+gaps. 2004 is an enforced floor: \code{boxscoresummaryv2} does return an
+\code{Officials} block for a handful of pre-2004 games, but only 1-2 games
+per season are covered (e.g. 2/158 games in one season), so those
+fragments are deliberately not published. Pass \code{seasons = TRUE} for
+every published season. (Min: 2004)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -28,13 +33,12 @@ the season data into a database.}
 \value{
 Returns a \code{wehoop_data} tibble with one row per official-game pair.\tabular{lll}{
    col_name \tab types \tab description \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+   official_id \tab integer \tab Unique official / referee identifier. \cr
+   first_name \tab character \tab Official's first name. \cr
+   last_name \tab character \tab Official's last name. \cr
+   jersey_num \tab character \tab Jersey number worn by the official. \cr
+   season \tab integer \tab Season identifier (4-digit year). \cr
    game_id \tab character \tab Unique game identifier. \cr
-   official_id \tab character \tab Unique official / referee identifier. \cr
-   display_name \tab character \tab Display name. \cr
-   first_name \tab character \tab Player's first name. \cr
-   last_name \tab character \tab Player's last name. \cr
-   jersey_num \tab character \tab Jersey number worn by the player. \cr
 }
 }
 \description{
@@ -59,6 +63,7 @@ Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_coaches]{load_wnba_stats_coaches()}},
 \code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
 \code{\link[=load_wnba_stats_game_rosters]{load_wnba_stats_game_rosters()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
 \code{\link[=load_wnba_stats_lineups]{load_wnba_stats_lineups()}},
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},
 \code{\link[=load_wnba_stats_player_game_logs]{load_wnba_stats_player_game_logs()}},

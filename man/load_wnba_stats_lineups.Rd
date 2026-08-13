@@ -16,7 +16,8 @@ load_wnba_stats_lineups_manifest()
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)}
+Published coverage runs 1997 through the most recent season, with no
+gaps. Pass \code{seasons = TRUE} for every published season. (Min: 1997)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -36,7 +37,8 @@ Returns a \code{wehoop_data} tibble of lineup stats.
 \code{wnba_stats_leaguedash} tag (Python-scraped parameter cube: 6 measure
 types x 2/3/4/5-man). This function reshapes the cube back into the old
 5-man \code{Base}+\code{Advanced} contract for compatibility; call the cube's
-\verb{lineups_*} / \code{lineups_master} assets directly for the full surface.
+\verb{lineups_*} / \code{lineups_master} assets directly with
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}} for the full surface.
 
 \code{load_wnba_stats_lineups_manifest()} returns the per-season
 manifest CSV (\code{season}, \code{row_count}, \code{generated_at_utc},
@@ -53,6 +55,7 @@ Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_coaches]{load_wnba_stats_coaches()}},
 \code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
 \code{\link[=load_wnba_stats_game_rosters]{load_wnba_stats_game_rosters()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
 \code{\link[=load_wnba_stats_officials]{load_wnba_stats_officials()}},
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},
 \code{\link[=load_wnba_stats_player_game_logs]{load_wnba_stats_player_game_logs()}},

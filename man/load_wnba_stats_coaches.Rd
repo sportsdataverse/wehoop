@@ -16,7 +16,13 @@ load_wnba_stats_coaches_manifest()
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 1997)}
+Published coverage runs 1997 through the most recent season with one
+gap: \strong{2019 is absent upstream} -- \code{commonteamroster} returns no
+coaching staff for that season (confirmed by positive controls on 2018
+and 2020), so no 2019 asset is published. Requesting 2019 emits a
+download warning and contributes no rows. Historical seasons also lack
+the \code{sub_sort_sequence} column added in 2026. Pass \code{seasons = TRUE} for
+every published season. (Min: 1997)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -49,6 +55,7 @@ downloading any season's full data.
 Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_draft]{load_wnba_stats_draft()}},
 \code{\link[=load_wnba_stats_game_rosters]{load_wnba_stats_game_rosters()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
 \code{\link[=load_wnba_stats_lineups]{load_wnba_stats_lineups()}},
 \code{\link[=load_wnba_stats_officials]{load_wnba_stats_officials()}},
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},

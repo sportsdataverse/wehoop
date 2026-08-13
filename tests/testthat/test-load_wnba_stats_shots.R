@@ -12,6 +12,6 @@ test_that("load_wnba_stats_shots returns a wehoop_data tibble for the most recen
   expect_s3_class(shots, "wehoop_data")
   expect_s3_class(shots, "data.frame")
 
-  core_cols <- c("game_id", "season", "coordinate_x", "coordinate_y")
+  core_cols <- c("game_id", "season", "x_legacy", "y_legacy")
   expect_in(sort(core_cols), sort(colnames(shots)))
 })
