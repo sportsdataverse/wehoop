@@ -26,11 +26,11 @@ NULL
 #' | clock_display_value | Time left within the period |
 #' | team_id | Unique team identification number for the offensive team |
 #' | type_id | Unique play type identifcation number |
-#' | type_text | Play type text description |
+#' | type_text | Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with `scoring_play` (TRUE = made), not `type_text` |
 #' | away_score | Away score at the time of the play |
 #' | id | Unique play identifcation number |
 #' | text | Text description of the play |
-#' | score_value | The points value of the shot taken |
+#' | score_value | The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use `scoring_play` to identify points actually scored |
 #' | participants_0_athlete_id | Unique player identification number |
 #' | participants_1_athlete_id | Unique player identification number |
 #' | participants_2_athlete_id | Unique player identification number |

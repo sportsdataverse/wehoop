@@ -33,11 +33,11 @@ A dataframe with 55 columns:\tabular{ll}{
    clock_display_value \tab Time left within the period \cr
    team_id \tab Unique team identification number for the offensive team \cr
    type_id \tab Unique play type identifcation number \cr
-   type_text \tab Play type text description \cr
+   type_text \tab Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with \code{scoring_play} (TRUE = made), not \code{type_text} \cr
    away_score \tab Away score at the time of the play \cr
    id \tab Unique play identifcation number \cr
    text \tab Text description of the play \cr
-   score_value \tab The points value of the shot taken \cr
+   score_value \tab The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use \code{scoring_play} to identify points actually scored \cr
    participants_0_athlete_id \tab Unique player identification number \cr
    participants_1_athlete_id \tab Unique player identification number \cr
    season \tab Season of the game \cr
