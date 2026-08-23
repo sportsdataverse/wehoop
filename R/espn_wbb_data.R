@@ -3126,7 +3126,11 @@ helper_espn_wbb_pbp <- function(resp) {
           ) %>%
           tidyr::unnest_wider("athlete.id", names_sep = "_")
       )
-      names(aths) <- c("play.id", "athlete.id.1", "athlete.id.2")
+      names(aths) <- c("play.id", paste0("athlete.id.", seq_len(ncol(aths) - 1)))
+      for (nm in paste0("athlete.id.", 1:2)) {
+        if (!nm %in% names(aths)) aths[[nm]] <- NA_character_
+      }
+      aths <- aths[, c("play.id", paste0("athlete.id.", 1:2))]
       plays <- plays %>%
         dplyr::bind_cols(aths) %>%
         janitor::clean_names() %>%
