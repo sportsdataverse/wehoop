@@ -192,7 +192,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:36 UTC
+#> ℹ Data updated: 2026-08-23 23:07:37 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -202,25 +202,25 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:36 UTC
+#> ℹ Data updated: 2026-08-23 23:07:37 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 23-11   <df [20 × 2]>
-#> 2 Home Record    home  10-5    <df [5 × 2]> 
+#> 1 Overall Record total 25-13   <df [21 × 2]>
+#> 2 Home Record    home  12-7    <df [5 × 2]> 
 #> 3 Away Record    road  13-6    <df [5 × 2]> 
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:36 UTC
+#> ℹ Data updated: 2026-08-23 23:07:37 UTC
 #> # A tibble: 1 × 4
-#>   id        date              name                                 short_name
-#>   <chr>     <chr>             <chr>                                <chr>     
-#> 1 401857142 2026-08-14T02:00Z Washington Mystics at Las Vegas Aces WSH @ LV  
+#>   id        date              name                            short_name
+#>   <chr>     <chr>             <chr>                           <chr>     
+#> 1 401857170 2026-08-23T23:00Z Las Vegas Aces at Toronto Tempo LV @ TOR  
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:36 UTC
+#> ℹ Data updated: 2026-08-23 23:07:38 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

@@ -65,7 +65,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_rosters(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 208 × 36
+#> # A tibble: 211 × 36
 #>    season team_id team_slug team_abbreviation team_display_name
 #>     <int>   <int> <chr>     <chr>             <chr>            
 #>  1   2026      11 NA        PHX               Phoenix Mercury  
@@ -78,7 +78,7 @@ Other WNBA loader functions:
 #>  8   2026      11 NA        PHX               Phoenix Mercury  
 #>  9   2026      11 NA        PHX               Phoenix Mercury  
 #> 10   2026      11 NA        PHX               Phoenix Mercury  
-#> # ℹ 198 more rows
+#> # ℹ 201 more rows
 #> # ℹ 31 more variables: team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <chr>, uid <chr>,
 #> #   guid <chr>, full_name <chr>, display_name <chr>, short_name <chr>,

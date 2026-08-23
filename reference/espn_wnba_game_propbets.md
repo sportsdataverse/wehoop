@@ -140,7 +140,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_game_propbets(event_id = 401736171, provider_id = 58)
-#> ✖ 2026-08-13 08:25:19.215426: Failed to retrieve ESPN wnba event prop bets for event_id=401736171, provider_id=58
+#> ✖ 2026-08-23 23:07:18.298048: Failed to retrieve ESPN wnba event prop bets for event_id=401736171, provider_id=58
 #> ✖ Args: league = "wnba", event_id = 401736171, provider_id = 58
 #> ✖ Error: arguments imply differing number of rows: 1, 2, 0
 #> NULL

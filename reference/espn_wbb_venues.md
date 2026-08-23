@@ -136,8 +136,8 @@ Saiem Gilani
 # \donttest{
   espn_wbb_venues()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Venues from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:08 UTC
-#> # A tibble: 970 × 9
+#> ℹ Data updated: 2026-08-23 23:07:06 UTC
+#> # A tibble: 971 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor grass
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl>  <lgl>
 #>  1 NA       NA    NA        NA           NA                  NA NA     NA   
@@ -150,7 +150,7 @@ Saiem Gilani
 #>  8 NA       NA    NA        NA           NA                  NA NA     NA   
 #>  9 NA       NA    NA        NA           NA                  NA NA     NA   
 #> 10 NA       NA    NA        NA           NA                  NA NA     NA   
-#> # ℹ 960 more rows
+#> # ℹ 961 more rows
 #> # ℹ 1 more variable: images_url <chr>
 # }
 ```

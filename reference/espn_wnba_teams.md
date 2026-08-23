@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_teams())
 #> ── ESPN WNBA Teams Information from ESPN.com ─────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:42 UTC
+#> ℹ Data updated: 2026-08-23 23:07:43 UTC
 #> # A tibble: 15 × 10
 #>    team_id team         mascot    display_name     short_name abbreviation color
 #>      <int> <chr>        <chr>     <chr>            <chr>      <chr>        <chr>

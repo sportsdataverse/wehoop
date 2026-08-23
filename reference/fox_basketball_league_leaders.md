@@ -49,26 +49,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:44 UTC
+#> ℹ Data updated: 2026-08-23 23:07:46 UTC
 #> # A tibble: 75 × 6
-#>    players v2          gp    entity_id min   mpg  
-#>    <chr>   <chr>       <chr> <chr>     <chr> <chr>
-#>  1 1       S. Dolson   35    31        NA    NA   
-#>  2 2       N. Howard   35    91        NA    NA   
-#>  3 3       C. Williams 35    122       NA    NA   
-#>  4 4       K. McBride  35    130       NA    NA   
-#>  5 5       N. Coffey   35    165       NA    NA   
-#>  6 6       D. Bonner   35    211       NA    NA   
-#>  7 7       N. Hiedeman 35    239       NA    NA   
-#>  8 8       M. Caldwell 35    592       NA    NA   
-#>  9 9       Z. Cooke    35    726       NA    NA   
-#> 10 10      A. Delaere  35    958       NA    NA   
+#>    players v2            gp    entity_id min   mpg  
+#>    <chr>   <chr>         <chr> <chr>     <chr> <chr>
+#>  1 1       S. Talbot     38    24        NA    NA   
+#>  2 2       S. Dolson     38    31        NA    NA   
+#>  3 3       N. Howard     38    91        NA    NA   
+#>  4 4       C. Williams   38    122       NA    NA   
+#>  5 5       K. McBride    38    130       NA    NA   
+#>  6 6       N. Coffey     38    165       NA    NA   
+#>  7 7       K. Mitchell   38    186       NA    NA   
+#>  8 8       H. Xu         38    224       NA    NA   
+#>  9 9       A. Ogunbowale 38    266       NA    NA   
+#> 10 10      M. Caldwell   38    592       NA    NA   
 #> # ℹ 65 more rows
 # }
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:44 UTC
+#> ℹ Data updated: 2026-08-23 23:07:46 UTC
 #> # A tibble: 100 × 8
 #>    players v2          gp    entity_id gs    mpg   ppg   pts  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>

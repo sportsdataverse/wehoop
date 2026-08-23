@@ -42,26 +42,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:48 UTC
+#> ℹ Data updated: 2026-08-23 23:07:48 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 1       REGULAR SEASON scoring  2490    8/10      TOR      fgm          36   
-#>  2 1       REGULAR SEASON scoring  2490    8/10      TOR      fga          70   
-#>  3 1       REGULAR SEASON scoring  2490    8/10      TOR      fg_percent   51.4 
-#>  4 1       REGULAR SEASON scoring  2490    8/10      TOR      ftm          21   
-#>  5 1       REGULAR SEASON scoring  2490    8/10      TOR      fta          30   
-#>  6 1       REGULAR SEASON scoring  2490    8/10      TOR      ft_percent   70.0 
-#>  7 1       REGULAR SEASON scoring  2490    8/10      TOR      x3fgm        14   
-#>  8 1       REGULAR SEASON scoring  2490    8/10      TOR      x3fga        32   
-#>  9 1       REGULAR SEASON scoring  2490    8/10      TOR      x3fg_percent 43.8 
-#> 10 1       REGULAR SEASON scoring  2490    8/10      TOR      pts          107  
+#>  1 1       REGULAR SEASON scoring  2352    8/22      @PHX     fgm          37   
+#>  2 1       REGULAR SEASON scoring  2352    8/22      @PHX     fga          76   
+#>  3 1       REGULAR SEASON scoring  2352    8/22      @PHX     fg_percent   48.7 
+#>  4 1       REGULAR SEASON scoring  2352    8/22      @PHX     ftm          14   
+#>  5 1       REGULAR SEASON scoring  2352    8/22      @PHX     fta          16   
+#>  6 1       REGULAR SEASON scoring  2352    8/22      @PHX     ft_percent   88.0 
+#>  7 1       REGULAR SEASON scoring  2352    8/22      @PHX     x3fgm        11   
+#>  8 1       REGULAR SEASON scoring  2352    8/22      @PHX     x3fga        38   
+#>  9 1       REGULAR SEASON scoring  2352    8/22      @PHX     x3fg_percent 28.9 
+#> 10 1       REGULAR SEASON scoring  2352    8/22      @PHX     pts          99   
 #> # ℹ 155 more rows
 # }
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:49 UTC
+#> ℹ Data updated: 2026-08-23 23:07:48 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>

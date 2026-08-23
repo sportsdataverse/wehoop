@@ -42,32 +42,32 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:50 UTC
+#> ℹ Data updated: 2026-08-23 23:07:49 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
-#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  18.9 
-#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   11.9 
-#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   58.6 
-#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.6  
-#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  74   
-#>  6 1       PLAYER STATS DEFENSE    BLK               Rhyne Howard  29   
-#>  7 1       PLAYER STATS MISC       DBL DBL           Angel Reese   22   
-#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  120.1
+#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.4 
+#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   12.0 
+#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   57.9 
+#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.4  
+#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  87   
+#>  6 1       PLAYER STATS DEFENSE    BLK               Rhyne Howard  33   
+#>  7 1       PLAYER STATS MISC       DBL DBL           Angel Reese   26   
+#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  122.4
 #>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.5 
-#> 10 1       TEAM STATS   SCORING    PPG               NA            89.6 
-#> 11 1       TEAM STATS   REBOUNDING RPG               NA            35.0 
-#> 12 1       TEAM STATS   SHOOTING   FG%               NA            43.7 
-#> 13 1       TEAM STATS   ASSISTS    APG               NA            20.9 
-#> 14 1       TEAM STATS   DEFENSE    STL               NA            291  
-#> 15 1       TEAM STATS   DEFENSE    BLK               NA            101  
-#> 16 1       TEAM STATS   MISC       DBL DBL           NA            29   
-#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            4.5  
+#> 10 1       TEAM STATS   SCORING    PPG               NA            91.4 
+#> 11 1       TEAM STATS   REBOUNDING RPG               NA            35.2 
+#> 12 1       TEAM STATS   SHOOTING   FG%               NA            44.1 
+#> 13 1       TEAM STATS   ASSISTS    APG               NA            21.2 
+#> 14 1       TEAM STATS   DEFENSE    STL               NA            339  
+#> 15 1       TEAM STATS   DEFENSE    BLK               NA            124  
+#> 16 1       TEAM STATS   MISC       DBL DBL           NA            33   
+#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            6.9  
 # }
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-13 08:25:51 UTC
+#> ℹ Data updated: 2026-08-23 23:07:49 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>

@@ -78,7 +78,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_officials(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 658 × 11
+#> # A tibble: 838 × 11
 #>    season game_id   official_id official_uid official_full_name    
 #>     <int> <chr>           <int> <chr>        <chr>                 
 #>  1   2026 401856890       52042 NA           Roy Gulbeyan          
@@ -86,12 +86,12 @@ Other WNBA loader functions:
 #>  3   2026 401856890     4236122 NA           Tyler Mirkovich       
 #>  4   2026 401856891       52044 NA           Fatou Cissoko-Stephens
 #>  5   2026 401856891       52049 NA           Charles Watson        
-#>  6   2026 401856891     4356548 NA           Clare Aubry           
+#>  6   2026 401856891     4356548 NA           Clare Simmons         
 #>  7   2026 401856892        1211 NA           Angelica Suffren      
 #>  8   2026 401856892     5113092 NA           Sarah Williams        
 #>  9   2026 401856892     5184398 NA           Josh Reed             
 #> 10   2026 401856893        1183 NA           Tim Greene            
-#> # ℹ 648 more rows
+#> # ℹ 828 more rows
 #> # ℹ 6 more variables: official_display_name <chr>, official_first_name <chr>,
 #> #   official_last_name <chr>, official_order <int>, position_name <chr>,
 #> #   position_display_name <chr>

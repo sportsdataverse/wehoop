@@ -87,20 +87,20 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_standings(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 330 × 24
+#> # A tibble: 341 × 24
 #>    season group_id group_name        group_abbreviation group_short_name team_id
 #>     <int> <chr>    <chr>             <chr>              <chr>              <int>
-#>  1   2026 1        Eastern Conferen… E                  NA                     9
-#>  2   2026 1        Eastern Conferen… E                  NA                     9
-#>  3   2026 1        Eastern Conferen… E                  NA                     9
-#>  4   2026 1        Eastern Conferen… E                  NA                     9
-#>  5   2026 1        Eastern Conferen… E                  NA                     9
-#>  6   2026 1        Eastern Conferen… E                  NA                     9
-#>  7   2026 1        Eastern Conferen… E                  NA                     9
-#>  8   2026 1        Eastern Conferen… E                  NA                     9
-#>  9   2026 1        Eastern Conferen… E                  NA                     9
-#> 10   2026 1        Eastern Conferen… E                  NA                     9
-#> # ℹ 320 more rows
+#>  1   2026 1        Eastern Conferen… E                  NA                    20
+#>  2   2026 1        Eastern Conferen… E                  NA                    20
+#>  3   2026 1        Eastern Conferen… E                  NA                    20
+#>  4   2026 1        Eastern Conferen… E                  NA                    20
+#>  5   2026 1        Eastern Conferen… E                  NA                    20
+#>  6   2026 1        Eastern Conferen… E                  NA                    20
+#>  7   2026 1        Eastern Conferen… E                  NA                    20
+#>  8   2026 1        Eastern Conferen… E                  NA                    20
+#>  9   2026 1        Eastern Conferen… E                  NA                    20
+#> 10   2026 1        Eastern Conferen… E                  NA                    20
+#> # ℹ 331 more rows
 #> # ℹ 18 more variables: team_uid <chr>, team_slug <chr>, team_location <chr>,
 #> #   team_name <chr>, team_abbreviation <chr>, team_display_name <chr>,
 #> #   team_short_display_name <chr>, team_color <chr>,

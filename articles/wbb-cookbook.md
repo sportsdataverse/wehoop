@@ -464,21 +464,21 @@ season <- most_recent_wbb_season()
 # `year` -- when an argument name surprises you, ?function is the
 # two-second fix.
 espn_wbb_standings(year = season)
-#> # A tibble: 357 × 86
-#>    team_id team       avgpointsagainst avgpointsfor gamesbehind leaguewinpercent
-#>      <int> <chr>                 <dbl>        <dbl>       <dbl>            <dbl>
-#>  1      41 UConn Hus…             50.4         86.8         0              1    
-#>  2      26 UCLA Brui…             56.4         83.9         0              1    
-#>  3    2579 South Car…             57.8         85.6         0              0.938
-#>  4     251 Texas Lon…             55.8         83.9         0.5            0.812
-#>  5      93 Murray St…             73.9         85.6         0              0.95 
-#>  6     163 Princeton…             60.7         72.4         0              0.857
-#>  7     161 Fairleigh…             51.5         68.5         0              1    
-#>  8    2449 North Dak…             59.8         78.4         0              0.938
-#>  9     238 Vanderbil…             65.2         84.3         4              0.812
-#> 10    2217 Fairfield…             56.5         75.0         0              0.95 
-#> # ℹ 347 more rows
-#> # ℹ 80 more variables: losses <dbl>, playoffseed <dbl>,
+#> # A tibble: 363 × 87
+#>    team_id team             conference avgpointsagainst avgpointsfor gamesbehind
+#>      <int> <chr>            <chr>                 <dbl>        <dbl>       <dbl>
+#>  1     261 Vermont Catamou… America E…             52.2         65.4         0  
+#>  2    2066 Binghamton Bear… America E…             61.8         65.2         6  
+#>  3    2803 Bryant Bulldogs  America E…             55.0         63.2         6.5
+#>  4    2885 NJIT Highlanders America E…             62.9         65.4         6.5
+#>  5     311 Maine Black Bea… America E…             60.0         61.7         6.5
+#>  6    2378 UMBC Retrievers  America E…             58.4         62.3         8.5
+#>  7     399 UAlbany Great D… America E…             55.2         57.6        10.5
+#>  8     160 New Hampshire W… America E…             60.1         55.8        14.5
+#>  9    2349 UMass Lowell Ri… America E…             66.4         55.4        16  
+#> 10     242 Rice Owls        American …             59.6         69.5         0  
+#> # ℹ 353 more rows
+#> # ℹ 81 more variables: leaguewinpercent <dbl>, losses <dbl>, playoffseed <dbl>,
 #> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,
 #> #   streak <dbl>, winpercent <dbl>, wins <dbl>, gamesahead <chr>, total <chr>,
 #> #   home_avgpointsagainst <dbl>, home_avgpointsfor <dbl>,

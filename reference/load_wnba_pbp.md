@@ -54,11 +54,11 @@ A dataframe with 42 columns
 | clock_display_value | Time left within the period |
 | team_id | Unique team identification number for the offensive team |
 | type_id | Unique play type identifcation number |
-| type_text | Play type text description |
+| type_text | Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with `scoring_play` (TRUE = made), not `type_text` |
 | away_score | Away score at the time of the play |
 | id | Unique play identifcation number |
 | text | Text description of the play |
-| score_value | The points value of the shot taken |
+| score_value | The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use `scoring_play` to identify points actually scored |
 | participants_0_athlete_id | Unique player identification number |
 | participants_1_athlete_id | Unique player identification number |
 | participants_2_athlete_id | Unique player identification number |
@@ -92,20 +92,20 @@ A dataframe with 42 columns
 # \donttest{
   try(load_wnba_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 90,198 × 67
+#> # A tibble: 114,397 × 67
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  NaLy…          0
-#>  2                2   4.02e 9               7     114 Turnarou… Kami…          0
-#>  3                3   4.02e 9               8     156 Offensiv… Kami…          0
-#>  4                4   4.02e 9               9     615 Jumpball  Jack…          0
-#>  5                5   4.02e10              12      63 Lost Bal… Kami…          0
-#>  6                6   4.02e10              14     109 Running … Jack…          2
-#>  7                7   4.02e10              15     141 Cutting … A'ja…          2
-#>  8                8   4.02e10              17     156 Offensiv… Sky …          2
-#>  9                9   4.02e10              19      92 Jump Shot Sydn…          2
-#> 10               10   4.02e10              20     155 Defensiv… A'ja…          2
-#> # ℹ 90,188 more rows
+#>  1                1   4.02e 9               4     615 Jumpball  Maka…          0
+#>  2                2   4.02e 9               7     148 Turnarou… Jonq…          0
+#>  3                3   4.02e 9               8     155 Defensiv… Aliy…          0
+#>  4                4   4.02e 9               9     131 Pullup J… Cait…          0
+#>  5                5   4.02e10              10     155 Defensiv… Jonq…          0
+#>  6                6   4.02e10              11      45 Personal… Maka…          0
+#>  7                7   4.02e10              13     141 Cutting … Sabr…          0
+#>  8                8   4.02e10              15     141 Cutting … Maka…          2
+#>  9                9   4.02e10              17      45 Personal… Lexi…          2
+#> 10               10   4.02e10              19     119 Driving … Leon…          2
+#> # ℹ 114,387 more rows
 #> # ℹ 60 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,

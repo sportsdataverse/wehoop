@@ -79,7 +79,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_game_rosters(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 5,271 × 22
+#> # A tibble: 6,723 × 22
 #>    season game_id   team_id team_slug       team_abbreviation team_display_name
 #>     <int> <chr>       <int> <chr>           <chr>             <chr>            
 #>  1   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
@@ -92,7 +92,7 @@ Other WNBA loader functions:
 #>  8   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
 #>  9   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
 #> 10   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
-#> # ℹ 5,261 more rows
+#> # ℹ 6,713 more rows
 #> # ℹ 16 more variables: home_away <chr>, athlete_id <int>, athlete_uid <chr>,
 #> #   athlete_guid <chr>, athlete_display_name <chr>, athlete_short_name <chr>,
 #> #   athlete_first_name <chr>, athlete_last_name <chr>, athlete_jersey <chr>,
