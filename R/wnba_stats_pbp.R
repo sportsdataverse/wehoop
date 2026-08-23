@@ -96,8 +96,8 @@ NULL
       if (off > on){
         all_id <- all_id[all_id != i]
       } else if (off == on){
-        on_event <- min(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i])
-        off_event <- min(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i])
+        on_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i]))
+        off_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i]))
         if(off_event > on_event){
           all_id <- all_id[all_id != i]
         }
@@ -152,8 +152,8 @@ NULL
         if (off > on){
           all_id <- all_id[all_id != i]
         } else if (off == on){
-          on_event <- min(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i])
-          off_event <- min(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i])
+          on_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i]))
+          off_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i]))
           if(off_event > on_event){
             all_id <- all_id[all_id != i]
           }
@@ -955,6 +955,9 @@ NULL
       cli::cli_alert_warning(
         "No game rotation for {game_id}: on-court players inferred from substitution events."
       )
+      # bind_rows inside .players_on_court drops the wehoop_data attributes;
+      # re-normalize so this path returns the same contract as the rotation path
+      fallback <- make_wehoop_data(fallback, "WNBA Game Play-by-Play Information from WNBA.com", Sys.time())
       return(fallback)
     }
   }
