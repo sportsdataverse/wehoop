@@ -79,6 +79,8 @@ A dataframe with 55 columns:\tabular{ll}{
    coordinate_y \tab  \cr
    week \tab Apparently there are weeks \cr
    media_id \tab Where did you come from \cr
+   pregame_home_prob \tab Pre-game win probability for the home team, constant across every play of the game \cr
+   home_win_prob \tab Home team's win probability at this play, updated play-by-play \cr
 }
 }
 \description{

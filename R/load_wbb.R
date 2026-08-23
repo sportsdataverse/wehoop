@@ -70,6 +70,8 @@ NULL
 #' | coordinate_y |  |
 #' | week | Apparently there are weeks |
 #' | media_id | Where did you come from |
+#' | pregame_home_prob | Pre-game win probability for the home team, constant across every play of the game |
+#' | home_win_prob | Home team's win probability at this play, updated play-by-play |
 #'
 #' @export
 #' @examples
