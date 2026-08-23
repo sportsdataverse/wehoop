@@ -1902,6 +1902,7 @@ espn_wbb_rankings <- function() {
 #'    |:---------------------------------|:---------|:-----------------------------------------------------|
 #'    |team_id                           |integer   |Unique team identifier.                               |
 #'    |team                              |character |Team-side label or team identifier.                   |
+#'    |conference                        |character |Conference group name from ESPN standings.            |
 #'    |avgpointsagainst                  |numeric   |Avgpointsagainst.                                     |
 #'    |avgpointsfor                      |numeric   |Avgpointsfor.                                         |
 #'    |gamesbehind                       |numeric   |Gamesbehind.                                          |
@@ -1988,7 +1989,7 @@ espn_wbb_rankings <- function() {
 #'  }
 espn_wbb_standings <- function(year) {
   .args <- mget(setdiff(names(formals()), "..."))
-  standings_url <- "https://site.web.api.espn.com/apis/v2/sports/basketball/womens-college-basketball/standings?region=us&lang=en&contentorigin=espn&type=0&level=1&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&"
+  standings_url <- "https://site.web.api.espn.com/apis/v2/sports/basketball/womens-college-basketball/standings?region=us&lang=en&contentorigin=espn&type=0&level=3&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&"
 
   ## Inputs
   ## year
@@ -2003,16 +2004,39 @@ espn_wbb_standings <- function(year) {
       resp <- res %>%
         .resp_text()
 
-      raw_standings <- jsonlite::fromJSON(resp)[["standings"]]
+      # level=3 groups standings by conference under "children"; ESPN's flat
+      # level=1 list silently omits some current D1 teams (e.g. the 2022-23
+      # newcomers), so row-bind each conference group's entries instead.
+      raw_children <- jsonlite::fromJSON(resp)[["children"]]
+
+      conference_entries <- raw_children[["standings"]][["entries"]]
+      conference_names <- raw_children[["name"]]
+
+      # Conferences with no season played (e.g. Ivy League in 2021) come back
+      # with a NULL entries list -- drop them instead of binding a bogus row.
+      has_entries <- !vapply(conference_entries, is.null, logical(1))
+
+      entries_list <- Map(
+        function(entries, conference) {
+          entries$conference <- conference
+          entries
+        },
+        conference_entries[has_entries],
+        conference_names[has_entries]
+      )
+
+      raw_standings <- list(entries = dplyr::bind_rows(entries_list))
 
       #Create a dataframe of all WBB teams by extracting from the raw_standings file
 
       teams <- raw_standings[["entries"]][["team"]]
+      teams$conference <- raw_standings[["entries"]][["conference"]]
 
       teams <- teams %>%
         dplyr::select(
           "id",
-          "displayName"
+          "displayName",
+          "conference"
         ) %>%
         dplyr::rename(
           "team_id" = "id",
