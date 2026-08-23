@@ -1,6 +1,6 @@
 
 cols <- c(
-  "team_id","team","playoffseed","wins","losses",
+  "team_id","team","conference","playoffseed","wins","losses",
   "winpercent","gamesbehind","pointsfor","pointsagainst",
   "avgpointsfor","avgpointsagainst","streak",
   "leaguewinpercent","total","home_playoffseed",
@@ -36,4 +36,12 @@ test_that("ESPN - WBB Standings", {
   x <- espn_wbb_standings(year = 2021)
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
+})
+
+test_that("ESPN - WBB Standings includes newer D1 teams (#40)", {
+  skip_on_cran()
+  skip_espn_test()
+  x <- espn_wbb_standings(year = 2025)
+  expect_gte(nrow(x), 360)
+  expect_true(any(grepl("Southern Indiana", x$team)))
 })
