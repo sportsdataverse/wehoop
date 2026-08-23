@@ -96,8 +96,8 @@ NULL
       if (off > on){
         all_id <- all_id[all_id != i]
       } else if (off == on){
-        on_event <- min(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i])
-        off_event <- min(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i])
+        on_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i]))
+        off_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i]))
         if(off_event > on_event){
           all_id <- all_id[all_id != i]
         }
@@ -152,8 +152,8 @@ NULL
         if (off > on){
           all_id <- all_id[all_id != i]
         } else if (off == on){
-          on_event <- min(pbp_data_period$even_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i])
-          off_event <- min(pbp_data_period$even_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i])
+          on_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player2_id == i]))
+          off_event <- min(as.numeric(pbp_data_period$event_num[pbp_data_period$event_type == 8 & pbp_data_period$player1_id == i]))
           if(off_event > on_event){
             all_id <- all_id[all_id != i]
           }
@@ -943,6 +943,25 @@ NULL
     )
   )
 
+  empty_rotation <- is.null(rotation) || length(rotation) == 0 ||
+    is.null(rotation$AwayTeam) || is.null(rotation$HomeTeam) ||
+    nrow(rotation$AwayTeam) == 0 || nrow(rotation$HomeTeam) == 0
+
+  if (empty_rotation) {
+    # gamerotation is flaky under batched calls: infer lineups from
+    # substitution events (the pre-v3 path) before degrading to all-NA
+    fallback <- tryCatch(.players_on_court(pbp_data), error = function(e) NULL)
+    if (!is.null(fallback)) {
+      cli::cli_alert_warning(
+        "No game rotation for {game_id}: on-court players inferred from substitution events."
+      )
+      # bind_rows inside .players_on_court drops the wehoop_data attributes;
+      # re-normalize so this path returns the same contract as the rotation path
+      fallback <- make_wehoop_data(fallback, "WNBA Game Play-by-Play Information from WNBA.com", Sys.time())
+      return(fallback)
+    }
+  }
+
   for (i in 1:5) {
     pbp_data[[paste0("away_player", i)]] <- NA_real_
   }
@@ -950,9 +969,10 @@ NULL
     pbp_data[[paste0("home_player", i)]] <- NA_real_
   }
 
-  if (is.null(rotation) || length(rotation) == 0 ||
-    is.null(rotation$AwayTeam) || is.null(rotation$HomeTeam) ||
-    nrow(rotation$AwayTeam) == 0 || nrow(rotation$HomeTeam) == 0) {
+  if (empty_rotation) {
+    cli::cli_alert_warning(
+      "No game rotation for {game_id}: on-court player columns are NA."
+    )
     return(pbp_data)
   }
 
