@@ -294,8 +294,13 @@ wnba_draftcombinedrillresults <- function(
     season_year = most_recent_wnba_season() - 1,
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
-  
+
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "wnba_draftcombinedrillresults()",
+    details = "The draftcombinedrillresults endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
+  )
+
   version <- "draftcombinedrillresults"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
@@ -354,8 +359,13 @@ wnba_draftcombinenonstationaryshooting <- function(
     season_year = most_recent_wnba_season() - 1,
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
-  
+
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "wnba_draftcombinenonstationaryshooting()",
+    details = "The draftcombinenonstationaryshooting endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
+  )
+
   version <- "draftcombinenonstationaryshooting"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
@@ -414,8 +424,13 @@ wnba_draftcombineplayeranthro <- function(
     season_year = most_recent_wnba_season() - 1,
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
-  
+
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "wnba_draftcombineplayeranthro()",
+    details = "The draftcombineplayeranthro endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
+  )
+
   version <- "draftcombineplayeranthro"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
@@ -473,8 +488,13 @@ wnba_draftcombinespotshooting <- function(
     season_year = most_recent_wnba_season() - 1,
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
-  
+
+  lifecycle::deprecate_warn(
+    when = "3.0.0",
+    what = "wnba_draftcombinespotshooting()",
+    details = "The draftcombinespotshooting endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
+  )
+
   version <- "draftcombinespotshooting"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint
