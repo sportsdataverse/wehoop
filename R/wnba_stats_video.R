@@ -284,6 +284,7 @@ NULL
 #' @export
 #' @family WNBA Video Functions
 #' @details
+#' (Possibly Defunct)
 #' ```r
 #'   wnba_videoevents(game_id = '1022200075', game_event_id = '10')
 #' ```
@@ -292,7 +293,13 @@ wnba_videoevents <- function(
     game_event_id = '10',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
-  
+
+  lifecycle::deprecate_warn(
+    when = "3.1.0",
+    what = "wnba_videoevents()",
+    details = "The videoevents endpoint returns HTTP 200 but zero rows for known games/events (2026-08-23 probe sweep, wehoop#75). The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
+  )
+
   version <- "videoevents"
   endpoint <- wnba_endpoint(version)
   full_url <- endpoint

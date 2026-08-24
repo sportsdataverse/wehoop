@@ -2,7 +2,8 @@ test_that("WNBA Video Events", {
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()
-  
+
+  skip("Deprecated: wnba_videoevents() endpoint returns HTTP 200 with zero rows upstream; no replacement exists (wehoop#75).")
   x <- wnba_videoevents(game_id = '1022200075', game_event_id = '10')
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
