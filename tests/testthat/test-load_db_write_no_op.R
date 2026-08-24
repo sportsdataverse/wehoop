@@ -17,7 +17,9 @@ test_that("load_wbb_player_core writes into the db when dbConnection/tablename a
 
   expect_null(out)
   expect_true(DBI::dbExistsTable(con, "wbb_player_core"))
-  expect_gt(nrow(DBI::dbReadTable(con, "wbb_player_core")), 0)
+  tbl <- DBI::dbReadTable(con, "wbb_player_core")
+  expect_gt(nrow(tbl), 0)
+  expect_true(all(c("athlete_id", "display_name") %in% colnames(tbl)))
 })
 
 test_that("load_wnba_team_box writes into the db when dbConnection/tablename are supplied", {
@@ -34,7 +36,9 @@ test_that("load_wnba_team_box writes into the db when dbConnection/tablename are
 
   expect_null(out)
   expect_true(DBI::dbExistsTable(con, "wnba_team_box"))
-  expect_gt(nrow(DBI::dbReadTable(con, "wnba_team_box")), 0)
+  tbl <- DBI::dbReadTable(con, "wnba_team_box")
+  expect_gt(nrow(tbl), 0)
+  expect_true(all(c("game_id", "team_id", "season") %in% colnames(tbl)))
 })
 
 test_that("load_wnba_player_core writes into the db when dbConnection/tablename are supplied", {
@@ -51,5 +55,7 @@ test_that("load_wnba_player_core writes into the db when dbConnection/tablename 
 
   expect_null(out)
   expect_true(DBI::dbExistsTable(con, "wnba_player_core"))
-  expect_gt(nrow(DBI::dbReadTable(con, "wnba_player_core")), 0)
+  tbl <- DBI::dbReadTable(con, "wnba_player_core")
+  expect_gt(nrow(tbl), 0)
+  expect_true(all(c("athlete_id", "display_name") %in% colnames(tbl)))
 })
