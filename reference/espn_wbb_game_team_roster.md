@@ -129,7 +129,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_roster(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Roster ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 05:32:07 UTC
+#> ℹ Data updated: 2026-08-24 06:10:32 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
 #> #   ref <chr>

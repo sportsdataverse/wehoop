@@ -66,9 +66,9 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> 
 #> $NextEvent
 #> # A tibble: 1 × 4
-#>   id        date              name                                short_name
-#>   <chr>     <chr>             <chr>                               <chr>     
-#> 1 401851368 2026-03-05T01:30Z Purdue Boilermakers at Oregon Ducks PUR VS ORE
+#>   id        date              name                                    short_name
+#>   <chr>     <chr>             <chr>                                   <chr>     
+#> 1 401913709 2026-11-19T16:00Z Purdue Boilermakers at Florida State S… PUR VS FSU
 #> 
 #> $StandingSummary
 #> # A tibble: 1 × 1
