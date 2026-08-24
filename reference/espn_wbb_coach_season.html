@@ -125,7 +125,9 @@ person). ESPN's coverage of this endpoint is sparse; many
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A single-row tibble.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>coach_id</td><td>character</td><td>ESPN coach id.</td></tr><tr><td>uid</td><td>character</td><td>ESPN UID string.</td></tr><tr><td>first_name</td><td>character</td><td>First name.</td></tr><tr><td>last_name</td><td>character</td><td>Last name.</td></tr><tr><td>date_of_birth</td><td>character</td><td>Date of birth.</td></tr><tr><td>birth_city</td><td>character</td><td>Birth city.</td></tr><tr><td>birth_state</td><td>character</td><td>Birth state / region.</td></tr><tr><td>n_records</td><td>integer</td><td>Count of records entries.</td></tr><tr><td>person_ref</td><td>character</td><td><code>$ref</code> to person resource.</td></tr><tr><td>college_ref</td><td>character</td><td><code>$ref</code> to college.</td></tr><tr><td>team_ref</td><td>character</td><td><code>$ref</code> to team-in-season.</td></tr></table></div>
+    <p>A single-row tibble.</p>
+<p>Columns as documented in the shared <a href="espn_basketball_coach_season_schema.html">espn_basketball_coach_season_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><strong>Get ESPN WBB Coach-in-Season Detail</strong></p>
@@ -231,7 +233,7 @@ person). ESPN's coverage of this endpoint is sparse; many
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_coach_season</span><span class="op">(</span>coach_id <span class="op">=</span> <span class="fl">2167842</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Coach-in-Season Detail ─────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:33 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league     season coach_id uid   first_name last_name date_of_birth birth_city</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>

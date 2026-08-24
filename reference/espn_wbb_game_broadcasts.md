@@ -24,19 +24,9 @@ espn_wbb_game_broadcasts(event_id, ...)
 
 A tibble with one row per broadcast outlet for the game.
 
-|                 |           |                                        |
-|-----------------|-----------|----------------------------------------|
-| col_name        | types     | description                            |
-| event_id        | character | Unique event / game identifier (ESPN). |
-| broadcast_id    | character | Unique identifier for broadcast.       |
-| type_id         | character | Type identifier (numeric).             |
-| type_short_name | character | Type short name.                       |
-| type_long_name  | character | Type long name.                        |
-| market_id       | character | Unique identifier for market.          |
-| market_type     | character | Market type.                           |
-| names           | character | Names.                                 |
-| lang            | character | Lang.                                  |
-| region          | character | Region label.                          |
+Columns as documented in the shared
+[espn_basketball_game_broadcasts_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_game_broadcasts_schema.md)
+table.
 
 ## See also
 
@@ -139,7 +129,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_broadcasts(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Broadcasts (event_id=401276115) from ESP
-#> ℹ Data updated: 2026-08-24 13:16:36 UTC
+#> ℹ Data updated: 2026-08-24 14:38:40 UTC
 #> # A tibble: 1 × 10
 #>   event_id  broadcast_id type_id type_short_name type_long_name market_id
 #>   <chr>     <chr>        <chr>   <chr>           <chr>          <chr>    

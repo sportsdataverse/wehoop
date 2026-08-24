@@ -29,25 +29,9 @@ espn_wbb_season_type(season_type = 2L, season = most_recent_wbb_season(), ...)
 
 A single-row tibble.
 
-|               |           |                                       |
-|---------------|-----------|---------------------------------------|
-| col_name      | types     | description                           |
-| league        | character | League slug.                          |
-| season        | integer   | Season year.                          |
-| season_type   | integer   | Season-type id.                       |
-| type          | integer   | Numeric type code.                    |
-| name          | character | Display name (e.g. "Regular Season"). |
-| abbreviation  | character | Short code (e.g. "reg").              |
-| year          | integer   | Year stamp.                           |
-| start_date    | character | ISO 8601 start date.                  |
-| end_date      | character | ISO 8601 end date.                    |
-| has_groups    | logical   | Whether groups exist for this type.   |
-| has_standings | logical   | Whether standings exist.              |
-| has_legs      | logical   | Whether playoff legs exist.           |
-| slug          | character | URL slug.                             |
-| groups_ref    | character | `$ref` to the groups endpoint.        |
-| weeks_ref     | character | `$ref` to the weeks endpoint.         |
-| leaders_ref   | character | `$ref` to the leaders endpoint.       |
+Columns as documented in the shared
+[espn_basketball_season_type_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_season_type_schema.md)
+table.
 
 ## Details
 
@@ -154,7 +138,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_type(season_type = 2, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Type Detail ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:16:55 UTC
+#> ℹ Data updated: 2026-08-24 14:39:02 UTC
 #> # A tibble: 1 × 16
 #>   league   season season_type  type name  abbreviation  year start_date end_date
 #>   <chr>     <int>       <int> <int> <chr> <chr>        <int> <chr>      <chr>   

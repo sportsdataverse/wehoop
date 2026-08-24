@@ -118,7 +118,9 @@ Get ESPN WNBA Event Broadcasts"><meta property="og:image" content="https://raw.g
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble with one row per broadcast outlet for the game.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>event_id</td><td>character</td><td>Unique event / game identifier (ESPN).</td></tr><tr><td>broadcast_id</td><td>character</td><td>Unique identifier for broadcast.</td></tr><tr><td>type_id</td><td>character</td><td>Type identifier (numeric).</td></tr><tr><td>type_short_name</td><td>character</td><td>Type short name.</td></tr><tr><td>type_long_name</td><td>character</td><td>Type long name.</td></tr><tr><td>market_id</td><td>character</td><td>Unique identifier for market.</td></tr><tr><td>market_type</td><td>character</td><td>Market type.</td></tr><tr><td>names</td><td>character</td><td>Names.</td></tr><tr><td>lang</td><td>character</td><td>Lang.</td></tr><tr><td>region</td><td>character</td><td>Region label.</td></tr></table></div>
+    <p>A tibble with one row per broadcast outlet for the game.</p>
+<p>Columns as documented in the shared <a href="espn_basketball_game_broadcasts_schema.html">espn_basketball_game_broadcasts_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN WNBA Functions:
@@ -224,7 +226,7 @@ Get ESPN WNBA Event Broadcasts"><meta property="og:image" content="https://raw.g
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_broadcasts</span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401736171"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Event Broadcasts (event_id=401736171) from ESPN.com ───────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:17:11 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:39:20 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   event_id  broadcast_id type_id type_short_name      type_long_name   market_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>

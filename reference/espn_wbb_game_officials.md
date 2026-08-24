@@ -24,17 +24,9 @@ espn_wbb_game_officials(event_id, ...)
 
 A tibble with one row per official assigned to the game.
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| event_id | character | Unique event / game identifier (ESPN). |
-| official_id | character | Unique official / referee identifier. |
-| full_name | character | Player's full name. |
-| display_name | character | Display name. |
-| position_id | character | Unique position identifier. |
-| position_name | character | Listed roster position ('Guard', 'Forward', 'Center'). |
-| position_type | character | Position type. |
-| order | integer | Display order within the result set. |
+Columns as documented in the shared
+[espn_basketball_game_officials_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_game_officials_schema.md)
+table.
 
 ## See also
 
@@ -137,7 +129,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_officials(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Officials (event_id=401276115) from ESPN
-#> ℹ Data updated: 2026-08-24 13:16:37 UTC
+#> ℹ Data updated: 2026-08-24 14:38:41 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name     display_name  position_id position_name
 #>   <chr>     <chr>       <chr>         <chr>         <chr>       <chr>        

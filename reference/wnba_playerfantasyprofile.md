@@ -109,79 +109,11 @@ Location, Opponent, Overall
 
 **Location**
 
-|                  |           |                                               |
-|------------------|-----------|-----------------------------------------------|
-| col_name         | types     | description                                   |
-| GROUP_SET        | character |                                               |
-| GROUP_VALUE      | character |                                               |
-| GP               | character | Games played.                                 |
-| W                | character | Wins.                                         |
-| L                | character | Losses.                                       |
-| W_PCT            | character | Wins percentage (0-1 decimal).                |
-| MIN              | character | Minutes played.                               |
-| FGM              | character | Field goals made.                             |
-| FGA              | character | Field goal attempts.                          |
-| FG_PCT           | character | Field goal percentage (0-1).                  |
-| FG3M             | character | Three-point field goals made.                 |
-| FG3A             | character | Three-point field goal attempts.              |
-| FG3_PCT          | character | Three-point field goal percentage (0-1).      |
-| FTM              | character | Free throws made.                             |
-| FTA              | character | Free throw attempts.                          |
-| FT_PCT           | character | Free throw percentage (0-1).                  |
-| OREB             | character | Offensive rebounds.                           |
-| DREB             | character | Defensive rebounds.                           |
-| REB              | character | Total rebounds.                               |
-| AST              | character | Assists.                                      |
-| TOV              | character | Turnovers.                                    |
-| STL              | character | Steals.                                       |
-| BLK              | character | Blocks.                                       |
-| BLKA             | character |                                               |
-| PF               | character | Personal fouls.                               |
-| PFD              | character |                                               |
-| PTS              | character | Points scored.                                |
-| PLUS_MINUS       | character | Plus/minus point differential while on court. |
-| DD2              | character |                                               |
-| TD3              | character |                                               |
-| FAN_DUEL_PTS     | character |                                               |
-| WNBA_FANTASY_PTS | character |                                               |
+Same columns as the **Overall** table above.
 
 **LastNGames**
 
-|                  |           |                                               |
-|------------------|-----------|-----------------------------------------------|
-| col_name         | types     | description                                   |
-| GROUP_SET        | character |                                               |
-| GROUP_VALUE      | character |                                               |
-| GP               | character | Games played.                                 |
-| W                | character | Wins.                                         |
-| L                | character | Losses.                                       |
-| W_PCT            | character | Wins percentage (0-1 decimal).                |
-| MIN              | character | Minutes played.                               |
-| FGM              | character | Field goals made.                             |
-| FGA              | character | Field goal attempts.                          |
-| FG_PCT           | character | Field goal percentage (0-1).                  |
-| FG3M             | character | Three-point field goals made.                 |
-| FG3A             | character | Three-point field goal attempts.              |
-| FG3_PCT          | character | Three-point field goal percentage (0-1).      |
-| FTM              | character | Free throws made.                             |
-| FTA              | character | Free throw attempts.                          |
-| FT_PCT           | character | Free throw percentage (0-1).                  |
-| OREB             | character | Offensive rebounds.                           |
-| DREB             | character | Defensive rebounds.                           |
-| REB              | character | Total rebounds.                               |
-| AST              | character | Assists.                                      |
-| TOV              | character | Turnovers.                                    |
-| STL              | character | Steals.                                       |
-| BLK              | character | Blocks.                                       |
-| BLKA             | character |                                               |
-| PF               | character | Personal fouls.                               |
-| PFD              | character |                                               |
-| PTS              | character | Points scored.                                |
-| PLUS_MINUS       | character | Plus/minus point differential while on court. |
-| DD2              | character |                                               |
-| TD3              | character |                                               |
-| FAN_DUEL_PTS     | character |                                               |
-| WNBA_FANTASY_PTS | character |                                               |
+Same columns as the **Overall** table above.
 
 **DaysRestModified**
 

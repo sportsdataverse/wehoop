@@ -36,17 +36,9 @@ espn_wnba_season_week(
 
 A single-row tibble.
 
-|              |           |                                           |
-|--------------|-----------|-------------------------------------------|
-| col_name     | types     | description                               |
-| league       | character | League slug.                              |
-| season       | integer   | Season year.                              |
-| season_type  | integer   | Season-type id.                           |
-| week         | integer   | Week number.                              |
-| text         | character | Display label (e.g. "Week 5").            |
-| start_date   | character | ISO 8601 week start.                      |
-| end_date     | character | ISO 8601 week end.                        |
-| rankings_ref | character | `$ref` to the per-week rankings endpoint. |
+Columns as documented in the shared
+[espn_basketball_season_week_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_season_week_schema.md)
+table.
 
 ## Details
 
@@ -156,7 +148,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_season_week(week = 5, season = 2025)
-#> ✖ 2026-08-24 13:17:29.481232: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
+#> ✖ 2026-08-24 14:39:41.190714: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
 #> ✖ Args: league = "wnba", season = 2025, season_type = 2L, week = 5
 #> ✖ Error: The API returned an error
 #> NULL

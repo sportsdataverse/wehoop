@@ -140,7 +140,9 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A long tibble (one row per stat_type × split × category × stat).</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>athlete_id</td><td>character</td><td>ESPN athlete id.</td></tr><tr><td>stat_type_id</td><td>character</td><td>Stat-type code (0 = reg, 1 = post, 2 = career).</td></tr><tr><td>split_id</td><td>character</td><td>Split id.</td></tr><tr><td>split_name</td><td>character</td><td>Split name (typically "All Splits").</td></tr><tr><td>split_type</td><td>character</td><td>Split type code.</td></tr><tr><td>category_name</td><td>character</td><td>Category key (e.g. "defensive").</td></tr><tr><td>category_display</td><td>character</td><td>Category display name.</td></tr><tr><td>category_short</td><td>character</td><td>Category short display.</td></tr><tr><td>category_abbrev</td><td>character</td><td>Category abbreviation.</td></tr><tr><td>stat_name</td><td>character</td><td>Stat key.</td></tr><tr><td>stat_abbrev</td><td>character</td><td>Stat abbreviation.</td></tr><tr><td>stat_display</td><td>character</td><td>Stat display name.</td></tr><tr><td>stat_short</td><td>character</td><td>Stat short display.</td></tr><tr><td>description</td><td>character</td><td>Stat description.</td></tr><tr><td>value</td><td>numeric</td><td>Stat value.</td></tr><tr><td>display_value</td><td>character</td><td>Display-formatted value.</td></tr></table></div>
+    <p>A long tibble (one row per stat_type × split × category × stat).</p>
+<p>Columns as documented in the shared <a href="espn_basketball_player_career_stats_schema.html">espn_basketball_player_career_stats_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><strong>Get ESPN WNBA Athlete Career Stats (Long Format)</strong></p>
@@ -251,7 +253,7 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
 <span class="r-in"><span>  <span class="co"># LeBron James — regular + postseason combined</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Career Stats ────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:17:20 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:39:31 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 112 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league athlete_id stat_type_id split_id split_name split_type category_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
@@ -273,7 +275,7 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
 <span class="r-in"><span>  <span class="co"># Just career aggregate</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">3149391</span>, stat_type <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Athlete Career Stats ────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:17:20 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:39:31 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 variables: league &lt;chr&gt;, athlete_id &lt;chr&gt;, stat_type_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   split_id &lt;chr&gt;, split_name &lt;chr&gt;, split_type &lt;chr&gt;, category_name &lt;chr&gt;,</span></span>

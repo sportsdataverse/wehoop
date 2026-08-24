@@ -41,28 +41,9 @@ espn_wnba_week_ranking(
 
 A tibble with one row per ranked team (typically 25).
 
-|                   |           |                                              |
-|-------------------|-----------|----------------------------------------------|
-| col_name          | types     | description                                  |
-| league            | character | League slug.                                 |
-| season            | integer   | Season year.                                 |
-| season_type       | integer   | Season-type id.                              |
-| week              | integer   | Week number.                                 |
-| ranking_id        | character | ESPN ranking id.                             |
-| name              | character | Ranking name (e.g. "AP Top 25").             |
-| short_name        | character | Short name.                                  |
-| type              | character | Ranking type code.                           |
-| headline          | character | Full headline.                               |
-| date              | character | Date of the ranking.                         |
-| current           | integer   | Current rank.                                |
-| previous          | integer   | Previous-week rank.                          |
-| points            | numeric   | Voting points.                               |
-| first_place_votes | integer   | First-place vote count.                      |
-| trend             | character | Trend indicator (e.g. "+3", "-2", "-").      |
-| record_summary    | character | Team's record at time of poll (e.g. "20-2"). |
-| team_id           | character | ESPN team id.                                |
-| team_ref          | character | `$ref` to the team-in-season resource.       |
-| last_updated      | character | Last-updated timestamp.                      |
+Columns as documented in the shared
+[espn_basketball_week_ranking_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_week_ranking_schema.md)
+table.
 
 ## Details
 
@@ -172,7 +153,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_week_ranking(ranking_id = 1, week = 5, season = 2025)
-#> ✖ 2026-08-24 13:17:36.896122: Failed to retrieve ESPN wnba week-5 ranking 1 for season=2025
+#> ✖ 2026-08-24 14:39:49.655077: Failed to retrieve ESPN wnba week-5 ranking 1 for season=2025
 #> ✖ Args: league = "wnba", season = 2025, season_type = 2L, week = 5, ranking_id = 1
 #> ✖ Error: The API returned an error
 #> NULL

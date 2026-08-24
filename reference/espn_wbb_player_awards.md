@@ -25,15 +25,9 @@ espn_wbb_player_awards(athlete_id, ...)
 A single tibble. This endpoint is sparse; many athletes have no award
 data, in which case an empty tibble with canonical columns is returned.
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| season | character | Season identifier (4-digit year or 'YYYY-YY' string). |
-| award_id | character | Unique identifier for award. |
-| name | character | Display name. |
-| description | character | Long-form description text. |
-| date | character | Date in YYYY-MM-DD format. |
-| type | character | Record type / category. |
+Columns as documented in the shared
+[espn_basketball_player_awards_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_awards_schema.md)
+table.
 
 ## See also
 
@@ -136,7 +130,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_player_awards(athlete_id = "4433404")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Awards from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-08-24 13:16:44 UTC
+#> ℹ Data updated: 2026-08-24 14:38:49 UTC
 #> # A tibble: 2 × 7
 #>   season award_id name  description date  type  ref_url                         
 #>   <chr>  <chr>    <chr> <chr>       <chr> <chr> <chr>                           

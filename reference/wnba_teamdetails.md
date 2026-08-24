@@ -80,11 +80,7 @@ TeamRetired, TeamSocialSites
 
 **TeamAwardsDiv**
 
-|              |         |             |
-|--------------|---------|-------------|
-| col_name     | types   | description |
-| YEARAWARDED  | integer |             |
-| OPPOSITETEAM | integer |             |
+Same columns as the **TeamAwardsConf** table above.
 
 **TeamHof**
 
@@ -100,15 +96,7 @@ TeamRetired, TeamSocialSites
 
 **TeamRetired**
 
-|                 |           |                                         |
-|-----------------|-----------|-----------------------------------------|
-| col_name        | types     | description                             |
-| PLAYERID        | character |                                         |
-| PLAYER          | character |                                         |
-| POSITION        | character | Listed roster position (G, F, C, etc.). |
-| JERSEY          | character | Jersey number worn by the player.       |
-| SEASONSWITHTEAM | character |                                         |
-| YEAR            | character | 4-digit year.                           |
+Same columns as the **TeamHof** table above.
 
 ## Details
 

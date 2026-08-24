@@ -27,21 +27,9 @@ espn_wbb_game_odds(event_id, ...)
 A tibble with one row per odds provider (typically empty for WBB because
 ESPN does not carry NCAA basketball betting lines).
 
-|                      |           |                                        |
-|----------------------|-----------|----------------------------------------|
-| col_name             | types     | description                            |
-| event_id             | character | Unique event / game identifier (ESPN). |
-| provider_id          | character | Unique identifier for provider.        |
-| provider_name        | character | Provider name.                         |
-| details              | character | Details.                               |
-| over_under           | numeric   | Over under.                            |
-| spread               | numeric   | Spread.                                |
-| home_money_line      | integer   | Home team's money line.                |
-| away_money_line      | integer   | Away team's money line.                |
-| home_team_odds_open  | numeric   | Home team's team odds open.            |
-| home_team_odds_close | numeric   | Home team's team odds close.           |
-| away_team_odds_open  | numeric   | Away team's team odds open.            |
-| away_team_odds_close | numeric   | Away team's team odds close.           |
+Columns as documented in the shared
+[espn_basketball_game_odds_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_game_odds_schema.md)
+table.
 
 ## See also
 
@@ -144,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_odds(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Odds (event_id=401276115) from ESPN.com 
-#> ℹ Data updated: 2026-08-24 13:16:37 UTC
+#> ℹ Data updated: 2026-08-24 14:38:41 UTC
 #> # A tibble: 0 × 12
 #> # ℹ 12 variables: event_id <chr>, provider_id <chr>, provider_name <chr>,
 #> #   details <chr>, over_under <dbl>, spread <dbl>, home_money_line <int>,

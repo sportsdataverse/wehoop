@@ -101,71 +101,27 @@ TicketLinks, WestConfStandingsByDay, WinProbability
 
 **SeriesStandings**
 
-|                  |           |                                      |
-|------------------|-----------|--------------------------------------|
-| col_name         | types     | description                          |
-| GAME_ID          | character | Unique game identifier.              |
-| HOME_TEAM_ID     | character | Unique identifier for the home team. |
-| VISITOR_TEAM_ID  | character | Unique identifier for visitor team.  |
-| GAME_DATE_EST    | character | Game date est.                       |
-| HOME_TEAM_WINS   | character | Home team's team wins.               |
-| HOME_TEAM_LOSSES | character | Home team's team losses.             |
-| SERIES_LEADER    | character |                                      |
+Columns as documented in the shared
+[wnba_boxscoresummaryv2_season_series_schema](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2_season_series_schema.md)
+table.
 
 **LastMeeting**
 
-|                                  |           |                         |
-|----------------------------------|-----------|-------------------------|
-| col_name                         | types     | description             |
-| GAME_ID                          | character | Unique game identifier. |
-| LAST_GAME_ID                     | character |                         |
-| LAST_GAME_DATE_EST               | character |                         |
-| LAST_GAME_HOME_TEAM_ID           | character |                         |
-| LAST_GAME_HOME_TEAM_CITY         | character |                         |
-| LAST_GAME_HOME_TEAM_NAME         | character |                         |
-| LAST_GAME_HOME_TEAM_ABBREVIATION | character |                         |
-| LAST_GAME_HOME_TEAM_POINTS       | character |                         |
-| LAST_GAME_VISITOR_TEAM_ID        | character |                         |
-| LAST_GAME_VISITOR_TEAM_CITY      | character |                         |
-| LAST_GAME_VISITOR_TEAM_NAME      | character |                         |
-| LAST_GAME_VISITOR_TEAM_CITY1     | character |                         |
-| LAST_GAME_VISITOR_TEAM_POINTS    | character |                         |
+Columns as documented in the shared
+[wnba_boxscoresummaryv2_last_meeting_schema](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2_last_meeting_schema.md)
+table.
 
 **EastConfStandingsByDay**
 
-|               |           |                                        |
-|---------------|-----------|----------------------------------------|
-| col_name      | types     | description                            |
-| TEAM_ID       | character | Unique team identifier.                |
-| LEAGUE_ID     | character | League identifier ('10' = WNBA).       |
-| SEASON_ID     | character | Unique season identifier.              |
-| STANDINGSDATE | character |                                        |
-| CONFERENCE    | character | Filter players or teams by conference. |
-| TEAM          | character | Team-side label or team identifier.    |
-| G             | character | Games played.                          |
-| W             | character | Wins.                                  |
-| L             | character | Losses.                                |
-| W_PCT         | character | Wins percentage (0-1 decimal).         |
-| HOME_RECORD   | character | Home win-loss record.                  |
-| ROAD_RECORD   | character | Win-loss record for road.              |
+Columns as documented in the shared
+[wnba_scoreboard_east_conf_standings_by_day_schema](https://wehoop.sportsdataverse.org/reference/wnba_scoreboard_east_conf_standings_by_day_schema.md)
+table.
 
 **WestConfStandingsByDay**
 
-|               |           |                                        |
-|---------------|-----------|----------------------------------------|
-| col_name      | types     | description                            |
-| TEAM_ID       | character | Unique team identifier.                |
-| LEAGUE_ID     | character | League identifier ('10' = WNBA).       |
-| SEASON_ID     | character | Unique season identifier.              |
-| STANDINGSDATE | character |                                        |
-| CONFERENCE    | character | Filter players or teams by conference. |
-| TEAM          | character | Team-side label or team identifier.    |
-| G             | character | Games played.                          |
-| W             | character | Wins.                                  |
-| L             | character | Losses.                                |
-| W_PCT         | character | Wins percentage (0-1 decimal).         |
-| HOME_RECORD   | character | Home win-loss record.                  |
-| ROAD_RECORD   | character | Win-loss record for road.              |
+Columns as documented in the shared
+[wnba_scoreboard_east_conf_standings_by_day_schema](https://wehoop.sportsdataverse.org/reference/wnba_scoreboard_east_conf_standings_by_day_schema.md)
+table.
 
 **Available**
 

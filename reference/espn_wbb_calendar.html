@@ -115,7 +115,9 @@ Defaults to <code><a href="most_recent_wbb_season.html">most_recent_wbb_season()
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a tibble of calendar entries.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>character</td><td>Season identifier (4-digit year or 'YYYY-YY' string).</td></tr><tr><td>season_type</td><td>character</td><td>Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats).</td></tr><tr><td>season_type_label</td><td>character</td><td>Season type label.</td></tr><tr><td>season_start_date</td><td>character</td><td>Date in YYYY-MM-DD format.</td></tr><tr><td>season_end_date</td><td>character</td><td>Date in YYYY-MM-DD format.</td></tr><tr><td>label</td><td>character</td><td>Label.</td></tr><tr><td>alternate_label</td><td>character</td><td>Alternate label.</td></tr><tr><td>detail</td><td>character</td><td>Detail.</td></tr><tr><td>value</td><td>character</td><td>Numeric or string value field.</td></tr><tr><td>start_date</td><td>character</td><td>Start date (YYYY-MM-DD).</td></tr><tr><td>end_date</td><td>character</td><td>End date (YYYY-MM-DD).</td></tr></table></div>
+    <p>Returns a tibble of calendar entries.</p>
+<p>Columns as documented in the shared <a href="espn_basketball_calendar_schema.html">espn_basketball_calendar_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Retrieve the ESPN women's college basketball schedule calendar for a given
@@ -226,7 +228,7 @@ supported for ESPN wrappers).</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_calendar</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Calendar from ESPN.com ─────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:33 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 116 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type season_type_label season_start_date season_end_date  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>

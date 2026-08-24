@@ -28,24 +28,9 @@ espn_wbb_team_roster(team_id, season = most_recent_wbb_season(), ...)
 
 A single tibble with one row per athlete.
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| athlete_id | character | Unique athlete identifier (ESPN). |
-| full_name | character | Player's full name. |
-| jersey | character | Jersey number worn by the player. |
-| position_abbrev | character | Abbreviation for position. |
-| position_name | character | Listed roster position ('Guard', 'Forward', 'Center'). |
-| height | character | Player height (string e.g. '6-2' or inches). |
-| weight | character | Player weight in pounds. |
-| age | character | Player age (in years). |
-| birth_date | character | Date of birth (YYYY-MM-DD). |
-| birth_place | character | Place of birth. |
-| headshot | character | Headshot image URL. |
-| link_web | character | Web link / URL. |
-| status | character | Status label. |
-| team_id | character | Unique team identifier. |
-| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+Columns as documented in the shared
+[espn_basketball_team_roster_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_team_roster_schema.md)
+table.
 
 ## See also
 
@@ -148,7 +133,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_roster(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Roster from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:00 UTC
+#> ℹ Data updated: 2026-08-24 14:39:08 UTC
 #> # A tibble: 13 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>

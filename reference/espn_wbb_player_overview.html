@@ -124,7 +124,15 @@ Get ESPN Women's College Basketball Athlete Overview"><meta property="og:image" 
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A named list of data frames: <code>Statistics</code>, <code>NextGame</code>,
 <code>Last5Games</code>, <code>Headlines</code>, <code>FantasyOutlook</code>.</p>
-<p><strong>Statistics</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>(varies)</td><td>character</td><td></td></tr></table><p><strong>NextGame</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>id</td><td>character</td><td>Unique play identifcation number</td></tr><tr><td>date</td><td>character</td><td>Date in YYYY-MM-DD format.</td></tr><tr><td>name</td><td>character</td><td>Display name.</td></tr><tr><td>short_name</td><td>character</td><td>Short display name.</td></tr></table><p><strong>Last5Games</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>(varies)</td><td>character</td><td></td></tr></table><p><strong>Headlines</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>headline</td><td>character</td><td>News headline.</td></tr><tr><td>description</td><td>character</td><td>Long-form description text.</td></tr><tr><td>published</td><td>character</td><td>Publication timestamp (ISO 8601).</td></tr></table><p><strong>FantasyOutlook</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>(varies)</td><td>character</td><td></td></tr></table></div>
+<p><strong>Statistics</strong></p>
+<p>Columns as documented in the shared <a href="espn_basketball_player_overview_statistics_schema.html">espn_basketball_player_overview_statistics_schema</a> table.</p>
+<p><strong>NextGame</strong></p>
+<p>Columns as documented in the shared <a href="espn_basketball_player_overview_next_game_schema.html">espn_basketball_player_overview_next_game_schema</a> table.</p>
+<p><strong>Last5Games</strong></p>
+<p>Columns as documented in the shared <a href="espn_basketball_player_overview_statistics_schema.html">espn_basketball_player_overview_statistics_schema</a> table.</p>
+<p><strong>Headlines</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>headline</td><td>character</td><td>News headline.</td></tr><tr><td>description</td><td>character</td><td>Long-form description text.</td></tr><tr><td>published</td><td>character</td><td>Publication timestamp (ISO 8601).</td></tr></table><p><strong>FantasyOutlook</strong></p>
+<p>Columns as documented in the shared <a href="espn_basketball_player_overview_statistics_schema.html">espn_basketball_player_overview_statistics_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN WBB Functions:
@@ -227,12 +235,12 @@ Get ESPN Women's College Basketball Athlete Overview"><meta property="og:image" 
 <span class="r-in"><span>  <span class="fu">espn_wbb_player_overview</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"4433404"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Statistics</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:52 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $NextGame</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:52 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id    date  name  short_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -240,12 +248,12 @@ Get ESPN Women's College Basketball Athlete Overview"><meta property="og:image" 
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Last5Games</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:52 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Headlines</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:52 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    headline                                   description published byline type </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -263,7 +271,7 @@ Get ESPN Women's College Basketball Athlete Overview"><meta property="og:image" 
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $FantasyOutlook</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:46 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:52 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

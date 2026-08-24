@@ -243,64 +243,19 @@ VsPlayerInfo
 
 **ShotDistanceOffCourt**
 
-|                |           |                              |
-|----------------|-----------|------------------------------|
-| col_name       | types     | description                  |
-| GROUP_SET      | character |                              |
-| PLAYER_ID      | character | Unique player identifier.    |
-| PLAYER_NAME    | character | Player name.                 |
-| VS_PLAYER_ID   | character |                              |
-| VS_PLAYER_NAME | character |                              |
-| COURT_STATUS   | character |                              |
-| GROUP_VALUE    | character |                              |
-| FGM            | character | Field goals made.            |
-| FGA            | character | Field goal attempts.         |
-| FG_PCT         | character | Field goal percentage (0-1). |
+Same columns as the **ShotDistanceOnCourt** table above.
 
 **ShotAreaOverall**
 
-|             |           |                              |
-|-------------|-----------|------------------------------|
-| col_name    | types     | description                  |
-| GROUP_SET   | character |                              |
-| GROUP_VALUE | character |                              |
-| PLAYER_ID   | character | Unique player identifier.    |
-| PLAYER_NAME | character | Player name.                 |
-| FGM         | character | Field goals made.            |
-| FGA         | character | Field goal attempts.         |
-| FG_PCT      | character | Field goal percentage (0-1). |
+Same columns as the **ShotDistanceOverall** table above.
 
 **ShotAreaOnCourt**
 
-|                |           |                              |
-|----------------|-----------|------------------------------|
-| col_name       | types     | description                  |
-| GROUP_SET      | character |                              |
-| PLAYER_ID      | character | Unique player identifier.    |
-| PLAYER_NAME    | character | Player name.                 |
-| VS_PLAYER_ID   | character |                              |
-| VS_PLAYER_NAME | character |                              |
-| COURT_STATUS   | character |                              |
-| GROUP_VALUE    | character |                              |
-| FGM            | character | Field goals made.            |
-| FGA            | character | Field goal attempts.         |
-| FG_PCT         | character | Field goal percentage (0-1). |
+Same columns as the **ShotDistanceOnCourt** table above.
 
 **ShotAreaOffCourt**
 
-|                |           |                              |
-|----------------|-----------|------------------------------|
-| col_name       | types     | description                  |
-| GROUP_SET      | character |                              |
-| PLAYER_ID      | character | Unique player identifier.    |
-| PLAYER_NAME    | character | Player name.                 |
-| VS_PLAYER_ID   | character |                              |
-| VS_PLAYER_NAME | character |                              |
-| COURT_STATUS   | character |                              |
-| GROUP_VALUE    | character |                              |
-| FGM            | character | Field goals made.            |
-| FGA            | character | Field goal attempts.         |
-| FG_PCT         | character | Field goal percentage (0-1). |
+Same columns as the **ShotDistanceOnCourt** table above.
 
 **PlayerInfo**
 
@@ -320,19 +275,7 @@ VsPlayerInfo
 
 **VsPlayerInfo**
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| PERSON_ID | character | Unique player identifier (V3 endpoints). |
-| FIRST_NAME | character | Player's first name. |
-| LAST_NAME | character | Player's last name. |
-| DISPLAY_FIRST_LAST | character |  |
-| DISPLAY_LAST_COMMA_FIRST | character |  |
-| DISPLAY_FI_LAST | character |  |
-| BIRTHDATE | character |  |
-| SCHOOL | character | Player's school / college (when distinct from 'college'). |
-| COUNTRY | character | Country (full name or code). |
-| LAST_AFFILIATION | character |  |
+Same columns as the **PlayerInfo** table above.
 
 ## Details
 

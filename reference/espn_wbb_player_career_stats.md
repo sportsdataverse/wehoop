@@ -35,26 +35,9 @@ espn_wbb_player_career_stats(athlete_id, stat_type = 0L, ...)
 
 A long tibble (one row per stat_type × split × category × stat).
 
-|                  |           |                                                 |
-|------------------|-----------|-------------------------------------------------|
-| col_name         | types     | description                                     |
-| league           | character | League slug.                                    |
-| athlete_id       | character | ESPN athlete id.                                |
-| stat_type_id     | character | Stat-type code (0 = reg, 1 = post, 2 = career). |
-| split_id         | character | Split id.                                       |
-| split_name       | character | Split name (typically "All Splits").            |
-| split_type       | character | Split type code.                                |
-| category_name    | character | Category key (e.g. "defensive").                |
-| category_display | character | Category display name.                          |
-| category_short   | character | Category short display.                         |
-| category_abbrev  | character | Category abbreviation.                          |
-| stat_name        | character | Stat key.                                       |
-| stat_abbrev      | character | Stat abbreviation.                              |
-| stat_display     | character | Stat display name.                              |
-| stat_short       | character | Stat short display.                             |
-| description      | character | Stat description.                               |
-| value            | numeric   | Stat value.                                     |
-| display_value    | character | Display-formatted value.                        |
+Columns as documented in the shared
+[espn_basketball_player_career_stats_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_career_stats_schema.md)
+table.
 
 ## Details
 
@@ -162,7 +145,7 @@ Saiem Gilani
   # LeBron James — regular + postseason combined
   espn_wbb_player_career_stats(athlete_id = 4433404)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Career Stats ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:16:45 UTC
+#> ℹ Data updated: 2026-08-24 14:38:50 UTC
 #> # A tibble: 87 × 17
 #>    league   athlete_id stat_type_id split_id split_name split_type category_name
 #>    <chr>    <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
@@ -184,7 +167,7 @@ Saiem Gilani
   # Just career aggregate
   espn_wbb_player_career_stats(athlete_id = 4433404, stat_type = 2L)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Career Stats ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:16:45 UTC
+#> ℹ Data updated: 2026-08-24 14:38:50 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

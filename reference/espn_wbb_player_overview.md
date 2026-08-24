@@ -31,27 +31,21 @@ A named list of data frames: `Statistics`, `NextGame`, `Last5Games`,
 
 **Statistics**
 
-|          |           |             |
-|----------|-----------|-------------|
-| col_name | types     | description |
-| (varies) | character |             |
+Columns as documented in the shared
+[espn_basketball_player_overview_statistics_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_overview_statistics_schema.md)
+table.
 
 **NextGame**
 
-|            |           |                                  |
-|------------|-----------|----------------------------------|
-| col_name   | types     | description                      |
-| id         | character | Unique play identifcation number |
-| date       | character | Date in YYYY-MM-DD format.       |
-| name       | character | Display name.                    |
-| short_name | character | Short display name.              |
+Columns as documented in the shared
+[espn_basketball_player_overview_next_game_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_overview_next_game_schema.md)
+table.
 
 **Last5Games**
 
-|          |           |             |
-|----------|-----------|-------------|
-| col_name | types     | description |
-| (varies) | character |             |
+Columns as documented in the shared
+[espn_basketball_player_overview_statistics_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_overview_statistics_schema.md)
+table.
 
 **Headlines**
 
@@ -64,10 +58,9 @@ A named list of data frames: `Statistics`, `NextGame`, `Last5Games`,
 
 **FantasyOutlook**
 
-|          |           |             |
-|----------|-----------|-------------|
-| col_name | types     | description |
-| (varies) | character |             |
+Columns as documented in the shared
+[espn_basketball_player_overview_statistics_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_overview_statistics_schema.md)
+table.
 
 ## See also
 
@@ -171,12 +164,12 @@ Saiem Gilani
   espn_wbb_player_overview(athlete_id = "4433404", season = 2025)
 #> $Statistics
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────
-#> ℹ Data updated: 2026-08-24 13:16:46 UTC
+#> ℹ Data updated: 2026-08-24 14:38:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────
-#> ℹ Data updated: 2026-08-24 13:16:46 UTC
+#> ℹ Data updated: 2026-08-24 14:38:52 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -184,12 +177,12 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────
-#> ℹ Data updated: 2026-08-24 13:16:46 UTC
+#> ℹ Data updated: 2026-08-24 14:38:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────
-#> ℹ Data updated: 2026-08-24 13:16:46 UTC
+#> ℹ Data updated: 2026-08-24 14:38:52 UTC
 #> # A tibble: 24 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
@@ -207,7 +200,7 @@ Saiem Gilani
 #> 
 #> $FantasyOutlook
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com 
-#> ℹ Data updated: 2026-08-24 13:16:46 UTC
+#> ℹ Data updated: 2026-08-24 14:38:52 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

@@ -22,20 +22,9 @@ espn_wnba_calendar(season = most_recent_wnba_season())
 
 Returns a tibble of calendar entries.
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| season | character | Season identifier (4-digit year or 'YYYY-YY' string). |
-| season_type | character | Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-| season_type_label | character | Season type label. |
-| season_start_date | character | Date in YYYY-MM-DD format. |
-| season_end_date | character | Date in YYYY-MM-DD format. |
-| label | character | Label. |
-| alternate_label | character | Alternate label. |
-| detail | character | Detail. |
-| value | character | Numeric or string value field. |
-| start_date | character | Start date (YYYY-MM-DD). |
-| end_date | character | End date (YYYY-MM-DD). |
+Columns as documented in the shared
+[espn_basketball_calendar_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_calendar_schema.md)
+table.
 
 ## Details
 
@@ -151,7 +140,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_calendar(season = 2025)
 #> ── ESPN WNBA Calendar from ESPN.com ──────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:05 UTC
+#> ℹ Data updated: 2026-08-24 14:39:15 UTC
 #> # A tibble: 126 × 12
 #>    season season_type season_type_label season_start_date season_end_date  
 #>    <chr>  <chr>       <chr>             <chr>             <chr>            

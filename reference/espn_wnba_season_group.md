@@ -37,24 +37,9 @@ espn_wnba_season_group(
 
 A single-row tibble.
 
-|               |           |                                        |
-|---------------|-----------|----------------------------------------|
-| col_name      | types     | description                            |
-| league        | character | League slug.                           |
-| season        | integer   | Season year.                           |
-| season_type   | integer   | Season-type id.                        |
-| group_id      | character | ESPN group id.                         |
-| uid           | character | ESPN UID string.                       |
-| name          | character | Full name (e.g. "Eastern Conference"). |
-| abbreviation  | character | Short code (e.g. "EAST").              |
-| short_name    | character | Short name.                            |
-| midsize_name  | character | Mid-size display name.                 |
-| is_conference | logical   | Whether this group is a conference.    |
-| slug          | character | URL slug.                              |
-| parent_ref    | character | `$ref` to parent group (if any).       |
-| children_ref  | character | `$ref` to child-groups endpoint.       |
-| teams_ref     | character | `$ref` to teams-in-group endpoint.     |
-| standings_ref | character | `$ref` to standings endpoint.          |
+Columns as documented in the shared
+[espn_basketball_season_group_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_season_group_schema.md)
+table.
 
 ## Details
 
@@ -165,7 +150,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_group(group_id = 5, season = 2025)
 #> ── ESPN WNBA Season Group Detail ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:25 UTC
+#> ℹ Data updated: 2026-08-24 14:39:36 UTC
 #> # A tibble: 1 × 15
 #>   league season season_type group_id uid           name  abbreviation short_name
 #>   <chr>   <int>       <int> <chr>    <chr>         <chr> <chr>        <chr>     

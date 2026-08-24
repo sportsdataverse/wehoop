@@ -28,22 +28,9 @@ espn_wbb_coach_season(coach_id, season = most_recent_wbb_season(), ...)
 
 A single-row tibble.
 
-|               |           |                            |
-|---------------|-----------|----------------------------|
-| col_name      | types     | description                |
-| league        | character | League slug.               |
-| season        | integer   | Season year.               |
-| coach_id      | character | ESPN coach id.             |
-| uid           | character | ESPN UID string.           |
-| first_name    | character | First name.                |
-| last_name     | character | Last name.                 |
-| date_of_birth | character | Date of birth.             |
-| birth_city    | character | Birth city.                |
-| birth_state   | character | Birth state / region.      |
-| n_records     | integer   | Count of records entries.  |
-| person_ref    | character | `$ref` to person resource. |
-| college_ref   | character | `$ref` to college.         |
-| team_ref      | character | `$ref` to team-in-season.  |
+Columns as documented in the shared
+[espn_basketball_coach_season_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_coach_season_schema.md)
+table.
 
 ## Details
 
@@ -150,7 +137,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_coach_season(coach_id = 2167842, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Coach-in-Season Detail ─────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:16:33 UTC
+#> ℹ Data updated: 2026-08-24 14:38:36 UTC
 #> # A tibble: 1 × 13
 #>   league     season coach_id uid   first_name last_name date_of_birth birth_city
 #>   <chr>       <int> <chr>    <chr> <chr>      <chr>     <chr>         <chr>     

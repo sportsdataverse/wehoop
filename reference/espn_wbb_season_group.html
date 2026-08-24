@@ -134,7 +134,9 @@ children groups, member teams, and standings.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A single-row tibble.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>season_type</td><td>integer</td><td>Season-type id.</td></tr><tr><td>group_id</td><td>character</td><td>ESPN group id.</td></tr><tr><td>uid</td><td>character</td><td>ESPN UID string.</td></tr><tr><td>name</td><td>character</td><td>Full name (e.g. "Eastern Conference").</td></tr><tr><td>abbreviation</td><td>character</td><td>Short code (e.g. "EAST").</td></tr><tr><td>short_name</td><td>character</td><td>Short name.</td></tr><tr><td>midsize_name</td><td>character</td><td>Mid-size display name.</td></tr><tr><td>is_conference</td><td>logical</td><td>Whether this group is a conference.</td></tr><tr><td>slug</td><td>character</td><td>URL slug.</td></tr><tr><td>parent_ref</td><td>character</td><td><code>$ref</code> to parent group (if any).</td></tr><tr><td>children_ref</td><td>character</td><td><code>$ref</code> to child-groups endpoint.</td></tr><tr><td>teams_ref</td><td>character</td><td><code>$ref</code> to teams-in-group endpoint.</td></tr><tr><td>standings_ref</td><td>character</td><td><code>$ref</code> to standings endpoint.</td></tr></table></div>
+    <p>A single-row tibble.</p>
+<p>Columns as documented in the shared <a href="espn_basketball_season_group_schema.html">espn_basketball_season_group_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><strong>Get ESPN WBB Season Group Detail</strong></p>
@@ -240,7 +242,7 @@ children groups, member teams, and standings.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_season_group</span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">5</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Group Detail ────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:59 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league         season season_type group_id uid   name  abbreviation short_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>

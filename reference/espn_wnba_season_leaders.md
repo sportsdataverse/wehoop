@@ -32,24 +32,9 @@ espn_wnba_season_leaders(
 
 A long tibble with one row per (category x leader).
 
-|                  |           |                                               |
-|------------------|-----------|-----------------------------------------------|
-| col_name         | types     | description                                   |
-| league           | character | League slug.                                  |
-| season           | integer   | Season year.                                  |
-| season_type      | integer   | Season-type id.                               |
-| category_name    | character | Internal category key (e.g. "pointsPerGame"). |
-| category_display | character | Human-readable category name.                 |
-| category_short   | character | Short display name.                           |
-| category_abbrev  | character | Stat abbreviation (e.g. "PTS").               |
-| rank             | integer   | Rank within the category (1 = best).          |
-| athlete_id       | character | ESPN athlete id.                              |
-| team_id          | character | ESPN team id.                                 |
-| display_value    | character | Display-formatted value.                      |
-| value            | numeric   | Numeric leader value.                         |
-| rel              | character | Comma-joined `rel` tags from ESPN.            |
-| athlete_ref      | character | `$ref` URL to the leader's athlete.           |
-| team_ref         | character | `$ref` URL to the leader's team.              |
+Columns as documented in the shared
+[espn_basketball_season_leaders_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_season_leaders_schema.md)
+table.
 
 ## Details
 
@@ -160,7 +145,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_leaders(season = 2025)
 #> ── ESPN WNBA Season-Type Leaders ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:28 UTC
+#> ℹ Data updated: 2026-08-24 14:39:39 UTC
 #> # A tibble: 750 × 15
 #>    league season season_type category_name category_display category_short
 #>    <chr>   <int>       <int> <chr>         <chr>            <chr>         

@@ -222,14 +222,7 @@ TeamDeflectionsLeaders, TeamLooseBallLeaders, TeamScreenAssistLeaders
 
 **Table6**
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| TEAM_ID | character | Unique team identifier. |
-| TEAM_NAME | character | Full team display name (e.g. 'Las Vegas Aces'). |
-| TEAM_ABBREVIATION | character | Short team abbreviation (e.g. 'LAS'). |
-| RANK | character | Whether to include statistical ranks in the returned table. |
-| BOX_OUTS | character | Box-outs executed. |
+Same columns as the **Table5** table above.
 
 ## Details
 

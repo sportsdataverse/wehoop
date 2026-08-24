@@ -62,14 +62,9 @@ HomePageStat7, HomePageStat8
 
 **HomePageStat1**
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| RANK | character | Whether to include statistical ranks in the returned table. |
-| TEAM_ID | character | Unique team identifier. |
-| TEAM_ABBREVIATION | character | Short team abbreviation (e.g. 'LAS'). |
-| TEAM_NAME | character | Full team display name (e.g. 'Las Vegas Aces'). |
-| PTS | character | Points scored. |
+Columns as documented in the shared
+[wnba_homepagev2_home_page_stat1_schema](https://wehoop.sportsdataverse.org/reference/wnba_homepagev2_home_page_stat1_schema.md)
+table.
 
 **HomePageStat2**
 

@@ -129,7 +129,9 @@ in long format. Each row is one (category x rank) entry, e.g.
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A long tibble with one row per (category x leader).</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>season_type</td><td>integer</td><td>Season-type id.</td></tr><tr><td>category_name</td><td>character</td><td>Internal category key (e.g. "pointsPerGame").</td></tr><tr><td>category_display</td><td>character</td><td>Human-readable category name.</td></tr><tr><td>category_short</td><td>character</td><td>Short display name.</td></tr><tr><td>category_abbrev</td><td>character</td><td>Stat abbreviation (e.g. "PTS").</td></tr><tr><td>rank</td><td>integer</td><td>Rank within the category (1 = best).</td></tr><tr><td>athlete_id</td><td>character</td><td>ESPN athlete id.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team id.</td></tr><tr><td>display_value</td><td>character</td><td>Display-formatted value.</td></tr><tr><td>value</td><td>numeric</td><td>Numeric leader value.</td></tr><tr><td>rel</td><td>character</td><td>Comma-joined <code>rel</code> tags from ESPN.</td></tr><tr><td>athlete_ref</td><td>character</td><td><code>$ref</code> URL to the leader's athlete.</td></tr><tr><td>team_ref</td><td>character</td><td><code>$ref</code> URL to the leader's team.</td></tr></table></div>
+    <p>A long tibble with one row per (category x leader).</p>
+<p>Columns as documented in the shared <a href="espn_basketball_season_leaders_schema.html">espn_basketball_season_leaders_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><strong>Get ESPN WBB Season Leaders (Long Format)</strong></p>
@@ -235,7 +237,7 @@ in long format. Each row is one (category x rank) entry, e.g.
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_season_leaders</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Season-Type Leaders ────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 13:16:54 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:39:01 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 350 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league       season season_type category_name category_display category_short</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>

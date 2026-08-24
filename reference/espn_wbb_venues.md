@@ -22,18 +22,9 @@ espn_wbb_venues(...)
 
 A single `wehoop_data` tibble with one row per venue.
 
-|               |           |                          |
-|---------------|-----------|--------------------------|
-| col_name      | types     | description              |
-| venue_id      | character | Unique venue identifier. |
-| name          | character | Display name.            |
-| full_name     | character | Player's full name.      |
-| address_city  | character | Address city.            |
-| address_state | character | Address state.           |
-| capacity      | integer   | Capacity.                |
-| indoor        | logical   | Indoor.                  |
-| grass         | logical   | Grass.                   |
-| images_url    | character | URL for images.          |
+Columns as documented in the shared
+[espn_basketball_venues_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_venues_schema.md)
+table.
 
 ## See also
 
@@ -136,7 +127,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_venues()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Venues from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:04 UTC
+#> ℹ Data updated: 2026-08-24 14:39:13 UTC
 #> # A tibble: 971 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor grass
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl>  <lgl>

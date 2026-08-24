@@ -66,24 +66,7 @@ Return a named list of data frames: LastFiveGamesAvg, SeasonAvg
 
 **LastFiveGamesAvg**
 
-|                   |           |                                       |
-|-------------------|-----------|---------------------------------------|
-| col_name          | types     | description                           |
-| PLAYER_ID         | character | Unique player identifier.             |
-| PLAYER_NAME       | character | Player name.                          |
-| TEAM_ID           | character | Unique team identifier.               |
-| TEAM_ABBREVIATION | character | Short team abbreviation (e.g. 'LAS'). |
-| FAN_DUEL_PTS      | character |                                       |
-| NBA_FANTASY_PTS   | character |                                       |
-| PTS               | character | Points scored.                        |
-| REB               | character | Total rebounds.                       |
-| AST               | character | Assists.                              |
-| FG3M              | character | Three-point field goals made.         |
-| FT_PCT            | character | Free throw percentage (0-1).          |
-| STL               | character | Steals.                               |
-| BLK               | character | Blocks.                               |
-| TOV               | character | Turnovers.                            |
-| FG_PCT            | character | Field goal percentage (0-1).          |
+Same columns as the **SeasonAvg** table above.
 
 ## Details
 

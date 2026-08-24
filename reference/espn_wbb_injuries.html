@@ -124,7 +124,9 @@ Defaults to <code><a href="most_recent_wbb_season.html">most_recent_wbb_season()
     <p>Returns a tibble of league-wide WBB injury records. ESPN's WBB
 injury data is typically sparse; the function returns an empty tibble
 (zero rows) when no injuries are reported.</p>
-<p><strong>Injuries</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>team_id</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>athlete_id</td><td>character</td><td>Unique athlete identifier (ESPN).</td></tr><tr><td>athlete_name</td><td>character</td><td>Athlete display name (ESPN).</td></tr><tr><td>position</td><td>character</td><td>Listed roster position (G, F, C, etc.).</td></tr><tr><td>status</td><td>character</td><td>Status label.</td></tr><tr><td>date</td><td>character</td><td>Date in YYYY-MM-DD format.</td></tr><tr><td>type</td><td>character</td><td>Record type / category.</td></tr><tr><td>side</td><td>character</td><td>Side label (e.g. 'home', 'away', or 'overUnder').</td></tr><tr><td>returns_at</td><td>character</td><td>Returns at.</td></tr><tr><td>short_comment</td><td>character</td><td>Short comment.</td></tr><tr><td>long_comment</td><td>character</td><td>Long-form play / event comment.</td></tr><tr><td>season</td><td>integer</td><td>Season identifier (4-digit year or 'YYYY-YY' string).</td></tr></table></div>
+<p><strong>Injuries</strong></p>
+<p>Columns as documented in the shared <a href="espn_basketball_injuries_schema.html">espn_basketball_injuries_schema</a> table.</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN WBB Functions:

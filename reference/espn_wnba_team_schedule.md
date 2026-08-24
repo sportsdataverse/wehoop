@@ -38,30 +38,9 @@ espn_wnba_team_schedule(
 
 A single tibble with one row per event.
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| event_id | character | Unique event / game identifier (ESPN). |
-| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
-| season_type | integer | Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-| week | integer | Week number within the season. |
-| date | character | Date in YYYY-MM-DD format. |
-| name | character | Display name. |
-| short_name | character | Short display name. |
-| opponent_id | character | Unique identifier for opponent. |
-| opponent_abbrev | character | Abbreviation for opponent. |
-| home_away | character | Game venue label ('home' or 'away'). |
-| neutral_site | logical | Neutral site. |
-| conference_competition | logical | Conference competition. |
-| venue_id | character | Unique venue identifier. |
-| venue_name | character | Venue name. |
-| venue_city | character | Venue city. |
-| venue_state | character | Venue state / region. |
-| broadcast | character | Broadcast information string. |
-| result | character | Result. |
-| team_score | character | Team's score / final score. |
-| opponent_score | character | Opponent score. |
-| winner | logical | Winner. |
+Columns as documented in the shared
+[espn_basketball_team_schedule_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_team_schedule_schema.md)
+table.
 
 ## See also
 
@@ -168,7 +147,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_schedule(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Schedule from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:34 UTC
+#> ℹ Data updated: 2026-08-24 14:39:46 UTC
 #> # A tibble: 44 × 21
 #>    event_id  season season_type  week date          name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      

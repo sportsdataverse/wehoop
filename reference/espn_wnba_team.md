@@ -34,21 +34,9 @@ A named list of data frames: `Info`, `Record`, `NextEvent`,
 
 **Info**
 
-|                    |           |                                            |
-|--------------------|-----------|--------------------------------------------|
-| col_name           | types     | description                                |
-| id                 | character | Unique play identifcation number           |
-| uid                | character | ESPN UID string (universal identifier).    |
-| slug               | character | URL-safe identifier.                       |
-| abbreviation       | character | Short abbreviation.                        |
-| display_name       | character | Display name.                              |
-| short_display_name | character | Short display name.                        |
-| name               | character | Display name.                              |
-| nickname           | character | Team or athlete nickname.                  |
-| location           | character | Filter results by game location.           |
-| color              | character | Primary color (hex without leading '#').   |
-| alternate_color    | character | Alternate color (hex without leading '#'). |
-| logo               | character | Team or league logo URL.                   |
+Columns as documented in the shared
+[espn_basketball_team_info_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_team_info_schema.md)
+table.
 
 **Record**
 
@@ -61,13 +49,9 @@ A named list of data frames: `Info`, `Record`, `NextEvent`,
 
 **NextEvent**
 
-|            |           |                                  |
-|------------|-----------|----------------------------------|
-| col_name   | types     | description                      |
-| id         | character | Unique play identifcation number |
-| date       | character | Date in YYYY-MM-DD format.       |
-| name       | character | Display name.                    |
-| short_name | character | Short display name.              |
+Columns as documented in the shared
+[espn_basketball_player_overview_next_game_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_overview_next_game_schema.md)
+table.
 
 **StandingSummary**
 
@@ -192,7 +176,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:31 UTC
+#> ℹ Data updated: 2026-08-24 14:39:42 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -202,7 +186,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:31 UTC
+#> ℹ Data updated: 2026-08-24 14:39:42 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -212,7 +196,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:31 UTC
+#> ℹ Data updated: 2026-08-24 14:39:42 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
@@ -220,7 +204,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:31 UTC
+#> ℹ Data updated: 2026-08-24 14:39:43 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             

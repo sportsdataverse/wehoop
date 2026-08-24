@@ -31,21 +31,9 @@ tibble (zero rows) when no injuries are reported.
 
 **Injuries**
 
-|  |  |  |
-|----|----|----|
-| col_name | types | description |
-| team_id | character | Unique team identifier. |
-| athlete_id | character | Unique athlete identifier (ESPN). |
-| athlete_name | character | Athlete display name (ESPN). |
-| position | character | Listed roster position (G, F, C, etc.). |
-| status | character | Status label. |
-| date | character | Date in YYYY-MM-DD format. |
-| type | character | Record type / category. |
-| side | character | Side label (e.g. 'home', 'away', or 'overUnder'). |
-| returns_at | character | Returns at. |
-| short_comment | character | Short comment. |
-| long_comment | character | Long-form play / event comment. |
-| season | integer | Season identifier (4-digit year or 'YYYY-YY' string). |
+Columns as documented in the shared
+[espn_basketball_injuries_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_injuries_schema.md)
+table.
 
 ## See also
 
@@ -152,7 +140,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_injuries()
 #> ── ESPN WNBA Injury Information from ESPN.com ────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:17 UTC
+#> ℹ Data updated: 2026-08-24 14:39:28 UTC
 #> # A tibble: 13 × 12
 #>    team_id athlete_id athlete_name position status date  type  side  returns_at
 #>    <chr>   <chr>      <chr>        <chr>    <chr>  <chr> <chr> <chr> <chr>     

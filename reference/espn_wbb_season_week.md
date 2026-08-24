@@ -36,17 +36,9 @@ espn_wbb_season_week(
 
 A single-row tibble.
 
-|              |           |                                           |
-|--------------|-----------|-------------------------------------------|
-| col_name     | types     | description                               |
-| league       | character | League slug.                              |
-| season       | integer   | Season year.                              |
-| season_type  | integer   | Season-type id.                           |
-| week         | integer   | Week number.                              |
-| text         | character | Display label (e.g. "Week 5").            |
-| start_date   | character | ISO 8601 week start.                      |
-| end_date     | character | ISO 8601 week end.                        |
-| rankings_ref | character | `$ref` to the per-week rankings endpoint. |
+Columns as documented in the shared
+[espn_basketball_season_week_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_season_week_schema.md)
+table.
 
 ## Details
 
@@ -153,7 +145,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_week(week = 5, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Week Detail ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:16:56 UTC
+#> ℹ Data updated: 2026-08-24 14:39:03 UTC
 #> # A tibble: 1 × 8
 #>   league         season season_type  week text  start_date end_date rankings_ref
 #>   <chr>           <int>       <int> <int> <chr> <chr>      <chr>    <chr>       

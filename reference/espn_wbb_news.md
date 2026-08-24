@@ -20,18 +20,9 @@ espn_wbb_news(limit = 50)
 
 Returns a tibble of news articles.
 
-|             |           |                                   |
-|-------------|-----------|-----------------------------------|
-| col_name    | types     | description                       |
-| id          | character | Unique play identifcation number  |
-| type        | character | Record type / category.           |
-| headline    | character | News headline.                    |
-| description | character | Long-form description text.       |
-| published   | character | Publication timestamp (ISO 8601). |
-| premium     | logical   | Premium.                          |
-| byline      | character | News article byline / author.     |
-| link_web    | character | Web link / URL.                   |
-| league_id   | character | League identifier ('10' = WNBA).  |
+Columns as documented in the shared
+[espn_basketball_news_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_news_schema.md)
+table.
 
 ## Details
 
@@ -141,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:16:42 UTC
+#> ℹ Data updated: 2026-08-24 14:38:48 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    

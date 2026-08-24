@@ -29,18 +29,9 @@ espn_wbb_season_ranking(ranking_id, season = most_recent_wbb_season(), ...)
 
 A tibble with one row per weekly snapshot.
 
-|             |           |                                             |
-|-------------|-----------|---------------------------------------------|
-| col_name    | types     | description                                 |
-| league      | character | League slug.                                |
-| season      | integer   | Season year.                                |
-| ranking_id  | character | ESPN ranking id.                            |
-| name        | character | Ranking name (e.g. "AP Top 25").            |
-| short_name  | character | Short name (e.g. "AP Poll").                |
-| type        | character | Ranking type code (e.g. "ap").              |
-| season_type | integer   | Season-type id of this snapshot.            |
-| week        | integer   | Week number of this snapshot.               |
-| ref         | character | `$ref` URL for the per-week ranking detail. |
+Columns as documented in the shared
+[espn_basketball_season_ranking_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_season_ranking_schema.md)
+table.
 
 ## Details
 
@@ -147,7 +138,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_ranking(ranking_id = 1, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Ranking Snapshots Index ───────────────
-#> ℹ Data updated: 2026-08-24 13:16:55 UTC
+#> ℹ Data updated: 2026-08-24 14:39:02 UTC
 #> # A tibble: 21 × 9
 #>    league       season ranking_id name  short_name type  season_type  week ref  
 #>    <chr>         <int> <chr>      <chr> <chr>      <chr>       <int> <int> <chr>

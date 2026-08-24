@@ -29,16 +29,9 @@ A named list of data frames: `Bio`, `Team`, `Position`, `Status`,
 
 **Bio**
 
-|               |           |                                   |
-|---------------|-----------|-----------------------------------|
-| col_name      | types     | description                       |
-| id            | character | Unique play identifcation number  |
-| full_name     | character | Player's full name.               |
-| display_name  | character | Display name.                     |
-| jersey        | character | Jersey number worn by the player. |
-| age           | character | Player age (in years).            |
-| date_of_birth | character | Date of birth (YYYY-MM-DD).       |
-| headshot_href | character | Headshot image URL.               |
+Columns as documented in the shared
+[espn_basketball_player_info_bio_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_info_bio_schema.md)
+table.
 
 **Team**
 
@@ -191,7 +184,7 @@ Saiem Gilani
   espn_wnba_player_info(athlete_id = "3149391")
 #> $Bio
 #> ── ESPN WNBA Athlete Bio from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:21 UTC
+#> ℹ Data updated: 2026-08-24 14:39:32 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -203,7 +196,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WNBA Athlete Team from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:21 UTC
+#> ℹ Data updated: 2026-08-24 14:39:32 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -211,7 +204,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WNBA Athlete Position from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:21 UTC
+#> ℹ Data updated: 2026-08-24 14:39:32 UTC
 #> # A tibble: 1 × 5
 #>   id    name   display_name abbreviation leaf 
 #>   <chr> <chr>  <chr>        <chr>        <lgl>
@@ -219,7 +212,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WNBA Athlete Status from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:21 UTC
+#> ℹ Data updated: 2026-08-24 14:39:32 UTC
 #> # A tibble: 1 × 4
 #>   id    name   type   abbreviation
 #>   <chr> <chr>  <chr>  <chr>       
@@ -227,7 +220,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WNBA Athlete College from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:21 UTC
+#> ℹ Data updated: 2026-08-24 14:39:32 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                             
 #>   <chr>                                                             
@@ -235,7 +228,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN WNBA Athlete Draft from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 13:17:21 UTC
+#> ℹ Data updated: 2026-08-24 14:39:32 UTC
 #> # A tibble: 1 × 4
 #>   year  round selection display_text               
 #>   <chr> <chr> <chr>     <chr>                      
