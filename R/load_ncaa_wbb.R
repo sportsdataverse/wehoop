@@ -703,6 +703,91 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
 }
 
 
+#' **Load NCAA women's college basketball league-wide RAPM ratings from the data repo**
+#' @name load_ncaa_wbb_rapm
+NULL
+#' @title
+#' **Load NCAA women's college basketball league-wide RAPM ratings from the data repo**
+#' @rdname load_ncaa_wbb_rapm
+#' @author Saiem Gilani
+#' @description Loads league-wide regularized adjusted plus-minus (RAPM)
+#'   ratings for NCAA women's college basketball -- one row per
+#'   player-season, fit against lineup variation across all Division I
+#'   stints for that season (not a within-team RAPM). Produced by the
+#'   sdv-py `ncaa_wbb` engine's league-wide stint-ridge RAPM solver
+#'   (Torvik-gated to Division I teams) on top of the reconstructed
+#'   lineup/possession data; backed by the `ncaa-wbb-hoops-data` pipeline,
+#'   published to the `ncaa_wbb_rapm` release tag as csv.gz/parquet/rds.
+#' @details League-wide regularized adjusted plus-minus -- a single ridge
+#'   fit over all Division I stints per season, distinct from
+#'   [load_ncaa_wbb_rapm_within_team()]'s within-team fit. Published
+#'   coverage runs seasons 2011 through 2026.
+#' @param seasons A vector of 4-digit season-ending years for NCAA women's
+#'   college basketball (e.g. `2024` for the 2023-24 season). Published
+#'   coverage runs 2011 through the most recent season, with no gaps. Pass
+#'   `seasons = TRUE` for every published season. (Min: 2011)
+#' @param ... Additional arguments passed to an underlying function that writes
+#'   the season data into a database.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the data table within the database
+#' @return Returns a `wehoop_data` tibble with one row per player-season.
+#'
+#'    |col_name  |types     |description                                                                |
+#'    |:--------|:--------|:--------------------------------------------------------------------------|
+#'    |season    |integer   |Season identifier (4-digit season-ending year).                            |
+#'    |player_id |character |stats.ncaa.org player identifier.                                          |
+#'    |person_id |character |Internal person identifier used to join across seasons/teams.              |
+#'    |player    |character |Player display name ('LAST.FIRST' format).                                 |
+#'    |team      |character |Team name.                                                                 |
+#'    |orapm     |numeric   |League-wide offensive regularized adjusted plus-minus.                     |
+#'    |drapm     |numeric   |League-wide defensive regularized adjusted plus-minus.                     |
+#'    |rapm_net  |numeric   |League-wide net regularized adjusted plus-minus (orapm + drapm).           |
+#'    |off_poss  |integer   |Offensive possessions used in the RAPM fit.                                |
+#'    |def_poss  |integer   |Defensive possessions used in the RAPM fit.                                |
+#'    |estimand  |character |Estimand tag for the RAPM fit (e.g. 'league' for the Division I stint solve). |
+#'
+#' @export
+#' @family NCAA WBB loader functions
+#' @examples
+#' \donttest{
+#'   try(load_ncaa_wbb_rapm(seasons = most_recent_wbb_season()))
+#' }
+load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
+                                ...,
+                                dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  dots <- rlang::dots_list(...)
+
+  loader <- rds_from_url
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  if (isTRUE(seasons)) seasons <- 2011:most_recent_wbb_season()
+
+  stopifnot(is.numeric(seasons),
+            all(seasons >= 2011),
+            all(seasons <= most_recent_wbb_season()))
+
+  urls <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "ncaa_wbb_rapm/ncaa_wbb_rapm_", seasons, ".rds"
+  )
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  out <- lapply(urls, progressively(loader, p))
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+
 #' **Load NCAA women's college basketball advanced player box scores from the data repo**
 #' @name load_ncaa_wbb_player_box
 NULL

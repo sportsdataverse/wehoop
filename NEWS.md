@@ -131,6 +131,12 @@ core-v2 `*_player_stats`, a different endpoint). The long-standing
 
 ### **New exported functions**
 
+#### *NCAA WBB league-wide RAPM loader*
+
+| Function | Description |
+|---|---|
+| `load_ncaa_wbb_rapm()` | League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the `ncaa_wbb_rapm` release tag, seasons 2011-2026. Distinct from the within-team `load_ncaa_wbb_rapm_within_team()`. |
+
 #### *New WNBA Stats API V3 endpoints*
 
 | Function | Description |

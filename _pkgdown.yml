@@ -295,6 +295,7 @@ reference:
       - '`load_ncaa_wbb_matchup_stints`'
       - '`load_ncaa_wbb_possessions`'
       - '`load_ncaa_wbb_rapm_within_team`'
+      - '`load_ncaa_wbb_rapm`'
       - '`load_ncaa_wbb_player_box`'
       - '`load_ncaa_wbb_team_box`'
       - '`load_ncaa_wbb_rosters`'
