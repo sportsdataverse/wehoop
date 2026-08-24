@@ -104,35 +104,38 @@ wnba_leaguedashteamshotlocations(
 \value{
 Returns a named list of data frames: ShotLocations
 
-\strong{ShotLocations}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   Restricted_Area_FGM \tab character \tab  \cr
-   Restricted_Area_FGA \tab character \tab  \cr
-   Restricted_Area_FG_PCT \tab character \tab  \cr
-   In_The_Paint_Non_RA_FGM \tab character \tab  \cr
-   In_The_Paint_Non_RA_FGA \tab character \tab  \cr
-   In_The_Paint_Non_RA_FG_PCT \tab character \tab  \cr
-   Mid_Range_FGM \tab character \tab  \cr
-   Mid_Range_FGA \tab character \tab  \cr
-   Mid_Range_FG_PCT \tab character \tab  \cr
-   Left_Corner_3_FGM \tab character \tab  \cr
-   Left_Corner_3_FGA \tab character \tab  \cr
-   Left_Corner_3_FG_PCT \tab character \tab  \cr
-   Right_Corner_3_FGM \tab character \tab  \cr
-   Right_Corner_3_FGA \tab character \tab  \cr
-   Right_Corner_3_FG_PCT \tab character \tab  \cr
-   Above_the_Break_3_FGM \tab character \tab  \cr
-   Above_the_Break_3_FGA \tab character \tab  \cr
-   Above_the_Break_3_FG_PCT \tab character \tab  \cr
-   Backcourt_FGM \tab character \tab  \cr
-   Backcourt_FGA \tab character \tab  \cr
-   Backcourt_FG_PCT \tab character \tab  \cr
-   Corner_3_FGM \tab character \tab  \cr
-   Corner_3_FGA \tab character \tab  \cr
-   Corner_3_FG_PCT \tab character \tab  \cr
-}
+\strong{ShotLocations}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      Restricted_Area_FGM \tab character \tab  \cr
+      Restricted_Area_FGA \tab character \tab  \cr
+      Restricted_Area_FG_PCT \tab character \tab  \cr
+      In_The_Paint_Non_RA_FGM \tab character \tab  \cr
+      In_The_Paint_Non_RA_FGA \tab character \tab  \cr
+      In_The_Paint_Non_RA_FG_PCT \tab character \tab  \cr
+      Mid_Range_FGM \tab character \tab  \cr
+      Mid_Range_FGA \tab character \tab  \cr
+      Mid_Range_FG_PCT \tab character \tab  \cr
+      Left_Corner_3_FGM \tab character \tab  \cr
+      Left_Corner_3_FGA \tab character \tab  \cr
+      Left_Corner_3_FG_PCT \tab character \tab  \cr
+      Right_Corner_3_FGM \tab character \tab  \cr
+      Right_Corner_3_FGA \tab character \tab  \cr
+      Right_Corner_3_FG_PCT \tab character \tab  \cr
+      Above_the_Break_3_FGM \tab character \tab  \cr
+      Above_the_Break_3_FGA \tab character \tab  \cr
+      Above_the_Break_3_FG_PCT \tab character \tab  \cr
+      Backcourt_FGM \tab character \tab  \cr
+      Backcourt_FGA \tab character \tab  \cr
+      Backcourt_FG_PCT \tab character \tab  \cr
+      Corner_3_FGM \tab character \tab  \cr
+      Corner_3_FGA \tab character \tab  \cr
+      Corner_3_FG_PCT \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API League Dashboard Team Shot Locations}
@@ -162,11 +165,11 @@ Other WNBA League Functions:
 
 Other WNBA Shooting Functions:
 \code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
-\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
+\code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
 \code{\link[=wnba_shotchartdetail]{wnba_shotchartdetail()}},
 \code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}},
 \code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}}
+\code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}}
 }
 \author{
 Saiem Gilani

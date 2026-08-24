@@ -16,23 +16,26 @@ wnba_videostatus(game_date = "2022-06-10", league_id = "10", ...)
 \value{
 Return a list of tibbles: VideoStatus
 
-\strong{VideoStatus}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   GAME_DATE \tab character \tab Game date (YYYY-MM-DD). \cr
-   VISITOR_TEAM_ID \tab character \tab Unique identifier for visitor team. \cr
-   VISITOR_TEAM_CITY \tab character \tab  \cr
-   VISITOR_TEAM_NAME \tab character \tab  \cr
-   VISITOR_TEAM_ABBREVIATION \tab character \tab  \cr
-   HOME_TEAM_ID \tab character \tab Unique identifier for the home team. \cr
-   HOME_TEAM_CITY \tab character \tab Home team city / location. \cr
-   HOME_TEAM_NAME \tab character \tab Home team name. \cr
-   HOME_TEAM_ABBREVIATION \tab character \tab  \cr
-   GAME_STATUS \tab character \tab Game status label. \cr
-   GAME_STATUS_TEXT \tab character \tab Game status display text (e.g. 'Final', '4:32 - 4th'). \cr
-   IS_AVAILABLE \tab character \tab  \cr
-   PT_XYZ_AVAILABLE \tab character \tab  \cr
-}
+\strong{VideoStatus}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GAME_ID \tab character \tab Unique game identifier. \cr
+      GAME_DATE \tab character \tab Game date (YYYY-MM-DD). \cr
+      VISITOR_TEAM_ID \tab character \tab Unique identifier for visitor team. \cr
+      VISITOR_TEAM_CITY \tab character \tab  \cr
+      VISITOR_TEAM_NAME \tab character \tab  \cr
+      VISITOR_TEAM_ABBREVIATION \tab character \tab  \cr
+      HOME_TEAM_ID \tab character \tab Unique identifier for the home team. \cr
+      HOME_TEAM_CITY \tab character \tab Home team city / location. \cr
+      HOME_TEAM_NAME \tab character \tab Home team name. \cr
+      HOME_TEAM_ABBREVIATION \tab character \tab  \cr
+      GAME_STATUS \tab character \tab Game status label. \cr
+      GAME_STATUS_TEXT \tab character \tab Game status display text (e.g. 'Final', '4:32 - 4th'). \cr
+      IS_AVAILABLE \tab character \tab  \cr
+      PT_XYZ_AVAILABLE \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Video Status}
@@ -45,7 +48,6 @@ Return a list of tibbles: VideoStatus
 }
 \seealso{
 Other WNBA Video Functions:
-\code{\link[=wnba_videodetails]{wnba_videodetails()}},
 \code{\link[=wnba_videodetailsasset]{wnba_videodetailsasset()}},
 \code{\link[=wnba_videoevents]{wnba_videoevents()}}
 }

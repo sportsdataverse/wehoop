@@ -35,23 +35,25 @@ wnba_homepageleaders(
 \value{
 Returns a named list of data frames: HomePageLeaders, LeagueAverage, LeagueMax
 
-\strong{HomePageLeaders}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   RANK \tab character \tab Whether to include statistical ranks in the returned table. \cr
-   PLAYERID \tab character \tab  \cr
-   PLAYER \tab character \tab  \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   PTS \tab character \tab Points scored. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   TS_PCT \tab character \tab True shooting percentage (0-1). \cr
-   PTS_PER48 \tab character \tab  \cr
-}
+\strong{HomePageLeaders}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      RANK \tab character \tab Whether to include statistical ranks in the returned table. \cr
+      PLAYERID \tab character \tab  \cr
+      PLAYER \tab character \tab  \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+      TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      PTS \tab character \tab Points scored. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
+      TS_PCT \tab character \tab True shooting percentage (0-1). \cr
+      PTS_PER48 \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{LeagueAverage}\tabular{lll}{
    col_name \tab types \tab description \cr

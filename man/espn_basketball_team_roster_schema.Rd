@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_team_roster, espn_wnba_team_roster.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
    full_name \tab character \tab Player's full name. \cr
@@ -24,6 +24,7 @@ Columns shared verbatim across: espn_wbb_team_roster, espn_wnba_team_roster.
    status \tab character \tab Status label. \cr
    team_id \tab character \tab Unique team identifier. \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

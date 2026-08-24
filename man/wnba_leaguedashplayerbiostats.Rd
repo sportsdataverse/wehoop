@@ -110,32 +110,35 @@ wnba_leaguedashplayerbiostats(
 \value{
 Returns a named list of data frames: LeagueDashPlayerBioStats
 
-\strong{LeagueDashPlayerBioStats}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   AGE \tab character \tab Player age (in years). \cr
-   PLAYER_HEIGHT \tab character \tab  \cr
-   PLAYER_HEIGHT_INCHES \tab character \tab  \cr
-   PLAYER_WEIGHT \tab character \tab  \cr
-   COLLEGE \tab character \tab College or school attended. \cr
-   COUNTRY \tab character \tab Country (full name or code). \cr
-   DRAFT_YEAR \tab character \tab Draft year (4-digit). \cr
-   DRAFT_ROUND \tab character \tab Round of the draft selection. \cr
-   DRAFT_NUMBER \tab character \tab  \cr
-   GP \tab character \tab Games played. \cr
-   PTS \tab character \tab Points scored. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   NET_RATING \tab character \tab Net rating (off rating - def rating). \cr
-   OREB_PCT \tab character \tab Offensive rebound percentage (0-1). \cr
-   DREB_PCT \tab character \tab Defensive rebound percentage (0-1). \cr
-   USG_PCT \tab character \tab Usage percentage (0-1). \cr
-   TS_PCT \tab character \tab True shooting percentage (0-1). \cr
-   AST_PCT \tab character \tab Assist percentage (0-1). \cr
-}
+\strong{LeagueDashPlayerBioStats}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      PLAYER_ID \tab character \tab Unique player identifier. \cr
+      PLAYER_NAME \tab character \tab Player name. \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+      AGE \tab character \tab Player age (in years). \cr
+      PLAYER_HEIGHT \tab character \tab  \cr
+      PLAYER_HEIGHT_INCHES \tab character \tab  \cr
+      PLAYER_WEIGHT \tab character \tab  \cr
+      COLLEGE \tab character \tab College or school attended. \cr
+      COUNTRY \tab character \tab Country (full name or code). \cr
+      DRAFT_YEAR \tab character \tab Draft year (4-digit). \cr
+      DRAFT_ROUND \tab character \tab Round of the draft selection. \cr
+      DRAFT_NUMBER \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      PTS \tab character \tab Points scored. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      NET_RATING \tab character \tab Net rating (off rating - def rating). \cr
+      OREB_PCT \tab character \tab Offensive rebound percentage (0-1). \cr
+      DREB_PCT \tab character \tab Defensive rebound percentage (0-1). \cr
+      USG_PCT \tab character \tab Usage percentage (0-1). \cr
+      TS_PCT \tab character \tab True shooting percentage (0-1). \cr
+      AST_PCT \tab character \tab Assist percentage (0-1). \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API League Dashboard Player Biographical Stats}
@@ -176,13 +179,6 @@ Other WNBA Player Functions:
 \code{\link[=wnba_playercareerstats]{wnba_playercareerstats()}},
 \code{\link[=wnba_playercompare]{wnba_playercompare()}},
 \code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
-\code{\link[=wnba_playerdashboardbygamesplits]{wnba_playerdashboardbygamesplits()}},
-\code{\link[=wnba_playerdashboardbygeneralsplits]{wnba_playerdashboardbygeneralsplits()}},
-\code{\link[=wnba_playerdashboardbylastngames]{wnba_playerdashboardbylastngames()}},
-\code{\link[=wnba_playerdashboardbyopponent]{wnba_playerdashboardbyopponent()}},
-\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
-\code{\link[=wnba_playerdashboardbyteamperformance]{wnba_playerdashboardbyteamperformance()}},
-\code{\link[=wnba_playerdashboardbyyearoveryear]{wnba_playerdashboardbyyearoveryear()}},
 \code{\link[=wnba_playerestimatedmetrics]{wnba_playerestimatedmetrics()}},
 \code{\link[=wnba_playerfantasyprofile]{wnba_playerfantasyprofile()}},
 \code{\link[=wnba_playerfantasyprofilebargraph]{wnba_playerfantasyprofilebargraph()}},

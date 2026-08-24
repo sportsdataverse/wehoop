@@ -1,9 +1,6 @@
-#' **Load wehoop women's college basketball play-by-play**
-#' @name load_wbb_pbp
-NULL
 #' @title 
 #' **Load cleaned women's college basketball play-by-play from the data repo**
-#' @rdname load_wbb_pbp
+#' @rdname load_wbb_game_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2004)
@@ -13,65 +10,67 @@ NULL
 #' @param tablename The name of the play by play data table within the database
 #' @return A dataframe of play-by-play events with the columns documented below:
 #'
-#' | col_name | description |
-#' |---|---|
-#' | shooting_play | Logical value (TRUE/FALSE) indicating whether the play was a shooting play |
-#' | sequence_number | Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) |
-#' | period_display_value | Long form of period (1st quarter, 2nd Quarter, OT, etc.) |
-#' | period_number | The numeric period of play in the game |
-#' | home_score | Home score at the time of the play |
-#' | scoring_play | Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored |
-#' | clock_display_value | Time left within the period |
-#' | team_id | Unique team identification number for the offensive team |
-#' | type_id | Unique play type identifcation number |
-#' | type_text | Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with `scoring_play` (TRUE = made), not `type_text` |
-#' | away_score | Away score at the time of the play |
-#' | id | Unique play identifcation number |
-#' | text | Text description of the play |
-#' | score_value | The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use `scoring_play` to identify points actually scored |
-#' | participants_0_athlete_id | Unique player identification number |
-#' | participants_1_athlete_id | Unique player identification number |
-#' | season | Season of the game |
-#' | season_type | Season type of the game, 1 is pre-season, 2 is regular season, 3 is post-season, 4 is off-season |
-#' | away_team_id | Unique away team identification number |
-#' | away_team_name | Away team name |
-#' | away_team_mascot | Away team mascot |
-#' | away_team_abbrev | Text abbreviation for the away team |
-#' | away_team_name_alt | Alternate versions of the away team abbreviation |
-#' | home_team_id | Unique home team identification number |
-#' | home_team_name | home team name |
-#' | home_team_mascot | home team mascot |
-#' | home_team_abbrev | Text abbreviation for the home team |
-#' | home_team_name_alt | Alternate versions of the home team abbreviation |
-#' | home_team_spread | The game spread with respect to the home team |
-#' | game_spread | Game spread in (-X Team) format |
-#' | home_favorite | Logical (TRUE/FALSE) indicating whether the home team is favored |
-#' | game_spread_available | Logical (TRUE/FALSE) indicating whether the spread was available from ESPN. Basically, I would just not recommend using any of the spread information, I think I defaulted a lot of them to -2.5 for the home team. Most games probably do not have spread information. This column should really be listed first |
-#' | game_id | Unique identifier for the game event |
-#' | qtr | Quarter of the game |
-#' | time | Time left within the period |
-#' | clock_minutes | Clock minutes split from seconds for developer convenience |
-#' | clock_seconds | Clock seconds split from minutes for developer convenience |
-#' | half | Half of the game |
-#' | game_half | Half of the game |
-#' | lag_qtr | A lag column on the quarter |
-#' | lead_qtr | A lead column on the quarter |
-#' | lag_game_half | A lag column on the half |
-#' | lead_game_half | A lead column on the half |
-#' | start_quarter_seconds_remaining | Quarter seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously) |
-#' | start_half_seconds_remaining | Game half seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously) |
-#' | start_game_seconds_remaining | Game seconds remaining at the start of the play (''') |
-#' | game_play_number | Game play number |
-#' | end_quarter_seconds_remaining | Quarter seconds remaining at the end of the play (''') |
-#' | end_half_seconds_remaining | Game half seconds remaining at the end of the play (''') |
-#' | end_game_seconds_remaining | Game seconds remaining at the end of the play (''') |
-#' | period | Period of the game |
-#' | coordinate_x | The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. |
-#' | coordinate_y |  |
-#' | week | Apparently there are weeks |
-#' | media_id | Where did you come from |
-#' | pregame_home_prob | Pre-game win probability for the home team, constant across every play of the game |
-#' | home_win_prob | Home team's win probability at this play, updated play-by-play |
+#' \if{html}{\tabular{ll}{
+#'    col_name \tab description \cr
+#'    shooting_play \tab Logical value (TRUE/FALSE) indicating whether the play was a shooting play \cr
+#'    sequence_number \tab Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) \cr
+#'    period_display_value \tab Long form of period (1st quarter, 2nd Quarter, OT, etc.) \cr
+#'    period_number \tab The numeric period of play in the game \cr
+#'    home_score \tab Home score at the time of the play \cr
+#'    scoring_play \tab Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored \cr
+#'    clock_display_value \tab Time left within the period \cr
+#'    team_id \tab Unique team identification number for the offensive team \cr
+#'    type_id \tab Unique play type identifcation number \cr
+#'    type_text \tab Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with \code{scoring_play} (TRUE = made), not \code{type_text} \cr
+#'    away_score \tab Away score at the time of the play \cr
+#'    id \tab Unique play identifcation number \cr
+#'    text \tab Text description of the play \cr
+#'    score_value \tab The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use \code{scoring_play} to identify points actually scored \cr
+#'    participants_0_athlete_id \tab Unique player identification number \cr
+#'    participants_1_athlete_id \tab Unique player identification number \cr
+#'    season \tab Season of the game \cr
+#'    season_type \tab Season type of the game, 1 is pre-season, 2 is regular season, 3 is post-season, 4 is off-season \cr
+#'    away_team_id \tab Unique away team identification number \cr
+#'    away_team_name \tab Away team name \cr
+#'    away_team_mascot \tab Away team mascot \cr
+#'    away_team_abbrev \tab Text abbreviation for the away team \cr
+#'    away_team_name_alt \tab Alternate versions of the away team abbreviation \cr
+#'    home_team_id \tab Unique home team identification number \cr
+#'    home_team_name \tab home team name \cr
+#'    home_team_mascot \tab home team mascot \cr
+#'    home_team_abbrev \tab Text abbreviation for the home team \cr
+#'    home_team_name_alt \tab Alternate versions of the home team abbreviation \cr
+#'    home_team_spread \tab The game spread with respect to the home team \cr
+#'    game_spread \tab Game spread in (-X Team) format \cr
+#'    home_favorite \tab Logical (TRUE/FALSE) indicating whether the home team is favored \cr
+#'    game_spread_available \tab Logical (TRUE/FALSE) indicating whether the spread was available from ESPN. Basically, I would just not recommend using any of the spread information, I think I defaulted a lot of them to -2.5 for the home team. Most games probably do not have spread information. This column should really be listed first \cr
+#'    game_id \tab Unique identifier for the game event \cr
+#'    qtr \tab Quarter of the game \cr
+#'    time \tab Time left within the period \cr
+#'    clock_minutes \tab Clock minutes split from seconds for developer convenience \cr
+#'    clock_seconds \tab Clock seconds split from minutes for developer convenience \cr
+#'    half \tab Half of the game \cr
+#'    game_half \tab Half of the game \cr
+#'    lag_qtr \tab A lag column on the quarter \cr
+#'    lead_qtr \tab A lead column on the quarter \cr
+#'    lag_game_half \tab A lag column on the half \cr
+#'    lead_game_half \tab A lead column on the half \cr
+#'    start_quarter_seconds_remaining \tab Quarter seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously) \cr
+#'    start_half_seconds_remaining \tab Game half seconds remaining at the start of the play (these are more or less code artifacts from other sports, but may eventually be used more seriously) \cr
+#'    start_game_seconds_remaining \tab Game seconds remaining at the start of the play (''') \cr
+#'    game_play_number \tab Game play number \cr
+#'    end_quarter_seconds_remaining \tab Quarter seconds remaining at the end of the play (''') \cr
+#'    end_half_seconds_remaining \tab Game half seconds remaining at the end of the play (''') \cr
+#'    end_game_seconds_remaining \tab Game seconds remaining at the end of the play (''') \cr
+#'    period \tab Period of the game \cr
+#'    coordinate_x \tab The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. \cr
+#'    coordinate_y \tab  \cr
+#'    week \tab Apparently there are weeks \cr
+#'    media_id \tab Where did you come from \cr
+#'    pregame_home_prob \tab Pre-game win probability for the home team, constant across every play of the game \cr
+#'    home_win_prob \tab Home team's win probability at this play, updated play-by-play \cr
+#' }}
+#' \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @examples
@@ -109,12 +108,9 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop women's college basketball team box scores**
-#' @name load_wbb_team_box
-NULL
 #' @title
 #' **Load cleaned women's college basketball team box scores from the data repo**
-#' @rdname load_wbb_team_box
+#' @rdname load_wbb_game_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)
@@ -158,12 +154,9 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop women's college basketball player box scores**
-#' @name load_wbb_player_box
-NULL
 #' @title
 #' **Load cleaned women's college basketball player box scores from the data repo**
-#' @rdname load_wbb_player_box
+#' @rdname load_wbb_game_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2006)
@@ -207,12 +200,9 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop women's college basketball schedule**
-#' @name load_wbb_schedule
-NULL
 #' @title
 #' **Load cleaned women's college basketball schedules from the data repo**
-#' @rdname load_wbb_schedule
+#' @rdname load_wbb_game_rosters
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given women's college basketball seasons. (Min: 2002)
@@ -266,7 +256,7 @@ load_wbb_games <- function(){
 }
 
 
-#' @rdname load_wbb_rosters
+#' @rdname load_wbb_game_rosters
 #' @description `load_wbb_rosters_manifest()` returns the per-season manifest
 #'   CSV (columns: `season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) describing which seasons are currently published to
@@ -282,7 +272,7 @@ load_wbb_rosters_manifest <- function() {
 }
 
 
-#' @rdname load_wbb_player_stats
+#' @rdname load_wbb_game_rosters
 #' @description `load_wbb_player_stats_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the player season stats release tag without
@@ -298,7 +288,7 @@ load_wbb_player_stats_manifest <- function() {
 }
 
 
-#' @rdname load_wbb_team_stats
+#' @rdname load_wbb_game_rosters
 #' @description `load_wbb_team_stats_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the team season stats release tag without
@@ -314,7 +304,7 @@ load_wbb_team_stats_manifest <- function() {
 }
 
 
-#' @rdname load_wbb_standings
+#' @rdname load_wbb_game_rosters
 #' @description `load_wbb_standings_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the standings release tag without downloading
@@ -330,7 +320,7 @@ load_wbb_standings_manifest <- function() {
 }
 
 
-#' @rdname load_wbb_shots
+#' @rdname load_wbb_game_rosters
 #' @description `load_wbb_shots_manifest()` returns the per-season manifest
 #'   CSV (`season`, `row_count`, `generated_at_utc`, `source_endpoint`) for
 #'   the shots release tag without downloading any season's full data.
@@ -361,7 +351,7 @@ load_wbb_game_rosters_manifest <- function() {
 }
 
 
-#' @rdname load_wbb_officials
+#' @rdname load_wbb_game_rosters
 #' @description `load_wbb_officials_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the officials release tag without downloading
@@ -377,12 +367,9 @@ load_wbb_officials_manifest <- function() {
 }
 
 
-#' **Load wehoop WBB Rosters**
-#' @name load_wbb_rosters
-NULL
 #' @title
 #' **Load cleaned WBB season rosters from the data repo**
-#' @rdname load_wbb_rosters
+#' @rdname load_wbb_game_rosters
 #' @description Loads season-level team rosters scraped from ESPN. One row per
 #'   athlete-team-season triple. Backed by the `wehoop-wbb-data` pipeline that
 #'   reads raw JSONs from `wehoop-wbb-raw` and publishes parquet/rds artifacts
@@ -435,12 +422,9 @@ load_wbb_rosters <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop WBB Player Season Stats**
-#' @name load_wbb_player_stats
-NULL
 #' @title
 #' **Load cleaned WBB player season stats from the data repo**
-#' @rdname load_wbb_player_stats
+#' @rdname load_wbb_game_rosters
 #' @description Loads season-level player statistics scraped from ESPN. One row
 #'   per athlete-team-season-statistic-grouping. Backed by the `wehoop-wbb-data`
 #'   pipeline that reads raw JSONs from `wehoop-wbb-raw` and publishes
@@ -495,12 +479,9 @@ load_wbb_player_stats <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop WBB Team Season Stats**
-#' @name load_wbb_team_stats
-NULL
 #' @title
 #' **Load cleaned WBB team season stats from the data repo**
-#' @rdname load_wbb_team_stats
+#' @rdname load_wbb_game_rosters
 #' @description Loads season-level team statistics scraped from ESPN. One row
 #'   per team-season-statistic-grouping. Backed by the `wehoop-wbb-data`
 #'   pipeline that reads raw JSONs from `wehoop-wbb-raw` and publishes
@@ -558,12 +539,9 @@ load_wbb_team_stats <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop WBB Standings**
-#' @name load_wbb_standings
-NULL
 #' @title
 #' **Load cleaned WBB season standings from the data repo**
-#' @rdname load_wbb_standings
+#' @rdname load_wbb_game_rosters
 #' @description Loads season-level conference and overall standings scraped
 #'   from ESPN. One row per team-season. Backed by the `wehoop-wbb-data`
 #'   pipeline that reads raw JSONs from `wehoop-wbb-raw` and publishes
@@ -620,12 +598,9 @@ load_wbb_standings <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop WBB Shots**
-#' @name load_wbb_shots
-NULL
 #' @title
 #' **Load cleaned WBB shot events from the data repo**
-#' @rdname load_wbb_shots
+#' @rdname load_wbb_game_rosters
 #' @description Loads shot events parsed from ESPN women's college basketball
 #'   play-by-play feeds. One row per shot attempt (made or missed), with court
 #'   coordinates and shot metadata. Backed by the `wehoop-wbb-data` pipeline
@@ -745,12 +720,9 @@ load_wbb_game_rosters <- function(seasons = most_recent_wbb_season(), ...,
 }
 
 
-#' **Load wehoop WBB Officials**
-#' @name load_wbb_officials
-NULL
 #' @title
 #' **Load cleaned WBB game officials from the data repo**
-#' @rdname load_wbb_officials
+#' @rdname load_wbb_game_rosters
 #' @description Loads game-level officials data scraped from ESPN women's
 #'   college basketball summary feeds. One row per official-game pair. Backed
 #'   by the `wehoop-wbb-data` pipeline that reads raw JSONs from
@@ -1045,11 +1017,9 @@ get_missing_wbb_games <- function(completed_games, dbConnection, tablename) {
   return(need_scrape)
 }
 
-#' @name load_wbb_player_core
-NULL
 #' @title
 #' **Load cleaned WBB player core (identity + bio) from the data repo**
-#' @rdname load_wbb_player_core
+#' @rdname load_wbb_game_rosters
 #' @description Loads ESPN WBB athlete core records -- identity and
 #'   biographical fields, one row per athlete who appeared in the season.
 #'   Backed by the `wehoop-wbb-data` pipeline that reads raw JSONs from

@@ -2,16 +2,30 @@
 % Please edit documentation in R/espn_wnba_data.R
 \name{helper_espn_wnba_pbp}
 \alias{helper_espn_wnba_pbp}
+\alias{helper_espn_wnba_team_box}
+\alias{helper_espn_wnba_player_box}
 \title{\strong{Parse ESPN WNBA PBP, helper function}}
 \usage{
 helper_espn_wnba_pbp(resp)
+
+helper_espn_wnba_team_box(resp)
+
+helper_espn_wnba_player_box(resp)
 }
 \arguments{
 \item{resp}{Response object from the ESPN WNBA game summary endpoint}
 }
 \value{
 Returns a tibble
+
+Returns a tibble
+
+Returns a tibble
 }
 \description{
 \strong{Parse ESPN WNBA PBP, helper function}
+
+\strong{Parse ESPN WNBA Team Box, helper function}
+
+\strong{Parse ESPN WNBA Player Box, helper function}
 }

@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_scoreboard, wnba_scoreboardv2.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    TEAM_ID \tab character \tab Unique team identifier. \cr
    LEAGUE_ID \tab character \tab League identifier ('10' = WNBA). \cr
@@ -21,6 +21,7 @@ Columns shared verbatim across: wnba_scoreboard, wnba_scoreboardv2.
    W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
    HOME_RECORD \tab character \tab Home win-loss record. \cr
    ROAD_RECORD \tab character \tab Win-loss record for road. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

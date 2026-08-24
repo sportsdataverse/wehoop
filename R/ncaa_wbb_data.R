@@ -4,17 +4,19 @@
 #' @author Saiem Gilani
 #' @return Returns a tibble
 #' 
-#'    |col_name   |types     |description                                                 |
-#'    |:----------|:---------|:-----------------------------------------------------------|
-#'    |rank       |integer   |Whether to include statistical ranks in the returned table. |
-#'    |previous   |integer   |Previous.                                                   |
-#'    |school     |character |Player's school / college (when distinct from 'college').   |
-#'    |conference |character |Filter players or teams by conference.                      |
-#'    |record     |character |Record string (e.g. '12-4').                                |
-#'    |road       |character |Road.                                                       |
-#'    |neutral    |character |Neutral.                                                    |
-#'    |home       |character |Home.                                                       |
-#'    |non_div_i  |character |Non div i.                                                  |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
+#'       previous \tab integer \tab Previous. \cr
+#'       school \tab character \tab Player's school / college (when distinct from 'college'). \cr
+#'       conference \tab character \tab Filter players or teams by conference. \cr
+#'       record \tab character \tab Record string (e.g. '12-4'). \cr
+#'       road \tab character \tab Road. \cr
+#'       neutral \tab character \tab Neutral. \cr
+#'       home \tab character \tab Home. \cr
+#'       non_div_i \tab character \tab Non div i. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #' 
 #' @importFrom dplyr %>% as_tibble
 #' @import rvest
@@ -85,17 +87,19 @@ ncaa_wbb_NET_rankings <- function(){
 #'   `?.retry_request` for the full set of recognized arguments.
 #' @return A data frame with the following variables
 #'
-#'    |col_name       |types     |description                                     |
-#'    |:--------------|:---------|:-----------------------------------------------|
-#'    |team_id        |character |Franchise team id (legacy `/team/{id}/...` urls).|
-#'    |team_name      |character |Full team display name (e.g. 'Las Vegas Aces').  |
-#'    |team_url       |character |URL for team.                                    |
-#'    |conference_id  |character |Conference identifier.                           |
-#'    |conference     |character |Filter players or teams by conference.           |
-#'    |division       |numeric   |Team division.                                   |
-#'    |year           |numeric   |4-digit year.                                    |
-#'    |season_id      |character |Season id (legacy urls).                         |
-#'    |season_team_id |character |Season-team id (modern `/teams/{id}` urls).      |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       team_id \tab character \tab Franchise team id (legacy \verb{/team/\{id\}/...} urls). \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_url \tab character \tab URL for team. \cr
+#'       conference_id \tab character \tab Conference identifier. \cr
+#'       conference \tab character \tab Filter players or teams by conference. \cr
+#'       division \tab numeric \tab Team division. \cr
+#'       year \tab numeric \tab 4-digit year. \cr
+#'       season_id \tab character \tab Season id (legacy urls). \cr
+#'       season_team_id \tab character \tab Season-team id (modern \verb{/teams/\{id\}} urls). \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @import dplyr
 #' @import rvest

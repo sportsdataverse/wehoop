@@ -7,7 +7,7 @@
 Columns shared verbatim across: load_wbb_game_rosters, load_wnba_game_rosters.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    game_id \tab character \tab Unique game identifier. \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
@@ -18,6 +18,7 @@ Columns shared verbatim across: load_wbb_game_rosters, load_wnba_game_rosters.
    athlete_jersey \tab character \tab Athlete jersey number. \cr
    starter \tab logical \tab TRUE if the player was in the starting lineup; FALSE otherwise. \cr
    did_not_play \tab logical \tab TRUE if the player did not appear in the game. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

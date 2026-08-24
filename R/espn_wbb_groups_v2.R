@@ -93,7 +93,7 @@ espn_wbb_season_group <- function(group_id,
 #' @name espn_wbb_season_group_children
 #' @title
 #' **Get ESPN WBB Season Group Children Index**
-#' @rdname espn_wbb_season_group_children
+#' @rdname espn_wbb_season_group
 #' @author Saiem Gilani
 #' @description
 #' Returns the list of child groups (e.g. divisions within a conference)
@@ -138,7 +138,7 @@ espn_wbb_season_group_children <- function(group_id,
 #' @name espn_wbb_season_group_teams
 #' @title
 #' **Get ESPN WBB Season Group Teams Index**
-#' @rdname espn_wbb_season_group_teams
+#' @rdname espn_wbb_season_group
 #' @author Saiem Gilani
 #' @description
 #' Returns the list of team IDs that belong to one group (conference or

@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wnba_game_all, espn_wnba_player_box.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    game_id \tab integer \tab Unique game identifier. \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
@@ -66,6 +66,7 @@ Columns shared verbatim across: espn_wnba_game_all, espn_wnba_player_box.
    opponent_team_color \tab character \tab Opponent team primary color (hex). \cr
    opponent_team_alternate_color \tab character \tab Opponent team alternate color (hex). \cr
    opponent_team_score \tab integer \tab Opponent team's score. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

@@ -141,6 +141,7 @@ espn_wnba_game_all <- function(game_id){
 }
 
 #' Get ESPN's WNBA play by play data
+#' @rdname espn_wnba_game_all
 #' @author Saiem Gilani
 #' @param game_id Game ID
 #' @return Returns a play-by-play data frame
@@ -207,6 +208,7 @@ espn_wnba_pbp <- function(game_id){
 }
 
 #' Get ESPN's WNBA team box data
+#' @rdname espn_wnba_game_all
 #' @author Saiem Gilani
 #' @param game_id Game ID
 #' @return Returns a team boxscore data frame
@@ -270,6 +272,7 @@ espn_wnba_team_box <- function(game_id){
 }
 
 #' Get ESPN's WNBA player box data
+#' @rdname espn_wnba_game_all
 #' @author Saiem Gilani
 #' @param game_id Game ID
 #' @return Returns a player boxscore data frame
@@ -335,83 +338,86 @@ espn_wnba_player_box <- function(game_id){
 
 
 #' **Get ESPN WNBA game rosters**
+#' @rdname espn_wnba_game_all
 #' @author Saiem Gilani
 #' @param game_id Game ID
 #' @return A game rosters data frame
 #' 
-#'    |col_name                |types     |description                                                           |
-#'    |:-----------------------|:---------|:---------------------------------------------------------------------|
-#'    |athlete_id              |integer   |Unique athlete identifier (ESPN).                                     |
-#'    |athlete_uid             |character |ESPN athlete UID (universal identifier).                              |
-#'    |athlete_guid            |character |ESPN athlete GUID.                                                    |
-#'    |athlete_type            |character |Athlete type / class.                                                 |
-#'    |sdr                     |integer   |Sdr.                                                                  |
-#'    |first_name              |character |Player's first name.                                                  |
-#'    |last_name               |character |Player's last name.                                                   |
-#'    |full_name               |character |Player's full name.                                                   |
-#'    |athlete_display_name    |character |Athlete display name (full).                                          |
-#'    |short_name              |character |Short display name.                                                   |
-#'    |weight                  |numeric   |Player weight in pounds.                                              |
-#'    |display_weight          |character |Player weight in display format (e.g. '180 lbs').                     |
-#'    |height                  |numeric   |Player height (string e.g. '6-2' or inches).                          |
-#'    |display_height          |character |Player height in display format (e.g. '6-2').                         |
-#'    |age                     |integer   |Player age (in years).                                                |
-#'    |date_of_birth           |character |Date of birth (YYYY-MM-DD).                                           |
-#'    |slug                    |character |URL-safe identifier.                                                  |
-#'    |headshot_href           |character |Headshot image URL.                                                   |
-#'    |headshot_alt            |character |Alternative-text label for the headshot.                              |
-#'    |jersey                  |character |Jersey number worn by the player.                                     |
-#'    |position_id             |integer   |Unique position identifier.                                           |
-#'    |position_name           |character |Listed roster position ('Guard', 'Forward', 'Center').                |
-#'    |position_display_name   |character |Position display name.                                                |
-#'    |position_abbreviation   |character |Position abbreviation ('G' / 'F' / 'C').                              |
-#'    |position_leaf           |logical   |Position leaf.                                                        |
-#'    |linked                  |logical   |TRUE if the record is linked to a related entity.                     |
-#'    |years                   |integer   |Years.                                                                |
-#'    |active                  |logical   |TRUE if the row represents an active record (player / team / season). |
-#'    |status_id               |integer   |Status identifier.                                                    |
-#'    |status_name             |character |Status label.                                                         |
-#'    |status_type             |character |Status type.                                                          |
-#'    |status_abbreviation     |character |Status abbreviation.                                                  |
-#'    |birth_place_city        |character |Birth place city.                                                     |
-#'    |birth_place_state       |character |Birth place state.                                                    |
-#'    |birth_place_country     |character |Birth place country.                                                  |
-#'    |starter                 |logical   |TRUE if the player was in the starting lineup; FALSE otherwise.       |
-#'    |valid                   |logical   |Valid.                                                                |
-#'    |did_not_play            |logical   |TRUE if the player did not appear in the game.                        |
-#'    |display_name            |character |Display name.                                                         |
-#'    |reason                  |character |Reason.                                                               |
-#'    |ejected                 |logical   |TRUE if the player was ejected from the game.                         |
-#'    |team_id                 |integer   |Unique team identifier.                                               |
-#'    |team_guid               |character |ESPN team GUID.                                                       |
-#'    |team_uid                |character |ESPN universal team identifier (UID format 's:40~l:...~t:...').       |
-#'    |team_sdr                |integer   |ESPN team SDR identifier.                                             |
-#'    |team_slug               |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').             |
-#'    |team_location           |character |Team city or location string.                                         |
-#'    |team_name               |character |Full team display name (e.g. 'Las Vegas Aces').                       |
-#'    |team_abbreviation       |character |Short team abbreviation (e.g. 'LAS').                                 |
-#'    |team_display_name       |character |Full team display name.                                               |
-#'    |team_short_display_name |character |Short team display name (e.g. 'Aces').                                |
-#'    |team_color              |character |Team primary color (hex without leading '#').                         |
-#'    |team_alternate_color    |character |Team alternate color (hex without leading '#').                       |
-#'    |team_is_active          |logical   |TRUE if the team is currently active.                                 |
-#'    |is_all_star             |logical   |Is all star.                                                          |
-#'    |logo_href               |character |Team or league logo URL.                                              |
-#'    |logo_dark_href          |character |Logo URL for dark backgrounds.                                        |
-#'    |logos_href_2            |character |Logos href 2.                                                         |
-#'    |logos_href_3            |character |Logos href 3.                                                         |
-#'    |game_id                 |integer   |Unique game identifier.                                               |
-#'    |order                   |integer   |Display order within the result set.                                  |
-#'    |home_away               |character |Game venue label ('home' or 'away').                                  |
-#'    |winner                  |logical   |Winner.                                                               |
-#'    |draft_display_text      |character |Draft display text.                                                   |
-#'    |draft_round             |integer   |Round of the draft selection.                                         |
-#'    |draft_year              |integer   |Draft year (4-digit).                                                 |
-#'    |draft_selection         |integer   |Draft selection.                                                      |
-#'    |hand_type               |character |Hand type.                                                            |
-#'    |hand_abbreviation       |character |Hand abbreviation.                                                    |
-#'    |hand_display_value      |character |Hand display value.                                                   |
-#'    |citizenship             |character |Citizenship.                                                          |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       athlete_id \tab integer \tab Unique athlete identifier (ESPN). \cr
+#'       athlete_uid \tab character \tab ESPN athlete UID (universal identifier). \cr
+#'       athlete_guid \tab character \tab ESPN athlete GUID. \cr
+#'       athlete_type \tab character \tab Athlete type / class. \cr
+#'       sdr \tab integer \tab Sdr. \cr
+#'       first_name \tab character \tab Player's first name. \cr
+#'       last_name \tab character \tab Player's last name. \cr
+#'       full_name \tab character \tab Player's full name. \cr
+#'       athlete_display_name \tab character \tab Athlete display name (full). \cr
+#'       short_name \tab character \tab Short display name. \cr
+#'       weight \tab numeric \tab Player weight in pounds. \cr
+#'       display_weight \tab character \tab Player weight in display format (e.g. '180 lbs'). \cr
+#'       height \tab numeric \tab Player height (string e.g. '6-2' or inches). \cr
+#'       display_height \tab character \tab Player height in display format (e.g. '6-2'). \cr
+#'       age \tab integer \tab Player age (in years). \cr
+#'       date_of_birth \tab character \tab Date of birth (YYYY-MM-DD). \cr
+#'       slug \tab character \tab URL-safe identifier. \cr
+#'       headshot_href \tab character \tab Headshot image URL. \cr
+#'       headshot_alt \tab character \tab Alternative-text label for the headshot. \cr
+#'       jersey \tab character \tab Jersey number worn by the player. \cr
+#'       position_id \tab integer \tab Unique position identifier. \cr
+#'       position_name \tab character \tab Listed roster position ('Guard', 'Forward', 'Center'). \cr
+#'       position_display_name \tab character \tab Position display name. \cr
+#'       position_abbreviation \tab character \tab Position abbreviation ('G' / 'F' / 'C'). \cr
+#'       position_leaf \tab logical \tab Position leaf. \cr
+#'       linked \tab logical \tab TRUE if the record is linked to a related entity. \cr
+#'       years \tab integer \tab Years. \cr
+#'       active \tab logical \tab TRUE if the row represents an active record (player / team / season). \cr
+#'       status_id \tab integer \tab Status identifier. \cr
+#'       status_name \tab character \tab Status label. \cr
+#'       status_type \tab character \tab Status type. \cr
+#'       status_abbreviation \tab character \tab Status abbreviation. \cr
+#'       birth_place_city \tab character \tab Birth place city. \cr
+#'       birth_place_state \tab character \tab Birth place state. \cr
+#'       birth_place_country \tab character \tab Birth place country. \cr
+#'       starter \tab logical \tab TRUE if the player was in the starting lineup; FALSE otherwise. \cr
+#'       valid \tab logical \tab Valid. \cr
+#'       did_not_play \tab logical \tab TRUE if the player did not appear in the game. \cr
+#'       display_name \tab character \tab Display name. \cr
+#'       reason \tab character \tab Reason. \cr
+#'       ejected \tab logical \tab TRUE if the player was ejected from the game. \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team_guid \tab character \tab ESPN team GUID. \cr
+#'       team_uid \tab character \tab ESPN universal team identifier (UID format 's:40~l:...~t:...'). \cr
+#'       team_sdr \tab integer \tab ESPN team SDR identifier. \cr
+#'       team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+#'       team_location \tab character \tab Team city or location string. \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+#'       team_display_name \tab character \tab Full team display name. \cr
+#'       team_short_display_name \tab character \tab Short team display name (e.g. 'Aces'). \cr
+#'       team_color \tab character \tab Team primary color (hex without leading '#'). \cr
+#'       team_alternate_color \tab character \tab Team alternate color (hex without leading '#'). \cr
+#'       team_is_active \tab logical \tab TRUE if the team is currently active. \cr
+#'       is_all_star \tab logical \tab Is all star. \cr
+#'       logo_href \tab character \tab Team or league logo URL. \cr
+#'       logo_dark_href \tab character \tab Logo URL for dark backgrounds. \cr
+#'       logos_href_2 \tab character \tab Logos href 2. \cr
+#'       logos_href_3 \tab character \tab Logos href 3. \cr
+#'       game_id \tab integer \tab Unique game identifier. \cr
+#'       order \tab integer \tab Display order within the result set. \cr
+#'       home_away \tab character \tab Game venue label ('home' or 'away'). \cr
+#'       winner \tab logical \tab Winner. \cr
+#'       draft_display_text \tab character \tab Draft display text. \cr
+#'       draft_round \tab integer \tab Round of the draft selection. \cr
+#'       draft_year \tab integer \tab Draft year (4-digit). \cr
+#'       draft_selection \tab integer \tab Draft selection. \cr
+#'       hand_type \tab character \tab Hand type. \cr
+#'       hand_abbreviation \tab character \tab Hand abbreviation. \cr
+#'       hand_display_value \tab character \tab Hand display value. \cr
+#'       citizenship \tab character \tab Citizenship. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'    
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -668,18 +674,20 @@ espn_wnba_game_rosters <- function(game_id) {
 #' @author Saiem Gilani
 #' @return Returns a tibble
 #' 
-#'    |col_name        |types     |description                                |
-#'    |:---------------|:---------|:------------------------------------------|
-#'    |team_id         |integer   |Unique team identifier.                    |
-#'    |team            |character |Team-side label or team identifier.        |
-#'    |mascot          |character |Team mascot.                               |
-#'    |display_name    |character |Display name.                              |
-#'    |short_name      |character |Short display name.                        |
-#'    |abbreviation    |character |Short abbreviation.                        |
-#'    |color           |character |Primary color (hex without leading '#').   |
-#'    |alternate_color |character |Alternate color (hex without leading '#'). |
-#'    |logo            |character |Team or league logo URL.                   |
-#'    |logo_dark       |character |Logo dark.                                 |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team \tab character \tab Team-side label or team identifier. \cr
+#'       mascot \tab character \tab Team mascot. \cr
+#'       display_name \tab character \tab Display name. \cr
+#'       short_name \tab character \tab Short display name. \cr
+#'       abbreviation \tab character \tab Short abbreviation. \cr
+#'       color \tab character \tab Primary color (hex without leading '#'). \cr
+#'       alternate_color \tab character \tab Alternate color (hex without leading '#'). \cr
+#'       logo \tab character \tab Team or league logo URL. \cr
+#'       logo_dark \tab character \tab Logo dark. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #' 
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -950,28 +958,30 @@ espn_wnba_scoreboard <- function(season){
 #' @param year Either numeric or character (YYYY)
 #' @return Returns a tibble
 #' 
-#'    |col_name           |types     |description                                           |
-#'    |:------------------|:---------|:-----------------------------------------------------|
-#'    |team_id            |integer   |Unique team identifier.                               |
-#'    |team               |character |Team-side label or team identifier.                   |
-#'    |avgpointsagainst   |numeric   |Avgpointsagainst.                                     |
-#'    |avgpointsfor       |numeric   |Avgpointsfor.                                         |
-#'    |clincher           |numeric   |Clincher.                                             |
-#'    |differential       |numeric   |Differential.                                         |
-#'    |divisionwinpercent |numeric   |Divisionwinpercent.                                   |
-#'    |gamesbehind        |numeric   |Gamesbehind.                                          |
-#'    |leaguewinpercent   |numeric   |Leaguewinpercent.                                     |
-#'    |losses             |numeric   |Total losses.                                         |
-#'    |playoffseed        |numeric   |Playoffseed.                                          |
-#'    |streak             |numeric   |Current streak (e.g. 'W3' for three-game win streak). |
-#'    |winpercent         |numeric   |Winpercent.                                           |
-#'    |wins               |numeric   |Total wins.                                           |
-#'    |leaguestandings    |character |Leaguestandings.                                      |
-#'    |home               |character |Home.                                                 |
-#'    |road               |character |Road.                                                 |
-#'    |vsdiv              |character |Vsdiv.                                                |
-#'    |vsconf             |character |Vsconf.                                               |
-#'    |lasttengames       |character |Lasttengames.                                         |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team \tab character \tab Team-side label or team identifier. \cr
+#'       avgpointsagainst \tab numeric \tab Avgpointsagainst. \cr
+#'       avgpointsfor \tab numeric \tab Avgpointsfor. \cr
+#'       clincher \tab numeric \tab Clincher. \cr
+#'       differential \tab numeric \tab Differential. \cr
+#'       divisionwinpercent \tab numeric \tab Divisionwinpercent. \cr
+#'       gamesbehind \tab numeric \tab Gamesbehind. \cr
+#'       leaguewinpercent \tab numeric \tab Leaguewinpercent. \cr
+#'       losses \tab numeric \tab Total losses. \cr
+#'       playoffseed \tab numeric \tab Playoffseed. \cr
+#'       streak \tab numeric \tab Current streak (e.g. 'W3' for three-game win streak). \cr
+#'       winpercent \tab numeric \tab Winpercent. \cr
+#'       wins \tab numeric \tab Total wins. \cr
+#'       leaguestandings \tab character \tab Leaguestandings. \cr
+#'       home \tab character \tab Home. \cr
+#'       road \tab character \tab Road. \cr
+#'       vsdiv \tab character \tab Vsdiv. \cr
+#'       vsconf \tab character \tab Vsconf. \cr
+#'       lasttengames \tab character \tab Lasttengames. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #' 
 #' @importFrom rlang .data
 #' @importFrom jsonlite fromJSON toJSON
@@ -1087,122 +1097,124 @@ utils::globalVariables(c("where"))
 #' @param total (boolean, default: FALSE): Totals
 #' @return Returns a tibble with the team stats data
 #' 
-#'    |col_name                                         |types     |description                                                                                                                                                                                                                                                        |
-#'    |:------------------------------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-#'    |team_id                                          |integer   |Unique team identifier.                                                                                                                                                                                                                                            |
-#'    |team_guid                                        |character |ESPN team GUID.                                                                                                                                                                                                                                                    |
-#'    |team_uid                                         |character |ESPN universal team identifier (UID format 's:40~l:...~t:...').                                                                                                                                                                                                    |
-#'    |team_sdr                                         |integer   |ESPN team SDR identifier.                                                                                                                                                                                                                                          |
-#'    |team_slug                                        |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                                                                                                                                                                                                          |
-#'    |team_location                                    |character |Team city or location string.                                                                                                                                                                                                                                      |
-#'    |team_name                                        |character |Full team display name (e.g. 'Las Vegas Aces').                                                                                                                                                                                                                    |
-#'    |team_abbreviation                                |character |Short team abbreviation (e.g. 'LAS').                                                                                                                                                                                                                              |
-#'    |team_display_name                                |character |Full team display name.                                                                                                                                                                                                                                            |
-#'    |team_short_display_name                          |character |Short team display name (e.g. 'Aces').                                                                                                                                                                                                                             |
-#'    |team_color                                       |character |Team primary color (hex without leading '#').                                                                                                                                                                                                                      |
-#'    |team_alternate_color                             |character |Team alternate color (hex without leading '#').                                                                                                                                                                                                                    |
-#'    |team_is_active                                   |logical   |TRUE if the team is currently active.                                                                                                                                                                                                                              |
-#'    |team_is_all_star                                 |logical   |TRUE if the row represents an All-Star team.                                                                                                                                                                                                                       |
-#'    |logo_href                                        |character |Team or league logo URL.                                                                                                                                                                                                                                           |
-#'    |logo_dark_href                                   |character |Logo URL for dark backgrounds.                                                                                                                                                                                                                                     |
-#'    |defensive_blocks                                 |numeric   |Short for blocked shot, number of times when a defensive player legally deflects a field goal attempt from an offensive player.                                                                                                                                    |
-#'    |defensive_defensive_rebounds                     |numeric   |The number of times when the defense obtains the possession of the ball after a missed shot by the offense.                                                                                                                                                        |
-#'    |defensive_steals                                 |numeric   |The number of times a defensive player forced a turnover by intercepting or deflecting a pass or a dribble of an offensive player.                                                                                                                                 |
-#'    |defensive_avg_defensive_rebounds                 |numeric   |The average defensive rebounds per game.                                                                                                                                                                                                                           |
-#'    |defensive_avg_blocks                             |numeric   |The average blocks per game.                                                                                                                                                                                                                                       |
-#'    |defensive_avg_steals                             |numeric   |The average steals per game.                                                                                                                                                                                                                                       |
-#'    |defensive_avg48defensive_rebounds                |numeric   |The average number of defensive rebounds per 48 minutes.                                                                                                                                                                                                           |
-#'    |defensive_avg48blocks                            |numeric   |The average number of blocks per 48 minutes.                                                                                                                                                                                                                       |
-#'    |defensive_avg48steals                            |numeric   |The average number of steals per 48 minutes.                                                                                                                                                                                                                       |
-#'    |general_disqualifications                        |numeric   |The number of times a player reached the foul limit.                                                                                                                                                                                                               |
-#'    |general_flagrant_fouls                           |numeric   |The number of fouls that the officials thought were unnecessary or excessive.                                                                                                                                                                                      |
-#'    |general_fouls                                    |numeric   |The number of times a player had illegal contact with the opponent.                                                                                                                                                                                                |
-#'    |general_ejections                                |numeric   |The number of times a player or coach is removed from the game as a result of a serious offense.                                                                                                                                                                   |
-#'    |general_technical_fouls                          |numeric   |The number of times an player or coach was called for a technical foul (unsportsmanlike conduct or violations).                                                                                                                                                    |
-#'    |general_rebounds                                 |numeric   |The total number of rebounds (offensive and defensive).                                                                                                                                                                                                            |
-#'    |general_avg_minutes                              |numeric   |The average number of minutes per game.                                                                                                                                                                                                                            |
-#'    |general_nba_rating                               |numeric   |General nba rating.                                                                                                                                                                                                                                                |
-#'    |general_plus_minus                               |numeric   |A player's estimated on-court impact on team performance measured in point differential per 100 possessions.                                                                                                                                                       |
-#'    |general_game_day_of_year                         |numeric   |The day of the season on which this game falls; if it's the 15th day of the regular season in Nov, the game day of year is 15 (ie, game day of year != day of year).                                                                                               |
-#'    |general_avg_rebounds                             |numeric   |The average rebounds per game.                                                                                                                                                                                                                                     |
-#'    |general_avg_fouls                                |numeric   |The average fouls committed per game.                                                                                                                                                                                                                              |
-#'    |general_avg_flagrant_fouls                       |numeric   |The average number of flagrant fouls per game.                                                                                                                                                                                                                     |
-#'    |general_avg_technical_fouls                      |numeric   |The average number of technical fouls per game.                                                                                                                                                                                                                    |
-#'    |general_avg_ejections                            |numeric   |The average ejections per game.                                                                                                                                                                                                                                    |
-#'    |general_avg_disqualifications                    |numeric   |The average number of disqualifications per game.                                                                                                                                                                                                                  |
-#'    |general_assist_turnover_ratio                    |numeric   |The average number of assists a player or team records per turnover.                                                                                                                                                                                               |
-#'    |general_steal_foul_ratio                         |numeric   |The average number of steals a player or team records per foul committed.                                                                                                                                                                                          |
-#'    |general_block_foul_ratio                         |numeric   |The average number of blocks a player or record per foul committed.                                                                                                                                                                                                |
-#'    |general_avg_team_rebounds                        |numeric   |The average number of rebounds for a team per game.                                                                                                                                                                                                                |
-#'    |general_total_rebounds                           |numeric   |The total number of rebounds for a team or player.                                                                                                                                                                                                                 |
-#'    |general_total_technical_fouls                    |numeric   |The total number of technical fouls for a team or player.                                                                                                                                                                                                          |
-#'    |general_team_assist_turnover_ratio               |numeric   |The number of assists per turnover for a team.                                                                                                                                                                                                                     |
-#'    |general_team_rebounds                            |numeric   |The total number of rebounds for a team.                                                                                                                                                                                                                           |
-#'    |general_steal_turnover_ratio                     |numeric   |The number of steals per turnover.                                                                                                                                                                                                                                 |
-#'    |general_avg48rebounds                            |numeric   |The average number of rebounds per 48 minutes.                                                                                                                                                                                                                     |
-#'    |general_avg48fouls                               |numeric   |The average number of fouls committed per 48 minutes.                                                                                                                                                                                                              |
-#'    |general_avg48flagrant_fouls                      |numeric   |The average number of flagrant fouls committed per 48 minutes.                                                                                                                                                                                                     |
-#'    |general_avg48technical_fouls                     |numeric   |The average number of technical fouls committed per 48 minutes.                                                                                                                                                                                                    |
-#'    |general_avg48ejections                           |numeric   |The average number of ejections per 48 minutes.                                                                                                                                                                                                                    |
-#'    |general_avg48disqualifications                   |numeric   |The average number of disqualifications per 48 minutes.                                                                                                                                                                                                            |
-#'    |general_games_played                             |numeric   |Games Played.                                                                                                                                                                                                                                                      |
-#'    |general_games_started                            |numeric   |The number of games started by an athlete.                                                                                                                                                                                                                         |
-#'    |general_double_double                            |numeric   |The number of times double digit values were accumulated in 2 of the following categories: points, rebounds, assists, steals, and blocked shots.                                                                                                                   |
-#'    |general_triple_double                            |numeric   |The number of times double digit values were accumulated in 3 of the following categories: points, rebounds, assists, steals, and blocked shots.                                                                                                                   |
-#'    |offensive_assists                                |numeric   |The number of times a player who passes the ball to a teammate in a way that leads to a score by field goal, meaning that he or she was "assisting" in the basket. There is some judgment involved in deciding whether a passer should be credited with an assist. |
-#'    |offensive_field_goals                            |numeric   |Field Goal makes and attempts.                                                                                                                                                                                                                                     |
-#'    |offensive_field_goals_attempted                  |numeric   |The number of times a 2pt field goal was attempted.                                                                                                                                                                                                                |
-#'    |offensive_field_goals_made                       |numeric   |The number of times a 2pt field goal was made.                                                                                                                                                                                                                     |
-#'    |offensive_field_goal_pct                         |numeric   |The ratio of field goals made to field goals attempted: FGM / FGA.                                                                                                                                                                                                 |
-#'    |offensive_free_throws                            |numeric   |Free Throw makes and attempts.                                                                                                                                                                                                                                     |
-#'    |offensive_free_throw_pct                         |numeric   |The ratio of free throws made to free throws attempted: FTM / FTA.                                                                                                                                                                                                 |
-#'    |offensive_free_throws_attempted                  |numeric   |The number of times a free throw was attempted.                                                                                                                                                                                                                    |
-#'    |offensive_free_throws_made                       |numeric   |The number of times a free throw was made.                                                                                                                                                                                                                         |
-#'    |offensive_offensive_rebounds                     |numeric   |The number of times when the offense obtains the possession of the ball after a missed shot.                                                                                                                                                                       |
-#'    |offensive_points                                 |numeric   |The number of points scored.                                                                                                                                                                                                                                       |
-#'    |offensive_turnovers                              |numeric   |The number of times a player loses possession to the other team.                                                                                                                                                                                                   |
-#'    |offensive_three_point_pct                        |numeric   |The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA.                                                                                                                                                                                         |
-#'    |offensive_three_point_field_goals_attempted      |numeric   |The number of times a 3pt field goal was attempted.                                                                                                                                                                                                                |
-#'    |offensive_three_point_field_goals_made           |numeric   |The number of times a 3pt field goal was made.                                                                                                                                                                                                                     |
-#'    |offensive_team_turnovers                         |numeric   |The number of turnovers for the team.                                                                                                                                                                                                                              |
-#'    |offensive_total_turnovers                        |numeric   |The number of turnovers plus team turnovers for the team.                                                                                                                                                                                                          |
-#'    |offensive_points_in_paint                        |numeric   |The amount of points scored in the area known as "the Paint"(the rectangle between the foul line and the baseline).                                                                                                                                                |
-#'    |offensive_brick_index                            |numeric   |How many points a player costs his team with his shooting compared with the league average on a per-40-minute basis. ((52.8 - TS%) x (FGA + (FTA x 0.44))) / (Min/40) .                                                                                            |
-#'    |offensive_avg_field_goals_made                   |numeric   |The average field goals made per game.                                                                                                                                                                                                                             |
-#'    |offensive_avg_field_goals_attempted              |numeric   |The average field goals attempted per game.                                                                                                                                                                                                                        |
-#'    |offensive_avg_three_point_field_goals_made       |numeric   |The average three point field goals made per game.                                                                                                                                                                                                                 |
-#'    |offensive_avg_three_point_field_goals_attempted  |numeric   |The average three point field goals attempted per game.                                                                                                                                                                                                            |
-#'    |offensive_avg_free_throws_made                   |numeric   |The average free throw shots made per game.                                                                                                                                                                                                                        |
-#'    |offensive_avg_free_throws_attempted              |numeric   |The average free throw shots attempted per game.                                                                                                                                                                                                                   |
-#'    |offensive_avg_points                             |numeric   |The average number of points scored per game.                                                                                                                                                                                                                      |
-#'    |offensive_avg_points_allowed                     |numeric   |The average number of points allowed per game.                                                                                                                                                                                                                     |
-#'    |offensive_avg_offensive_rebounds                 |numeric   |The average offensive rebounds per game.                                                                                                                                                                                                                           |
-#'    |offensive_avg_assists                            |numeric   |The average assists per game.                                                                                                                                                                                                                                      |
-#'    |offensive_avg_turnovers                          |numeric   |The average turnovers committed per game.                                                                                                                                                                                                                          |
-#'    |offensive_offensive_rebound_pct                  |numeric   |The percentage of the number of times they obtain the possession of the ball after a missed shot.                                                                                                                                                                  |
-#'    |offensive_estimated_possessions                  |numeric   |An estimation of the number of possessions for a team or player.                                                                                                                                                                                                   |
-#'    |offensive_avg_estimated_possessions              |numeric   |The average number of estimated possessions per game for a team or player.                                                                                                                                                                                         |
-#'    |offensive_points_per_estimated_possessions       |numeric   |The number of points per estimated possession for a team or player.                                                                                                                                                                                                |
-#'    |offensive_avg_team_turnovers                     |numeric   |The average number of turnovers for a team per game.                                                                                                                                                                                                               |
-#'    |offensive_avg_total_turnovers                    |numeric   |The average number of total turnovers for a team per game.                                                                                                                                                                                                         |
-#'    |offensive_three_point_field_goal_pct             |numeric   |The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA.                                                                                                                                                                                         |
-#'    |offensive_two_point_field_goals_made             |numeric   |The number of 2-point field goals made for a team or player.                                                                                                                                                                                                       |
-#'    |offensive_two_point_field_goals_attempted        |numeric   |The number of 2-point field goals attempted for a team or player.                                                                                                                                                                                                  |
-#'    |offensive_avg_two_point_field_goals_made         |numeric   |The number of 2-point field goals made per game for a team or player.                                                                                                                                                                                              |
-#'    |offensive_avg_two_point_field_goals_attempted    |numeric   |The number of 2-point field goals attempted per game for a team or player.                                                                                                                                                                                         |
-#'    |offensive_two_point_field_goal_pct               |numeric   |The percentage of 2-points fields goals made by a team or player.                                                                                                                                                                                                  |
-#'    |offensive_shooting_efficiency                    |numeric   |The efficiency with which a team or player shoots the basketball.                                                                                                                                                                                                  |
-#'    |offensive_scoring_efficiency                     |numeric   |The efficiency with which a team or player scores the basketball.                                                                                                                                                                                                  |
-#'    |offensive_avg48field_goals_made                  |numeric   |The average number of fieldgoals made per 48 minutes.                                                                                                                                                                                                              |
-#'    |offensive_avg48field_goals_attempted             |numeric   |The average number of fieldgoals attempted per 48 minutes.                                                                                                                                                                                                         |
-#'    |offensive_avg48three_point_field_goals_made      |numeric   |The average per number of 3-Pointers made per 48 minutes.                                                                                                                                                                                                          |
-#'    |offensive_avg48three_point_field_goals_attempted |numeric   |The average number of 3-pointers attempted per 48 minutes.                                                                                                                                                                                                         |
-#'    |offensive_avg48free_throws_made                  |numeric   |The average number of Free Throws made per 48 minutes.                                                                                                                                                                                                             |
-#'    |offensive_avg48free_throws_attempted             |numeric   |The average number of free throws attempted per 48 minutes.                                                                                                                                                                                                        |
-#'    |offensive_avg48points                            |numeric   |The average number of points scored per 48 minutes.                                                                                                                                                                                                                |
-#'    |offensive_avg48offensive_rebounds                |numeric   |The average number of offenseive rebounds per 48 minutes.                                                                                                                                                                                                          |
-#'    |offensive_avg48assists                           |numeric   |The average number of assists per 48 minutes.                                                                                                                                                                                                                      |
-#'    |offensive_avg48turnovers                         |numeric   |The average number of turnovers per 48 minutes.                                                                                                                                                                                                                    |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team_guid \tab character \tab ESPN team GUID. \cr
+#'       team_uid \tab character \tab ESPN universal team identifier (UID format 's:40~l:...~t:...'). \cr
+#'       team_sdr \tab integer \tab ESPN team SDR identifier. \cr
+#'       team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+#'       team_location \tab character \tab Team city or location string. \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+#'       team_display_name \tab character \tab Full team display name. \cr
+#'       team_short_display_name \tab character \tab Short team display name (e.g. 'Aces'). \cr
+#'       team_color \tab character \tab Team primary color (hex without leading '#'). \cr
+#'       team_alternate_color \tab character \tab Team alternate color (hex without leading '#'). \cr
+#'       team_is_active \tab logical \tab TRUE if the team is currently active. \cr
+#'       team_is_all_star \tab logical \tab TRUE if the row represents an All-Star team. \cr
+#'       logo_href \tab character \tab Team or league logo URL. \cr
+#'       logo_dark_href \tab character \tab Logo URL for dark backgrounds. \cr
+#'       defensive_blocks \tab numeric \tab Short for blocked shot, number of times when a defensive player legally deflects a field goal attempt from an offensive player. \cr
+#'       defensive_defensive_rebounds \tab numeric \tab The number of times when the defense obtains the possession of the ball after a missed shot by the offense. \cr
+#'       defensive_steals \tab numeric \tab The number of times a defensive player forced a turnover by intercepting or deflecting a pass or a dribble of an offensive player. \cr
+#'       defensive_avg_defensive_rebounds \tab numeric \tab The average defensive rebounds per game. \cr
+#'       defensive_avg_blocks \tab numeric \tab The average blocks per game. \cr
+#'       defensive_avg_steals \tab numeric \tab The average steals per game. \cr
+#'       defensive_avg48defensive_rebounds \tab numeric \tab The average number of defensive rebounds per 48 minutes. \cr
+#'       defensive_avg48blocks \tab numeric \tab The average number of blocks per 48 minutes. \cr
+#'       defensive_avg48steals \tab numeric \tab The average number of steals per 48 minutes. \cr
+#'       general_disqualifications \tab numeric \tab The number of times a player reached the foul limit. \cr
+#'       general_flagrant_fouls \tab numeric \tab The number of fouls that the officials thought were unnecessary or excessive. \cr
+#'       general_fouls \tab numeric \tab The number of times a player had illegal contact with the opponent. \cr
+#'       general_ejections \tab numeric \tab The number of times a player or coach is removed from the game as a result of a serious offense. \cr
+#'       general_technical_fouls \tab numeric \tab The number of times an player or coach was called for a technical foul (unsportsmanlike conduct or violations). \cr
+#'       general_rebounds \tab numeric \tab The total number of rebounds (offensive and defensive). \cr
+#'       general_avg_minutes \tab numeric \tab The average number of minutes per game. \cr
+#'       general_nba_rating \tab numeric \tab General nba rating. \cr
+#'       general_plus_minus \tab numeric \tab A player's estimated on-court impact on team performance measured in point differential per 100 possessions. \cr
+#'       general_game_day_of_year \tab numeric \tab The day of the season on which this game falls; if it's the 15th day of the regular season in Nov, the game day of year is 15 (ie, game day of year != day of year). \cr
+#'       general_avg_rebounds \tab numeric \tab The average rebounds per game. \cr
+#'       general_avg_fouls \tab numeric \tab The average fouls committed per game. \cr
+#'       general_avg_flagrant_fouls \tab numeric \tab The average number of flagrant fouls per game. \cr
+#'       general_avg_technical_fouls \tab numeric \tab The average number of technical fouls per game. \cr
+#'       general_avg_ejections \tab numeric \tab The average ejections per game. \cr
+#'       general_avg_disqualifications \tab numeric \tab The average number of disqualifications per game. \cr
+#'       general_assist_turnover_ratio \tab numeric \tab The average number of assists a player or team records per turnover. \cr
+#'       general_steal_foul_ratio \tab numeric \tab The average number of steals a player or team records per foul committed. \cr
+#'       general_block_foul_ratio \tab numeric \tab The average number of blocks a player or record per foul committed. \cr
+#'       general_avg_team_rebounds \tab numeric \tab The average number of rebounds for a team per game. \cr
+#'       general_total_rebounds \tab numeric \tab The total number of rebounds for a team or player. \cr
+#'       general_total_technical_fouls \tab numeric \tab The total number of technical fouls for a team or player. \cr
+#'       general_team_assist_turnover_ratio \tab numeric \tab The number of assists per turnover for a team. \cr
+#'       general_team_rebounds \tab numeric \tab The total number of rebounds for a team. \cr
+#'       general_steal_turnover_ratio \tab numeric \tab The number of steals per turnover. \cr
+#'       general_avg48rebounds \tab numeric \tab The average number of rebounds per 48 minutes. \cr
+#'       general_avg48fouls \tab numeric \tab The average number of fouls committed per 48 minutes. \cr
+#'       general_avg48flagrant_fouls \tab numeric \tab The average number of flagrant fouls committed per 48 minutes. \cr
+#'       general_avg48technical_fouls \tab numeric \tab The average number of technical fouls committed per 48 minutes. \cr
+#'       general_avg48ejections \tab numeric \tab The average number of ejections per 48 minutes. \cr
+#'       general_avg48disqualifications \tab numeric \tab The average number of disqualifications per 48 minutes. \cr
+#'       general_games_played \tab numeric \tab Games Played. \cr
+#'       general_games_started \tab numeric \tab The number of games started by an athlete. \cr
+#'       general_double_double \tab numeric \tab The number of times double digit values were accumulated in 2 of the following categories: points, rebounds, assists, steals, and blocked shots. \cr
+#'       general_triple_double \tab numeric \tab The number of times double digit values were accumulated in 3 of the following categories: points, rebounds, assists, steals, and blocked shots. \cr
+#'       offensive_assists \tab numeric \tab The number of times a player who passes the ball to a teammate in a way that leads to a score by field goal, meaning that he or she was "assisting" in the basket. There is some judgment involved in deciding whether a passer should be credited with an assist. \cr
+#'       offensive_field_goals \tab numeric \tab Field Goal makes and attempts. \cr
+#'       offensive_field_goals_attempted \tab numeric \tab The number of times a 2pt field goal was attempted. \cr
+#'       offensive_field_goals_made \tab numeric \tab The number of times a 2pt field goal was made. \cr
+#'       offensive_field_goal_pct \tab numeric \tab The ratio of field goals made to field goals attempted: FGM / FGA. \cr
+#'       offensive_free_throws \tab numeric \tab Free Throw makes and attempts. \cr
+#'       offensive_free_throw_pct \tab numeric \tab The ratio of free throws made to free throws attempted: FTM / FTA. \cr
+#'       offensive_free_throws_attempted \tab numeric \tab The number of times a free throw was attempted. \cr
+#'       offensive_free_throws_made \tab numeric \tab The number of times a free throw was made. \cr
+#'       offensive_offensive_rebounds \tab numeric \tab The number of times when the offense obtains the possession of the ball after a missed shot. \cr
+#'       offensive_points \tab numeric \tab The number of points scored. \cr
+#'       offensive_turnovers \tab numeric \tab The number of times a player loses possession to the other team. \cr
+#'       offensive_three_point_pct \tab numeric \tab The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA. \cr
+#'       offensive_three_point_field_goals_attempted \tab numeric \tab The number of times a 3pt field goal was attempted. \cr
+#'       offensive_three_point_field_goals_made \tab numeric \tab The number of times a 3pt field goal was made. \cr
+#'       offensive_team_turnovers \tab numeric \tab The number of turnovers for the team. \cr
+#'       offensive_total_turnovers \tab numeric \tab The number of turnovers plus team turnovers for the team. \cr
+#'       offensive_points_in_paint \tab numeric \tab The amount of points scored in the area known as "the Paint"(the rectangle between the foul line and the baseline). \cr
+#'       offensive_brick_index \tab numeric \tab How many points a player costs his team with his shooting compared with the league average on a per-40-minute basis. ((52.8 - TS\%) x (FGA + (FTA x 0.44))) / (Min/40) . \cr
+#'       offensive_avg_field_goals_made \tab numeric \tab The average field goals made per game. \cr
+#'       offensive_avg_field_goals_attempted \tab numeric \tab The average field goals attempted per game. \cr
+#'       offensive_avg_three_point_field_goals_made \tab numeric \tab The average three point field goals made per game. \cr
+#'       offensive_avg_three_point_field_goals_attempted \tab numeric \tab The average three point field goals attempted per game. \cr
+#'       offensive_avg_free_throws_made \tab numeric \tab The average free throw shots made per game. \cr
+#'       offensive_avg_free_throws_attempted \tab numeric \tab The average free throw shots attempted per game. \cr
+#'       offensive_avg_points \tab numeric \tab The average number of points scored per game. \cr
+#'       offensive_avg_points_allowed \tab numeric \tab The average number of points allowed per game. \cr
+#'       offensive_avg_offensive_rebounds \tab numeric \tab The average offensive rebounds per game. \cr
+#'       offensive_avg_assists \tab numeric \tab The average assists per game. \cr
+#'       offensive_avg_turnovers \tab numeric \tab The average turnovers committed per game. \cr
+#'       offensive_offensive_rebound_pct \tab numeric \tab The percentage of the number of times they obtain the possession of the ball after a missed shot. \cr
+#'       offensive_estimated_possessions \tab numeric \tab An estimation of the number of possessions for a team or player. \cr
+#'       offensive_avg_estimated_possessions \tab numeric \tab The average number of estimated possessions per game for a team or player. \cr
+#'       offensive_points_per_estimated_possessions \tab numeric \tab The number of points per estimated possession for a team or player. \cr
+#'       offensive_avg_team_turnovers \tab numeric \tab The average number of turnovers for a team per game. \cr
+#'       offensive_avg_total_turnovers \tab numeric \tab The average number of total turnovers for a team per game. \cr
+#'       offensive_three_point_field_goal_pct \tab numeric \tab The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA. \cr
+#'       offensive_two_point_field_goals_made \tab numeric \tab The number of 2-point field goals made for a team or player. \cr
+#'       offensive_two_point_field_goals_attempted \tab numeric \tab The number of 2-point field goals attempted for a team or player. \cr
+#'       offensive_avg_two_point_field_goals_made \tab numeric \tab The number of 2-point field goals made per game for a team or player. \cr
+#'       offensive_avg_two_point_field_goals_attempted \tab numeric \tab The number of 2-point field goals attempted per game for a team or player. \cr
+#'       offensive_two_point_field_goal_pct \tab numeric \tab The percentage of 2-points fields goals made by a team or player. \cr
+#'       offensive_shooting_efficiency \tab numeric \tab The efficiency with which a team or player shoots the basketball. \cr
+#'       offensive_scoring_efficiency \tab numeric \tab The efficiency with which a team or player scores the basketball. \cr
+#'       offensive_avg48field_goals_made \tab numeric \tab The average number of fieldgoals made per 48 minutes. \cr
+#'       offensive_avg48field_goals_attempted \tab numeric \tab The average number of fieldgoals attempted per 48 minutes. \cr
+#'       offensive_avg48three_point_field_goals_made \tab numeric \tab The average per number of 3-Pointers made per 48 minutes. \cr
+#'       offensive_avg48three_point_field_goals_attempted \tab numeric \tab The average number of 3-pointers attempted per 48 minutes. \cr
+#'       offensive_avg48free_throws_made \tab numeric \tab The average number of Free Throws made per 48 minutes. \cr
+#'       offensive_avg48free_throws_attempted \tab numeric \tab The average number of free throws attempted per 48 minutes. \cr
+#'       offensive_avg48points \tab numeric \tab The average number of points scored per 48 minutes. \cr
+#'       offensive_avg48offensive_rebounds \tab numeric \tab The average number of offenseive rebounds per 48 minutes. \cr
+#'       offensive_avg48assists \tab numeric \tab The average number of assists per 48 minutes. \cr
+#'       offensive_avg48turnovers \tab numeric \tab The average number of turnovers per 48 minutes. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'    
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows
@@ -1359,152 +1371,154 @@ espn_wnba_team_stats <- function(
 #' @param total (boolean, default: FALSE): Totals
 #' @return Returns a tibble with the player stats data
 #' 
-#'    |col_name                                         |types     |description                                                                                                                                                                                                                                                        |
-#'    |:------------------------------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-#'    |athlete_id                                       |integer   |Unique athlete identifier (ESPN).                                                                                                                                                                                                                                  |
-#'    |athlete_uid                                      |character |ESPN athlete UID (universal identifier).                                                                                                                                                                                                                           |
-#'    |athlete_guid                                     |character |ESPN athlete GUID.                                                                                                                                                                                                                                                 |
-#'    |athlete_type                                     |character |Athlete type / class.                                                                                                                                                                                                                                              |
-#'    |sdr                                              |integer   |Sdr.                                                                                                                                                                                                                                                               |
-#'    |first_name                                       |character |Player's first name.                                                                                                                                                                                                                                               |
-#'    |last_name                                        |character |Player's last name.                                                                                                                                                                                                                                                |
-#'    |full_name                                        |character |Player's full name.                                                                                                                                                                                                                                                |
-#'    |display_name                                     |character |Display name.                                                                                                                                                                                                                                                      |
-#'    |short_name                                       |character |Short display name.                                                                                                                                                                                                                                                |
-#'    |weight                                           |numeric   |Player weight in pounds.                                                                                                                                                                                                                                           |
-#'    |display_weight                                   |character |Player weight in display format (e.g. '180 lbs').                                                                                                                                                                                                                  |
-#'    |height                                           |numeric   |Player height (string e.g. '6-2' or inches).                                                                                                                                                                                                                       |
-#'    |display_height                                   |character |Player height in display format (e.g. '6-2').                                                                                                                                                                                                                      |
-#'    |age                                              |integer   |Player age (in years).                                                                                                                                                                                                                                             |
-#'    |date_of_birth                                    |character |Date of birth (YYYY-MM-DD).                                                                                                                                                                                                                                        |
-#'    |slug                                             |character |URL-safe identifier.                                                                                                                                                                                                                                               |
-#'    |headshot_href                                    |character |Headshot image URL.                                                                                                                                                                                                                                                |
-#'    |headshot_alt                                     |character |Alternative-text label for the headshot.                                                                                                                                                                                                                           |
-#'    |position_id                                      |integer   |Unique position identifier.                                                                                                                                                                                                                                        |
-#'    |position_name                                    |character |Listed roster position ('Guard', 'Forward', 'Center').                                                                                                                                                                                                             |
-#'    |position_display_name                            |character |Position display name.                                                                                                                                                                                                                                             |
-#'    |position_abbreviation                            |character |Position abbreviation ('G' / 'F' / 'C').                                                                                                                                                                                                                           |
-#'    |position_leaf                                    |logical   |Position leaf.                                                                                                                                                                                                                                                     |
-#'    |linked                                           |logical   |TRUE if the record is linked to a related entity.                                                                                                                                                                                                                  |
-#'    |years                                            |integer   |Years.                                                                                                                                                                                                                                                             |
-#'    |active                                           |logical   |TRUE if the row represents an active record (player / team / season).                                                                                                                                                                                              |
-#'    |status_id                                        |integer   |Status identifier.                                                                                                                                                                                                                                                 |
-#'    |status_name                                      |character |Status label.                                                                                                                                                                                                                                                      |
-#'    |status_type                                      |character |Status type.                                                                                                                                                                                                                                                       |
-#'    |status_abbreviation                              |character |Status abbreviation.                                                                                                                                                                                                                                               |
-#'    |defensive_blocks                                 |numeric   |Short for blocked shot, number of times when a defensive player legally deflects a field goal attempt from an offensive player.                                                                                                                                    |
-#'    |defensive_defensive_rebounds                     |numeric   |The number of times when the defense obtains the possession of the ball after a missed shot by the offense.                                                                                                                                                        |
-#'    |defensive_steals                                 |numeric   |The number of times a defensive player forced a turnover by intercepting or deflecting a pass or a dribble of an offensive player.                                                                                                                                 |
-#'    |defensive_avg_defensive_rebounds                 |numeric   |The average defensive rebounds per game.                                                                                                                                                                                                                           |
-#'    |defensive_avg_blocks                             |numeric   |The average blocks per game.                                                                                                                                                                                                                                       |
-#'    |defensive_avg_steals                             |numeric   |The average steals per game.                                                                                                                                                                                                                                       |
-#'    |defensive_avg48defensive_rebounds                |numeric   |The average number of defensive rebounds per 48 minutes.                                                                                                                                                                                                           |
-#'    |defensive_avg48blocks                            |numeric   |The average number of blocks per 48 minutes.                                                                                                                                                                                                                       |
-#'    |defensive_avg48steals                            |numeric   |The average number of steals per 48 minutes.                                                                                                                                                                                                                       |
-#'    |general_disqualifications                        |numeric   |The number of times a player reached the foul limit.                                                                                                                                                                                                               |
-#'    |general_flagrant_fouls                           |numeric   |The number of fouls that the officials thought were unnecessary or excessive.                                                                                                                                                                                      |
-#'    |general_fouls                                    |numeric   |The number of times a player had illegal contact with the opponent.                                                                                                                                                                                                |
-#'    |general_ejections                                |numeric   |The number of times a player or coach is removed from the game as a result of a serious offense.                                                                                                                                                                   |
-#'    |general_technical_fouls                          |numeric   |The number of times an player or coach was called for a technical foul (unsportsmanlike conduct or violations).                                                                                                                                                    |
-#'    |general_rebounds                                 |numeric   |The total number of rebounds (offensive and defensive).                                                                                                                                                                                                            |
-#'    |general_vorp                                     |numeric   |Value Over Replacement Player.                                                                                                                                                                                                                                     |
-#'    |general_minutes                                  |numeric   |The total number of minutes played.                                                                                                                                                                                                                                |
-#'    |general_avg_minutes                              |numeric   |The average number of minutes per game.                                                                                                                                                                                                                            |
-#'    |general_fantasy_rating                           |numeric   |The Fantasy Rating of a player.                                                                                                                                                                                                                                    |
-#'    |general_nba_rating                               |numeric   |General nba rating.                                                                                                                                                                                                                                                |
-#'    |general_plus_minus                               |numeric   |A player's estimated on-court impact on team performance measured in point differential per 100 possessions.                                                                                                                                                       |
-#'    |general_avg_rebounds                             |numeric   |The average rebounds per game.                                                                                                                                                                                                                                     |
-#'    |general_avg_fouls                                |numeric   |The average fouls committed per game.                                                                                                                                                                                                                              |
-#'    |general_avg_flagrant_fouls                       |numeric   |The average number of flagrant fouls per game.                                                                                                                                                                                                                     |
-#'    |general_avg_technical_fouls                      |numeric   |The average number of technical fouls per game.                                                                                                                                                                                                                    |
-#'    |general_avg_ejections                            |numeric   |The average ejections per game.                                                                                                                                                                                                                                    |
-#'    |general_avg_disqualifications                    |numeric   |The average number of disqualifications per game.                                                                                                                                                                                                                  |
-#'    |general_assist_turnover_ratio                    |numeric   |The average number of assists a player or team records per turnover.                                                                                                                                                                                               |
-#'    |general_steal_foul_ratio                         |numeric   |The average number of steals a player or team records per foul committed.                                                                                                                                                                                          |
-#'    |general_block_foul_ratio                         |numeric   |The average number of blocks a player or record per foul committed.                                                                                                                                                                                                |
-#'    |general_avg_team_rebounds                        |numeric   |The average number of rebounds for a team per game.                                                                                                                                                                                                                |
-#'    |general_total_rebounds                           |numeric   |The total number of rebounds for a team or player.                                                                                                                                                                                                                 |
-#'    |general_total_technical_fouls                    |numeric   |The total number of technical fouls for a team or player.                                                                                                                                                                                                          |
-#'    |general_team_assist_turnover_ratio               |numeric   |The number of assists per turnover for a team.                                                                                                                                                                                                                     |
-#'    |general_steal_turnover_ratio                     |numeric   |The number of steals per turnover.                                                                                                                                                                                                                                 |
-#'    |general_avg48rebounds                            |numeric   |The average number of rebounds per 48 minutes.                                                                                                                                                                                                                     |
-#'    |general_avg48fouls                               |numeric   |The average number of fouls committed per 48 minutes.                                                                                                                                                                                                              |
-#'    |general_avg48flagrant_fouls                      |numeric   |The average number of flagrant fouls committed per 48 minutes.                                                                                                                                                                                                     |
-#'    |general_avg48technical_fouls                     |numeric   |The average number of technical fouls committed per 48 minutes.                                                                                                                                                                                                    |
-#'    |general_avg48ejections                           |numeric   |The average number of ejections per 48 minutes.                                                                                                                                                                                                                    |
-#'    |general_avg48disqualifications                   |numeric   |The average number of disqualifications per 48 minutes.                                                                                                                                                                                                            |
-#'    |general_games_played                             |numeric   |Games Played.                                                                                                                                                                                                                                                      |
-#'    |general_games_started                            |numeric   |The number of games started by an athlete.                                                                                                                                                                                                                         |
-#'    |general_double_double                            |numeric   |The number of times double digit values were accumulated in 2 of the following categories: points, rebounds, assists, steals, and blocked shots.                                                                                                                   |
-#'    |general_triple_double                            |numeric   |The number of times double digit values were accumulated in 3 of the following categories: points, rebounds, assists, steals, and blocked shots.                                                                                                                   |
-#'    |offensive_assists                                |numeric   |The number of times a player who passes the ball to a teammate in a way that leads to a score by field goal, meaning that he or she was "assisting" in the basket. There is some judgment involved in deciding whether a passer should be credited with an assist. |
-#'    |offensive_field_goals                            |numeric   |Field Goal makes and attempts.                                                                                                                                                                                                                                     |
-#'    |offensive_field_goals_attempted                  |numeric   |The number of times a 2pt field goal was attempted.                                                                                                                                                                                                                |
-#'    |offensive_field_goals_made                       |numeric   |The number of times a 2pt field goal was made.                                                                                                                                                                                                                     |
-#'    |offensive_field_goal_pct                         |numeric   |The ratio of field goals made to field goals attempted: FGM / FGA.                                                                                                                                                                                                 |
-#'    |offensive_free_throws                            |numeric   |Free Throw makes and attempts.                                                                                                                                                                                                                                     |
-#'    |offensive_free_throw_pct                         |numeric   |The ratio of free throws made to free throws attempted: FTM / FTA.                                                                                                                                                                                                 |
-#'    |offensive_free_throws_attempted                  |numeric   |The number of times a free throw was attempted.                                                                                                                                                                                                                    |
-#'    |offensive_free_throws_made                       |numeric   |The number of times a free throw was made.                                                                                                                                                                                                                         |
-#'    |offensive_offensive_rebounds                     |numeric   |The number of times when the offense obtains the possession of the ball after a missed shot.                                                                                                                                                                       |
-#'    |offensive_points                                 |numeric   |The number of points scored.                                                                                                                                                                                                                                       |
-#'    |offensive_turnovers                              |numeric   |The number of times a player loses possession to the other team.                                                                                                                                                                                                   |
-#'    |offensive_three_point_pct                        |numeric   |The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA.                                                                                                                                                                                         |
-#'    |offensive_three_point_field_goals_attempted      |numeric   |The number of times a 3pt field goal was attempted.                                                                                                                                                                                                                |
-#'    |offensive_three_point_field_goals_made           |numeric   |The number of times a 3pt field goal was made.                                                                                                                                                                                                                     |
-#'    |offensive_total_turnovers                        |numeric   |The number of turnovers plus team turnovers for the team.                                                                                                                                                                                                          |
-#'    |offensive_points_in_paint                        |numeric   |The amount of points scored in the area known as "the Paint"(the rectangle between the foul line and the baseline).                                                                                                                                                |
-#'    |offensive_brick_index                            |numeric   |How many points a player costs his team with his shooting compared with the league average on a per-40-minute basis. ((52.8 - TS%) x (FGA + (FTA x 0.44))) / (Min/40) .                                                                                            |
-#'    |offensive_avg_field_goals_made                   |numeric   |The average field goals made per game.                                                                                                                                                                                                                             |
-#'    |offensive_avg_field_goals_attempted              |numeric   |The average field goals attempted per game.                                                                                                                                                                                                                        |
-#'    |offensive_avg_three_point_field_goals_made       |numeric   |The average three point field goals made per game.                                                                                                                                                                                                                 |
-#'    |offensive_avg_three_point_field_goals_attempted  |numeric   |The average three point field goals attempted per game.                                                                                                                                                                                                            |
-#'    |offensive_avg_free_throws_made                   |numeric   |The average free throw shots made per game.                                                                                                                                                                                                                        |
-#'    |offensive_avg_free_throws_attempted              |numeric   |The average free throw shots attempted per game.                                                                                                                                                                                                                   |
-#'    |offensive_avg_points                             |numeric   |The average number of points scored per game.                                                                                                                                                                                                                      |
-#'    |offensive_avg_offensive_rebounds                 |numeric   |The average offensive rebounds per game.                                                                                                                                                                                                                           |
-#'    |offensive_avg_assists                            |numeric   |The average assists per game.                                                                                                                                                                                                                                      |
-#'    |offensive_avg_turnovers                          |numeric   |The average turnovers committed per game.                                                                                                                                                                                                                          |
-#'    |offensive_offensive_rebound_pct                  |numeric   |The percentage of the number of times they obtain the possession of the ball after a missed shot.                                                                                                                                                                  |
-#'    |offensive_estimated_possessions                  |numeric   |An estimation of the number of possessions for a team or player.                                                                                                                                                                                                   |
-#'    |offensive_avg_estimated_possessions              |numeric   |The average number of estimated possessions per game for a team or player.                                                                                                                                                                                         |
-#'    |offensive_points_per_estimated_possessions       |numeric   |The number of points per estimated possession for a team or player.                                                                                                                                                                                                |
-#'    |offensive_avg_team_turnovers                     |numeric   |The average number of turnovers for a team per game.                                                                                                                                                                                                               |
-#'    |offensive_avg_total_turnovers                    |numeric   |The average number of total turnovers for a team per game.                                                                                                                                                                                                         |
-#'    |offensive_three_point_field_goal_pct             |numeric   |The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA.                                                                                                                                                                                         |
-#'    |offensive_two_point_field_goals_made             |numeric   |The number of 2-point field goals made for a team or player.                                                                                                                                                                                                       |
-#'    |offensive_two_point_field_goals_attempted        |numeric   |The number of 2-point field goals attempted for a team or player.                                                                                                                                                                                                  |
-#'    |offensive_avg_two_point_field_goals_made         |numeric   |The number of 2-point field goals made per game for a team or player.                                                                                                                                                                                              |
-#'    |offensive_avg_two_point_field_goals_attempted    |numeric   |The number of 2-point field goals attempted per game for a team or player.                                                                                                                                                                                         |
-#'    |offensive_two_point_field_goal_pct               |numeric   |The percentage of 2-points fields goals made by a team or player.                                                                                                                                                                                                  |
-#'    |offensive_shooting_efficiency                    |numeric   |The efficiency with which a team or player shoots the basketball.                                                                                                                                                                                                  |
-#'    |offensive_scoring_efficiency                     |numeric   |The efficiency with which a team or player scores the basketball.                                                                                                                                                                                                  |
-#'    |offensive_avg48field_goals_made                  |numeric   |The average number of fieldgoals made per 48 minutes.                                                                                                                                                                                                              |
-#'    |offensive_avg48field_goals_attempted             |numeric   |The average number of fieldgoals attempted per 48 minutes.                                                                                                                                                                                                         |
-#'    |offensive_avg48three_point_field_goals_made      |numeric   |The average per number of 3-Pointers made per 48 minutes.                                                                                                                                                                                                          |
-#'    |offensive_avg48three_point_field_goals_attempted |numeric   |The average number of 3-pointers attempted per 48 minutes.                                                                                                                                                                                                         |
-#'    |offensive_avg48free_throws_made                  |numeric   |The average number of Free Throws made per 48 minutes.                                                                                                                                                                                                             |
-#'    |offensive_avg48free_throws_attempted             |numeric   |The average number of free throws attempted per 48 minutes.                                                                                                                                                                                                        |
-#'    |offensive_avg48points                            |numeric   |The average number of points scored per 48 minutes.                                                                                                                                                                                                                |
-#'    |offensive_avg48offensive_rebounds                |numeric   |The average number of offenseive rebounds per 48 minutes.                                                                                                                                                                                                          |
-#'    |offensive_avg48assists                           |numeric   |The average number of assists per 48 minutes.                                                                                                                                                                                                                      |
-#'    |offensive_avg48turnovers                         |numeric   |The average number of turnovers per 48 minutes.                                                                                                                                                                                                                    |
-#'    |team_id                                          |integer   |Unique team identifier.                                                                                                                                                                                                                                            |
-#'    |team_guid                                        |character |ESPN team GUID.                                                                                                                                                                                                                                                    |
-#'    |team_uid                                         |character |ESPN universal team identifier (UID format 's:40~l:...~t:...').                                                                                                                                                                                                    |
-#'    |team_sdr                                         |integer   |ESPN team SDR identifier.                                                                                                                                                                                                                                          |
-#'    |team_slug                                        |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                                                                                                                                                                                                          |
-#'    |team_location                                    |character |Team city or location string.                                                                                                                                                                                                                                      |
-#'    |team_name                                        |character |Full team display name (e.g. 'Las Vegas Aces').                                                                                                                                                                                                                    |
-#'    |team_abbreviation                                |character |Short team abbreviation (e.g. 'LAS').                                                                                                                                                                                                                              |
-#'    |team_display_name                                |character |Full team display name.                                                                                                                                                                                                                                            |
-#'    |team_short_display_name                          |character |Short team display name (e.g. 'Aces').                                                                                                                                                                                                                             |
-#'    |team_color                                       |character |Team primary color (hex without leading '#').                                                                                                                                                                                                                      |
-#'    |team_alternate_color                             |character |Team alternate color (hex without leading '#').                                                                                                                                                                                                                    |
-#'    |team_is_active                                   |logical   |TRUE if the team is currently active.                                                                                                                                                                                                                              |
-#'    |team_is_all_star                                 |logical   |TRUE if the row represents an All-Star team.                                                                                                                                                                                                                       |
-#'    |logo_href                                        |character |Team or league logo URL.                                                                                                                                                                                                                                           |
-#'    |logo_dark_href                                   |character |Logo URL for dark backgrounds.                                                                                                                                                                                                                                     |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       athlete_id \tab integer \tab Unique athlete identifier (ESPN). \cr
+#'       athlete_uid \tab character \tab ESPN athlete UID (universal identifier). \cr
+#'       athlete_guid \tab character \tab ESPN athlete GUID. \cr
+#'       athlete_type \tab character \tab Athlete type / class. \cr
+#'       sdr \tab integer \tab Sdr. \cr
+#'       first_name \tab character \tab Player's first name. \cr
+#'       last_name \tab character \tab Player's last name. \cr
+#'       full_name \tab character \tab Player's full name. \cr
+#'       display_name \tab character \tab Display name. \cr
+#'       short_name \tab character \tab Short display name. \cr
+#'       weight \tab numeric \tab Player weight in pounds. \cr
+#'       display_weight \tab character \tab Player weight in display format (e.g. '180 lbs'). \cr
+#'       height \tab numeric \tab Player height (string e.g. '6-2' or inches). \cr
+#'       display_height \tab character \tab Player height in display format (e.g. '6-2'). \cr
+#'       age \tab integer \tab Player age (in years). \cr
+#'       date_of_birth \tab character \tab Date of birth (YYYY-MM-DD). \cr
+#'       slug \tab character \tab URL-safe identifier. \cr
+#'       headshot_href \tab character \tab Headshot image URL. \cr
+#'       headshot_alt \tab character \tab Alternative-text label for the headshot. \cr
+#'       position_id \tab integer \tab Unique position identifier. \cr
+#'       position_name \tab character \tab Listed roster position ('Guard', 'Forward', 'Center'). \cr
+#'       position_display_name \tab character \tab Position display name. \cr
+#'       position_abbreviation \tab character \tab Position abbreviation ('G' / 'F' / 'C'). \cr
+#'       position_leaf \tab logical \tab Position leaf. \cr
+#'       linked \tab logical \tab TRUE if the record is linked to a related entity. \cr
+#'       years \tab integer \tab Years. \cr
+#'       active \tab logical \tab TRUE if the row represents an active record (player / team / season). \cr
+#'       status_id \tab integer \tab Status identifier. \cr
+#'       status_name \tab character \tab Status label. \cr
+#'       status_type \tab character \tab Status type. \cr
+#'       status_abbreviation \tab character \tab Status abbreviation. \cr
+#'       defensive_blocks \tab numeric \tab Short for blocked shot, number of times when a defensive player legally deflects a field goal attempt from an offensive player. \cr
+#'       defensive_defensive_rebounds \tab numeric \tab The number of times when the defense obtains the possession of the ball after a missed shot by the offense. \cr
+#'       defensive_steals \tab numeric \tab The number of times a defensive player forced a turnover by intercepting or deflecting a pass or a dribble of an offensive player. \cr
+#'       defensive_avg_defensive_rebounds \tab numeric \tab The average defensive rebounds per game. \cr
+#'       defensive_avg_blocks \tab numeric \tab The average blocks per game. \cr
+#'       defensive_avg_steals \tab numeric \tab The average steals per game. \cr
+#'       defensive_avg48defensive_rebounds \tab numeric \tab The average number of defensive rebounds per 48 minutes. \cr
+#'       defensive_avg48blocks \tab numeric \tab The average number of blocks per 48 minutes. \cr
+#'       defensive_avg48steals \tab numeric \tab The average number of steals per 48 minutes. \cr
+#'       general_disqualifications \tab numeric \tab The number of times a player reached the foul limit. \cr
+#'       general_flagrant_fouls \tab numeric \tab The number of fouls that the officials thought were unnecessary or excessive. \cr
+#'       general_fouls \tab numeric \tab The number of times a player had illegal contact with the opponent. \cr
+#'       general_ejections \tab numeric \tab The number of times a player or coach is removed from the game as a result of a serious offense. \cr
+#'       general_technical_fouls \tab numeric \tab The number of times an player or coach was called for a technical foul (unsportsmanlike conduct or violations). \cr
+#'       general_rebounds \tab numeric \tab The total number of rebounds (offensive and defensive). \cr
+#'       general_vorp \tab numeric \tab Value Over Replacement Player. \cr
+#'       general_minutes \tab numeric \tab The total number of minutes played. \cr
+#'       general_avg_minutes \tab numeric \tab The average number of minutes per game. \cr
+#'       general_fantasy_rating \tab numeric \tab The Fantasy Rating of a player. \cr
+#'       general_nba_rating \tab numeric \tab General nba rating. \cr
+#'       general_plus_minus \tab numeric \tab A player's estimated on-court impact on team performance measured in point differential per 100 possessions. \cr
+#'       general_avg_rebounds \tab numeric \tab The average rebounds per game. \cr
+#'       general_avg_fouls \tab numeric \tab The average fouls committed per game. \cr
+#'       general_avg_flagrant_fouls \tab numeric \tab The average number of flagrant fouls per game. \cr
+#'       general_avg_technical_fouls \tab numeric \tab The average number of technical fouls per game. \cr
+#'       general_avg_ejections \tab numeric \tab The average ejections per game. \cr
+#'       general_avg_disqualifications \tab numeric \tab The average number of disqualifications per game. \cr
+#'       general_assist_turnover_ratio \tab numeric \tab The average number of assists a player or team records per turnover. \cr
+#'       general_steal_foul_ratio \tab numeric \tab The average number of steals a player or team records per foul committed. \cr
+#'       general_block_foul_ratio \tab numeric \tab The average number of blocks a player or record per foul committed. \cr
+#'       general_avg_team_rebounds \tab numeric \tab The average number of rebounds for a team per game. \cr
+#'       general_total_rebounds \tab numeric \tab The total number of rebounds for a team or player. \cr
+#'       general_total_technical_fouls \tab numeric \tab The total number of technical fouls for a team or player. \cr
+#'       general_team_assist_turnover_ratio \tab numeric \tab The number of assists per turnover for a team. \cr
+#'       general_steal_turnover_ratio \tab numeric \tab The number of steals per turnover. \cr
+#'       general_avg48rebounds \tab numeric \tab The average number of rebounds per 48 minutes. \cr
+#'       general_avg48fouls \tab numeric \tab The average number of fouls committed per 48 minutes. \cr
+#'       general_avg48flagrant_fouls \tab numeric \tab The average number of flagrant fouls committed per 48 minutes. \cr
+#'       general_avg48technical_fouls \tab numeric \tab The average number of technical fouls committed per 48 minutes. \cr
+#'       general_avg48ejections \tab numeric \tab The average number of ejections per 48 minutes. \cr
+#'       general_avg48disqualifications \tab numeric \tab The average number of disqualifications per 48 minutes. \cr
+#'       general_games_played \tab numeric \tab Games Played. \cr
+#'       general_games_started \tab numeric \tab The number of games started by an athlete. \cr
+#'       general_double_double \tab numeric \tab The number of times double digit values were accumulated in 2 of the following categories: points, rebounds, assists, steals, and blocked shots. \cr
+#'       general_triple_double \tab numeric \tab The number of times double digit values were accumulated in 3 of the following categories: points, rebounds, assists, steals, and blocked shots. \cr
+#'       offensive_assists \tab numeric \tab The number of times a player who passes the ball to a teammate in a way that leads to a score by field goal, meaning that he or she was "assisting" in the basket. There is some judgment involved in deciding whether a passer should be credited with an assist. \cr
+#'       offensive_field_goals \tab numeric \tab Field Goal makes and attempts. \cr
+#'       offensive_field_goals_attempted \tab numeric \tab The number of times a 2pt field goal was attempted. \cr
+#'       offensive_field_goals_made \tab numeric \tab The number of times a 2pt field goal was made. \cr
+#'       offensive_field_goal_pct \tab numeric \tab The ratio of field goals made to field goals attempted: FGM / FGA. \cr
+#'       offensive_free_throws \tab numeric \tab Free Throw makes and attempts. \cr
+#'       offensive_free_throw_pct \tab numeric \tab The ratio of free throws made to free throws attempted: FTM / FTA. \cr
+#'       offensive_free_throws_attempted \tab numeric \tab The number of times a free throw was attempted. \cr
+#'       offensive_free_throws_made \tab numeric \tab The number of times a free throw was made. \cr
+#'       offensive_offensive_rebounds \tab numeric \tab The number of times when the offense obtains the possession of the ball after a missed shot. \cr
+#'       offensive_points \tab numeric \tab The number of points scored. \cr
+#'       offensive_turnovers \tab numeric \tab The number of times a player loses possession to the other team. \cr
+#'       offensive_three_point_pct \tab numeric \tab The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA. \cr
+#'       offensive_three_point_field_goals_attempted \tab numeric \tab The number of times a 3pt field goal was attempted. \cr
+#'       offensive_three_point_field_goals_made \tab numeric \tab The number of times a 3pt field goal was made. \cr
+#'       offensive_total_turnovers \tab numeric \tab The number of turnovers plus team turnovers for the team. \cr
+#'       offensive_points_in_paint \tab numeric \tab The amount of points scored in the area known as "the Paint"(the rectangle between the foul line and the baseline). \cr
+#'       offensive_brick_index \tab numeric \tab How many points a player costs his team with his shooting compared with the league average on a per-40-minute basis. ((52.8 - TS\%) x (FGA + (FTA x 0.44))) / (Min/40) . \cr
+#'       offensive_avg_field_goals_made \tab numeric \tab The average field goals made per game. \cr
+#'       offensive_avg_field_goals_attempted \tab numeric \tab The average field goals attempted per game. \cr
+#'       offensive_avg_three_point_field_goals_made \tab numeric \tab The average three point field goals made per game. \cr
+#'       offensive_avg_three_point_field_goals_attempted \tab numeric \tab The average three point field goals attempted per game. \cr
+#'       offensive_avg_free_throws_made \tab numeric \tab The average free throw shots made per game. \cr
+#'       offensive_avg_free_throws_attempted \tab numeric \tab The average free throw shots attempted per game. \cr
+#'       offensive_avg_points \tab numeric \tab The average number of points scored per game. \cr
+#'       offensive_avg_offensive_rebounds \tab numeric \tab The average offensive rebounds per game. \cr
+#'       offensive_avg_assists \tab numeric \tab The average assists per game. \cr
+#'       offensive_avg_turnovers \tab numeric \tab The average turnovers committed per game. \cr
+#'       offensive_offensive_rebound_pct \tab numeric \tab The percentage of the number of times they obtain the possession of the ball after a missed shot. \cr
+#'       offensive_estimated_possessions \tab numeric \tab An estimation of the number of possessions for a team or player. \cr
+#'       offensive_avg_estimated_possessions \tab numeric \tab The average number of estimated possessions per game for a team or player. \cr
+#'       offensive_points_per_estimated_possessions \tab numeric \tab The number of points per estimated possession for a team or player. \cr
+#'       offensive_avg_team_turnovers \tab numeric \tab The average number of turnovers for a team per game. \cr
+#'       offensive_avg_total_turnovers \tab numeric \tab The average number of total turnovers for a team per game. \cr
+#'       offensive_three_point_field_goal_pct \tab numeric \tab The ratio of 3pt field goals made to 3pt field goals attempted: 3PM / 3PA. \cr
+#'       offensive_two_point_field_goals_made \tab numeric \tab The number of 2-point field goals made for a team or player. \cr
+#'       offensive_two_point_field_goals_attempted \tab numeric \tab The number of 2-point field goals attempted for a team or player. \cr
+#'       offensive_avg_two_point_field_goals_made \tab numeric \tab The number of 2-point field goals made per game for a team or player. \cr
+#'       offensive_avg_two_point_field_goals_attempted \tab numeric \tab The number of 2-point field goals attempted per game for a team or player. \cr
+#'       offensive_two_point_field_goal_pct \tab numeric \tab The percentage of 2-points fields goals made by a team or player. \cr
+#'       offensive_shooting_efficiency \tab numeric \tab The efficiency with which a team or player shoots the basketball. \cr
+#'       offensive_scoring_efficiency \tab numeric \tab The efficiency with which a team or player scores the basketball. \cr
+#'       offensive_avg48field_goals_made \tab numeric \tab The average number of fieldgoals made per 48 minutes. \cr
+#'       offensive_avg48field_goals_attempted \tab numeric \tab The average number of fieldgoals attempted per 48 minutes. \cr
+#'       offensive_avg48three_point_field_goals_made \tab numeric \tab The average per number of 3-Pointers made per 48 minutes. \cr
+#'       offensive_avg48three_point_field_goals_attempted \tab numeric \tab The average number of 3-pointers attempted per 48 minutes. \cr
+#'       offensive_avg48free_throws_made \tab numeric \tab The average number of Free Throws made per 48 minutes. \cr
+#'       offensive_avg48free_throws_attempted \tab numeric \tab The average number of free throws attempted per 48 minutes. \cr
+#'       offensive_avg48points \tab numeric \tab The average number of points scored per 48 minutes. \cr
+#'       offensive_avg48offensive_rebounds \tab numeric \tab The average number of offenseive rebounds per 48 minutes. \cr
+#'       offensive_avg48assists \tab numeric \tab The average number of assists per 48 minutes. \cr
+#'       offensive_avg48turnovers \tab numeric \tab The average number of turnovers per 48 minutes. \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team_guid \tab character \tab ESPN team GUID. \cr
+#'       team_uid \tab character \tab ESPN universal team identifier (UID format 's:40~l:...~t:...'). \cr
+#'       team_sdr \tab integer \tab ESPN team SDR identifier. \cr
+#'       team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+#'       team_location \tab character \tab Team city or location string. \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+#'       team_display_name \tab character \tab Full team display name. \cr
+#'       team_short_display_name \tab character \tab Short team display name (e.g. 'Aces'). \cr
+#'       team_color \tab character \tab Team primary color (hex without leading '#'). \cr
+#'       team_alternate_color \tab character \tab Team alternate color (hex without leading '#'). \cr
+#'       team_is_active \tab logical \tab TRUE if the team is currently active. \cr
+#'       team_is_all_star \tab logical \tab TRUE if the row represents an All-Star team. \cr
+#'       logo_href \tab character \tab Team or league logo URL. \cr
+#'       logo_dark_href \tab character \tab Logo URL for dark backgrounds. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'    
 #' @export
 #' @keywords WNBA Player Stats
@@ -1968,6 +1982,7 @@ helper_espn_wnba_pbp <- function(resp){
 }
 
 #'  **Parse ESPN WNBA Team Box, helper function**
+#' @rdname helper_espn_wnba_pbp
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
 #' @importFrom lubridate with_tz ymd_hm
@@ -2186,6 +2201,7 @@ helper_espn_wnba_team_box <- function(resp){
 }
 
 #'  **Parse ESPN WNBA Player Box, helper function**
+#' @rdname helper_espn_wnba_pbp
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
 #' @importFrom lubridate with_tz ymd_hm

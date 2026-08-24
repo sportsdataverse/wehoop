@@ -2,19 +2,25 @@
 % Please edit documentation in R/espn_wbb_team_detail.R
 \name{espn_wbb_team}
 \alias{espn_wbb_team}
+\alias{espn_wbb_team_roster}
+\alias{espn_wbb_team_leaders}
+\alias{espn_wbb_team_season_profile}
 \title{\strong{Get ESPN Women's College Basketball Team Detail}}
 \usage{
 espn_wbb_team(team_id, season = most_recent_wbb_season(), ...)
+
+espn_wbb_team_roster(team_id, season = most_recent_wbb_season(), ...)
+
+espn_wbb_team_leaders(team_id, season = most_recent_wbb_season(), ...)
+
+espn_wbb_team_season_profile(team_id, season = most_recent_wbb_season(), ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric).}
 
-\item{season}{Season year (numeric, e.g. 2025). Defaults to the most
-recent WBB season.}
+\item{season}{Season year (numeric). Defaults to the most recent WBB season.}
 
-\item{...}{Additional arguments; currently unused but retained for
-forward compatibility. Proxy configuration should use
-\code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
+\item{...}{Additional arguments; currently unused.}
 }
 \value{
 A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},
@@ -49,15 +55,67 @@ Columns as documented in the shared \link{espn_basketball_player_overview_next_g
    last_name \tab character \tab Player's last name. \cr
    experience \tab integer \tab Years of professional experience. \cr
 }
+
+A single tibble with one row per athlete.
+
+Columns as documented in the shared \link{espn_basketball_team_roster_schema} table.
+
+A single long-format tibble (one row per category-rank-athlete).
+
+Columns as documented in the shared \link{espn_basketball_team_leaders_schema} table.
+
+A single-row tibble with team identity scalars and \verb{_ref} URL
+columns. Selected columns:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      id \tab character \tab ESPN team identifier. \cr
+      guid \tab character \tab Stable cross-league team GUID. \cr
+      uid \tab character \tab ESPN UID string. \cr
+      slug \tab character \tab URL-safe identifier. \cr
+      location \tab character \tab School/program location (e.g. "UConn"). \cr
+      name \tab character \tab Team name (e.g. "Huskies"). \cr
+      nickname \tab character \tab Common nickname (often same as location). \cr
+      abbreviation \tab character \tab Short abbreviation (e.g. "CONN"). \cr
+      display_name \tab character \tab Full display name. \cr
+      short_display_name \tab character \tab Short display name. \cr
+      color \tab character \tab Primary color (hex, no leading '#'). \cr
+      alternate_color \tab character \tab Alternate color (hex, no leading '#'). \cr
+      is_active \tab logical \tab Whether the team was active in this season. \cr
+      season \tab integer \tab Season year. \cr
+      logo \tab character \tab Primary logo URL. \cr
+      logo_dark \tab character \tab Dark-mode logo URL. \cr
+      record_ref \tab character \tab \verb{$ref} to team record resource. \cr
+      statistics_ref \tab character \tab \verb{$ref} to team statistics resource. \cr
+      athletes_ref \tab character \tab \verb{$ref} to team roster resource (college-only). \cr
+      college_ref \tab character \tab \verb{$ref} to college (institution) resource. \cr
+      coaches_ref \tab character \tab \verb{$ref} to team coaches resource. \cr
+      franchise_ref \tab character \tab \verb{$ref} to franchise resource. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
-\strong{Get ESPN Women's College Basketball Team Detail}
+Era-correct team identity for a women's college basketball program in a
+specific season, plus the available \verb{$ref} URLs for deeper resources
+(record, statistics, leaders, athletes/roster, coaches, college, etc.).
+Backed by the core-v2 endpoint
+\code{sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/{season}/teams/{team_id}}.
 
-\strong{Get ESPN Women's College Basketball Team Detail}
+Historical depth goes back to \strong{1982} at ESPN (NCAA-tournament-era
+forward). Older seasons return fewer \verb{$ref} keys; missing refs become \code{NA}.
 }
 \examples{
 \donttest{
   espn_wbb_team(team_id = "2509", season = 2025)
+}
+\donttest{
+  espn_wbb_team_roster(team_id = "2509", season = 2025)
+}
+\donttest{
+  espn_wbb_team_leaders(team_id = "2509", season = 2025)
+}
+\donttest{
+  espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 }
 }
 \seealso{
@@ -73,43 +131,25 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_franchise]{espn_wbb_franchise()}},
 \code{\link[=espn_wbb_franchises]{espn_wbb_franchises()}},
 \code{\link[=espn_wbb_game_all]{espn_wbb_game_all()}},
-\code{\link[=espn_wbb_game_broadcasts]{espn_wbb_game_broadcasts()}},
 \code{\link[=espn_wbb_game_odds]{espn_wbb_game_odds()}},
 \code{\link[=espn_wbb_game_official_detail]{espn_wbb_game_official_detail()}},
-\code{\link[=espn_wbb_game_officials]{espn_wbb_game_officials()}},
 \code{\link[=espn_wbb_game_play]{espn_wbb_game_play()}},
 \code{\link[=espn_wbb_game_play_personnel]{espn_wbb_game_play_personnel()}},
 \code{\link[=espn_wbb_game_player_box]{espn_wbb_game_player_box()}},
-\code{\link[=espn_wbb_game_powerindex]{espn_wbb_game_powerindex()}},
-\code{\link[=espn_wbb_game_predictor]{espn_wbb_game_predictor()}},
 \code{\link[=espn_wbb_game_probabilities]{espn_wbb_game_probabilities()}},
 \code{\link[=espn_wbb_game_propbets]{espn_wbb_game_propbets()}},
-\code{\link[=espn_wbb_game_rosters]{espn_wbb_game_rosters()}},
-\code{\link[=espn_wbb_game_situation]{espn_wbb_game_situation()}},
-\code{\link[=espn_wbb_game_team_leaders]{espn_wbb_game_team_leaders()}},
 \code{\link[=espn_wbb_game_team_linescores]{espn_wbb_game_team_linescores()}},
-\code{\link[=espn_wbb_game_team_records]{espn_wbb_game_team_records()}},
-\code{\link[=espn_wbb_game_team_roster]{espn_wbb_game_team_roster()}},
 \code{\link[=espn_wbb_game_team_roster_entry]{espn_wbb_game_team_roster_entry()}},
-\code{\link[=espn_wbb_game_team_score]{espn_wbb_game_team_score()}},
-\code{\link[=espn_wbb_game_team_statistics]{espn_wbb_game_team_statistics()}},
 \code{\link[=espn_wbb_injuries]{espn_wbb_injuries()}},
 \code{\link[=espn_wbb_leaders]{espn_wbb_leaders()}},
 \code{\link[=espn_wbb_news]{espn_wbb_news()}},
-\code{\link[=espn_wbb_pbp]{espn_wbb_pbp()}},
 \code{\link[=espn_wbb_player_awards]{espn_wbb_player_awards()}},
-\code{\link[=espn_wbb_player_box]{espn_wbb_player_box()}},
 \code{\link[=espn_wbb_player_career_stats]{espn_wbb_player_career_stats()}},
-\code{\link[=espn_wbb_player_eventlog]{espn_wbb_player_eventlog()}},
 \code{\link[=espn_wbb_player_eventlog_v2]{espn_wbb_player_eventlog_v2()}},
-\code{\link[=espn_wbb_player_gamelog]{espn_wbb_player_gamelog()}},
 \code{\link[=espn_wbb_player_info]{espn_wbb_player_info()}},
 \code{\link[=espn_wbb_player_overview]{espn_wbb_player_overview()}},
 \code{\link[=espn_wbb_player_seasons]{espn_wbb_player_seasons()}},
-\code{\link[=espn_wbb_player_splits]{espn_wbb_player_splits()}},
-\code{\link[=espn_wbb_player_statisticslog]{espn_wbb_player_statisticslog()}},
 \code{\link[=espn_wbb_player_stats]{espn_wbb_player_stats()}},
-\code{\link[=espn_wbb_player_stats_v3]{espn_wbb_player_stats_v3()}},
 \code{\link[=espn_wbb_position]{espn_wbb_position()}},
 \code{\link[=espn_wbb_positions]{espn_wbb_positions()}},
 \code{\link[=espn_wbb_powerindex]{espn_wbb_powerindex()}},
@@ -117,8 +157,6 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_scoreboard]{espn_wbb_scoreboard()}},
 \code{\link[=espn_wbb_season_awards]{espn_wbb_season_awards()}},
 \code{\link[=espn_wbb_season_group]{espn_wbb_season_group()}},
-\code{\link[=espn_wbb_season_group_children]{espn_wbb_season_group_children()}},
-\code{\link[=espn_wbb_season_group_teams]{espn_wbb_season_group_teams()}},
 \code{\link[=espn_wbb_season_groups]{espn_wbb_season_groups()}},
 \code{\link[=espn_wbb_season_info]{espn_wbb_season_info()}},
 \code{\link[=espn_wbb_season_leaders]{espn_wbb_season_leaders()}},
@@ -130,14 +168,10 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_season_weeks]{espn_wbb_season_weeks()}},
 \code{\link[=espn_wbb_seasons]{espn_wbb_seasons()}},
 \code{\link[=espn_wbb_standings]{espn_wbb_standings()}},
-\code{\link[=espn_wbb_team_box]{espn_wbb_team_box()}},
 \code{\link[=espn_wbb_team_injuries]{espn_wbb_team_injuries()}},
-\code{\link[=espn_wbb_team_leaders]{espn_wbb_team_leaders()}},
 \code{\link[=espn_wbb_team_news]{espn_wbb_team_news()}},
 \code{\link[=espn_wbb_team_record_detail]{espn_wbb_team_record_detail()}},
-\code{\link[=espn_wbb_team_roster]{espn_wbb_team_roster()}},
 \code{\link[=espn_wbb_team_schedule]{espn_wbb_team_schedule()}},
-\code{\link[=espn_wbb_team_season_profile]{espn_wbb_team_season_profile()}},
 \code{\link[=espn_wbb_team_season_roster]{espn_wbb_team_season_roster()}},
 \code{\link[=espn_wbb_team_season_statistics]{espn_wbb_team_season_statistics()}},
 \code{\link[=espn_wbb_team_stats]{espn_wbb_team_stats()}},

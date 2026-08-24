@@ -18,22 +18,24 @@ wnba_gamerotation(game_id, league_id = "10", rotation_stat = "PLAYER_PTS", ...)
 \value{
 Returns a named list of data frames: AwayTeam, HomeTeam
 
-\strong{AwayTeam}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   PERSON_ID \tab character \tab Unique player identifier (V3 endpoints). \cr
-   PLAYER_FIRST \tab character \tab  \cr
-   PLAYER_LAST \tab character \tab  \cr
-   IN_TIME_REAL \tab character \tab  \cr
-   OUT_TIME_REAL \tab character \tab  \cr
-   PLAYER_PTS \tab character \tab  \cr
-   PT_DIFF \tab character \tab  \cr
-   USG_PCT \tab character \tab Usage percentage (0-1). \cr
-}
+\strong{AwayTeam}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GAME_ID \tab character \tab Unique game identifier. \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+      TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      PERSON_ID \tab character \tab Unique player identifier (V3 endpoints). \cr
+      PLAYER_FIRST \tab character \tab  \cr
+      PLAYER_LAST \tab character \tab  \cr
+      IN_TIME_REAL \tab character \tab  \cr
+      OUT_TIME_REAL \tab character \tab  \cr
+      PLAYER_PTS \tab character \tab  \cr
+      PT_DIFF \tab character \tab  \cr
+      USG_PCT \tab character \tab Usage percentage (0-1). \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{HomeTeam}
 
@@ -50,15 +52,8 @@ Same columns as the \strong{AwayTeam} table above.
 }
 \seealso{
 Other WNBA Boxscore Functions:
-\code{\link[=wnba_boxscoreadvancedv2]{wnba_boxscoreadvancedv2()}},
-\code{\link[=wnba_boxscorefourfactorsv2]{wnba_boxscorefourfactorsv2()}},
-\code{\link[=wnba_boxscoremiscv2]{wnba_boxscoremiscv2()}},
-\code{\link[=wnba_boxscoreplayertrackv2]{wnba_boxscoreplayertrackv2()}},
-\code{\link[=wnba_boxscorescoringv2]{wnba_boxscorescoringv2()}},
 \code{\link[=wnba_boxscoresummaryv2]{wnba_boxscoresummaryv2()}},
-\code{\link[=wnba_boxscoretraditionalv2]{wnba_boxscoretraditionalv2()}},
-\code{\link[=wnba_boxscoreusagev2]{wnba_boxscoreusagev2()}},
-\code{\link[=wnba_hustlestatsboxscore]{wnba_hustlestatsboxscore()}}
+\code{\link[=wnba_boxscoretraditionalv2]{wnba_boxscoretraditionalv2()}}
 
 Other WNBA Lineup Functions:
 \code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},

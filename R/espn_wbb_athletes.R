@@ -86,12 +86,9 @@ espn_wbb_player_info <- function(athlete_id, ...) {
 # espn_wbb_player_overview
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Athlete Overview**
-#' @name espn_wbb_player_overview
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Overview**
-#' @rdname espn_wbb_player_overview
+#' @rdname espn_wbb_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -147,12 +144,9 @@ espn_wbb_player_overview <- function(athlete_id,
 # espn_wbb_player_stats_v3
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Athlete Stats**
-#' @name espn_wbb_player_stats_v3
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Stats**
-#' @rdname espn_wbb_player_stats_v3
+#' @rdname espn_wbb_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -198,12 +192,9 @@ espn_wbb_player_stats_v3 <- function(athlete_id,
 # espn_wbb_player_gamelog
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Athlete Gamelog**
-#' @name espn_wbb_player_gamelog
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Gamelog**
-#' @rdname espn_wbb_player_gamelog
+#' @rdname espn_wbb_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -235,12 +226,9 @@ espn_wbb_player_gamelog <- function(athlete_id,
 # espn_wbb_player_splits
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Athlete Splits**
-#' @name espn_wbb_player_splits
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Splits**
-#' @rdname espn_wbb_player_splits
+#' @rdname espn_wbb_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.
@@ -355,12 +343,9 @@ espn_wbb_player_awards <- function(athlete_id, ...) {
 # espn_wbb_player_statisticslog
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Athlete Statisticslog**
-#' @name espn_wbb_player_statisticslog
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Athlete Statisticslog**
-#' @rdname espn_wbb_player_statisticslog
+#' @rdname espn_wbb_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WBB season.

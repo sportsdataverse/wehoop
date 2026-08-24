@@ -279,7 +279,7 @@
 #' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB)
 #' play-by-play.** `fox_wnba_pbp()` hits the `wnba` slug; `fox_wbb_pbp()` hits
 #' the `wcbk` slug.
-#' @name fox_basketball_pbp
+#' @rdname fox_basketball_boxscore
 #' @param game_id Fox Bifrost event id (e.g. `"2215"`).
 #' @return A `wehoop_data` tibble, one row per play: `game_id`, `period`,
 #'   `left_team`, `right_team`, `play_id`, `clock`, `team`, `left_score_change`,
@@ -293,7 +293,7 @@
 #'   try(fox_wnba_pbp("2215"))
 #' }
 fox_wnba_pbp <- function(game_id) .fox_bb_resource("wnba", "pbp", game_id = game_id)
-#' @rdname fox_basketball_pbp
+#' @rdname fox_basketball_boxscore
 #' @export
 #' @examples
 #' \donttest{
@@ -334,7 +334,7 @@ fox_wbb_boxscore <- function(game_id) .fox_bb_resource("wcbk", "boxscore", game_
 #' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) game
 #' odds.** `fox_wnba_odds()` hits the `wnba` slug; `fox_wbb_odds()` hits the
 #' `wcbk` slug.
-#' @name fox_basketball_odds
+#' @rdname fox_basketball_boxscore
 #' @param game_id Fox Bifrost event id.
 #' @return A `wehoop_data` tibble, one row per team: `game_id`, `team`, plus the
 #'   six-pack odds columns (spread / to-win / total). Empty when no market.
@@ -347,7 +347,7 @@ fox_wbb_boxscore <- function(game_id) .fox_bb_resource("wcbk", "boxscore", game_
 #'   try(fox_wnba_odds("2215"))
 #' }
 fox_wnba_odds <- function(game_id) .fox_bb_resource("wnba", "odds", game_id = game_id)
-#' @rdname fox_basketball_odds
+#' @rdname fox_basketball_boxscore
 #' @export
 #' @examples
 #' \donttest{
@@ -361,7 +361,7 @@ fox_wbb_odds <- function(game_id) .fox_bb_resource("wcbk", "odds", game_id = gam
 #' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team
 #' roster.** `fox_wnba_team_roster()` hits the `wnba` slug;
 #' `fox_wbb_team_roster()` hits the `wcbk` slug.
-#' @name fox_basketball_team_roster
+#' @rdname fox_basketball_standings
 #' @param team_id Fox Bifrost team id (e.g. `"1"`). Discover via the league team directory.
 #' @return A `wehoop_data` tibble, one row per player: `team_id`, `position_group`,
 #'   `player`, position/age/etc. columns, `athlete_id`.
@@ -374,7 +374,7 @@ fox_wbb_odds <- function(game_id) .fox_bb_resource("wcbk", "odds", game_id = gam
 #'   try(fox_wnba_team_roster("1"))
 #' }
 fox_wnba_team_roster <- function(team_id) .fox_bb_resource("wnba", "roster", team_id = team_id)
-#' @rdname fox_basketball_team_roster
+#' @rdname fox_basketball_standings
 #' @export
 #' @examples
 #' \donttest{
@@ -388,7 +388,7 @@ fox_wbb_team_roster <- function(team_id) .fox_bb_resource("wcbk", "roster", team
 #' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team stat
 #' leaders.** `fox_wnba_team_stats()` hits the `wnba` slug;
 #' `fox_wbb_team_stats()` hits the `wcbk` slug.
-#' @name fox_basketball_team_stats
+#' @rdname fox_basketball_standings
 #' @param team_id Fox Bifrost team id.
 #' @return A `wehoop_data` tibble: `team_id`, `category`, `stat`,
 #'   `stat_abbreviation`, `player`, `value`.
@@ -401,7 +401,7 @@ fox_wbb_team_roster <- function(team_id) .fox_bb_resource("wcbk", "roster", team
 #'   try(fox_wnba_team_stats("1"))
 #' }
 fox_wnba_team_stats <- function(team_id) .fox_bb_resource("wnba", "team_stats", team_id = team_id)
-#' @rdname fox_basketball_team_stats
+#' @rdname fox_basketball_standings
 #' @export
 #' @examples
 #' \donttest{
@@ -415,7 +415,7 @@ fox_wbb_team_stats <- function(team_id) .fox_bb_resource("wcbk", "team_stats", t
 #' **Get Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team game
 #' log.** `fox_wnba_team_gamelog()` hits the `wnba` slug;
 #' `fox_wbb_team_gamelog()` hits the `wcbk` slug.
-#' @name fox_basketball_team_gamelog
+#' @rdname fox_basketball_standings
 #' @param team_id Fox Bifrost team id.
 #' @return A `wehoop_data` tibble (long): `team_id`, `season_type`, `category`,
 #'   `game_id`, `game_date`, `opponent`, `stat`, `value`.
@@ -428,7 +428,7 @@ fox_wbb_team_stats <- function(team_id) .fox_bb_resource("wcbk", "team_stats", t
 #'   try(fox_wnba_team_gamelog("1"))
 #' }
 fox_wnba_team_gamelog <- function(team_id) .fox_bb_resource("wnba", "gamelog", team_id = team_id)
-#' @rdname fox_basketball_team_gamelog
+#' @rdname fox_basketball_standings
 #' @export
 #' @examples
 #' \donttest{
@@ -469,7 +469,7 @@ fox_wbb_standings <- function(team_id) .fox_bb_resource("wcbk", "standings", tea
 #' **Get the Fox Sports (Bifrost) WNBA / women's college basketball (WBB) team
 #' directory**, derived from the standings endpoint. `fox_wnba_teams()` hits the
 #' `wnba` slug; `fox_wbb_teams()` hits the `wcbk` slug.
-#' @name fox_basketball_teams
+#' @rdname fox_basketball_standings
 #' @param team_id Fox Bifrost seed team id used to fetch league standings
 #'   (default `"3"`). The standings response enumerates every team in the seed's
 #'   league sections.
@@ -484,7 +484,7 @@ fox_wbb_standings <- function(team_id) .fox_bb_resource("wcbk", "standings", tea
 #'   try(fox_wnba_teams())
 #' }
 fox_wnba_teams <- function(team_id = "3") .fox_bb_resource("wnba", "teams", team_id = team_id)
-#' @rdname fox_basketball_teams
+#' @rdname fox_basketball_standings
 #' @export
 #' @examples
 #' \donttest{

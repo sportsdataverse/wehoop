@@ -22,19 +22,21 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per draft pick:
 #'
-#'    |col_name    |types     |description                                           |
-#'    |:-----------|:---------|:-----------------------------------------------------|
-#'    |season      |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |round       |integer   |Tournament / playoff round.                           |
-#'    |pick        |integer   |Pick.                                                 |
-#'    |overall     |integer   |Overall.                                              |
-#'    |traded      |logical   |Traded.                                               |
-#'    |trade_note  |character |Trade note.                                           |
-#'    |status      |character |Status label.                                         |
-#'    |athlete_id  |character |Unique athlete identifier (ESPN).                     |
-#'    |athlete_ref |character |Athlete ref.                                          |
-#'    |team_id     |character |Unique team identifier.                               |
-#'    |team_ref    |character |Team ref.                                             |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+#'       round \tab integer \tab Tournament / playoff round. \cr
+#'       pick \tab integer \tab Pick. \cr
+#'       overall \tab integer \tab Overall. \cr
+#'       traded \tab logical \tab Traded. \cr
+#'       trade_note \tab character \tab Trade note. \cr
+#'       status \tab character \tab Status label. \cr
+#'       athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+#'       athlete_ref \tab character \tab Athlete ref. \cr
+#'       team_id \tab character \tab Unique team identifier. \cr
+#'       team_ref \tab character \tab Team ref. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #'    Athlete and team details (name, position, college, abbreviation) are not
 #'    inlined in the draft response; resolve them via `espn_wnba_player_info()`
@@ -164,18 +166,20 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per free agent:
 #'
-#'    |col_name            |types     |description                                           |
-#'    |:-------------------|:---------|:-----------------------------------------------------|
-#'    |season              |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |athlete_id          |character |Unique athlete identifier (ESPN).                     |
-#'    |athlete_name        |character |Athlete display name (ESPN).                          |
-#'    |position            |character |Listed roster position (G, F, C, etc.).               |
-#'    |prior_team_id       |character |Unique identifier for prior team.                     |
-#'    |status              |character |Status label.                                         |
-#'    |signed_team_id      |character |Unique identifier for signed team.                    |
-#'    |signed_date         |character |Date in YYYY-MM-DD format.                            |
-#'    |contract_value      |character |Contract value.                                       |
-#'    |contract_term_years |character |Contract term years.                                  |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+#'       athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+#'       athlete_name \tab character \tab Athlete display name (ESPN). \cr
+#'       position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+#'       prior_team_id \tab character \tab Unique identifier for prior team. \cr
+#'       status \tab character \tab Status label. \cr
+#'       signed_team_id \tab character \tab Unique identifier for signed team. \cr
+#'       signed_date \tab character \tab Date in YYYY-MM-DD format. \cr
+#'       contract_value \tab character \tab Contract value. \cr
+#'       contract_term_years \tab character \tab Contract term years. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names
@@ -341,17 +345,19 @@ NULL
 #'   `options(wehoop.proxy = ...)`.
 #' @return A `wehoop_data` tibble with one row per transaction:
 #'
-#'    |col_name       |types     |description                        |
-#'    |:--------------|:---------|:----------------------------------|
-#'    |transaction_id |character |Unique identifier for transaction. |
-#'    |date           |character |Date in YYYY-MM-DD format.         |
-#'    |type           |character |Record type / category.            |
-#'    |description    |character |Long-form description text.        |
-#'    |team_id        |character |Unique team identifier.            |
-#'    |athlete_id     |character |Unique athlete identifier (ESPN).  |
-#'    |athlete_name   |character |Athlete display name (ESPN).       |
-#'    |from_team_id   |character |Unique identifier for from team.   |
-#'    |to_team_id     |character |Unique identifier for to team.     |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       transaction_id \tab character \tab Unique identifier for transaction. \cr
+#'       date \tab character \tab Date in YYYY-MM-DD format. \cr
+#'       type \tab character \tab Record type / category. \cr
+#'       description \tab character \tab Long-form description text. \cr
+#'       team_id \tab character \tab Unique team identifier. \cr
+#'       athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
+#'       athlete_name \tab character \tab Athlete display name (ESPN). \cr
+#'       from_team_id \tab character \tab Unique identifier for from team. \cr
+#'       to_team_id \tab character \tab Unique identifier for to team. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names

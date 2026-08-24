@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_venues, espn_wnba_venues.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    venue_id \tab character \tab Unique venue identifier. \cr
    name \tab character \tab Display name. \cr
@@ -18,6 +18,7 @@ Columns shared verbatim across: espn_wbb_venues, espn_wnba_venues.
    indoor \tab logical \tab Indoor. \cr
    grass \tab logical \tab Grass. \cr
    images_url \tab character \tab URL for images. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

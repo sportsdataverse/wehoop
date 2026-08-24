@@ -32,36 +32,39 @@ wnba_teamgamelog(
 \value{
 Return a named list of data frames: TeamGameLog
 
-\strong{TeamGameLog}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   Team_ID \tab character \tab Unique team identifier. \cr
-   Game_ID \tab character \tab Unique game identifier. \cr
-   GAME_DATE \tab character \tab Game date (YYYY-MM-DD). \cr
-   MATCHUP \tab character \tab Matchup. \cr
-   WL \tab character \tab  \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   MIN \tab character \tab Minutes played. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   FTM \tab character \tab Free throws made. \cr
-   FTA \tab character \tab Free throw attempts. \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   OREB \tab character \tab Offensive rebounds. \cr
-   DREB \tab character \tab Defensive rebounds. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   STL \tab character \tab Steals. \cr
-   BLK \tab character \tab Blocks. \cr
-   TOV \tab character \tab Turnovers. \cr
-   PF \tab character \tab Personal fouls. \cr
-   PTS \tab character \tab Points scored. \cr
-}
+\strong{TeamGameLog}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      Team_ID \tab character \tab Unique team identifier. \cr
+      Game_ID \tab character \tab Unique game identifier. \cr
+      GAME_DATE \tab character \tab Game date (YYYY-MM-DD). \cr
+      MATCHUP \tab character \tab Matchup. \cr
+      WL \tab character \tab  \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      TOV \tab character \tab Turnovers. \cr
+      PF \tab character \tab Personal fouls. \cr
+      PTS \tab character \tab Points scored. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Team Game Log}
@@ -76,13 +79,6 @@ Return a named list of data frames: TeamGameLog
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
 \code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
 \code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
@@ -90,9 +86,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
 \code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}

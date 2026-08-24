@@ -2,9 +2,205 @@
 % Please edit documentation in R/wnba_stats_team_dash.R
 \name{wnba_teamdashboardbyclutch}
 \alias{wnba_teamdashboardbyclutch}
+\alias{wnba_teamdashboardbygamesplits}
+\alias{wnba_teamdashboardbygeneralsplits}
+\alias{wnba_teamdashboardbylastngames}
+\alias{wnba_teamdashboardbyopponent}
+\alias{wnba_teamdashboardbyshootingsplits}
+\alias{wnba_teamdashboardbyteamperformance}
+\alias{wnba_teamdashboardbyyearoveryear}
 \title{\strong{Get WNBA Stats API Team Dashboard by Clutch Splits}}
 \usage{
 wnba_teamdashboardbyclutch(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbygamesplits(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbygeneralsplits(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbylastngames(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbyopponent(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbyshootingsplits(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbyteamperformance(
+  date_from = "",
+  date_to = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  measure_type = "Base",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  pace_adjust = "N",
+  plus_minus = "N",
+  po_round = "",
+  per_mode = "Totals",
+  period = 0,
+  rank = "N",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  shot_clock_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_teamdashboardbyyearoveryear(
   date_from = "",
   date_to = "",
   game_segment = "",
@@ -130,26 +326,621 @@ Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
 \strong{Last10Sec3Point2TeamDashboard}
 
 Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+Return a named list of data frames: ByActualMarginTeamDashboard,
+ByHalfTeamDashboard, ByPeriodTeamDashboard, ByScoreMarginTeamDashboard,
+OverallTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ByHalfTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ByPeriodTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ByScoreMarginTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ByActualMarginTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+Return a named list of data frames: DaysRestTeamDashboard,
+LocationTeamDashboard, MonthTeamDashboard, OverallTeamDashboard,
+PrePostAllStarTeamDashboard, WinsLossesTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      FGM_RANK \tab character \tab  \cr
+      FGA_RANK \tab character \tab  \cr
+      FG_PCT_RANK \tab character \tab  \cr
+      FG3M_RANK \tab character \tab  \cr
+      FG3A_RANK \tab character \tab  \cr
+      FG3_PCT_RANK \tab character \tab  \cr
+      FTM_RANK \tab character \tab  \cr
+      FTA_RANK \tab character \tab  \cr
+      FT_PCT_RANK \tab character \tab  \cr
+      OREB_RANK \tab character \tab  \cr
+      DREB_RANK \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      TOV_RANK \tab character \tab  \cr
+      STL_RANK \tab character \tab  \cr
+      BLK_RANK \tab character \tab  \cr
+      BLKA_RANK \tab character \tab  \cr
+      PF_RANK \tab character \tab  \cr
+      PFD_RANK \tab character \tab  \cr
+      PTS_RANK \tab character \tab  \cr
+      PLUS_MINUS_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\strong{LocationTeamDashboard}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      TEAM_GAME_LOCATION \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      FGM_RANK \tab character \tab  \cr
+      FGA_RANK \tab character \tab  \cr
+      FG_PCT_RANK \tab character \tab  \cr
+      FG3M_RANK \tab character \tab  \cr
+      FG3A_RANK \tab character \tab  \cr
+      FG3_PCT_RANK \tab character \tab  \cr
+      FTM_RANK \tab character \tab  \cr
+      FTA_RANK \tab character \tab  \cr
+      FT_PCT_RANK \tab character \tab  \cr
+      OREB_RANK \tab character \tab  \cr
+      DREB_RANK \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      TOV_RANK \tab character \tab  \cr
+      STL_RANK \tab character \tab  \cr
+      BLK_RANK \tab character \tab  \cr
+      BLKA_RANK \tab character \tab  \cr
+      PF_RANK \tab character \tab  \cr
+      PFD_RANK \tab character \tab  \cr
+      PTS_RANK \tab character \tab  \cr
+      PLUS_MINUS_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\strong{WinsLossesTeamDashboard}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      GAME_RESULT \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      FGM_RANK \tab character \tab  \cr
+      FGA_RANK \tab character \tab  \cr
+      FG_PCT_RANK \tab character \tab  \cr
+      FG3M_RANK \tab character \tab  \cr
+      FG3A_RANK \tab character \tab  \cr
+      FG3_PCT_RANK \tab character \tab  \cr
+      FTM_RANK \tab character \tab  \cr
+      FTA_RANK \tab character \tab  \cr
+      FT_PCT_RANK \tab character \tab  \cr
+      OREB_RANK \tab character \tab  \cr
+      DREB_RANK \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      TOV_RANK \tab character \tab  \cr
+      STL_RANK \tab character \tab  \cr
+      BLK_RANK \tab character \tab  \cr
+      BLKA_RANK \tab character \tab  \cr
+      PF_RANK \tab character \tab  \cr
+      PFD_RANK \tab character \tab  \cr
+      PTS_RANK \tab character \tab  \cr
+      PLUS_MINUS_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\strong{MonthTeamDashboard}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      SEASON_MONTH_NAME \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      FGM_RANK \tab character \tab  \cr
+      FGA_RANK \tab character \tab  \cr
+      FG_PCT_RANK \tab character \tab  \cr
+      FG3M_RANK \tab character \tab  \cr
+      FG3A_RANK \tab character \tab  \cr
+      FG3_PCT_RANK \tab character \tab  \cr
+      FTM_RANK \tab character \tab  \cr
+      FTA_RANK \tab character \tab  \cr
+      FT_PCT_RANK \tab character \tab  \cr
+      OREB_RANK \tab character \tab  \cr
+      DREB_RANK \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      TOV_RANK \tab character \tab  \cr
+      STL_RANK \tab character \tab  \cr
+      BLK_RANK \tab character \tab  \cr
+      BLKA_RANK \tab character \tab  \cr
+      PF_RANK \tab character \tab  \cr
+      PFD_RANK \tab character \tab  \cr
+      PTS_RANK \tab character \tab  \cr
+      PLUS_MINUS_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\strong{PrePostAllStarTeamDashboard}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      SEASON_SEGMENT \tab character \tab Season segment filter ('Pre All-Star' / 'Post All-Star'). \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      FGM_RANK \tab character \tab  \cr
+      FGA_RANK \tab character \tab  \cr
+      FG_PCT_RANK \tab character \tab  \cr
+      FG3M_RANK \tab character \tab  \cr
+      FG3A_RANK \tab character \tab  \cr
+      FG3_PCT_RANK \tab character \tab  \cr
+      FTM_RANK \tab character \tab  \cr
+      FTA_RANK \tab character \tab  \cr
+      FT_PCT_RANK \tab character \tab  \cr
+      OREB_RANK \tab character \tab  \cr
+      DREB_RANK \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      TOV_RANK \tab character \tab  \cr
+      STL_RANK \tab character \tab  \cr
+      BLK_RANK \tab character \tab  \cr
+      BLKA_RANK \tab character \tab  \cr
+      PF_RANK \tab character \tab  \cr
+      PFD_RANK \tab character \tab  \cr
+      PTS_RANK \tab character \tab  \cr
+      PLUS_MINUS_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\strong{DaysRestTeamDashboard}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      TEAM_DAYS_REST_RANGE \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      FGM_RANK \tab character \tab  \cr
+      FGA_RANK \tab character \tab  \cr
+      FG_PCT_RANK \tab character \tab  \cr
+      FG3M_RANK \tab character \tab  \cr
+      FG3A_RANK \tab character \tab  \cr
+      FG3_PCT_RANK \tab character \tab  \cr
+      FTM_RANK \tab character \tab  \cr
+      FTA_RANK \tab character \tab  \cr
+      FT_PCT_RANK \tab character \tab  \cr
+      OREB_RANK \tab character \tab  \cr
+      DREB_RANK \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      TOV_RANK \tab character \tab  \cr
+      STL_RANK \tab character \tab  \cr
+      BLK_RANK \tab character \tab  \cr
+      BLKA_RANK \tab character \tab  \cr
+      PF_RANK \tab character \tab  \cr
+      PFD_RANK \tab character \tab  \cr
+      PTS_RANK \tab character \tab  \cr
+      PLUS_MINUS_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+Return a named list of data frames: GameNumberTeamDashboard,
+Last10TeamDashboard, Last15TeamDashboard, Last20TeamDashboard,
+Last5TeamDashboard, OverallTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{Last5TeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{Last10TeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{Last15TeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{Last20TeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{GameNumberTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+Return a named list of data frames: ConferenceTeamDashboard,
+DivisionTeamDashboard, OpponentTeamDashboard, OverallTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ConferenceTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{DivisionTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{OpponentTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+Return a named list of data frames: AssistedBy,
+AssitedShotTeamDashboard, OverallTeamDashboard, Shot5FTTeamDashboard,
+Shot8FTTeamDashboard, ShotAreaTeamDashboard, ShotTypeTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
+
+\strong{Shot5FTTeamDashboard}
+
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
+
+\strong{Shot8FTTeamDashboard}
+
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
+
+\strong{ShotAreaTeamDashboard}
+
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
+
+\strong{AssitedShotTeamDashboard}
+
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
+
+\strong{ShotTypeTeamDashboard}
+
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
+
+\strong{AssistedBy}
+
+Columns as documented in the shared \link{wnba_shooting_splits_assisted_by_schema} table.
+
+Return a named list of data frames: OverallTeamDashboard,
+PointsScoredTeamDashboard, PontsAgainstTeamDashboard, ScoreDifferentialTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ScoreDifferentialTeamDashboard}\tabular{lll}{
+   col_name \tab types \tab description \cr
+   GROUP_SET \tab character \tab  \cr
+   GROUP_VALUE_ORDER \tab character \tab  \cr
+   GROUP_VALUE \tab character \tab  \cr
+   GROUP_VALUE_2 \tab character \tab  \cr
+   GP \tab character \tab Games played. \cr
+   W \tab character \tab Wins. \cr
+   L \tab character \tab Losses. \cr
+   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+   MIN \tab character \tab Minutes played. \cr
+   FGM \tab character \tab Field goals made. \cr
+   FGA \tab character \tab Field goal attempts. \cr
+   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+   FG3M \tab character \tab Three-point field goals made. \cr
+   FG3A \tab character \tab Three-point field goal attempts. \cr
+   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+   FTM \tab character \tab Free throws made. \cr
+   FTA \tab character \tab Free throw attempts. \cr
+   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+   OREB \tab character \tab Offensive rebounds. \cr
+   DREB \tab character \tab Defensive rebounds. \cr
+   REB \tab character \tab Total rebounds. \cr
+   AST \tab character \tab Assists. \cr
+   TOV \tab character \tab Turnovers. \cr
+   STL \tab character \tab Steals. \cr
+   BLK \tab character \tab Blocks. \cr
+   BLKA \tab character \tab  \cr
+   PF \tab character \tab Personal fouls. \cr
+   PFD \tab character \tab  \cr
+   PTS \tab character \tab Points scored. \cr
+   PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+   GP_RANK \tab character \tab  \cr
+   W_RANK \tab character \tab  \cr
+   L_RANK \tab character \tab  \cr
+   W_PCT_RANK \tab character \tab  \cr
+   MIN_RANK \tab character \tab  \cr
+   FGM_RANK \tab character \tab  \cr
+   FGA_RANK \tab character \tab  \cr
+   FG_PCT_RANK \tab character \tab  \cr
+   FG3M_RANK \tab character \tab  \cr
+   FG3A_RANK \tab character \tab  \cr
+   FG3_PCT_RANK \tab character \tab  \cr
+   FTM_RANK \tab character \tab  \cr
+   FTA_RANK \tab character \tab  \cr
+   FT_PCT_RANK \tab character \tab  \cr
+   OREB_RANK \tab character \tab  \cr
+   DREB_RANK \tab character \tab  \cr
+   REB_RANK \tab character \tab  \cr
+   AST_RANK \tab character \tab  \cr
+   TOV_RANK \tab character \tab  \cr
+   STL_RANK \tab character \tab  \cr
+   BLK_RANK \tab character \tab  \cr
+   BLKA_RANK \tab character \tab  \cr
+   PF_RANK \tab character \tab  \cr
+   PFD_RANK \tab character \tab  \cr
+   PTS_RANK \tab character \tab  \cr
+   PLUS_MINUS_RANK \tab character \tab  \cr
+}
+
+
+\strong{PointsScoredTeamDashboard}
+
+Same columns as the \strong{ScoreDifferentialTeamDashboard} table above.
+
+\strong{PontsAgainstTeamDashboard}
+
+Same columns as the \strong{ScoreDifferentialTeamDashboard} table above.
+
+Return a named list of data frames: ByYearTeamDashboard, OverallTeamDashboard
+
+\strong{OverallTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
+
+\strong{ByYearTeamDashboard}
+
+Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
 }
 \description{
 \strong{Get WNBA Stats API Team Dashboard by Clutch Splits}
 
 \strong{Get WNBA Stats API Team Dashboard by Clutch Splits}
+
+\strong{Get WNBA Stats API Team Dashboard by Game Splits}
+
+\strong{Get WNBA Stats API Team Dashboard by General Splits}
+
+\strong{Get WNBA Stats API Team Dashboard by Last N Games}
+
+\strong{Get WNBA Stats API Team Dashboard by Opponent}
+
+\strong{Get WNBA Stats API Team Dashboard by Shooting Splits}
+
+\strong{Get WNBA Stats API Team Dashboard by Team Performance}
+
+\strong{Get WNBA Stats API Team Dashboard Year over Year}
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyclutch(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbygamesplits(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbygeneralsplits(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbylastngames(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\href{https://www.nba.com/stats/team/1610612749/shooting}{Team Dashboard by Shooting Splits}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyteamperformance(team_id = '1611661328', season = most_recent_wnba_season())
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyyearoveryear(team_id = '1611661328', season = most_recent_wnba_season())
 }\if{html}{\out{</div>}}
 }
 \seealso{
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
 \code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
@@ -158,9 +949,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
 \code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}
@@ -168,9 +957,18 @@ Other WNBA Team Functions:
 Other WNBA Clutch Functions:
 \code{\link[=wnba_leaguedashteamclutch]{wnba_leaguedashteamclutch()}},
 \code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}}
+
+Other WNBA Shooting Functions:
+\code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
+\code{\link[=wnba_leaguedashteamshotlocations]{wnba_leaguedashteamshotlocations()}},
+\code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
+\code{\link[=wnba_shotchartdetail]{wnba_shotchartdetail()}},
+\code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}},
+\code{\link[=wnba_shotchartlineupdetail]{wnba_shotchartlineupdetail()}}
 }
 \author{
 Saiem Gilani
 }
 \concept{WNBA Clutch Functions}
+\concept{WNBA Shooting Functions}
 \concept{WNBA Team Functions}

@@ -282,13 +282,6 @@ Same columns as the \strong{ShotDistanceOnCourt} table above.
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
 \code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
 \code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
@@ -297,9 +290,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
 \code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}
 }

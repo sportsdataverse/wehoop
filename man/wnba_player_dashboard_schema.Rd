@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_playerdashboardbyclutch, wnba_playerdashboardbygamesplits, wnba_playerdashboardbygeneralsplits, wnba_playerdashboardbylastngames, wnba_playerdashboardbyopponent, wnba_playerdashboardbyteamperformance.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    GROUP_SET \tab character \tab  \cr
    GROUP_VALUE \tab character \tab  \cr
@@ -71,6 +71,7 @@ Columns shared verbatim across: wnba_playerdashboardbyclutch, wnba_playerdashboa
    DD2_RANK \tab character \tab  \cr
    TD3_RANK \tab character \tab  \cr
    WNBA_FANTASY_PTS_RANK \tab character \tab  \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

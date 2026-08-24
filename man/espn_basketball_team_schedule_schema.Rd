@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_team_schedule, espn_wnba_team_schedule.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab Unique event / game identifier (ESPN). \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
@@ -30,6 +30,7 @@ Columns shared verbatim across: espn_wbb_team_schedule, espn_wnba_team_schedule.
    team_score \tab character \tab Team's score / final score. \cr
    opponent_score \tab character \tab Opponent score. \cr
    winner \tab logical \tab Winner. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

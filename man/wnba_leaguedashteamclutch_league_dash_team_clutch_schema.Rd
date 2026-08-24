@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_leaguedashteamclutch, wnba_leaguedashteamstats.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    TEAM_ID \tab character \tab Unique team identifier. \cr
    TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
@@ -63,6 +63,7 @@ Columns shared verbatim across: wnba_leaguedashteamclutch, wnba_leaguedashteamst
    PFD_RANK \tab character \tab  \cr
    PTS_RANK \tab character \tab  \cr
    PLUS_MINUS_RANK \tab character \tab  \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

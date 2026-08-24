@@ -281,18 +281,21 @@ wnba_playergamestreakfinder(
 \value{
 Return a named list of data frames: PlayerGameStreakFinderResults
 
-\strong{PlayerGameStreakFinderResults}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   GAMESTREAK \tab character \tab  \cr
-   STARTDATE \tab character \tab  \cr
-   ENDDATE \tab character \tab  \cr
-   ACTIVESTREAK \tab character \tab  \cr
-   NUMSEASONS \tab character \tab  \cr
-   LASTSEASON \tab character \tab  \cr
-   FIRSTSEASON \tab character \tab  \cr
-}
+\strong{PlayerGameStreakFinderResults}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      PLAYER_NAME_LAST_FIRST \tab character \tab  \cr
+      PLAYER_ID \tab character \tab Unique player identifier. \cr
+      GAMESTREAK \tab character \tab  \cr
+      STARTDATE \tab character \tab  \cr
+      ENDDATE \tab character \tab  \cr
+      ACTIVESTREAK \tab character \tab  \cr
+      NUMSEASONS \tab character \tab  \cr
+      LASTSEASON \tab character \tab  \cr
+      FIRSTSEASON \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Player Game Streak Finder}
@@ -318,13 +321,6 @@ Other WNBA Player Functions:
 \code{\link[=wnba_playercareerstats]{wnba_playercareerstats()}},
 \code{\link[=wnba_playercompare]{wnba_playercompare()}},
 \code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
-\code{\link[=wnba_playerdashboardbygamesplits]{wnba_playerdashboardbygamesplits()}},
-\code{\link[=wnba_playerdashboardbygeneralsplits]{wnba_playerdashboardbygeneralsplits()}},
-\code{\link[=wnba_playerdashboardbylastngames]{wnba_playerdashboardbylastngames()}},
-\code{\link[=wnba_playerdashboardbyopponent]{wnba_playerdashboardbyopponent()}},
-\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
-\code{\link[=wnba_playerdashboardbyteamperformance]{wnba_playerdashboardbyteamperformance()}},
-\code{\link[=wnba_playerdashboardbyyearoveryear]{wnba_playerdashboardbyyearoveryear()}},
 \code{\link[=wnba_playerestimatedmetrics]{wnba_playerestimatedmetrics()}},
 \code{\link[=wnba_playerfantasyprofile]{wnba_playerfantasyprofile()}},
 \code{\link[=wnba_playerfantasyprofilebargraph]{wnba_playerfantasyprofilebargraph()}},

@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_game_odds, espn_wnba_game_odds.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab Unique event / game identifier (ESPN). \cr
    provider_id \tab character \tab Unique identifier for provider. \cr
@@ -21,6 +21,7 @@ Columns shared verbatim across: espn_wbb_game_odds, espn_wnba_game_odds.
    home_team_odds_close \tab numeric \tab Home team's team odds close. \cr
    away_team_odds_open \tab numeric \tab Away team's team odds open. \cr
    away_team_odds_close \tab numeric \tab Away team's team odds close. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_team, espn_wnba_team.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    id \tab character \tab Unique play identifcation number \cr
    uid \tab character \tab ESPN UID string (universal identifier). \cr
@@ -21,6 +21,7 @@ Columns shared verbatim across: espn_wbb_team, espn_wnba_team.
    color \tab character \tab Primary color (hex without leading '#'). \cr
    alternate_color \tab character \tab Alternate color (hex without leading '#'). \cr
    logo \tab character \tab Team or league logo URL. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

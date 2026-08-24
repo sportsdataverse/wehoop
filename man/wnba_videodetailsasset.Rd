@@ -2,9 +2,44 @@
 % Please edit documentation in R/wnba_stats_video.R
 \name{wnba_videodetailsasset}
 \alias{wnba_videodetailsasset}
+\alias{wnba_videodetails}
 \title{\strong{Get WNBA Stats API Video Details}}
 \usage{
 wnba_videodetailsasset(
+  ahead_behind = "",
+  clutch_time = "",
+  context_filter = "",
+  context_measure = "FGA",
+  date_from = "",
+  date_to = "",
+  end_period = "",
+  end_range = "",
+  game_id = "",
+  game_segment = "",
+  last_n_games = 0,
+  league_id = "10",
+  location = "",
+  month = 0,
+  opponent_team_id = 0,
+  outcome = "",
+  period = 0,
+  player_id = "1627668",
+  point_diff = "",
+  position = "",
+  range_type = "",
+  rookie_year = "",
+  season = most_recent_wnba_season(),
+  season_segment = "",
+  season_type = "Regular Season",
+  start_period = "",
+  start_range = "",
+  team_id = "1611661328",
+  vs_conference = "",
+  vs_division = "",
+  ...
+)
+
+wnba_videodetails(
   ahead_behind = "",
   clutch_time = "",
   context_filter = "",
@@ -104,46 +139,98 @@ wnba_videodetailsasset(
 \value{
 Return a list of tibbles: videoUrls, playlist
 
-\strong{videoUrls}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   uuid \tab character \tab Uuid. \cr
-   sdur \tab integer \tab Sdur. \cr
-   surl \tab character \tab Surl. \cr
-   sth \tab character \tab Sth. \cr
-   mdur \tab integer \tab Mdur. \cr
-   murl \tab character \tab Murl. \cr
-   mth \tab character \tab Mth. \cr
-   ldur \tab integer \tab Ldur. \cr
-   lurl \tab character \tab Lurl. \cr
-   lth \tab character \tab Lth. \cr
-   vtt \tab character \tab Vtt. \cr
-   scc \tab character \tab Scc. \cr
-   srt \tab character \tab Srt. \cr
-}
+\strong{videoUrls}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      uuid \tab character \tab Uuid. \cr
+      sdur \tab integer \tab Sdur. \cr
+      surl \tab character \tab Surl. \cr
+      sth \tab character \tab Sth. \cr
+      mdur \tab integer \tab Mdur. \cr
+      murl \tab character \tab Murl. \cr
+      mth \tab character \tab Mth. \cr
+      ldur \tab integer \tab Ldur. \cr
+      lurl \tab character \tab Lurl. \cr
+      lth \tab character \tab Lth. \cr
+      vtt \tab character \tab Vtt. \cr
+      scc \tab character \tab Scc. \cr
+      srt \tab character \tab Srt. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
-\strong{playlist}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   gi \tab character \tab Gi. \cr
-   ei \tab integer \tab Ei. \cr
-   y \tab integer \tab Y. \cr
-   m \tab character \tab M. \cr
-   d \tab character \tab D. \cr
-   gc \tab character \tab Gc. \cr
-   p \tab integer \tab P. \cr
-   dsc \tab character \tab Dsc. \cr
-   ha \tab character \tab Ha. \cr
-   hid \tab integer \tab Hid. \cr
-   va \tab character \tab Va. \cr
-   vid \tab integer \tab Vid. \cr
-   hpb \tab integer \tab Hpb. \cr
-   hpa \tab integer \tab Hpa. \cr
-   vpb \tab integer \tab Vpb. \cr
-   vpa \tab integer \tab Vpa. \cr
-   pta \tab integer \tab Pta. \cr
-}
+\strong{playlist}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      gi \tab character \tab Gi. \cr
+      ei \tab integer \tab Ei. \cr
+      y \tab integer \tab Y. \cr
+      m \tab character \tab M. \cr
+      d \tab character \tab D. \cr
+      gc \tab character \tab Gc. \cr
+      p \tab integer \tab P. \cr
+      dsc \tab character \tab Dsc. \cr
+      ha \tab character \tab Ha. \cr
+      hid \tab integer \tab Hid. \cr
+      va \tab character \tab Va. \cr
+      vid \tab integer \tab Vid. \cr
+      hpb \tab integer \tab Hpb. \cr
+      hpa \tab integer \tab Hpa. \cr
+      vpb \tab integer \tab Vpb. \cr
+      vpa \tab integer \tab Vpa. \cr
+      pta \tab integer \tab Pta. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+Return a list of tibbles: videoUrls, playlist
+
+\strong{videoUrls}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      uuid \tab character \tab Uuid. \cr
+      dur \tab logical \tab Dur. \cr
+      stt \tab logical \tab Stt. \cr
+      stp \tab logical \tab Stp. \cr
+      sth \tab logical \tab Sth. \cr
+      stw \tab logical \tab Stw. \cr
+      mtt \tab logical \tab Mtt. \cr
+      mtp \tab logical \tab Mtp. \cr
+      mth \tab logical \tab Mth. \cr
+      mtw \tab logical \tab Mtw. \cr
+      ltt \tab logical \tab Ltt. \cr
+      ltp \tab logical \tab Ltp. \cr
+      lth \tab logical \tab Lth. \cr
+      ltw \tab logical \tab Ltw. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\strong{playlist}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      gi \tab character \tab Gi. \cr
+      ei \tab integer \tab Ei. \cr
+      y \tab integer \tab Y. \cr
+      m \tab character \tab M. \cr
+      d \tab character \tab D. \cr
+      gc \tab character \tab Gc. \cr
+      p \tab integer \tab P. \cr
+      dsc \tab character \tab Dsc. \cr
+      ha \tab character \tab Ha. \cr
+      va \tab character \tab Va. \cr
+      hpb \tab integer \tab Hpb. \cr
+      hpa \tab integer \tab Hpa. \cr
+      vpb \tab integer \tab Vpb. \cr
+      vpa \tab integer \tab Vpa. \cr
+      pta \tab integer \tab Pta. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
+\strong{Get WNBA Stats API Video Details}
+
 \strong{Get WNBA Stats API Video Details}
 
 \strong{Get WNBA Stats API Video Details}
@@ -151,10 +238,12 @@ Return a list of tibbles: videoUrls, playlist
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_videodetailsasset(player_id = '1627668', team_id = '1611661328')
 }\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_videodetails(player_id = '1627668', team_id = '1611661328')
+}\if{html}{\out{</div>}}
 }
 \seealso{
 Other WNBA Video Functions:
-\code{\link[=wnba_videodetails]{wnba_videodetails()}},
 \code{\link[=wnba_videoevents]{wnba_videoevents()}},
 \code{\link[=wnba_videostatus]{wnba_videostatus()}}
 }

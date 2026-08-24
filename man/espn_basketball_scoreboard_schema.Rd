@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_scoreboard, espn_wnba_scoreboard.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    matchup \tab character \tab Matchup. \cr
    matchup_short \tab character \tab Matchup short. \cr
@@ -43,6 +43,7 @@ Columns shared verbatim across: espn_wbb_scoreboard, espn_wnba_scoreboard.
    away_score \tab integer \tab Away team score at the time of the play. \cr
    away_win \tab integer \tab Away team's win. \cr
    away_record \tab character \tab Away win-loss record. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

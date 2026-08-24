@@ -7,7 +7,7 @@
 Columns shared verbatim across: load_wbb_officials, load_wnba_officials.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    game_id \tab character \tab Unique game identifier. \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
@@ -18,6 +18,7 @@ Columns shared verbatim across: load_wbb_officials, load_wnba_officials.
    last_name \tab character \tab Player's last name. \cr
    position \tab character \tab Listed roster position (G, F, C, etc.). \cr
    order \tab integer \tab Display order within the result set. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

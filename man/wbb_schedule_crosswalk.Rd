@@ -11,22 +11,25 @@ wbb_schedule_crosswalk(season = most_recent_wbb_season())
 \code{most_recent_wbb_season()}.}
 }
 \value{
-A \code{wehoop_data} tibble, one row per game:\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab integer \tab Season year. \cr
-   game_date \tab Date \tab ET game date. \cr
-   home_espn_team_id \tab integer \tab ESPN home team id (NA for bart-only rows). \cr
-   away_espn_team_id \tab integer \tab ESPN away team id (NA for bart-only rows). \cr
-   espn_game_id \tab character \tab ESPN game id (NA for bart-only rows). \cr
-   bart_muid \tab character \tab Torvik muid (NA for espn-only rows). \cr
-   bart_team1 \tab character \tab Torvik team1 name (NA for espn-only rows). \cr
-   bart_team2 \tab character \tab Torvik team2 name (NA for espn-only rows). \cr
-   bart_winner \tab character \tab Torvik winner name (NA for espn-only rows). \cr
-   fox_game_id \tab character \tab Fox game id (NA placeholder). \cr
-   yahoo_game_id \tab character \tab Yahoo game id (NA placeholder). \cr
-   match_method \tab character \tab "both"/"espn_only"/"bart_only". \cr
-   match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
-}
+A \code{wehoop_data} tibble, one row per game:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      season \tab integer \tab Season year. \cr
+      game_date \tab Date \tab ET game date. \cr
+      home_espn_team_id \tab integer \tab ESPN home team id (NA for bart-only rows). \cr
+      away_espn_team_id \tab integer \tab ESPN away team id (NA for bart-only rows). \cr
+      espn_game_id \tab character \tab ESPN game id (NA for bart-only rows). \cr
+      bart_muid \tab character \tab Torvik muid (NA for espn-only rows). \cr
+      bart_team1 \tab character \tab Torvik team1 name (NA for espn-only rows). \cr
+      bart_team2 \tab character \tab Torvik team2 name (NA for espn-only rows). \cr
+      bart_winner \tab character \tab Torvik winner name (NA for espn-only rows). \cr
+      fox_game_id \tab character \tab Fox game id (NA placeholder). \cr
+      yahoo_game_id \tab character \tab Yahoo game id (NA placeholder). \cr
+      match_method \tab character \tab "both"/"espn_only"/"bart_only". \cr
+      match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 Build a wide, one-row-per-game crosswalk linking ESPN and Bart Torvik
@@ -44,9 +47,7 @@ Games where either Torvik team name cannot be resolved to an ESPN id via
 }
 \seealso{
 Other WBB Crosswalk Functions:
-\code{\link[=load_wbb_player_crosswalk]{load_wbb_player_crosswalk()}},
-\code{\link[=load_wbb_schedule_crosswalk]{load_wbb_schedule_crosswalk()}},
-\code{\link[=load_wbb_team_crosswalk]{load_wbb_team_crosswalk()}},
+\code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
 \code{\link[=wbb_player_crosswalk]{wbb_player_crosswalk()}},
 \code{\link[=wbb_team_crosswalk]{wbb_team_crosswalk()}}
 }

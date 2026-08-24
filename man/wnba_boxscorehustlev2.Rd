@@ -15,77 +15,81 @@ wnba_boxscorehustlev2(game_id = "1022200034", ...)
 Returns a named list of data frames: home_team_player_hustle, away_team_player_hustle,
 home_team_hustle_totals, away_team_hustle_totals
 
-\strong{home_team_player_hustle}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   away_team_id \tab integer \tab Unique identifier for the away team. \cr
-   home_team_id \tab integer \tab Unique identifier for the home team. \cr
-   team_id \tab integer \tab Unique team identifier. \cr
-   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
-   team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
-   person_id \tab integer \tab Unique player identifier (V3 endpoints). \cr
-   first_name \tab character \tab Player's first name. \cr
-   family_name \tab character \tab Player's family / last name. \cr
-   name_i \tab character \tab Initialed name (e.g. 'A. Wilson'). \cr
-   player_slug \tab character \tab URL-safe player identifier. \cr
-   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   comment \tab character \tab Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive'). \cr
-   jersey_num \tab character \tab Jersey number worn by the player. \cr
-   minutes \tab character \tab Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). \cr
-   points \tab integer \tab Points scored. \cr
-   contested_shots \tab integer \tab Defensively contested shots. \cr
-   contested_shots2pt \tab integer \tab Contested shots2pt. \cr
-   contested_shots3pt \tab integer \tab Contested shots3pt. \cr
-   deflections \tab integer \tab Defensive deflections. \cr
-   charges_drawn \tab integer \tab Charges drawn. \cr
-   screen_assists \tab integer \tab Screen assists (resulting in a basket). \cr
-   screen_assist_points \tab integer \tab Points generated from screen assists. \cr
-   loose_balls_recovered_offensive \tab integer \tab Loose balls recovered on offense. \cr
-   loose_balls_recovered_defensive \tab integer \tab Loose balls recovered on defense. \cr
-   loose_balls_recovered_total \tab integer \tab Loose balls recovered total. \cr
-   offensive_box_outs \tab integer \tab Offensive box outs. \cr
-   defensive_box_outs \tab integer \tab Defensive box outs. \cr
-   box_out_player_team_rebounds \tab integer \tab Box-outs that led to either a player or team rebound. \cr
-   box_out_player_rebounds \tab integer \tab Box-outs that led to a player rebound. \cr
-   box_outs \tab integer \tab Box-outs executed. \cr
-}
+\strong{home_team_player_hustle}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      game_id \tab character \tab Unique game identifier. \cr
+      away_team_id \tab integer \tab Unique identifier for the away team. \cr
+      home_team_id \tab integer \tab Unique identifier for the home team. \cr
+      team_id \tab integer \tab Unique team identifier. \cr
+      team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+      team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
+      team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+      person_id \tab integer \tab Unique player identifier (V3 endpoints). \cr
+      first_name \tab character \tab Player's first name. \cr
+      family_name \tab character \tab Player's family / last name. \cr
+      name_i \tab character \tab Initialed name (e.g. 'A. Wilson'). \cr
+      player_slug \tab character \tab URL-safe player identifier. \cr
+      position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+      comment \tab character \tab Player status / inactive reason (e.g. 'DNP - Coach's Decision', 'Inactive'). \cr
+      jersey_num \tab character \tab Jersey number worn by the player. \cr
+      minutes \tab character \tab Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). \cr
+      points \tab integer \tab Points scored. \cr
+      contested_shots \tab integer \tab Defensively contested shots. \cr
+      contested_shots2pt \tab integer \tab Contested shots2pt. \cr
+      contested_shots3pt \tab integer \tab Contested shots3pt. \cr
+      deflections \tab integer \tab Defensive deflections. \cr
+      charges_drawn \tab integer \tab Charges drawn. \cr
+      screen_assists \tab integer \tab Screen assists (resulting in a basket). \cr
+      screen_assist_points \tab integer \tab Points generated from screen assists. \cr
+      loose_balls_recovered_offensive \tab integer \tab Loose balls recovered on offense. \cr
+      loose_balls_recovered_defensive \tab integer \tab Loose balls recovered on defense. \cr
+      loose_balls_recovered_total \tab integer \tab Loose balls recovered total. \cr
+      offensive_box_outs \tab integer \tab Offensive box outs. \cr
+      defensive_box_outs \tab integer \tab Defensive box outs. \cr
+      box_out_player_team_rebounds \tab integer \tab Box-outs that led to either a player or team rebound. \cr
+      box_out_player_rebounds \tab integer \tab Box-outs that led to a player rebound. \cr
+      box_outs \tab integer \tab Box-outs executed. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{away_team_player_hustle}
 
 Same columns as the \strong{home_team_player_hustle} table above.
 
-\strong{home_team_totals_hustle}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   away_team_id \tab integer \tab Unique identifier for the away team. \cr
-   home_team_id \tab integer \tab Unique identifier for the home team. \cr
-   team_id \tab integer \tab Unique team identifier. \cr
-   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
-   team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
-   minutes \tab character \tab Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). \cr
-   points \tab integer \tab Points scored. \cr
-   contested_shots \tab integer \tab Defensively contested shots. \cr
-   contested_shots2pt \tab integer \tab Contested shots2pt. \cr
-   contested_shots3pt \tab integer \tab Contested shots3pt. \cr
-   deflections \tab integer \tab Defensive deflections. \cr
-   charges_drawn \tab integer \tab Charges drawn. \cr
-   screen_assists \tab integer \tab Screen assists (resulting in a basket). \cr
-   screen_assist_points \tab integer \tab Points generated from screen assists. \cr
-   loose_balls_recovered_offensive \tab integer \tab Loose balls recovered on offense. \cr
-   loose_balls_recovered_defensive \tab integer \tab Loose balls recovered on defense. \cr
-   loose_balls_recovered_total \tab integer \tab Loose balls recovered total. \cr
-   offensive_box_outs \tab integer \tab Offensive box outs. \cr
-   defensive_box_outs \tab integer \tab Defensive box outs. \cr
-   box_out_player_team_rebounds \tab integer \tab Box-outs that led to either a player or team rebound. \cr
-   box_out_player_rebounds \tab integer \tab Box-outs that led to a player rebound. \cr
-   box_outs \tab integer \tab Box-outs executed. \cr
-}
+\strong{home_team_totals_hustle}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      game_id \tab character \tab Unique game identifier. \cr
+      away_team_id \tab integer \tab Unique identifier for the away team. \cr
+      home_team_id \tab integer \tab Unique identifier for the home team. \cr
+      team_id \tab integer \tab Unique team identifier. \cr
+      team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+      team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
+      team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+      minutes \tab character \tab Minutes played, formatted MM:SS (V3 PT-duration parsed) or decimal minutes (V2). \cr
+      points \tab integer \tab Points scored. \cr
+      contested_shots \tab integer \tab Defensively contested shots. \cr
+      contested_shots2pt \tab integer \tab Contested shots2pt. \cr
+      contested_shots3pt \tab integer \tab Contested shots3pt. \cr
+      deflections \tab integer \tab Defensive deflections. \cr
+      charges_drawn \tab integer \tab Charges drawn. \cr
+      screen_assists \tab integer \tab Screen assists (resulting in a basket). \cr
+      screen_assist_points \tab integer \tab Points generated from screen assists. \cr
+      loose_balls_recovered_offensive \tab integer \tab Loose balls recovered on offense. \cr
+      loose_balls_recovered_defensive \tab integer \tab Loose balls recovered on defense. \cr
+      loose_balls_recovered_total \tab integer \tab Loose balls recovered total. \cr
+      offensive_box_outs \tab integer \tab Offensive box outs. \cr
+      defensive_box_outs \tab integer \tab Defensive box outs. \cr
+      box_out_player_team_rebounds \tab integer \tab Box-outs that led to either a player or team rebound. \cr
+      box_out_player_rebounds \tab integer \tab Box-outs that led to a player rebound. \cr
+      box_outs \tab integer \tab Box-outs executed. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{away_team_totals_hustle}
 
@@ -102,14 +106,8 @@ Same columns as the \strong{home_team_totals_hustle} table above.
 }
 \seealso{
 Other WNBA Boxscore V3 Functions:
-\code{\link[=wnba_boxscoreadvancedv3]{wnba_boxscoreadvancedv3()}},
-\code{\link[=wnba_boxscorefourfactorsv3]{wnba_boxscorefourfactorsv3()}},
-\code{\link[=wnba_boxscoremiscv3]{wnba_boxscoremiscv3()}},
-\code{\link[=wnba_boxscoreplayertrackv3]{wnba_boxscoreplayertrackv3()}},
-\code{\link[=wnba_boxscorescoringv3]{wnba_boxscorescoringv3()}},
 \code{\link[=wnba_boxscoresummaryv3]{wnba_boxscoresummaryv3()}},
-\code{\link[=wnba_boxscoretraditionalv3]{wnba_boxscoretraditionalv3()}},
-\code{\link[=wnba_boxscoreusagev3]{wnba_boxscoreusagev3()}}
+\code{\link[=wnba_boxscoretraditionalv3]{wnba_boxscoretraditionalv3()}}
 }
 \author{
 Saiem Gilani

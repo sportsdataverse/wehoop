@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_season_ranking, espn_wnba_season_ranking.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    league \tab character \tab League slug. \cr
    season \tab integer \tab Season year. \cr
@@ -18,6 +18,7 @@ Columns shared verbatim across: espn_wbb_season_ranking, espn_wnba_season_rankin
    season_type \tab integer \tab Season-type id of this snapshot. \cr
    week \tab integer \tab Week number of this snapshot. \cr
    ref \tab character \tab \verb{$ref} URL for the per-week ranking detail. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

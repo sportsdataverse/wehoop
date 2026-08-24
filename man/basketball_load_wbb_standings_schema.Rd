@@ -7,7 +7,7 @@
 Columns shared verbatim across: load_wbb_standings, load_wnba_standings.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
    season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
@@ -27,6 +27,7 @@ Columns shared verbatim across: load_wbb_standings, load_wnba_standings.
    points_against \tab numeric \tab Points allowed. \cr
    point_differential \tab numeric \tab Point differential. \cr
    streak \tab character \tab Current streak (e.g. 'W3' for three-game win streak). \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_player_career_stats, espn_wnba_player_career_stats.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    league \tab character \tab League slug. \cr
    athlete_id \tab character \tab ESPN athlete id. \cr
@@ -26,6 +26,7 @@ Columns shared verbatim across: espn_wbb_player_career_stats, espn_wnba_player_c
    description \tab character \tab Stat description. \cr
    value \tab numeric \tab Stat value. \cr
    display_value \tab character \tab Display-formatted value. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

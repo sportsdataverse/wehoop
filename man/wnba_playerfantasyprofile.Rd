@@ -41,42 +41,44 @@ wnba_playerfantasyprofile(
 \value{
 Return a named list of data frames: DaysRestModified, LastNGames, Location, Opponent, Overall
 
-\strong{Overall}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   GP \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   MIN \tab character \tab Minutes played. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   FTM \tab character \tab Free throws made. \cr
-   FTA \tab character \tab Free throw attempts. \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   OREB \tab character \tab Offensive rebounds. \cr
-   DREB \tab character \tab Defensive rebounds. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   TOV \tab character \tab Turnovers. \cr
-   STL \tab character \tab Steals. \cr
-   BLK \tab character \tab Blocks. \cr
-   BLKA \tab character \tab  \cr
-   PF \tab character \tab Personal fouls. \cr
-   PFD \tab character \tab  \cr
-   PTS \tab character \tab Points scored. \cr
-   PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
-   DD2 \tab character \tab  \cr
-   TD3 \tab character \tab  \cr
-   FAN_DUEL_PTS \tab character \tab  \cr
-   WNBA_FANTASY_PTS \tab character \tab  \cr
-}
+\strong{Overall}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      DD2 \tab character \tab  \cr
+      TD3 \tab character \tab  \cr
+      FAN_DUEL_PTS \tab character \tab  \cr
+      WNBA_FANTASY_PTS \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{Location}
 
@@ -86,79 +88,84 @@ Same columns as the \strong{Overall} table above.
 
 Same columns as the \strong{Overall} table above.
 
-\strong{DaysRestModified}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
-   GP \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   MIN \tab character \tab Minutes played. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   FTM \tab character \tab Free throws made. \cr
-   FTA \tab character \tab Free throw attempts. \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   OREB \tab character \tab Offensive rebounds. \cr
-   DREB \tab character \tab Defensive rebounds. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   TOV \tab character \tab Turnovers. \cr
-   STL \tab character \tab Steals. \cr
-   BLK \tab character \tab Blocks. \cr
-   BLKA \tab character \tab  \cr
-   PF \tab character \tab Personal fouls. \cr
-   PFD \tab character \tab  \cr
-   PTS \tab character \tab Points scored. \cr
-   PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
-   DD2 \tab character \tab  \cr
-   TD3 \tab character \tab  \cr
-   FAN_DUEL_PTS \tab character \tab  \cr
-   WNBA_FANTASY_PTS \tab character \tab  \cr
-}
+\strong{DaysRestModified}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      DD2 \tab character \tab  \cr
+      TD3 \tab character \tab  \cr
+      FAN_DUEL_PTS \tab character \tab  \cr
+      WNBA_FANTASY_PTS \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
-\strong{Opponent}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   GP \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   MIN \tab character \tab Minutes played. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   FTM \tab character \tab Free throws made. \cr
-   FTA \tab character \tab Free throw attempts. \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   OREB \tab character \tab Offensive rebounds. \cr
-   DREB \tab character \tab Defensive rebounds. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   TOV \tab character \tab Turnovers. \cr
-   STL \tab character \tab Steals. \cr
-   BLK \tab character \tab Blocks. \cr
-   BLKA \tab character \tab  \cr
-   PF \tab character \tab Personal fouls. \cr
-   PFD \tab character \tab  \cr
-   PTS \tab character \tab Points scored. \cr
-   PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
-   DD2 \tab character \tab  \cr
-   TD3 \tab character \tab  \cr
-   FAN_DUEL_PTS \tab character \tab  \cr
-   NBA_FANTASY_PTS \tab character \tab  \cr
-}
+\strong{Opponent}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GROUP_SET \tab character \tab  \cr
+      GROUP_VALUE \tab character \tab  \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      FGM \tab character \tab Field goals made. \cr
+      FGA \tab character \tab Field goal attempts. \cr
+      FG_PCT \tab character \tab Field goal percentage (0-1). \cr
+      FG3M \tab character \tab Three-point field goals made. \cr
+      FG3A \tab character \tab Three-point field goal attempts. \cr
+      FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
+      FTM \tab character \tab Free throws made. \cr
+      FTA \tab character \tab Free throw attempts. \cr
+      FT_PCT \tab character \tab Free throw percentage (0-1). \cr
+      OREB \tab character \tab Offensive rebounds. \cr
+      DREB \tab character \tab Defensive rebounds. \cr
+      REB \tab character \tab Total rebounds. \cr
+      AST \tab character \tab Assists. \cr
+      TOV \tab character \tab Turnovers. \cr
+      STL \tab character \tab Steals. \cr
+      BLK \tab character \tab Blocks. \cr
+      BLKA \tab character \tab  \cr
+      PF \tab character \tab Personal fouls. \cr
+      PFD \tab character \tab  \cr
+      PTS \tab character \tab Points scored. \cr
+      PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
+      DD2 \tab character \tab  \cr
+      TD3 \tab character \tab  \cr
+      FAN_DUEL_PTS \tab character \tab  \cr
+      NBA_FANTASY_PTS \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Player Fantasy Profile}
@@ -184,13 +191,6 @@ Other WNBA Player Functions:
 \code{\link[=wnba_playercareerstats]{wnba_playercareerstats()}},
 \code{\link[=wnba_playercompare]{wnba_playercompare()}},
 \code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
-\code{\link[=wnba_playerdashboardbygamesplits]{wnba_playerdashboardbygamesplits()}},
-\code{\link[=wnba_playerdashboardbygeneralsplits]{wnba_playerdashboardbygeneralsplits()}},
-\code{\link[=wnba_playerdashboardbylastngames]{wnba_playerdashboardbylastngames()}},
-\code{\link[=wnba_playerdashboardbyopponent]{wnba_playerdashboardbyopponent()}},
-\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
-\code{\link[=wnba_playerdashboardbyteamperformance]{wnba_playerdashboardbyteamperformance()}},
-\code{\link[=wnba_playerdashboardbyyearoveryear]{wnba_playerdashboardbyyearoveryear()}},
 \code{\link[=wnba_playerestimatedmetrics]{wnba_playerestimatedmetrics()}},
 \code{\link[=wnba_playerfantasyprofilebargraph]{wnba_playerfantasyprofilebargraph()}},
 \code{\link[=wnba_playergamelog]{wnba_playergamelog()}},

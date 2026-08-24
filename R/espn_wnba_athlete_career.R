@@ -109,20 +109,22 @@ espn_wnba_player_career_stats <- function(athlete_id,
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #'
-#'    |col_name    |types     |description                                |
-#'    |:-----------|:---------|:------------------------------------------|
-#'    |league      |character |League slug.                               |
-#'    |season      |integer   |Season year of the draft.                  |
-#'    |round       |integer   |Round number.                              |
-#'    |pick        |integer   |Pick within the round.                     |
-#'    |overall     |integer   |Overall pick number.                       |
-#'    |traded      |logical   |Whether the pick was traded.               |
-#'    |trade_note  |character |Trade note (if any).                       |
-#'    |status      |character |Pick status name.                          |
-#'    |athlete_id  |character |Drafted athlete's ESPN id.                 |
-#'    |team_id     |character |Drafting team's ESPN id.                   |
-#'    |athlete_ref |character |`$ref` to athlete.                         |
-#'    |team_ref    |character |`$ref` to team.                            |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       league \tab character \tab League slug. \cr
+#'       season \tab integer \tab Season year of the draft. \cr
+#'       round \tab integer \tab Round number. \cr
+#'       pick \tab integer \tab Pick within the round. \cr
+#'       overall \tab integer \tab Overall pick number. \cr
+#'       traded \tab logical \tab Whether the pick was traded. \cr
+#'       trade_note \tab character \tab Trade note (if any). \cr
+#'       status \tab character \tab Pick status name. \cr
+#'       athlete_id \tab character \tab Drafted athlete's ESPN id. \cr
+#'       team_id \tab character \tab Drafting team's ESPN id. \cr
+#'       athlete_ref \tab character \tab \verb{$ref} to athlete. \cr
+#'       team_ref \tab character \tab \verb{$ref} to team. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
@@ -181,7 +183,7 @@ espn_wnba_player_eventlog_v2 <- function(athlete_id,
 #' @name espn_wnba_draft_rounds
 #' @title
 #' **Get ESPN WNBA Draft Rounds Summary**
-#' @rdname espn_wnba_draft_rounds
+#' @rdname espn_wnba_draft_athletes
 #' @author Saiem Gilani
 #' @description
 #' Returns one row per round of the WNBA draft (typically 2 rounds:
@@ -234,7 +236,7 @@ espn_wnba_draft_athletes <- function(season = most_recent_wnba_season(), ...) {
 #' @name espn_wnba_draft_status
 #' @title
 #' **Get ESPN WNBA Draft Status**
-#' @rdname espn_wnba_draft_status
+#' @rdname espn_wnba_draft_athletes
 #' @author Saiem Gilani
 #' @description
 #' Returns the current status of one WNBA draft year (round, state,
@@ -257,12 +259,9 @@ espn_wnba_draft_status <- function(season = most_recent_wnba_season(), ...) {
 # espn_wnba_season_draft
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Season Draft (Top-Level Metadata)**
-#' @name espn_wnba_season_draft
-NULL
 #' @title
 #' **Get ESPN WNBA Season Draft (Top-Level Metadata)**
-#' @rdname espn_wnba_season_draft
+#' @rdname espn_wnba_draft_athletes
 #' @author Saiem Gilani
 #' @description
 #' Returns a single-row tibble with top-level draft-year metadata: year,

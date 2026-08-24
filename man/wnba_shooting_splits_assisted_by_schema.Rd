@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_playerdashboardbyshootingsplits, wnba_teamdashboardbyshootingsplits.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    GROUP_SET \tab character \tab  \cr
    PLAYER_ID \tab character \tab Unique player identifier. \cr
@@ -40,6 +40,7 @@ Columns shared verbatim across: wnba_playerdashboardbyshootingsplits, wnba_teamd
    PCT_UAST_3PM_RANK \tab character \tab  \cr
    PCT_AST_FGM_RANK \tab character \tab  \cr
    PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

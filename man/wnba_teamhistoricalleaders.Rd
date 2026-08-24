@@ -23,26 +23,29 @@ wnba_teamhistoricalleaders(
 \value{
 Return a named list of data frames: CareerLeadersByTeam
 
-\strong{CareerLeadersByTeam}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   PTS \tab character \tab Points scored. \cr
-   PTS_PERSON_ID \tab character \tab  \cr
-   PTS_PLAYER \tab character \tab  \cr
-   AST \tab character \tab Assists. \cr
-   AST_PERSON_ID \tab character \tab  \cr
-   AST_PLAYER \tab character \tab  \cr
-   REB \tab character \tab Total rebounds. \cr
-   REB_PERSON_ID \tab character \tab  \cr
-   REB_PLAYER \tab character \tab  \cr
-   BLK \tab character \tab Blocks. \cr
-   BLK_PERSON_ID \tab character \tab  \cr
-   BLK_PLAYER \tab character \tab  \cr
-   STL \tab character \tab Steals. \cr
-   STL_PERSON_ID \tab character \tab  \cr
-   STL_PLAYER \tab character \tab  \cr
-   SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
-}
+\strong{CareerLeadersByTeam}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      PTS \tab character \tab Points scored. \cr
+      PTS_PERSON_ID \tab character \tab  \cr
+      PTS_PLAYER \tab character \tab  \cr
+      AST \tab character \tab Assists. \cr
+      AST_PERSON_ID \tab character \tab  \cr
+      AST_PLAYER \tab character \tab  \cr
+      REB \tab character \tab Total rebounds. \cr
+      REB_PERSON_ID \tab character \tab  \cr
+      REB_PLAYER \tab character \tab  \cr
+      BLK \tab character \tab Blocks. \cr
+      BLK_PERSON_ID \tab character \tab  \cr
+      BLK_PLAYER \tab character \tab  \cr
+      STL \tab character \tab Steals. \cr
+      STL_PERSON_ID \tab character \tab  \cr
+      STL_PLAYER \tab character \tab  \cr
+      SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Team Historical Leaders}
@@ -57,13 +60,6 @@ Return a named list of data frames: CareerLeadersByTeam
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
 \code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
 \code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
@@ -71,9 +67,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamelogs]{wnba_teamgamelogs()}},
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}

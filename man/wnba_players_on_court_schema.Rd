@@ -7,7 +7,7 @@
 Columns shared verbatim across: .players_on_court, wnba_pbps.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    game_id \tab character \tab Unique game identifier. \cr
    event_num \tab character \tab Sequential event number within the game (V2 PBP). \cr
@@ -60,6 +60,7 @@ Columns shared verbatim across: .players_on_court, wnba_pbps.
    home_player3 \tab numeric \tab Home team's player3. \cr
    home_player4 \tab numeric \tab Home team's player4. \cr
    home_player5 \tab numeric \tab Home team's player5. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

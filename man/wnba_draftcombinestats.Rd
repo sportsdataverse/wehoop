@@ -2,9 +2,37 @@
 % Please edit documentation in R/wnba_stats_draft.R
 \name{wnba_draftcombinestats}
 \alias{wnba_draftcombinestats}
+\alias{wnba_draftcombinedrillresults}
+\alias{wnba_draftcombinenonstationaryshooting}
+\alias{wnba_draftcombineplayeranthro}
+\alias{wnba_draftcombinespotshooting}
 \title{\strong{Get WNBA Stats API Draft Combine Stats}}
 \usage{
 wnba_draftcombinestats(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombinedrillresults(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombinenonstationaryshooting(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombineplayeranthro(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombinespotshooting(
   league_id = "10",
   season_year = most_recent_wnba_season() - 1,
   ...
@@ -20,73 +48,108 @@ wnba_draftcombinestats(
 \value{
 Returns a named list of data frames: DraftCombineStats
 
-\strong{DraftCombineStats}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   SEASON \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   FIRST_NAME \tab character \tab Player's first name. \cr
-   LAST_NAME \tab character \tab Player's last name. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   HEIGHT_WO_SHOES \tab character \tab  \cr
-   HEIGHT_WO_SHOES_FT_IN \tab character \tab  \cr
-   HEIGHT_W_SHOES \tab character \tab  \cr
-   HEIGHT_W_SHOES_FT_IN \tab character \tab  \cr
-   WEIGHT \tab character \tab Player weight in pounds. \cr
-   WINGSPAN \tab character \tab  \cr
-   WINGSPAN_FT_IN \tab character \tab  \cr
-   STANDING_REACH \tab character \tab  \cr
-   STANDING_REACH_FT_IN \tab character \tab  \cr
-   BODY_FAT_PCT \tab character \tab  \cr
-   HAND_LENGTH \tab character \tab  \cr
-   HAND_WIDTH \tab character \tab  \cr
-   STANDING_VERTICAL_LEAP \tab character \tab  \cr
-   MAX_VERTICAL_LEAP \tab character \tab  \cr
-   LANE_AGILITY_TIME \tab character \tab  \cr
-   MODIFIED_LANE_AGILITY_TIME \tab character \tab  \cr
-   THREE_QUARTER_SPRINT \tab character \tab  \cr
-   BENCH_PRESS \tab character \tab  \cr
-   SPOT_FIFTEEN_CORNER_LEFT \tab character \tab  \cr
-   SPOT_FIFTEEN_BREAK_LEFT \tab character \tab  \cr
-   SPOT_FIFTEEN_TOP_KEY \tab character \tab  \cr
-   SPOT_FIFTEEN_BREAK_RIGHT \tab character \tab  \cr
-   SPOT_FIFTEEN_CORNER_RIGHT \tab character \tab  \cr
-   SPOT_COLLEGE_CORNER_LEFT \tab character \tab  \cr
-   SPOT_COLLEGE_BREAK_LEFT \tab character \tab  \cr
-   SPOT_COLLEGE_TOP_KEY \tab character \tab  \cr
-   SPOT_COLLEGE_BREAK_RIGHT \tab character \tab  \cr
-   SPOT_COLLEGE_CORNER_RIGHT \tab character \tab  \cr
-   SPOT_NBA_CORNER_LEFT \tab character \tab  \cr
-   SPOT_NBA_BREAK_LEFT \tab character \tab  \cr
-   SPOT_NBA_TOP_KEY \tab character \tab  \cr
-   SPOT_NBA_BREAK_RIGHT \tab character \tab  \cr
-   SPOT_NBA_CORNER_RIGHT \tab character \tab  \cr
-   OFF_DRIB_FIFTEEN_BREAK_LEFT \tab character \tab  \cr
-   OFF_DRIB_FIFTEEN_TOP_KEY \tab character \tab  \cr
-   OFF_DRIB_FIFTEEN_BREAK_RIGHT \tab character \tab  \cr
-   OFF_DRIB_COLLEGE_BREAK_LEFT \tab character \tab  \cr
-   OFF_DRIB_COLLEGE_TOP_KEY \tab character \tab  \cr
-   OFF_DRIB_COLLEGE_BREAK_RIGHT \tab character \tab  \cr
-   ON_MOVE_FIFTEEN \tab character \tab  \cr
-   ON_MOVE_COLLEGE \tab character \tab  \cr
-}
+\strong{DraftCombineStats}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      SEASON \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+      PLAYER_ID \tab character \tab Unique player identifier. \cr
+      FIRST_NAME \tab character \tab Player's first name. \cr
+      LAST_NAME \tab character \tab Player's last name. \cr
+      PLAYER_NAME \tab character \tab Player name. \cr
+      POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
+      HEIGHT_WO_SHOES \tab character \tab  \cr
+      HEIGHT_WO_SHOES_FT_IN \tab character \tab  \cr
+      HEIGHT_W_SHOES \tab character \tab  \cr
+      HEIGHT_W_SHOES_FT_IN \tab character \tab  \cr
+      WEIGHT \tab character \tab Player weight in pounds. \cr
+      WINGSPAN \tab character \tab  \cr
+      WINGSPAN_FT_IN \tab character \tab  \cr
+      STANDING_REACH \tab character \tab  \cr
+      STANDING_REACH_FT_IN \tab character \tab  \cr
+      BODY_FAT_PCT \tab character \tab  \cr
+      HAND_LENGTH \tab character \tab  \cr
+      HAND_WIDTH \tab character \tab  \cr
+      STANDING_VERTICAL_LEAP \tab character \tab  \cr
+      MAX_VERTICAL_LEAP \tab character \tab  \cr
+      LANE_AGILITY_TIME \tab character \tab  \cr
+      MODIFIED_LANE_AGILITY_TIME \tab character \tab  \cr
+      THREE_QUARTER_SPRINT \tab character \tab  \cr
+      BENCH_PRESS \tab character \tab  \cr
+      SPOT_FIFTEEN_CORNER_LEFT \tab character \tab  \cr
+      SPOT_FIFTEEN_BREAK_LEFT \tab character \tab  \cr
+      SPOT_FIFTEEN_TOP_KEY \tab character \tab  \cr
+      SPOT_FIFTEEN_BREAK_RIGHT \tab character \tab  \cr
+      SPOT_FIFTEEN_CORNER_RIGHT \tab character \tab  \cr
+      SPOT_COLLEGE_CORNER_LEFT \tab character \tab  \cr
+      SPOT_COLLEGE_BREAK_LEFT \tab character \tab  \cr
+      SPOT_COLLEGE_TOP_KEY \tab character \tab  \cr
+      SPOT_COLLEGE_BREAK_RIGHT \tab character \tab  \cr
+      SPOT_COLLEGE_CORNER_RIGHT \tab character \tab  \cr
+      SPOT_NBA_CORNER_LEFT \tab character \tab  \cr
+      SPOT_NBA_BREAK_LEFT \tab character \tab  \cr
+      SPOT_NBA_TOP_KEY \tab character \tab  \cr
+      SPOT_NBA_BREAK_RIGHT \tab character \tab  \cr
+      SPOT_NBA_CORNER_RIGHT \tab character \tab  \cr
+      OFF_DRIB_FIFTEEN_BREAK_LEFT \tab character \tab  \cr
+      OFF_DRIB_FIFTEEN_TOP_KEY \tab character \tab  \cr
+      OFF_DRIB_FIFTEEN_BREAK_RIGHT \tab character \tab  \cr
+      OFF_DRIB_COLLEGE_BREAK_LEFT \tab character \tab  \cr
+      OFF_DRIB_COLLEGE_TOP_KEY \tab character \tab  \cr
+      OFF_DRIB_COLLEGE_BREAK_RIGHT \tab character \tab  \cr
+      ON_MOVE_FIFTEEN \tab character \tab  \cr
+      ON_MOVE_COLLEGE \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+Returns a named list of data frames: Results
+
+Returns a named list of data frames: Results
+
+Returns a named list of data frames: Results
+
+Returns a named list of data frames: Results
 }
 \description{
 \strong{Get WNBA Stats API Draft Combine Stats}
 
 \strong{Get WNBA Stats API Draft Combine Stats}
+
+\strong{Get WNBA Stats API Draft Combine Drill Results}
+
+\strong{Get WNBA Stats API Draft Combine Non-Stationary Shooting}
+
+\strong{Get WNBA Stats API Draft Combine Player Anthropological Measurements}
+
+\strong{Get WNBA Stats API Draft Combine - Spot Shooting}
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_draftcombinestats(season_year = most_recent_wnba_season() - 1)
+}\if{html}{\out{</div>}}
+
+(Possibly Defunct)
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_draftcombinedrillresults(season_year = most_recent_wnba_season() - 2)
+}\if{html}{\out{</div>}}
+
+(Possibly Defunct)
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_draftcombinenonstationaryshooting(season_year = most_recent_wnba_season() - 2)
+}\if{html}{\out{</div>}}
+
+(Possibly Defunct)
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_draftcombineplayeranthro(season_year = most_recent_wnba_season() - 2)
+}\if{html}{\out{</div>}}
+
+(Possibly Defunct)
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_draftcombinespotshooting(season_year = most_recent_wnba_season() - 2)
 }\if{html}{\out{</div>}}
 }
 \seealso{
 Other WNBA Draft Functions:
 \code{\link[=wnba_draftboard]{wnba_draftboard()}},
-\code{\link[=wnba_draftcombinedrillresults]{wnba_draftcombinedrillresults()}},
-\code{\link[=wnba_draftcombinenonstationaryshooting]{wnba_draftcombinenonstationaryshooting()}},
-\code{\link[=wnba_draftcombineplayeranthro]{wnba_draftcombineplayeranthro()}},
-\code{\link[=wnba_draftcombinespotshooting]{wnba_draftcombinespotshooting()}},
 \code{\link[=wnba_drafthistory]{wnba_drafthistory()}}
 }
 \author{

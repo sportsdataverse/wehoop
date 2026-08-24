@@ -17,22 +17,24 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per record category.
 #'
-#'    |col_name           |types     |description                                |
-#'    |:------------------|:---------|:------------------------------------------|
-#'    |league             |character |League slug (`"wnba"`).                    |
-#'    |team_id            |character |ESPN team identifier.                      |
-#'    |season             |integer   |Season year.                               |
-#'    |season_type        |integer   |Season type (1/2/3).                       |
-#'    |record_id          |character |Record sub-id.                             |
-#'    |name               |character |Internal record name.                      |
-#'    |abbreviation       |character |Abbreviation.                              |
-#'    |display_name       |character |Display name.                              |
-#'    |short_display_name |character |Short display.                             |
-#'    |description        |character |Description.                               |
-#'    |type               |character |Record type code.                          |
-#'    |summary            |character |W-L summary.                               |
-#'    |display_value      |character |Display value.                             |
-#'    |value              |numeric   |Win percentage (0-1).                      |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       league \tab character \tab League slug (\code{"wnba"}). \cr
+#'       team_id \tab character \tab ESPN team identifier. \cr
+#'       season \tab integer \tab Season year. \cr
+#'       season_type \tab integer \tab Season type (1/2/3). \cr
+#'       record_id \tab character \tab Record sub-id. \cr
+#'       name \tab character \tab Internal record name. \cr
+#'       abbreviation \tab character \tab Abbreviation. \cr
+#'       display_name \tab character \tab Display name. \cr
+#'       short_display_name \tab character \tab Short display. \cr
+#'       description \tab character \tab Description. \cr
+#'       type \tab character \tab Record type code. \cr
+#'       summary \tab character \tab W-L summary. \cr
+#'       display_value \tab character \tab Display value. \cr
+#'       value \tab numeric \tab Win percentage (0-1). \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble

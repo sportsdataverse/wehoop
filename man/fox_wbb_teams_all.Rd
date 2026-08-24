@@ -27,14 +27,8 @@ unseen team ids (calling one seed per conference) and unions the results.
 }
 \seealso{
 Other Fox Sports Functions:
-\code{\link{fox_basketball_boxscore}},
 \code{\link{fox_basketball_league_leaders}},
-\code{\link{fox_basketball_odds}},
-\code{\link{fox_basketball_pbp}},
-\code{\link{fox_basketball_standings}},
-\code{\link{fox_basketball_team_gamelog}},
-\code{\link{fox_basketball_team_roster}},
-\code{\link{fox_basketball_team_stats}},
-\code{\link{fox_basketball_teams}}
+\code{\link[=fox_wnba_pbp]{fox_wnba_pbp()}},
+\code{\link[=fox_wnba_team_roster]{fox_wnba_team_roster()}}
 }
 \concept{Fox Sports Functions}

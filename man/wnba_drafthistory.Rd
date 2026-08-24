@@ -38,23 +38,26 @@ wnba_drafthistory(
 \value{
 Returns a named list of data frames: DraftHistory
 
-\strong{DraftHistory}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PERSON_ID \tab character \tab Unique player identifier (V3 endpoints). \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   SEASON \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   ROUND_NUMBER \tab character \tab Numeric round. \cr
-   ROUND_PICK \tab character \tab Round pick. \cr
-   OVERALL_PICK \tab character \tab Overall pick. \cr
-   DRAFT_TYPE \tab character \tab  \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   ORGANIZATION \tab character \tab Organization. \cr
-   ORGANIZATION_TYPE \tab character \tab Organization type. \cr
-   PLAYER_PROFILE_FLAG \tab character \tab Player profile flag. \cr
-}
+\strong{DraftHistory}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      PERSON_ID \tab character \tab Unique player identifier (V3 endpoints). \cr
+      PLAYER_NAME \tab character \tab Player name. \cr
+      SEASON \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+      ROUND_NUMBER \tab character \tab Numeric round. \cr
+      ROUND_PICK \tab character \tab Round pick. \cr
+      OVERALL_PICK \tab character \tab Overall pick. \cr
+      DRAFT_TYPE \tab character \tab  \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+      TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+      ORGANIZATION \tab character \tab Organization. \cr
+      ORGANIZATION_TYPE \tab character \tab Organization type. \cr
+      PLAYER_PROFILE_FLAG \tab character \tab Player profile flag. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Draft History}
@@ -66,10 +69,6 @@ Returns a named list of data frames: DraftHistory
 \seealso{
 Other WNBA Draft Functions:
 \code{\link[=wnba_draftboard]{wnba_draftboard()}},
-\code{\link[=wnba_draftcombinedrillresults]{wnba_draftcombinedrillresults()}},
-\code{\link[=wnba_draftcombinenonstationaryshooting]{wnba_draftcombinenonstationaryshooting()}},
-\code{\link[=wnba_draftcombineplayeranthro]{wnba_draftcombineplayeranthro()}},
-\code{\link[=wnba_draftcombinespotshooting]{wnba_draftcombinespotshooting()}},
 \code{\link[=wnba_draftcombinestats]{wnba_draftcombinestats()}}
 }
 \author{

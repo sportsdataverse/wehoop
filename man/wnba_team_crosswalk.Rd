@@ -13,28 +13,31 @@ wnba_team_crosswalk(season = most_recent_wnba_season(), .schedule = NULL)
 by \code{wnba_schedule_crosswalk()} to avoid a duplicate CDN request. Leave \code{NULL}.}
 }
 \value{
-A \code{wehoop_data} tibble, one row per team:\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab integer \tab Season year. \cr
-   espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
-   espn_abbreviation \tab character \tab ESPN abbreviation. \cr
-   espn_display_name \tab character \tab ESPN display name. \cr
-   espn_short_name \tab character \tab ESPN short name. \cr
-   espn_location \tab character \tab ESPN team location. \cr
-   espn_mascot \tab character \tab ESPN team mascot/nickname. \cr
-   wnba_team_id \tab character \tab WNBA Stats team id. \cr
-   wnba_team_tricode \tab character \tab WNBA Stats tricode. \cr
-   wnba_team_name \tab character \tab WNBA Stats team name. \cr
-   wnba_team_city \tab character \tab WNBA Stats team city. \cr
-   wnba_team_slug \tab character \tab WNBA Stats team slug. \cr
-   fox_team_id \tab character \tab Fox Bifrost team id. \cr
-   fox_team_name \tab character \tab Fox team name. \cr
-   yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
-   yahoo_team_abbreviation \tab character \tab Yahoo abbreviation (NA placeholder). \cr
-   yahoo_team_name \tab character \tab Yahoo team name (NA placeholder). \cr
-   match_method \tab character \tab How the row was matched. \cr
-   match_confidence \tab numeric \tab Match confidence (1 for deterministic). \cr
-}
+A \code{wehoop_data} tibble, one row per team:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      season \tab integer \tab Season year. \cr
+      espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
+      espn_abbreviation \tab character \tab ESPN abbreviation. \cr
+      espn_display_name \tab character \tab ESPN display name. \cr
+      espn_short_name \tab character \tab ESPN short name. \cr
+      espn_location \tab character \tab ESPN team location. \cr
+      espn_mascot \tab character \tab ESPN team mascot/nickname. \cr
+      wnba_team_id \tab character \tab WNBA Stats team id. \cr
+      wnba_team_tricode \tab character \tab WNBA Stats tricode. \cr
+      wnba_team_name \tab character \tab WNBA Stats team name. \cr
+      wnba_team_city \tab character \tab WNBA Stats team city. \cr
+      wnba_team_slug \tab character \tab WNBA Stats team slug. \cr
+      fox_team_id \tab character \tab Fox Bifrost team id. \cr
+      fox_team_name \tab character \tab Fox team name. \cr
+      yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
+      yahoo_team_abbreviation \tab character \tab Yahoo abbreviation (NA placeholder). \cr
+      yahoo_team_name \tab character \tab Yahoo team name (NA placeholder). \cr
+      match_method \tab character \tab How the row was matched. \cr
+      match_confidence \tab numeric \tab Match confidence (1 for deterministic). \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 Build a wide, one-row-per-team-per-season crosswalk linking ESPN, the WNBA
@@ -48,8 +51,6 @@ columns are placeholders (NA) until that source is implemented.
 }
 \seealso{
 Other WNBA Crosswalk Functions:
-\code{\link[=load_wnba_player_crosswalk]{load_wnba_player_crosswalk()}},
-\code{\link[=load_wnba_schedule_crosswalk]{load_wnba_schedule_crosswalk()}},
 \code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
 \code{\link[=wnba_player_crosswalk]{wnba_player_crosswalk()}},
 \code{\link[=wnba_schedule_crosswalk]{wnba_schedule_crosswalk()}}

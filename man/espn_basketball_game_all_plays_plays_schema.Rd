@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_game_all, espn_wbb_pbp.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    id \tab character \tab Unique play identifcation number \cr
    sequence_number \tab character \tab Sequence number representing a shot-possession (V3 PBP). \cr
@@ -60,6 +60,7 @@ Columns shared verbatim across: espn_wbb_game_all, espn_wbb_pbp.
    season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
    game_date \tab Date \tab Game date (YYYY-MM-DD). \cr
    game_date_time \tab POSIXct \tab Game start date/time (ISO 8601). \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

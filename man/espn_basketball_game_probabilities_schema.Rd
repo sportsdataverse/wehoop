@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_game_probabilities, espn_wnba_game_probabilities.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab Unique event / game identifier (ESPN). \cr
    sequence_number \tab character \tab Sequence number representing a shot-possession (V3 PBP). \cr
@@ -19,6 +19,7 @@ Columns shared verbatim across: espn_wbb_game_probabilities, espn_wnba_game_prob
    tie_percentage \tab numeric \tab Tie percentage (0-1 decimal). \cr
    secs_to_end_of_period \tab numeric \tab Secs to end of period. \cr
    secs_to_end_of_game \tab numeric \tab Secs to end of game. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

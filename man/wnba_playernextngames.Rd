@@ -29,22 +29,25 @@ wnba_playernextngames(
 \value{
 Return a named list of data frames: NextNGames
 
-\strong{NextNGames}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   GAME_DATE \tab character \tab Game date (YYYY-MM-DD). \cr
-   HOME_TEAM_ID \tab character \tab Unique identifier for the home team. \cr
-   VISITOR_TEAM_ID \tab character \tab Unique identifier for visitor team. \cr
-   HOME_TEAM_NAME \tab character \tab Home team name. \cr
-   VISITOR_TEAM_NAME \tab character \tab  \cr
-   HOME_TEAM_ABBREVIATION \tab character \tab  \cr
-   VISITOR_TEAM_ABBREVIATION \tab character \tab  \cr
-   HOME_TEAM_NICKNAME \tab character \tab  \cr
-   VISITOR_TEAM_NICKNAME \tab character \tab  \cr
-   GAME_TIME \tab character \tab Game start time. \cr
-   HOME_WL \tab character \tab  \cr
-   VISITOR_WL \tab character \tab  \cr
-}
+\strong{NextNGames}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      GAME_ID \tab character \tab Unique game identifier. \cr
+      GAME_DATE \tab character \tab Game date (YYYY-MM-DD). \cr
+      HOME_TEAM_ID \tab character \tab Unique identifier for the home team. \cr
+      VISITOR_TEAM_ID \tab character \tab Unique identifier for visitor team. \cr
+      HOME_TEAM_NAME \tab character \tab Home team name. \cr
+      VISITOR_TEAM_NAME \tab character \tab  \cr
+      HOME_TEAM_ABBREVIATION \tab character \tab  \cr
+      VISITOR_TEAM_ABBREVIATION \tab character \tab  \cr
+      HOME_TEAM_NICKNAME \tab character \tab  \cr
+      VISITOR_TEAM_NICKNAME \tab character \tab  \cr
+      GAME_TIME \tab character \tab Game start time. \cr
+      HOME_WL \tab character \tab  \cr
+      VISITOR_WL \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Player Next N Games}
@@ -70,13 +73,6 @@ Other WNBA Player Functions:
 \code{\link[=wnba_playercareerstats]{wnba_playercareerstats()}},
 \code{\link[=wnba_playercompare]{wnba_playercompare()}},
 \code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
-\code{\link[=wnba_playerdashboardbygamesplits]{wnba_playerdashboardbygamesplits()}},
-\code{\link[=wnba_playerdashboardbygeneralsplits]{wnba_playerdashboardbygeneralsplits()}},
-\code{\link[=wnba_playerdashboardbylastngames]{wnba_playerdashboardbylastngames()}},
-\code{\link[=wnba_playerdashboardbyopponent]{wnba_playerdashboardbyopponent()}},
-\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
-\code{\link[=wnba_playerdashboardbyteamperformance]{wnba_playerdashboardbyteamperformance()}},
-\code{\link[=wnba_playerdashboardbyyearoveryear]{wnba_playerdashboardbyyearoveryear()}},
 \code{\link[=wnba_playerestimatedmetrics]{wnba_playerestimatedmetrics()}},
 \code{\link[=wnba_playerfantasyprofile]{wnba_playerfantasyprofile()}},
 \code{\link[=wnba_playerfantasyprofilebargraph]{wnba_playerfantasyprofilebargraph()}},

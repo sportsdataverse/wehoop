@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_season_group, espn_wnba_season_group.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    league \tab character \tab League slug. \cr
    season \tab integer \tab Season year. \cr
@@ -24,6 +24,7 @@ Columns shared verbatim across: espn_wbb_season_group, espn_wnba_season_group.
    children_ref \tab character \tab \verb{$ref} to child-groups endpoint. \cr
    teams_ref \tab character \tab \verb{$ref} to teams-in-group endpoint. \cr
    standings_ref \tab character \tab \verb{$ref} to standings endpoint. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

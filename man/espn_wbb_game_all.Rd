@@ -2,9 +2,21 @@
 % Please edit documentation in R/espn_wbb_data.R
 \name{espn_wbb_game_all}
 \alias{espn_wbb_game_all}
+\alias{espn_wbb_pbp}
+\alias{espn_wbb_team_box}
+\alias{espn_wbb_player_box}
+\alias{espn_wbb_game_rosters}
 \title{Get ESPN women's college basketball game data (play-by-play, team and player box)}
 \usage{
 espn_wbb_game_all(game_id)
+
+espn_wbb_pbp(game_id)
+
+espn_wbb_team_box(game_id)
+
+espn_wbb_player_box(game_id)
+
+espn_wbb_game_rosters(game_id)
 }
 \arguments{
 \item{game_id}{Game ID}
@@ -23,14 +35,126 @@ Columns as documented in the shared \link{espn_basketball_team_box_schema} table
 \strong{Player}
 
 Columns as documented in the shared \link{espn_basketball_game_all_player_player_schema} table.
+
+Returns a play-by-play data frame
+
+\strong{Plays}
+
+Columns as documented in the shared \link{espn_basketball_game_all_plays_plays_schema} table.
+
+Returns a team boxscore data frame
+
+\strong{Team}
+
+Columns as documented in the shared \link{espn_basketball_team_box_schema} table.
+
+Returns a player boxscore data frame
+
+\strong{Player}
+
+Columns as documented in the shared \link{espn_basketball_game_all_player_player_schema} table.
+
+A game rosters data frame
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      athlete_id \tab integer \tab Unique athlete identifier (ESPN). \cr
+      athlete_uid \tab character \tab ESPN athlete UID (universal identifier). \cr
+      athlete_guid \tab character \tab ESPN athlete GUID. \cr
+      athlete_type \tab character \tab Athlete type / class. \cr
+      sdr \tab integer \tab Sdr. \cr
+      first_name \tab character \tab Player's first name. \cr
+      last_name \tab character \tab Player's last name. \cr
+      full_name \tab character \tab Player's full name. \cr
+      athlete_display_name \tab character \tab Athlete display name (full). \cr
+      short_name \tab character \tab Short display name. \cr
+      height \tab integer \tab Player height (string e.g. '6-2' or inches). \cr
+      display_height \tab character \tab Player height in display format (e.g. '6-2'). \cr
+      birth_place_city \tab character \tab Birth place city. \cr
+      birth_place_state \tab character \tab Birth place state. \cr
+      birth_place_country \tab character \tab Birth place country. \cr
+      slug \tab character \tab URL-safe identifier. \cr
+      headshot_href \tab character \tab Headshot image URL. \cr
+      headshot_alt \tab character \tab Alternative-text label for the headshot. \cr
+      jersey \tab character \tab Jersey number worn by the player. \cr
+      position_id \tab integer \tab Unique position identifier. \cr
+      position_name \tab character \tab Listed roster position ('Guard', 'Forward', 'Center'). \cr
+      position_display_name \tab character \tab Position display name. \cr
+      position_abbreviation \tab character \tab Position abbreviation ('G' / 'F' / 'C'). \cr
+      position_leaf \tab logical \tab Position leaf. \cr
+      linked \tab logical \tab TRUE if the record is linked to a related entity. \cr
+      experience_years \tab integer \tab Experience years. \cr
+      experience_display_value \tab character \tab Experience display value. \cr
+      experience_abbreviation \tab character \tab Experience abbreviation. \cr
+      active \tab logical \tab TRUE if the row represents an active record (player / team / season). \cr
+      status_id \tab integer \tab Status identifier. \cr
+      status_name \tab character \tab Status label. \cr
+      status_type \tab character \tab Status type. \cr
+      status_abbreviation \tab character \tab Status abbreviation. \cr
+      starter \tab logical \tab TRUE if the player was in the starting lineup; FALSE otherwise. \cr
+      valid \tab logical \tab Valid. \cr
+      did_not_play \tab logical \tab TRUE if the player did not appear in the game. \cr
+      display_name \tab character \tab Display name. \cr
+      ejected \tab logical \tab TRUE if the player was ejected from the game. \cr
+      team_id \tab integer \tab Unique team identifier. \cr
+      team_guid \tab character \tab ESPN team GUID. \cr
+      team_uid \tab character \tab ESPN universal team identifier (UID format 's:40~l:...~t:...'). \cr
+      team_sdr \tab integer \tab ESPN team SDR identifier. \cr
+      team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+      team_location \tab character \tab Team city or location string. \cr
+      team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      team_nickname \tab character \tab Team nickname. \cr
+      team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+      team_display_name \tab character \tab Full team display name. \cr
+      team_short_display_name \tab character \tab Short team display name (e.g. 'Aces'). \cr
+      team_color \tab character \tab Team primary color (hex without leading '#'). \cr
+      team_alternate_color \tab character \tab Team alternate color (hex without leading '#'). \cr
+      is_active \tab logical \tab Is active. \cr
+      is_all_star \tab logical \tab Is all star. \cr
+      logo_href \tab character \tab Team or league logo URL. \cr
+      logo_dark_href \tab character \tab Logo URL for dark backgrounds. \cr
+      game_id \tab integer \tab Unique game identifier. \cr
+      order \tab integer \tab Display order within the result set. \cr
+      home_away \tab character \tab Game venue label ('home' or 'away'). \cr
+      winner \tab logical \tab Winner. \cr
+      roster_href \tab character \tab URL for roster. \cr
+      hand_type \tab character \tab Hand type. \cr
+      hand_abbreviation \tab character \tab Hand abbreviation. \cr
+      hand_display_value \tab character \tab Hand display value. \cr
+      age \tab integer \tab Player age (in years). \cr
+      date_of_birth \tab character \tab Date of birth (YYYY-MM-DD). \cr
+      weight \tab integer \tab Player weight in pounds. \cr
+      display_weight \tab character \tab Player weight in display format (e.g. '180 lbs'). \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 Get ESPN women's college basketball game data (play-by-play, team and player box)
+
+Get ESPN women's college basketball play by play data
+
+Get ESPN women's college basketball team box data
+
+Get ESPN women's college basketball player box
+
+\strong{Get ESPN women's college basketball game rosters}
 }
 \examples{
 \donttest{
   try(espn_wbb_game_all(game_id = 401276115))
  }
+\donttest{
+  try(espn_wbb_pbp(game_id = 401498717))
+}
+\donttest{
+  try(espn_wbb_team_box(game_id = 401276115))
+}
+\donttest{
+  try(espn_wbb_player_box(game_id = 401276115))
+}
+\donttest{
+  try(espn_wbb_game_rosters(game_id = 401276115))
+}
 }
 \seealso{
 Other ESPN WBB Functions:
@@ -44,43 +168,25 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_conferences]{espn_wbb_conferences()}},
 \code{\link[=espn_wbb_franchise]{espn_wbb_franchise()}},
 \code{\link[=espn_wbb_franchises]{espn_wbb_franchises()}},
-\code{\link[=espn_wbb_game_broadcasts]{espn_wbb_game_broadcasts()}},
 \code{\link[=espn_wbb_game_odds]{espn_wbb_game_odds()}},
 \code{\link[=espn_wbb_game_official_detail]{espn_wbb_game_official_detail()}},
-\code{\link[=espn_wbb_game_officials]{espn_wbb_game_officials()}},
 \code{\link[=espn_wbb_game_play]{espn_wbb_game_play()}},
 \code{\link[=espn_wbb_game_play_personnel]{espn_wbb_game_play_personnel()}},
 \code{\link[=espn_wbb_game_player_box]{espn_wbb_game_player_box()}},
-\code{\link[=espn_wbb_game_powerindex]{espn_wbb_game_powerindex()}},
-\code{\link[=espn_wbb_game_predictor]{espn_wbb_game_predictor()}},
 \code{\link[=espn_wbb_game_probabilities]{espn_wbb_game_probabilities()}},
 \code{\link[=espn_wbb_game_propbets]{espn_wbb_game_propbets()}},
-\code{\link[=espn_wbb_game_rosters]{espn_wbb_game_rosters()}},
-\code{\link[=espn_wbb_game_situation]{espn_wbb_game_situation()}},
-\code{\link[=espn_wbb_game_team_leaders]{espn_wbb_game_team_leaders()}},
 \code{\link[=espn_wbb_game_team_linescores]{espn_wbb_game_team_linescores()}},
-\code{\link[=espn_wbb_game_team_records]{espn_wbb_game_team_records()}},
-\code{\link[=espn_wbb_game_team_roster]{espn_wbb_game_team_roster()}},
 \code{\link[=espn_wbb_game_team_roster_entry]{espn_wbb_game_team_roster_entry()}},
-\code{\link[=espn_wbb_game_team_score]{espn_wbb_game_team_score()}},
-\code{\link[=espn_wbb_game_team_statistics]{espn_wbb_game_team_statistics()}},
 \code{\link[=espn_wbb_injuries]{espn_wbb_injuries()}},
 \code{\link[=espn_wbb_leaders]{espn_wbb_leaders()}},
 \code{\link[=espn_wbb_news]{espn_wbb_news()}},
-\code{\link[=espn_wbb_pbp]{espn_wbb_pbp()}},
 \code{\link[=espn_wbb_player_awards]{espn_wbb_player_awards()}},
-\code{\link[=espn_wbb_player_box]{espn_wbb_player_box()}},
 \code{\link[=espn_wbb_player_career_stats]{espn_wbb_player_career_stats()}},
-\code{\link[=espn_wbb_player_eventlog]{espn_wbb_player_eventlog()}},
 \code{\link[=espn_wbb_player_eventlog_v2]{espn_wbb_player_eventlog_v2()}},
-\code{\link[=espn_wbb_player_gamelog]{espn_wbb_player_gamelog()}},
 \code{\link[=espn_wbb_player_info]{espn_wbb_player_info()}},
 \code{\link[=espn_wbb_player_overview]{espn_wbb_player_overview()}},
 \code{\link[=espn_wbb_player_seasons]{espn_wbb_player_seasons()}},
-\code{\link[=espn_wbb_player_splits]{espn_wbb_player_splits()}},
-\code{\link[=espn_wbb_player_statisticslog]{espn_wbb_player_statisticslog()}},
 \code{\link[=espn_wbb_player_stats]{espn_wbb_player_stats()}},
-\code{\link[=espn_wbb_player_stats_v3]{espn_wbb_player_stats_v3()}},
 \code{\link[=espn_wbb_position]{espn_wbb_position()}},
 \code{\link[=espn_wbb_positions]{espn_wbb_positions()}},
 \code{\link[=espn_wbb_powerindex]{espn_wbb_powerindex()}},
@@ -88,8 +194,6 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_scoreboard]{espn_wbb_scoreboard()}},
 \code{\link[=espn_wbb_season_awards]{espn_wbb_season_awards()}},
 \code{\link[=espn_wbb_season_group]{espn_wbb_season_group()}},
-\code{\link[=espn_wbb_season_group_children]{espn_wbb_season_group_children()}},
-\code{\link[=espn_wbb_season_group_teams]{espn_wbb_season_group_teams()}},
 \code{\link[=espn_wbb_season_groups]{espn_wbb_season_groups()}},
 \code{\link[=espn_wbb_season_info]{espn_wbb_season_info()}},
 \code{\link[=espn_wbb_season_leaders]{espn_wbb_season_leaders()}},
@@ -102,14 +206,10 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_seasons]{espn_wbb_seasons()}},
 \code{\link[=espn_wbb_standings]{espn_wbb_standings()}},
 \code{\link[=espn_wbb_team]{espn_wbb_team()}},
-\code{\link[=espn_wbb_team_box]{espn_wbb_team_box()}},
 \code{\link[=espn_wbb_team_injuries]{espn_wbb_team_injuries()}},
-\code{\link[=espn_wbb_team_leaders]{espn_wbb_team_leaders()}},
 \code{\link[=espn_wbb_team_news]{espn_wbb_team_news()}},
 \code{\link[=espn_wbb_team_record_detail]{espn_wbb_team_record_detail()}},
-\code{\link[=espn_wbb_team_roster]{espn_wbb_team_roster()}},
 \code{\link[=espn_wbb_team_schedule]{espn_wbb_team_schedule()}},
-\code{\link[=espn_wbb_team_season_profile]{espn_wbb_team_season_profile()}},
 \code{\link[=espn_wbb_team_season_roster]{espn_wbb_team_season_roster()}},
 \code{\link[=espn_wbb_team_season_statistics]{espn_wbb_team_season_statistics()}},
 \code{\link[=espn_wbb_team_stats]{espn_wbb_team_stats()}},
@@ -126,5 +226,10 @@ Other ESPN WBB Functions:
 Saiem Gilani
 }
 \concept{ESPN WBB Functions}
+\keyword{Box}
 \keyword{Game}
+\keyword{PBP}
+\keyword{Player}
+\keyword{Roster}
+\keyword{Team}
 \keyword{WBB}

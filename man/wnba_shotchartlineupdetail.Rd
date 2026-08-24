@@ -227,10 +227,10 @@ Columns as documented in the shared \link{wnba_shotchartdetail_league_averages_s
 Other WNBA Shooting Functions:
 \code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
 \code{\link[=wnba_leaguedashteamshotlocations]{wnba_leaguedashteamshotlocations()}},
-\code{\link[=wnba_playerdashboardbyshootingsplits]{wnba_playerdashboardbyshootingsplits()}},
+\code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
 \code{\link[=wnba_shotchartdetail]{wnba_shotchartdetail()}},
 \code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}}
+\code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}}
 
 Other WNBA Lineup Functions:
 \code{\link[=wnba_gamerotation]{wnba_gamerotation()}},

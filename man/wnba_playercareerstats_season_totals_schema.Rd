@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_playercareerstats, wnba_playerprofilev2.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    PLAYER_ID \tab character \tab Unique player identifier. \cr
    SEASON_ID \tab character \tab Unique season identifier. \cr
@@ -36,6 +36,7 @@ Columns shared verbatim across: wnba_playercareerstats, wnba_playerprofilev2.
    TOV \tab character \tab Turnovers. \cr
    PF \tab character \tab Personal fouls. \cr
    PTS \tab character \tab Points scored. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_leagueplayerondetails, wnba_teamplayeronoffdetails, wnba_teamvsplayer.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    GROUP_SET \tab character \tab  \cr
    TEAM_ID \tab character \tab Unique team identifier. \cr
@@ -68,6 +68,7 @@ Columns shared verbatim across: wnba_leagueplayerondetails, wnba_teamplayeronoff
    PFD_RANK \tab character \tab  \cr
    PTS_RANK \tab character \tab  \cr
    PLUS_MINUS_RANK \tab character \tab  \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_game_officials, espn_wnba_game_officials.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab Unique event / game identifier (ESPN). \cr
    official_id \tab character \tab Unique official / referee identifier. \cr
@@ -17,6 +17,7 @@ Columns shared verbatim across: espn_wbb_game_officials, espn_wnba_game_official
    position_name \tab character \tab Listed roster position ('Guard', 'Forward', 'Center'). \cr
    position_type \tab character \tab Position type. \cr
    order \tab integer \tab Display order within the result set. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

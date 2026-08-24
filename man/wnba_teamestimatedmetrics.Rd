@@ -23,39 +23,42 @@ wnba_teamestimatedmetrics(
 \value{
 Return a named list of data frames: TeamEstimatedMetrics
 
-\strong{TeamEstimatedMetrics}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   GP \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   MIN \tab character \tab Minutes played. \cr
-   E_OFF_RATING \tab character \tab  \cr
-   E_DEF_RATING \tab character \tab  \cr
-   E_NET_RATING \tab character \tab  \cr
-   E_PACE \tab character \tab  \cr
-   E_AST_RATIO \tab character \tab  \cr
-   E_OREB_PCT \tab character \tab  \cr
-   E_DREB_PCT \tab character \tab  \cr
-   E_REB_PCT \tab character \tab  \cr
-   E_TM_TOV_PCT \tab character \tab  \cr
-   GP_RANK \tab character \tab  \cr
-   W_RANK \tab character \tab  \cr
-   L_RANK \tab character \tab  \cr
-   W_PCT_RANK \tab character \tab  \cr
-   MIN_RANK \tab character \tab  \cr
-   E_OFF_RATING_RANK \tab character \tab  \cr
-   E_DEF_RATING_RANK \tab character \tab  \cr
-   E_NET_RATING_RANK \tab character \tab  \cr
-   E_AST_RATIO_RANK \tab character \tab  \cr
-   E_OREB_PCT_RANK \tab character \tab  \cr
-   E_DREB_PCT_RANK \tab character \tab  \cr
-   E_REB_PCT_RANK \tab character \tab  \cr
-   E_TM_TOV_PCT_RANK \tab character \tab  \cr
-   E_PACE_RANK \tab character \tab  \cr
-}
+\strong{TeamEstimatedMetrics}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      GP \tab character \tab Games played. \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
+      MIN \tab character \tab Minutes played. \cr
+      E_OFF_RATING \tab character \tab  \cr
+      E_DEF_RATING \tab character \tab  \cr
+      E_NET_RATING \tab character \tab  \cr
+      E_PACE \tab character \tab  \cr
+      E_AST_RATIO \tab character \tab  \cr
+      E_OREB_PCT \tab character \tab  \cr
+      E_DREB_PCT \tab character \tab  \cr
+      E_REB_PCT \tab character \tab  \cr
+      E_TM_TOV_PCT \tab character \tab  \cr
+      GP_RANK \tab character \tab  \cr
+      W_RANK \tab character \tab  \cr
+      L_RANK \tab character \tab  \cr
+      W_PCT_RANK \tab character \tab  \cr
+      MIN_RANK \tab character \tab  \cr
+      E_OFF_RATING_RANK \tab character \tab  \cr
+      E_DEF_RATING_RANK \tab character \tab  \cr
+      E_NET_RATING_RANK \tab character \tab  \cr
+      E_AST_RATIO_RANK \tab character \tab  \cr
+      E_OREB_PCT_RANK \tab character \tab  \cr
+      E_DREB_PCT_RANK \tab character \tab  \cr
+      E_REB_PCT_RANK \tab character \tab  \cr
+      E_TM_TOV_PCT_RANK \tab character \tab  \cr
+      E_PACE_RANK \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Team Estimated Metrics}
@@ -70,13 +73,6 @@ Return a named list of data frames: TeamEstimatedMetrics
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
 \code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
 \code{\link[=wnba_teamgamelog]{wnba_teamgamelog()}},
@@ -84,9 +80,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
 \code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}

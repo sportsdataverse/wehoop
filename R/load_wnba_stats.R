@@ -1,9 +1,6 @@
-#' **Load wehoop WNBA Stats Rosters**
-#' @name load_wnba_stats_rosters
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API season rosters from the data repo**
-#' @rdname load_wnba_stats_rosters
+#' @rdname load_wnba_stats_coaches
 #' @description Loads season-level WNBA team rosters scraped from the WNBA
 #'   Stats API. One row per athlete-team-season triple. Backed by the
 #'   `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
@@ -125,12 +122,9 @@ load_wnba_stats_coaches <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Player Season Stats**
-#' @name load_wnba_stats_player_stats
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API player season stats from the data repo**
-#' @rdname load_wnba_stats_player_stats
+#' @rdname load_wnba_stats_coaches
 #' @description `r lifecycle::badge("deprecated")` Loads season-level WNBA
 #'   player statistics. **Deprecated**: the `wnba_stats_player_season_stats`
 #'   release tag (R-scraped, `Base`/`Advanced`/`Misc`/`Scoring`/`Usage`/
@@ -205,12 +199,9 @@ load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season
 }
 
 
-#' **Load wehoop WNBA Stats Lineups**
-#' @name load_wnba_stats_lineups
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API season lineups from the data repo**
-#' @rdname load_wnba_stats_lineups
+#' @rdname load_wnba_stats_coaches
 #' @description `r lifecycle::badge("deprecated")` Loads season-level WNBA
 #'   5-man lineup statistics (`leaguedashlineups`-style outputs).
 #'   **Deprecated**: the `wnba_stats_lineups` release tag (R-scraped,
@@ -285,12 +276,9 @@ load_wnba_stats_lineups <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Team Season Stats**
-#' @name load_wnba_stats_team_stats
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API team season stats from the data repo**
-#' @rdname load_wnba_stats_team_stats
+#' @rdname load_wnba_stats_coaches
 #' @description `r lifecycle::badge("deprecated")` Loads season-level team
 #'   statistics (`leaguedashteamstats`-style outputs). **Deprecated**: the
 #'   `wnba_stats_team_season_stats` release tag (R-scraped, `Base`/
@@ -310,37 +298,39 @@ NULL
 #' @param tablename The name of the team season stats table within the database
 #' @return Returns a `wehoop_data` tibble of team season stats.
 #'
-#'    |col_name          |types     |description                                                                                                        |
-#'    |:-----------------|:---------|:------------------------------------------------------------------------------------------------------------------|
-#'    |season            |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
-#'    |season_type       |character |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-#'    |team_id           |character |Unique team identifier.                                                                                            |
-#'    |team_name         |character |Full team display name (e.g. 'Las Vegas Aces').                                                                    |
-#'    |team_abbreviation |character |Short team abbreviation (e.g. 'LAS').                                                                              |
-#'    |gp                |integer   |Games played.                                                                                                      |
-#'    |w                 |integer   |Wins.                                                                                                              |
-#'    |l                 |integer   |Losses.                                                                                                            |
-#'    |w_pct             |numeric   |Wins percentage (0-1 decimal).                                                                                     |
-#'    |min               |numeric   |Minutes played.                                                                                                    |
-#'    |fgm               |numeric   |Field goals made.                                                                                                  |
-#'    |fga               |numeric   |Field goal attempts.                                                                                               |
-#'    |fg_pct            |numeric   |Field goal percentage (0-1).                                                                                       |
-#'    |fg3m              |numeric   |Three-point field goals made.                                                                                      |
-#'    |fg3a              |numeric   |Three-point field goal attempts.                                                                                   |
-#'    |fg3_pct           |numeric   |Three-point field goal percentage (0-1).                                                                           |
-#'    |ftm               |numeric   |Free throws made.                                                                                                  |
-#'    |fta               |numeric   |Free throw attempts.                                                                                               |
-#'    |ft_pct            |numeric   |Free throw percentage (0-1).                                                                                       |
-#'    |oreb              |numeric   |Offensive rebounds.                                                                                                |
-#'    |dreb              |numeric   |Defensive rebounds.                                                                                                |
-#'    |reb               |numeric   |Total rebounds.                                                                                                    |
-#'    |ast               |numeric   |Assists.                                                                                                           |
-#'    |tov               |numeric   |Turnovers.                                                                                                         |
-#'    |stl               |numeric   |Steals.                                                                                                            |
-#'    |blk               |numeric   |Blocks.                                                                                                            |
-#'    |pf                |numeric   |Personal fouls.                                                                                                    |
-#'    |pts               |numeric   |Points scored.                                                                                                     |
-#'    |plus_minus        |numeric   |Plus/minus point differential while on court.                                                                      |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+#'       season_type \tab character \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
+#'       team_id \tab character \tab Unique team identifier. \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+#'       gp \tab integer \tab Games played. \cr
+#'       w \tab integer \tab Wins. \cr
+#'       l \tab integer \tab Losses. \cr
+#'       w_pct \tab numeric \tab Wins percentage (0-1 decimal). \cr
+#'       min \tab numeric \tab Minutes played. \cr
+#'       fgm \tab numeric \tab Field goals made. \cr
+#'       fga \tab numeric \tab Field goal attempts. \cr
+#'       fg_pct \tab numeric \tab Field goal percentage (0-1). \cr
+#'       fg3m \tab numeric \tab Three-point field goals made. \cr
+#'       fg3a \tab numeric \tab Three-point field goal attempts. \cr
+#'       fg3_pct \tab numeric \tab Three-point field goal percentage (0-1). \cr
+#'       ftm \tab numeric \tab Free throws made. \cr
+#'       fta \tab numeric \tab Free throw attempts. \cr
+#'       ft_pct \tab numeric \tab Free throw percentage (0-1). \cr
+#'       oreb \tab numeric \tab Offensive rebounds. \cr
+#'       dreb \tab numeric \tab Defensive rebounds. \cr
+#'       reb \tab numeric \tab Total rebounds. \cr
+#'       ast \tab numeric \tab Assists. \cr
+#'       tov \tab numeric \tab Turnovers. \cr
+#'       stl \tab numeric \tab Steals. \cr
+#'       blk \tab numeric \tab Blocks. \cr
+#'       pf \tab numeric \tab Personal fouls. \cr
+#'       pts \tab numeric \tab Points scored. \cr
+#'       plus_minus \tab numeric \tab Plus/minus point differential while on court. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -399,12 +389,9 @@ load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season()
 }
 
 
-#' **Load wehoop WNBA Stats Standings**
-#' @name load_wnba_stats_standings
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API season standings from the data repo**
-#' @rdname load_wnba_stats_standings
+#' @rdname load_wnba_stats_coaches
 #' @description `r lifecycle::badge("deprecated")` Loads season-level WNBA
 #'   standings (`leaguestandingsv3`-style outputs). One row per team-season.
 #'   **Deprecated**: the `wnba_stats_standings` release tag (R-scraped) is
@@ -420,26 +407,28 @@ NULL
 #' @param tablename The name of the standings data table within the database
 #' @return Returns a `wehoop_data` tibble of team standings.
 #'
-#'    |col_name          |types     |description                                           |
-#'    |:-----------------|:---------|:-----------------------------------------------------|
-#'    |season            |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |season_id         |character |Unique season identifier.                             |
-#'    |team_id           |character |Unique team identifier.                               |
-#'    |team_city         |character |Team city or region (e.g. 'Las Vegas').               |
-#'    |team_name         |character |Full team display name (e.g. 'Las Vegas Aces').       |
-#'    |conference        |character |Filter players or teams by conference.                |
-#'    |conference_record |character |Conference win-loss record.                           |
-#'    |playoff_rank      |integer   |League/season rank for playoff.                       |
-#'    |wins              |integer   |Total wins.                                           |
-#'    |losses            |integer   |Total losses.                                         |
-#'    |win_pct           |numeric   |Win percentage (0-1 decimal).                         |
-#'    |home_record       |character |Home win-loss record.                                 |
-#'    |road_record       |character |Win-loss record for road.                             |
-#'    |l10               |character |L10.                                                  |
-#'    |strcurrentstreak  |character |Strcurrentstreak.                                     |
-#'    |points_pg         |numeric   |Points pg.                                            |
-#'    |opp_points_pg     |numeric   |Opponent points pg.                                   |
-#'    |diff_points_pg    |numeric   |Diff points pg.                                       |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+#'       season_id \tab character \tab Unique season identifier. \cr
+#'       team_id \tab character \tab Unique team identifier. \cr
+#'       team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       conference \tab character \tab Filter players or teams by conference. \cr
+#'       conference_record \tab character \tab Conference win-loss record. \cr
+#'       playoff_rank \tab integer \tab League/season rank for playoff. \cr
+#'       wins \tab integer \tab Total wins. \cr
+#'       losses \tab integer \tab Total losses. \cr
+#'       win_pct \tab numeric \tab Win percentage (0-1 decimal). \cr
+#'       home_record \tab character \tab Home win-loss record. \cr
+#'       road_record \tab character \tab Win-loss record for road. \cr
+#'       l10 \tab character \tab L10. \cr
+#'       strcurrentstreak \tab character \tab Strcurrentstreak. \cr
+#'       points_pg \tab numeric \tab Points pg. \cr
+#'       opp_points_pg \tab numeric \tab Opponent points pg. \cr
+#'       diff_points_pg \tab numeric \tab Diff points pg. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -488,12 +477,9 @@ load_wnba_stats_standings <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Draft**
-#' @name load_wnba_stats_draft
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API draft picks from the data repo**
-#' @rdname load_wnba_stats_draft
+#' @rdname load_wnba_stats_coaches
 #' @description Loads season-level WNBA draft picks scraped from the WNBA
 #'   Stats API (`drafthistory`-style outputs). One row per pick. Backed by
 #'   the `wehoop-wnba-stats-data` pipeline that reads raw JSONs from
@@ -509,22 +495,24 @@ NULL
 #' @param tablename The name of the draft data table within the database
 #' @return Returns a `wehoop_data` tibble of WNBA draft picks.
 #'
-#'    |col_name            |types     |description                                     |
-#'    |:-------------------|:---------|:-----------------------------------------------|
-#'    |person_id           |integer   |Unique player identifier (V3 endpoints).        |
-#'    |player_name         |character |Player name.                                    |
-#'    |season              |integer   |Season identifier (4-digit year).               |
-#'    |round_number        |integer   |Numeric round.                                  |
-#'    |round_pick          |integer   |Round pick.                                     |
-#'    |overall_pick        |integer   |Overall pick.                                   |
-#'    |draft_type          |character |Draft type ('Draft', 'Allocation' or 'Elite').  |
-#'    |team_id             |integer   |Unique team identifier.                         |
-#'    |team_city           |character |Team city or region (e.g. 'Las Vegas').         |
-#'    |team_name           |character |Full team display name (e.g. 'Las Vegas Aces'). |
-#'    |team_abbreviation   |character |Short team abbreviation (e.g. 'LAS').           |
-#'    |organization        |character |Organization.                                   |
-#'    |organization_type   |character |Organization type.                              |
-#'    |player_profile_flag |integer   |Player profile flag.                            |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       person_id \tab integer \tab Unique player identifier (V3 endpoints). \cr
+#'       player_name \tab character \tab Player name. \cr
+#'       season \tab integer \tab Season identifier (4-digit year). \cr
+#'       round_number \tab integer \tab Numeric round. \cr
+#'       round_pick \tab integer \tab Round pick. \cr
+#'       overall_pick \tab integer \tab Overall pick. \cr
+#'       draft_type \tab character \tab Draft type ('Draft', 'Allocation' or 'Elite'). \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+#'       organization \tab character \tab Organization. \cr
+#'       organization_type \tab character \tab Organization type. \cr
+#'       player_profile_flag \tab integer \tab Player profile flag. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -568,12 +556,9 @@ load_wnba_stats_draft <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Shots**
-#' @name load_wnba_stats_shots
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API shot events from the data repo**
-#' @rdname load_wnba_stats_shots
+#' @rdname load_wnba_stats_coaches
 #' @description Loads shot events scraped from the WNBA Stats API. One row
 #'   per shot attempt with legacy court coordinates, action/sub type,
 #'   distance, and made/missed result, carried through from the V3
@@ -590,26 +575,28 @@ NULL
 #' @param tablename The name of the shots data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per shot attempt.
 #'
-#'    |col_name      |types     |description                                                    |
-#'    |:-------------|:---------|:--------------------------------------------------------------|
-#'    |game_id       |character |Unique game identifier.                                        |
-#'    |season        |integer   |Season identifier (4-digit year).                              |
-#'    |period        |integer   |Period of the game (1-4 quarters; 5+ for OT).                  |
-#'    |clock         |character |Game clock remaining in the period (ISO 8601 duration).        |
-#'    |team_id       |integer   |Unique team identifier for the shooting team.                  |
-#'    |team_tricode  |character |Three-letter team code (e.g. 'LAS' / 'NYL').                   |
-#'    |person_id     |integer   |Unique player identifier for the shooter.                      |
-#'    |player_name   |character |Shooter's name.                                                |
-#'    |action_type   |character |Action type label ('Made Shot' or 'Missed Shot').              |
-#'    |sub_type      |character |Shot sub type (e.g. 'Jump Shot', 'Layup', 'DUNK').             |
-#'    |shot_result   |character |Shot result, 'Made' or 'Missed'.                               |
-#'    |shot_value    |integer   |Points the shot was worth (2 or 3).                            |
-#'    |shot_distance |integer   |Shot distance from the basket, in feet.                        |
-#'    |x_legacy      |integer   |Legacy X coordinate on the court (0 = basket center).          |
-#'    |y_legacy      |integer   |Legacy Y coordinate on the court (baseline at 0).              |
-#'    |description   |character |Text description of the play.                                  |
-#'    |score_home    |character |Home team score after the play.                                |
-#'    |score_away    |character |Away team score after the play.                                |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       game_id \tab character \tab Unique game identifier. \cr
+#'       season \tab integer \tab Season identifier (4-digit year). \cr
+#'       period \tab integer \tab Period of the game (1-4 quarters; 5+ for OT). \cr
+#'       clock \tab character \tab Game clock remaining in the period (ISO 8601 duration). \cr
+#'       team_id \tab integer \tab Unique team identifier for the shooting team. \cr
+#'       team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
+#'       person_id \tab integer \tab Unique player identifier for the shooter. \cr
+#'       player_name \tab character \tab Shooter's name. \cr
+#'       action_type \tab character \tab Action type label ('Made Shot' or 'Missed Shot'). \cr
+#'       sub_type \tab character \tab Shot sub type (e.g. 'Jump Shot', 'Layup', 'DUNK'). \cr
+#'       shot_result \tab character \tab Shot result, 'Made' or 'Missed'. \cr
+#'       shot_value \tab integer \tab Points the shot was worth (2 or 3). \cr
+#'       shot_distance \tab integer \tab Shot distance from the basket, in feet. \cr
+#'       x_legacy \tab integer \tab Legacy X coordinate on the court (0 = basket center). \cr
+#'       y_legacy \tab integer \tab Legacy Y coordinate on the court (baseline at 0). \cr
+#'       description \tab character \tab Text description of the play. \cr
+#'       score_home \tab character \tab Home team score after the play. \cr
+#'       score_away \tab character \tab Away team score after the play. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -653,12 +640,9 @@ load_wnba_stats_shots <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Game Rosters**
-#' @name load_wnba_stats_game_rosters
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API per-game rosters from the data repo**
-#' @rdname load_wnba_stats_game_rosters
+#' @rdname load_wnba_stats_coaches
 #' @description Loads the per-game **inactive player** list scraped from the
 #'   WNBA Stats API -- the `InactivePlayers` result set of
 #'   `boxscoresummaryv2`. One row per inactive athlete-game pair, not a full
@@ -683,18 +667,20 @@ NULL
 #' @return Returns a `wehoop_data` tibble with one row per inactive
 #'   athlete-game pair.
 #'
-#'    |col_name          |types     |description                                     |
-#'    |:-----------------|:---------|:-----------------------------------------------|
-#'    |player_id         |integer   |Unique player identifier.                       |
-#'    |first_name        |character |Player's first name.                            |
-#'    |last_name         |character |Player's last name.                             |
-#'    |jersey_num        |character |Jersey number worn by the player.               |
-#'    |team_id           |integer   |Unique team identifier.                         |
-#'    |team_city         |character |Team city or region (e.g. 'Las Vegas').         |
-#'    |team_name         |character |Full team display name (e.g. 'Las Vegas Aces'). |
-#'    |team_abbreviation |character |Short team abbreviation (e.g. 'LAS').           |
-#'    |season            |integer   |Season identifier (4-digit year).               |
-#'    |game_id           |character |Unique game identifier.                         |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       player_id \tab integer \tab Unique player identifier. \cr
+#'       first_name \tab character \tab Player's first name. \cr
+#'       last_name \tab character \tab Player's last name. \cr
+#'       jersey_num \tab character \tab Jersey number worn by the player. \cr
+#'       team_id \tab integer \tab Unique team identifier. \cr
+#'       team_city \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+#'       team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+#'       team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+#'       season \tab integer \tab Season identifier (4-digit year). \cr
+#'       game_id \tab character \tab Unique game identifier. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -738,12 +724,9 @@ load_wnba_stats_game_rosters <- function(seasons = most_recent_wnba_stats_season
 }
 
 
-#' **Load wehoop WNBA Stats Officials**
-#' @name load_wnba_stats_officials
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API game officials from the data repo**
-#' @rdname load_wnba_stats_officials
+#' @rdname load_wnba_stats_coaches
 #' @description Loads game-level officials data scraped from the WNBA Stats
 #'   API (`boxscoresummaryv2`-style outputs). One row per official-game pair.
 #'   Backed by the `wehoop-wnba-stats-data` pipeline that reads raw JSONs
@@ -816,12 +799,9 @@ load_wnba_stats_officials <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Player Game Logs**
-#' @name load_wnba_stats_player_game_logs
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API per-player per-game logs from the data repo**
-#' @rdname load_wnba_stats_player_game_logs
+#' @rdname load_wnba_stats_coaches
 #' @description Loads per-player per-game logs scraped from
 #'   `stats.wnba.com/leaguegamelog?PlayerOrTeam=P` (one row per
 #'   athlete-game pair: minutes, shooting splits, rebounds, steals, blocks,
@@ -878,12 +858,9 @@ load_wnba_stats_player_game_logs <- function(seasons = most_recent_wnba_stats_se
 }
 
 
-#' **Load wehoop WNBA Stats Schedules**
-#' @name load_wnba_stats_schedule
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API season schedules from the data repo**
-#' @rdname load_wnba_stats_schedule
+#' @rdname load_wnba_stats_coaches
 #' @description Loads season-level WNBA schedules scraped from
 #'   `stats.wnba.com/leaguegamefinder` (regular season + playoffs combined,
 #'   pre-rejoined home/away). Backed by the `wehoop-wnba-stats-data`
@@ -899,23 +876,25 @@ NULL
 #' @return Returns a `wehoop_data` tibble of per-season schedules, one row per
 #'   game with the home/away sides pre-joined into `home_*` / `away_*` columns.
 #'
-#'    |col_name               |types     |description                                                       |
-#'    |:----------------------|:---------|:-----------------------------------------------------------------|
-#'    |game_id                |character |Unique game identifier.                                           |
-#'    |season                 |integer   |Season identifier (4-digit year).                                 |
-#'    |season_type            |character |Portion of the season: `regular-season` or `playoffs`.            |
-#'    |game_date              |character |Date the game was played, as an ISO `YYYY-MM-DD` string.          |
-#'    |matchup                |character |Matchup string, home side first (e.g. `WAS vs. NYL`).             |
-#'    |home_team_id           |integer   |Unique WNBA Stats team identifier for the home team.              |
-#'    |home_team_abbreviation |character |Home team abbreviation.                                           |
-#'    |home_team_name         |character |Home team full name.                                              |
-#'    |home_pts               |integer   |Points scored by the home team.                                   |
-#'    |home_wl                |character |Home team result, `W` or `L`.                                     |
-#'    |away_team_id           |integer   |Unique WNBA Stats team identifier for the away team.              |
-#'    |away_team_abbreviation |character |Away team abbreviation.                                           |
-#'    |away_team_name         |character |Away team full name.                                              |
-#'    |away_pts               |integer   |Points scored by the away team.                                   |
-#'    |away_wl                |character |Away team result, `W` or `L`.                                     |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       game_id \tab character \tab Unique game identifier. \cr
+#'       season \tab integer \tab Season identifier (4-digit year). \cr
+#'       season_type \tab character \tab Portion of the season: \code{regular-season} or \code{playoffs}. \cr
+#'       game_date \tab character \tab Date the game was played, as an ISO \code{YYYY-MM-DD} string. \cr
+#'       matchup \tab character \tab Matchup string, home side first (e.g. \verb{WAS vs. NYL}). \cr
+#'       home_team_id \tab integer \tab Unique WNBA Stats team identifier for the home team. \cr
+#'       home_team_abbreviation \tab character \tab Home team abbreviation. \cr
+#'       home_team_name \tab character \tab Home team full name. \cr
+#'       home_pts \tab integer \tab Points scored by the home team. \cr
+#'       home_wl \tab character \tab Home team result, \code{W} or \code{L}. \cr
+#'       away_team_id \tab integer \tab Unique WNBA Stats team identifier for the away team. \cr
+#'       away_team_abbreviation \tab character \tab Away team abbreviation. \cr
+#'       away_team_name \tab character \tab Away team full name. \cr
+#'       away_pts \tab integer \tab Points scored by the away team. \cr
+#'       away_wl \tab character \tab Away team result, \code{W} or \code{L}. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions
@@ -959,12 +938,9 @@ load_wnba_stats_schedule <- function(seasons = most_recent_wnba_stats_season(),
 }
 
 
-#' **Load wehoop WNBA Stats Play-by-Play**
-#' @name load_wnba_stats_pbp
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API play-by-play from the data repo**
-#' @rdname load_wnba_stats_pbp
+#' @rdname load_wnba_stats_coaches
 #' @description Loads season-level WNBA play-by-play (V3), supplied by
 #'   [wnba_pbp()] in the upstream compile script. Backed by the
 #'   `wehoop-wnba-stats-data` pipeline that publishes parquet/rds artifacts to
@@ -1131,7 +1107,7 @@ load_wnba_stats_leaguedash <- function(seasons = most_recent_wnba_stats_season()
 # currently published before issuing a heavy `load_*()` call.
 # -----------------------------------------------------------------------------
 
-#' @rdname load_wnba_stats_rosters
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_rosters_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats rosters release tag without
@@ -1159,7 +1135,7 @@ load_wnba_stats_coaches_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_player_stats
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_player_stats_manifest()` returns the
 #'   per-season manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats player season stats release tag
@@ -1174,7 +1150,7 @@ load_wnba_stats_player_stats_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_lineups
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_lineups_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats lineups release tag without
@@ -1188,7 +1164,7 @@ load_wnba_stats_lineups_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_team_stats
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_team_stats_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats team season stats release tag
@@ -1203,7 +1179,7 @@ load_wnba_stats_team_stats_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_standings
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_standings_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats standings release tag without
@@ -1217,7 +1193,7 @@ load_wnba_stats_standings_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_draft
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_draft_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats draft release tag without
@@ -1231,7 +1207,7 @@ load_wnba_stats_draft_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_shots
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_shots_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats shots release tag without
@@ -1245,7 +1221,7 @@ load_wnba_stats_shots_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_game_rosters
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_game_rosters_manifest()` returns the
 #'   per-season manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats game rosters release tag without
@@ -1259,7 +1235,7 @@ load_wnba_stats_game_rosters_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_officials
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_officials_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats officials release tag without
@@ -1273,7 +1249,7 @@ load_wnba_stats_officials_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_player_game_logs
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_player_game_logs_manifest()` returns the
 #'   per-season manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats player game logs release tag
@@ -1287,7 +1263,7 @@ load_wnba_stats_player_game_logs_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_schedule
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_schedule_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats schedules release tag without
@@ -1301,7 +1277,7 @@ load_wnba_stats_schedule_manifest <- function() {
   csv_from_url(url)
 }
 
-#' @rdname load_wnba_stats_pbp
+#' @rdname load_wnba_stats_coaches
 #' @description `load_wnba_stats_pbp_manifest()` returns the per-season
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats play-by-play release tag without
@@ -1425,12 +1401,9 @@ update_wnba_stats_db <- function(dbdir = ".",
 }
 
 
-#' **Load cleaned WNBA Stats API possessions from the data repo**
-#' @name load_wnba_stats_possessions
-NULL
 #' @title
 #' **Load cleaned WNBA Stats API possessions from the data repo**
-#' @rdname load_wnba_stats_possessions
+#' @rdname load_wnba_stats_coaches
 #' @author Saiem Gilani
 #' @description Loads possession-level data derived from the WNBA Stats API
 #'   play-by-play -- one row per possession, with the on-court 5-man lineups
@@ -1448,42 +1421,44 @@ NULL
 #' @param tablename The name of the data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per possession.
 #'
-#'    |col_name                |types     |description                                                    |
-#'    |:----------------------|:--------|:-------------------------------------------------------------|
-#'    |game_id                 |character |Unique game identifier.                                        |
-#'    |period                  |integer   |Period of the game (1-2 halves pre-2016, 1-4 quarters 2016+).  |
-#'    |possession_number       |integer   |Sequential possession number within the game.                  |
-#'    |offense_team_id         |integer   |Team identifier for the team on offense.                       |
-#'    |defense_team_id         |integer   |Team identifier for the team on defense.                       |
-#'    |start_order_index       |integer   |Play-by-play order index at the start of the possession.       |
-#'    |end_order_index         |integer   |Play-by-play order index at the end of the possession.         |
-#'    |start_seconds_remaining |numeric   |Seconds remaining in the period at possession start.           |
-#'    |end_seconds_remaining   |numeric   |Seconds remaining in the period at possession end.             |
-#'    |points                  |integer   |Points scored on the possession.                               |
-#'    |is_second_chance        |logical   |Whether the possession followed an offensive rebound.          |
-#'    |number_in_period        |integer   |Sequential possession number within the period.                |
-#'    |possession_start_type   |character |How the possession started (e.g. 'OffDeadball', 'OffRebound'). |
-#'    |count_as_possession     |logical   |Whether the event counts as a scoreable possession.            |
-#'    |fg2a                    |integer   |2-point field goal attempts by the lineup.                     |
-#'    |fg2m                    |integer   |2-point field goals made by the lineup.                        |
-#'    |fg3a                    |integer   |Fg3a.                                                          |
-#'    |fg3m                    |integer   |Fg3m.                                                          |
-#'    |fta                     |integer   |Free throw attempts by the lineup.                             |
-#'    |ftm                     |integer   |Free throws made by the lineup.                                |
-#'    |oreb                    |integer   |Offensive rebounds.                                            |
-#'    |dreb                    |integer   |Defensive rebounds.                                            |
-#'    |tov                     |integer   |Turnovers.                                                     |
-#'    |off_player_1            |integer   |Offensive lineup slot 1 player identifier.                     |
-#'    |off_player_2            |integer   |Offensive lineup slot 2 player identifier.                     |
-#'    |off_player_3            |integer   |Offensive lineup slot 3 player identifier.                     |
-#'    |off_player_4            |integer   |Offensive lineup slot 4 player identifier.                     |
-#'    |off_player_5            |integer   |Offensive lineup slot 5 player identifier.                     |
-#'    |def_player_1            |integer   |Defensive lineup slot 1 player identifier.                     |
-#'    |def_player_2            |integer   |Defensive lineup slot 2 player identifier.                     |
-#'    |def_player_3            |integer   |Defensive lineup slot 3 player identifier.                     |
-#'    |def_player_4            |integer   |Defensive lineup slot 4 player identifier.                     |
-#'    |def_player_5            |integer   |Defensive lineup slot 5 player identifier.                     |
-#'    |season                  |integer   |Season identifier (4-digit year).                              |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       game_id \tab character \tab Unique game identifier. \cr
+#'       period \tab integer \tab Period of the game (1-2 halves pre-2016, 1-4 quarters 2016+). \cr
+#'       possession_number \tab integer \tab Sequential possession number within the game. \cr
+#'       offense_team_id \tab integer \tab Team identifier for the team on offense. \cr
+#'       defense_team_id \tab integer \tab Team identifier for the team on defense. \cr
+#'       start_order_index \tab integer \tab Play-by-play order index at the start of the possession. \cr
+#'       end_order_index \tab integer \tab Play-by-play order index at the end of the possession. \cr
+#'       start_seconds_remaining \tab numeric \tab Seconds remaining in the period at possession start. \cr
+#'       end_seconds_remaining \tab numeric \tab Seconds remaining in the period at possession end. \cr
+#'       points \tab integer \tab Points scored on the possession. \cr
+#'       is_second_chance \tab logical \tab Whether the possession followed an offensive rebound. \cr
+#'       number_in_period \tab integer \tab Sequential possession number within the period. \cr
+#'       possession_start_type \tab character \tab How the possession started (e.g. 'OffDeadball', 'OffRebound'). \cr
+#'       count_as_possession \tab logical \tab Whether the event counts as a scoreable possession. \cr
+#'       fg2a \tab integer \tab 2-point field goal attempts by the lineup. \cr
+#'       fg2m \tab integer \tab 2-point field goals made by the lineup. \cr
+#'       fg3a \tab integer \tab Fg3a. \cr
+#'       fg3m \tab integer \tab Fg3m. \cr
+#'       fta \tab integer \tab Free throw attempts by the lineup. \cr
+#'       ftm \tab integer \tab Free throws made by the lineup. \cr
+#'       oreb \tab integer \tab Offensive rebounds. \cr
+#'       dreb \tab integer \tab Defensive rebounds. \cr
+#'       tov \tab integer \tab Turnovers. \cr
+#'       off_player_1 \tab integer \tab Offensive lineup slot 1 player identifier. \cr
+#'       off_player_2 \tab integer \tab Offensive lineup slot 2 player identifier. \cr
+#'       off_player_3 \tab integer \tab Offensive lineup slot 3 player identifier. \cr
+#'       off_player_4 \tab integer \tab Offensive lineup slot 4 player identifier. \cr
+#'       off_player_5 \tab integer \tab Offensive lineup slot 5 player identifier. \cr
+#'       def_player_1 \tab integer \tab Defensive lineup slot 1 player identifier. \cr
+#'       def_player_2 \tab integer \tab Defensive lineup slot 2 player identifier. \cr
+#'       def_player_3 \tab integer \tab Defensive lineup slot 3 player identifier. \cr
+#'       def_player_4 \tab integer \tab Defensive lineup slot 4 player identifier. \cr
+#'       def_player_5 \tab integer \tab Defensive lineup slot 5 player identifier. \cr
+#'       season \tab integer \tab Season identifier (4-digit year). \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
 #' @family WNBA Stats loader functions

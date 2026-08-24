@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_boxscoresummaryv2, wnba_scoreboard.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    GAME_DATE_EST \tab character \tab Game date est. \cr
    GAME_SEQUENCE \tab character \tab Game sequence. \cr
@@ -23,6 +23,7 @@ Columns shared verbatim across: wnba_boxscoresummaryv2, wnba_scoreboard.
    NATL_TV_BROADCASTER_ABBREVIATION \tab character \tab Natl tv broadcaster abbreviation. \cr
    LIVE_PERIOD_TIME_BCAST \tab character \tab Live period time bcast. \cr
    WH_STATUS \tab character \tab Wh status. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

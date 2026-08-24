@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_athletes_index, espn_wnba_athletes_index.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
    full_name \tab character \tab Player's full name. \cr
@@ -17,6 +17,7 @@ Columns shared verbatim across: espn_wbb_athletes_index, espn_wnba_athletes_inde
    headshot \tab character \tab Headshot image URL. \cr
    status \tab character \tab Status label. \cr
    link \tab character \tab Link. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

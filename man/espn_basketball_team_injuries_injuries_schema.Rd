@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_team_injuries, espn_wnba_team_injuries.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    team_id \tab character \tab Unique team identifier. \cr
    athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
@@ -20,6 +20,7 @@ Columns shared verbatim across: espn_wbb_team_injuries, espn_wnba_team_injuries.
    returns_at \tab character \tab Returns at. \cr
    short_comment \tab character \tab Short comment. \cr
    long_comment \tab character \tab Long-form play / event comment. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

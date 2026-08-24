@@ -2,19 +2,25 @@
 % Please edit documentation in R/espn_wnba_team_detail.R
 \name{espn_wnba_team}
 \alias{espn_wnba_team}
+\alias{espn_wnba_team_roster}
+\alias{espn_wnba_team_leaders}
+\alias{espn_wnba_team_season_profile}
 \title{\strong{Get ESPN WNBA Team Detail}}
 \usage{
 espn_wnba_team(team_id, season = most_recent_wnba_season(), ...)
+
+espn_wnba_team_roster(team_id, season = most_recent_wnba_season(), ...)
+
+espn_wnba_team_leaders(team_id, season = most_recent_wnba_season(), ...)
+
+espn_wnba_team_season_profile(team_id, season = most_recent_wnba_season(), ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric).}
 
-\item{season}{Season year (numeric, e.g. 2025). Defaults to the most
-recent WNBA season.}
+\item{season}{Season year (numeric). Defaults to the most recent WNBA season.}
 
-\item{...}{Additional arguments; currently unused but retained for
-forward compatibility. Proxy configuration should use
-\code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
+\item{...}{Additional arguments; currently unused.}
 }
 \value{
 A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},
@@ -49,15 +55,65 @@ Columns as documented in the shared \link{espn_basketball_player_overview_next_g
    last_name \tab character \tab Player's last name. \cr
    experience \tab integer \tab Years of professional experience. \cr
 }
+
+A single tibble with one row per athlete.
+
+Columns as documented in the shared \link{espn_basketball_team_roster_schema} table.
+
+A single long-format tibble (one row per category-rank-athlete).
+
+Columns as documented in the shared \link{espn_basketball_team_leaders_schema} table.
+
+A single-row tibble with team identity scalars and \verb{_ref} URL
+columns. Selected columns:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      id \tab character \tab ESPN team identifier. \cr
+      guid \tab character \tab Stable cross-league team GUID. \cr
+      uid \tab character \tab ESPN UID string. \cr
+      slug \tab character \tab URL-safe identifier. \cr
+      location \tab character \tab Team city/region (e.g. "Indiana"). \cr
+      name \tab character \tab Team name (e.g. "Fever"). \cr
+      abbreviation \tab character \tab Short abbreviation (e.g. "IND"). \cr
+      display_name \tab character \tab Full display name. \cr
+      short_display_name \tab character \tab Short display name. \cr
+      color \tab character \tab Primary color (hex, no leading '#'). \cr
+      alternate_color \tab character \tab Alternate color (hex, no leading '#'). \cr
+      is_active \tab logical \tab Whether the team was active in this season. \cr
+      season \tab integer \tab Season year. \cr
+      logo \tab character \tab Primary logo URL. \cr
+      logo_dark \tab character \tab Dark-mode logo URL. \cr
+      record_ref \tab character \tab \verb{$ref} to team record resource. \cr
+      statistics_ref \tab character \tab \verb{$ref} to team statistics resource. \cr
+      leaders_ref \tab character \tab \verb{$ref} to team leaders resource. \cr
+      coaches_ref \tab character \tab \verb{$ref} to team coaches resource. \cr
+      transactions_ref \tab character \tab \verb{$ref} to team transactions resource. \cr
+      franchise_ref \tab character \tab \verb{$ref} to franchise resource. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
-\strong{Get ESPN WNBA Team Detail}
+Era-correct team identity for a WNBA franchise in a specific season,
+plus the available \verb{$ref} URLs for deeper resources (record, statistics,
+leaders, coaches, transactions, etc.). Backed by the core-v2 endpoint
+\code{sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{season}/teams/{team_id}}.
 
-\strong{Get ESPN WNBA Team Detail}
+Historical depth goes back to \strong{1997} (WNBA founding). Older seasons
+return fewer \verb{$ref} keys; missing refs become \code{NA}.
 }
 \examples{
 \donttest{
   espn_wnba_team(team_id = "17", season = 2025)
+}
+\donttest{
+  espn_wnba_team_roster(team_id = "17", season = 2025)
+}
+\donttest{
+  espn_wnba_team_leaders(team_id = "17", season = 2025)
+}
+\donttest{
+  espn_wnba_team_season_profile(team_id = "17", season = 2025)
 }
 }
 \seealso{
@@ -70,61 +126,38 @@ Other ESPN WNBA Functions:
 \code{\link[=espn_wnba_conferences]{espn_wnba_conferences()}},
 \code{\link[=espn_wnba_draft]{espn_wnba_draft()}},
 \code{\link[=espn_wnba_draft_athlete_detail]{espn_wnba_draft_athlete_detail()}},
-\code{\link[=espn_wnba_draft_athletes]{espn_wnba_draft_athletes()}},
 \code{\link[=espn_wnba_draft_pick]{espn_wnba_draft_pick()}},
 \code{\link[=espn_wnba_draft_rounds]{espn_wnba_draft_rounds()}},
-\code{\link[=espn_wnba_draft_status]{espn_wnba_draft_status()}},
 \code{\link[=espn_wnba_franchise]{espn_wnba_franchise()}},
 \code{\link[=espn_wnba_franchises]{espn_wnba_franchises()}},
 \code{\link[=espn_wnba_freeagents]{espn_wnba_freeagents()}},
 \code{\link[=espn_wnba_futures]{espn_wnba_futures()}},
 \code{\link[=espn_wnba_game_all]{espn_wnba_game_all()}},
-\code{\link[=espn_wnba_game_broadcasts]{espn_wnba_game_broadcasts()}},
 \code{\link[=espn_wnba_game_odds]{espn_wnba_game_odds()}},
 \code{\link[=espn_wnba_game_official_detail]{espn_wnba_game_official_detail()}},
-\code{\link[=espn_wnba_game_officials]{espn_wnba_game_officials()}},
 \code{\link[=espn_wnba_game_play]{espn_wnba_game_play()}},
 \code{\link[=espn_wnba_game_play_personnel]{espn_wnba_game_play_personnel()}},
 \code{\link[=espn_wnba_game_player_box]{espn_wnba_game_player_box()}},
-\code{\link[=espn_wnba_game_powerindex]{espn_wnba_game_powerindex()}},
-\code{\link[=espn_wnba_game_predictor]{espn_wnba_game_predictor()}},
 \code{\link[=espn_wnba_game_probabilities]{espn_wnba_game_probabilities()}},
 \code{\link[=espn_wnba_game_propbets]{espn_wnba_game_propbets()}},
-\code{\link[=espn_wnba_game_rosters]{espn_wnba_game_rosters()}},
-\code{\link[=espn_wnba_game_situation]{espn_wnba_game_situation()}},
-\code{\link[=espn_wnba_game_team_leaders]{espn_wnba_game_team_leaders()}},
 \code{\link[=espn_wnba_game_team_linescores]{espn_wnba_game_team_linescores()}},
-\code{\link[=espn_wnba_game_team_records]{espn_wnba_game_team_records()}},
-\code{\link[=espn_wnba_game_team_roster]{espn_wnba_game_team_roster()}},
 \code{\link[=espn_wnba_game_team_roster_entry]{espn_wnba_game_team_roster_entry()}},
-\code{\link[=espn_wnba_game_team_score]{espn_wnba_game_team_score()}},
-\code{\link[=espn_wnba_game_team_statistics]{espn_wnba_game_team_statistics()}},
 \code{\link[=espn_wnba_injuries]{espn_wnba_injuries()}},
 \code{\link[=espn_wnba_leaders]{espn_wnba_leaders()}},
 \code{\link[=espn_wnba_news]{espn_wnba_news()}},
-\code{\link[=espn_wnba_pbp]{espn_wnba_pbp()}},
 \code{\link[=espn_wnba_player_awards]{espn_wnba_player_awards()}},
-\code{\link[=espn_wnba_player_box]{espn_wnba_player_box()}},
 \code{\link[=espn_wnba_player_career_stats]{espn_wnba_player_career_stats()}},
-\code{\link[=espn_wnba_player_eventlog]{espn_wnba_player_eventlog()}},
 \code{\link[=espn_wnba_player_eventlog_v2]{espn_wnba_player_eventlog_v2()}},
-\code{\link[=espn_wnba_player_gamelog]{espn_wnba_player_gamelog()}},
 \code{\link[=espn_wnba_player_info]{espn_wnba_player_info()}},
 \code{\link[=espn_wnba_player_overview]{espn_wnba_player_overview()}},
 \code{\link[=espn_wnba_player_seasons]{espn_wnba_player_seasons()}},
-\code{\link[=espn_wnba_player_splits]{espn_wnba_player_splits()}},
-\code{\link[=espn_wnba_player_statisticslog]{espn_wnba_player_statisticslog()}},
 \code{\link[=espn_wnba_player_stats]{espn_wnba_player_stats()}},
-\code{\link[=espn_wnba_player_stats_v3]{espn_wnba_player_stats_v3()}},
 \code{\link[=espn_wnba_position]{espn_wnba_position()}},
 \code{\link[=espn_wnba_positions]{espn_wnba_positions()}},
 \code{\link[=espn_wnba_powerindex]{espn_wnba_powerindex()}},
 \code{\link[=espn_wnba_scoreboard]{espn_wnba_scoreboard()}},
 \code{\link[=espn_wnba_season_awards]{espn_wnba_season_awards()}},
-\code{\link[=espn_wnba_season_draft]{espn_wnba_season_draft()}},
 \code{\link[=espn_wnba_season_group]{espn_wnba_season_group()}},
-\code{\link[=espn_wnba_season_group_children]{espn_wnba_season_group_children()}},
-\code{\link[=espn_wnba_season_group_teams]{espn_wnba_season_group_teams()}},
 \code{\link[=espn_wnba_season_groups]{espn_wnba_season_groups()}},
 \code{\link[=espn_wnba_season_info]{espn_wnba_season_info()}},
 \code{\link[=espn_wnba_season_leaders]{espn_wnba_season_leaders()}},
@@ -136,15 +169,11 @@ Other ESPN WNBA Functions:
 \code{\link[=espn_wnba_season_weeks]{espn_wnba_season_weeks()}},
 \code{\link[=espn_wnba_seasons]{espn_wnba_seasons()}},
 \code{\link[=espn_wnba_standings]{espn_wnba_standings()}},
-\code{\link[=espn_wnba_team_box]{espn_wnba_team_box()}},
 \code{\link[=espn_wnba_team_injuries]{espn_wnba_team_injuries()}},
-\code{\link[=espn_wnba_team_leaders]{espn_wnba_team_leaders()}},
 \code{\link[=espn_wnba_team_news]{espn_wnba_team_news()}},
 \code{\link[=espn_wnba_team_record]{espn_wnba_team_record()}},
 \code{\link[=espn_wnba_team_record_detail]{espn_wnba_team_record_detail()}},
-\code{\link[=espn_wnba_team_roster]{espn_wnba_team_roster()}},
 \code{\link[=espn_wnba_team_schedule]{espn_wnba_team_schedule()}},
-\code{\link[=espn_wnba_team_season_profile]{espn_wnba_team_season_profile()}},
 \code{\link[=espn_wnba_team_season_roster]{espn_wnba_team_season_roster()}},
 \code{\link[=espn_wnba_team_season_statistics]{espn_wnba_team_season_statistics()}},
 \code{\link[=espn_wnba_team_stats]{espn_wnba_team_stats()}},

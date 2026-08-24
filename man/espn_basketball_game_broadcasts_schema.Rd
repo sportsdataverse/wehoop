@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_game_broadcasts, espn_wnba_game_broadcasts.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    event_id \tab character \tab Unique event / game identifier (ESPN). \cr
    broadcast_id \tab character \tab Unique identifier for broadcast. \cr
@@ -19,6 +19,7 @@ Columns shared verbatim across: espn_wbb_game_broadcasts, espn_wnba_game_broadca
    names \tab character \tab Names. \cr
    lang \tab character \tab Lang. \cr
    region \tab character \tab Region label. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

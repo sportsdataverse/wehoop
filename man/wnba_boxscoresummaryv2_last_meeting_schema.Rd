@@ -7,7 +7,7 @@
 Columns shared verbatim across: wnba_boxscoresummaryv2, wnba_scoreboard, wnba_scoreboardv2.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    GAME_ID \tab character \tab Unique game identifier. \cr
    LAST_GAME_ID \tab character \tab  \cr
@@ -22,6 +22,7 @@ Columns shared verbatim across: wnba_boxscoresummaryv2, wnba_scoreboard, wnba_sc
    LAST_GAME_VISITOR_TEAM_NAME \tab character \tab  \cr
    LAST_GAME_VISITOR_TEAM_CITY1 \tab character \tab  \cr
    LAST_GAME_VISITOR_TEAM_POINTS \tab character \tab  \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

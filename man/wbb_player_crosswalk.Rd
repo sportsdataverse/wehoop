@@ -14,26 +14,29 @@ wbb_player_crosswalk(season = most_recent_wbb_season(), min_confidence = 0.92)
 (default 0.92).}
 }
 \value{
-A \code{wehoop_data} tibble, one row per player per team (ESPN-anchored):\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab integer \tab Season year. \cr
-   espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
-   team_abbreviation \tab character \tab ESPN team abbreviation. \cr
-   player_name \tab character \tab Normalized player name (matching key). \cr
-   espn_athlete_id \tab character \tab ESPN athlete id. \cr
-   espn_full_name \tab character \tab ESPN full name. \cr
-   espn_jersey \tab character \tab ESPN jersey number. \cr
-   espn_position \tab character \tab ESPN position abbreviation. \cr
-   fox_athlete_id \tab character \tab Fox athlete id (NA if unmatched). \cr
-   fox_player \tab character \tab Fox player name (NA if unmatched). \cr
-   fox_jersey \tab character \tab Fox jersey number (NA if unmatched). \cr
-   fox_position_group \tab character \tab Fox position group label (NA if unmatched). \cr
-   yahoo_player_id \tab character \tab Yahoo player id (NA placeholder). \cr
-   yahoo_player_name \tab character \tab Yahoo player name (NA placeholder). \cr
-   match_method \tab character \tab "exact_name"/"fuzzy_jw"/"unmatched". \cr
-   match_confidence \tab numeric \tab Jaro-Winkler score or 1 for exact (NA if none). \cr
-   match_keys \tab character \tab NA (reserved for future use). \cr
-}
+A \code{wehoop_data} tibble, one row per player per team (ESPN-anchored):
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      season \tab integer \tab Season year. \cr
+      espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
+      team_abbreviation \tab character \tab ESPN team abbreviation. \cr
+      player_name \tab character \tab Normalized player name (matching key). \cr
+      espn_athlete_id \tab character \tab ESPN athlete id. \cr
+      espn_full_name \tab character \tab ESPN full name. \cr
+      espn_jersey \tab character \tab ESPN jersey number. \cr
+      espn_position \tab character \tab ESPN position abbreviation. \cr
+      fox_athlete_id \tab character \tab Fox athlete id (NA if unmatched). \cr
+      fox_player \tab character \tab Fox player name (NA if unmatched). \cr
+      fox_jersey \tab character \tab Fox jersey number (NA if unmatched). \cr
+      fox_position_group \tab character \tab Fox position group label (NA if unmatched). \cr
+      yahoo_player_id \tab character \tab Yahoo player id (NA placeholder). \cr
+      yahoo_player_name \tab character \tab Yahoo player name (NA placeholder). \cr
+      match_method \tab character \tab "exact_name"/"fuzzy_jw"/"unmatched". \cr
+      match_confidence \tab numeric \tab Jaro-Winkler score or 1 for exact (NA if none). \cr
+      match_keys \tab character \tab NA (reserved for future use). \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 Build a wide, one-row-per-player-per-team crosswalk linking ESPN and Fox
@@ -50,9 +53,7 @@ WBB, so neither source is joined.
 }
 \seealso{
 Other WBB Crosswalk Functions:
-\code{\link[=load_wbb_player_crosswalk]{load_wbb_player_crosswalk()}},
-\code{\link[=load_wbb_schedule_crosswalk]{load_wbb_schedule_crosswalk()}},
-\code{\link[=load_wbb_team_crosswalk]{load_wbb_team_crosswalk()}},
+\code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
 \code{\link[=wbb_schedule_crosswalk]{wbb_schedule_crosswalk()}},
 \code{\link[=wbb_team_crosswalk]{wbb_team_crosswalk()}}
 }

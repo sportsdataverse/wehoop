@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_season_leaders, espn_wnba_season_leaders.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    league \tab character \tab League slug. \cr
    season \tab integer \tab Season year. \cr
@@ -24,6 +24,7 @@ Columns shared verbatim across: espn_wbb_season_leaders, espn_wnba_season_leader
    rel \tab character \tab Comma-joined \code{rel} tags from ESPN. \cr
    athlete_ref \tab character \tab \verb{$ref} URL to the leader's athlete. \cr
    team_ref \tab character \tab \verb{$ref} URL to the leader's team. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

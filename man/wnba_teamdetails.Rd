@@ -16,21 +16,23 @@ Return a named list of data frames: TeamAwardsChampionships,
 TeamAwardsConf, TeamAwardsDiv, TeamBackground,
 TeamHistory, TeamHof, TeamRetired, TeamSocialSites
 
-\strong{TeamBackground}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   ABBREVIATION \tab character \tab Short abbreviation. \cr
-   NICKNAME \tab character \tab Team or athlete nickname. \cr
-   YEARFOUNDED \tab character \tab  \cr
-   CITY \tab character \tab City. \cr
-   ARENA \tab character \tab  \cr
-   ARENACAPACITY \tab character \tab  \cr
-   OWNER \tab character \tab  \cr
-   GENERALMANAGER \tab character \tab  \cr
-   HEADCOACH \tab character \tab  \cr
-   DLEAGUEAFFILIATION \tab character \tab  \cr
-}
+\strong{TeamBackground}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      ABBREVIATION \tab character \tab Short abbreviation. \cr
+      NICKNAME \tab character \tab Team or athlete nickname. \cr
+      YEARFOUNDED \tab character \tab  \cr
+      CITY \tab character \tab City. \cr
+      ARENA \tab character \tab  \cr
+      ARENACAPACITY \tab character \tab  \cr
+      OWNER \tab character \tab  \cr
+      GENERALMANAGER \tab character \tab  \cr
+      HEADCOACH \tab character \tab  \cr
+      DLEAGUEAFFILIATION \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{TeamHistory}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -95,13 +97,6 @@ Same columns as the \strong{TeamHof} table above.
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
 \code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
 \code{\link[=wnba_teamgamelog]{wnba_teamgamelog()}},
@@ -109,9 +104,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
 \code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}

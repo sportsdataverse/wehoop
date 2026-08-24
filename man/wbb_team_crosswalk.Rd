@@ -15,27 +15,30 @@ wbb_team_crosswalk(season = most_recent_wbb_season(), fox = NULL)
 ~60-second Fox enumeration when calling repeatedly.}
 }
 \value{
-A \code{wehoop_data} tibble, one row per ESPN team:\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab integer \tab Season year. \cr
-   espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
-   espn_abbreviation \tab character \tab ESPN abbreviation. \cr
-   espn_display_name \tab character \tab ESPN display name (school + mascot). \cr
-   espn_short_name \tab character \tab ESPN short name. \cr
-   espn_location \tab character \tab ESPN school/location only. \cr
-   espn_mascot \tab character \tab ESPN mascot/nickname. \cr
-   espn_conference \tab character \tab ESPN conference name. \cr
-   fox_team_id \tab character \tab Fox Bifrost team id (NA if unmatched). \cr
-   fox_team_name \tab character \tab Fox team name (NA if unmatched). \cr
-   fox_section \tab character \tab Fox conference/section label (NA if unmatched). \cr
-   bart_team \tab character \tab Torvik team name (NA if unmatched). \cr
-   bart_conf \tab character \tab Torvik conference abbreviation (NA if unmatched). \cr
-   yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
-   yahoo_team_name \tab character \tab Yahoo team name (NA placeholder). \cr
-   fox_match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
-   bart_match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
-   match_method \tab character \tab "fox+bart"/"fox_only"/"bart_only"/"espn_only". \cr
-}
+A \code{wehoop_data} tibble, one row per ESPN team:
+
+\if{html}{\tabular{lll}{
+     col_name \tab types \tab description \cr
+     season \tab integer \tab Season year. \cr
+     espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
+     espn_abbreviation \tab character \tab ESPN abbreviation. \cr
+     espn_display_name \tab character \tab ESPN display name (school + mascot). \cr
+     espn_short_name \tab character \tab ESPN short name. \cr
+     espn_location \tab character \tab ESPN school/location only. \cr
+     espn_mascot \tab character \tab ESPN mascot/nickname. \cr
+     espn_conference \tab character \tab ESPN conference name. \cr
+     fox_team_id \tab character \tab Fox Bifrost team id (NA if unmatched). \cr
+     fox_team_name \tab character \tab Fox team name (NA if unmatched). \cr
+     fox_section \tab character \tab Fox conference/section label (NA if unmatched). \cr
+     bart_team \tab character \tab Torvik team name (NA if unmatched). \cr
+     bart_conf \tab character \tab Torvik conference abbreviation (NA if unmatched). \cr
+     yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
+     yahoo_team_name \tab character \tab Yahoo team name (NA placeholder). \cr
+     fox_match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
+     bart_match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
+     match_method \tab character \tab "fox+bart"/"fox_only"/"bart_only"/"espn_only". \cr
+  }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 Build a wide, one-row-per-team-per-season crosswalk linking ESPN,
@@ -55,9 +58,7 @@ for common divergences (e.g. "UConn" / "Connecticut", "Ole Miss" /
 }
 \seealso{
 Other WBB Crosswalk Functions:
-\code{\link[=load_wbb_player_crosswalk]{load_wbb_player_crosswalk()}},
-\code{\link[=load_wbb_schedule_crosswalk]{load_wbb_schedule_crosswalk()}},
-\code{\link[=load_wbb_team_crosswalk]{load_wbb_team_crosswalk()}},
+\code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
 \code{\link[=wbb_player_crosswalk]{wbb_player_crosswalk()}},
 \code{\link[=wbb_schedule_crosswalk]{wbb_schedule_crosswalk()}}
 }

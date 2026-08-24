@@ -7,12 +7,9 @@
 # espn_wnba_game_odds
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Odds**
-#' @name espn_wnba_game_odds
-NULL
 #' @title
 #' **Get ESPN WNBA Event Odds**
-#' @rdname espn_wnba_game_odds
+#' @rdname espn_wnba_game_broadcasts
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused but retained for
@@ -80,12 +77,9 @@ espn_wnba_game_probabilities <- function(event_id, limit = 200, ...) {
 # espn_wnba_game_officials
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Officials**
-#' @name espn_wnba_game_officials
-NULL
 #' @title
 #' **Get ESPN WNBA Event Officials**
-#' @rdname espn_wnba_game_officials
+#' @rdname espn_wnba_game_broadcasts
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused.
@@ -148,12 +142,9 @@ espn_wnba_game_broadcasts <- function(event_id, ...) {
 # espn_wnba_game_situation
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Situation (Live)**
-#' @name espn_wnba_game_situation
-NULL
 #' @title
 #' **Get ESPN WNBA Event Situation (Live)**
-#' @rdname espn_wnba_game_situation
+#' @rdname espn_wnba_game_broadcasts
 #' @author Saiem Gilani
 #' @description
 #' Returns the live game situation for one WNBA event: timeouts remaining,
@@ -182,7 +173,7 @@ espn_wnba_game_situation <- function(event_id, ...) {
 #' @name espn_wnba_game_predictor
 #' @title
 #' **Get ESPN WNBA Event Predictor (Pre-game)**
-#' @rdname espn_wnba_game_predictor
+#' @rdname espn_wnba_game_broadcasts
 #' @author Saiem Gilani
 #' @description
 #' Returns pre-game predictor statistics for one WNBA event in long
@@ -212,7 +203,7 @@ espn_wnba_game_predictor <- function(event_id, ...) {
 #' @name espn_wnba_game_powerindex
 #' @title
 #' **Get ESPN WNBA Event Power Index Index**
-#' @rdname espn_wnba_game_powerindex
+#' @rdname espn_wnba_game_broadcasts
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-team power-index `$ref` URLs for one WNBA event.
@@ -268,12 +259,9 @@ espn_wnba_game_propbets <- function(event_id, provider_id, ...) {
 # espn_wnba_game_team_linescores
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Competitor Linescores (Per-Quarter)**
-#' @name espn_wnba_game_team_linescores
-NULL
 #' @title
 #' **Get ESPN WNBA Event Competitor Linescores (Per-Quarter)**
-#' @rdname espn_wnba_game_team_linescores
+#' @rdname espn_wnba_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-quarter scoring breakdown for one team in one NBA
@@ -333,12 +321,9 @@ espn_wnba_game_team_leaders <- function(event_id, team_id, ...) {
 # espn_wnba_game_team_roster
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Competitor Roster (Game-Day)**
-#' @name espn_wnba_game_team_roster
-NULL
 #' @title
 #' **Get ESPN WNBA Event Competitor Roster (Game-Day)**
-#' @rdname espn_wnba_game_team_roster
+#' @rdname espn_wnba_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns the game-day roster index for one team in one WNBA event.
@@ -365,12 +350,9 @@ espn_wnba_game_team_roster <- function(event_id, team_id, ...) {
 # espn_wnba_game_team_statistics
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Competitor Team Statistics (Long Format)**
-#' @name espn_wnba_game_team_statistics
-NULL
 #' @title
 #' **Get ESPN WNBA Event Competitor Team Statistics (Long Format)**
-#' @rdname espn_wnba_game_team_statistics
+#' @rdname espn_wnba_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns full team-game statistics for one team in one WNBA event in
@@ -398,12 +380,9 @@ espn_wnba_game_team_statistics <- function(event_id, team_id, ...) {
 # espn_wnba_game_team_records
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Competitor Records (At-Game Breakdown)**
-#' @name espn_wnba_game_team_records
-NULL
 #' @title
 #' **Get ESPN WNBA Event Competitor Records (At-Game Breakdown)**
-#' @rdname espn_wnba_game_team_records
+#' @rdname espn_wnba_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns team records as of the given WNBA event: overall, home,
@@ -577,12 +556,9 @@ espn_wnba_game_play_personnel <- function(event_id, play_id, ...) {
 # espn_wnba_game_team_score
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Event Competitor Score (Single Row)**
-#' @name espn_wnba_game_team_score
-NULL
 #' @title
 #' **Get ESPN WNBA Event Competitor Score (Single Row)**
-#' @rdname espn_wnba_game_team_score
+#' @rdname espn_wnba_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns a one-row tibble with one team's final score for one WNBA event:

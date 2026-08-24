@@ -77,12 +77,9 @@ espn_wnba_team <- function(team_id,
 # espn_wnba_team_roster
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Team Roster**
-#' @name espn_wnba_team_roster
-NULL
 #' @title
 #' **Get ESPN WNBA Team Roster**
-#' @rdname espn_wnba_team_roster
+#' @rdname espn_wnba_team
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -157,12 +154,9 @@ espn_wnba_team_schedule <- function(team_id,
 # espn_wnba_team_leaders
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Team Leaders**
-#' @name espn_wnba_team_leaders
-NULL
 #' @title
 #' **Get ESPN WNBA Team Leaders**
-#' @rdname espn_wnba_team_leaders
+#' @rdname espn_wnba_team
 #' @author Saiem Gilani
 #' @param team_id ESPN team identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -195,12 +189,9 @@ espn_wnba_team_leaders <- function(team_id,
 # espn_wnba_team_season_profile
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Team-in-Season Profile**
-#' @name espn_wnba_team_season_profile
-NULL
 #' @title
 #' **Get ESPN WNBA Team-in-Season Profile**
-#' @rdname espn_wnba_team_season_profile
+#' @rdname espn_wnba_team
 #' @author Saiem Gilani
 #' @description
 #' Era-correct team identity for a WNBA franchise in a specific season,
@@ -217,29 +208,31 @@ NULL
 #' @return A single-row tibble with team identity scalars and `_ref` URL
 #'   columns. Selected columns:
 #'
-#'    |col_name              |types     |description                                       |
-#'    |:---------------------|:---------|:-------------------------------------------------|
-#'    |id                    |character |ESPN team identifier.                             |
-#'    |guid                  |character |Stable cross-league team GUID.                    |
-#'    |uid                   |character |ESPN UID string.                                  |
-#'    |slug                  |character |URL-safe identifier.                              |
-#'    |location              |character |Team city/region (e.g. "Indiana").                |
-#'    |name                  |character |Team name (e.g. "Fever").                         |
-#'    |abbreviation          |character |Short abbreviation (e.g. "IND").                  |
-#'    |display_name          |character |Full display name.                                |
-#'    |short_display_name    |character |Short display name.                               |
-#'    |color                 |character |Primary color (hex, no leading '#').              |
-#'    |alternate_color       |character |Alternate color (hex, no leading '#').            |
-#'    |is_active             |logical   |Whether the team was active in this season.       |
-#'    |season                |integer   |Season year.                                      |
-#'    |logo                  |character |Primary logo URL.                                 |
-#'    |logo_dark             |character |Dark-mode logo URL.                               |
-#'    |record_ref            |character |`$ref` to team record resource.                   |
-#'    |statistics_ref        |character |`$ref` to team statistics resource.               |
-#'    |leaders_ref           |character |`$ref` to team leaders resource.                  |
-#'    |coaches_ref           |character |`$ref` to team coaches resource.                  |
-#'    |transactions_ref      |character |`$ref` to team transactions resource.             |
-#'    |franchise_ref         |character |`$ref` to franchise resource.                     |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       id \tab character \tab ESPN team identifier. \cr
+#'       guid \tab character \tab Stable cross-league team GUID. \cr
+#'       uid \tab character \tab ESPN UID string. \cr
+#'       slug \tab character \tab URL-safe identifier. \cr
+#'       location \tab character \tab Team city/region (e.g. "Indiana"). \cr
+#'       name \tab character \tab Team name (e.g. "Fever"). \cr
+#'       abbreviation \tab character \tab Short abbreviation (e.g. "IND"). \cr
+#'       display_name \tab character \tab Full display name. \cr
+#'       short_display_name \tab character \tab Short display name. \cr
+#'       color \tab character \tab Primary color (hex, no leading '#'). \cr
+#'       alternate_color \tab character \tab Alternate color (hex, no leading '#'). \cr
+#'       is_active \tab logical \tab Whether the team was active in this season. \cr
+#'       season \tab integer \tab Season year. \cr
+#'       logo \tab character \tab Primary logo URL. \cr
+#'       logo_dark \tab character \tab Dark-mode logo URL. \cr
+#'       record_ref \tab character \tab \verb{$ref} to team record resource. \cr
+#'       statistics_ref \tab character \tab \verb{$ref} to team statistics resource. \cr
+#'       leaders_ref \tab character \tab \verb{$ref} to team leaders resource. \cr
+#'       coaches_ref \tab character \tab \verb{$ref} to team coaches resource. \cr
+#'       transactions_ref \tab character \tab \verb{$ref} to team transactions resource. \cr
+#'       franchise_ref \tab character \tab \verb{$ref} to franchise resource. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble

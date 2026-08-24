@@ -15,45 +15,50 @@ wnba_boxscoresummaryv3(game_id = "1022200034", ...)
 Returns a named list of data frames: game_summary, game_info, arena_info,
 officials, line_score, inactive_players, last_five_meetings, other_stats, available_video
 
-\strong{game_summary}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   game_date \tab character \tab Game date (YYYY-MM-DD). \cr
-   game_sequence \tab integer \tab Game sequence. \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   game_status_id \tab integer \tab Numeric game status identifier. \cr
-   game_status_text \tab character \tab Game status display text (e.g. 'Final', '4:32 - 4th'). \cr
-   gamecode \tab character \tab Gamecode. \cr
-   home_team_id \tab integer \tab Unique identifier for the home team. \cr
-   visitor_team_id \tab integer \tab Unique identifier for visitor team. \cr
-   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   live_period \tab integer \tab Live period. \cr
-   live_pc_time \tab character \tab Time / clock value. \cr
-   natl_tv_broadcaster_abbreviation \tab character \tab Natl tv broadcaster abbreviation. \cr
-   home_tv_broadcaster_abbreviation \tab character \tab Home team's tv broadcaster abbreviation. \cr
-   away_tv_broadcaster_abbreviation \tab character \tab Away team's tv broadcaster abbreviation. \cr
-   live_period_time_bcast \tab character \tab Live period time bcast. \cr
-   arena_name \tab character \tab Arena name. \cr
-   wh_status \tab integer \tab Wh status. \cr
-}
+\strong{game_summary}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      game_date \tab character \tab Game date (YYYY-MM-DD). \cr
+      game_sequence \tab integer \tab Game sequence. \cr
+      game_id \tab character \tab Unique game identifier. \cr
+      game_status_id \tab integer \tab Numeric game status identifier. \cr
+      game_status_text \tab character \tab Game status display text (e.g. 'Final', '4:32 - 4th'). \cr
+      gamecode \tab character \tab Gamecode. \cr
+      home_team_id \tab integer \tab Unique identifier for the home team. \cr
+      visitor_team_id \tab integer \tab Unique identifier for visitor team. \cr
+      season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
+      live_period \tab integer \tab Live period. \cr
+      live_pc_time \tab character \tab Time / clock value. \cr
+      natl_tv_broadcaster_abbreviation \tab character \tab Natl tv broadcaster abbreviation. \cr
+      home_tv_broadcaster_abbreviation \tab character \tab Home team's tv broadcaster abbreviation. \cr
+      away_tv_broadcaster_abbreviation \tab character \tab Away team's tv broadcaster abbreviation. \cr
+      live_period_time_bcast \tab character \tab Live period time bcast. \cr
+      arena_name \tab character \tab Arena name. \cr
+      wh_status \tab integer \tab Wh status. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
-\strong{line_score}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   game_date_est \tab character \tab Game date est. \cr
-   game_sequence \tab integer \tab Game sequence. \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   team_id \tab integer \tab Unique team identifier. \cr
-   team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   team_city_name \tab character \tab Team city name. \cr
-   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   team_wins_losses \tab character \tab Team wins losses. \cr
-   pts_qtr1 \tab integer \tab Pts qtr1. \cr
-   pts_qtr2 \tab integer \tab Pts qtr2. \cr
-   pts_qtr3 \tab integer \tab Pts qtr3. \cr
-   pts_qtr4 \tab integer \tab Pts qtr4. \cr
-   pts_ot1 \tab integer \tab Pts ot1. \cr
-   pts \tab integer \tab Points scored. \cr
-}
+\strong{line_score}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      game_date_est \tab character \tab Game date est. \cr
+      game_sequence \tab integer \tab Game sequence. \cr
+      game_id \tab character \tab Unique game identifier. \cr
+      team_id \tab integer \tab Unique team identifier. \cr
+      team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+      team_city_name \tab character \tab Team city name. \cr
+      team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      team_wins_losses \tab character \tab Team wins losses. \cr
+      pts_qtr1 \tab integer \tab Pts qtr1. \cr
+      pts_qtr2 \tab integer \tab Pts qtr2. \cr
+      pts_qtr3 \tab integer \tab Pts qtr3. \cr
+      pts_qtr4 \tab integer \tab Pts qtr4. \cr
+      pts_ot1 \tab integer \tab Pts ot1. \cr
+      pts \tab integer \tab Points scored. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Boxscore Summary V3}
@@ -66,14 +71,8 @@ officials, line_score, inactive_players, last_five_meetings, other_stats, availa
 }
 \seealso{
 Other WNBA Boxscore V3 Functions:
-\code{\link[=wnba_boxscoreadvancedv3]{wnba_boxscoreadvancedv3()}},
-\code{\link[=wnba_boxscorefourfactorsv3]{wnba_boxscorefourfactorsv3()}},
 \code{\link[=wnba_boxscorehustlev2]{wnba_boxscorehustlev2()}},
-\code{\link[=wnba_boxscoremiscv3]{wnba_boxscoremiscv3()}},
-\code{\link[=wnba_boxscoreplayertrackv3]{wnba_boxscoreplayertrackv3()}},
-\code{\link[=wnba_boxscorescoringv3]{wnba_boxscorescoringv3()}},
-\code{\link[=wnba_boxscoretraditionalv3]{wnba_boxscoretraditionalv3()}},
-\code{\link[=wnba_boxscoreusagev3]{wnba_boxscoreusagev3()}}
+\code{\link[=wnba_boxscoretraditionalv3]{wnba_boxscoretraditionalv3()}}
 }
 \author{
 Saiem Gilani

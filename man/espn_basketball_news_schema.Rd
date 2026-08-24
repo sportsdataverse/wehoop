@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_news, espn_wbb_team_news, espn_wnba_news, espn_wnba_team_news.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    id \tab character \tab Unique play identifcation number \cr
    type \tab character \tab Record type / category. \cr
@@ -18,6 +18,7 @@ Columns shared verbatim across: espn_wbb_news, espn_wbb_team_news, espn_wnba_new
    byline \tab character \tab News article byline / author. \cr
    link_web \tab character \tab Web link / URL. \cr
    league_id \tab character \tab League identifier ('10' = WNBA). \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

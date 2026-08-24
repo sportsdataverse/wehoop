@@ -27,42 +27,46 @@ wnba_teaminfocommon(
 Return a named list of data frames: AvailableSeasons, TeamInfoCommon,
 TeamSeasonRanks
 
-\strong{TeamInfoCommon}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
-   TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_CONFERENCE \tab character \tab  \cr
-   TEAM_DIVISION \tab character \tab  \cr
-   TEAM_CODE \tab character \tab  \cr
-   TEAM_SLUG \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   PCT \tab character \tab  \cr
-   CONF_RANK \tab character \tab  \cr
-   DIV_RANK \tab character \tab  \cr
-   MIN_YEAR \tab character \tab  \cr
-   MAX_YEAR \tab character \tab  \cr
-}
+\strong{TeamInfoCommon}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
+      TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
+      TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
+      TEAM_CONFERENCE \tab character \tab  \cr
+      TEAM_DIVISION \tab character \tab  \cr
+      TEAM_CODE \tab character \tab  \cr
+      TEAM_SLUG \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
+      W \tab character \tab Wins. \cr
+      L \tab character \tab Losses. \cr
+      PCT \tab character \tab  \cr
+      CONF_RANK \tab character \tab  \cr
+      DIV_RANK \tab character \tab  \cr
+      MIN_YEAR \tab character \tab  \cr
+      MAX_YEAR \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
-\strong{TeamSeasonRanks}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   LEAGUE_ID \tab character \tab League identifier ('10' = WNBA). \cr
-   SEASON_ID \tab character \tab Unique season identifier. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   PTS_RANK \tab character \tab  \cr
-   PTS_PG \tab character \tab  \cr
-   REB_RANK \tab character \tab  \cr
-   REB_PG \tab character \tab  \cr
-   AST_RANK \tab character \tab  \cr
-   AST_PG \tab character \tab  \cr
-   OPP_PTS_RANK \tab character \tab  \cr
-   OPP_PTS_PG \tab character \tab  \cr
-}
+\strong{TeamSeasonRanks}
 
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      LEAGUE_ID \tab character \tab League identifier ('10' = WNBA). \cr
+      SEASON_ID \tab character \tab Unique season identifier. \cr
+      TEAM_ID \tab character \tab Unique team identifier. \cr
+      PTS_RANK \tab character \tab  \cr
+      PTS_PG \tab character \tab  \cr
+      REB_RANK \tab character \tab  \cr
+      REB_PG \tab character \tab  \cr
+      AST_RANK \tab character \tab  \cr
+      AST_PG \tab character \tab  \cr
+      OPP_PTS_RANK \tab character \tab  \cr
+      OPP_PTS_PG \tab character \tab  \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 
 \strong{AvailableSeasons}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -82,13 +86,6 @@ TeamSeasonRanks
 Other WNBA Team Functions:
 \code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
 \code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashboardbygamesplits]{wnba_teamdashboardbygamesplits()}},
-\code{\link[=wnba_teamdashboardbygeneralsplits]{wnba_teamdashboardbygeneralsplits()}},
-\code{\link[=wnba_teamdashboardbylastngames]{wnba_teamdashboardbylastngames()}},
-\code{\link[=wnba_teamdashboardbyopponent]{wnba_teamdashboardbyopponent()}},
-\code{\link[=wnba_teamdashboardbyshootingsplits]{wnba_teamdashboardbyshootingsplits()}},
-\code{\link[=wnba_teamdashboardbyteamperformance]{wnba_teamdashboardbyteamperformance()}},
-\code{\link[=wnba_teamdashboardbyyearoveryear]{wnba_teamdashboardbyyearoveryear()}},
 \code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
 \code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
 \code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
@@ -96,9 +93,7 @@ Other WNBA Team Functions:
 \code{\link[=wnba_teamgamelogs]{wnba_teamgamelogs()}},
 \code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
 \code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
-\code{\link[=wnba_teamplayerdashboard]{wnba_teamplayerdashboard()}},
 \code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teamplayeronoffsummary]{wnba_teamplayeronoffsummary()}},
 \code{\link[=wnba_teams]{wnba_teams()}},
 \code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
 \code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}

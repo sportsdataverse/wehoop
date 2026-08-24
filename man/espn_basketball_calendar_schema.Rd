@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_calendar, espn_wnba_calendar.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
    season_type \tab character \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
@@ -20,6 +20,7 @@ Columns shared verbatim across: espn_wbb_calendar, espn_wnba_calendar.
    value \tab character \tab Numeric or string value field. \cr
    start_date \tab character \tab Start date (YYYY-MM-DD). \cr
    end_date \tab character \tab End date (YYYY-MM-DD). \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

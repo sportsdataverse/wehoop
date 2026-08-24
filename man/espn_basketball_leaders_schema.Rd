@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_leaders, espn_wnba_leaders.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
    season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
@@ -20,6 +20,7 @@ Columns shared verbatim across: espn_wbb_leaders, espn_wnba_leaders.
    value \tab numeric \tab Numeric or string value field. \cr
    rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
    display_value \tab character \tab Human-readable display value. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

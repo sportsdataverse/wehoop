@@ -2,9 +2,25 @@
 % Please edit documentation in R/espn_wbb_groups_v2.R
 \name{espn_wbb_season_group}
 \alias{espn_wbb_season_group}
+\alias{espn_wbb_season_group_children}
+\alias{espn_wbb_season_group_teams}
 \title{\strong{Get ESPN WBB Season Group Detail}}
 \usage{
 espn_wbb_season_group(
+  group_id,
+  season = most_recent_wbb_season(),
+  season_type = 2L,
+  ...
+)
+
+espn_wbb_season_group_children(
+  group_id,
+  season = most_recent_wbb_season(),
+  season_type = 2L,
+  ...
+)
+
+espn_wbb_season_group_teams(
   group_id,
   season = most_recent_wbb_season(),
   season_type = 2L,
@@ -24,18 +40,54 @@ espn_wbb_season_group(
 A single-row tibble.
 
 Columns as documented in the shared \link{espn_basketball_season_group_schema} table.
+
+A tibble with one row per child group.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   league \tab character \tab League slug. \cr
+   season \tab integer \tab Season year. \cr
+   season_type \tab integer \tab Season-type id. \cr
+   parent_group_id \tab character \tab Parent group id (queried). \cr
+   child_group_id \tab character \tab Child group id. \cr
+   ref \tab character \tab \verb{$ref} to child group detail. \cr
+}
+
+A tibble with one row per team in the group.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   league \tab character \tab League slug. \cr
+   season \tab integer \tab Season year. \cr
+   season_type \tab integer \tab Season-type id. \cr
+   group_id \tab character \tab ESPN group id. \cr
+   team_id \tab character \tab ESPN team id. \cr
+   ref \tab character \tab \verb{$ref} URL to the team-in-season entry. \cr
+}
 }
 \description{
 Returns metadata for one group (conference or division) in one
 (WBB season x season-type), plus \verb{$ref} URLs to its parent group,
 children groups, member teams, and standings.
+
+Returns the list of child groups (e.g. divisions within a conference)
+for one (WBB season x season-type x parent-group).
+
+Returns the list of team IDs that belong to one group (conference or
+division) for one (WBB season x season-type).
 }
 \details{
 \strong{Get ESPN WBB Season Group Detail}
+
+\strong{Get ESPN WBB Season Group Children Index}
+
+\strong{Get ESPN WBB Season Group Teams Index}
 }
 \examples{
 \donttest{
   espn_wbb_season_group(group_id = 5, season = 2025)
+}
+\donttest{
+  espn_wbb_season_group_children(group_id = 5, season = 2025)
+}
+\donttest{
+  espn_wbb_season_group_teams(group_id = 5, season = 2025)
 }
 }
 \seealso{
@@ -51,51 +103,31 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_franchise]{espn_wbb_franchise()}},
 \code{\link[=espn_wbb_franchises]{espn_wbb_franchises()}},
 \code{\link[=espn_wbb_game_all]{espn_wbb_game_all()}},
-\code{\link[=espn_wbb_game_broadcasts]{espn_wbb_game_broadcasts()}},
 \code{\link[=espn_wbb_game_odds]{espn_wbb_game_odds()}},
 \code{\link[=espn_wbb_game_official_detail]{espn_wbb_game_official_detail()}},
-\code{\link[=espn_wbb_game_officials]{espn_wbb_game_officials()}},
 \code{\link[=espn_wbb_game_play]{espn_wbb_game_play()}},
 \code{\link[=espn_wbb_game_play_personnel]{espn_wbb_game_play_personnel()}},
 \code{\link[=espn_wbb_game_player_box]{espn_wbb_game_player_box()}},
-\code{\link[=espn_wbb_game_powerindex]{espn_wbb_game_powerindex()}},
-\code{\link[=espn_wbb_game_predictor]{espn_wbb_game_predictor()}},
 \code{\link[=espn_wbb_game_probabilities]{espn_wbb_game_probabilities()}},
 \code{\link[=espn_wbb_game_propbets]{espn_wbb_game_propbets()}},
-\code{\link[=espn_wbb_game_rosters]{espn_wbb_game_rosters()}},
-\code{\link[=espn_wbb_game_situation]{espn_wbb_game_situation()}},
-\code{\link[=espn_wbb_game_team_leaders]{espn_wbb_game_team_leaders()}},
 \code{\link[=espn_wbb_game_team_linescores]{espn_wbb_game_team_linescores()}},
-\code{\link[=espn_wbb_game_team_records]{espn_wbb_game_team_records()}},
-\code{\link[=espn_wbb_game_team_roster]{espn_wbb_game_team_roster()}},
 \code{\link[=espn_wbb_game_team_roster_entry]{espn_wbb_game_team_roster_entry()}},
-\code{\link[=espn_wbb_game_team_score]{espn_wbb_game_team_score()}},
-\code{\link[=espn_wbb_game_team_statistics]{espn_wbb_game_team_statistics()}},
 \code{\link[=espn_wbb_injuries]{espn_wbb_injuries()}},
 \code{\link[=espn_wbb_leaders]{espn_wbb_leaders()}},
 \code{\link[=espn_wbb_news]{espn_wbb_news()}},
-\code{\link[=espn_wbb_pbp]{espn_wbb_pbp()}},
 \code{\link[=espn_wbb_player_awards]{espn_wbb_player_awards()}},
-\code{\link[=espn_wbb_player_box]{espn_wbb_player_box()}},
 \code{\link[=espn_wbb_player_career_stats]{espn_wbb_player_career_stats()}},
-\code{\link[=espn_wbb_player_eventlog]{espn_wbb_player_eventlog()}},
 \code{\link[=espn_wbb_player_eventlog_v2]{espn_wbb_player_eventlog_v2()}},
-\code{\link[=espn_wbb_player_gamelog]{espn_wbb_player_gamelog()}},
 \code{\link[=espn_wbb_player_info]{espn_wbb_player_info()}},
 \code{\link[=espn_wbb_player_overview]{espn_wbb_player_overview()}},
 \code{\link[=espn_wbb_player_seasons]{espn_wbb_player_seasons()}},
-\code{\link[=espn_wbb_player_splits]{espn_wbb_player_splits()}},
-\code{\link[=espn_wbb_player_statisticslog]{espn_wbb_player_statisticslog()}},
 \code{\link[=espn_wbb_player_stats]{espn_wbb_player_stats()}},
-\code{\link[=espn_wbb_player_stats_v3]{espn_wbb_player_stats_v3()}},
 \code{\link[=espn_wbb_position]{espn_wbb_position()}},
 \code{\link[=espn_wbb_positions]{espn_wbb_positions()}},
 \code{\link[=espn_wbb_powerindex]{espn_wbb_powerindex()}},
 \code{\link[=espn_wbb_rankings]{espn_wbb_rankings()}},
 \code{\link[=espn_wbb_scoreboard]{espn_wbb_scoreboard()}},
 \code{\link[=espn_wbb_season_awards]{espn_wbb_season_awards()}},
-\code{\link[=espn_wbb_season_group_children]{espn_wbb_season_group_children()}},
-\code{\link[=espn_wbb_season_group_teams]{espn_wbb_season_group_teams()}},
 \code{\link[=espn_wbb_season_groups]{espn_wbb_season_groups()}},
 \code{\link[=espn_wbb_season_info]{espn_wbb_season_info()}},
 \code{\link[=espn_wbb_season_leaders]{espn_wbb_season_leaders()}},
@@ -108,14 +140,10 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_seasons]{espn_wbb_seasons()}},
 \code{\link[=espn_wbb_standings]{espn_wbb_standings()}},
 \code{\link[=espn_wbb_team]{espn_wbb_team()}},
-\code{\link[=espn_wbb_team_box]{espn_wbb_team_box()}},
 \code{\link[=espn_wbb_team_injuries]{espn_wbb_team_injuries()}},
-\code{\link[=espn_wbb_team_leaders]{espn_wbb_team_leaders()}},
 \code{\link[=espn_wbb_team_news]{espn_wbb_team_news()}},
 \code{\link[=espn_wbb_team_record_detail]{espn_wbb_team_record_detail()}},
-\code{\link[=espn_wbb_team_roster]{espn_wbb_team_roster()}},
 \code{\link[=espn_wbb_team_schedule]{espn_wbb_team_schedule()}},
-\code{\link[=espn_wbb_team_season_profile]{espn_wbb_team_season_profile()}},
 \code{\link[=espn_wbb_team_season_roster]{espn_wbb_team_season_roster()}},
 \code{\link[=espn_wbb_team_season_statistics]{espn_wbb_team_season_statistics()}},
 \code{\link[=espn_wbb_team_stats]{espn_wbb_team_stats()}},

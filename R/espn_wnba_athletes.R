@@ -86,12 +86,9 @@ espn_wnba_player_info <- function(athlete_id, ...) {
 # espn_wnba_player_overview
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Athlete Overview**
-#' @name espn_wnba_player_overview
-NULL
 #' @title
 #' **Get ESPN WNBA Athlete Overview**
-#' @rdname espn_wnba_player_overview
+#' @rdname espn_wnba_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -147,12 +144,9 @@ espn_wnba_player_overview <- function(athlete_id,
 # espn_wnba_player_stats_v3
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Athlete Stats**
-#' @name espn_wnba_player_stats_v3
-NULL
 #' @title
 #' **Get ESPN WNBA Athlete Stats**
-#' @rdname espn_wnba_player_stats_v3
+#' @rdname espn_wnba_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -197,12 +191,9 @@ espn_wnba_player_stats_v3 <- function(athlete_id,
 # espn_wnba_player_gamelog
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Athlete Gamelog**
-#' @name espn_wnba_player_gamelog
-NULL
 #' @title
 #' **Get ESPN WNBA Athlete Gamelog**
-#' @rdname espn_wnba_player_gamelog
+#' @rdname espn_wnba_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -234,12 +225,9 @@ espn_wnba_player_gamelog <- function(athlete_id,
 # espn_wnba_player_splits
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Athlete Splits**
-#' @name espn_wnba_player_splits
-NULL
 #' @title
 #' **Get ESPN WNBA Athlete Splits**
-#' @rdname espn_wnba_player_splits
+#' @rdname espn_wnba_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.
@@ -354,12 +342,9 @@ espn_wnba_player_awards <- function(athlete_id, ...) {
 # espn_wnba_player_statisticslog
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WNBA Athlete Statisticslog**
-#' @name espn_wnba_player_statisticslog
-NULL
 #' @title
 #' **Get ESPN WNBA Athlete Statisticslog**
-#' @rdname espn_wnba_player_statisticslog
+#' @rdname espn_wnba_player_eventlog
 #' @author Saiem Gilani
 #' @param athlete_id ESPN athlete identifier (character or numeric).
 #' @param season Season year (numeric). Defaults to the most recent WNBA season.

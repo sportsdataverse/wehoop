@@ -29,12 +29,9 @@
 # WNBA loaders
 # ---------------------------------------------------------------------------
 
-#' **Load cached WNBA team crosswalk**
-#' @name load_wnba_team_crosswalk
-NULL
 #' @title
 #' **Load cached WNBA team crosswalk from the data repo**
-#' @rdname load_wnba_team_crosswalk
+#' @rdname load_wbb_player_crosswalk
 #' @description Loads cached team-crosswalk snapshots that map ESPN team
 #'   identifiers to WNBA Stats API team identifiers. One row per team-season.
 #'   Backed by the `wnba_crosswalk` release tag in `sportsdataverse-data`.
@@ -58,12 +55,9 @@ load_wnba_team_crosswalk <- function(seasons = most_recent_wnba_season()) {
 }
 
 
-#' **Load cached WNBA schedule crosswalk**
-#' @name load_wnba_schedule_crosswalk
-NULL
 #' @title
 #' **Load cached WNBA schedule crosswalk from the data repo**
-#' @rdname load_wnba_schedule_crosswalk
+#' @rdname load_wbb_player_crosswalk
 #' @description Loads cached schedule-crosswalk snapshots that map ESPN game
 #'   identifiers to WNBA Stats API game identifiers. One row per game-season.
 #'   Backed by the `wnba_crosswalk` release tag in `sportsdataverse-data`.
@@ -87,12 +81,9 @@ load_wnba_schedule_crosswalk <- function(seasons = most_recent_wnba_season()) {
 }
 
 
-#' **Load cached WNBA player crosswalk**
-#' @name load_wnba_player_crosswalk
-NULL
 #' @title
 #' **Load cached WNBA player crosswalk from the data repo**
-#' @rdname load_wnba_player_crosswalk
+#' @rdname load_wbb_player_crosswalk
 #' @description Loads cached player-crosswalk snapshots that map ESPN athlete
 #'   identifiers to WNBA Stats API player identifiers. One row per
 #'   athlete-season. Backed by the `wnba_crosswalk` release tag in
@@ -120,12 +111,9 @@ load_wnba_player_crosswalk <- function(seasons = most_recent_wnba_season()) {
 # WBB loaders
 # ---------------------------------------------------------------------------
 
-#' **Load cached WBB team crosswalk**
-#' @name load_wbb_team_crosswalk
-NULL
 #' @title
 #' **Load cached WBB team crosswalk from the data repo**
-#' @rdname load_wbb_team_crosswalk
+#' @rdname load_wbb_player_crosswalk
 #' @description Loads cached team-crosswalk snapshots that map ESPN team
 #'   identifiers to Fox Sports and Bart Torvik team identifiers for Women's
 #'   College Basketball. One row per team-season. Backed by the
@@ -150,12 +138,9 @@ load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
 }
 
 
-#' **Load cached WBB schedule crosswalk**
-#' @name load_wbb_schedule_crosswalk
-NULL
 #' @title
 #' **Load cached WBB schedule crosswalk from the data repo**
-#' @rdname load_wbb_schedule_crosswalk
+#' @rdname load_wbb_player_crosswalk
 #' @description Loads cached schedule-crosswalk snapshots that map ESPN game
 #'   identifiers to Bart Torvik game identifiers for Women's College
 #'   Basketball. One row per game-season. Backed by the `wbb_crosswalk`

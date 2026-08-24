@@ -7,7 +7,7 @@
 Columns shared verbatim across: espn_wbb_team_leaders, espn_wnba_team_leaders.
 }
 \details{
-\tabular{lll}{
+\if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
    team_id \tab character \tab Unique team identifier. \cr
    season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
@@ -17,6 +17,7 @@ Columns shared verbatim across: espn_wbb_team_leaders, espn_wnba_team_leaders.
    athlete_name \tab character \tab Athlete display name (ESPN). \cr
    value \tab numeric \tab Numeric or string value field. \cr
    rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
-}
+}}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \keyword{internal}

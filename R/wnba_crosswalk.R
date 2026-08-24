@@ -73,27 +73,29 @@ NULL
 #'   by `wnba_schedule_crosswalk()` to avoid a duplicate CDN request. Leave `NULL`.
 #' @return A `wehoop_data` tibble, one row per team:
 #'
-#'    |col_name          |types     |description                             |
-#'    |:-----------------|:---------|:---------------------------------------|
-#'    |season            |integer   |Season year.                            |
-#'    |espn_team_id      |integer   |ESPN team id (canonical key).           |
-#'    |espn_abbreviation |character |ESPN abbreviation.                      |
-#'    |espn_display_name |character |ESPN display name.                      |
-#'    |espn_short_name   |character |ESPN short name.                        |
-#'    |espn_location     |character |ESPN team location.                     |
-#'    |espn_mascot       |character |ESPN team mascot/nickname.              |
-#'    |wnba_team_id      |character |WNBA Stats team id.                     |
-#'    |wnba_team_tricode |character |WNBA Stats tricode.                     |
-#'    |wnba_team_name    |character |WNBA Stats team name.                   |
-#'    |wnba_team_city    |character |WNBA Stats team city.                   |
-#'    |wnba_team_slug    |character |WNBA Stats team slug.                   |
-#'    |fox_team_id       |character |Fox Bifrost team id.                    |
-#'    |fox_team_name     |character |Fox team name.                          |
-#'    |yahoo_team_id     |character |Yahoo team id (NA placeholder).         |
-#'    |yahoo_team_abbreviation |character |Yahoo abbreviation (NA placeholder).|
-#'    |yahoo_team_name   |character |Yahoo team name (NA placeholder).       |
-#'    |match_method      |character |How the row was matched.                |
-#'    |match_confidence  |numeric   |Match confidence (1 for deterministic). |
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       season \tab integer \tab Season year. \cr
+#'       espn_team_id \tab integer \tab ESPN team id (canonical key). \cr
+#'       espn_abbreviation \tab character \tab ESPN abbreviation. \cr
+#'       espn_display_name \tab character \tab ESPN display name. \cr
+#'       espn_short_name \tab character \tab ESPN short name. \cr
+#'       espn_location \tab character \tab ESPN team location. \cr
+#'       espn_mascot \tab character \tab ESPN team mascot/nickname. \cr
+#'       wnba_team_id \tab character \tab WNBA Stats team id. \cr
+#'       wnba_team_tricode \tab character \tab WNBA Stats tricode. \cr
+#'       wnba_team_name \tab character \tab WNBA Stats team name. \cr
+#'       wnba_team_city \tab character \tab WNBA Stats team city. \cr
+#'       wnba_team_slug \tab character \tab WNBA Stats team slug. \cr
+#'       fox_team_id \tab character \tab Fox Bifrost team id. \cr
+#'       fox_team_name \tab character \tab Fox team name. \cr
+#'       yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
+#'       yahoo_team_abbreviation \tab character \tab Yahoo abbreviation (NA placeholder). \cr
+#'       yahoo_team_name \tab character \tab Yahoo team name (NA placeholder). \cr
+#'       match_method \tab character \tab How the row was matched. \cr
+#'       match_confidence \tab numeric \tab Match confidence (1 for deterministic). \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @importFrom dplyr distinct select bind_rows transmute
 #' @export

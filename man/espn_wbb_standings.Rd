@@ -10,84 +10,87 @@ espn_wbb_standings(year)
 \item{year}{Either numeric or character (YYYY)}
 }
 \value{
-Returns a tibble\tabular{lll}{
-   col_name \tab types \tab description \cr
-   team_id \tab integer \tab Unique team identifier. \cr
-   team \tab character \tab Team-side label or team identifier. \cr
-   conference \tab character \tab Conference group name from ESPN standings. \cr
-   avgpointsagainst \tab numeric \tab Avgpointsagainst. \cr
-   avgpointsfor \tab numeric \tab Avgpointsfor. \cr
-   gamesbehind \tab numeric \tab Gamesbehind. \cr
-   leaguewinpercent \tab numeric \tab Leaguewinpercent. \cr
-   losses \tab numeric \tab Total losses. \cr
-   playoffseed \tab numeric \tab Playoffseed. \cr
-   pointsagainst \tab numeric \tab Pointsagainst. \cr
-   pointsfor \tab numeric \tab Pointsfor. \cr
-   streak \tab numeric \tab Current streak (e.g. 'W3' for three-game win streak). \cr
-   winpercent \tab numeric \tab Winpercent. \cr
-   wins \tab numeric \tab Total wins. \cr
-   total \tab character \tab Total. \cr
-   home_avgpointsagainst \tab numeric \tab Home team's avgpointsagainst. \cr
-   home_avgpointsfor \tab numeric \tab Home team's avgpointsfor. \cr
-   home_gamesbehind \tab numeric \tab Home team's gamesbehind. \cr
-   home_leaguewinpercent \tab numeric \tab Home team's leaguewinpercent. \cr
-   home_losses \tab numeric \tab Home team's losses. \cr
-   home_playoffseed \tab numeric \tab Home team's playoffseed. \cr
-   home_pointsagainst \tab numeric \tab Home team's pointsagainst. \cr
-   home_pointsfor \tab numeric \tab Home team's pointsfor. \cr
-   home_streak \tab numeric \tab Home team's streak. \cr
-   home_winpercent \tab numeric \tab Home team's winpercent. \cr
-   home_wins \tab numeric \tab Home team's wins. \cr
-   home \tab character \tab Home. \cr
-   road_avgpointsagainst \tab numeric \tab Road avgpointsagainst. \cr
-   road_avgpointsfor \tab numeric \tab Road avgpointsfor. \cr
-   road_gamesbehind \tab numeric \tab Road gamesbehind. \cr
-   road_leaguewinpercent \tab numeric \tab Road leaguewinpercent. \cr
-   road_losses \tab numeric \tab Road losses. \cr
-   road_playoffseed \tab numeric \tab Road playoffseed. \cr
-   road_pointsagainst \tab numeric \tab Road pointsagainst. \cr
-   road_pointsfor \tab numeric \tab Road pointsfor. \cr
-   road_streak \tab numeric \tab Road streak. \cr
-   road_winpercent \tab numeric \tab Road winpercent. \cr
-   road_wins \tab numeric \tab Road wins. \cr
-   road \tab character \tab Road. \cr
-   vsaprankedteams_avgpointsagainst \tab numeric \tab Vsaprankedteams avgpointsagainst. \cr
-   vsaprankedteams_avgpointsfor \tab numeric \tab Vsaprankedteams avgpointsfor. \cr
-   vsaprankedteams_gamesbehind \tab numeric \tab Vsaprankedteams gamesbehind. \cr
-   vsaprankedteams_leaguewinpercent \tab numeric \tab Vsaprankedteams leaguewinpercent. \cr
-   vsaprankedteams_losses \tab numeric \tab Vsaprankedteams losses. \cr
-   vsaprankedteams_playoffseed \tab numeric \tab Vsaprankedteams playoffseed. \cr
-   vsaprankedteams_pointsagainst \tab numeric \tab Vsaprankedteams pointsagainst. \cr
-   vsaprankedteams_pointsfor \tab numeric \tab Vsaprankedteams pointsfor. \cr
-   vsaprankedteams_streak \tab numeric \tab Vsaprankedteams streak. \cr
-   vsaprankedteams_winpercent \tab numeric \tab Vsaprankedteams winpercent. \cr
-   vsaprankedteams_wins \tab numeric \tab Vsaprankedteams wins. \cr
-   vsaprankedteams \tab character \tab Vsaprankedteams. \cr
-   vsusarankedteams_avgpointsagainst \tab numeric \tab Vsusarankedteams avgpointsagainst. \cr
-   vsusarankedteams_avgpointsfor \tab numeric \tab Vsusarankedteams avgpointsfor. \cr
-   vsusarankedteams_gamesbehind \tab numeric \tab Vsusarankedteams gamesbehind. \cr
-   vsusarankedteams_leaguewinpercent \tab numeric \tab Vsusarankedteams leaguewinpercent. \cr
-   vsusarankedteams_losses \tab numeric \tab Vsusarankedteams losses. \cr
-   vsusarankedteams_playoffseed \tab numeric \tab Vsusarankedteams playoffseed. \cr
-   vsusarankedteams_pointsagainst \tab numeric \tab Vsusarankedteams pointsagainst. \cr
-   vsusarankedteams_pointsfor \tab numeric \tab Vsusarankedteams pointsfor. \cr
-   vsusarankedteams_streak \tab numeric \tab Vsusarankedteams streak. \cr
-   vsusarankedteams_winpercent \tab numeric \tab Vsusarankedteams winpercent. \cr
-   vsusarankedteams_wins \tab numeric \tab Vsusarankedteams wins. \cr
-   vsusarankedteams \tab character \tab Vsusarankedteams. \cr
-   vsconf_avgpointsagainst \tab numeric \tab Vsconf avgpointsagainst. \cr
-   vsconf_avgpointsfor \tab numeric \tab Vsconf avgpointsfor. \cr
-   vsconf_gamesbehind \tab numeric \tab Vsconf gamesbehind. \cr
-   vsconf_leaguewinpercent \tab numeric \tab Vsconf leaguewinpercent. \cr
-   vsconf_losses \tab numeric \tab Vsconf losses. \cr
-   vsconf_playoffseed \tab numeric \tab Vsconf playoffseed. \cr
-   vsconf_pointsagainst \tab numeric \tab Vsconf pointsagainst. \cr
-   vsconf_pointsfor \tab numeric \tab Vsconf pointsfor. \cr
-   vsconf_streak \tab numeric \tab Vsconf streak. \cr
-   vsconf_winpercent \tab numeric \tab Vsconf winpercent. \cr
-   vsconf_wins \tab numeric \tab Vsconf wins. \cr
-   vsconf \tab character \tab Vsconf. \cr
-}
+Returns a tibble
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      team_id \tab integer \tab Unique team identifier. \cr
+      team \tab character \tab Team-side label or team identifier. \cr
+      conference \tab character \tab Conference group name from ESPN standings. \cr
+      avgpointsagainst \tab numeric \tab Avgpointsagainst. \cr
+      avgpointsfor \tab numeric \tab Avgpointsfor. \cr
+      gamesbehind \tab numeric \tab Gamesbehind. \cr
+      leaguewinpercent \tab numeric \tab Leaguewinpercent. \cr
+      losses \tab numeric \tab Total losses. \cr
+      playoffseed \tab numeric \tab Playoffseed. \cr
+      pointsagainst \tab numeric \tab Pointsagainst. \cr
+      pointsfor \tab numeric \tab Pointsfor. \cr
+      streak \tab numeric \tab Current streak (e.g. 'W3' for three-game win streak). \cr
+      winpercent \tab numeric \tab Winpercent. \cr
+      wins \tab numeric \tab Total wins. \cr
+      total \tab character \tab Total. \cr
+      home_avgpointsagainst \tab numeric \tab Home team's avgpointsagainst. \cr
+      home_avgpointsfor \tab numeric \tab Home team's avgpointsfor. \cr
+      home_gamesbehind \tab numeric \tab Home team's gamesbehind. \cr
+      home_leaguewinpercent \tab numeric \tab Home team's leaguewinpercent. \cr
+      home_losses \tab numeric \tab Home team's losses. \cr
+      home_playoffseed \tab numeric \tab Home team's playoffseed. \cr
+      home_pointsagainst \tab numeric \tab Home team's pointsagainst. \cr
+      home_pointsfor \tab numeric \tab Home team's pointsfor. \cr
+      home_streak \tab numeric \tab Home team's streak. \cr
+      home_winpercent \tab numeric \tab Home team's winpercent. \cr
+      home_wins \tab numeric \tab Home team's wins. \cr
+      home \tab character \tab Home. \cr
+      road_avgpointsagainst \tab numeric \tab Road avgpointsagainst. \cr
+      road_avgpointsfor \tab numeric \tab Road avgpointsfor. \cr
+      road_gamesbehind \tab numeric \tab Road gamesbehind. \cr
+      road_leaguewinpercent \tab numeric \tab Road leaguewinpercent. \cr
+      road_losses \tab numeric \tab Road losses. \cr
+      road_playoffseed \tab numeric \tab Road playoffseed. \cr
+      road_pointsagainst \tab numeric \tab Road pointsagainst. \cr
+      road_pointsfor \tab numeric \tab Road pointsfor. \cr
+      road_streak \tab numeric \tab Road streak. \cr
+      road_winpercent \tab numeric \tab Road winpercent. \cr
+      road_wins \tab numeric \tab Road wins. \cr
+      road \tab character \tab Road. \cr
+      vsaprankedteams_avgpointsagainst \tab numeric \tab Vsaprankedteams avgpointsagainst. \cr
+      vsaprankedteams_avgpointsfor \tab numeric \tab Vsaprankedteams avgpointsfor. \cr
+      vsaprankedteams_gamesbehind \tab numeric \tab Vsaprankedteams gamesbehind. \cr
+      vsaprankedteams_leaguewinpercent \tab numeric \tab Vsaprankedteams leaguewinpercent. \cr
+      vsaprankedteams_losses \tab numeric \tab Vsaprankedteams losses. \cr
+      vsaprankedteams_playoffseed \tab numeric \tab Vsaprankedteams playoffseed. \cr
+      vsaprankedteams_pointsagainst \tab numeric \tab Vsaprankedteams pointsagainst. \cr
+      vsaprankedteams_pointsfor \tab numeric \tab Vsaprankedteams pointsfor. \cr
+      vsaprankedteams_streak \tab numeric \tab Vsaprankedteams streak. \cr
+      vsaprankedteams_winpercent \tab numeric \tab Vsaprankedteams winpercent. \cr
+      vsaprankedteams_wins \tab numeric \tab Vsaprankedteams wins. \cr
+      vsaprankedteams \tab character \tab Vsaprankedteams. \cr
+      vsusarankedteams_avgpointsagainst \tab numeric \tab Vsusarankedteams avgpointsagainst. \cr
+      vsusarankedteams_avgpointsfor \tab numeric \tab Vsusarankedteams avgpointsfor. \cr
+      vsusarankedteams_gamesbehind \tab numeric \tab Vsusarankedteams gamesbehind. \cr
+      vsusarankedteams_leaguewinpercent \tab numeric \tab Vsusarankedteams leaguewinpercent. \cr
+      vsusarankedteams_losses \tab numeric \tab Vsusarankedteams losses. \cr
+      vsusarankedteams_playoffseed \tab numeric \tab Vsusarankedteams playoffseed. \cr
+      vsusarankedteams_pointsagainst \tab numeric \tab Vsusarankedteams pointsagainst. \cr
+      vsusarankedteams_pointsfor \tab numeric \tab Vsusarankedteams pointsfor. \cr
+      vsusarankedteams_streak \tab numeric \tab Vsusarankedteams streak. \cr
+      vsusarankedteams_winpercent \tab numeric \tab Vsusarankedteams winpercent. \cr
+      vsusarankedteams_wins \tab numeric \tab Vsusarankedteams wins. \cr
+      vsusarankedteams \tab character \tab Vsusarankedteams. \cr
+      vsconf_avgpointsagainst \tab numeric \tab Vsconf avgpointsagainst. \cr
+      vsconf_avgpointsfor \tab numeric \tab Vsconf avgpointsfor. \cr
+      vsconf_gamesbehind \tab numeric \tab Vsconf gamesbehind. \cr
+      vsconf_leaguewinpercent \tab numeric \tab Vsconf leaguewinpercent. \cr
+      vsconf_losses \tab numeric \tab Vsconf losses. \cr
+      vsconf_playoffseed \tab numeric \tab Vsconf playoffseed. \cr
+      vsconf_pointsagainst \tab numeric \tab Vsconf pointsagainst. \cr
+      vsconf_pointsfor \tab numeric \tab Vsconf pointsfor. \cr
+      vsconf_streak \tab numeric \tab Vsconf streak. \cr
+      vsconf_winpercent \tab numeric \tab Vsconf winpercent. \cr
+      vsconf_wins \tab numeric \tab Vsconf wins. \cr
+      vsconf \tab character \tab Vsconf. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 Get ESPN women's college basketball standings
@@ -110,43 +113,25 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_franchise]{espn_wbb_franchise()}},
 \code{\link[=espn_wbb_franchises]{espn_wbb_franchises()}},
 \code{\link[=espn_wbb_game_all]{espn_wbb_game_all()}},
-\code{\link[=espn_wbb_game_broadcasts]{espn_wbb_game_broadcasts()}},
 \code{\link[=espn_wbb_game_odds]{espn_wbb_game_odds()}},
 \code{\link[=espn_wbb_game_official_detail]{espn_wbb_game_official_detail()}},
-\code{\link[=espn_wbb_game_officials]{espn_wbb_game_officials()}},
 \code{\link[=espn_wbb_game_play]{espn_wbb_game_play()}},
 \code{\link[=espn_wbb_game_play_personnel]{espn_wbb_game_play_personnel()}},
 \code{\link[=espn_wbb_game_player_box]{espn_wbb_game_player_box()}},
-\code{\link[=espn_wbb_game_powerindex]{espn_wbb_game_powerindex()}},
-\code{\link[=espn_wbb_game_predictor]{espn_wbb_game_predictor()}},
 \code{\link[=espn_wbb_game_probabilities]{espn_wbb_game_probabilities()}},
 \code{\link[=espn_wbb_game_propbets]{espn_wbb_game_propbets()}},
-\code{\link[=espn_wbb_game_rosters]{espn_wbb_game_rosters()}},
-\code{\link[=espn_wbb_game_situation]{espn_wbb_game_situation()}},
-\code{\link[=espn_wbb_game_team_leaders]{espn_wbb_game_team_leaders()}},
 \code{\link[=espn_wbb_game_team_linescores]{espn_wbb_game_team_linescores()}},
-\code{\link[=espn_wbb_game_team_records]{espn_wbb_game_team_records()}},
-\code{\link[=espn_wbb_game_team_roster]{espn_wbb_game_team_roster()}},
 \code{\link[=espn_wbb_game_team_roster_entry]{espn_wbb_game_team_roster_entry()}},
-\code{\link[=espn_wbb_game_team_score]{espn_wbb_game_team_score()}},
-\code{\link[=espn_wbb_game_team_statistics]{espn_wbb_game_team_statistics()}},
 \code{\link[=espn_wbb_injuries]{espn_wbb_injuries()}},
 \code{\link[=espn_wbb_leaders]{espn_wbb_leaders()}},
 \code{\link[=espn_wbb_news]{espn_wbb_news()}},
-\code{\link[=espn_wbb_pbp]{espn_wbb_pbp()}},
 \code{\link[=espn_wbb_player_awards]{espn_wbb_player_awards()}},
-\code{\link[=espn_wbb_player_box]{espn_wbb_player_box()}},
 \code{\link[=espn_wbb_player_career_stats]{espn_wbb_player_career_stats()}},
-\code{\link[=espn_wbb_player_eventlog]{espn_wbb_player_eventlog()}},
 \code{\link[=espn_wbb_player_eventlog_v2]{espn_wbb_player_eventlog_v2()}},
-\code{\link[=espn_wbb_player_gamelog]{espn_wbb_player_gamelog()}},
 \code{\link[=espn_wbb_player_info]{espn_wbb_player_info()}},
 \code{\link[=espn_wbb_player_overview]{espn_wbb_player_overview()}},
 \code{\link[=espn_wbb_player_seasons]{espn_wbb_player_seasons()}},
-\code{\link[=espn_wbb_player_splits]{espn_wbb_player_splits()}},
-\code{\link[=espn_wbb_player_statisticslog]{espn_wbb_player_statisticslog()}},
 \code{\link[=espn_wbb_player_stats]{espn_wbb_player_stats()}},
-\code{\link[=espn_wbb_player_stats_v3]{espn_wbb_player_stats_v3()}},
 \code{\link[=espn_wbb_position]{espn_wbb_position()}},
 \code{\link[=espn_wbb_positions]{espn_wbb_positions()}},
 \code{\link[=espn_wbb_powerindex]{espn_wbb_powerindex()}},
@@ -154,8 +139,6 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_scoreboard]{espn_wbb_scoreboard()}},
 \code{\link[=espn_wbb_season_awards]{espn_wbb_season_awards()}},
 \code{\link[=espn_wbb_season_group]{espn_wbb_season_group()}},
-\code{\link[=espn_wbb_season_group_children]{espn_wbb_season_group_children()}},
-\code{\link[=espn_wbb_season_group_teams]{espn_wbb_season_group_teams()}},
 \code{\link[=espn_wbb_season_groups]{espn_wbb_season_groups()}},
 \code{\link[=espn_wbb_season_info]{espn_wbb_season_info()}},
 \code{\link[=espn_wbb_season_leaders]{espn_wbb_season_leaders()}},
@@ -167,14 +150,10 @@ Other ESPN WBB Functions:
 \code{\link[=espn_wbb_season_weeks]{espn_wbb_season_weeks()}},
 \code{\link[=espn_wbb_seasons]{espn_wbb_seasons()}},
 \code{\link[=espn_wbb_team]{espn_wbb_team()}},
-\code{\link[=espn_wbb_team_box]{espn_wbb_team_box()}},
 \code{\link[=espn_wbb_team_injuries]{espn_wbb_team_injuries()}},
-\code{\link[=espn_wbb_team_leaders]{espn_wbb_team_leaders()}},
 \code{\link[=espn_wbb_team_news]{espn_wbb_team_news()}},
 \code{\link[=espn_wbb_team_record_detail]{espn_wbb_team_record_detail()}},
-\code{\link[=espn_wbb_team_roster]{espn_wbb_team_roster()}},
 \code{\link[=espn_wbb_team_schedule]{espn_wbb_team_schedule()}},
-\code{\link[=espn_wbb_team_season_profile]{espn_wbb_team_season_profile()}},
 \code{\link[=espn_wbb_team_season_roster]{espn_wbb_team_season_roster()}},
 \code{\link[=espn_wbb_team_season_statistics]{espn_wbb_team_season_statistics()}},
 \code{\link[=espn_wbb_team_stats]{espn_wbb_team_stats()}},

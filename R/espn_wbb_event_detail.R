@@ -7,12 +7,9 @@
 # espn_wbb_game_odds
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Event Odds**
-#' @name espn_wbb_game_odds
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Event Odds**
-#' @rdname espn_wbb_game_odds
+#' @rdname espn_wbb_game_broadcasts
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused but retained for
@@ -81,12 +78,9 @@ espn_wbb_game_probabilities <- function(event_id, limit = 200, ...) {
 # espn_wbb_game_officials
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN Women's College Basketball Event Officials**
-#' @name espn_wbb_game_officials
-NULL
 #' @title
 #' **Get ESPN Women's College Basketball Event Officials**
-#' @rdname espn_wbb_game_officials
+#' @rdname espn_wbb_game_broadcasts
 #' @author Saiem Gilani
 #' @param event_id ESPN event/game identifier (character or numeric).
 #' @param ... Additional arguments; currently unused.
@@ -149,12 +143,9 @@ espn_wbb_game_broadcasts <- function(event_id, ...) {
 # espn_wbb_game_situation
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WBB Event Situation (Live)**
-#' @name espn_wbb_game_situation
-NULL
 #' @title
 #' **Get ESPN WBB Event Situation (Live)**
-#' @rdname espn_wbb_game_situation
+#' @rdname espn_wbb_game_broadcasts
 #' @author Saiem Gilani
 #' @description
 #' Returns the live game situation for one WBB event: timeouts remaining,
@@ -183,7 +174,7 @@ espn_wbb_game_situation <- function(event_id, ...) {
 #' @name espn_wbb_game_predictor
 #' @title
 #' **Get ESPN WBB Event Predictor (Pre-game)**
-#' @rdname espn_wbb_game_predictor
+#' @rdname espn_wbb_game_broadcasts
 #' @author Saiem Gilani
 #' @description
 #' Returns pre-game predictor statistics for one WBB event in long
@@ -213,7 +204,7 @@ espn_wbb_game_predictor <- function(event_id, ...) {
 #' @name espn_wbb_game_powerindex
 #' @title
 #' **Get ESPN WBB Event Power Index Index**
-#' @rdname espn_wbb_game_powerindex
+#' @rdname espn_wbb_game_broadcasts
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-team power-index `$ref` URLs for one WBB event.
@@ -269,12 +260,9 @@ espn_wbb_game_propbets <- function(event_id, provider_id, ...) {
 # espn_wbb_game_team_linescores
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WBB Event Competitor Linescores (Per-Quarter)**
-#' @name espn_wbb_game_team_linescores
-NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Linescores (Per-Quarter)**
-#' @rdname espn_wbb_game_team_linescores
+#' @rdname espn_wbb_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns the per-quarter scoring breakdown for one team in one NBA
@@ -334,12 +322,9 @@ espn_wbb_game_team_leaders <- function(event_id, team_id, ...) {
 # espn_wbb_game_team_roster
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WBB Event Competitor Roster (Game-Day)**
-#' @name espn_wbb_game_team_roster
-NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Roster (Game-Day)**
-#' @rdname espn_wbb_game_team_roster
+#' @rdname espn_wbb_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns the game-day roster index for one team in one WBB event.
@@ -366,12 +351,9 @@ espn_wbb_game_team_roster <- function(event_id, team_id, ...) {
 # espn_wbb_game_team_statistics
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WBB Event Competitor Team Statistics (Long Format)**
-#' @name espn_wbb_game_team_statistics
-NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Team Statistics (Long Format)**
-#' @rdname espn_wbb_game_team_statistics
+#' @rdname espn_wbb_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns full team-game statistics for one team in one WBB event in
@@ -399,12 +381,9 @@ espn_wbb_game_team_statistics <- function(event_id, team_id, ...) {
 # espn_wbb_game_team_records
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WBB Event Competitor Records (At-Game Breakdown)**
-#' @name espn_wbb_game_team_records
-NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Records (At-Game Breakdown)**
-#' @rdname espn_wbb_game_team_records
+#' @rdname espn_wbb_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns team records as of the given WBB event: overall, home,
@@ -578,12 +557,9 @@ espn_wbb_game_play_personnel <- function(event_id, play_id, ...) {
 # espn_wbb_game_team_score
 # ---------------------------------------------------------------------------
 
-#' **Get ESPN WBB Event Competitor Score (Single Row)**
-#' @name espn_wbb_game_team_score
-NULL
 #' @title
 #' **Get ESPN WBB Event Competitor Score (Single Row)**
-#' @rdname espn_wbb_game_team_score
+#' @rdname espn_wbb_game_team_leaders
 #' @author Saiem Gilani
 #' @description
 #' Returns a one-row tibble with one team's final score for one WBB event:

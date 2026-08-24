@@ -26,28 +26,31 @@ Returns a named list of tibbles: \code{board}, \code{picks}.
 }
 
 
-\strong{picks}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   round \tab integer \tab Tournament / playoff round. \cr
-   pick \tab integer \tab Pick. \cr
-   team_id \tab integer \tab Unique team identifier. \cr
-   team_external_id \tab integer \tab Unique identifier for team external. \cr
-   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   prospect_id \tab integer \tab Unique identifier for prospect. \cr
-   first_name \tab character \tab Player's first name. \cr
-   last_name \tab character \tab Player's last name. \cr
-   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   country \tab character \tab Country (full name or code). \cr
-   college \tab character \tab College or school attended. \cr
-   ppg \tab character \tab Points per game. \cr
-   rpg \tab character \tab Rebounds per game. \cr
-   apg \tab character \tab Assists per game. \cr
-   spg \tab character \tab Steals per game. \cr
-   bpg \tab character \tab Blocks per game. \cr
-   fg_pct \tab character \tab Field goal percentage (0-1). \cr
-   description \tab character \tab Long-form description text. \cr
-   headshot_url \tab character \tab URL for headshot. \cr
-}
+\strong{picks}
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      round \tab integer \tab Tournament / playoff round. \cr
+      pick \tab integer \tab Pick. \cr
+      team_id \tab integer \tab Unique team identifier. \cr
+      team_external_id \tab integer \tab Unique identifier for team external. \cr
+      team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
+      prospect_id \tab integer \tab Unique identifier for prospect. \cr
+      first_name \tab character \tab Player's first name. \cr
+      last_name \tab character \tab Player's last name. \cr
+      position \tab character \tab Listed roster position (G, F, C, etc.). \cr
+      country \tab character \tab Country (full name or code). \cr
+      college \tab character \tab College or school attended. \cr
+      ppg \tab character \tab Points per game. \cr
+      rpg \tab character \tab Rebounds per game. \cr
+      apg \tab character \tab Assists per game. \cr
+      spg \tab character \tab Steals per game. \cr
+      bpg \tab character \tab Blocks per game. \cr
+      fg_pct \tab character \tab Field goal percentage (0-1). \cr
+      description \tab character \tab Long-form description text. \cr
+      headshot_url \tab character \tab URL for headshot. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
 \strong{Get WNBA Stats API Draft Board}
@@ -60,10 +63,6 @@ Returns a named list of tibbles: \code{board}, \code{picks}.
 }
 \seealso{
 Other WNBA Draft Functions:
-\code{\link[=wnba_draftcombinedrillresults]{wnba_draftcombinedrillresults()}},
-\code{\link[=wnba_draftcombinenonstationaryshooting]{wnba_draftcombinenonstationaryshooting()}},
-\code{\link[=wnba_draftcombineplayeranthro]{wnba_draftcombineplayeranthro()}},
-\code{\link[=wnba_draftcombinespotshooting]{wnba_draftcombinespotshooting()}},
 \code{\link[=wnba_draftcombinestats]{wnba_draftcombinestats()}},
 \code{\link[=wnba_drafthistory]{wnba_drafthistory()}}
 }
