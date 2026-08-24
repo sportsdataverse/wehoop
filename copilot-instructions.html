@@ -105,7 +105,7 @@
 
 <div class="section level2">
 <h2 id="project-context">Project Context<a class="anchor" aria-label="anchor" href="#project-context"></a></h2>
-<p>wehoop is an R package (v3.0.0) that wraps the WNBA Stats API, ESPN API (WNBA &amp; WBB), and NCAA women’s basketball endpoints. It exports 200+ functions and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.</p>
+<p>wehoop is an R package (v3.0.0) that wraps the WNBA Stats API, ESPN API (WNBA &amp; WBB), and NCAA women’s basketball endpoints. It exports 450+ functions (including 180 ESPN wrappers and 90 <code>load_*()</code> release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.</p>
 <p>When there is any conflict between this file and repository contributor docs, follow <code>CONTRIBUTING.md</code> and the current test implementations under <code>tests/testthat/</code> as the source of truth.</p>
 </div>
 <div class="section level2">
@@ -168,7 +168,13 @@
 <td>
 <code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_team_box.html">load_wbb_team_box()</a></code>
 </td>
-</tr></tbody></table></div>
+</tr><tr><td>NCAA WBB loaders</td>
+<td><code>load_ncaa_wbb_</code></td>
+<td>
+<code><a href="reference/load_ncaa_wbb_pbp.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code>
+</td>
+</tr></tbody></table><p><strong><code>load_ncaa_wbb_*()</code> family (3.0.0)</strong>: 12 loaders (<code>pbp</code>, <code>shots</code>, <code>lineups</code>, <code>matchup_stints</code>, <code>possessions</code>, <code>rapm_within_team</code>, <code>rapm</code> (league-wide), <code>player_box</code>, <code>team_box</code>, <code>rosters</code>, <code>team_rosters</code>, <code>schedule</code>, <code>team_ids</code>) reading datasets produced by the sportsdataverse-py NCAA engine over stats.ncaa.org — wehoop ships loaders only. Coverage 2010-2026 (<code>shots</code> 2019-2026, <code>rapm</code> 2011-2026). <strong>Model-dataset loaders (3.0.0)</strong>: <code><a href="reference/load_wnba_player_impact.html">load_wnba_player_impact()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code>, <code><a href="reference/load_wbb_ratings.html">load_wbb_ratings()</a></code>, <code><a href="reference/load_wnba_stats_possessions.html">load_wnba_stats_possessions()</a></code>.</p>
+</div>
 <div class="section level2">
 <h2 id="roxygen-documentation">Roxygen Documentation<a class="anchor" aria-label="anchor" href="#roxygen-documentation"></a></h2>
 <p>Every exported function needs:</p>
@@ -323,7 +329,7 @@
 <li>V3 PBP substitutions: <code>personId</code> = outgoing player, incoming parsed from “SUB: IncomingPlayer FOR OutgoingPlayer” in description.</li>
 <li>V3-to-V2 conversion pipeline (<code><a href="reference/wnba_pbp.html">wnba_pbp()</a></code> V3 path): <code><a href="reference/wnba_playbyplayv3.html">wnba_playbyplayv3()</a></code> -&gt; <code><a href="reference/dot-build_player_roster_wnba.html">.build_player_roster_wnba()</a></code> -&gt; <code><a href="reference/dot-v3_to_v2_format_wnba.html">.v3_to_v2_format_wnba()</a></code> -&gt; <code><a href="reference/dot-players_on_court_v3_wnba.html">.players_on_court_v3_wnba()</a></code>.</li>
 <li>
-<code><a href="reference/dot-players_on_court_v3_wnba.html">.players_on_court_v3_wnba()</a></code> uses <code><a href="reference/wnba_gamerotation.html">wnba_gamerotation()</a></code> stint data with interval mapping (not substitution-event parsing like V2).</li>
+<code><a href="reference/dot-players_on_court_v3_wnba.html">.players_on_court_v3_wnba()</a></code> uses <code><a href="reference/wnba_gamerotation.html">wnba_gamerotation()</a></code> stint data with interval mapping (not substitution-event parsing like V2). As of 3.0.0, if <code><a href="reference/wnba_gamerotation.html">wnba_gamerotation()</a></code> fails or returns empty it falls back to the pre-v3 substitution-inference path (<code><a href="reference/dot-players_on_court.html">.players_on_court()</a></code>) instead of returning all-NA lineup columns.</li>
 <li>V3 boxscore endpoints namespace: <code>boxscoretraditionalv3</code>, <code>boxscoreadvancedv3</code>, <code>boxscoreusagev3</code>, <code>boxscoresummaryv3</code>, etc.</li>
 </ul></div>
 <div class="section level2">
@@ -357,6 +363,15 @@
 <li>Local editor/worktree artifacts (e.g., <code>.vscode</code>, <code>.claude</code>, <code>tools/</code>, temp logs) can cause <code>R CMD check</code> notes — add them to <code>.Rbuildignore</code>.</li>
 <li>Never edit <code>NAMESPACE</code> or <code>man/</code> files by hand; regenerate with <code>devtools::document()</code>.</li>
 <li>WNBA time calculations use 10-minute quarters (600 seconds/quarter, 2400 seconds regulation) — <strong>not</strong> the NBA 12-minute / 720-second / 2880-second constants. The old <code><a href="reference/dot-players_on_court.html">.players_on_court()</a></code> helper in <code>wnba_stats_pbp.R</code> had this bug and was corrected in 3.0.0.</li>
+<li>
+<strong><code><a href="reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> / <code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> free-throw semantics</strong>: ESPN’s <code>type_text</code> is <code>"MadeFreeThrow"</code> for both made and missed free throws, and <code>score_value</code> carries the attempt’s point value (1) even on a miss — filter on <code>scoring_play</code>, not <code>type_text</code>/<code>score_value</code>. <code><a href="reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> also documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> columns.</li>
+<li>
+<strong>Pre-halves-era pbp clock columns</strong>: pre-2006 WNBA and pre-2016 NCAA WBB seasons actually played halves, not quarters; the published pbp datasets have been republished with correct halves-era clock columns as of 3.0.0.</li>
+<li>
+<strong><code><a href="reference/espn_wbb_standings.html">espn_wbb_standings()</a></code> is conference-grouped</strong> (<code>level=3</code>) as of 3.0.0, not the flat <code>level=1</code> list, which silently omitted newer D-I teams. The result adds a <code>conference</code> column.</li>
+<li>All DB-capable <code>load_*()</code> loaders (<code>dbConnection</code>/<code>tablename</code> args) now forward <code>...</code> into <code>DBI::dbWriteTable(...)</code> and actually issue the write — as of 3.0.0 this is consistent across every documented DB-write loader.</li>
+<li>
+<code><a href="reference/wnba_videoevents.html">wnba_videoevents()</a></code> and the four <code>wnba_draftcombine*()</code> wrappers are soft-deprecated (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code>) in 3.0.0 (dead upstream endpoints, but they still return whatever comes back). <code>wnba_scoreboard</code>, <code>wnba_playercareerbycollege</code>, <code>wnba_teamhistoricalleaders</code>, <code>wnba_teamgamestreakfinder</code>, and <code>wnba_boxscoreplayertrackv2</code> are already hard-deprecated (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code>).</li>
 </ul></div>
 </div>
 

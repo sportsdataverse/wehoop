@@ -87,7 +87,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_standings(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 341 × 24
+#> # A tibble: 343 × 24
 #>    season group_id group_name        group_abbreviation group_short_name team_id
 #>     <int> <chr>    <chr>             <chr>              <chr>              <int>
 #>  1   2026 1        Eastern Conferen… E                  NA                    20
@@ -100,7 +100,7 @@ Other WNBA loader functions:
 #>  8   2026 1        Eastern Conferen… E                  NA                    20
 #>  9   2026 1        Eastern Conferen… E                  NA                    20
 #> 10   2026 1        Eastern Conferen… E                  NA                    20
-#> # ℹ 331 more rows
+#> # ℹ 333 more rows
 #> # ℹ 18 more variables: team_uid <chr>, team_slug <chr>, team_location <chr>,
 #> #   team_name <chr>, team_abbreviation <chr>, team_display_name <chr>,
 #> #   team_short_display_name <chr>, team_color <chr>,

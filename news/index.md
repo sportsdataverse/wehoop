@@ -137,6 +137,12 @@ long-standing
 
 #### **New exported functions**
 
+##### *NCAA WBB league-wide RAPM loader*
+
+| Function | Description |
+|----|----|
+| [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md) | League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the `ncaa_wbb_rapm` release tag, seasons 2011-2026. Distinct from the within-team [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm_within_team.md). |
+
 ##### *New WNBA Stats API V3 endpoints*
 
 | Function | Description |
@@ -513,6 +519,107 @@ The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A
 wrapper (the 3.0.0 pkgdown build was failing with “topics missing from
 index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion”
 subsection per league).
+
+#### **Late-cycle additions and fixes (August 2026)**
+
+##### *NCAA women’s-basketball + model-dataset loaders*
+
+Seventeen further bulk-data loaders, following the established loader
+shape:
+
+- A 13-function NCAA women’s-basketball family reading the
+  stats.ncaa.org-derived datasets produced by the companion
+  `sportsdataverse-py` engine (wehoop ships loaders only):
+  [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md),
+  [`load_ncaa_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_shots.md)
+  (2019+),
+  [`load_ncaa_wbb_lineups()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_matchup_stints()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_matchup_stints.md),
+  [`load_ncaa_wbb_possessions()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_possessions.md),
+  [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md)
+  (league-wide regularized adjusted plus-minus, 2011+),
+  [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm_within_team.md),
+  [`load_ncaa_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_player_box.md),
+  [`load_ncaa_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_box.md),
+  [`load_ncaa_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rosters.md),
+  [`load_ncaa_wbb_team_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_rosters.md),
+  [`load_ncaa_wbb_schedule()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_schedule.md),
+  and
+  [`load_ncaa_wbb_team_ids()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_ids.md)
+  (2010+ unless noted).
+- [`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)
+  (1997+), also registered in
+  [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md).
+- Three model datasets:
+  [`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md)
+  (1997+),
+  [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  (2014+), and
+  [`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md)
+  (2008+).
+
+##### *Fixes*
+
+- [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
+  (V3): when the flaky upstream `gamerotation` call fails or returns
+  empty, on-court player columns are now inferred from substitution
+  events (the pre-V3 method) instead of degrading to all-`NA`, with a
+  warning naming the affected game id.
+- [`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md)
+  now requests ESPN’s conference-grouped standings — the flat league
+  list silently omitted the six 2022-23 Division-I newcomer programs
+  (356 of 362 teams). All 362 teams are returned and the result gains a
+  `conference` column.
+- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+  /
+  [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+  no longer error on games whose plays carry fewer (or more)
+  participants than a previously hardcoded column count; participant
+  columns are named dynamically and padded to the documented schema.
+- `...` is now genuinely forwarded to
+  [`DBI::dbWriteTable()`](https://dbi.r-dbi.org/reference/dbWriteTable.html)
+  in every loader documenting it (35 call sites), and
+  [`load_wbb_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_core.md),
+  [`load_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_box.md),
+  and
+  [`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.md)
+  — which documented an optional database write without performing it —
+  now perform it.
+- The internal ESPN season group-children fetch paginates instead of
+  truncating at 200 results.
+- [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  /
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  docs: `type_text` is ESPN-verbatim (“MadeFreeThrow” is the free-throw
+  play *type* for made and missed attempts — filter makes with
+  `scoring_play`), `score_value` carries the attempt’s value even on
+  misses, and
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  documents the producer-appended `pregame_home_prob` / `home_win_prob`
+  columns.
+
+##### *Published-data correction (loaders serve corrected assets)*
+
+The pre-2006 WNBA (2002-2005) and pre-2016 NCAA WBB (2003-2015) ESPN
+play-by-play release assets were rebuilt with the correct halves-era
+clock model: those seasons were 2×20-minute halves, but the published
+`half`, `start/end *_seconds_remaining`, overtime, and timeout-bucket
+columns had been derived under a 4×10-minute quarters assumption.
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+and
+[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+for the affected seasons now serve corrected values (row counts and all
+other columns unchanged).
+
+##### *Additional soft deprecations*
+
+Probe sweeps against `stats.wnba.com` (August 2026) confirmed five more
+endpoints permanently empty upstream; their wrappers now emit
+[`lifecycle::deprecate_warn()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html)
+(`when = "3.0.0"`) while remaining callable:
+[`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
+and the four `wnba_draftcombine*()` wrappers (the WNBA publishes no
+draft-combine data).
 
 #### **Behavior changes to existing functions**
 

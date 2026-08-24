@@ -37,7 +37,7 @@ Other WNBA Crosswalk Functions:
 # \donttest{
   try(load_wnba_player_crosswalk(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 212 × 21
+#> # A tibble: 211 × 21
 #>    season espn_team_id team_abbreviation player_name    espn_athlete_id
 #>     <int>        <int> <chr>             <chr>          <chr>          
 #>  1   2026           20 ATL               isobel borlase 5208983        
@@ -50,7 +50,7 @@ Other WNBA Crosswalk Functions:
 #>  8   2026           20 ATL               indya nivar    5105740        
 #>  9   2026           20 ATL               aaliyah nye    4597509        
 #> 10   2026           20 ATL               madina okot    5108587        
-#> # ℹ 202 more rows
+#> # ℹ 201 more rows
 #> # ℹ 16 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, wnba_player_id <chr>, wnba_player_name <chr>,
 #> #   wnba_jersey_num <chr>, wnba_position <chr>, fox_athlete_id <chr>,

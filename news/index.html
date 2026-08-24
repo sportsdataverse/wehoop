@@ -135,6 +135,13 @@
 <div class="section level4">
 <h4 id="new-exported-functions-3-0-0"><strong>New exported functions</strong><a class="anchor" aria-label="anchor" href="#new-exported-functions-3-0-0"></a></h4>
 <div class="section level5">
+<h5 id="ncaa-wbb-league-wide-rapm-loader-3-0-0"><em>NCAA WBB league-wide RAPM loader</em><a class="anchor" aria-label="anchor" href="#ncaa-wbb-league-wide-rapm-loader-3-0-0"></a></h5>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><code><a href="../reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code></td>
+<td>League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the <code>ncaa_wbb_rapm</code> release tag, seasons 2011-2026. Distinct from the within-team <code><a href="../reference/load_ncaa_wbb_rapm_within_team.html">load_ncaa_wbb_rapm_within_team()</a></code>.</td>
+</tr></tbody></table></div>
+<div class="section level5">
 <h5 id="new-wnba-stats-api-v3-endpoints-3-0-0"><em>New WNBA Stats API V3 endpoints</em><a class="anchor" aria-label="anchor" href="#new-wnba-stats-api-v3-endpoints-3-0-0"></a></h5>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Description</th>
@@ -671,6 +678,39 @@
 <div class="section level5">
 <h5 id="pkgdown-index-3-0-0"><em>pkgdown index</em><a class="anchor" aria-label="anchor" href="#pkgdown-index-3-0-0"></a></h5>
 <p>The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with “topics missing from index” for the Tier 1 additions — fixed by adding a “Core-v2 expansion” subsection per league).</p>
+</div>
+</div>
+<div class="section level4">
+<h4 id="late-cycle-additions-and-fixes-august-3-0-0"><strong>Late-cycle additions and fixes (August 2026)</strong><a class="anchor" aria-label="anchor" href="#late-cycle-additions-and-fixes-august-3-0-0"></a></h4>
+<div class="section level5">
+<h5 id="ncaa-womens-basketball--model-dataset-loaders-3-0-0"><em>NCAA women’s-basketball + model-dataset loaders</em><a class="anchor" aria-label="anchor" href="#ncaa-womens-basketball--model-dataset-loaders-3-0-0"></a></h5>
+<p>Seventeen further bulk-data loaders, following the established loader shape:</p>
+<ul><li>A 13-function NCAA women’s-basketball family reading the stats.ncaa.org-derived datasets produced by the companion <code>sportsdataverse-py</code> engine (wehoop ships loaders only): <code><a href="../reference/load_ncaa_wbb_pbp.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="../reference/load_ncaa_wbb_shots.html">load_ncaa_wbb_shots()</a></code> (2019+), <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_lineups()</a></code>, <code><a href="../reference/load_ncaa_wbb_matchup_stints.html">load_ncaa_wbb_matchup_stints()</a></code>, <code><a href="../reference/load_ncaa_wbb_possessions.html">load_ncaa_wbb_possessions()</a></code>, <code><a href="../reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code> (league-wide regularized adjusted plus-minus, 2011+), <code><a href="../reference/load_ncaa_wbb_rapm_within_team.html">load_ncaa_wbb_rapm_within_team()</a></code>, <code><a href="../reference/load_ncaa_wbb_player_box.html">load_ncaa_wbb_player_box()</a></code>, <code><a href="../reference/load_ncaa_wbb_team_box.html">load_ncaa_wbb_team_box()</a></code>, <code><a href="../reference/load_ncaa_wbb_rosters.html">load_ncaa_wbb_rosters()</a></code>, <code><a href="../reference/load_ncaa_wbb_team_rosters.html">load_ncaa_wbb_team_rosters()</a></code>, <code><a href="../reference/load_ncaa_wbb_schedule.html">load_ncaa_wbb_schedule()</a></code>, and <code><a href="../reference/load_ncaa_wbb_team_ids.html">load_ncaa_wbb_team_ids()</a></code> (2010+ unless noted).</li>
+<li>
+<code><a href="../reference/load_wnba_stats_possessions.html">load_wnba_stats_possessions()</a></code> (1997+), also registered in <code><a href="../reference/update_wnba_stats_db.html">update_wnba_stats_db()</a></code>.</li>
+<li>Three model datasets: <code><a href="../reference/load_wnba_player_impact.html">load_wnba_player_impact()</a></code> (1997+), <code><a href="../reference/load_wbb_player_value.html">load_wbb_player_value()</a></code> (2014+), and <code><a href="../reference/load_wbb_ratings.html">load_wbb_ratings()</a></code> (2008+).</li>
+</ul></div>
+<div class="section level5">
+<h5 id="fixes-3-0-0"><em>Fixes</em><a class="anchor" aria-label="anchor" href="#fixes-3-0-0"></a></h5>
+<ul><li>
+<code><a href="../reference/wnba_pbp.html">wnba_pbp()</a></code> (V3): when the flaky upstream <code>gamerotation</code> call fails or returns empty, on-court player columns are now inferred from substitution events (the pre-V3 method) instead of degrading to all-<code>NA</code>, with a warning naming the affected game id.</li>
+<li>
+<code><a href="../reference/espn_wbb_standings.html">espn_wbb_standings()</a></code> now requests ESPN’s conference-grouped standings — the flat league list silently omitted the six 2022-23 Division-I newcomer programs (356 of 362 teams). All 362 teams are returned and the result gains a <code>conference</code> column.</li>
+<li>
+<code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code> no longer error on games whose plays carry fewer (or more) participants than a previously hardcoded column count; participant columns are named dynamically and padded to the documented schema.</li>
+<li>
+<code>...</code> is now genuinely forwarded to <code><a href="https://dbi.r-dbi.org/reference/dbWriteTable.html" class="external-link">DBI::dbWriteTable()</a></code> in every loader documenting it (35 call sites), and <code><a href="../reference/load_wbb_player_core.html">load_wbb_player_core()</a></code>, <code><a href="../reference/load_wnba_team_box.html">load_wnba_team_box()</a></code>, and <code><a href="../reference/load_wnba_player_core.html">load_wnba_player_core()</a></code> — which documented an optional database write without performing it — now perform it.</li>
+<li>The internal ESPN season group-children fetch paginates instead of truncating at 200 results.</li>
+<li>
+<code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> / <code><a href="../reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> docs: <code>type_text</code> is ESPN-verbatim (“MadeFreeThrow” is the free-throw play <em>type</em> for made and missed attempts — filter makes with <code>scoring_play</code>), <code>score_value</code> carries the attempt’s value even on misses, and <code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> columns.</li>
+</ul></div>
+<div class="section level5">
+<h5 id="published-data-correction-loaders-serve-corrected-assets-3-0-0"><em>Published-data correction (loaders serve corrected assets)</em><a class="anchor" aria-label="anchor" href="#published-data-correction-loaders-serve-corrected-assets-3-0-0"></a></h5>
+<p>The pre-2006 WNBA (2002-2005) and pre-2016 NCAA WBB (2003-2015) ESPN play-by-play release assets were rebuilt with the correct halves-era clock model: those seasons were 2×20-minute halves, but the published <code>half</code>, <code>start/end *_seconds_remaining</code>, overtime, and timeout-bucket columns had been derived under a 4×10-minute quarters assumption. <code><a href="../reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> and <code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> for the affected seasons now serve corrected values (row counts and all other columns unchanged).</p>
+</div>
+<div class="section level5">
+<h5 id="additional-soft-deprecations-3-0-0"><em>Additional soft deprecations</em><a class="anchor" aria-label="anchor" href="#additional-soft-deprecations-3-0-0"></a></h5>
+<p>Probe sweeps against <code>stats.wnba.com</code> (August 2026) confirmed five more endpoints permanently empty upstream; their wrappers now emit <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code> (<code>when = "3.0.0"</code>) while remaining callable: <code><a href="../reference/wnba_videoevents.html">wnba_videoevents()</a></code> and the four <code>wnba_draftcombine*()</code> wrappers (the WNBA publishes no draft-combine data).</p>
 </div>
 </div>
 <div class="section level4">

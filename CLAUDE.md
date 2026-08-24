@@ -22,15 +22,24 @@
 
 wehoop is an R package providing clean, tidy women’s basketball
 play-by-play and box score data. It wraps the WNBA Stats API, ESPN API
-(WNBA & WBB), and NCAA women’s basketball endpoints, exporting 200+
+(WNBA & WBB), and NCAA women’s basketball endpoints, exporting 450+
 functions across multiple data-source families: `wnba_*()` (WNBA Stats
-API), `espn_wnba_*()` / `espn_wbb_*()` (ESPN), `ncaa_wbb_*()` (NCAA),
-`fox_*()` (Fox Sports Bifrost), `bref_wnba_*()` (Basketball-Reference),
-`hhs_*()` (Her Hoop Stats, subscription), and `bart_wbb_*()` (Bart
-Torvik T-Rank). The `load_wnba_*()` / `load_wbb_*()` loaders pull
-pre-built season parquet/rds from the sibling `wehoop-data` (and
-`wehoop-{wnba,wbb}-data`, `wehoop-wnba-stats-data`) release repos rather
-than hitting the live APIs.
+API), `espn_wnba_*()` / `espn_wbb_*()` (ESPN, 180 wrappers),
+`ncaa_wbb_*()` (NCAA), `fox_*()` (Fox Sports Bifrost), `bref_wnba_*()`
+(Basketball-Reference), `hhs_*()` (Her Hoop Stats, subscription), and
+`bart_wbb_*()` (Bart Torvik T-Rank). The `load_wnba_*()` /
+`load_wbb_*()` / `load_wnba_stats_*()` / `load_ncaa_wbb_*()` loaders (90
+total) pull pre-built season parquet/rds from the sibling `wehoop-data`
+(and `wehoop-{wnba,wbb}-data`, `wehoop-wnba-stats-data`) release repos
+rather than hitting the live APIs. As of 3.0.0 the loader surface also
+covers the `load_ncaa_wbb_*` family (12 datasets from the
+sportsdataverse-py NCAA WBB engine over stats.ncaa.org, plus league-wide
+[`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md))
+and model-dataset loaders
+([`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md),
+[`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
+[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md),
+[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)).
 
 `wehoop` is the women’s-basketball analogue of `hoopR` (men’s) and
 shares its architecture; companion data repos are
@@ -111,12 +120,39 @@ pkgdown::build_site()
 | Her Hoop Stats | `hhs_` | (subscription; requires your own login) |
 | Bart Torvik T-Rank | `bart_wbb_` | [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md), [`bart_wbb_game_schedule()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_game_schedule.md) |
 | Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
+| NCAA WBB loaders | `load_ncaa_wbb_` | [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md), [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md) |
 
 `load_*()` loaders are the bulk path: they read pre-built per-season
 parquet/rds released from the sibling `wehoop-data` /
 `wehoop-{wnba,wbb}-data` / `wehoop-wnba-stats-data` repos. The `wnba_*`
 / `espn_*` / `fox_*` etc. functions are the live scrapers that hit the
 source APIs directly.
+
+**`load_ncaa_wbb_*()` family (3.0.0):** 12 loaders (`pbp`, `shots`,
+`lineups`, `matchup_stints`, `possessions`, `rapm_within_team`, `rapm`
+(league-wide RAPM), `player_box`, `team_box`, `rosters`, `team_rosters`,
+`schedule`, `team_ids`) reading datasets produced by the
+sportsdataverse-py NCAA engine against stats.ncaa.org – wehoop ships
+loaders only, not the scrape/build pipeline. Coverage is 2010-2026 for
+all datasets except `shots` (2019-2026, when stats.ncaa.org started
+publishing shot coordinates) and `rapm` (2011-2026). Same shape as the
+other `load_*()` families: `seasons` arg,
+[`rds_from_url()`](https://wehoop.sportsdataverse.org/reference/rds_from_url.md),
+optional `dbConnection`/`tablename`.
+
+**Model-dataset loaders (3.0.0):**
+[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md)
+(RAPM/SPM/BPM/ DARKO player-impact ratings, 1997-2026),
+[`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+(box-score BPM, 2014-2026),
+[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md)
+(adjusted-efficiency team ratings, 2008-2026), and
+[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)
+(possession-level data derived from WNBA Stats API pbp, 1997-2026). The
+three player/team-rating loaders are parquet-only, so they wrap
+[`parquet_from_url()`](https://wehoop.sportsdataverse.org/reference/parquet_from_url.md)
+instead of
+[`rds_from_url()`](https://wehoop.sportsdataverse.org/reference/rds_from_url.md).
 
 ### Function Pattern (WNBA Stats API)
 
@@ -297,7 +333,15 @@ attaches `wehoop_timestamp` and `wehoop_type` attributes.
   uses
   [`wnba_gamerotation()`](https://wehoop.sportsdataverse.org/reference/wnba_gamerotation.md)
   stint data with interval mapping via
-  [`findInterval()`](https://rdrr.io/r/base/findInterval.html).
+  [`findInterval()`](https://rdrr.io/r/base/findInterval.html). As of
+  3.0.0, when the per-game
+  [`wnba_gamerotation()`](https://wehoop.sportsdataverse.org/reference/wnba_gamerotation.md)
+  call fails or returns empty (a known-flaky endpoint under batched
+  [`wnba_pbps()`](https://wehoop.sportsdataverse.org/reference/wnba_pbps.md)
+  runs), it falls back to the pre-v3 substitution-inference path
+  ([`.players_on_court()`](https://wehoop.sportsdataverse.org/reference/dot-players_on_court.md))
+  instead of degrading straight to all-NA lineup columns, and warns with
+  the `game_id` either way.
 
 ### Null Safety
 
@@ -742,3 +786,52 @@ referencing AI tools.
   `R CMD check` notes.
 - Never hand-edit `NAMESPACE` or files under `man/`; regenerate with
   `devtools::document()`.
+- **[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  /
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  free-throw semantics**: ESPN labels the play `type_text`
+  `"MadeFreeThrow"` for both made *and* missed free throws, and
+  `score_value` carries the attempt’s point value (1) even on a miss.
+  Filter makes vs. misses with `scoring_play`, not
+  `type_text`/`score_value`.
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  also documents the producer-appended `pregame_home_prob` /
+  `home_win_prob` win-probability columns.
+- **Pre-halves-era pbp clock columns**: pre-2006 WNBA and pre-2016 NCAA
+  WBB seasons were originally published with a quarters-era clock model
+  even though those seasons actually played halves; the source datasets
+  have been republished with correct halves-era clock columns. Loaders
+  ([`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md),
+  [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md))
+  surface whatever the release asset ships, so a re-download picks up
+  the fix.
+- **[`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md)
+  is conference-grouped** (`level=3`, one row-bind per conference
+  group), not the flat `level=1` list – the flat list silently omitted
+  newer D-I teams (e.g. 2022-23 additions Queens, Le Moyne, Stonehill).
+  The result carries a `conference` column obtained for free from the
+  grouping.
+- All `dbConnection`/`tablename` DB-capable loaders forward `...` into
+  `DBI::dbWriteTable(...)` and actually issue the write – as of 3.0.0
+  every documented DB-write loader does this consistently (three loaders
+  previously computed the `in_db` gate but never called
+  `dbWriteTable()`).
+- [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md)
+  and the four `wnba_draftcombine*()` wrappers are soft-deprecated
+  ([`lifecycle::deprecate_warn()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html))
+  in 3.0.0 – their upstream endpoints are dead but the functions still
+  return whatever the endpoint gives back rather than erroring. Several
+  other `wnba_*` wrappers (`wnba_scoreboard`,
+  `wnba_playercareerbycollege`, `wnba_teamhistoricalleaders`,
+  `wnba_teamgamestreakfinder`, `wnba_boxscoreplayertrackv2`) are already
+  hard-deprecated
+  ([`lifecycle::deprecate_stop()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html))
+  from an earlier pass.
+- ESPN pbp participant columns are unnested with dynamically-named
+  columns (not a hardcoded 2- or 4-participant assumption), so plays
+  with either count parse correctly.
+  [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md)
+  /
+  [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md)
+  page through all group-children pages instead of truncating at
+  `limit=200`.

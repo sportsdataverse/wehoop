@@ -42,7 +42,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_boxscore("2215"))
 #> ── Fox Sports WNBA boxscore ──────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 07:32:46 UTC
+#> ℹ Data updated: 2026-08-24 13:17:37 UTC
 #> # A tibble: 338 × 7
 #>    game_id team  stat_group player     athlete_id stat  value
 #>    <chr>   <chr> <chr>      <chr>      <chr>      <chr> <chr>
@@ -61,7 +61,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_boxscore("388986"))
 #> ── Fox Sports WCBK boxscore ──────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 07:32:46 UTC
+#> ℹ Data updated: 2026-08-24 13:17:38 UTC
 #> # A tibble: 378 × 7
 #>    game_id team  stat_group player      athlete_id stat  value
 #>    <chr>   <chr> <chr>      <chr>       <chr>      <chr> <chr>

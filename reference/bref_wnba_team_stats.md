@@ -49,7 +49,7 @@ Other WNBA Basketball-Reference Functions:
 # \donttest{
   try(bref_wnba_team_stats(season = 2024, table = "per_game"))
 #> ── WNBA team season stats from basketball-reference.com ──────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 07:31:29 UTC
+#> ℹ Data updated: 2026-08-24 13:16:25 UTC
 #> # A tibble: 12 × 27
 #>    ranker team        g    mp    fg   fga fg_pct   fg3  fg3a fg3_pct   fg2  fg2a
 #>     <dbl> <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl> <dbl> <dbl>   <dbl> <dbl> <dbl>

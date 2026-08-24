@@ -79,7 +79,7 @@ Other WNBA loader functions:
 # \donttest{
   try(load_wnba_player_core(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 232 × 36
+#> # A tibble: 233 × 36
 #>    season athlete_id guid       uid   slug  type  first_name last_name full_name
 #>     <int>      <int> <chr>      <chr> <chr> <chr> <chr>      <chr>     <chr>    
 #>  1   2026        869 74bfe609-… s:40… dewa… bask… DeWanna    Bonner    DeWanna …
@@ -92,7 +92,7 @@ Other WNBA loader functions:
 #>  8   2026    2284331 3f0f0fd1-… s:40… emma… bask… Emma       Cannon    Emma Can…
 #>  9   2026    2327695 cea6f839-… s:40… rebe… bask… Rebekah    Gardner   Rebekah …
 #> 10   2026    2490553 40e7dc87-… s:40… brit… bask… Brittney   Griner    Brittney…
-#> # ℹ 222 more rows
+#> # ℹ 223 more rows
 #> # ℹ 27 more variables: display_name <chr>, short_name <chr>, height <dbl>,
 #> #   display_height <chr>, weight <dbl>, display_weight <chr>, age <int>,
 #> #   date_of_birth <chr>, birth_city <chr>, birth_state <chr>,

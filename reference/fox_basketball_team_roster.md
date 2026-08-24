@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 07:32:49 UTC
+#> ℹ Data updated: 2026-08-24 13:17:41 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -65,7 +65,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 07:32:49 UTC
+#> ℹ Data updated: 2026-08-24 13:17:42 UTC
 #> # A tibble: 16 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     

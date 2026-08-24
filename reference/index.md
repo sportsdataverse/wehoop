@@ -464,6 +464,12 @@ published to sportsdataverse-data
   **Load NCAA women's college basketball within-team RAPM ratings from
   the data repo**
 
+- [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md)
+  :
+
+  **Load NCAA women's college basketball league-wide RAPM ratings from
+  the data repo**
+
 - [`load_ncaa_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_player_box.md)
   :
 

@@ -149,7 +149,7 @@ aja |>
 #> # A tibble: 1 × 2
 #>   stat_type_id value
 #>   <chr>        <dbl>
-#> 1 0             21.9
+#> 1 0             22.0
 ```
 
 Margin note: `athlete_career_stats()` defaults to pulling *both* regular
