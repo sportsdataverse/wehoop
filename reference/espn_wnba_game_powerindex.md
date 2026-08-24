@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_powerindex(event_id = 401736171)
 #> ── ESPN WNBA Event Power Index ───────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 06:11:05 UTC
+#> ℹ Data updated: 2026-08-24 07:32:21 UTC
 #> # A tibble: 2 × 4
 #>   league event_id  team_id ref                                                  
 #>   <chr>  <chr>     <chr>   <chr>                                                

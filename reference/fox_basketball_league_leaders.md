@@ -49,7 +49,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 06:11:30 UTC
+#> ℹ Data updated: 2026-08-24 07:32:46 UTC
 #> # A tibble: 75 × 6
 #>    players v2          gp    entity_id min   mpg  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr>
@@ -68,7 +68,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 06:11:30 UTC
+#> ℹ Data updated: 2026-08-24 07:32:46 UTC
 #> # A tibble: 100 × 8
 #>    players v2          gp    entity_id gs    mpg   ppg   pts  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>

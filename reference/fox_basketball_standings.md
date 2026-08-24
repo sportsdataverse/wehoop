@@ -42,7 +42,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 06:11:32 UTC
+#> ℹ Data updated: 2026-08-24 07:32:48 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -62,7 +62,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 06:11:32 UTC
+#> ℹ Data updated: 2026-08-24 07:32:48 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
