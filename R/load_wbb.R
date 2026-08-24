@@ -1178,6 +1178,11 @@ load_wbb_player_core <- function(seasons = most_recent_wbb_season(), ...,
 
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
-  class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
   out
 }
