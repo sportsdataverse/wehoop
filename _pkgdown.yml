@@ -301,6 +301,12 @@ reference:
       - '`load_ncaa_wbb_team_rosters`'
       - '`load_ncaa_wbb_schedule`'
       - '`load_ncaa_wbb_team_ids`'
+  - subtitle: Model Dataset Loaders
+    desc: Functions exported by wehoop to access published WNBA / NCAA WBB model-output datasets
+    contents:
+      - '`load_wnba_player_impact`'
+      - '`load_wbb_player_value`'
+      - '`load_wbb_ratings`'
   - title: ESPN Data
   - subtitle: ESPN Family Overview
     desc: ESPN basketball endpoint family overview (WNBA + WBB)
