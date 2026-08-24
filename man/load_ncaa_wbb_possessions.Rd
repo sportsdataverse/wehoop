@@ -105,6 +105,7 @@ Other NCAA WBB loader functions:
 \code{\link[=load_ncaa_wbb_matchup_stints]{load_ncaa_wbb_matchup_stints()}},
 \code{\link[=load_ncaa_wbb_pbp]{load_ncaa_wbb_pbp()}},
 \code{\link[=load_ncaa_wbb_player_box]{load_ncaa_wbb_player_box()}},
+\code{\link[=load_ncaa_wbb_rapm]{load_ncaa_wbb_rapm()}},
 \code{\link[=load_ncaa_wbb_rapm_within_team]{load_ncaa_wbb_rapm_within_team()}},
 \code{\link[=load_ncaa_wbb_rosters]{load_ncaa_wbb_rosters()}},
 \code{\link[=load_ncaa_wbb_schedule]{load_ncaa_wbb_schedule()}},

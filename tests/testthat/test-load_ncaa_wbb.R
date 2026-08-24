@@ -89,6 +89,37 @@ test_that("load_ncaa_wbb_rapm_within_team returns a wehoop_data tibble for a rec
   expect_in(sort(c("team_id", "player_id", "season", "rapm_net")), sort(colnames(df)))
 })
 
+test_that("load_ncaa_wbb_rapm returns a wehoop_data tibble for a recent season", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_load_test()
+
+  df <- load_ncaa_wbb_rapm(seasons = most_recent_wbb_season())
+
+  if (length(df) == 0 || nrow(df) == 0) {
+    skip("No rows returned at test time -- release may not exist yet")
+  }
+
+  expect_s3_class(df, "wehoop_data")
+  expect_in(sort(c("player_id", "person_id", "season", "rapm_net")), sort(colnames(df)))
+})
+
+test_that("load_ncaa_wbb_rapm accepts a multi-season vector", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_load_test()
+
+  season <- most_recent_wbb_season()
+  df <- load_ncaa_wbb_rapm(seasons = c(season - 1, season))
+
+  if (length(df) == 0 || nrow(df) == 0) {
+    skip("No rows returned at test time -- release may not exist yet")
+  }
+
+  expect_s3_class(df, "wehoop_data")
+  expect_gte(length(unique(df$season)), 2)
+})
+
 test_that("load_ncaa_wbb_player_box returns a wehoop_data tibble for a recent season", {
   skip_on_cran()
   skip_on_ci()
