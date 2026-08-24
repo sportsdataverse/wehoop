@@ -23,6 +23,17 @@ This is a major release (2.1.0 -> 3.0.0) that:
     * Shot events / per-game rosters / game officials (9): `load_wbb_shots()`, `load_wbb_game_rosters()`, `load_wbb_officials()`, `load_wnba_shots()`, `load_wnba_game_rosters()`, `load_wnba_officials()`, `load_wnba_stats_shots()`, `load_wnba_stats_game_rosters()`, `load_wnba_stats_officials()`.
     * WNBA Stats schedules + player game logs + play-by-play (3): `load_wnba_stats_schedule()`, `load_wnba_stats_player_game_logs()`, `load_wnba_stats_pbp()`, reading from the `wnba_stats_schedules`, `wnba_stats_player_game_logs` (new tag) and `wnba_stats_pbp` release tags populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeline (V3 PBP with on-court lineups supplied directly by `wnba_pbp()`, plus possession assignment, FT-to-foul attribution, garbage-time flag, and a master schedule build). All three are also wired into `update_wnba_stats_db()`.
     * New `most_recent_wnba_stats_season()` helper (a thin wrapper around `most_recent_wnba_season()` for naming symmetry with the `wnba_stats_*` family).
+* Adds 17 further bulk-data loaders late in the release cycle, following the
+  same loader shape: a 13-function NCAA women's-basketball family
+  (`load_ncaa_wbb_pbp()`, `_shots()`, `_lineups()`, `_matchup_stints()`,
+  `_possessions()`, `_rapm()`, `_rapm_within_team()`, `_player_box()`,
+  `_team_box()`, `_rosters()`, `_team_rosters()`, `_schedule()`,
+  `_team_ids()`) reading stats.ncaa.org-derived datasets produced by the
+  companion `sportsdataverse-py` engine (wehoop ships loaders only — no new
+  scraping surface or dependencies), plus `load_wnba_stats_possessions()`,
+  `load_wnba_player_impact()`, `load_wbb_player_value()`, and
+  `load_wbb_ratings()`. All were verified live against the published release
+  assets, with returns documentation derived from the real files.
 * Rewrites `wnba_draftboard()` against the new upstream endpoint `https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board` (the former `wnba.com/wp-json/api/v1/get_draft_board` endpoint no longer serves data). Returns a named list of two tibbles — `board` and `picks`.
 
 ### Bug fixes
@@ -35,6 +46,25 @@ This is a major release (2.1.0 -> 3.0.0) that:
 * Fixes `ncaa_wbb_NET_rankings()` against NCAA.com's renamed `Conf`/`Prev` columns via `dplyr::rename(dplyr::any_of(c("conference" = "conf", "previous" = "prev")))`.
 * Initializes the return variable before `tryCatch` across ~124 WNBA and ESPN wrappers so an upstream API error now falls through to a `cli::cli_alert_danger` + empty list/data.frame instead of `object '<var>' not found`.
 * `.retry_request()` now uses `runif(1, 0.5, 1.5) * 2^i` backoff (same 3-try envelope) instead of fixed 2-second cadence, so concurrent users sharing the same rate-limited endpoint don't synchronize into a thundering-herd burst.
+* `wnba_pbp()` (V3) no longer degrades to all-`NA` on-court player columns
+  when the flaky upstream `gamerotation` endpoint fails mid-batch: it falls
+  back to substitution-event inference (the pre-V3 method) and warns with the
+  affected game id.
+* `espn_wbb_standings()` now requests ESPN's conference-grouped standings:
+  the flat league-level list silently omitted the six 2022-23 Division-I
+  newcomer programs (356 of 362 teams); the grouped view returns all 362 and
+  the result gains a `conference` column.
+* `espn_wnba_pbp()` / `espn_wbb_pbp()` no longer error on games whose plays
+  carry fewer (or more) participants than the previously hardcoded column
+  count; participant columns are named dynamically and padded to the
+  documented schema.
+* `...` is now genuinely forwarded to `DBI::dbWriteTable()` in every
+  `load_*()` loader that documents it (35 call sites), and three loaders that
+  documented an optional database write without performing it
+  (`load_wbb_player_core()`, `load_wnba_team_box()`, `load_wnba_player_core()`)
+  now perform it.
+* The internal ESPN season group-children fetch paginates instead of
+  truncating at the first 200 results.
 
 ### Deprecations
 
@@ -48,6 +78,12 @@ The following wrappers target WNBA Stats API endpoints that no longer return dat
 * `wnba_leaguehustlestatsteamleaders()`
 * `wnba_videodetails()`
 * `wnba_videodetailsasset()`
+
+Additionally, five wrappers whose endpoints were probe-confirmed dead in
+August 2026 (HTTP 200 with permanently empty result sets) now emit
+`lifecycle::deprecate_warn()` (introduced in this release, so `when = "3.0.0"`)
+while remaining callable: `wnba_videoevents()` and the four
+`wnba_draftcombine*()` wrappers (the WNBA has no draft-combine data upstream).
 
 ### Test suite hardening
 

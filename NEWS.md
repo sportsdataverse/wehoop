@@ -435,6 +435,70 @@ Both `_pkgdown.yml` league-catalog subsections updated to surface the new entrie
 
 The wehoop pkgdown reference index now lists every Tier 1 + Tier 2A wrapper (the 3.0.0 pkgdown build was failing with "topics missing from index" for the Tier 1 additions — fixed by adding a "Core-v2 expansion" subsection per league).
 
+### **Late-cycle additions and fixes (August 2026)**
+
+#### *NCAA women's-basketball + model-dataset loaders*
+
+Seventeen further bulk-data loaders, following the established loader shape:
+
+* A 13-function NCAA women's-basketball family reading the stats.ncaa.org-derived
+  datasets produced by the companion `sportsdataverse-py` engine (wehoop ships
+  loaders only): `load_ncaa_wbb_pbp()`, `load_ncaa_wbb_shots()` (2019+),
+  `load_ncaa_wbb_lineups()`, `load_ncaa_wbb_matchup_stints()`,
+  `load_ncaa_wbb_possessions()`, `load_ncaa_wbb_rapm()` (league-wide
+  regularized adjusted plus-minus, 2011+), `load_ncaa_wbb_rapm_within_team()`,
+  `load_ncaa_wbb_player_box()`, `load_ncaa_wbb_team_box()`,
+  `load_ncaa_wbb_rosters()`, `load_ncaa_wbb_team_rosters()`,
+  `load_ncaa_wbb_schedule()`, and `load_ncaa_wbb_team_ids()` (2010+ unless noted).
+* `load_wnba_stats_possessions()` (1997+), also registered in
+  `update_wnba_stats_db()`.
+* Three model datasets: `load_wnba_player_impact()` (1997+),
+  `load_wbb_player_value()` (2014+), and `load_wbb_ratings()` (2008+).
+
+#### *Fixes*
+
+* `wnba_pbp()` (V3): when the flaky upstream `gamerotation` call fails or
+  returns empty, on-court player columns are now inferred from substitution
+  events (the pre-V3 method) instead of degrading to all-`NA`, with a warning
+  naming the affected game id.
+* `espn_wbb_standings()` now requests ESPN's conference-grouped standings —
+  the flat league list silently omitted the six 2022-23 Division-I newcomer
+  programs (356 of 362 teams). All 362 teams are returned and the result
+  gains a `conference` column.
+* `espn_wnba_pbp()` / `espn_wbb_pbp()` no longer error on games whose plays
+  carry fewer (or more) participants than a previously hardcoded column
+  count; participant columns are named dynamically and padded to the
+  documented schema.
+* `...` is now genuinely forwarded to `DBI::dbWriteTable()` in every loader
+  documenting it (35 call sites), and `load_wbb_player_core()`,
+  `load_wnba_team_box()`, and `load_wnba_player_core()` — which documented an
+  optional database write without performing it — now perform it.
+* The internal ESPN season group-children fetch paginates instead of
+  truncating at 200 results.
+* `load_wbb_pbp()` / `load_wnba_pbp()` docs: `type_text` is ESPN-verbatim
+  ("MadeFreeThrow" is the free-throw play *type* for made and missed
+  attempts — filter makes with `scoring_play`), `score_value` carries the
+  attempt's value even on misses, and `load_wbb_pbp()` documents the
+  producer-appended `pregame_home_prob` / `home_win_prob` columns.
+
+#### *Published-data correction (loaders serve corrected assets)*
+
+The pre-2006 WNBA (2002-2005) and pre-2016 NCAA WBB (2003-2015) ESPN
+play-by-play release assets were rebuilt with the correct halves-era clock
+model: those seasons were 2×20-minute halves, but the published `half`,
+`start/end *_seconds_remaining`, overtime, and timeout-bucket columns had
+been derived under a 4×10-minute quarters assumption. `load_wnba_pbp()` and
+`load_wbb_pbp()` for the affected seasons now serve corrected values (row
+counts and all other columns unchanged).
+
+#### *Additional soft deprecations*
+
+Probe sweeps against `stats.wnba.com` (August 2026) confirmed five more
+endpoints permanently empty upstream; their wrappers now emit
+`lifecycle::deprecate_warn()` (`when = "3.0.0"`) while remaining callable:
+`wnba_videoevents()` and the four `wnba_draftcombine*()` wrappers (the WNBA
+publishes no draft-combine data).
+
 ### **Behavior changes to existing functions**
 
 #### *Restored functionality (un-deprecations)*
