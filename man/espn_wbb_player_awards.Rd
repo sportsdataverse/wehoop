@@ -14,15 +14,9 @@ espn_wbb_player_awards(athlete_id, ...)
 \value{
 A single tibble. This endpoint is sparse; many athletes have no
 award data, in which case an empty tibble with canonical columns is
-returned.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   award_id \tab character \tab Unique identifier for award. \cr
-   name \tab character \tab Display name. \cr
-   description \tab character \tab Long-form description text. \cr
-   date \tab character \tab Date in YYYY-MM-DD format. \cr
-   type \tab character \tab Record type / category. \cr
-}
+returned.
+
+Columns as documented in the shared \link{espn_basketball_player_awards_schema} table.
 }
 \description{
 \strong{Get ESPN Women's College Basketball Athlete Awards}

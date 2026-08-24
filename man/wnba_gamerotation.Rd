@@ -35,21 +35,9 @@ Returns a named list of data frames: AwayTeam, HomeTeam
 }
 
 
-\strong{HomeTeam}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   PERSON_ID \tab character \tab Unique player identifier (V3 endpoints). \cr
-   PLAYER_FIRST \tab character \tab  \cr
-   PLAYER_LAST \tab character \tab  \cr
-   IN_TIME_REAL \tab character \tab  \cr
-   OUT_TIME_REAL \tab character \tab  \cr
-   PLAYER_PTS \tab character \tab  \cr
-   PT_DIFF \tab character \tab  \cr
-   USG_PCT \tab character \tab Usage percentage (0-1). \cr
-}
+\strong{HomeTeam}
+
+Same columns as the \strong{AwayTeam} table above.
 }
 \description{
 \strong{Get WNBA Stats API Game Rotation}

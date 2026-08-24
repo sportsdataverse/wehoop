@@ -485,15 +485,7 @@ NULL
 #'    **LeagueMax** 
 #'    
 #'    
-#'    |col_name  |types   |description                              |
-#'    |:---------|:-------|:----------------------------------------|
-#'    |PTS       |numeric |Points scored.                           |
-#'    |FG_PCT    |numeric |Field goal percentage (0-1).             |
-#'    |FG3_PCT   |numeric |Three-point field goal percentage (0-1). |
-#'    |FT_PCT    |numeric |Free throw percentage (0-1).             |
-#'    |EFG_PCT   |numeric |Effective field goal percentage (0-1).   |
-#'    |TS_PCT    |numeric |True shooting percentage (0-1).          |
-#'    |PTS_PER48 |numeric |                                         |
+#'    Same columns as the **LeagueAverage** table above.
 #' 
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
@@ -583,13 +575,7 @@ NULL
 #'    **HomePageStat1**
 #'
 #'
-#'    |col_name          |types     |description                                                 |
-#'    |:-----------------|:---------|:-----------------------------------------------------------|
-#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
-#'    |TEAM_ID           |character |Unique team identifier.                                     |
-#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
-#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
-#'    |PTS               |character |Points scored.                                              |
+#'    Columns as documented in the shared [wnba_homepagev2_home_page_stat1_schema] table.
 #'
 #'    **HomePageStat2**
 #'
@@ -1393,13 +1379,7 @@ NULL
 #'    **LeadersTiles**
 #'
 #'
-#'    |col_name          |types     |description                                                 |
-#'    |:-----------------|:---------|:-----------------------------------------------------------|
-#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
-#'    |TEAM_ID           |character |Unique team identifier.                                     |
-#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
-#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
-#'    |PTS               |character |Points scored.                                              |
+#'    Columns as documented in the shared [wnba_homepagev2_home_page_stat1_schema] table.
 #'
 #'    **AllTimeSeasonHigh**
 #'
@@ -1415,24 +1395,12 @@ NULL
 #'    **LastSeasonHigh**
 #'
 #'
-#'    |col_name          |types     |description                                                 |
-#'    |:-----------------|:---------|:-----------------------------------------------------------|
-#'    |RANK              |character |Whether to include statistical ranks in the returned table. |
-#'    |TEAM_ID           |character |Unique team identifier.                                     |
-#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').                       |
-#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces').             |
-#'    |PTS               |character |Points scored.                                              |
+#'    Columns as documented in the shared [wnba_homepagev2_home_page_stat1_schema] table.
 #'
 #'    **LowSeasonHigh**
 #'
 #'
-#'    |col_name          |types     |description                                     |
-#'    |:-----------------|:---------|:-----------------------------------------------|
-#'    |TEAM_ID           |character |Unique team identifier.                         |
-#'    |TEAM_ABBREVIATION |character |Short team abbreviation (e.g. 'LAS').           |
-#'    |TEAM_NAME         |character |Full team display name (e.g. 'Las Vegas Aces'). |
-#'    |SEASON_YEAR       |character |Season year string ('YYYY-YY' format).          |
-#'    |PTS               |character |Points scored.                                  |
+#'    Same columns as the **AllTimeSeasonHigh** table above.
 #'
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble

@@ -85,180 +85,25 @@ Return a named list of data frames: AssistedBy, AssitedShotPlayerDashboard,
 OverallPlayerDashboard, Shot5FTPlayerDashboard, Shot8FTPlayerDashboard,
 ShotAreaPlayerDashboard, ShotTypePlayerDashboard, ShotTypeSummaryPlayerDashboard
 
-\strong{OverallPlayerDashboard}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{OverallPlayerDashboard}
 
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
 
-\strong{Shot5FTPlayerDashboard}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{Shot5FTPlayerDashboard}
 
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
 
-\strong{Shot8FTPlayerDashboard}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{Shot8FTPlayerDashboard}
 
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
 
-\strong{ShotAreaPlayerDashboard}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{ShotAreaPlayerDashboard}
 
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
 
-\strong{AssitedShotPlayerDashboard}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{AssitedShotPlayerDashboard}
 
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
 
 \strong{ShotTypeSummaryPlayerDashboard}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -281,75 +126,13 @@ ShotAreaPlayerDashboard, ShotTypePlayerDashboard, ShotTypeSummaryPlayerDashboard
 }
 
 
-\strong{ShotTypePlayerDashboard}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{ShotTypePlayerDashboard}
 
+Columns as documented in the shared \link{wnba_shooting_splits_schema} table.
 
-\strong{AssistedBy}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   EFG_PCT \tab character \tab Effective field goal percentage (0-1). \cr
-   BLKA \tab character \tab  \cr
-   PCT_AST_2PM \tab character \tab  \cr
-   PCT_UAST_2PM \tab character \tab  \cr
-   PCT_AST_3PM \tab character \tab  \cr
-   PCT_UAST_3PM \tab character \tab  \cr
-   PCT_AST_FGM \tab character \tab  \cr
-   PCT_UAST_FGM \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   EFG_PCT_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PCT_AST_2PM_RANK \tab character \tab  \cr
-   PCT_UAST_2PM_RANK \tab character \tab  \cr
-   PCT_AST_3PM_RANK \tab character \tab  \cr
-   PCT_UAST_3PM_RANK \tab character \tab  \cr
-   PCT_AST_FGM_RANK \tab character \tab  \cr
-   PCT_UAST_FGM_RANK \tab character \tab  \cr
-}
+\strong{AssistedBy}
+
+Columns as documented in the shared \link{wnba_shooting_splits_assisted_by_schema} table.
 }
 \description{
 \strong{Get WNBA Stats API Player Dashboard by Shooting Splits}

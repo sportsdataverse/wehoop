@@ -20,22 +20,9 @@ forward compatibility. Proxy configuration should use
 A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},
 \code{StandingSummary}, \code{Coaches}.
 
-\strong{Info}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
-   uid \tab character \tab ESPN UID string (universal identifier). \cr
-   slug \tab character \tab URL-safe identifier. \cr
-   abbreviation \tab character \tab Short abbreviation. \cr
-   display_name \tab character \tab Display name. \cr
-   short_display_name \tab character \tab Short display name. \cr
-   name \tab character \tab Display name. \cr
-   nickname \tab character \tab Team or athlete nickname. \cr
-   location \tab character \tab Filter results by game location. \cr
-   color \tab character \tab Primary color (hex without leading '#'). \cr
-   alternate_color \tab character \tab Alternate color (hex without leading '#'). \cr
-   logo \tab character \tab Team or league logo URL. \cr
-}
+\strong{Info}
 
+Columns as documented in the shared \link{espn_basketball_team_info_schema} table.
 
 \strong{Record}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -45,14 +32,9 @@ A named list of data frames: \code{Info}, \code{Record}, \code{NextEvent},
 }
 
 
-\strong{NextEvent}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
-   date \tab character \tab Date in YYYY-MM-DD format. \cr
-   name \tab character \tab Display name. \cr
-   short_name \tab character \tab Short display name. \cr
-}
+\strong{NextEvent}
 
+Columns as documented in the shared \link{espn_basketball_player_overview_next_game_schema} table.
 
 \strong{StandingSummary}\tabular{lll}{
    col_name \tab types \tab description \cr

@@ -19,20 +19,9 @@ forward compatibility. Proxy configuration should use
 }
 \value{
 A single \code{wehoop_data} tibble with one row per category-athlete
-pair.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
-   category \tab character \tab Category label. \cr
-   abbreviation \tab character \tab Short abbreviation. \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   athlete_name \tab character \tab Athlete display name (ESPN). \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   team_abbrev \tab character \tab Abbreviation for team. \cr
-   value \tab numeric \tab Numeric or string value field. \cr
-   rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
-   display_value \tab character \tab Human-readable display value. \cr
-}
+pair.
+
+Columns as documented in the shared \link{espn_basketball_leaders_schema} table.
 }
 \description{
 \strong{Get ESPN Women's College Basketball League Leaders}

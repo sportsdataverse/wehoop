@@ -7,16 +7,9 @@
 espn_wnba_conferences()
 }
 \value{
-A \code{wehoop_data} tibble with one row per conference:\tabular{lll}{
-   col_name \tab types \tab description \cr
-   group_id \tab integer \tab Group identifier (e.g. conference group_id). \cr
-   conference_short_name \tab character \tab Conference short name (e.g. 'ACC'). \cr
-   conference_uid \tab character \tab ESPN universal conference identifier. \cr
-   conference_name \tab character \tab Full conference name. \cr
-   conference_logo \tab character \tab Logo image URL for conference. \cr
-   parent_group_id \tab integer \tab Unique identifier for parent group. \cr
-   conference_id \tab integer \tab Conference identifier. \cr
-}
+A \code{wehoop_data} tibble with one row per conference:
+
+Columns as documented in the shared \link{espn_basketball_conferences_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Conferences}

@@ -65,16 +65,9 @@ Returns a named list of data frames: HomePageLeaders, LeagueAverage, LeagueMax
 }
 
 
-\strong{LeagueMax}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PTS \tab numeric \tab Points scored. \cr
-   FG_PCT \tab numeric \tab Field goal percentage (0-1). \cr
-   FG3_PCT \tab numeric \tab Three-point field goal percentage (0-1). \cr
-   FT_PCT \tab numeric \tab Free throw percentage (0-1). \cr
-   EFG_PCT \tab numeric \tab Effective field goal percentage (0-1). \cr
-   TS_PCT \tab numeric \tab True shooting percentage (0-1). \cr
-   PTS_PER48 \tab numeric \tab  \cr
-}
+\strong{LeagueMax}
+
+Same columns as the \strong{LeagueAverage} table above.
 }
 \description{
 \strong{Get WNBA Stats API Homepage Leaders}

@@ -13,18 +13,9 @@ Las Vegas Aces).}
 \item{limit}{integer. Maximum number of articles to return. Default \code{25}.}
 }
 \value{
-Returns a tibble of team news articles.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
-   type \tab character \tab Record type / category. \cr
-   headline \tab character \tab News headline. \cr
-   description \tab character \tab Long-form description text. \cr
-   published \tab character \tab Publication timestamp (ISO 8601). \cr
-   premium \tab logical \tab Premium. \cr
-   byline \tab character \tab News article byline / author. \cr
-   link_web \tab character \tab Web link / URL. \cr
-   league_id \tab character \tab League identifier ('10' = WNBA). \cr
-}
+Returns a tibble of team news articles.
+
+Columns as documented in the shared \link{espn_basketball_news_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Team News}

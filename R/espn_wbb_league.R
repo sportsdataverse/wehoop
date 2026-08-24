@@ -24,19 +24,7 @@ NULL
 #' @return A single `wehoop_data` tibble with one row per category-athlete
 #'   pair.
 #'
-#'    |col_name      |types     |description                                                                                                        |
-#'    |:-------------|:---------|:------------------------------------------------------------------------------------------------------------------|
-#'    |season        |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
-#'    |season_type   |integer   |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-#'    |category      |character |Category label.                                                                                                    |
-#'    |abbreviation  |character |Short abbreviation.                                                                                                |
-#'    |athlete_id    |character |Unique athlete identifier (ESPN).                                                                                  |
-#'    |athlete_name  |character |Athlete display name (ESPN).                                                                                       |
-#'    |team_id       |character |Unique team identifier.                                                                                            |
-#'    |team_abbrev   |character |Abbreviation for team.                                                                                             |
-#'    |value         |numeric   |Numeric or string value field.                                                                                     |
-#'    |rank          |integer   |Whether to include statistical ranks in the returned table.                                                        |
-#'    |display_value |character |Human-readable display value.                                                                                      |
+#'    Columns as documented in the shared [espn_basketball_leaders_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -74,17 +62,7 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A single `wehoop_data` tibble with one row per venue.
 #'
-#'    |col_name      |types     |description              |
-#'    |:-------------|:---------|:------------------------|
-#'    |venue_id      |character |Unique venue identifier. |
-#'    |name          |character |Display name.            |
-#'    |full_name     |character |Player's full name.      |
-#'    |address_city  |character |Address city.            |
-#'    |address_state |character |Address state.           |
-#'    |capacity      |integer   |Capacity.                |
-#'    |indoor        |logical   |Indoor.                  |
-#'    |grass         |logical   |Grass.                   |
-#'    |images_url    |character |URL for images.          |
+#'    Columns as documented in the shared [espn_basketball_venues_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -170,16 +148,7 @@ NULL
 #'   `options(wehoop.proxy = ...)` -- see `?wehoop` for details.
 #' @return A single `wehoop_data` tibble with one row per athlete.
 #'
-#'    |col_name   |types     |description                             |
-#'    |:----------|:---------|:---------------------------------------|
-#'    |athlete_id |character |Unique athlete identifier (ESPN).       |
-#'    |full_name  |character |Player's full name.                     |
-#'    |jersey     |character |Jersey number worn by the player.       |
-#'    |position   |character |Listed roster position (G, F, C, etc.). |
-#'    |team_id    |character |Unique team identifier.                 |
-#'    |headshot   |character |Headshot image URL.                     |
-#'    |status     |character |Status label.                           |
-#'    |link       |character |Link.                                   |
+#'    Columns as documented in the shared [espn_basketball_athletes_index_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of

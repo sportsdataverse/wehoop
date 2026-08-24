@@ -12,18 +12,9 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
 }
 \value{
-A single \code{wehoop_data} tibble with one row per venue.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   venue_id \tab character \tab Unique venue identifier. \cr
-   name \tab character \tab Display name. \cr
-   full_name \tab character \tab Player's full name. \cr
-   address_city \tab character \tab Address city. \cr
-   address_state \tab character \tab Address state. \cr
-   capacity \tab integer \tab Capacity. \cr
-   indoor \tab logical \tab Indoor. \cr
-   grass \tab logical \tab Grass. \cr
-   images_url \tab character \tab URL for images. \cr
-}
+A single \code{wehoop_data} tibble with one row per venue.
+
+Columns as documented in the shared \link{espn_basketball_venues_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Venues}

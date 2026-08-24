@@ -509,22 +509,7 @@ NULL
 #' @param tablename The name of the team season stats table within the database
 #' @return Returns a `wehoop_data` tibble of team season stats.
 #'
-#'    |col_name           |types     |description                                                                                                        |
-#'    |:------------------|:---------|:------------------------------------------------------------------------------------------------------------------|
-#'    |season             |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
-#'    |season_type        |integer   |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-#'    |team_id            |character |Unique team identifier.                                                                                            |
-#'    |team_slug          |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                                                          |
-#'    |team_location      |character |Team city or location string.                                                                                      |
-#'    |team_name          |character |Full team display name (e.g. 'Las Vegas Aces').                                                                    |
-#'    |team_abbreviation  |character |Short team abbreviation (e.g. 'LAS').                                                                              |
-#'    |team_display_name  |character |Full team display name.                                                                                            |
-#'    |category           |character |Category label.                                                                                                    |
-#'    |stat_name          |character |Stat name.                                                                                                         |
-#'    |stat_display_name  |character |Stat display name.                                                                                                 |
-#'    |stat_value         |numeric   |Stat value.                                                                                                        |
-#'    |stat_display_value |character |Stat display value.                                                                                                |
-#'    |stat_rank          |integer   |League/season rank for stat.                                                                                       |
+#'    Columns as documented in the shared [basketball_load_wbb_team_stats_schema] table.
 #'
 #' @export
 #' @family WNBA loader functions
@@ -585,26 +570,7 @@ NULL
 #' @param tablename The name of the standings data table within the database
 #' @return Returns a `wehoop_data` tibble of team standings.
 #'
-#'    |col_name           |types     |description                                                                                                        |
-#'    |:------------------|:---------|:------------------------------------------------------------------------------------------------------------------|
-#'    |season             |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
-#'    |season_type        |integer   |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-#'    |team_id            |character |Unique team identifier.                                                                                            |
-#'    |team_slug          |character |URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').                                                          |
-#'    |team_location      |character |Team city or location string.                                                                                      |
-#'    |team_name          |character |Full team display name (e.g. 'Las Vegas Aces').                                                                    |
-#'    |team_abbreviation  |character |Short team abbreviation (e.g. 'LAS').                                                                              |
-#'    |team_display_name  |character |Full team display name.                                                                                            |
-#'    |conference_id      |character |Conference identifier.                                                                                             |
-#'    |conference_name    |character |Full conference name.                                                                                              |
-#'    |wins               |integer   |Total wins.                                                                                                        |
-#'    |losses             |integer   |Total losses.                                                                                                      |
-#'    |win_percent        |numeric   |Win percent.                                                                                                       |
-#'    |games_played       |integer   |Games played.                                                                                                      |
-#'    |points_for         |numeric   |Points for.                                                                                                        |
-#'    |points_against     |numeric   |Points allowed.                                                                                                    |
-#'    |point_differential |numeric   |Point differential.                                                                                                |
-#'    |streak             |character |Current streak (e.g. 'W3' for three-game win streak).                                                              |
+#'    Columns as documented in the shared [basketball_load_wbb_standings_schema] table.
 #'
 #' @export
 #' @family WNBA loader functions
@@ -739,23 +705,7 @@ NULL
 #' @param tablename The name of the shots data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per shot attempt.
 #'
-#'    |col_name            |types     |description                                                |
-#'    |:-------------------|:---------|:----------------------------------------------------------|
-#'    |game_id             |character |Unique game identifier.                                    |
-#'    |season              |integer   |Season identifier (4-digit year or 'YYYY-YY' string).      |
-#'    |period_number       |integer   |Numeric period (1-4 for quarters; 5+ for OT).              |
-#'    |clock_display_value |character |Game clock display string (e.g. '8:32').                   |
-#'    |team_id             |character |Unique team identifier.                                    |
-#'    |athlete_id_1        |character |Primary athlete identifier (e.g. shooter).                 |
-#'    |athlete_id_2        |character |Secondary athlete identifier (e.g. assister / fouler).     |
-#'    |type_id             |character |Type identifier (numeric).                                 |
-#'    |type_text           |character |Display text for the type field.                           |
-#'    |scoring_play        |logical   |TRUE if the play resulted in points scored.                |
-#'    |score_value         |integer   |Point value of the play (2 / 3 / 1).                       |
-#'    |coordinate_x        |numeric   |X coordinate on the court (half-court layout).             |
-#'    |coordinate_y        |numeric   |Y coordinate on the court (half-court layout).             |
-#'    |coordinate_x_raw    |numeric   |X coordinate as returned by the API before any adjustment. |
-#'    |coordinate_y_raw    |numeric   |Y coordinate as returned by the API before any adjustment. |
+#'    Columns as documented in the shared [basketball_load_wbb_shots_schema] table.
 #'
 #' @export
 #' @family WNBA loader functions
@@ -817,17 +767,7 @@ NULL
 #' @param tablename The name of the game rosters data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per athlete-team-game.
 #'
-#'    |col_name             |types     |description                                                     |
-#'    |:--------------------|:---------|:---------------------------------------------------------------|
-#'    |game_id              |character |Unique game identifier.                                         |
-#'    |season               |integer   |Season identifier (4-digit year or 'YYYY-YY' string).           |
-#'    |team_id              |character |Unique team identifier.                                         |
-#'    |athlete_id           |character |Unique athlete identifier (ESPN).                               |
-#'    |athlete_display_name |character |Athlete display name (full).                                    |
-#'    |athlete_position     |character |Athlete position.                                               |
-#'    |athlete_jersey       |character |Athlete jersey number.                                          |
-#'    |starter              |logical   |TRUE if the player was in the starting lineup; FALSE otherwise. |
-#'    |did_not_play         |logical   |TRUE if the player did not appear in the game.                  |
+#'    Columns as documented in the shared [basketball_load_wbb_game_rosters_schema] table.
 #'
 #' @export
 #' @family WNBA loader functions
@@ -888,17 +828,7 @@ NULL
 #' @param tablename The name of the officials data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per official-game pair.
 #'
-#'    |col_name     |types     |description                                           |
-#'    |:------------|:---------|:-----------------------------------------------------|
-#'    |game_id      |character |Unique game identifier.                               |
-#'    |season       |integer   |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |official_id  |character |Unique official / referee identifier.                 |
-#'    |display_name |character |Display name.                                         |
-#'    |full_name    |character |Player's full name.                                   |
-#'    |first_name   |character |Player's first name.                                  |
-#'    |last_name    |character |Player's last name.                                   |
-#'    |position     |character |Listed roster position (G, F, C, etc.).               |
-#'    |order        |integer   |Display order within the result set.                  |
+#'    Columns as documented in the shared [basketball_load_wbb_officials_schema] table.
 #'
 #' @export
 #' @family WNBA loader functions

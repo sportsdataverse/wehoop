@@ -14,22 +14,9 @@ espn_wbb_coach_season(coach_id, season = most_recent_wbb_season(), ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single-row tibble.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   league \tab character \tab League slug. \cr
-   season \tab integer \tab Season year. \cr
-   coach_id \tab character \tab ESPN coach id. \cr
-   uid \tab character \tab ESPN UID string. \cr
-   first_name \tab character \tab First name. \cr
-   last_name \tab character \tab Last name. \cr
-   date_of_birth \tab character \tab Date of birth. \cr
-   birth_city \tab character \tab Birth city. \cr
-   birth_state \tab character \tab Birth state / region. \cr
-   n_records \tab integer \tab Count of records entries. \cr
-   person_ref \tab character \tab \verb{$ref} to person resource. \cr
-   college_ref \tab character \tab \verb{$ref} to college. \cr
-   team_ref \tab character \tab \verb{$ref} to team-in-season. \cr
-}
+A single-row tibble.
+
+Columns as documented in the shared \link{espn_basketball_coach_season_schema} table.
 }
 \description{
 Per-season coach detail (name, birth info, \verb{$ref}s to team/college/

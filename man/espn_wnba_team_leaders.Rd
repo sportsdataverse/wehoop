@@ -14,17 +14,9 @@ espn_wnba_team_leaders(team_id, season = most_recent_wnba_season(), ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single long-format tibble (one row per category-rank-athlete).\tabular{lll}{
-   col_name \tab types \tab description \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   category \tab character \tab Category label. \cr
-   display_name \tab character \tab Display name. \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   athlete_name \tab character \tab Athlete display name (ESPN). \cr
-   value \tab numeric \tab Numeric or string value field. \cr
-   rank \tab integer \tab Whether to include statistical ranks in the returned table. \cr
-}
+A single long-format tibble (one row per category-rank-athlete).
+
+Columns as documented in the shared \link{espn_basketball_team_leaders_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Team Leaders}

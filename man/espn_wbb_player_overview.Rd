@@ -17,26 +17,17 @@ espn_wbb_player_overview(athlete_id, season = most_recent_wbb_season(), ...)
 A named list of data frames: \code{Statistics}, \code{NextGame},
 \code{Last5Games}, \code{Headlines}, \code{FantasyOutlook}.
 
-\strong{Statistics}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   (varies) \tab character \tab  \cr
-}
+\strong{Statistics}
 
+Columns as documented in the shared \link{espn_basketball_player_overview_statistics_schema} table.
 
-\strong{NextGame}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
-   date \tab character \tab Date in YYYY-MM-DD format. \cr
-   name \tab character \tab Display name. \cr
-   short_name \tab character \tab Short display name. \cr
-}
+\strong{NextGame}
 
+Columns as documented in the shared \link{espn_basketball_player_overview_next_game_schema} table.
 
-\strong{Last5Games}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   (varies) \tab character \tab  \cr
-}
+\strong{Last5Games}
 
+Columns as documented in the shared \link{espn_basketball_player_overview_statistics_schema} table.
 
 \strong{Headlines}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -46,10 +37,9 @@ A named list of data frames: \code{Statistics}, \code{NextGame},
 }
 
 
-\strong{FantasyOutlook}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   (varies) \tab character \tab  \cr
-}
+\strong{FantasyOutlook}
+
+Columns as documented in the shared \link{espn_basketball_player_overview_statistics_schema} table.
 }
 \description{
 \strong{Get ESPN Women's College Basketball Athlete Overview}

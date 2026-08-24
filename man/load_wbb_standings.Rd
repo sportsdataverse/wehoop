@@ -26,27 +26,9 @@ the season data into a database.}
 \item{tablename}{The name of the standings data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble of team standings.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   season_type \tab integer \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   team_slug \tab character \tab URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces'). \cr
-   team_location \tab character \tab Team city or location string. \cr
-   team_name \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   team_abbreviation \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   team_display_name \tab character \tab Full team display name. \cr
-   conference_id \tab character \tab Conference identifier. \cr
-   conference_name \tab character \tab Full conference name. \cr
-   wins \tab integer \tab Total wins. \cr
-   losses \tab integer \tab Total losses. \cr
-   win_percent \tab numeric \tab Win percent. \cr
-   games_played \tab integer \tab Games played. \cr
-   points_for \tab numeric \tab Points for. \cr
-   points_against \tab numeric \tab Points allowed. \cr
-   point_differential \tab numeric \tab Point differential. \cr
-   streak \tab character \tab Current streak (e.g. 'W3' for three-game win streak). \cr
-}
+Returns a \code{wehoop_data} tibble of team standings.
+
+Columns as documented in the shared \link{basketball_load_wbb_standings_schema} table.
 }
 \description{
 \code{load_wbb_standings_manifest()} returns the per-season

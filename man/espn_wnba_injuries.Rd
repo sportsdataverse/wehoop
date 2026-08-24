@@ -18,21 +18,9 @@ Defaults to \code{most_recent_wnba_season()}.}
 Returns a tibble of league-wide WNBA injury records.
 Returns an empty tibble (zero rows) when no injuries are reported.
 
-\strong{Injuries}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   athlete_name \tab character \tab Athlete display name (ESPN). \cr
-   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   status \tab character \tab Status label. \cr
-   date \tab character \tab Date in YYYY-MM-DD format. \cr
-   type \tab character \tab Record type / category. \cr
-   side \tab character \tab Side label (e.g. 'home', 'away', or 'overUnder'). \cr
-   returns_at \tab character \tab Returns at. \cr
-   short_comment \tab character \tab Short comment. \cr
-   long_comment \tab character \tab Long-form play / event comment. \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-}
+\strong{Injuries}
+
+Columns as documented in the shared \link{espn_basketball_injuries_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Injuries}

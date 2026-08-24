@@ -17,17 +17,9 @@ forward compatibility. Proxy configuration should use
 A named list of data frames: \code{Bio}, \code{Team}, \code{Position},
 \code{Status}, \code{College}, \code{Draft}.
 
-\strong{Bio}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
-   full_name \tab character \tab Player's full name. \cr
-   display_name \tab character \tab Display name. \cr
-   jersey \tab character \tab Jersey number worn by the player. \cr
-   age \tab character \tab Player age (in years). \cr
-   date_of_birth \tab character \tab Date of birth (YYYY-MM-DD). \cr
-   headshot_href \tab character \tab Headshot image URL. \cr
-}
+\strong{Bio}
 
+Columns as documented in the shared \link{espn_basketball_player_info_bio_schema} table.
 
 \strong{Team}\tabular{lll}{
    col_name \tab types \tab description \cr

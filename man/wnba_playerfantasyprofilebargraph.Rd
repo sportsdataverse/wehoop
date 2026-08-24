@@ -46,24 +46,9 @@ Return a named list of data frames: LastFiveGamesAvg, SeasonAvg
 }
 
 
-\strong{LastFiveGamesAvg}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   FAN_DUEL_PTS \tab character \tab  \cr
-   NBA_FANTASY_PTS \tab character \tab  \cr
-   PTS \tab character \tab Points scored. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   STL \tab character \tab Steals. \cr
-   BLK \tab character \tab Blocks. \cr
-   TOV \tab character \tab Turnovers. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-}
+\strong{LastFiveGamesAvg}
+
+Same columns as the \strong{SeasonAvg} table above.
 }
 \description{
 \strong{Get WNBA Stats API Player Fantasy Profile Bar Graph}

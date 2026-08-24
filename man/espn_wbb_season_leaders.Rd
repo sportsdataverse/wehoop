@@ -18,24 +18,9 @@ espn_wbb_season_leaders(
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A long tibble with one row per (category x leader).\tabular{lll}{
-   col_name \tab types \tab description \cr
-   league \tab character \tab League slug. \cr
-   season \tab integer \tab Season year. \cr
-   season_type \tab integer \tab Season-type id. \cr
-   category_name \tab character \tab Internal category key (e.g. "pointsPerGame"). \cr
-   category_display \tab character \tab Human-readable category name. \cr
-   category_short \tab character \tab Short display name. \cr
-   category_abbrev \tab character \tab Stat abbreviation (e.g. "PTS"). \cr
-   rank \tab integer \tab Rank within the category (1 = best). \cr
-   athlete_id \tab character \tab ESPN athlete id. \cr
-   team_id \tab character \tab ESPN team id. \cr
-   display_value \tab character \tab Display-formatted value. \cr
-   value \tab numeric \tab Numeric leader value. \cr
-   rel \tab character \tab Comma-joined \code{rel} tags from ESPN. \cr
-   athlete_ref \tab character \tab \verb{$ref} URL to the leader's athlete. \cr
-   team_ref \tab character \tab \verb{$ref} URL to the leader's team. \cr
-}
+A long tibble with one row per (category x leader).
+
+Columns as documented in the shared \link{espn_basketball_season_leaders_schema} table.
 }
 \description{
 Returns the per-category leaderboard for one (WBB season x season-type),

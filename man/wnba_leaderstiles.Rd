@@ -36,15 +36,9 @@ wnba_leaderstiles(
 Returns a named list of data frames: AllTimeSeasonHigh, LastSeasonHigh,
 LeadersTiles, LowSeasonHigh,
 
-\strong{LeadersTiles}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   RANK \tab character \tab Whether to include statistical ranks in the returned table. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   PTS \tab character \tab Points scored. \cr
-}
+\strong{LeadersTiles}
 
+Columns as documented in the shared \link{wnba_homepagev2_home_page_stat1_schema} table.
 
 \strong{AllTimeSeasonHigh}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -56,24 +50,13 @@ LeadersTiles, LowSeasonHigh,
 }
 
 
-\strong{LastSeasonHigh}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   RANK \tab character \tab Whether to include statistical ranks in the returned table. \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   PTS \tab character \tab Points scored. \cr
-}
+\strong{LastSeasonHigh}
 
+Columns as documented in the shared \link{wnba_homepagev2_home_page_stat1_schema} table.
 
-\strong{LowSeasonHigh}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   SEASON_YEAR \tab character \tab Season year string ('YYYY-YY' format). \cr
-   PTS \tab character \tab Points scored. \cr
-}
+\strong{LowSeasonHigh}
+
+Same columns as the \strong{AllTimeSeasonHigh} table above.
 }
 \description{
 \strong{Get WNBA Stats API Leaders Tiles}

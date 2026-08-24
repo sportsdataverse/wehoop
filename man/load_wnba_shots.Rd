@@ -26,24 +26,9 @@ the season data into a database.}
 \item{tablename}{The name of the shots data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble with one row per shot attempt.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   period_number \tab integer \tab Numeric period (1-4 for quarters; 5+ for OT). \cr
-   clock_display_value \tab character \tab Game clock display string (e.g. '8:32'). \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   athlete_id_1 \tab character \tab Primary athlete identifier (e.g. shooter). \cr
-   athlete_id_2 \tab character \tab Secondary athlete identifier (e.g. assister / fouler). \cr
-   type_id \tab character \tab Type identifier (numeric). \cr
-   type_text \tab character \tab Display text for the type field. \cr
-   scoring_play \tab logical \tab TRUE if the play resulted in points scored. \cr
-   score_value \tab integer \tab Point value of the play (2 / 3 / 1). \cr
-   coordinate_x \tab numeric \tab X coordinate on the court (half-court layout). \cr
-   coordinate_y \tab numeric \tab Y coordinate on the court (half-court layout). \cr
-   coordinate_x_raw \tab numeric \tab X coordinate as returned by the API before any adjustment. \cr
-   coordinate_y_raw \tab numeric \tab Y coordinate as returned by the API before any adjustment. \cr
-}
+Returns a \code{wehoop_data} tibble with one row per shot attempt.
+
+Columns as documented in the shared \link{basketball_load_wbb_shots_schema} table.
 }
 \description{
 \code{load_wnba_shots_manifest()} returns the per-season manifest

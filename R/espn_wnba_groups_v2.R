@@ -67,23 +67,7 @@ espn_wnba_season_groups <- function(season = most_recent_wnba_season(),
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #'
-#'    |col_name       |types     |description                                |
-#'    |:--------------|:---------|:------------------------------------------|
-#'    |league         |character |League slug.                               |
-#'    |season         |integer   |Season year.                               |
-#'    |season_type    |integer   |Season-type id.                            |
-#'    |group_id       |character |ESPN group id.                             |
-#'    |uid            |character |ESPN UID string.                           |
-#'    |name           |character |Full name (e.g. "Eastern Conference").     |
-#'    |abbreviation   |character |Short code (e.g. "EAST").                  |
-#'    |short_name     |character |Short name.                                |
-#'    |midsize_name   |character |Mid-size display name.                     |
-#'    |is_conference  |logical   |Whether this group is a conference.        |
-#'    |slug           |character |URL slug.                                  |
-#'    |parent_ref     |character |`$ref` to parent group (if any).           |
-#'    |children_ref   |character |`$ref` to child-groups endpoint.           |
-#'    |teams_ref      |character |`$ref` to teams-in-group endpoint.         |
-#'    |standings_ref  |character |`$ref` to standings endpoint.              |
+#'    Columns as documented in the shared [espn_basketball_season_group_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble

@@ -11,20 +11,9 @@ espn_wnba_calendar(season = most_recent_wnba_season())
 Defaults to \code{most_recent_wnba_season()}.}
 }
 \value{
-Returns a tibble of calendar entries.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   season \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   season_type \tab character \tab Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). \cr
-   season_type_label \tab character \tab Season type label. \cr
-   season_start_date \tab character \tab Date in YYYY-MM-DD format. \cr
-   season_end_date \tab character \tab Date in YYYY-MM-DD format. \cr
-   label \tab character \tab Label. \cr
-   alternate_label \tab character \tab Alternate label. \cr
-   detail \tab character \tab Detail. \cr
-   value \tab character \tab Numeric or string value field. \cr
-   start_date \tab character \tab Start date (YYYY-MM-DD). \cr
-   end_date \tab character \tab End date (YYYY-MM-DD). \cr
-}
+Returns a tibble of calendar entries.
+
+Columns as documented in the shared \link{espn_basketball_calendar_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Calendar}

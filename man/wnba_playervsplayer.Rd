@@ -183,62 +183,21 @@ ShotDistanceOverall, VsPlayerInfo
 }
 
 
-\strong{ShotDistanceOffCourt}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   VS_PLAYER_ID \tab character \tab  \cr
-   VS_PLAYER_NAME \tab character \tab  \cr
-   COURT_STATUS \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-}
+\strong{ShotDistanceOffCourt}
 
+Same columns as the \strong{ShotDistanceOnCourt} table above.
 
-\strong{ShotAreaOverall}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-}
+\strong{ShotAreaOverall}
 
+Same columns as the \strong{ShotDistanceOverall} table above.
 
-\strong{ShotAreaOnCourt}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   VS_PLAYER_ID \tab character \tab  \cr
-   VS_PLAYER_NAME \tab character \tab  \cr
-   COURT_STATUS \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-}
+\strong{ShotAreaOnCourt}
 
+Same columns as the \strong{ShotDistanceOnCourt} table above.
 
-\strong{ShotAreaOffCourt}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   PLAYER_ID \tab character \tab Unique player identifier. \cr
-   PLAYER_NAME \tab character \tab Player name. \cr
-   VS_PLAYER_ID \tab character \tab  \cr
-   VS_PLAYER_NAME \tab character \tab  \cr
-   COURT_STATUS \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-}
+\strong{ShotAreaOffCourt}
 
+Same columns as the \strong{ShotDistanceOnCourt} table above.
 
 \strong{PlayerInfo}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -255,19 +214,9 @@ ShotDistanceOverall, VsPlayerInfo
 }
 
 
-\strong{VsPlayerInfo}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PERSON_ID \tab character \tab Unique player identifier (V3 endpoints). \cr
-   FIRST_NAME \tab character \tab Player's first name. \cr
-   LAST_NAME \tab character \tab Player's last name. \cr
-   DISPLAY_FIRST_LAST \tab character \tab  \cr
-   DISPLAY_LAST_COMMA_FIRST \tab character \tab  \cr
-   DISPLAY_FI_LAST \tab character \tab  \cr
-   BIRTHDATE \tab character \tab  \cr
-   SCHOOL \tab character \tab Player's school / college (when distinct from 'college'). \cr
-   COUNTRY \tab character \tab Country (full name or code). \cr
-   LAST_AFFILIATION \tab character \tab  \cr
-}
+\strong{VsPlayerInfo}
+
+Same columns as the \strong{PlayerInfo} table above.
 }
 \description{
 \strong{Get WNBA Stats API Player vs Player}

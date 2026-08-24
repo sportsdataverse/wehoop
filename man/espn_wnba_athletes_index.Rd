@@ -26,17 +26,9 @@ forward compatibility. Proxy configuration should use
 \code{options(wehoop.proxy = ...)} -- see \code{?wehoop} for details.}
 }
 \value{
-A single \code{wehoop_data} tibble with one row per athlete.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   full_name \tab character \tab Player's full name. \cr
-   jersey \tab character \tab Jersey number worn by the player. \cr
-   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   headshot \tab character \tab Headshot image URL. \cr
-   status \tab character \tab Status label. \cr
-   link \tab character \tab Link. \cr
-}
+A single \code{wehoop_data} tibble with one row per athlete.
+
+Columns as documented in the shared \link{espn_basketball_athletes_index_schema} table.
 }
 \description{
 \strong{Get ESPN WNBA Athletes Index}

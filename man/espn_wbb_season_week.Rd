@@ -21,17 +21,9 @@ espn_wbb_season_week(
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single-row tibble.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   league \tab character \tab League slug. \cr
-   season \tab integer \tab Season year. \cr
-   season_type \tab integer \tab Season-type id. \cr
-   week \tab integer \tab Week number. \cr
-   text \tab character \tab Display label (e.g. "Week 5"). \cr
-   start_date \tab character \tab ISO 8601 week start. \cr
-   end_date \tab character \tab ISO 8601 week end. \cr
-   rankings_ref \tab character \tab \verb{$ref} to the per-week rankings endpoint. \cr
-}
+A single-row tibble.
+
+Columns as documented in the shared \link{espn_basketball_season_week_schema} table.
 }
 \description{
 Returns metadata for one week (number, start / end dates, text label,

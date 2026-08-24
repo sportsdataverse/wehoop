@@ -63,12 +63,9 @@ TeamHistory, TeamHof, TeamRetired, TeamSocialSites
 }
 
 
-\strong{TeamAwardsDiv}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   YEARAWARDED \tab integer \tab  \cr
-   OPPOSITETEAM \tab integer \tab  \cr
-}
+\strong{TeamAwardsDiv}
 
+Same columns as the \strong{TeamAwardsConf} table above.
 
 \strong{TeamHof}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -81,15 +78,9 @@ TeamHistory, TeamHof, TeamRetired, TeamSocialSites
 }
 
 
-\strong{TeamRetired}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   PLAYERID \tab character \tab  \cr
-   PLAYER \tab character \tab  \cr
-   POSITION \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   JERSEY \tab character \tab Jersey number worn by the player. \cr
-   SEASONSWITHTEAM \tab character \tab  \cr
-   YEAR \tab character \tab 4-digit year. \cr
-}
+\strong{TeamRetired}
+
+Same columns as the \strong{TeamHof} table above.
 }
 \description{
 \strong{Get WNBA Stats API Team Details}

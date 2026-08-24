@@ -184,6 +184,15 @@ roxygenize_return <- function(
 ## up descriptions from the dictionary, and re-emits the block with a
 ## third column. Non-table lines (prose, code, blank `#'` lines) are
 ## preserved verbatim.
+##
+## DO NOT RE-AUGMENT SHARED-SCHEMA TOPICS. A one-time dedup pass (2026-08)
+## replaced ~230 byte-identical duplicate @return tables across R/*.R with
+## one-line `[<name>_schema]` links into R/wehoop_schemas.R (see that
+## file's header). Re-running this sweep must never paste a fresh table
+## back into a function whose @return already links to a shared schema --
+## that would silently re-inflate man/ back toward its pre-dedup size.
+## Guard: any roxygen doc-block (bounded by non-`#'` lines) that already
+## contains a `[..._schema]` link has ALL of its table blocks skipped.
 augment_return_tables_in_file <- function(
     file_path,
     dict     = load_column_descriptions(),
@@ -201,9 +210,30 @@ augment_return_tables_in_file <- function(
   is_separator <- function(s) {
     grepl("^#'\\s+\\|[-: ]+\\|", s, perl = TRUE)
   }
+  is_roxy <- function(s) grepl("^#'", s)
+
+  ## Mark every line that falls inside a contiguous roxygen doc-block
+  ## (a run of `#'` lines) which contains at least one `[..._schema]`
+  ## link anywhere in that block.
+  schema_guarded <- logical(n)
+  k <- 1
+  while (k <= n) {
+    if (is_roxy(lines[k])) {
+      bstart <- k
+      while (k <= n && is_roxy(lines[k])) k <- k + 1
+      bend <- k - 1
+      if (any(grepl("\\[[A-Za-z0-9_.]+_schema\\]", lines[bstart:bend]))) {
+        schema_guarded[bstart:bend] <- TRUE
+      }
+    } else {
+      k <- k + 1
+    }
+  }
 
   while (i <= n) {
-    if (is_table_row(lines[i])) {
+    if (is_table_row(lines[i]) && schema_guarded[i]) {
+      out <- c(out, lines[i]); i <- i + 1
+    } else if (is_table_row(lines[i])) {
       start <- i
       j <- i
       while (j <= n && is_table_row(lines[j])) j <- j + 1

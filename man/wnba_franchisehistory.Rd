@@ -34,24 +34,9 @@ Returns a named list of data frames: DefunctTeams, FranchiseHistory
 }
 
 
-\strong{DefunctTeams}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   LEAGUE_ID \tab character \tab League identifier ('10' = WNBA). \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_CITY \tab character \tab Team city or region (e.g. 'Las Vegas'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   START_YEAR \tab character \tab  \cr
-   END_YEAR \tab character \tab  \cr
-   YEARS \tab character \tab Years. \cr
-   GAMES \tab character \tab  \cr
-   WINS \tab character \tab Total wins. \cr
-   LOSSES \tab character \tab Total losses. \cr
-   WIN_PCT \tab character \tab Win percentage (0-1 decimal). \cr
-   PO_APPEARANCES \tab character \tab  \cr
-   DIV_TITLES \tab character \tab  \cr
-   CONF_TITLES \tab character \tab  \cr
-   LEAGUE_TITLES \tab character \tab  \cr
-}
+\strong{DefunctTeams}
+
+Same columns as the \strong{FranchiseHistory} table above.
 }
 \description{
 \strong{Get WNBA Stats API Franchise History}

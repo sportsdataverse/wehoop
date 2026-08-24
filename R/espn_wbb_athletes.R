@@ -23,15 +23,7 @@ NULL
 #'
 #'    **Bio**
 #'
-#'    |col_name      |types     |description                       |
-#'    |:-------------|:---------|:---------------------------------|
-#'    |id            |character |Unique play identifcation number  |
-#'    |full_name     |character |Player's full name.               |
-#'    |display_name  |character |Display name.                     |
-#'    |jersey        |character |Jersey number worn by the player. |
-#'    |age           |character |Player age (in years).            |
-#'    |date_of_birth |character |Date of birth (YYYY-MM-DD).       |
-#'    |headshot_href |character |Headshot image URL.               |
+#'    Columns as documented in the shared [espn_basketball_player_info_bio_schema] table.
 #'
 #'    **Team**
 #'
@@ -109,24 +101,15 @@ NULL
 #'
 #'    **Statistics**
 #'
-#'    |col_name |types     |description |
-#'    |:--------|:---------|:-----------|
-#'    |(varies) |character |            |
+#'    Columns as documented in the shared [espn_basketball_player_overview_statistics_schema] table.
 #'
 #'    **NextGame**
 #'
-#'    |col_name   |types     |description                      |
-#'    |:----------|:---------|:--------------------------------|
-#'    |id         |character |Unique play identifcation number |
-#'    |date       |character |Date in YYYY-MM-DD format.       |
-#'    |name       |character |Display name.                    |
-#'    |short_name |character |Short display name.              |
+#'    Columns as documented in the shared [espn_basketball_player_overview_next_game_schema] table.
 #'
 #'    **Last5Games**
 #'
-#'    |col_name |types     |description |
-#'    |:--------|:---------|:-----------|
-#'    |(varies) |character |            |
+#'    Columns as documented in the shared [espn_basketball_player_overview_statistics_schema] table.
 #'
 #'    **Headlines**
 #'
@@ -138,9 +121,7 @@ NULL
 #'
 #'    **FantasyOutlook**
 #'
-#'    |col_name |types     |description |
-#'    |:--------|:---------|:-----------|
-#'    |(varies) |character |            |
+#'    Columns as documented in the shared [espn_basketball_player_overview_statistics_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble select any_of
@@ -351,14 +332,7 @@ NULL
 #'   award data, in which case an empty tibble with canonical columns is
 #'   returned.
 #'
-#'    |col_name    |types     |description                                           |
-#'    |:-----------|:---------|:-----------------------------------------------------|
-#'    |season      |character |Season identifier (4-digit year or 'YYYY-YY' string). |
-#'    |award_id    |character |Unique identifier for award.                          |
-#'    |name        |character |Display name.                                         |
-#'    |description |character |Long-form description text.                           |
-#'    |date        |character |Date in YYYY-MM-DD format.                            |
-#'    |type        |character |Record type / category.                               |
+#'    Columns as documented in the shared [espn_basketball_player_awards_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble select any_of

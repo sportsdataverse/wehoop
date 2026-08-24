@@ -84,67 +84,9 @@ wnba_teamplayeronoffsummary(
 Return a named list of data frames: OverallTeamPlayerOnOffSummary,
 PlayersOffCourtTeamPlayerOnOffSummary, PlayersOnCourtTeamPlayerOnOffSummary
 
-\strong{OverallTeamPlayerOnOffSummary}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   GROUP_VALUE \tab character \tab  \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   GP \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   MIN \tab character \tab Minutes played. \cr
-   FGM \tab character \tab Field goals made. \cr
-   FGA \tab character \tab Field goal attempts. \cr
-   FG_PCT \tab character \tab Field goal percentage (0-1). \cr
-   FG3M \tab character \tab Three-point field goals made. \cr
-   FG3A \tab character \tab Three-point field goal attempts. \cr
-   FG3_PCT \tab character \tab Three-point field goal percentage (0-1). \cr
-   FTM \tab character \tab Free throws made. \cr
-   FTA \tab character \tab Free throw attempts. \cr
-   FT_PCT \tab character \tab Free throw percentage (0-1). \cr
-   OREB \tab character \tab Offensive rebounds. \cr
-   DREB \tab character \tab Defensive rebounds. \cr
-   REB \tab character \tab Total rebounds. \cr
-   AST \tab character \tab Assists. \cr
-   TOV \tab character \tab Turnovers. \cr
-   STL \tab character \tab Steals. \cr
-   BLK \tab character \tab Blocks. \cr
-   BLKA \tab character \tab  \cr
-   PF \tab character \tab Personal fouls. \cr
-   PFD \tab character \tab  \cr
-   PTS \tab character \tab Points scored. \cr
-   PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
-   GP_RANK \tab character \tab  \cr
-   W_RANK \tab character \tab  \cr
-   L_RANK \tab character \tab  \cr
-   W_PCT_RANK \tab character \tab  \cr
-   MIN_RANK \tab character \tab  \cr
-   FGM_RANK \tab character \tab  \cr
-   FGA_RANK \tab character \tab  \cr
-   FG_PCT_RANK \tab character \tab  \cr
-   FG3M_RANK \tab character \tab  \cr
-   FG3A_RANK \tab character \tab  \cr
-   FG3_PCT_RANK \tab character \tab  \cr
-   FTM_RANK \tab character \tab  \cr
-   FTA_RANK \tab character \tab  \cr
-   FT_PCT_RANK \tab character \tab  \cr
-   OREB_RANK \tab character \tab  \cr
-   DREB_RANK \tab character \tab  \cr
-   REB_RANK \tab character \tab  \cr
-   AST_RANK \tab character \tab  \cr
-   TOV_RANK \tab character \tab  \cr
-   STL_RANK \tab character \tab  \cr
-   BLK_RANK \tab character \tab  \cr
-   BLKA_RANK \tab character \tab  \cr
-   PF_RANK \tab character \tab  \cr
-   PFD_RANK \tab character \tab  \cr
-   PTS_RANK \tab character \tab  \cr
-   PLUS_MINUS_RANK \tab character \tab  \cr
-}
+\strong{OverallTeamPlayerOnOffSummary}
 
+Columns as documented in the shared \link{wnba_team_summary_overall_schema} table.
 
 \strong{PlayersOnCourtTeamPlayerOnOffSummary}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -164,22 +106,9 @@ PlayersOffCourtTeamPlayerOnOffSummary, PlayersOnCourtTeamPlayerOnOffSummary
 }
 
 
-\strong{PlayersOffCourtTeamPlayerOnOffSummary}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GROUP_SET \tab character \tab  \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   VS_PLAYER_ID \tab character \tab  \cr
-   VS_PLAYER_NAME \tab character \tab  \cr
-   COURT_STATUS \tab character \tab  \cr
-   GP \tab character \tab Games played. \cr
-   MIN \tab character \tab Minutes played. \cr
-   PLUS_MINUS \tab character \tab Plus/minus point differential while on court. \cr
-   OFF_RATING \tab character \tab Offensive rating (points produced per 100 possessions). \cr
-   DEF_RATING \tab character \tab Defensive rating (points allowed per 100 possessions). \cr
-   NET_RATING \tab character \tab Net rating (off rating - def rating). \cr
-}
+\strong{PlayersOffCourtTeamPlayerOnOffSummary}
+
+Same columns as the \strong{PlayersOnCourtTeamPlayerOnOffSummary} table above.
 }
 \description{
 \strong{Get WNBA Stats API Team Player On/Off Summary}

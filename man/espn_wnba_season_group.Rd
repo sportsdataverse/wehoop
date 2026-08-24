@@ -21,24 +21,9 @@ espn_wnba_season_group(
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single-row tibble.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   league \tab character \tab League slug. \cr
-   season \tab integer \tab Season year. \cr
-   season_type \tab integer \tab Season-type id. \cr
-   group_id \tab character \tab ESPN group id. \cr
-   uid \tab character \tab ESPN UID string. \cr
-   name \tab character \tab Full name (e.g. "Eastern Conference"). \cr
-   abbreviation \tab character \tab Short code (e.g. "EAST"). \cr
-   short_name \tab character \tab Short name. \cr
-   midsize_name \tab character \tab Mid-size display name. \cr
-   is_conference \tab logical \tab Whether this group is a conference. \cr
-   slug \tab character \tab URL slug. \cr
-   parent_ref \tab character \tab \verb{$ref} to parent group (if any). \cr
-   children_ref \tab character \tab \verb{$ref} to child-groups endpoint. \cr
-   teams_ref \tab character \tab \verb{$ref} to teams-in-group endpoint. \cr
-   standings_ref \tab character \tab \verb{$ref} to standings endpoint. \cr
-}
+A single-row tibble.
+
+Columns as documented in the shared \link{espn_basketball_season_group_schema} table.
 }
 \description{
 Returns metadata for one group (conference or division) in one

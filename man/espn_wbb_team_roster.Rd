@@ -14,24 +14,9 @@ espn_wbb_team_roster(team_id, season = most_recent_wbb_season(), ...)
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A single tibble with one row per athlete.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   full_name \tab character \tab Player's full name. \cr
-   jersey \tab character \tab Jersey number worn by the player. \cr
-   position_abbrev \tab character \tab Abbreviation for position. \cr
-   position_name \tab character \tab Listed roster position ('Guard', 'Forward', 'Center'). \cr
-   height \tab character \tab Player height (string e.g. '6-2' or inches). \cr
-   weight \tab character \tab Player weight in pounds. \cr
-   age \tab character \tab Player age (in years). \cr
-   birth_date \tab character \tab Date of birth (YYYY-MM-DD). \cr
-   birth_place \tab character \tab Place of birth. \cr
-   headshot \tab character \tab Headshot image URL. \cr
-   link_web \tab character \tab Web link / URL. \cr
-   status \tab character \tab Status label. \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-}
+A single tibble with one row per athlete.
+
+Columns as documented in the shared \link{espn_basketball_team_roster_schema} table.
 }
 \description{
 \strong{Get ESPN Women's College Basketball Team Roster}

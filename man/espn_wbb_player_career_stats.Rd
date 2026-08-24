@@ -17,26 +17,9 @@ Pass a vector like \code{c(0L, 1L, 2L)} to bind multiple types via a
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A long tibble (one row per stat_type × split × category × stat).\tabular{lll}{
-   col_name \tab types \tab description \cr
-   league \tab character \tab League slug. \cr
-   athlete_id \tab character \tab ESPN athlete id. \cr
-   stat_type_id \tab character \tab Stat-type code (0 = reg, 1 = post, 2 = career). \cr
-   split_id \tab character \tab Split id. \cr
-   split_name \tab character \tab Split name (typically "All Splits"). \cr
-   split_type \tab character \tab Split type code. \cr
-   category_name \tab character \tab Category key (e.g. "defensive"). \cr
-   category_display \tab character \tab Category display name. \cr
-   category_short \tab character \tab Category short display. \cr
-   category_abbrev \tab character \tab Category abbreviation. \cr
-   stat_name \tab character \tab Stat key. \cr
-   stat_abbrev \tab character \tab Stat abbreviation. \cr
-   stat_display \tab character \tab Stat display name. \cr
-   stat_short \tab character \tab Stat short display. \cr
-   description \tab character \tab Stat description. \cr
-   value \tab numeric \tab Stat value. \cr
-   display_value \tab character \tab Display-formatted value. \cr
-}
+A long tibble (one row per stat_type × split × category × stat).
+
+Columns as documented in the shared \link{espn_basketball_player_career_stats_schema} table.
 }
 \description{
 Returns career stats for a WBB athlete in long format. Default

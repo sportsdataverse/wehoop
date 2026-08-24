@@ -24,24 +24,9 @@ wnba_scoreboard(
 Return a named list of data frames: Available, EastConfStandingsByDay,
 GameHeader, LastMeeting, LineScore, SeriesStandings, WestConfStandingsByDay
 
-\strong{GameHeader}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_DATE_EST \tab character \tab Game date est. \cr
-   GAME_SEQUENCE \tab character \tab Game sequence. \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   GAME_STATUS_ID \tab character \tab Numeric game status identifier. \cr
-   GAME_STATUS_TEXT \tab character \tab Game status display text (e.g. 'Final', '4:32 - 4th'). \cr
-   GAMECODE \tab character \tab Gamecode. \cr
-   HOME_TEAM_ID \tab character \tab Unique identifier for the home team. \cr
-   VISITOR_TEAM_ID \tab character \tab Unique identifier for visitor team. \cr
-   SEASON \tab character \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   LIVE_PERIOD \tab character \tab Live period. \cr
-   LIVE_PC_TIME \tab character \tab Time / clock value. \cr
-   NATL_TV_BROADCASTER_ABBREVIATION \tab character \tab Natl tv broadcaster abbreviation. \cr
-   LIVE_PERIOD_TIME_BCAST \tab character \tab Live period time bcast. \cr
-   WH_STATUS \tab character \tab Wh status. \cr
-}
+\strong{GameHeader}
 
+Columns as documented in the shared \link{wnba_boxscoresummaryv2_game_summary_schema} table.
 
 \strong{LineScore}\tabular{lll}{
    col_name \tab types \tab description \cr
@@ -76,69 +61,21 @@ GameHeader, LastMeeting, LineScore, SeriesStandings, WestConfStandingsByDay
 }
 
 
-\strong{SeriesStandings}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   HOME_TEAM_ID \tab character \tab Unique identifier for the home team. \cr
-   VISITOR_TEAM_ID \tab character \tab Unique identifier for visitor team. \cr
-   GAME_DATE_EST \tab character \tab Game date est. \cr
-   HOME_TEAM_WINS \tab character \tab Home team's team wins. \cr
-   HOME_TEAM_LOSSES \tab character \tab Home team's team losses. \cr
-   SERIES_LEADER \tab character \tab  \cr
-}
+\strong{SeriesStandings}
 
+Columns as documented in the shared \link{wnba_boxscoresummaryv2_season_series_schema} table.
 
-\strong{LastMeeting}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   GAME_ID \tab character \tab Unique game identifier. \cr
-   LAST_GAME_ID \tab character \tab  \cr
-   LAST_GAME_DATE_EST \tab character \tab  \cr
-   LAST_GAME_HOME_TEAM_ID \tab character \tab  \cr
-   LAST_GAME_HOME_TEAM_CITY \tab character \tab  \cr
-   LAST_GAME_HOME_TEAM_NAME \tab character \tab  \cr
-   LAST_GAME_HOME_TEAM_ABBREVIATION \tab character \tab  \cr
-   LAST_GAME_HOME_TEAM_POINTS \tab character \tab  \cr
-   LAST_GAME_VISITOR_TEAM_ID \tab character \tab  \cr
-   LAST_GAME_VISITOR_TEAM_CITY \tab character \tab  \cr
-   LAST_GAME_VISITOR_TEAM_NAME \tab character \tab  \cr
-   LAST_GAME_VISITOR_TEAM_CITY1 \tab character \tab  \cr
-   LAST_GAME_VISITOR_TEAM_POINTS \tab character \tab  \cr
-}
+\strong{LastMeeting}
 
+Columns as documented in the shared \link{wnba_boxscoresummaryv2_last_meeting_schema} table.
 
-\strong{EastConfStandingsByDay}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   LEAGUE_ID \tab character \tab League identifier ('10' = WNBA). \cr
-   SEASON_ID \tab character \tab Unique season identifier. \cr
-   STANDINGSDATE \tab character \tab  \cr
-   CONFERENCE \tab character \tab Filter players or teams by conference. \cr
-   TEAM \tab character \tab Team-side label or team identifier. \cr
-   G \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   HOME_RECORD \tab character \tab Home win-loss record. \cr
-   ROAD_RECORD \tab character \tab Win-loss record for road. \cr
-}
+\strong{EastConfStandingsByDay}
 
+Columns as documented in the shared \link{wnba_scoreboard_east_conf_standings_by_day_schema} table.
 
-\strong{WestConfStandingsByDay}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   LEAGUE_ID \tab character \tab League identifier ('10' = WNBA). \cr
-   SEASON_ID \tab character \tab Unique season identifier. \cr
-   STANDINGSDATE \tab character \tab  \cr
-   CONFERENCE \tab character \tab Filter players or teams by conference. \cr
-   TEAM \tab character \tab Team-side label or team identifier. \cr
-   G \tab character \tab Games played. \cr
-   W \tab character \tab Wins. \cr
-   L \tab character \tab Losses. \cr
-   W_PCT \tab character \tab Wins percentage (0-1 decimal). \cr
-   HOME_RECORD \tab character \tab Home win-loss record. \cr
-   ROAD_RECORD \tab character \tab Win-loss record for road. \cr
-}
+\strong{WestConfStandingsByDay}
 
+Columns as documented in the shared \link{wnba_scoreboard_east_conf_standings_by_day_schema} table.
 
 \strong{Available}\tabular{lll}{
    col_name \tab types \tab description \cr

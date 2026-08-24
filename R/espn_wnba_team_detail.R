@@ -24,20 +24,7 @@ NULL
 #'
 #'    **Info**
 #'
-#'    |col_name           |types     |description                                |
-#'    |:------------------|:---------|:------------------------------------------|
-#'    |id                 |character |Unique play identifcation number           |
-#'    |uid                |character |ESPN UID string (universal identifier).    |
-#'    |slug               |character |URL-safe identifier.                       |
-#'    |abbreviation       |character |Short abbreviation.                        |
-#'    |display_name       |character |Display name.                              |
-#'    |short_display_name |character |Short display name.                        |
-#'    |name               |character |Display name.                              |
-#'    |nickname           |character |Team or athlete nickname.                  |
-#'    |location           |character |Filter results by game location.           |
-#'    |color              |character |Primary color (hex without leading '#').   |
-#'    |alternate_color    |character |Alternate color (hex without leading '#'). |
-#'    |logo               |character |Team or league logo URL.                   |
+#'    Columns as documented in the shared [espn_basketball_team_info_schema] table.
 #'
 #'    **Record**
 #'
@@ -49,12 +36,7 @@ NULL
 #'
 #'    **NextEvent**
 #'
-#'    |col_name   |types     |description                      |
-#'    |:----------|:---------|:--------------------------------|
-#'    |id         |character |Unique play identifcation number |
-#'    |date       |character |Date in YYYY-MM-DD format.       |
-#'    |name       |character |Display name.                    |
-#'    |short_name |character |Short display name.              |
+#'    Columns as documented in the shared [espn_basketball_player_overview_next_game_schema] table.
 #'
 #'    **StandingSummary**
 #'
@@ -107,23 +89,7 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single tibble with one row per athlete.
 #'
-#'    |col_name        |types     |description                                            |
-#'    |:---------------|:---------|:------------------------------------------------------|
-#'    |athlete_id      |character |Unique athlete identifier (ESPN).                      |
-#'    |full_name       |character |Player's full name.                                    |
-#'    |jersey          |character |Jersey number worn by the player.                      |
-#'    |position_abbrev |character |Abbreviation for position.                             |
-#'    |position_name   |character |Listed roster position ('Guard', 'Forward', 'Center'). |
-#'    |height          |character |Player height (string e.g. '6-2' or inches).           |
-#'    |weight          |character |Player weight in pounds.                               |
-#'    |age             |character |Player age (in years).                                 |
-#'    |birth_date      |character |Date of birth (YYYY-MM-DD).                            |
-#'    |birth_place     |character |Place of birth.                                        |
-#'    |headshot        |character |Headshot image URL.                                    |
-#'    |link_web        |character |Web link / URL.                                        |
-#'    |status          |character |Status label.                                          |
-#'    |team_id         |character |Unique team identifier.                                |
-#'    |season          |integer   |Season identifier (4-digit year or 'YYYY-YY' string).  |
+#'    Columns as documented in the shared [espn_basketball_team_roster_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -163,29 +129,7 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single tibble with one row per event.
 #'
-#'    |col_name               |types     |description                                                                                                        |
-#'    |:----------------------|:---------|:------------------------------------------------------------------------------------------------------------------|
-#'    |event_id               |character |Unique event / game identifier (ESPN).                                                                             |
-#'    |season                 |integer   |Season identifier (4-digit year or 'YYYY-YY' string).                                                              |
-#'    |season_type            |integer   |Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN; or string label for WNBA Stats). |
-#'    |week                   |integer   |Week number within the season.                                                                                     |
-#'    |date                   |character |Date in YYYY-MM-DD format.                                                                                         |
-#'    |name                   |character |Display name.                                                                                                      |
-#'    |short_name             |character |Short display name.                                                                                                |
-#'    |opponent_id            |character |Unique identifier for opponent.                                                                                    |
-#'    |opponent_abbrev        |character |Abbreviation for opponent.                                                                                         |
-#'    |home_away              |character |Game venue label ('home' or 'away').                                                                               |
-#'    |neutral_site           |logical   |Neutral site.                                                                                                      |
-#'    |conference_competition |logical   |Conference competition.                                                                                            |
-#'    |venue_id               |character |Unique venue identifier.                                                                                           |
-#'    |venue_name             |character |Venue name.                                                                                                        |
-#'    |venue_city             |character |Venue city.                                                                                                        |
-#'    |venue_state            |character |Venue state / region.                                                                                              |
-#'    |broadcast              |character |Broadcast information string.                                                                                      |
-#'    |result                 |character |Result.                                                                                                            |
-#'    |team_score             |character |Team's score / final score.                                                                                        |
-#'    |opponent_score         |character |Opponent score.                                                                                                    |
-#'    |winner                 |logical   |Winner.                                                                                                            |
+#'    Columns as documented in the shared [espn_basketball_team_schedule_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
@@ -225,16 +169,7 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single long-format tibble (one row per category-rank-athlete).
 #'
-#'    |col_name     |types     |description                                                 |
-#'    |:------------|:---------|:-----------------------------------------------------------|
-#'    |team_id      |character |Unique team identifier.                                     |
-#'    |season       |integer   |Season identifier (4-digit year or 'YYYY-YY' string).       |
-#'    |category     |character |Category label.                                             |
-#'    |display_name |character |Display name.                                               |
-#'    |athlete_id   |character |Unique athlete identifier (ESPN).                           |
-#'    |athlete_name |character |Athlete display name (ESPN).                                |
-#'    |value        |numeric   |Numeric or string value field.                              |
-#'    |rank         |integer   |Whether to include statistical ranks in the returned table. |
+#'    Columns as documented in the shared [espn_basketball_team_leaders_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of

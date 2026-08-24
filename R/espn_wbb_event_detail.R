@@ -21,20 +21,7 @@ NULL
 #' @return A tibble with one row per odds provider (typically empty for WBB
 #'   because ESPN does not carry NCAA basketball betting lines).
 #'
-#'    |col_name             |types     |description                            |
-#'    |:--------------------|:---------|:--------------------------------------|
-#'    |event_id             |character |Unique event / game identifier (ESPN). |
-#'    |provider_id          |character |Unique identifier for provider.        |
-#'    |provider_name        |character |Provider name.                         |
-#'    |details              |character |Details.                               |
-#'    |over_under           |numeric   |Over under.                            |
-#'    |spread               |numeric   |Spread.                                |
-#'    |home_money_line      |integer   |Home team's money line.                |
-#'    |away_money_line      |integer   |Away team's money line.                |
-#'    |home_team_odds_open  |numeric   |Home team's team odds open.            |
-#'    |home_team_odds_close |numeric   |Home team's team odds close.           |
-#'    |away_team_odds_open  |numeric   |Away team's team odds open.            |
-#'    |away_team_odds_close |numeric   |Away team's team odds close.           |
+#'    Columns as documented in the shared [espn_basketball_game_odds_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows
@@ -70,18 +57,7 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per play-level win-probability entry.
 #'
-#'    |col_name              |types     |description                                              |
-#'    |:---------------------|:---------|:--------------------------------------------------------|
-#'    |event_id              |character |Unique event / game identifier (ESPN).                   |
-#'    |sequence_number       |character |Sequence number representing a shot-possession (V3 PBP). |
-#'    |play_id               |character |Unique play identifier within a game.                    |
-#'    |period                |integer   |Period of the game (1-4 quarters; 5+ for OT).            |
-#'    |clock                 |character |Game clock value.                                        |
-#'    |home_win_percentage   |numeric   |Home win percentage (0-1 decimal).                       |
-#'    |away_win_percentage   |numeric   |Away win percentage (0-1 decimal).                       |
-#'    |tie_percentage        |numeric   |Tie percentage (0-1 decimal).                            |
-#'    |secs_to_end_of_period |numeric   |Secs to end of period.                                   |
-#'    |secs_to_end_of_game   |numeric   |Secs to end of game.                                     |
+#'    Columns as documented in the shared [espn_basketball_game_probabilities_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows
@@ -116,16 +92,7 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per official assigned to the game.
 #'
-#'    |col_name      |types     |description                                            |
-#'    |:-------------|:---------|:------------------------------------------------------|
-#'    |event_id      |character |Unique event / game identifier (ESPN).                 |
-#'    |official_id   |character |Unique official / referee identifier.                  |
-#'    |full_name     |character |Player's full name.                                    |
-#'    |display_name  |character |Display name.                                          |
-#'    |position_id   |character |Unique position identifier.                            |
-#'    |position_name |character |Listed roster position ('Guard', 'Forward', 'Center'). |
-#'    |position_type |character |Position type.                                         |
-#'    |order         |integer   |Display order within the result set.                   |
+#'    Columns as documented in the shared [espn_basketball_game_officials_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows
@@ -159,18 +126,7 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per broadcast outlet for the game.
 #'
-#'    |col_name        |types     |description                            |
-#'    |:---------------|:---------|:--------------------------------------|
-#'    |event_id        |character |Unique event / game identifier (ESPN). |
-#'    |broadcast_id    |character |Unique identifier for broadcast.       |
-#'    |type_id         |character |Type identifier (numeric).             |
-#'    |type_short_name |character |Type short name.                       |
-#'    |type_long_name  |character |Type long name.                        |
-#'    |market_id       |character |Unique identifier for market.          |
-#'    |market_type     |character |Market type.                           |
-#'    |names           |character |Names.                                 |
-#'    |lang            |character |Lang.                                  |
-#'    |region          |character |Region label.                          |
+#'    Columns as documented in the shared [espn_basketball_game_broadcasts_schema] table.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble any_of bind_rows

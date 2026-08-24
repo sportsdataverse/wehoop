@@ -26,18 +26,9 @@ the season data into a database.}
 \item{tablename}{The name of the game rosters data table within the database}
 }
 \value{
-Returns a \code{wehoop_data} tibble with one row per athlete-team-game.\tabular{lll}{
-   col_name \tab types \tab description \cr
-   game_id \tab character \tab Unique game identifier. \cr
-   season \tab integer \tab Season identifier (4-digit year or 'YYYY-YY' string). \cr
-   team_id \tab character \tab Unique team identifier. \cr
-   athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
-   athlete_display_name \tab character \tab Athlete display name (full). \cr
-   athlete_position \tab character \tab Athlete position. \cr
-   athlete_jersey \tab character \tab Athlete jersey number. \cr
-   starter \tab logical \tab TRUE if the player was in the starting lineup; FALSE otherwise. \cr
-   did_not_play \tab logical \tab TRUE if the player did not appear in the game. \cr
-}
+Returns a \code{wehoop_data} tibble with one row per athlete-team-game.
+
+Columns as documented in the shared \link{basketball_load_wbb_game_rosters_schema} table.
 }
 \description{
 \code{load_wnba_game_rosters_manifest()} returns the per-season

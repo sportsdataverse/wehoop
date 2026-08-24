@@ -154,14 +154,9 @@ TeamLooseBallLeaders, TeamScreenAssistLeaders
 }
 
 
-\strong{Table6}\tabular{lll}{
-   col_name \tab types \tab description \cr
-   TEAM_ID \tab character \tab Unique team identifier. \cr
-   TEAM_NAME \tab character \tab Full team display name (e.g. 'Las Vegas Aces'). \cr
-   TEAM_ABBREVIATION \tab character \tab Short team abbreviation (e.g. 'LAS'). \cr
-   RANK \tab character \tab Whether to include statistical ranks in the returned table. \cr
-   BOX_OUTS \tab character \tab Box-outs executed. \cr
-}
+\strong{Table6}
+
+Same columns as the \strong{Table5} table above.
 }
 \description{
 \strong{Get WNBA Stats API League Hustle Stats Team Leaders}
