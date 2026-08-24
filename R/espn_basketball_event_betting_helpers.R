@@ -23,7 +23,15 @@
   .espn_bball_validate_league(league)
   .args <- list(league = league, event_id = event_id)
 
-  result <- data.frame()
+  # documented schema even when the request errors, matching the empty-items path
+  result <- data.frame(
+    event_id              = character(0),
+    provider_id           = character(0),
+    provider_name         = character(0),
+    details               = character(0),
+    over_under            = numeric(0),
+    spread                = numeric(0)
+  )
 
   url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",

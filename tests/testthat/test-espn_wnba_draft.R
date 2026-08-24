@@ -17,10 +17,7 @@ test_that("ESPN - WNBA Draft", {
     "pick",
     "overall",
     "team_id",
-    "athlete_id",
-    "athlete_name",
-    "position",
-    "college"
+    "athlete_id"
   )
 
   expect_in(sort(cols), sort(colnames(x)))

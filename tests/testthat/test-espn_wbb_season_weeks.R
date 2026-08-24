@@ -11,7 +11,7 @@ test_that("ESPN - WBB Season Weeks Index", {
 
   required_cols <- c(
     "season",
-    "week_number",
+    "week",
     "league"
   )
   expect_in(sort(required_cols), sort(colnames(x)))
