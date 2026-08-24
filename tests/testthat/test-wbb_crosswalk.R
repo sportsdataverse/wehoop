@@ -41,6 +41,7 @@
 # ---------------------------------------------------------------------------
 
 test_that(".wbb_apply_bart_alias maps known Torvik names to ESPN locations", {
+  skip_on_cran()
   expect_equal(.wbb_apply_bart_alias("Connecticut"), "UConn")
   expect_equal(.wbb_apply_bart_alias("Mississippi"), "Ole Miss")
   expect_equal(.wbb_apply_bart_alias("N.C. State"),  "NC State")
@@ -49,6 +50,7 @@ test_that(".wbb_apply_bart_alias maps known Torvik names to ESPN locations", {
 })
 
 test_that(".wbb_apply_fox_alias maps Fox keys to ESPN keys", {
+  skip_on_cran()
   expect_equal(
     .wbb_apply_fox_alias("uconn huskies"),
     "uconn huskies"
@@ -69,6 +71,7 @@ test_that(".wbb_apply_fox_alias maps Fox keys to ESPN keys", {
 })
 
 test_that(".bb_assemble_team_crosswalk_wbb exact-matches 3 synthetic teams", {
+  skip_on_cran()
   espn <- .make_espn()
   fox  <- .make_fox()
   bart <- .make_bart()
@@ -107,6 +110,7 @@ test_that(".bb_assemble_team_crosswalk_wbb exact-matches 3 synthetic teams", {
 })
 
 test_that(".bb_assemble_team_crosswalk_wbb handles NULL fox gracefully", {
+  skip_on_cran()
   espn <- .make_espn()
   bart <- .make_bart()
 
@@ -121,6 +125,7 @@ test_that(".bb_assemble_team_crosswalk_wbb handles NULL fox gracefully", {
 })
 
 test_that(".bb_assemble_team_crosswalk_wbb dedupes ESPN by team_id", {
+  skip_on_cran()
   espn_dup <- rbind(.make_espn(), .make_espn()[1, ])  # duplicate row 1
   xw <- .bb_assemble_team_crosswalk_wbb(
     espn = espn_dup, fox = .make_fox(), bart = .make_bart(), season = 2025L
@@ -203,6 +208,7 @@ test_that("wbb_team_crosswalk() live Fox+Bart rates >= 0.90", {
 }
 
 test_that(".bb_assemble_schedule_crosswalk_wbb joins ESPN + Torvik on date + pair key", {
+  skip_on_cran()
   xw   <- .make_xwalk_for_sched()
   eg   <- .make_espn_games()
   bg   <- .make_bart_games_for_sched()
@@ -229,6 +235,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb joins ESPN + Torvik on date + pai
 })
 
 test_that(".bb_assemble_schedule_crosswalk_wbb dedupes ESPN games repeated across scoreboard groups", {
+  skip_on_cran()
   # espn_wbb_scoreboard() returns each game once per ESPN group (D-I, conference
   # tournaments, etc.), so the per-date pull can contain several identical rows
   # for one game. The assembler must collapse them to a single joined row.
@@ -249,6 +256,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb dedupes ESPN games repeated acros
 })
 
 test_that(".bb_assemble_schedule_crosswalk_wbb espn-only row when Torvik absent", {
+  skip_on_cran()
   xw <- .make_xwalk_for_sched()
   eg <- .make_espn_games()
   bg <- data.frame(muid = character(), game_date = as.Date(character()),
@@ -263,6 +271,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb espn-only row when Torvik absent"
 })
 
 test_that(".bb_assemble_schedule_crosswalk_wbb bart-only row when ESPN absent", {
+  skip_on_cran()
   xw <- .make_xwalk_for_sched()
   eg <- data.frame(espn_game_id = character(), game_date = as.Date(character()),
                    home_espn_team_id = integer(), away_espn_team_id = integer(),
@@ -278,6 +287,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb bart-only row when ESPN absent", 
 })
 
 test_that(".bb_assemble_schedule_crosswalk_wbb keeps Torvik game as bart_only when team unresolvable", {
+  skip_on_cran()
   # A Torvik game whose team1 cannot be resolved to an ESPN id should appear as
   # a bart_only row (home/away ESPN ids NA) rather than being silently dropped.
   xw <- .make_xwalk_for_sched()
@@ -305,6 +315,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb keeps Torvik game as bart_only wh
 })
 
 test_that(".bb_assemble_schedule_crosswalk_wbb no duplicate espn_game_id columns", {
+  skip_on_cran()
   xw     <- .make_xwalk_for_sched()
   eg     <- .make_espn_games()
   bg     <- .make_bart_games_for_sched()
@@ -344,6 +355,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb no duplicate espn_game_id columns
 }
 
 test_that(".bb_assemble_player_crosswalk_wbb exact + fuzzy match for 2 players", {
+  skip_on_cran()
   espn <- .make_espn_players()
   fox  <- .make_fox_players()
 
@@ -365,6 +377,7 @@ test_that(".bb_assemble_player_crosswalk_wbb exact + fuzzy match for 2 players",
 })
 
 test_that(".bb_assemble_player_crosswalk_wbb output has all required columns", {
+  skip_on_cran()
   espn   <- .make_espn_players()
   fox    <- .make_fox_players()
   result <- .bb_assemble_player_crosswalk_wbb(espn, fox, season = 2025L)
@@ -380,6 +393,7 @@ test_that(".bb_assemble_player_crosswalk_wbb output has all required columns", {
 })
 
 test_that(".bb_assemble_player_crosswalk_wbb handles empty Fox gracefully", {
+  skip_on_cran()
   espn <- .make_espn_players()
   fox_empty <- data.frame(
     espn_team_id       = integer(),

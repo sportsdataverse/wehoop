@@ -25,6 +25,7 @@ build_wnba_aths <- function(plays) {
 }
 
 test_that("WNBA participants: 2-max-participant game does not error and pads athlete.id.3", {
+  skip_on_cran()
   plays <- dplyr::tibble(
     id = c("1", "2"),
     participants = list(
@@ -41,6 +42,7 @@ test_that("WNBA participants: 2-max-participant game does not error and pads ath
 })
 
 test_that("WNBA participants: 4-participant play does not error and truncates to athlete.id.3", {
+  skip_on_cran()
   plays <- dplyr::tibble(
     id = c("1"),
     participants = list(

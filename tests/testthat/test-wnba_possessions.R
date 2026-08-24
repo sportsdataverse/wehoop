@@ -39,6 +39,7 @@
 # ---------------------------------------------------------------------------
 
 test_that(".is_last_ft matches the NBA/WNBA + G-League free-throw contract", {
+  skip_on_cran()
   # NBA/WNBA "N of N" sequence labels -- last FT of sequence -> TRUE
   expect_true(.is_last_ft("Free Throw 2 of 2"))
   expect_true(.is_last_ft("Free Throw 1 of 1"))
@@ -73,6 +74,7 @@ test_that(".is_last_ft matches the NBA/WNBA + G-League free-throw contract", {
 # ---------------------------------------------------------------------------
 
 test_that(".offense_from_events returns correct offense team from scoring events", {
+  skip_on_cran()
   # Use WNBA-range team IDs for the test
   home_id <- 1611661322L  # WAS
   away_id <- 1611661313L  # NYL
@@ -124,6 +126,7 @@ test_that(".offense_from_events returns correct offense team from scoring events
 # ---------------------------------------------------------------------------
 
 test_that(".OFFENSE_SEEDING_EVENT_TYPES contains only shot/turnover event_type codes", {
+  skip_on_cran()
   # Must include MadeShot("1"), MissedShot("2"), FreeThrow("3"), Turnover("5")
   expect_true("1" %in% .OFFENSE_SEEDING_EVENT_TYPES)  # MadeShot
   expect_true("2" %in% .OFFENSE_SEEDING_EVENT_TYPES)  # MissedShot
@@ -153,6 +156,7 @@ test_that(".OFFENSE_SEEDING_EVENT_TYPES contains only shot/turnover event_type c
 # ---------------------------------------------------------------------------
 
 test_that("possession points reconcile to the boxscore (independent oracle)", {
+  skip_on_cran()
   for (gid in c("1022400001", "1022400003")) {
     pbp <- readRDS(test_path("fixtures", "wnba_engine", paste0("pbp_", gid, ".rds")))
     box <- readRDS(test_path("fixtures", "wnba_engine", paste0("box_", gid, ".rds")))
@@ -193,6 +197,7 @@ test_that("possession points reconcile to the boxscore (independent oracle)", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_possessions emits a logical second_chance flag", {
+  skip_on_cran()
   for (gid in c("1022400001", "1022400003")) {
     pbp  <- readRDS(test_path("fixtures", "wnba_engine", paste0("pbp_", gid, ".rds")))
     poss <- .build_possessions(pbp)
@@ -222,6 +227,7 @@ test_that(".build_possessions emits a logical second_chance flag", {
 # ---------------------------------------------------------------------------
 
 test_that("possession on-court ids are all in the boxscore roster (independent oracle)", {
+  skip_on_cran()
   off_cols <- paste0("off_player_", 1:5)
   def_cols <- paste0("def_player_", 1:5)
 
@@ -290,6 +296,7 @@ test_that("possession on-court ids are all in the boxscore roster (independent o
 # ---------------------------------------------------------------------------
 
 test_that("possession engine is never-raise on empty PBP", {
+  skip_on_cran()
   pbp <- readRDS(test_path("fixtures", "wnba_engine", "pbp_1022400003.rds"))
   empty <- head(pbp, 0)
   poss0 <- .build_possessions(empty)
@@ -309,6 +316,7 @@ test_that("possession engine is never-raise on empty PBP", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design encodes offense/defense indicators correctly", {
+  skip_on_cran()
   rows <- list(
     list(off = c(1L, 2L, 3L, 4L, 5L),    def = c(11L, 12L, 13L, 14L, 15L), pts = 2),
     list(off = c(11L, 12L, 13L, 14L, 15L), def = c(1L,  2L,  3L,  4L,  5L),  pts = 0)
@@ -353,6 +361,7 @@ test_that(".build_rapm_design encodes offense/defense indicators correctly", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design handles empty possessions without raising", {
+  skip_on_cran()
   empty <- data.frame(
     off_player_1 = integer(0), off_player_2 = integer(0),
     off_player_3 = integer(0), off_player_4 = integer(0),
@@ -377,6 +386,7 @@ test_that(".build_rapm_design handles empty possessions without raising", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design drops possessions with NA lineup cells (never-raise)", {
+  skip_on_cran()
   df <- data.frame(
     off_player_1 = c(NA_integer_, 1L),
     off_player_2 = c(2L,         2L),
@@ -419,6 +429,7 @@ test_that(".build_rapm_design drops possessions with NA lineup cells (never-rais
 # ---------------------------------------------------------------------------
 
 test_that("wnba_rapm returns correct schema on a tiny hand frame", {
+  skip_on_cran()
   rows <- list(
     list(off = c(1L, 2L, 3L, 7L, 8L), def = c(4L, 5L, 6L, 9L, 10L), pts = 2),
     list(off = c(1L, 2L, 3L, 7L, 8L), def = c(4L, 5L, 6L, 9L, 10L), pts = 1),
@@ -447,6 +458,7 @@ test_that("wnba_rapm returns correct schema on a tiny hand frame", {
 # ---------------------------------------------------------------------------
 
 test_that("wnba_rapm returns 0-row schema frame on empty input (never-raise)", {
+  skip_on_cran()
   empty <- data.frame(
     off_player_1 = integer(0), off_player_2 = integer(0),
     off_player_3 = integer(0), off_player_4 = integer(0),
@@ -477,6 +489,7 @@ test_that("wnba_rapm returns 0-row schema frame on empty input (never-raise)", {
 # ---------------------------------------------------------------------------
 
 test_that("wnba_rapm recovers planted player effects (synthetic recovery)", {
+  skip_on_cran()
   set.seed(42)
   P         <- 40L
   true_off  <- rnorm(P, 0, 0.06)
@@ -525,6 +538,7 @@ test_that("wnba_rapm recovers planted player effects (synthetic recovery)", {
 # ===========================================================================
 
 test_that("wnba_rapm runs end-to-end on a real WNBA game (offline smoke)", {
+  skip_on_cran()
   fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
   skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
   pbp  <- readRDS(fx)

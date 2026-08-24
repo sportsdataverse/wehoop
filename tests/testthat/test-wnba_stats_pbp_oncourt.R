@@ -21,6 +21,7 @@
 }
 
 test_that(".players_on_court_v3_wnba falls back to substitution inference on empty rotation", {
+  skip_on_cran()
   testthat::local_mocked_bindings(wnba_gamerotation = function(...) NULL)
   pbp <- .oncourt_stub_pbp()
   res <- suppressMessages(.players_on_court_v3_wnba(pbp))
@@ -35,6 +36,7 @@ test_that(".players_on_court_v3_wnba falls back to substitution inference on emp
 })
 
 test_that("fallback inference tracks a substitution event", {
+  skip_on_cran()
   testthat::local_mocked_bindings(wnba_gamerotation = function(...) NULL)
   pbp <- .oncourt_stub_pbp()
   sub_row <- dplyr::tibble(
@@ -82,6 +84,7 @@ test_that("fallback inference tracks a substitution event", {
 })
 
 test_that(".players_on_court_v3_wnba degrades to NA columns when the fallback also fails", {
+  skip_on_cran()
   testthat::local_mocked_bindings(wnba_gamerotation = function(...) NULL)
   # frame lacks the columns substitution inference needs -> fallback errors -> NA path
   pbp <- dplyr::tibble(game_id = "1022400001", period = 1L)

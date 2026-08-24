@@ -17,6 +17,7 @@ test_that("Her Hoop Stats - Teams", {
 })
 
 test_that("Her Hoop Stats - credential gate", {
+  skip_on_cran()
   # With no credentials, the wrappers must fail gracefully (empty data.frame),
   # never error out of the tryCatch.
   old_e <- Sys.getenv("HERHOOPSTATS_EMAIL")

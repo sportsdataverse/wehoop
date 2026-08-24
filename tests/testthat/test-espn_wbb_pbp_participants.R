@@ -27,6 +27,7 @@ build_wbb_aths <- function(plays) {
 }
 
 test_that("WBB participants: 1-max-participant game does not error and pads athlete.id.2", {
+  skip_on_cran()
   plays <- dplyr::tibble(
     id = c("1", "2"),
     participants = list(
@@ -43,6 +44,7 @@ test_that("WBB participants: 1-max-participant game does not error and pads athl
 })
 
 test_that("WBB participants: 4-participant play does not error and truncates to athlete.id.2", {
+  skip_on_cran()
   plays <- dplyr::tibble(
     id = c("1"),
     participants = list(

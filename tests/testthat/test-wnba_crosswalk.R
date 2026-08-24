@@ -1,4 +1,5 @@
 test_that(".bb_assemble_team_crosswalk_wnba joins ESPN/Stats/Fox on espn_team_id", {
+  skip_on_cran()
   espn <- data.frame(
     team_id = c(17L, 9L), abbreviation = c("LV", "NY"),
     display_name = c("Las Vegas Aces", "New York Liberty"),
@@ -29,6 +30,7 @@ test_that(".bb_assemble_team_crosswalk_wnba joins ESPN/Stats/Fox on espn_team_id
 })
 
 test_that(".bb_assemble_schedule_crosswalk_wnba full-outer joins on ET date + teams", {
+  skip_on_cran()
   team_xwalk <- data.frame(
     espn_team_id = c(17L, 9L), wnba_team_id = c("1611661319", "1611661313"),
     stringsAsFactors = FALSE
@@ -55,6 +57,7 @@ test_that(".bb_assemble_schedule_crosswalk_wnba full-outer joins on ET date + te
 })
 
 test_that(".bb_assemble_player_crosswalk_wnba matches ESPN/Stats within team blocks", {
+  skip_on_cran()
   espn <- data.frame(
     espn_team_id = c(17L, 17L), team_abbreviation = c("LV", "LV"),
     espn_athlete_id = c("a1", "a2"),

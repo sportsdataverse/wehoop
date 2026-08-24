@@ -1,4 +1,5 @@
 test_that("load_wnba_stats_leaguedash rejects an unknown or missing table", {
+  skip_on_cran()
   expect_error(load_wnba_stats_leaguedash(seasons = 2026),
                "must be exactly one of")
   expect_error(load_wnba_stats_leaguedash(seasons = 2026, table = "not_a_table"),

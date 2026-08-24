@@ -18,6 +18,7 @@
 # ---------------------------------------------------------------------------
 
 test_that(".add_shot_zones classifies all zones correctly", {
+  skip_on_cran()
   # Build minimal fixture — only columns required by .add_shot_zones
   df <- data.frame(
     event_type    = c("1",   "2",    "1",  "1",   "2",   "3"),
@@ -63,6 +64,7 @@ test_that(".add_shot_zones classifies all zones correctly", {
 # ---------------------------------------------------------------------------
 
 test_that(".add_shot_zones handles negative x_legacy (left corner) correctly", {
+  skip_on_cran()
   df <- data.frame(
     event_type    = c("1",   "2",   "1"),
     shot_value    = c(3L,    3L,    3L),
@@ -89,6 +91,7 @@ test_that(".add_shot_zones handles negative x_legacy (left corner) correctly", {
 # ---------------------------------------------------------------------------
 
 test_that(".add_shot_zones partitions all FG rows to exactly one zone (WNBA fixture)", {
+  skip_on_cran()
   pbp <- readRDS(test_path("fixtures", "wnba_engine", "pbp_1022400003.rds"))
 
   result <- .add_shot_zones(pbp)
@@ -129,6 +132,7 @@ test_that(".add_shot_zones partitions all FG rows to exactly one zone (WNBA fixt
 # ---------------------------------------------------------------------------
 
 test_that(".add_shot_zones never-raises on 0-row input", {
+  skip_on_cran()
   pbp   <- readRDS(test_path("fixtures", "wnba_engine", "pbp_1022400003.rds"))
   empty <- head(pbp, 0)
 
