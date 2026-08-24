@@ -132,15 +132,9 @@ statistical leaders.</strong> <code>fox_wnba_league_leaders()</code> hits the <c
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other Fox Sports Functions:
-<code><a href="fox_basketball_boxscore.html">fox_basketball_boxscore</a></code>,
-<code><a href="fox_basketball_odds.html">fox_basketball_odds</a></code>,
-<code><a href="fox_basketball_pbp.html">fox_basketball_pbp</a></code>,
-<code><a href="fox_basketball_standings.html">fox_basketball_standings</a></code>,
-<code><a href="fox_basketball_team_gamelog.html">fox_basketball_team_gamelog</a></code>,
-<code><a href="fox_basketball_team_roster.html">fox_basketball_team_roster</a></code>,
-<code><a href="fox_basketball_team_stats.html">fox_basketball_team_stats</a></code>,
-<code><a href="fox_basketball_teams.html">fox_basketball_teams</a></code>,
-<code><a href="fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code></p></div>
+<code><a href="fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code>,
+<code><a href="fox_basketball_boxscore.html">fox_wnba_pbp()</a></code>,
+<code><a href="fox_basketball_standings.html">fox_wnba_team_roster()</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -148,7 +142,7 @@ statistical leaders.</strong> <code>fox_wnba_league_leaders()</code> hits the <c
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fox_wnba_league_leaders</span><span class="op">(</span><span class="st">"scoring"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Fox Sports WNBA league_leaders ────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:39:51 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 16:07:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 75 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    players v2          gp    entity_id min   mpg  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -167,7 +161,7 @@ statistical leaders.</strong> <code>fox_wnba_league_leaders()</code> hits the <c
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fox_wbb_league_leaders</span><span class="op">(</span><span class="st">"scoring"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Fox Sports WCBK league_leaders ────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:39:51 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 16:07:35 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    players v2          gp    entity_id gs    mpg   ppg   pts  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>

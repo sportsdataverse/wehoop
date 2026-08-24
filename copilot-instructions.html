@@ -151,12 +151,12 @@
 </tr><tr><td>ESPN WNBA</td>
 <td><code>espn_wnba_</code></td>
 <td>
-<code><a href="reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code>, <code><a href="reference/espn_wnba_teams.html">espn_wnba_teams()</a></code>
+<code><a href="reference/espn_wnba_game_all.html">espn_wnba_pbp()</a></code>, <code><a href="reference/espn_wnba_teams.html">espn_wnba_teams()</a></code>
 </td>
 </tr><tr><td>ESPN WBB</td>
 <td><code>espn_wbb_</code></td>
 <td>
-<code><a href="reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code>, <code><a href="reference/espn_wbb_teams.html">espn_wbb_teams()</a></code>
+<code><a href="reference/espn_wbb_game_all.html">espn_wbb_pbp()</a></code>, <code><a href="reference/espn_wbb_teams.html">espn_wbb_teams()</a></code>
 </td>
 </tr><tr><td>NCAA WBB</td>
 <td><code>ncaa_wbb_</code></td>
@@ -166,14 +166,14 @@
 <code>load_wnba_</code> / <code>load_wbb_</code>
 </td>
 <td>
-<code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_team_box.html">load_wbb_team_box()</a></code>
+<code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_game_rosters.html">load_wbb_team_box()</a></code>
 </td>
 </tr><tr><td>NCAA WBB loaders</td>
 <td><code>load_ncaa_wbb_</code></td>
 <td>
-<code><a href="reference/load_ncaa_wbb_pbp.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code>
+<code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm()</a></code>
 </td>
-</tr></tbody></table><p><strong><code>load_ncaa_wbb_*()</code> family (3.0.0)</strong>: 12 loaders (<code>pbp</code>, <code>shots</code>, <code>lineups</code>, <code>matchup_stints</code>, <code>possessions</code>, <code>rapm_within_team</code>, <code>rapm</code> (league-wide), <code>player_box</code>, <code>team_box</code>, <code>rosters</code>, <code>team_rosters</code>, <code>schedule</code>, <code>team_ids</code>) reading datasets produced by the sportsdataverse-py NCAA engine over stats.ncaa.org — wehoop ships loaders only. Coverage 2010-2026 (<code>shots</code> 2019-2026, <code>rapm</code> 2011-2026). <strong>Model-dataset loaders (3.0.0)</strong>: <code><a href="reference/load_wnba_player_impact.html">load_wnba_player_impact()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code>, <code><a href="reference/load_wbb_ratings.html">load_wbb_ratings()</a></code>, <code><a href="reference/load_wnba_stats_possessions.html">load_wnba_stats_possessions()</a></code>.</p>
+</tr></tbody></table><p><strong><code>load_ncaa_wbb_*()</code> family (3.0.0)</strong>: 12 loaders (<code>pbp</code>, <code>shots</code>, <code>lineups</code>, <code>matchup_stints</code>, <code>possessions</code>, <code>rapm_within_team</code>, <code>rapm</code> (league-wide), <code>player_box</code>, <code>team_box</code>, <code>rosters</code>, <code>team_rosters</code>, <code>schedule</code>, <code>team_ids</code>) reading datasets produced by the sportsdataverse-py NCAA engine over stats.ncaa.org — wehoop ships loaders only. Coverage 2010-2026 (<code>shots</code> 2019-2026, <code>rapm</code> 2011-2026). <strong>Model-dataset loaders (3.0.0)</strong>: <code><a href="reference/load_wbb_player_value.html">load_wnba_player_impact()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_ratings()</a></code>, <code><a href="reference/load_wnba_stats_coaches.html">load_wnba_stats_possessions()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="roxygen-documentation">Roxygen Documentation<a class="anchor" aria-label="anchor" href="#roxygen-documentation"></a></h2>
@@ -364,7 +364,7 @@
 <li>Never edit <code>NAMESPACE</code> or <code>man/</code> files by hand; regenerate with <code>devtools::document()</code>.</li>
 <li>WNBA time calculations use 10-minute quarters (600 seconds/quarter, 2400 seconds regulation) — <strong>not</strong> the NBA 12-minute / 720-second / 2880-second constants. The old <code><a href="reference/dot-players_on_court.html">.players_on_court()</a></code> helper in <code>wnba_stats_pbp.R</code> had this bug and was corrected in 3.0.0.</li>
 <li>
-<strong><code><a href="reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> / <code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> free-throw semantics</strong>: ESPN’s <code>type_text</code> is <code>"MadeFreeThrow"</code> for both made and missed free throws, and <code>score_value</code> carries the attempt’s point value (1) even on a miss — filter on <code>scoring_play</code>, not <code>type_text</code>/<code>score_value</code>. <code><a href="reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> also documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> columns.</li>
+<strong><code><a href="reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> / <code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code> free-throw semantics</strong>: ESPN’s <code>type_text</code> is <code>"MadeFreeThrow"</code> for both made and missed free throws, and <code>score_value</code> carries the attempt’s point value (1) even on a miss — filter on <code>scoring_play</code>, not <code>type_text</code>/<code>score_value</code>. <code><a href="reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> also documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> columns.</li>
 <li>
 <strong>Pre-halves-era pbp clock columns</strong>: pre-2006 WNBA and pre-2016 NCAA WBB seasons actually played halves, not quarters; the published pbp datasets have been republished with correct halves-era clock columns as of 3.0.0.</li>
 <li>

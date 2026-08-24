@@ -2,10 +2,18 @@
 
 **Parse ESPN WBB PBP, helper function**
 
+**Parse ESPN WBB Team Box, helper function**
+
+**Parse ESPN WBB Player Box, helper function**
+
 ## Usage
 
 ``` r
 helper_espn_wbb_pbp(resp)
+
+helper_espn_wbb_team_box(resp)
+
+helper_espn_wbb_player_box(resp)
 ```
 
 ## Arguments
@@ -15,5 +23,9 @@ helper_espn_wbb_pbp(resp)
   Response object from the ESPN WBB game summary endpoint
 
 ## Value
+
+Returns a tibble
+
+Returns a tibble
 
 Returns a tibble

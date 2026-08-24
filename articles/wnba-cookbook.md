@@ -33,7 +33,7 @@ Almost every function answers three questions, in order:
 
 So “a team’s roster for a season, from ESPN” assembles in your head as
 `espn_` + `wnba_` + `team` + `_roster` -\>
-[`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md).
+[`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md).
 “The league leaders from WNBA.com” is `wnba_` + `leagueleaders` -\>
 [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md).
 Hundreds of functions, one grammar. Memorize the grammar, not the list.
@@ -476,7 +476,7 @@ visible.
 season to model on.
 
 Looping
-[`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+[`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
 over hundreds of `game_id`s works but is slow and rude to ESPN. The
 `load_` prefix exists for exactly this: pre-built, pre-cleaned season
 files.

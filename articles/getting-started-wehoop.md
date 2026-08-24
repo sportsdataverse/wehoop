@@ -20,7 +20,7 @@ If you already have R, RStudio, and the package installed, jump to
 
 `wehoop` runs on R 4.1.0 or newer. Most data pulls work fine on a laptop
 – the heaviest single call
-([`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+([`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
 for every season ESPN tracks) returns roughly 7 million rows and uses
 about 1-2 GB of memory. If you’re on something memory-constrained,
 restrict to a few seasons via `seasons = 2023:2026`.
@@ -112,7 +112,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.728 sec elapsed
+    ## 1.346 sec elapsed
 
 ``` r
 
@@ -254,7 +254,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.593 sec elapsed
+    ## 0.399 sec elapsed
 
 ``` r
 
@@ -342,7 +342,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.428 sec elapsed
+    ## 0.421 sec elapsed
 
 ``` r
 
@@ -402,7 +402,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 18.707 sec elapsed
+    ## 18.067 sec elapsed
 
 ``` r
 
@@ -427,7 +427,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.673 sec elapsed
+    ## 0.503 sec elapsed
 
 ``` r
 
@@ -452,7 +452,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.528 sec elapsed
+    ## 1.338 sec elapsed
 
 ``` r
 
@@ -487,7 +487,7 @@ rosters, season-aggregated player and team stats, standings, draft
 picks, shot events, per-game rosters, and game officials – across all
 three data sources (ESPN WBB, ESPN WNBA, and the WNBA Stats API). They
 all accept the same arguments as
-[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md):
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md):
 a vector of `seasons =`, optional `dbConnection =` / `tablename =` for
 streaming straight into a database, and
 [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)

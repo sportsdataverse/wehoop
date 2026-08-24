@@ -110,7 +110,7 @@
 
 <div class="section level2">
 <h2 id="package-overview">Package Overview<a class="anchor" aria-label="anchor" href="#package-overview"></a></h2>
-<p>wehoop is an R package providing clean, tidy women’s basketball play-by-play and box score data. It wraps the WNBA Stats API, ESPN API (WNBA &amp; WBB), and NCAA women’s basketball endpoints, exporting 450+ functions across multiple data-source families: <code>wnba_*()</code> (WNBA Stats API), <code>espn_wnba_*()</code> / <code>espn_wbb_*()</code> (ESPN, 180 wrappers), <code>ncaa_wbb_*()</code> (NCAA), <code>fox_*()</code> (Fox Sports Bifrost), <code>bref_wnba_*()</code> (Basketball-Reference), <code>hhs_*()</code> (Her Hoop Stats, subscription), and <code>bart_wbb_*()</code> (Bart Torvik T-Rank). The <code>load_wnba_*()</code> / <code>load_wbb_*()</code> / <code>load_wnba_stats_*()</code> / <code>load_ncaa_wbb_*()</code> loaders (90 total) pull pre-built season parquet/rds from the sibling <code>wehoop-data</code> (and <code>wehoop-{wnba,wbb}-data</code>, <code>wehoop-wnba-stats-data</code>) release repos rather than hitting the live APIs. As of 3.0.0 the loader surface also covers the <code>load_ncaa_wbb_*</code> family (12 datasets from the sportsdataverse-py NCAA WBB engine over stats.ncaa.org, plus league-wide <code><a href="reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code>) and model-dataset loaders (<code><a href="reference/load_wnba_player_impact.html">load_wnba_player_impact()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code>, <code><a href="reference/load_wbb_ratings.html">load_wbb_ratings()</a></code>, <code><a href="reference/load_wnba_stats_possessions.html">load_wnba_stats_possessions()</a></code>).</p>
+<p>wehoop is an R package providing clean, tidy women’s basketball play-by-play and box score data. It wraps the WNBA Stats API, ESPN API (WNBA &amp; WBB), and NCAA women’s basketball endpoints, exporting 450+ functions across multiple data-source families: <code>wnba_*()</code> (WNBA Stats API), <code>espn_wnba_*()</code> / <code>espn_wbb_*()</code> (ESPN, 180 wrappers), <code>ncaa_wbb_*()</code> (NCAA), <code>fox_*()</code> (Fox Sports Bifrost), <code>bref_wnba_*()</code> (Basketball-Reference), <code>hhs_*()</code> (Her Hoop Stats, subscription), and <code>bart_wbb_*()</code> (Bart Torvik T-Rank). The <code>load_wnba_*()</code> / <code>load_wbb_*()</code> / <code>load_wnba_stats_*()</code> / <code>load_ncaa_wbb_*()</code> loaders (90 total) pull pre-built season parquet/rds from the sibling <code>wehoop-data</code> (and <code>wehoop-{wnba,wbb}-data</code>, <code>wehoop-wnba-stats-data</code>) release repos rather than hitting the live APIs. As of 3.0.0 the loader surface also covers the <code>load_ncaa_wbb_*</code> family (12 datasets from the sportsdataverse-py NCAA WBB engine over stats.ncaa.org, plus league-wide <code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm()</a></code>) and model-dataset loaders (<code><a href="reference/load_wbb_player_value.html">load_wnba_player_impact()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_ratings()</a></code>, <code><a href="reference/load_wnba_stats_coaches.html">load_wnba_stats_possessions()</a></code>).</p>
 <p><code>wehoop</code> is the women’s-basketball analogue of <code>hoopR</code> (men’s) and shares its architecture; companion data repos are <code>wehoop-wbb-raw/-data</code>, <code>wehoop-wnba-raw/-data</code>, and <code>wehoop-wnba-stats-raw/-data</code>.</p>
 <p>When this guide differs from current repository docs, treat <code>CONTRIBUTING.md</code> and current test implementations as authoritative.</p>
 <ul><li>
@@ -186,12 +186,12 @@
 </tr><tr><td>ESPN WNBA</td>
 <td><code>espn_wnba_</code></td>
 <td>
-<code><a href="reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code>, <code><a href="reference/espn_wnba_teams.html">espn_wnba_teams()</a></code>
+<code><a href="reference/espn_wnba_game_all.html">espn_wnba_pbp()</a></code>, <code><a href="reference/espn_wnba_teams.html">espn_wnba_teams()</a></code>
 </td>
 </tr><tr><td>ESPN WBB</td>
 <td><code>espn_wbb_</code></td>
 <td>
-<code><a href="reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code>, <code><a href="reference/espn_wbb_teams.html">espn_wbb_teams()</a></code>
+<code><a href="reference/espn_wbb_game_all.html">espn_wbb_pbp()</a></code>, <code><a href="reference/espn_wbb_teams.html">espn_wbb_teams()</a></code>
 </td>
 </tr><tr><td>NCAA WBB</td>
 <td><code>ncaa_wbb_</code></td>
@@ -199,7 +199,7 @@
 </tr><tr><td>Fox Sports Bifrost</td>
 <td><code>fox_</code></td>
 <td>
-<code><a href="reference/fox_basketball_teams.html">fox_wbb_teams()</a></code>, <code><a href="reference/fox_basketball_pbp.html">fox_wnba_pbp()</a></code>
+<code><a href="reference/fox_basketball_standings.html">fox_wbb_teams()</a></code>, <code><a href="reference/fox_basketball_boxscore.html">fox_wnba_pbp()</a></code>
 </td>
 </tr><tr><td>Basketball-Reference</td>
 <td><code>bref_wnba_</code></td>
@@ -217,16 +217,16 @@
 <code>load_wnba_</code> / <code>load_wbb_</code>
 </td>
 <td>
-<code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_team_box.html">load_wbb_team_box()</a></code>
+<code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_game_rosters.html">load_wbb_team_box()</a></code>
 </td>
 </tr><tr><td>NCAA WBB loaders</td>
 <td><code>load_ncaa_wbb_</code></td>
 <td>
-<code><a href="reference/load_ncaa_wbb_pbp.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code>
+<code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm()</a></code>
 </td>
 </tr></tbody></table><p><code>load_*()</code> loaders are the bulk path: they read pre-built per-season parquet/rds released from the sibling <code>wehoop-data</code> / <code>wehoop-{wnba,wbb}-data</code> / <code>wehoop-wnba-stats-data</code> repos. The <code>wnba_*</code> / <code>espn_*</code> / <code>fox_*</code> etc. functions are the live scrapers that hit the source APIs directly.</p>
 <p><strong><code>load_ncaa_wbb_*()</code> family (3.0.0):</strong> 12 loaders (<code>pbp</code>, <code>shots</code>, <code>lineups</code>, <code>matchup_stints</code>, <code>possessions</code>, <code>rapm_within_team</code>, <code>rapm</code> (league-wide RAPM), <code>player_box</code>, <code>team_box</code>, <code>rosters</code>, <code>team_rosters</code>, <code>schedule</code>, <code>team_ids</code>) reading datasets produced by the sportsdataverse-py NCAA engine against stats.ncaa.org – wehoop ships loaders only, not the scrape/build pipeline. Coverage is 2010-2026 for all datasets except <code>shots</code> (2019-2026, when stats.ncaa.org started publishing shot coordinates) and <code>rapm</code> (2011-2026). Same shape as the other <code>load_*()</code> families: <code>seasons</code> arg, <code><a href="reference/rds_from_url.html">rds_from_url()</a></code>, optional <code>dbConnection</code>/<code>tablename</code>.</p>
-<p><strong>Model-dataset loaders (3.0.0):</strong> <code><a href="reference/load_wnba_player_impact.html">load_wnba_player_impact()</a></code> (RAPM/SPM/BPM/ DARKO player-impact ratings, 1997-2026), <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code> (box-score BPM, 2014-2026), <code><a href="reference/load_wbb_ratings.html">load_wbb_ratings()</a></code> (adjusted-efficiency team ratings, 2008-2026), and <code><a href="reference/load_wnba_stats_possessions.html">load_wnba_stats_possessions()</a></code> (possession-level data derived from WNBA Stats API pbp, 1997-2026). The three player/team-rating loaders are parquet-only, so they wrap <code><a href="reference/parquet_from_url.html">parquet_from_url()</a></code> instead of <code><a href="reference/rds_from_url.html">rds_from_url()</a></code>.</p>
+<p><strong>Model-dataset loaders (3.0.0):</strong> <code><a href="reference/load_wbb_player_value.html">load_wnba_player_impact()</a></code> (RAPM/SPM/BPM/ DARKO player-impact ratings, 1997-2026), <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code> (box-score BPM, 2014-2026), <code><a href="reference/load_wbb_player_value.html">load_wbb_ratings()</a></code> (adjusted-efficiency team ratings, 2008-2026), and <code><a href="reference/load_wnba_stats_coaches.html">load_wnba_stats_possessions()</a></code> (possession-level data derived from WNBA Stats API pbp, 1997-2026). The three player/team-rating loaders are parquet-only, so they wrap <code><a href="reference/parquet_from_url.html">parquet_from_url()</a></code> instead of <code><a href="reference/rds_from_url.html">rds_from_url()</a></code>.</p>
 </div>
 <div class="section level3">
 <h3 id="function-pattern-wnba-stats-api">Function Pattern (WNBA Stats API)<a class="anchor" aria-label="anchor" href="#function-pattern-wnba-stats-api"></a></h3>
@@ -504,16 +504,16 @@
 <code><a href="reference/wnba_team_crosswalk.html">wnba_team_crosswalk()</a></code>, <code><a href="reference/wnba_schedule_crosswalk.html">wnba_schedule_crosswalk()</a></code>, <code><a href="reference/wnba_player_crosswalk.html">wnba_player_crosswalk()</a></code>
 </td>
 <td>
-<code><a href="reference/load_wnba_team_crosswalk.html">load_wnba_team_crosswalk()</a></code>, <code><a href="reference/load_wnba_schedule_crosswalk.html">load_wnba_schedule_crosswalk()</a></code>, <code><a href="reference/load_wnba_player_crosswalk.html">load_wnba_player_crosswalk()</a></code>
+<code><a href="reference/load_wbb_player_crosswalk.html">load_wnba_team_crosswalk()</a></code>, <code><a href="reference/load_wbb_player_crosswalk.html">load_wnba_schedule_crosswalk()</a></code>, <code><a href="reference/load_wbb_player_crosswalk.html">load_wnba_player_crosswalk()</a></code>
 </td>
 </tr><tr><td>WBB</td>
 <td>
 <code><a href="reference/wbb_team_crosswalk.html">wbb_team_crosswalk()</a></code>, <code><a href="reference/wbb_schedule_crosswalk.html">wbb_schedule_crosswalk()</a></code>, <code><a href="reference/wbb_player_crosswalk.html">wbb_player_crosswalk()</a></code>
 </td>
 <td>
-<code><a href="reference/load_wbb_team_crosswalk.html">load_wbb_team_crosswalk()</a></code>, <code><a href="reference/load_wbb_schedule_crosswalk.html">load_wbb_schedule_crosswalk()</a></code>, <code><a href="reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code>
+<code><a href="reference/load_wbb_player_crosswalk.html">load_wbb_team_crosswalk()</a></code>, <code><a href="reference/load_wbb_player_crosswalk.html">load_wbb_schedule_crosswalk()</a></code>, <code><a href="reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code>
 </td>
-</tr></tbody></table><p><strong>Supporting scrapers:</strong> <code><a href="reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code> and <code><a href="reference/bart_wbb_game_schedule.html">bart_wbb_game_schedule()</a></code> pull T-Rank ratings and game-by-game schedules from barttorvik.com/ncaaw. <code><a href="reference/fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code> enumerates the full Fox WBB team directory by walking unseen team ids (a single <code><a href="reference/fox_basketball_teams.html">fox_wbb_teams()</a></code> call only returns one conference).</p>
+</tr></tbody></table><p><strong>Supporting scrapers:</strong> <code><a href="reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code> and <code><a href="reference/bart_wbb_game_schedule.html">bart_wbb_game_schedule()</a></code> pull T-Rank ratings and game-by-game schedules from barttorvik.com/ncaaw. <code><a href="reference/fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code> enumerates the full Fox WBB team directory by walking unseen team ids (a single <code><a href="reference/fox_basketball_standings.html">fox_wbb_teams()</a></code> call only returns one conference).</p>
 <p><strong>Engine — <code>R/crosswalk_basketball.R</code>:</strong></p>
 <p>Internal <code>.bb_*</code> helpers shared by both WNBA and WBB:</p>
 <ul><li>
@@ -620,15 +620,15 @@ ci: update GitHub Actions workflow versions</code></pre>
 <li>Local dev artifacts (e.g., <code>.vscode</code>, <code>.claude</code>) can surface as <code>R CMD check</code> notes.</li>
 <li>Never hand-edit <code>NAMESPACE</code> or files under <code>man/</code>; regenerate with <code>devtools::document()</code>.</li>
 <li>
-<strong><code><a href="reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> / <code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> free-throw semantics</strong>: ESPN labels the play <code>type_text</code> <code>"MadeFreeThrow"</code> for both made <em>and</em> missed free throws, and <code>score_value</code> carries the attempt’s point value (1) even on a miss. Filter makes vs. misses with <code>scoring_play</code>, not <code>type_text</code>/<code>score_value</code>. <code><a href="reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> also documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> win-probability columns.</li>
+<strong><code><a href="reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> / <code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code> free-throw semantics</strong>: ESPN labels the play <code>type_text</code> <code>"MadeFreeThrow"</code> for both made <em>and</em> missed free throws, and <code>score_value</code> carries the attempt’s point value (1) even on a miss. Filter makes vs. misses with <code>scoring_play</code>, not <code>type_text</code>/<code>score_value</code>. <code><a href="reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> also documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> win-probability columns.</li>
 <li>
-<strong>Pre-halves-era pbp clock columns</strong>: pre-2006 WNBA and pre-2016 NCAA WBB seasons were originally published with a quarters-era clock model even though those seasons actually played halves; the source datasets have been republished with correct halves-era clock columns. Loaders (<code><a href="reference/load_wnba_pbp.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_pbp.html">load_ncaa_wbb_pbp()</a></code>) surface whatever the release asset ships, so a re-download picks up the fix.</li>
+<strong>Pre-halves-era pbp clock columns</strong>: pre-2006 WNBA and pre-2016 NCAA WBB seasons were originally published with a quarters-era clock model even though those seasons actually played halves; the source datasets have been republished with correct halves-era clock columns. Loaders (<code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_pbp()</a></code>) surface whatever the release asset ships, so a re-download picks up the fix.</li>
 <li>
 <strong><code><a href="reference/espn_wbb_standings.html">espn_wbb_standings()</a></code> is conference-grouped</strong> (<code>level=3</code>, one row-bind per conference group), not the flat <code>level=1</code> list – the flat list silently omitted newer D-I teams (e.g. 2022-23 additions Queens, Le Moyne, Stonehill). The result carries a <code>conference</code> column obtained for free from the grouping.</li>
 <li>All <code>dbConnection</code>/<code>tablename</code> DB-capable loaders forward <code>...</code> into <code>DBI::dbWriteTable(...)</code> and actually issue the write – as of 3.0.0 every documented DB-write loader does this consistently (three loaders previously computed the <code>in_db</code> gate but never called <code>dbWriteTable()</code>).</li>
 <li>
 <code><a href="reference/wnba_videoevents.html">wnba_videoevents()</a></code> and the four <code>wnba_draftcombine*()</code> wrappers are soft-deprecated (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code>) in 3.0.0 – their upstream endpoints are dead but the functions still return whatever the endpoint gives back rather than erroring. Several other <code>wnba_*</code> wrappers (<code>wnba_scoreboard</code>, <code>wnba_playercareerbycollege</code>, <code>wnba_teamhistoricalleaders</code>, <code>wnba_teamgamestreakfinder</code>, <code>wnba_boxscoreplayertrackv2</code>) are already hard-deprecated (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code>) from an earlier pass.</li>
-<li>ESPN pbp participant columns are unnested with dynamically-named columns (not a hardcoded 2- or 4-participant assumption), so plays with either count parse correctly. <code><a href="reference/espn_wnba_season_group_children.html">espn_wnba_season_group_children()</a></code> / <code><a href="reference/espn_wbb_season_group_children.html">espn_wbb_season_group_children()</a></code> page through all group-children pages instead of truncating at <code>limit=200</code>.</li>
+<li>ESPN pbp participant columns are unnested with dynamically-named columns (not a hardcoded 2- or 4-participant assumption), so plays with either count parse correctly. <code><a href="reference/espn_wnba_season_group.html">espn_wnba_season_group_children()</a></code> / <code><a href="reference/espn_wbb_season_group.html">espn_wbb_season_group_children()</a></code> page through all group-children pages instead of truncating at <code>limit=200</code>.</li>
 </ul></div>
 </div>
 

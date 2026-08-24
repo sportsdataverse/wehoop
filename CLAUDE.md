@@ -34,12 +34,12 @@ total) pull pre-built season parquet/rds from the sibling `wehoop-data`
 rather than hitting the live APIs. As of 3.0.0 the loader surface also
 covers the `load_ncaa_wbb_*` family (12 datasets from the
 sportsdataverse-py NCAA WBB engine over stats.ncaa.org, plus league-wide
-[`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md))
+[`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md))
 and model-dataset loaders
-([`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md),
+([`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
 [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
-[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md),
-[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)).
+[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
+[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)).
 
 `wehoop` is the women’s-basketball analogue of `hoopR` (men’s) and
 shares its architecture; companion data repos are
@@ -112,15 +112,15 @@ pkgdown::build_site()
 | Data Source | Prefix | Example |
 |----|----|----|
 | WNBA Stats API | `wnba_` | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
-| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
-| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
+| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
+| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
 | NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
-| Fox Sports Bifrost | `fox_` | [`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md), [`fox_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_pbp.md) |
+| Fox Sports Bifrost | `fox_` | [`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md), [`fox_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md) |
 | Basketball-Reference | `bref_wnba_` | `bref_wnba_player_box()` |
 | Her Hoop Stats | `hhs_` | (subscription; requires your own login) |
 | Bart Torvik T-Rank | `bart_wbb_` | [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md), [`bart_wbb_game_schedule()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_game_schedule.md) |
-| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
-| NCAA WBB loaders | `load_ncaa_wbb_` | [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md), [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md) |
+| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) |
+| NCAA WBB loaders | `load_ncaa_wbb_` | [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md), [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md) |
 
 `load_*()` loaders are the bulk path: they read pre-built per-season
 parquet/rds released from the sibling `wehoop-data` /
@@ -141,13 +141,13 @@ other `load_*()` families: `seasons` arg,
 optional `dbConnection`/`tablename`.
 
 **Model-dataset loaders (3.0.0):**
-[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md)
+[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
 (RAPM/SPM/BPM/ DARKO player-impact ratings, 1997-2026),
 [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
 (box-score BPM, 2014-2026),
-[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md)
+[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
 (adjusted-efficiency team ratings, 2008-2026), and
-[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)
+[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
 (possession-level data derived from WNBA Stats API pbp, 1997-2026). The
 three player/team-rating loaders are parquet-only, so they wrap
 [`parquet_from_url()`](https://wehoop.sportsdataverse.org/reference/parquet_from_url.md)
@@ -578,8 +578,8 @@ Bifrost into wide, one-row-per-entity tibbles keyed on `espn_team_id`.
 
 | Sport | Live builders | Cached loaders |
 |----|----|----|
-| WNBA | [`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md), [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md), [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md) | [`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_crosswalk.md), [`load_wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule_crosswalk.md), [`load_wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_crosswalk.md) |
-| WBB | [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md), [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md), [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md) | [`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_crosswalk.md), [`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule_crosswalk.md), [`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md) |
+| WNBA | [`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md), [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md), [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md) | [`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md), [`load_wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md), [`load_wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md) |
+| WBB | [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md), [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md), [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md) | [`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md), [`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md), [`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md) |
 
 **Supporting scrapers:**
 [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md)
@@ -590,7 +590,7 @@ barttorvik.com/ncaaw.
 [`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
 enumerates the full Fox WBB team directory by walking unseen team ids (a
 single
-[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md)
 call only returns one conference).
 
 **Engine — `R/crosswalk_basketball.R`:**
@@ -786,23 +786,23 @@ referencing AI tools.
   `R CMD check` notes.
 - Never hand-edit `NAMESPACE` or files under `man/`; regenerate with
   `devtools::document()`.
-- **[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+- **[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
   /
-  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
   free-throw semantics**: ESPN labels the play `type_text`
   `"MadeFreeThrow"` for both made *and* missed free throws, and
   `score_value` carries the attempt’s point value (1) even on a miss.
   Filter makes vs. misses with `scoring_play`, not
   `type_text`/`score_value`.
-  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
   also documents the producer-appended `pregame_home_prob` /
   `home_win_prob` win-probability columns.
 - **Pre-halves-era pbp clock columns**: pre-2006 WNBA and pre-2016 NCAA
   WBB seasons were originally published with a quarters-era clock model
   even though those seasons actually played halves; the source datasets
   have been republished with correct halves-era clock columns. Loaders
-  ([`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md),
-  [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md))
+  ([`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md),
+  [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md))
   surface whatever the release asset ships, so a re-download picks up
   the fix.
 - **[`espn_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_standings.md)
@@ -830,8 +830,8 @@ referencing AI tools.
 - ESPN pbp participant columns are unnested with dynamically-named
   columns (not a hardcoded 2- or 4-participant assumption), so plays
   with either count parse correctly.
-  [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md)
+  [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md)
   /
-  [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md)
+  [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md)
   page through all group-children pages instead of truncating at
   `limit=200`.

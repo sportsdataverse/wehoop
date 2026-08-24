@@ -132,7 +132,8 @@ Get WNBA Stats API Team Historical Leaders"><meta property="og:image" content="h
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Return a named list of data frames: CareerLeadersByTeam</p>
-<p><strong>CareerLeadersByTeam</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>TEAM_ID</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>PTS</td><td>character</td><td>Points scored.</td></tr><tr><td>PTS_PERSON_ID</td><td>character</td><td></td></tr><tr><td>PTS_PLAYER</td><td>character</td><td></td></tr><tr><td>AST</td><td>character</td><td>Assists.</td></tr><tr><td>AST_PERSON_ID</td><td>character</td><td></td></tr><tr><td>AST_PLAYER</td><td>character</td><td></td></tr><tr><td>REB</td><td>character</td><td>Total rebounds.</td></tr><tr><td>REB_PERSON_ID</td><td>character</td><td></td></tr><tr><td>REB_PLAYER</td><td>character</td><td></td></tr><tr><td>BLK</td><td>character</td><td>Blocks.</td></tr><tr><td>BLK_PERSON_ID</td><td>character</td><td></td></tr><tr><td>BLK_PLAYER</td><td>character</td><td></td></tr><tr><td>STL</td><td>character</td><td>Steals.</td></tr><tr><td>STL_PERSON_ID</td><td>character</td><td></td></tr><tr><td>STL_PLAYER</td><td>character</td><td></td></tr><tr><td>SEASON_YEAR</td><td>character</td><td>Season year string ('YYYY-YY' format).</td></tr></table></div>
+<p><strong>CareerLeadersByTeam</strong></p>
+<p></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>TEAM_ID</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>PTS</td><td>character</td><td>Points scored.</td></tr><tr><td>PTS_PERSON_ID</td><td>character</td><td></td></tr><tr><td>PTS_PLAYER</td><td>character</td><td></td></tr><tr><td>AST</td><td>character</td><td>Assists.</td></tr><tr><td>AST_PERSON_ID</td><td>character</td><td></td></tr><tr><td>AST_PLAYER</td><td>character</td><td></td></tr><tr><td>REB</td><td>character</td><td>Total rebounds.</td></tr><tr><td>REB_PERSON_ID</td><td>character</td><td></td></tr><tr><td>REB_PLAYER</td><td>character</td><td></td></tr><tr><td>BLK</td><td>character</td><td>Blocks.</td></tr><tr><td>BLK_PERSON_ID</td><td>character</td><td></td></tr><tr><td>BLK_PLAYER</td><td>character</td><td></td></tr><tr><td>STL</td><td>character</td><td>Steals.</td></tr><tr><td>STL_PERSON_ID</td><td>character</td><td></td></tr><tr><td>STL_PLAYER</td><td>character</td><td></td></tr><tr><td>SEASON_YEAR</td><td>character</td><td>Season year string ('YYYY-YY' format).</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p></p><div class="sourceCode r"><pre><code><span>  <span class="fu"><a href="../reference/wnba_teamhistoricalleaders.html">wnba_teamhistoricalleaders</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">'1611661328'</span><span class="op">)</span></span></code></pre><p></p></div>
@@ -142,13 +143,6 @@ Get WNBA Stats API Team Historical Leaders"><meta property="og:image" content="h
     <div class="dont-index"><p>Other WNBA Team Functions:
 <code><a href="wnba_leaguedashteamstats.html">wnba_leaguedashteamstats()</a></code>,
 <code><a href="wnba_teamdashboardbyclutch.html">wnba_teamdashboardbyclutch()</a></code>,
-<code><a href="wnba_teamdashboardbygamesplits.html">wnba_teamdashboardbygamesplits()</a></code>,
-<code><a href="wnba_teamdashboardbygeneralsplits.html">wnba_teamdashboardbygeneralsplits()</a></code>,
-<code><a href="wnba_teamdashboardbylastngames.html">wnba_teamdashboardbylastngames()</a></code>,
-<code><a href="wnba_teamdashboardbyopponent.html">wnba_teamdashboardbyopponent()</a></code>,
-<code><a href="wnba_teamdashboardbyshootingsplits.html">wnba_teamdashboardbyshootingsplits()</a></code>,
-<code><a href="wnba_teamdashboardbyteamperformance.html">wnba_teamdashboardbyteamperformance()</a></code>,
-<code><a href="wnba_teamdashboardbyyearoveryear.html">wnba_teamdashboardbyyearoveryear()</a></code>,
 <code><a href="wnba_teamdashlineups.html">wnba_teamdashlineups()</a></code>,
 <code><a href="wnba_teamdetails.html">wnba_teamdetails()</a></code>,
 <code><a href="wnba_teamestimatedmetrics.html">wnba_teamestimatedmetrics()</a></code>,
@@ -156,9 +150,7 @@ Get WNBA Stats API Team Historical Leaders"><meta property="og:image" content="h
 <code><a href="wnba_teamgamelogs.html">wnba_teamgamelogs()</a></code>,
 <code><a href="wnba_teamgamestreakfinder.html">wnba_teamgamestreakfinder()</a></code>,
 <code><a href="wnba_teaminfocommon.html">wnba_teaminfocommon()</a></code>,
-<code><a href="wnba_teamplayerdashboard.html">wnba_teamplayerdashboard()</a></code>,
-<code><a href="wnba_teamplayeronoffdetails.html">wnba_teamplayeronoffdetails()</a></code>,
-<code><a href="wnba_teamplayeronoffsummary.html">wnba_teamplayeronoffsummary()</a></code>,
+<code><a href="wnba_teamplayerdashboard.html">wnba_teamplayeronoffdetails()</a></code>,
 <code><a href="wnba_teams.html">wnba_teams()</a></code>,
 <code><a href="wnba_teamvsplayer.html">wnba_teamvsplayer()</a></code>,
 <code><a href="wnba_teamyearbyyearstats.html">wnba_teamyearbyyearstats()</a></code></p></div>

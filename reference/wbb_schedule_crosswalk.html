@@ -130,13 +130,12 @@ Games where either Torvik team name cannot be resolved to an ESPN id via
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>wehoop_data</code> tibble, one row per game:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>game_date</td><td>Date</td><td>ET game date.</td></tr><tr><td>home_espn_team_id</td><td>integer</td><td>ESPN home team id (NA for bart-only rows).</td></tr><tr><td>away_espn_team_id</td><td>integer</td><td>ESPN away team id (NA for bart-only rows).</td></tr><tr><td>espn_game_id</td><td>character</td><td>ESPN game id (NA for bart-only rows).</td></tr><tr><td>bart_muid</td><td>character</td><td>Torvik muid (NA for espn-only rows).</td></tr><tr><td>bart_team1</td><td>character</td><td>Torvik team1 name (NA for espn-only rows).</td></tr><tr><td>bart_team2</td><td>character</td><td>Torvik team2 name (NA for espn-only rows).</td></tr><tr><td>bart_winner</td><td>character</td><td>Torvik winner name (NA for espn-only rows).</td></tr><tr><td>fox_game_id</td><td>character</td><td>Fox game id (NA placeholder).</td></tr><tr><td>yahoo_game_id</td><td>character</td><td>Yahoo game id (NA placeholder).</td></tr><tr><td>match_method</td><td>character</td><td>"both"/"espn_only"/"bart_only".</td></tr><tr><td>match_confidence</td><td>numeric</td><td>1 for matched, NA for unmatched.</td></tr></table></div>
+    <p>A <code>wehoop_data</code> tibble, one row per game:</p>
+<p></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>game_date</td><td>Date</td><td>ET game date.</td></tr><tr><td>home_espn_team_id</td><td>integer</td><td>ESPN home team id (NA for bart-only rows).</td></tr><tr><td>away_espn_team_id</td><td>integer</td><td>ESPN away team id (NA for bart-only rows).</td></tr><tr><td>espn_game_id</td><td>character</td><td>ESPN game id (NA for bart-only rows).</td></tr><tr><td>bart_muid</td><td>character</td><td>Torvik muid (NA for espn-only rows).</td></tr><tr><td>bart_team1</td><td>character</td><td>Torvik team1 name (NA for espn-only rows).</td></tr><tr><td>bart_team2</td><td>character</td><td>Torvik team2 name (NA for espn-only rows).</td></tr><tr><td>bart_winner</td><td>character</td><td>Torvik winner name (NA for espn-only rows).</td></tr><tr><td>fox_game_id</td><td>character</td><td>Fox game id (NA placeholder).</td></tr><tr><td>yahoo_game_id</td><td>character</td><td>Yahoo game id (NA placeholder).</td></tr><tr><td>match_method</td><td>character</td><td>"both"/"espn_only"/"bart_only".</td></tr><tr><td>match_confidence</td><td>numeric</td><td>1 for matched, NA for unmatched.</td></tr></table></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other WBB Crosswalk Functions:
-<code><a href="load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code>,
-<code><a href="load_wbb_schedule_crosswalk.html">load_wbb_schedule_crosswalk()</a></code>,
-<code><a href="load_wbb_team_crosswalk.html">load_wbb_team_crosswalk()</a></code>,
+<code><a href="load_wbb_player_crosswalk.html">load_wnba_team_crosswalk()</a></code>,
 <code><a href="wbb_player_crosswalk.html">wbb_player_crosswalk()</a></code>,
 <code><a href="wbb_team_crosswalk.html">wbb_team_crosswalk()</a></code></p></div>
     </div>
@@ -145,10 +144,10 @@ Games where either Torvik team name cannot be resolved to an ESPN id via
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wbb_schedule_crosswalk</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-08-24 14:44:39.206195: No women's schedule available for 2025!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-08-24 16:10:41.431618: No women's schedule available for 2025!</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: year = 2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: lexical error: invalid char in json text.                                        &lt;!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-08-24 14:44:39.256665: Could not build WBB schedule crosswalk for 2025!</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-08-24 16:10:41.479402: Could not build WBB schedule crosswalk for 2025!</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: season = 2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: <span style="color: #00BBBB;">ℹ</span> In argument: `muid = as.character(.data$muid)`. <span style="font-weight: bold;">Caused by error in `.data$muid`:</span> <span style="color: #BBBB00;">!</span> Column `muid` not found in `.data`.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>

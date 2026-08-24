@@ -4,10 +4,42 @@
 
 **Get WNBA Stats API Draft Combine Stats**
 
+**Get WNBA Stats API Draft Combine Drill Results**
+
+**Get WNBA Stats API Draft Combine Non-Stationary Shooting**
+
+**Get WNBA Stats API Draft Combine Player Anthropological Measurements**
+
+**Get WNBA Stats API Draft Combine - Spot Shooting**
+
 ## Usage
 
 ``` r
 wnba_draftcombinestats(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombinedrillresults(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombinenonstationaryshooting(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombineplayeranthro(
+  league_id = "10",
+  season_year = most_recent_wnba_season() - 1,
+  ...
+)
+
+wnba_draftcombinespotshooting(
   league_id = "10",
   season_year = most_recent_wnba_season() - 1,
   ...
@@ -85,18 +117,38 @@ Returns a named list of data frames: DraftCombineStats
 | ON_MOVE_FIFTEEN | character |  |
 | ON_MOVE_COLLEGE | character |  |
 
+Returns a named list of data frames: Results
+
+Returns a named list of data frames: Results
+
+Returns a named list of data frames: Results
+
+Returns a named list of data frames: Results
+
 ## Details
 
       wnba_draftcombinestats(season_year = most_recent_wnba_season() - 1)
+
+(Possibly Defunct)
+
+      wnba_draftcombinedrillresults(season_year = most_recent_wnba_season() - 2)
+
+(Possibly Defunct)
+
+      wnba_draftcombinenonstationaryshooting(season_year = most_recent_wnba_season() - 2)
+
+(Possibly Defunct)
+
+      wnba_draftcombineplayeranthro(season_year = most_recent_wnba_season() - 2)
+
+(Possibly Defunct)
+
+      wnba_draftcombinespotshooting(season_year = most_recent_wnba_season() - 2)
 
 ## See also
 
 Other WNBA Draft Functions:
 [`wnba_draftboard()`](https://wehoop.sportsdataverse.org/reference/wnba_draftboard.md),
-[`wnba_draftcombinedrillresults()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinedrillresults.md),
-[`wnba_draftcombinenonstationaryshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinenonstationaryshooting.md),
-[`wnba_draftcombineplayeranthro()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombineplayeranthro.md),
-[`wnba_draftcombinespotshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinespotshooting.md),
 [`wnba_drafthistory()`](https://wehoop.sportsdataverse.org/reference/wnba_drafthistory.md)
 
 ## Author

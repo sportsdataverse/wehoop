@@ -95,11 +95,11 @@ for completion messages
 | Data Source | Prefix | Example |
 |----|----|----|
 | WNBA Stats API | `wnba_` | [`wnba_leagueleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueleaders.md), [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) |
-| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
-| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
+| ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
+| ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
 | NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
-| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.md) |
-| NCAA WBB loaders | `load_ncaa_wbb_` | [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md), [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md) |
+| Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) |
+| NCAA WBB loaders | `load_ncaa_wbb_` | [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md), [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md) |
 
 **`load_ncaa_wbb_*()` family (3.0.0)**: 12 loaders (`pbp`, `shots`,
 `lineups`, `matchup_stints`, `possessions`, `rapm_within_team`, `rapm`
@@ -108,10 +108,10 @@ for completion messages
 sportsdataverse-py NCAA engine over stats.ncaa.org — wehoop ships
 loaders only. Coverage 2010-2026 (`shots` 2019-2026, `rapm` 2011-2026).
 **Model-dataset loaders (3.0.0)**:
-[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md),
+[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
 [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
-[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md),
-[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md).
+[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
+[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md).
 
 ## Roxygen Documentation
 
@@ -423,14 +423,14 @@ loaders. Supporting scrapers:
   2880-second constants. The old
   [`.players_on_court()`](https://wehoop.sportsdataverse.org/reference/dot-players_on_court.md)
   helper in `wnba_stats_pbp.R` had this bug and was corrected in 3.0.0.
-- **[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+- **[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
   /
-  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
   free-throw semantics**: ESPN’s `type_text` is `"MadeFreeThrow"` for
   both made and missed free throws, and `score_value` carries the
   attempt’s point value (1) even on a miss — filter on `scoring_play`,
   not `type_text`/`score_value`.
-  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
   also documents the producer-appended `pregame_home_prob` /
   `home_win_prob` columns.
 - **Pre-halves-era pbp clock columns**: pre-2006 WNBA and pre-2016 NCAA

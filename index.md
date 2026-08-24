@@ -114,17 +114,17 @@ release-dataset loaders** that pull pre-built season parquet/rds instead
 of hitting the source APIs: `load_wnba_*` / `load_wbb_*` (ESPN-backed
 pbp, box scores, rosters, standings, crosswalks), `load_wnba_stats_*`
 (WNBA Stats API, including
-[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)),
+[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)),
 and the **`load_ncaa_wbb_*` family** (`pbp`, `shots`, `lineups`,
 `matchup_stints`, `possessions`, `rapm_within_team`, `rapm`
 (league-wide), `player_box`, `team_box`, `rosters`, `team_rosters`,
 `schedule`, `team_ids`; seasons 2010-2026, `shots` 2019-2026, `rapm`
 2011-2026) backed by the sportsdataverse-py NCAA engine. Model-dataset
 loaders round out the surface:
-[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md),
+[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
 [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
 and
-[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md).
+[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md).
 
 ## **Breaking Changes**
 

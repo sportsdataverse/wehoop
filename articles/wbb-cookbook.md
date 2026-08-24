@@ -584,7 +584,7 @@ point of the cookbook.
 college game of a season to model on.
 
 Looping
-[`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+[`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
 over thousands of games works but is slow and rude to ESPN. The `load_`
 prefix exists for exactly this:
 

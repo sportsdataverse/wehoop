@@ -47,9 +47,7 @@ A `wehoop_data` tibble, one row per game:
 ## See also
 
 Other WBB Crosswalk Functions:
-[`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
-[`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule_crosswalk.md),
-[`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_crosswalk.md),
+[`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
 [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md),
 [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
 
@@ -58,10 +56,10 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
-#> ✖ 2026-08-24 14:44:39.206195: No women's schedule available for 2025!
+#> ✖ 2026-08-24 16:10:41.431618: No women's schedule available for 2025!
 #> ✖ Args: year = 2025
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
-#> ✖ 2026-08-24 14:44:39.256665: Could not build WBB schedule crosswalk for 2025!
+#> ✖ 2026-08-24 16:10:41.479402: Could not build WBB schedule crosswalk for 2025!
 #> ✖ Args: season = 2025
 #> ✖ Error: ℹ In argument: `muid = as.character(.data$muid)`. Caused by error in `.data$muid`: ! Column `muid` not found in `.data`.
 #> data frame with 0 columns and 0 rows

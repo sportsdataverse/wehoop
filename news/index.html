@@ -95,12 +95,12 @@
 <h2 class="pkg-version" data-toc-text="3.0.0" id="wehoop-300"><strong>wehoop 3.0.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-300"></a></h2>
 <div class="section level4">
 <h4 id="wbb-cross-source-crosswalk-wbb__crosswalk--load_wbb__crosswalk-3-0-0"><strong>WBB cross-source crosswalk (<code>wbb_*_crosswalk</code> / <code>load_wbb_*_crosswalk</code>)</strong><a class="anchor" aria-label="anchor" href="#wbb-cross-source-crosswalk-wbb__crosswalk--load_wbb__crosswalk-3-0-0"></a></h4>
-<p>Three new live builders — <code><a href="../reference/wbb_team_crosswalk.html">wbb_team_crosswalk()</a></code>, <code><a href="../reference/wbb_schedule_crosswalk.html">wbb_schedule_crosswalk()</a></code>, <code><a href="../reference/wbb_player_crosswalk.html">wbb_player_crosswalk()</a></code> — and three cached loaders — <code><a href="../reference/load_wbb_team_crosswalk.html">load_wbb_team_crosswalk()</a></code>, <code><a href="../reference/load_wbb_schedule_crosswalk.html">load_wbb_schedule_crosswalk()</a></code>, <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code> — link ESPN, Fox Sports (Bifrost), and Bart Torvik (barttorvik.com/ncaaw) WBB team/game/player identities into wide, one-row-per-entity tibbles keyed on <code>espn_team_id</code>. Team and schedule crosswalks use deterministic normalized-name joins with curated alias tables for known ESPN/Fox/Torvik name divergences (e.g. “UConn” / “Connecticut”, “Ole Miss” / “Mississippi”); player matching uses blocked Jaro-Winkler fuzzy matching with jersey tiebreakers (<code>min_confidence = 0.92</code>). Yahoo columns are NA placeholders reserved for a future source.</p>
-<p>Two new women’s Bart Torvik scrapers — <code><a href="../reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code> (T-Rank team ratings) and <code><a href="../reference/bart_wbb_game_schedule.html">bart_wbb_game_schedule()</a></code> (full season schedule + results) — pull CSV/JSON from barttorvik.com/ncaaw. A new <code><a href="../reference/fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code> enumerator walks unseen Fox team ids to assemble the complete WBB team directory (single <code><a href="../reference/fox_basketball_teams.html">fox_wbb_teams()</a></code> calls only return one conference at a time). Parallels the WNBA crosswalk surface added in the same release.</p>
+<p>Three new live builders — <code><a href="../reference/wbb_team_crosswalk.html">wbb_team_crosswalk()</a></code>, <code><a href="../reference/wbb_schedule_crosswalk.html">wbb_schedule_crosswalk()</a></code>, <code><a href="../reference/wbb_player_crosswalk.html">wbb_player_crosswalk()</a></code> — and three cached loaders — <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_team_crosswalk()</a></code>, <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_schedule_crosswalk()</a></code>, <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code> — link ESPN, Fox Sports (Bifrost), and Bart Torvik (barttorvik.com/ncaaw) WBB team/game/player identities into wide, one-row-per-entity tibbles keyed on <code>espn_team_id</code>. Team and schedule crosswalks use deterministic normalized-name joins with curated alias tables for known ESPN/Fox/Torvik name divergences (e.g. “UConn” / “Connecticut”, “Ole Miss” / “Mississippi”); player matching uses blocked Jaro-Winkler fuzzy matching with jersey tiebreakers (<code>min_confidence = 0.92</code>). Yahoo columns are NA placeholders reserved for a future source.</p>
+<p>Two new women’s Bart Torvik scrapers — <code><a href="../reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code> (T-Rank team ratings) and <code><a href="../reference/bart_wbb_game_schedule.html">bart_wbb_game_schedule()</a></code> (full season schedule + results) — pull CSV/JSON from barttorvik.com/ncaaw. A new <code><a href="../reference/fox_wbb_teams_all.html">fox_wbb_teams_all()</a></code> enumerator walks unseen Fox team ids to assemble the complete WBB team directory (single <code><a href="../reference/fox_basketball_standings.html">fox_wbb_teams()</a></code> calls only return one conference at a time). Parallels the WNBA crosswalk surface added in the same release.</p>
 </div>
 <div class="section level4">
 <h4 id="wnba-cross-source-crosswalk-wnba__crosswalk--load_wnba__crosswalk-3-0-0"><strong>WNBA cross-source crosswalk (<code>wnba_*_crosswalk</code> / <code>load_wnba_*_crosswalk</code>)</strong><a class="anchor" aria-label="anchor" href="#wnba-cross-source-crosswalk-wnba__crosswalk--load_wnba__crosswalk-3-0-0"></a></h4>
-<p>Three new live builders — <code><a href="../reference/wnba_team_crosswalk.html">wnba_team_crosswalk()</a></code>, <code><a href="../reference/wnba_schedule_crosswalk.html">wnba_schedule_crosswalk()</a></code>, <code><a href="../reference/wnba_player_crosswalk.html">wnba_player_crosswalk()</a></code> — and three cached loaders — <code><a href="../reference/load_wnba_team_crosswalk.html">load_wnba_team_crosswalk()</a></code>, <code><a href="../reference/load_wnba_schedule_crosswalk.html">load_wnba_schedule_crosswalk()</a></code>, <code><a href="../reference/load_wnba_player_crosswalk.html">load_wnba_player_crosswalk()</a></code> — link ESPN, WNBA Stats API, and Fox Sports team/game/player identities into wide, one-row-per-entity tibbles. <code><a href="../reference/wnba_team_crosswalk.html">wnba_team_crosswalk()</a></code> and <code><a href="../reference/wnba_player_crosswalk.html">wnba_player_crosswalk()</a></code> are keyed on <code>espn_team_id</code>; <code><a href="../reference/wnba_schedule_crosswalk.html">wnba_schedule_crosswalk()</a></code> is keyed on <code>espn_game_id</code>. Team and schedule crosswalks use deterministic normalized-name joins; player matching uses blocked Jaro-Winkler fuzzy matching with jersey/DOB tiebreakers (<code>min_confidence = 0.92</code>). Yahoo columns are NA placeholders reserved for a future source. A new <code><a href="../reference/fox_basketball_teams.html">fox_wnba_teams()</a></code> / <code><a href="../reference/fox_basketball_teams.html">fox_wbb_teams()</a></code> wrapper provides the Fox Bifrost team directory used by the crosswalk engine. Cached artifacts are backed by the <code>wnba_crosswalk</code> release tag in <code>sportsdataverse-data</code>.</p>
+<p>Three new live builders — <code><a href="../reference/wnba_team_crosswalk.html">wnba_team_crosswalk()</a></code>, <code><a href="../reference/wnba_schedule_crosswalk.html">wnba_schedule_crosswalk()</a></code>, <code><a href="../reference/wnba_player_crosswalk.html">wnba_player_crosswalk()</a></code> — and three cached loaders — <code><a href="../reference/load_wbb_player_crosswalk.html">load_wnba_team_crosswalk()</a></code>, <code><a href="../reference/load_wbb_player_crosswalk.html">load_wnba_schedule_crosswalk()</a></code>, <code><a href="../reference/load_wbb_player_crosswalk.html">load_wnba_player_crosswalk()</a></code> — link ESPN, WNBA Stats API, and Fox Sports team/game/player identities into wide, one-row-per-entity tibbles. <code><a href="../reference/wnba_team_crosswalk.html">wnba_team_crosswalk()</a></code> and <code><a href="../reference/wnba_player_crosswalk.html">wnba_player_crosswalk()</a></code> are keyed on <code>espn_team_id</code>; <code><a href="../reference/wnba_schedule_crosswalk.html">wnba_schedule_crosswalk()</a></code> is keyed on <code>espn_game_id</code>. Team and schedule crosswalks use deterministic normalized-name joins; player matching uses blocked Jaro-Winkler fuzzy matching with jersey/DOB tiebreakers (<code>min_confidence = 0.92</code>). Yahoo columns are NA placeholders reserved for a future source. A new <code><a href="../reference/fox_basketball_standings.html">fox_wnba_teams()</a></code> / <code><a href="../reference/fox_basketball_standings.html">fox_wbb_teams()</a></code> wrapper provides the Fox Bifrost team directory used by the crosswalk engine. Cached artifacts are backed by the <code>wnba_crosswalk</code> release tag in <code>sportsdataverse-data</code>.</p>
 </div>
 <div class="section level4">
 <h4 id="fox-sports-basketball-wrappers-fox_wnba_--fox_wbb_-3-0-0"><strong>Fox Sports basketball wrappers (<code>fox_wnba_*</code> / <code>fox_wbb_*</code>)</strong><a class="anchor" aria-label="anchor" href="#fox-sports-basketball-wrappers-fox_wnba_--fox_wbb_-3-0-0"></a></h4>
@@ -130,7 +130,7 @@
 </div>
 <div class="section level4">
 <h4 id="espn-endpoint-naming-convention-game_player_-3-0-0"><strong>ESPN endpoint naming convention (game_<em>/player_</em>)</strong><a class="anchor" aria-label="anchor" href="#espn-endpoint-naming-convention-game_player_-3-0-0"></a></h4>
-<p>The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse taxonomy used by cfbfastR/hoopR: <code>event_competitor* → game_team*</code>, <code>event_competition → game</code>, <code>event_* → game_*</code>, and <code>athlete_* → player_*</code> (58 functions). These wrappers are new this release and were never on CRAN (2.1.0), so the convention is applied directly without deprecation shims. The web-common-v3 <code>/athletes/{id}/stats</code> wrapper becomes <code>*_player_stats_v3</code> (kept alongside the core-v2 <code>*_player_stats</code>, a different endpoint). The long-standing <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code> / etc. are unaffected.</p>
+<p>The new-in-3.0.0 ESPN endpoint wrappers are named with the shared sportsdataverse taxonomy used by cfbfastR/hoopR: <code>event_competitor* → game_team*</code>, <code>event_competition → game</code>, <code>event_* → game_*</code>, and <code>athlete_* → player_*</code> (58 functions). These wrappers are new this release and were never on CRAN (2.1.0), so the convention is applied directly without deprecation shims. The web-common-v3 <code>/athletes/{id}/stats</code> wrapper becomes <code>*_player_stats_v3</code> (kept alongside the core-v2 <code>*_player_stats</code>, a different endpoint). The long-standing <code><a href="../reference/espn_wnba_game_all.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wnba_game_all.html">espn_wnba_team_box()</a></code> / etc. are unaffected.</p>
 </div>
 <div class="section level4">
 <h4 id="new-exported-functions-3-0-0"><strong>New exported functions</strong><a class="anchor" aria-label="anchor" href="#new-exported-functions-3-0-0"></a></h4>
@@ -138,8 +138,8 @@
 <h5 id="ncaa-wbb-league-wide-rapm-loader-3-0-0"><em>NCAA WBB league-wide RAPM loader</em><a class="anchor" aria-label="anchor" href="#ncaa-wbb-league-wide-rapm-loader-3-0-0"></a></h5>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Description</th>
-</tr></thead><tbody><tr><td><code><a href="../reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code></td>
-<td>League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the <code>ncaa_wbb_rapm</code> release tag, seasons 2011-2026. Distinct from the within-team <code><a href="../reference/load_ncaa_wbb_rapm_within_team.html">load_ncaa_wbb_rapm_within_team()</a></code>.</td>
+</tr></thead><tbody><tr><td><code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm()</a></code></td>
+<td>League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the <code>ncaa_wbb_rapm</code> release tag, seasons 2011-2026. Distinct from the within-team <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm_within_team()</a></code>.</td>
 </tr></tbody></table></div>
 <div class="section level5">
 <h5 id="new-wnba-stats-api-v3-endpoints-3-0-0"><em>New WNBA Stats API V3 endpoints</em><a class="anchor" aria-label="anchor" href="#new-wnba-stats-api-v3-endpoints-3-0-0"></a></h5>
@@ -149,7 +149,7 @@
 <td>V3 play-by-play endpoint wrapper. Used internally by <code><a href="../reference/wnba_pbp.html">wnba_pbp()</a></code> via a V3→V2 compatibility pipeline (<code><a href="../reference/dot-v3_to_v2_format_wnba.html">.v3_to_v2_format_wnba()</a></code>, <code><a href="../reference/dot-build_player_roster_wnba.html">.build_player_roster_wnba()</a></code>, <code><a href="../reference/dot-players_on_court_v3_wnba.html">.players_on_court_v3_wnba()</a></code>) that retains V2-compatible columns while adding V3-only columns (<code>x_legacy</code>, <code>y_legacy</code>, <code>shot_distance</code>, <code>shot_result</code>, <code>is_field_goal</code>, <code>points_total</code>, <code>shot_value</code>).</td>
 </tr><tr><td><code><a href="../reference/wnba_boxscoresummaryv3.html">wnba_boxscoresummaryv3()</a></code></td>
 <td>V3 boxscore summary endpoint wrapper.</td>
-</tr><tr><td><code><a href="../reference/wnba_boxscoreusagev3.html">wnba_boxscoreusagev3()</a></code></td>
+</tr><tr><td><code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoreusagev3()</a></code></td>
 <td>V3 boxscore usage endpoint wrapper.</td>
 </tr></tbody></table></div>
 <div class="section level5">
@@ -190,7 +190,7 @@
 </td>
 <td>Single-team info as a named list (<code>Info</code>, <code>Record</code>, <code>NextEvent</code>, <code>StandingSummary</code>, <code>Coaches</code>) via site-v2 <code>/teams/{id}</code>.</td>
 </tr><tr><td>
-<code><a href="../reference/espn_wbb_team_roster.html">espn_wbb_team_roster()</a></code> / <code><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster()</a></code>
+<code><a href="../reference/espn_wbb_team.html">espn_wbb_team_roster()</a></code> / <code><a href="../reference/espn_wnba_team.html">espn_wnba_team_roster()</a></code>
 </td>
 <td>Roster (one row per athlete with position, height, weight, headshot) via site-v2 <code>/teams/{id}/roster</code>.</td>
 </tr><tr><td>
@@ -198,7 +198,7 @@
 </td>
 <td>Schedule (one row per event with opponent, venue, broadcast, result) via site-v2 <code>/teams/{id}/schedule</code>.</td>
 </tr><tr><td>
-<code><a href="../reference/espn_wbb_team_leaders.html">espn_wbb_team_leaders()</a></code> / <code><a href="../reference/espn_wnba_team_leaders.html">espn_wnba_team_leaders()</a></code>
+<code><a href="../reference/espn_wbb_team.html">espn_wbb_team_leaders()</a></code> / <code><a href="../reference/espn_wnba_team.html">espn_wnba_team_leaders()</a></code>
 </td>
 <td>Statistical leaders (long format per category-rank-athlete) via site-v2 <code>/teams/{id}/leaders</code>.</td>
 </tr></tbody></table><p><em>Athlete coverage</em> (8 endpoints × 2 leagues = 16 functions)</p>
@@ -305,81 +305,81 @@
 </tr></tbody></table></div>
 <div class="section level5">
 <h5 id="new-data-loaders-functions-3-0-0"><em>New data loaders (50+ functions)</em><a class="anchor" aria-label="anchor" href="#new-data-loaders-functions-3-0-0"></a></h5>
-<p>All loaders follow the existing <code><a href="../reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> shape — <code>(seasons, ..., dbConnection = NULL, tablename = NULL)</code>, <code><a href="../reference/progressively.html">progressively()</a></code> decorator, <code>data.table::rbindlist(use.names = TRUE, fill = TRUE)</code>, optional DB write, and a final <code>wehoop_data</code> class set on the in-memory result. Tests gated by <code>WEHOOP_LOAD_TESTS=1</code> via <code>skip_load_test()</code> in <code>tests/testthat/helper-skip.R</code>. All datasets read from new <code>sportsdataverse-data</code> release tags published by the <code>wehoop-wbb-data</code>, <code>wehoop-wnba-data</code>, and <code>wehoop-wnba-stats-data</code> pipelines.</p>
+<p>All loaders follow the existing <code><a href="../reference/load_wnba_draft.html">load_wnba_pbp()</a></code> shape — <code>(seasons, ..., dbConnection = NULL, tablename = NULL)</code>, <code><a href="../reference/progressively.html">progressively()</a></code> decorator, <code>data.table::rbindlist(use.names = TRUE, fill = TRUE)</code>, optional DB write, and a final <code>wehoop_data</code> class set on the in-memory result. Tests gated by <code>WEHOOP_LOAD_TESTS=1</code> via <code>skip_load_test()</code> in <code>tests/testthat/helper-skip.R</code>. All datasets read from new <code>sportsdataverse-data</code> release tags published by the <code>wehoop-wbb-data</code>, <code>wehoop-wnba-data</code>, and <code>wehoop-wnba-stats-data</code> pipelines.</p>
 <p><em>Season-level rosters and player stats</em></p>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Release tag</th>
-</tr></thead><tbody><tr><td><code><a href="../reference/load_wbb_rosters.html">load_wbb_rosters()</a></code></td>
+</tr></thead><tbody><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_rosters()</a></code></td>
 <td><code>espn_womens_college_basketball_rosters</code></td>
-</tr><tr><td><code><a href="../reference/load_wbb_player_stats.html">load_wbb_player_stats()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_player_stats()</a></code></td>
 <td><code>espn_womens_college_basketball_player_season_stats</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_rosters.html">load_wnba_rosters()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_rosters()</a></code></td>
 <td><code>espn_wnba_rosters</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_player_stats.html">load_wnba_player_stats()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_player_stats()</a></code></td>
 <td><code>espn_wnba_player_season_stats</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_rosters.html">load_wnba_stats_rosters()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_rosters()</a></code></td>
 <td><code>wnba_stats_rosters</code></td>
 </tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_coaches()</a></code></td>
 <td><code>wnba_stats_coaches</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_player_stats.html">load_wnba_stats_player_stats()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_player_stats()</a></code></td>
 <td><code>wnba_stats_player_season_stats</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_lineups.html">load_wnba_stats_lineups()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_lineups()</a></code></td>
 <td><code>wnba_stats_lineups</code></td>
 </tr></tbody></table><p>New file <code>R/load_wnba_stats.R</code> houses the four <code>wnba_stats_*</code> loaders. Adds <code><a href="../reference/most_recent_wnba_stats_season.html">most_recent_wnba_stats_season()</a></code> helper in <code>R/utils.R</code> (thin wrapper around <code><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season()</a></code> for naming symmetry with the <code>wnba_stats_*</code> family).</p>
 <p><em>Season-summary loaders</em></p>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Release tag</th>
-</tr></thead><tbody><tr><td><code><a href="../reference/load_wbb_team_stats.html">load_wbb_team_stats()</a></code></td>
+</tr></thead><tbody><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_team_stats()</a></code></td>
 <td><code>espn_womens_college_basketball_team_season_stats</code></td>
-</tr><tr><td><code><a href="../reference/load_wbb_standings.html">load_wbb_standings()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_standings()</a></code></td>
 <td><code>espn_womens_college_basketball_standings</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_team_stats.html">load_wnba_team_stats()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_team_stats()</a></code></td>
 <td><code>espn_wnba_team_season_stats</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_standings.html">load_wnba_standings()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_standings()</a></code></td>
 <td><code>espn_wnba_standings</code></td>
 </tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_draft()</a></code></td>
 <td><code>espn_wnba_draft</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_team_stats.html">load_wnba_stats_team_stats()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_team_stats()</a></code></td>
 <td><code>wnba_stats_team_season_stats</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_standings.html">load_wnba_stats_standings()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_standings()</a></code></td>
 <td><code>wnba_stats_standings</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_draft.html">load_wnba_stats_draft()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_draft()</a></code></td>
 <td><code>wnba_stats_draft</code></td>
 </tr></tbody></table><p><em>Shot events, per-game rosters, game officials</em></p>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Release tag</th>
-</tr></thead><tbody><tr><td><code><a href="../reference/load_wbb_shots.html">load_wbb_shots()</a></code></td>
+</tr></thead><tbody><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_shots()</a></code></td>
 <td><code>espn_womens_college_basketball_shots</code></td>
 </tr><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_game_rosters()</a></code></td>
 <td><code>espn_womens_college_basketball_game_rosters</code></td>
-</tr><tr><td><code><a href="../reference/load_wbb_officials.html">load_wbb_officials()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wbb_game_rosters.html">load_wbb_officials()</a></code></td>
 <td><code>espn_womens_college_basketball_officials</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_shots.html">load_wnba_shots()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_shots()</a></code></td>
 <td><code>espn_wnba_shots</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_game_rosters.html">load_wnba_game_rosters()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_game_rosters()</a></code></td>
 <td><code>espn_wnba_game_rosters</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_officials.html">load_wnba_officials()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_draft.html">load_wnba_officials()</a></code></td>
 <td><code>espn_wnba_officials</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_shots.html">load_wnba_stats_shots()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_shots()</a></code></td>
 <td><code>wnba_stats_shots</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_game_rosters.html">load_wnba_stats_game_rosters()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_game_rosters()</a></code></td>
 <td><code>wnba_stats_game_rosters</code></td>
-</tr><tr><td><code><a href="../reference/load_wnba_stats_officials.html">load_wnba_stats_officials()</a></code></td>
+</tr><tr><td><code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_officials()</a></code></td>
 <td><code>wnba_stats_officials</code></td>
 </tr></tbody></table><p><em>WNBA Stats API schedule + game logs + PBP</em></p>
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Release tag</th>
 </tr></thead><tbody><tr><td>
-<code><a href="../reference/load_wnba_stats_schedule.html">load_wnba_stats_schedule()</a></code> + <code>_manifest()</code>
+<code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_schedule()</a></code> + <code>_manifest()</code>
 </td>
 <td><code>wnba_stats_schedules</code></td>
 </tr><tr><td>
-<code><a href="../reference/load_wnba_stats_player_game_logs.html">load_wnba_stats_player_game_logs()</a></code> + <code>_manifest()</code>
+<code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_player_game_logs()</a></code> + <code>_manifest()</code>
 </td>
 <td>
 <code>wnba_stats_player_game_logs</code> (new tag)</td>
 </tr><tr><td>
-<code><a href="../reference/load_wnba_stats_pbp.html">load_wnba_stats_pbp()</a></code> + <code>_manifest()</code>
+<code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_pbp()</a></code> + <code>_manifest()</code>
 </td>
 <td><code>wnba_stats_pbp</code></td>
 </tr></tbody></table><p>Populated by the rewritten <code>wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R</code> pipeline (V3 PBP with on-court lineups supplied directly by <code><a href="../reference/wnba_pbp.html">wnba_pbp()</a></code>, plus possession assignment, FT-to-foul attribution, garbage-time flag, and a per-season + master schedule build). All three datasets are wired into <code><a href="../reference/update_wnba_stats_db.html">update_wnba_stats_db()</a></code> (<code>datasets = c("schedule", "player_game_logs", "pbp", ...)</code>).</p>
@@ -398,7 +398,7 @@
 <table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Function</th>
 <th>Description</th>
 </tr></thead><tbody><tr><td>
-<code><a href="../reference/espn_wnba_team_season_profile.html">espn_wnba_team_season_profile()</a></code> / <code><a href="../reference/espn_wbb_team_season_profile.html">espn_wbb_team_season_profile()</a></code>
+<code><a href="../reference/espn_wnba_team.html">espn_wnba_team_season_profile()</a></code> / <code><a href="../reference/espn_wbb_team.html">espn_wbb_team_season_profile()</a></code>
 </td>
 <td>Era-correct team identity in a specific season plus <code>$ref</code> URLs for deeper resources (record, statistics, leaders, athletes, coaches, etc.). Historical depth back to <strong>1997</strong> (WNBA) / <strong>1982</strong> (WBB).</td>
 </tr><tr><td>
@@ -496,11 +496,11 @@
 </td>
 <td>Single-group metadata + <code>$ref</code> URLs to parent, children, member teams, and standings.</td>
 </tr><tr><td>
-<code><a href="../reference/espn_wnba_season_group_children.html">espn_wnba_season_group_children()</a></code> / <code><a href="../reference/espn_wbb_season_group_children.html">espn_wbb_season_group_children()</a></code>
+<code><a href="../reference/espn_wnba_season_group.html">espn_wnba_season_group_children()</a></code> / <code><a href="../reference/espn_wbb_season_group.html">espn_wbb_season_group_children()</a></code>
 </td>
 <td>Index of child groups (e.g. divisions inside a conference, or conferences inside the NCAA Division I umbrella group).</td>
 </tr><tr><td>
-<code><a href="../reference/espn_wnba_season_group_teams.html">espn_wnba_season_group_teams()</a></code> / <code><a href="../reference/espn_wbb_season_group_teams.html">espn_wbb_season_group_teams()</a></code>
+<code><a href="../reference/espn_wnba_season_group.html">espn_wnba_season_group_teams()</a></code> / <code><a href="../reference/espn_wbb_season_group.html">espn_wbb_season_group_teams()</a></code>
 </td>
 <td>Index of team IDs that belong to the group for that (season × season-type).</td>
 </tr></tbody></table></div>
@@ -543,11 +543,11 @@
 <code>espn_wnba_athlete_eventlog_v2()</code> / <code>espn_wbb_athlete_eventlog_v2()</code>
 </td>
 <td>Per-season event log from core-v2. One row per (event × team) with <code>played</code> flag + refs. Distinct from <code>espn_*_athlete_eventlog()</code> (web-common-v3 with stats per game).</td>
-</tr><tr><td><code><a href="../reference/espn_wnba_draft_rounds.html">espn_wnba_draft_rounds()</a></code></td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_draft_rounds()</a></code></td>
 <td>Round-level summary for one WNBA draft year.</td>
 </tr><tr><td><code><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_draft_athletes()</a></code></td>
 <td>Index of every athlete in a given WNBA draft year.</td>
-</tr><tr><td><code><a href="../reference/espn_wnba_draft_status.html">espn_wnba_draft_status()</a></code></td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_draft_status()</a></code></td>
 <td>Single-row snapshot of one draft year’s current state.</td>
 </tr></tbody></table></div>
 <div class="section level5">
@@ -633,7 +633,7 @@
 <code>espn_wnba_event_competitor_score()</code> / <code>espn_wbb_event_competitor_score()</code>
 </td>
 <td>Single-row final score for one team in one event: <code>value</code>, <code>display_value</code>, <code>winner</code> flag, source.</td>
-</tr><tr><td><code><a href="../reference/espn_wnba_season_draft.html">espn_wnba_season_draft()</a></code></td>
+</tr><tr><td><code><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_season_draft()</a></code></td>
 <td>Draft-year top-level metadata: <code>year</code>, <code>number_of_rounds</code>, <code>display_name</code>, plus sub-refs.</td>
 </tr></tbody></table><p><code>_pkgdown.yml</code> updated to surface the new entries.</p>
 </div>
@@ -685,10 +685,10 @@
 <div class="section level5">
 <h5 id="ncaa-womens-basketball--model-dataset-loaders-3-0-0"><em>NCAA women’s-basketball + model-dataset loaders</em><a class="anchor" aria-label="anchor" href="#ncaa-womens-basketball--model-dataset-loaders-3-0-0"></a></h5>
 <p>Seventeen further bulk-data loaders, following the established loader shape:</p>
-<ul><li>A 13-function NCAA women’s-basketball family reading the stats.ncaa.org-derived datasets produced by the companion <code>sportsdataverse-py</code> engine (wehoop ships loaders only): <code><a href="../reference/load_ncaa_wbb_pbp.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="../reference/load_ncaa_wbb_shots.html">load_ncaa_wbb_shots()</a></code> (2019+), <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_lineups()</a></code>, <code><a href="../reference/load_ncaa_wbb_matchup_stints.html">load_ncaa_wbb_matchup_stints()</a></code>, <code><a href="../reference/load_ncaa_wbb_possessions.html">load_ncaa_wbb_possessions()</a></code>, <code><a href="../reference/load_ncaa_wbb_rapm.html">load_ncaa_wbb_rapm()</a></code> (league-wide regularized adjusted plus-minus, 2011+), <code><a href="../reference/load_ncaa_wbb_rapm_within_team.html">load_ncaa_wbb_rapm_within_team()</a></code>, <code><a href="../reference/load_ncaa_wbb_player_box.html">load_ncaa_wbb_player_box()</a></code>, <code><a href="../reference/load_ncaa_wbb_team_box.html">load_ncaa_wbb_team_box()</a></code>, <code><a href="../reference/load_ncaa_wbb_rosters.html">load_ncaa_wbb_rosters()</a></code>, <code><a href="../reference/load_ncaa_wbb_team_rosters.html">load_ncaa_wbb_team_rosters()</a></code>, <code><a href="../reference/load_ncaa_wbb_schedule.html">load_ncaa_wbb_schedule()</a></code>, and <code><a href="../reference/load_ncaa_wbb_team_ids.html">load_ncaa_wbb_team_ids()</a></code> (2010+ unless noted).</li>
+<ul><li>A 13-function NCAA women’s-basketball family reading the stats.ncaa.org-derived datasets produced by the companion <code>sportsdataverse-py</code> engine (wehoop ships loaders only): <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_shots()</a></code> (2019+), <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_lineups()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_matchup_stints()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_possessions()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm()</a></code> (league-wide regularized adjusted plus-minus, 2011+), <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm_within_team()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_player_box()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_team_box()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rosters()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_team_rosters()</a></code>, <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_schedule()</a></code>, and <code><a href="../reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_team_ids()</a></code> (2010+ unless noted).</li>
 <li>
-<code><a href="../reference/load_wnba_stats_possessions.html">load_wnba_stats_possessions()</a></code> (1997+), also registered in <code><a href="../reference/update_wnba_stats_db.html">update_wnba_stats_db()</a></code>.</li>
-<li>Three model datasets: <code><a href="../reference/load_wnba_player_impact.html">load_wnba_player_impact()</a></code> (1997+), <code><a href="../reference/load_wbb_player_value.html">load_wbb_player_value()</a></code> (2014+), and <code><a href="../reference/load_wbb_ratings.html">load_wbb_ratings()</a></code> (2008+).</li>
+<code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_possessions()</a></code> (1997+), also registered in <code><a href="../reference/update_wnba_stats_db.html">update_wnba_stats_db()</a></code>.</li>
+<li>Three model datasets: <code><a href="../reference/load_wbb_player_value.html">load_wnba_player_impact()</a></code> (1997+), <code><a href="../reference/load_wbb_player_value.html">load_wbb_player_value()</a></code> (2014+), and <code><a href="../reference/load_wbb_player_value.html">load_wbb_ratings()</a></code> (2008+).</li>
 </ul></div>
 <div class="section level5">
 <h5 id="fixes-3-0-0"><em>Fixes</em><a class="anchor" aria-label="anchor" href="#fixes-3-0-0"></a></h5>
@@ -697,16 +697,16 @@
 <li>
 <code><a href="../reference/espn_wbb_standings.html">espn_wbb_standings()</a></code> now requests ESPN’s conference-grouped standings — the flat league list silently omitted the six 2022-23 Division-I newcomer programs (356 of 362 teams). All 362 teams are returned and the result gains a <code>conference</code> column.</li>
 <li>
-<code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wbb_pbp.html">espn_wbb_pbp()</a></code> no longer error on games whose plays carry fewer (or more) participants than a previously hardcoded column count; participant columns are named dynamically and padded to the documented schema.</li>
+<code><a href="../reference/espn_wnba_game_all.html">espn_wnba_pbp()</a></code> / <code><a href="../reference/espn_wbb_game_all.html">espn_wbb_pbp()</a></code> no longer error on games whose plays carry fewer (or more) participants than a previously hardcoded column count; participant columns are named dynamically and padded to the documented schema.</li>
 <li>
-<code>...</code> is now genuinely forwarded to <code><a href="https://dbi.r-dbi.org/reference/dbWriteTable.html" class="external-link">DBI::dbWriteTable()</a></code> in every loader documenting it (35 call sites), and <code><a href="../reference/load_wbb_player_core.html">load_wbb_player_core()</a></code>, <code><a href="../reference/load_wnba_team_box.html">load_wnba_team_box()</a></code>, and <code><a href="../reference/load_wnba_player_core.html">load_wnba_player_core()</a></code> — which documented an optional database write without performing it — now perform it.</li>
+<code>...</code> is now genuinely forwarded to <code><a href="https://dbi.r-dbi.org/reference/dbWriteTable.html" class="external-link">DBI::dbWriteTable()</a></code> in every loader documenting it (35 call sites), and <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_player_core()</a></code>, <code><a href="../reference/load_wnba_draft.html">load_wnba_team_box()</a></code>, and <code><a href="../reference/load_wnba_draft.html">load_wnba_player_core()</a></code> — which documented an optional database write without performing it — now perform it.</li>
 <li>The internal ESPN season group-children fetch paginates instead of truncating at 200 results.</li>
 <li>
-<code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> / <code><a href="../reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> docs: <code>type_text</code> is ESPN-verbatim (“MadeFreeThrow” is the free-throw play <em>type</em> for made and missed attempts — filter makes with <code>scoring_play</code>), <code>score_value</code> carries the attempt’s value even on misses, and <code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> columns.</li>
+<code><a href="../reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> / <code><a href="../reference/load_wnba_draft.html">load_wnba_pbp()</a></code> docs: <code>type_text</code> is ESPN-verbatim (“MadeFreeThrow” is the free-throw play <em>type</em> for made and missed attempts — filter makes with <code>scoring_play</code>), <code>score_value</code> carries the attempt’s value even on misses, and <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> documents the producer-appended <code>pregame_home_prob</code> / <code>home_win_prob</code> columns.</li>
 </ul></div>
 <div class="section level5">
 <h5 id="published-data-correction-loaders-serve-corrected-assets-3-0-0"><em>Published-data correction (loaders serve corrected assets)</em><a class="anchor" aria-label="anchor" href="#published-data-correction-loaders-serve-corrected-assets-3-0-0"></a></h5>
-<p>The pre-2006 WNBA (2002-2005) and pre-2016 NCAA WBB (2003-2015) ESPN play-by-play release assets were rebuilt with the correct halves-era clock model: those seasons were 2×20-minute halves, but the published <code>half</code>, <code>start/end *_seconds_remaining</code>, overtime, and timeout-bucket columns had been derived under a 4×10-minute quarters assumption. <code><a href="../reference/load_wnba_pbp.html">load_wnba_pbp()</a></code> and <code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code> for the affected seasons now serve corrected values (row counts and all other columns unchanged).</p>
+<p>The pre-2006 WNBA (2002-2005) and pre-2016 NCAA WBB (2003-2015) ESPN play-by-play release assets were rebuilt with the correct halves-era clock model: those seasons were 2×20-minute halves, but the published <code>half</code>, <code>start/end *_seconds_remaining</code>, overtime, and timeout-bucket columns had been derived under a 4×10-minute quarters assumption. <code><a href="../reference/load_wnba_draft.html">load_wnba_pbp()</a></code> and <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> for the affected seasons now serve corrected values (row counts and all other columns unchanged).</p>
 </div>
 <div class="section level5">
 <h5 id="additional-soft-deprecations-3-0-0"><em>Additional soft deprecations</em><a class="anchor" aria-label="anchor" href="#additional-soft-deprecations-3-0-0"></a></h5>
@@ -787,7 +787,7 @@
 <th>Replacement</th>
 <th>Reason</th>
 </tr></thead><tbody><tr><td><code><a href="../reference/wnba_boxscoreplayertrackv2.html">wnba_boxscoreplayertrackv2()</a></code></td>
-<td><code><a href="../reference/wnba_boxscoreplayertrackv3.html">wnba_boxscoreplayertrackv3()</a></code></td>
+<td><code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoreplayertrackv3()</a></code></td>
 <td>V2 returns 404 HTML</td>
 </tr><tr><td><code><a href="../reference/wnba_data_pbp.html">wnba_data_pbp()</a></code></td>
 <td><code><a href="../reference/wnba_pbp.html">wnba_pbp()</a></code></td>
@@ -811,19 +811,19 @@
 </tr></thead><tbody><tr><td><code><a href="../reference/wnba_boxscorehustlev2.html">wnba_boxscorehustlev2()</a></code></td>
 <td>(endpoint dead, no replacement)</td>
 <td>3.0.0</td>
-</tr><tr><td><code><a href="../reference/wnba_hustlestatsboxscore.html">wnba_hustlestatsboxscore()</a></code></td>
+</tr><tr><td><code><a href="../reference/wnba_boxscoreplayertrackv2.html">wnba_hustlestatsboxscore()</a></code></td>
 <td>(endpoint dead, no replacement)</td>
 <td>3.0.0</td>
 </tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsplayer()</a></code></td>
 <td>(endpoint dead, no replacement)</td>
 <td>3.0.0</td>
-</tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsplayerleaders.html">wnba_leaguehustlestatsplayerleaders()</a></code></td>
+</tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsplayerleaders()</a></code></td>
 <td>(endpoint dead, no replacement)</td>
 <td>3.0.0</td>
-</tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsteam.html">wnba_leaguehustlestatsteam()</a></code></td>
+</tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsteam()</a></code></td>
 <td>(endpoint dead, no replacement)</td>
 <td>3.0.0</td>
-</tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsteamleaders.html">wnba_leaguehustlestatsteamleaders()</a></code></td>
+</tr><tr><td><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsteamleaders()</a></code></td>
 <td>(endpoint dead, no replacement)</td>
 <td>3.0.0</td>
 </tr><tr><td><code><a href="../reference/wnba_homepageleaders.html">wnba_homepageleaders()</a></code></td>
@@ -838,7 +838,7 @@
 </tr><tr><td><code><a href="../reference/wnba_scoreboard.html">wnba_scoreboard()</a></code></td>
 <td><code><a href="../reference/wnba_scoreboardv3.html">wnba_scoreboardv3()</a></code></td>
 <td>2.1.0</td>
-</tr><tr><td><code><a href="../reference/wnba_videodetails.html">wnba_videodetails()</a></code></td>
+</tr><tr><td><code><a href="../reference/wnba_videodetailsasset.html">wnba_videodetails()</a></code></td>
 <td><code><a href="../reference/wnba_videoevents.html">wnba_videoevents()</a></code></td>
 <td>3.0.0</td>
 </tr><tr><td><code><a href="../reference/wnba_videodetailsasset.html">wnba_videodetailsasset()</a></code></td>
@@ -846,13 +846,13 @@
 <td>3.0.0</td>
 </tr></tbody></table><p><em>Soft warning (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn</a></code>)</em> — function still runs but recommends a replacement; will escalate to <code>deprecate_stop</code> if the upstream endpoint isn’t restored:</p>
 <ul><li>
-<code><a href="../reference/wnba_boxscoresummaryv3.html">wnba_boxscoresummaryv3()</a></code> → <code><a href="../reference/wnba_boxscoresummaryv2.html">wnba_boxscoresummaryv2()</a></code>. The V3 endpoint still answers 200 OK with the full schema, but the core result sets (<code>game_summary</code>, <code>line_score</code>, <code>inactive_players</code>, <code>other_stats</code>, <code>available_video</code>, <code>game_info</code>, <code>arena_info</code>) come back zero-row in 2025; only <code>officials</code> and <code>last_five_meetings</code> populate. The V2 variant still returns full data.</li>
+<code><a href="../reference/wnba_boxscoresummaryv3.html">wnba_boxscoresummaryv3()</a></code> → <code><a href="../reference/wnba_boxscoreplayertrackv2.html">wnba_boxscoresummaryv2()</a></code>. The V3 endpoint still answers 200 OK with the full schema, but the core result sets (<code>game_summary</code>, <code>line_score</code>, <code>inactive_players</code>, <code>other_stats</code>, <code>available_video</code>, <code>game_info</code>, <code>arena_info</code>) come back zero-row in 2025; only <code>officials</code> and <code>last_five_meetings</code> populate. The V2 variant still returns full data.</li>
 </ul></div>
 <div class="section level4">
 <h4 id="documentation-improvements-3-0-0"><strong>Documentation improvements</strong><a class="anchor" aria-label="anchor" href="#documentation-improvements-3-0-0"></a></h4>
 <div class="section level5">
 <h5 id="return-column-descriptions-on-every-exported-function-3-0-0"><em>@return column descriptions on every exported function</em><a class="anchor" aria-label="anchor" href="#return-column-descriptions-on-every-exported-function-3-0-0"></a></h5>
-<p>Every <code>@return</code> markdown table across the 42 R source files is upgraded from two columns (<code>col_name | types</code>) to three columns (<code>col_name | types | description</code>). 580+ tables touched and 4,341 total table rows; every result set on every function now ships a per-column description in <code>?&lt;function&gt;</code> help, the pkgdown reference, and the rendered man pages. Existing prose <code>\describe{}</code> blocks (notably on <code><a href="../reference/load_wbb_pbp.html">load_wbb_pbp()</a></code>, <code><a href="../reference/load_wnba_pbp.html">load_wnba_pbp()</a></code>, and <code>parameter_descriptions</code>) are unchanged.</p>
+<p>Every <code>@return</code> markdown table across the 42 R source files is upgraded from two columns (<code>col_name | types</code>) to three columns (<code>col_name | types | description</code>). 580+ tables touched and 4,341 total table rows; every result set on every function now ships a per-column description in <code>?&lt;function&gt;</code> help, the pkgdown reference, and the rendered man pages. Existing prose <code>\describe{}</code> blocks (notably on <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code>, <code><a href="../reference/load_wnba_draft.html">load_wnba_pbp()</a></code>, and <code>parameter_descriptions</code>) are unchanged.</p>
 <p><strong>Coverage</strong> — frequency-weighted, what <code>?fn</code> readers actually see — <strong>74.7% of the 4,341 <a href="https://github.com/return" class="external-link">@return</a> table rows now carry a hand-quality description</strong> (curated + ESPN-API + mined). The remaining 25.3% are heuristic-fallback rows; the heuristic generator’s snake_case expansion + suffix rules cover most of those acceptably (e.g. <code>defended_at_rim_field_goals_attempted</code> → “Number of defended at rim field goals attempted.”), and the long tail is dominated by single-occurrence columns from low-traffic endpoints.</p>
 <p><strong>Description sources</strong> (precedence order, first match wins):</p>
 <ol style="list-style-type: decimal"><li>
@@ -970,17 +970,17 @@
 <li>
 <code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoretraditionalv3()</a></code> function added.</li>
 <li>
-<code><a href="../reference/wnba_boxscoreadvancedv3.html">wnba_boxscoreadvancedv3()</a></code> function added.</li>
+<code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoreadvancedv3()</a></code> function added.</li>
 <li>
-<code><a href="../reference/wnba_boxscoremiscv3.html">wnba_boxscoremiscv3()</a></code> function added.</li>
+<code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoremiscv3()</a></code> function added.</li>
 <li>
-<code><a href="../reference/wnba_boxscorescoringv3.html">wnba_boxscorescoringv3()</a></code> function added.</li>
+<code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscorescoringv3()</a></code> function added.</li>
 <li>
-<code><a href="../reference/wnba_boxscoreusagev3.html">wnba_boxscoreusagev3()</a></code> function added.</li>
+<code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoreusagev3()</a></code> function added.</li>
 <li>
-<code><a href="../reference/wnba_boxscorefourfactorsv3.html">wnba_boxscorefourfactorsv3()</a></code> function added.</li>
+<code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscorefourfactorsv3()</a></code> function added.</li>
 <li>
-<code><a href="../reference/wnba_boxscoreplayertrackv3.html">wnba_boxscoreplayertrackv3()</a></code> function added.</li>
+<code><a href="../reference/wnba_boxscoretraditionalv3.html">wnba_boxscoreplayertrackv3()</a></code> function added.</li>
 <li>
 <code><a href="../reference/wnba_boxscorehustlev2.html">wnba_boxscorehustlev2()</a></code> function added.</li>
 </ul></div>
@@ -1014,15 +1014,15 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.8.0" id="wehoop-180"><strong>wehoop 1.8.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-180"></a></h2>
 <ul><li>Add proxy rlang dots option for passing httr::use_proxy() option to wnba_stats_*() functions</li>
-<li>Improved output for <code><a href="../reference/espn_wbb_team_box.html">espn_wbb_team_box()</a></code>, <code><a href="../reference/espn_wbb_player_box.html">espn_wbb_player_box()</a></code>, <code><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box()</a></code>, <code><a href="../reference/espn_wnba_player_box.html">espn_wnba_player_box()</a></code>
+<li>Improved output for <code><a href="../reference/espn_wbb_game_all.html">espn_wbb_team_box()</a></code>, <code><a href="../reference/espn_wbb_game_all.html">espn_wbb_player_box()</a></code>, <code><a href="../reference/espn_wnba_game_all.html">espn_wnba_team_box()</a></code>, <code><a href="../reference/espn_wnba_game_all.html">espn_wnba_player_box()</a></code>
 </li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.7.0" id="wehoop-170"><strong>wehoop 1.7.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-170"></a></h2>
 <ul><li>
-<code><a href="../reference/espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code> function added.</li>
+<code><a href="../reference/espn_wbb_game_all.html">espn_wbb_game_rosters()</a></code> function added.</li>
 <li>
-<code><a href="../reference/espn_wnba_game_rosters.html">espn_wnba_game_rosters()</a></code> function added.</li>
+<code><a href="../reference/espn_wnba_game_all.html">espn_wnba_game_rosters()</a></code> function added.</li>
 <li>
 <code><a href="../reference/wnba_teams.html">wnba_teams()</a></code> function added. Useful for cross-walking between ESPN and WNBA Stats API</li>
 </ul></div>
@@ -1042,21 +1042,21 @@
 <td align="left">R/wnba_stats_leaders.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_assisttracker.html">wnba_assisttracker()</a></code></td>
 <td align="left">R/wnba_stats_leaders.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoreadvancedv2.html">wnba_boxscoreadvancedv2()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoretraditionalv2.html">wnba_boxscoreadvancedv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_boxscorefourfactorsv2.html">wnba_boxscorefourfactorsv2()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoretraditionalv2.html">wnba_boxscorefourfactorsv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoremiscv2.html">wnba_boxscoremiscv2()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoretraditionalv2.html">wnba_boxscoremiscv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_boxscoreplayertrackv2.html">wnba_boxscoreplayertrackv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_boxscorescoringv2.html">wnba_boxscorescoringv2()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoretraditionalv2.html">wnba_boxscorescoringv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoresummaryv2.html">wnba_boxscoresummaryv2()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoreplayertrackv2.html">wnba_boxscoresummaryv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_boxscoretraditionalv2.html">wnba_boxscoretraditionalv2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoreusagev2.html">wnba_boxscoreusagev2()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoretraditionalv2.html">wnba_boxscoreusagev2()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_commonallplayers.html">wnba_commonallplayers()</a></code></td>
 <td align="left">R/wnba_stats_roster.R</td>
@@ -1078,13 +1078,13 @@
 <td align="left">R/wnba_data_pbp.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_draftboard.html">wnba_draftboard()</a></code></td>
 <td align="left">R/wnba_stats_draft.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinedrillresults.html">wnba_draftcombinedrillresults()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinestats.html">wnba_draftcombinedrillresults()</a></code></td>
 <td align="left">R/wnba_stats_draft.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinenonstationaryshooting.html">wnba_draftcombinenonstationaryshooting()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinestats.html">wnba_draftcombinenonstationaryshooting()</a></code></td>
 <td align="left">R/wnba_stats_draft.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombineplayeranthro.html">wnba_draftcombineplayeranthro()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinestats.html">wnba_draftcombineplayeranthro()</a></code></td>
 <td align="left">R/wnba_stats_draft.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinespotshooting.html">wnba_draftcombinespotshooting()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinestats.html">wnba_draftcombinespotshooting()</a></code></td>
 <td align="left">R/wnba_stats_draft.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_draftcombinestats.html">wnba_draftcombinestats()</a></code></td>
 <td align="left">R/wnba_stats_draft.R</td>
@@ -1104,7 +1104,7 @@
 <td align="left">R/wnba_stats_leaders.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_homepagev2.html">wnba_homepagev2()</a></code></td>
 <td align="left">R/wnba_stats_leaders.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_hustlestatsboxscore.html">wnba_hustlestatsboxscore()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_boxscoreplayertrackv2.html">wnba_hustlestatsboxscore()</a></code></td>
 <td align="left">R/wnba_stats_boxscore.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_leaguedashlineups.html">wnba_leaguedashlineups()</a></code></td>
 <td align="left">R/wnba_stats_lineups.R</td>
@@ -1128,11 +1128,11 @@
 <td align="left">R/wnba_stats_league.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsplayer()</a></code></td>
 <td align="left">R/wnba_stats_hustle.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsplayerleaders.html">wnba_leaguehustlestatsplayerleaders()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsplayerleaders()</a></code></td>
 <td align="left">R/wnba_stats_hustle.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsteam.html">wnba_leaguehustlestatsteam()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsteam()</a></code></td>
 <td align="left">R/wnba_stats_hustle.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsteamleaders.html">wnba_leaguehustlestatsteamleaders()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_leaguehustlestatsplayer.html">wnba_leaguehustlestatsteamleaders()</a></code></td>
 <td align="left">R/wnba_stats_hustle.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_leaguelineupviz.html">wnba_leaguelineupviz()</a></code></td>
 <td align="left">R/wnba_stats_lineups.R</td>
@@ -1156,19 +1156,19 @@
 <td align="left">R/wnba_stats_player.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbyclutch()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbygamesplits.html">wnba_playerdashboardbygamesplits()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbygamesplits()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbygeneralsplits.html">wnba_playerdashboardbygeneralsplits()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbygeneralsplits()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbylastngames.html">wnba_playerdashboardbylastngames()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbylastngames()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyopponent.html">wnba_playerdashboardbyopponent()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbyopponent()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyshootingsplits.html">wnba_playerdashboardbyshootingsplits()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbyshootingsplits()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyteamperformance.html">wnba_playerdashboardbyteamperformance()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbyteamperformance()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyyearoveryear.html">wnba_playerdashboardbyyearoveryear()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_playerdashboardbyclutch.html">wnba_playerdashboardbyyearoveryear()</a></code></td>
 <td align="left">R/wnba_stats_player_dash.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_playerestimatedmetrics.html">wnba_playerestimatedmetrics()</a></code></td>
 <td align="left">R/wnba_stats_player.R</td>
@@ -1202,19 +1202,19 @@
 <td align="left">R/wnba_stats_shotchart.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbyclutch()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbygamesplits.html">wnba_teamdashboardbygamesplits()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbygamesplits()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbygeneralsplits.html">wnba_teamdashboardbygeneralsplits()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbygeneralsplits()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbylastngames.html">wnba_teamdashboardbylastngames()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbylastngames()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyopponent.html">wnba_teamdashboardbyopponent()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbyopponent()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyshootingsplits.html">wnba_teamdashboardbyshootingsplits()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbyshootingsplits()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyteamperformance.html">wnba_teamdashboardbyteamperformance()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbyteamperformance()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyyearoveryear.html">wnba_teamdashboardbyyearoveryear()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamdashboardbyclutch.html">wnba_teamdashboardbyyearoveryear()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_teamdashlineups.html">wnba_teamdashlineups()</a></code></td>
 <td align="left">R/wnba_stats_team_dash.R</td>
@@ -1234,15 +1234,15 @@
 <td align="left">R/wnba_stats_team.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_teamplayerdashboard.html">wnba_teamplayerdashboard()</a></code></td>
 <td align="left">R/wnba_stats_team.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamplayeronoffdetails.html">wnba_teamplayeronoffdetails()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamplayerdashboard.html">wnba_teamplayeronoffdetails()</a></code></td>
 <td align="left">R/wnba_stats_team.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_teamplayeronoffsummary.html">wnba_teamplayeronoffsummary()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_teamplayerdashboard.html">wnba_teamplayeronoffsummary()</a></code></td>
 <td align="left">R/wnba_stats_team.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_teamvsplayer.html">wnba_teamvsplayer()</a></code></td>
 <td align="left">R/wnba_stats_team.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_teamyearbyyearstats.html">wnba_teamyearbyyearstats()</a></code></td>
 <td align="left">R/wnba_stats_team.R</td>
-</tr><tr><td align="left"><code><a href="../reference/wnba_videodetails.html">wnba_videodetails()</a></code></td>
+</tr><tr><td align="left"><code><a href="../reference/wnba_videodetailsasset.html">wnba_videodetails()</a></code></td>
 <td align="left">R/wnba_stats_video.R</td>
 </tr><tr><td align="left"><code><a href="../reference/wnba_videoevents.html">wnba_videoevents()</a></code></td>
 <td align="left">R/wnba_stats_video.R</td>
@@ -1382,9 +1382,9 @@
 <ul><li>Added support for ESPN’s play-by-play endpoints with the addition of the following functions:</li>
 <li>
 <code><a href="../reference/espn_wnba_game_all.html">wehoop::espn_wnba_game_all()</a></code> - a convenience wrapper function around the following three functions (returns the results as a list of three data frames)</li>
-<li><code><a href="../reference/espn_wnba_team_box.html">wehoop::espn_wnba_team_box()</a></code></li>
-<li><code><a href="../reference/espn_wnba_player_box.html">wehoop::espn_wnba_player_box()</a></code></li>
-<li><code><a href="../reference/espn_wnba_pbp.html">wehoop::espn_wnba_pbp()</a></code></li>
+<li><code><a href="../reference/espn_wnba_game_all.html">wehoop::espn_wnba_team_box()</a></code></li>
+<li><code><a href="../reference/espn_wnba_game_all.html">wehoop::espn_wnba_player_box()</a></code></li>
+<li><code><a href="../reference/espn_wnba_game_all.html">wehoop::espn_wnba_pbp()</a></code></li>
 <li><code><a href="../reference/espn_wnba_teams.html">wehoop::espn_wnba_teams()</a></code></li>
 <li><code><a href="../reference/espn_wbb_scoreboard.html">wehoop::espn_wbb_scoreboard()</a></code></li>
 </ul></div>
@@ -1393,9 +1393,9 @@
 <ul><li>Added support for ESPN’s play-by-play endpoints with the addition of the following functions:</li>
 <li>
 <code><a href="../reference/espn_wbb_game_all.html">wehoop::espn_wbb_game_all()</a></code> - a convenience wrapper function around the following three functions (returns the results as a list of three data frames)</li>
-<li><code><a href="../reference/espn_wbb_team_box.html">wehoop::espn_wbb_team_box()</a></code></li>
-<li><code><a href="../reference/espn_wbb_player_box.html">wehoop::espn_wbb_player_box()</a></code></li>
-<li><code><a href="../reference/espn_wbb_pbp.html">wehoop::espn_wbb_pbp()</a></code></li>
+<li><code><a href="../reference/espn_wbb_game_all.html">wehoop::espn_wbb_team_box()</a></code></li>
+<li><code><a href="../reference/espn_wbb_game_all.html">wehoop::espn_wbb_player_box()</a></code></li>
+<li><code><a href="../reference/espn_wbb_game_all.html">wehoop::espn_wbb_pbp()</a></code></li>
 <li><code><a href="../reference/espn_wbb_teams.html">wehoop::espn_wbb_teams()</a></code></li>
 <li><code><a href="../reference/espn_wbb_conferences.html">wehoop::espn_wbb_conferences()</a></code></li>
 <li><code><a href="../reference/espn_wbb_scoreboard.html">wehoop::espn_wbb_scoreboard()</a></code></li>

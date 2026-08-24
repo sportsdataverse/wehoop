@@ -9,8 +9,8 @@ Three new live builders —
 [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md),
 [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md)
 — and three cached loaders —
-[`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_crosswalk.md),
-[`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule_crosswalk.md),
+[`load_wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
+[`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
 [`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
 — link ESPN, Fox Sports (Bifrost), and Bart Torvik
 (barttorvik.com/ncaaw) WBB team/game/player identities into wide,
@@ -31,7 +31,7 @@ barttorvik.com/ncaaw. A new
 [`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
 enumerator walks unseen Fox team ids to assemble the complete WBB team
 directory (single
-[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md)
 calls only return one conference at a time). Parallels the WNBA
 crosswalk surface added in the same release.
 
@@ -42,9 +42,9 @@ Three new live builders —
 [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md),
 [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
 — and three cached loaders —
-[`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_crosswalk.md),
-[`load_wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule_crosswalk.md),
-[`load_wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_crosswalk.md)
+[`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
+[`load_wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
+[`load_wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
 — link ESPN, WNBA Stats API, and Fox Sports team/game/player identities
 into wide, one-row-per-entity tibbles.
 [`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)
@@ -57,9 +57,9 @@ deterministic normalized-name joins; player matching uses blocked
 Jaro-Winkler fuzzy matching with jersey/DOB tiebreakers
 (`min_confidence = 0.92`). Yahoo columns are NA placeholders reserved
 for a future source. A new
-[`fox_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+[`fox_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md)
 /
-[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_teams.md)
+[`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md)
 wrapper provides the Fox Bifrost team directory used by the crosswalk
 engine. Cached artifacts are backed by the `wnba_crosswalk` release tag
 in `sportsdataverse-data`.
@@ -130,9 +130,9 @@ convention is applied directly without deprecation shims. The
 web-common-v3 `/athletes/{id}/stats` wrapper becomes `*_player_stats_v3`
 (kept alongside the core-v2 `*_player_stats`, a different endpoint). The
 long-standing
-[`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+[`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
 /
-[`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
+[`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
 / etc. are unaffected.
 
 #### **New exported functions**
@@ -141,7 +141,7 @@ long-standing
 
 | Function | Description |
 |----|----|
-| [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md) | League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the `ncaa_wbb_rapm` release tag, seasons 2011-2026. Distinct from the within-team [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm_within_team.md). |
+| [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md) | League-wide regularized adjusted plus-minus (single ridge over all Division I stints per season, Torvik-gated), one row per player-season. Backed by the `ncaa_wbb_rapm` release tag, seasons 2011-2026. Distinct from the within-team [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md). |
 
 ##### *New WNBA Stats API V3 endpoints*
 
@@ -149,7 +149,7 @@ long-standing
 |----|----|
 | [`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md) | V3 play-by-play endpoint wrapper. Used internally by [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md) via a V3→V2 compatibility pipeline ([`.v3_to_v2_format_wnba()`](https://wehoop.sportsdataverse.org/reference/dot-v3_to_v2_format_wnba.md), [`.build_player_roster_wnba()`](https://wehoop.sportsdataverse.org/reference/dot-build_player_roster_wnba.md), [`.players_on_court_v3_wnba()`](https://wehoop.sportsdataverse.org/reference/dot-players_on_court_v3_wnba.md)) that retains V2-compatible columns while adding V3-only columns (`x_legacy`, `y_legacy`, `shot_distance`, `shot_result`, `is_field_goal`, `points_total`, `shot_value`). |
 | [`wnba_boxscoresummaryv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv3.md) | V3 boxscore summary endpoint wrapper. |
-| [`wnba_boxscoreusagev3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev3.md) | V3 boxscore usage endpoint wrapper. |
+| [`wnba_boxscoreusagev3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) | V3 boxscore usage endpoint wrapper. |
 
 ##### *58 new ESPN endpoint wrappers (across 7 domains)*
 
@@ -181,9 +181,9 @@ empty tibble (rather than erroring) when no injuries are reported.
 | Function | Description |
 |----|----|
 | [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md) / [`espn_wnba_team()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md) | Single-team info as a named list (`Info`, `Record`, `NextEvent`, `StandingSummary`, `Coaches`) via site-v2 `/teams/{id}`. |
-| [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_roster.md) / [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_roster.md) | Roster (one row per athlete with position, height, weight, headshot) via site-v2 `/teams/{id}/roster`. |
+| [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md) / [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md) | Roster (one row per athlete with position, height, weight, headshot) via site-v2 `/teams/{id}/roster`. |
 | [`espn_wbb_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_schedule.md) / [`espn_wnba_team_schedule()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_schedule.md) | Schedule (one row per event with opponent, venue, broadcast, result) via site-v2 `/teams/{id}/schedule`. |
-| [`espn_wbb_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_leaders.md) / [`espn_wnba_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_leaders.md) | Statistical leaders (long format per category-rank-athlete) via site-v2 `/teams/{id}/leaders`. |
+| [`espn_wbb_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md) / [`espn_wnba_team_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md) | Statistical leaders (long format per category-rank-athlete) via site-v2 `/teams/{id}/leaders`. |
 
 *Athlete coverage* (8 endpoints × 2 leagues = 16 functions)
 
@@ -230,7 +230,7 @@ empty tibble (rather than erroring) when no injuries are reported.
 ##### *New data loaders (50+ functions)*
 
 All loaders follow the existing
-[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
 shape — `(seasons, ..., dbConnection = NULL, tablename = NULL)`,
 [`progressively()`](https://wehoop.sportsdataverse.org/reference/progressively.md)
 decorator, `data.table::rbindlist(use.names = TRUE, fill = TRUE)`,
@@ -244,14 +244,14 @@ result. Tests gated by `WEHOOP_LOAD_TESTS=1` via `skip_load_test()` in
 
 | Function | Release tag |
 |----|----|
-| [`load_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.md) | `espn_womens_college_basketball_rosters` |
-| [`load_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.md) | `espn_womens_college_basketball_player_season_stats` |
-| [`load_wnba_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.md) | `espn_wnba_rosters` |
-| [`load_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.md) | `espn_wnba_player_season_stats` |
-| [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.md) | `wnba_stats_rosters` |
+| [`load_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_rosters` |
+| [`load_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_player_season_stats` |
+| [`load_wnba_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_rosters` |
+| [`load_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_player_season_stats` |
+| [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_rosters` |
 | [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_coaches` |
-| [`load_wnba_stats_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.md) | `wnba_stats_player_season_stats` |
-| [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_lineups.md) | `wnba_stats_lineups` |
+| [`load_wnba_stats_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_player_season_stats` |
+| [`load_wnba_stats_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_lineups` |
 
 New file `R/load_wnba_stats.R` houses the four `wnba_stats_*` loaders.
 Adds
@@ -264,36 +264,36 @@ for naming symmetry with the `wnba_stats_*` family).
 
 | Function | Release tag |
 |----|----|
-| [`load_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_stats.md) | `espn_womens_college_basketball_team_season_stats` |
-| [`load_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_standings.md) | `espn_womens_college_basketball_standings` |
-| [`load_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_stats.md) | `espn_wnba_team_season_stats` |
-| [`load_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_standings.md) | `espn_wnba_standings` |
+| [`load_wbb_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_team_season_stats` |
+| [`load_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_standings` |
+| [`load_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_team_season_stats` |
+| [`load_wnba_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_standings` |
 | [`load_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_draft` |
-| [`load_wnba_stats_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_team_stats.md) | `wnba_stats_team_season_stats` |
-| [`load_wnba_stats_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_standings.md) | `wnba_stats_standings` |
-| [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_draft.md) | `wnba_stats_draft` |
+| [`load_wnba_stats_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_team_season_stats` |
+| [`load_wnba_stats_standings()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_standings` |
+| [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_draft` |
 
 *Shot events, per-game rosters, game officials*
 
 | Function | Release tag |
 |----|----|
-| [`load_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_wbb_shots.md) | `espn_womens_college_basketball_shots` |
+| [`load_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_shots` |
 | [`load_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_game_rosters` |
-| [`load_wbb_officials()`](https://wehoop.sportsdataverse.org/reference/load_wbb_officials.md) | `espn_womens_college_basketball_officials` |
-| [`load_wnba_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_shots.md) | `espn_wnba_shots` |
-| [`load_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_game_rosters.md) | `espn_wnba_game_rosters` |
-| [`load_wnba_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_officials.md) | `espn_wnba_officials` |
-| [`load_wnba_stats_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_shots.md) | `wnba_stats_shots` |
-| [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_rosters.md) | `wnba_stats_game_rosters` |
-| [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_officials.md) | `wnba_stats_officials` |
+| [`load_wbb_officials()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) | `espn_womens_college_basketball_officials` |
+| [`load_wnba_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_shots` |
+| [`load_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_game_rosters` |
+| [`load_wnba_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md) | `espn_wnba_officials` |
+| [`load_wnba_stats_shots()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_shots` |
+| [`load_wnba_stats_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_game_rosters` |
+| [`load_wnba_stats_officials()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) | `wnba_stats_officials` |
 
 *WNBA Stats API schedule + game logs + PBP*
 
 | Function | Release tag |
 |----|----|
-| [`load_wnba_stats_schedule()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_schedule.md) + `_manifest()` | `wnba_stats_schedules` |
-| [`load_wnba_stats_player_game_logs()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_game_logs.md) + `_manifest()` | `wnba_stats_player_game_logs` (new tag) |
-| [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.md) + `_manifest()` | `wnba_stats_pbp` |
+| [`load_wnba_stats_schedule()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) + `_manifest()` | `wnba_stats_schedules` |
+| [`load_wnba_stats_player_game_logs()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) + `_manifest()` | `wnba_stats_player_game_logs` (new tag) |
+| [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md) + `_manifest()` | `wnba_stats_pbp` |
 
 Populated by the rewritten
 `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeline (V3 PBP with
@@ -339,7 +339,7 @@ a thin shim over a shared `.espn_basketball_*()` helper.
 
 | Function | Description |
 |----|----|
-| [`espn_wnba_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_profile.md) / [`espn_wbb_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_profile.md) | Era-correct team identity in a specific season plus `$ref` URLs for deeper resources (record, statistics, leaders, athletes, coaches, etc.). Historical depth back to **1997** (WNBA) / **1982** (WBB). |
+| [`espn_wnba_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md) / [`espn_wbb_team_season_profile()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md) | Era-correct team identity in a specific season plus `$ref` URLs for deeper resources (record, statistics, leaders, athletes, coaches, etc.). Historical depth back to **1997** (WNBA) / **1982** (WBB). |
 | [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md) / [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md) | Franchise-level metadata. IDs are stable across relocations and rebrands. |
 | [`espn_wnba_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchises.md) / [`espn_wbb_franchises()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchises.md) | Index of franchise IDs in the league. |
 | [`espn_wnba_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_awards.md) / [`espn_wbb_season_awards()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_awards.md) | Index of award IDs given out in a season. |
@@ -391,8 +391,8 @@ MBB siblings ship in hoopR’s matching release.
 |----|----|
 | [`espn_wnba_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_groups.md) / [`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md) | Index of group IDs (conferences / divisions) for one (season × season-type). |
 | [`espn_wnba_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md) / [`espn_wbb_season_group()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md) | Single-group metadata + `$ref` URLs to parent, children, member teams, and standings. |
-| [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_children.md) / [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_children.md) | Index of child groups (e.g. divisions inside a conference, or conferences inside the NCAA Division I umbrella group). |
-| [`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group_teams.md) / [`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group_teams.md) | Index of team IDs that belong to the group for that (season × season-type). |
+| [`espn_wnba_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md) / [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md) | Index of child groups (e.g. divisions inside a conference, or conferences inside the NCAA Division I umbrella group). |
+| [`espn_wnba_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_group.md) / [`espn_wbb_season_group_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md) | Index of team IDs that belong to the group for that (season × season-type). |
 
 ##### *Tier 2A core-v2 expansion — team deep + coach-in-season*
 
@@ -423,9 +423,9 @@ in hoopR.)
 | Function | Description |
 |----|----|
 | `espn_wnba_athlete_eventlog_v2()` / `espn_wbb_athlete_eventlog_v2()` | Per-season event log from core-v2. One row per (event × team) with `played` flag + refs. Distinct from `espn_*_athlete_eventlog()` (web-common-v3 with stats per game). |
-| [`espn_wnba_draft_rounds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_rounds.md) | Round-level summary for one WNBA draft year. |
+| [`espn_wnba_draft_rounds()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Round-level summary for one WNBA draft year. |
 | [`espn_wnba_draft_athletes()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Index of every athlete in a given WNBA draft year. |
-| [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_status.md) | Single-row snapshot of one draft year’s current state. |
+| [`espn_wnba_draft_status()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Single-row snapshot of one draft year’s current state. |
 
 ##### *Tier 2B core-v2 expansion — event meta endpoints*
 
@@ -480,7 +480,7 @@ is WNBA-only). Paired with hoopR’s matching release.
 |----|----|
 | [`espn_wnba_team_season_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_season_statistics.md) / [`espn_wbb_team_season_statistics()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_season_statistics.md) | **Full team-season-type stat sheet in long format**, with `rank` + `rank_display_value` per stat. |
 | `espn_wnba_event_competitor_score()` / `espn_wbb_event_competitor_score()` | Single-row final score for one team in one event: `value`, `display_value`, `winner` flag, source. |
-| [`espn_wnba_season_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_draft.md) | Draft-year top-level metadata: `year`, `number_of_rounds`, `display_name`, plus sub-refs. |
+| [`espn_wnba_season_draft()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_draft_athletes.md) | Draft-year top-level metadata: `year`, `number_of_rounds`, `display_name`, plus sub-refs. |
 
 `_pkgdown.yml` updated to surface the new entries.
 
@@ -530,32 +530,32 @@ shape:
 - A 13-function NCAA women’s-basketball family reading the
   stats.ncaa.org-derived datasets produced by the companion
   `sportsdataverse-py` engine (wehoop ships loaders only):
-  [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md),
-  [`load_ncaa_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_shots.md)
+  [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md)
   (2019+),
   [`load_ncaa_wbb_lineups()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
-  [`load_ncaa_wbb_matchup_stints()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_matchup_stints.md),
-  [`load_ncaa_wbb_possessions()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_possessions.md),
-  [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm.md)
+  [`load_ncaa_wbb_matchup_stints()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_possessions()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md)
   (league-wide regularized adjusted plus-minus, 2011+),
-  [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm_within_team.md),
-  [`load_ncaa_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_player_box.md),
-  [`load_ncaa_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_box.md),
-  [`load_ncaa_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rosters.md),
-  [`load_ncaa_wbb_team_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_rosters.md),
-  [`load_ncaa_wbb_schedule()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_schedule.md),
+  [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_team_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  [`load_ncaa_wbb_schedule()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
   and
-  [`load_ncaa_wbb_team_ids()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_ids.md)
+  [`load_ncaa_wbb_team_ids()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md)
   (2010+ unless noted).
-- [`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)
+- [`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
   (1997+), also registered in
   [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md).
 - Three model datasets:
-  [`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md)
+  [`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
   (1997+),
   [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
   (2014+), and
-  [`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md)
+  [`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
   (2008+).
 
 ##### *Fixes*
@@ -570,31 +570,31 @@ shape:
   list silently omitted the six 2022-23 Division-I newcomer programs
   (356 of 362 teams). All 362 teams are returned and the result gains a
   `conference` column.
-- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
   /
-  [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+  [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
   no longer error on games whose plays carry fewer (or more)
   participants than a previously hardcoded column count; participant
   columns are named dynamically and padded to the documented schema.
 - `...` is now genuinely forwarded to
   [`DBI::dbWriteTable()`](https://dbi.r-dbi.org/reference/dbWriteTable.html)
   in every loader documenting it (35 call sites), and
-  [`load_wbb_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_core.md),
-  [`load_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_team_box.md),
+  [`load_wbb_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
+  [`load_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md),
   and
-  [`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.md)
+  [`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
   — which documented an optional database write without performing it —
   now perform it.
 - The internal ESPN season group-children fetch paginates instead of
   truncating at 200 results.
-- [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+- [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
   /
-  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
   docs: `type_text` is ESPN-verbatim (“MadeFreeThrow” is the free-throw
   play *type* for made and missed attempts — filter makes with
   `scoring_play`), `score_value` carries the attempt’s value even on
   misses, and
-  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
   documents the producer-appended `pregame_home_prob` / `home_win_prob`
   columns.
 
@@ -605,9 +605,9 @@ play-by-play release assets were rebuilt with the correct halves-era
 clock model: those seasons were 2×20-minute halves, but the published
 `half`, `start/end *_seconds_remaining`, overtime, and timeout-bucket
 columns had been derived under a 4×10-minute quarters assumption.
-[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md)
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
 and
-[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md)
+[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
 for the affected seasons now serve corrected values (row counts and all
 other columns unchanged).
 
@@ -715,7 +715,7 @@ message before the function call.
 
 | Deprecated function | Replacement | Reason |
 |----|----|----|
-| [`wnba_boxscoreplayertrackv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md) | [`wnba_boxscoreplayertrackv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv3.md) | V2 returns 404 HTML |
+| [`wnba_boxscoreplayertrackv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md) | [`wnba_boxscoreplayertrackv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md) | V2 returns 404 HTML |
 | [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md) | [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md) | `data.wnba.com` mobile_teams feed unstable; HTTP/2 stream errors routine |
 | [`wnba_playercareerbycollege()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollege.md) | [`wnba_playercareerbycollegerollup()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerbycollegerollup.md) / [`wnba_leaguedashplayerbiostats()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerbiostats.md) | details endpoint returns empty |
 | [`wnba_teamgamestreakfinder()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamestreakfinder.md) | [`wnba_teamgamelogs()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamelogs.md) | endpoint returns 404 HTML |
@@ -726,16 +726,16 @@ message before the function call.
 | Deprecated function | Replacement | Deprecated in |
 |----|----|----|
 | [`wnba_boxscorehustlev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorehustlev2.md) | (endpoint dead, no replacement) | 3.0.0 |
-| [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md) | (endpoint dead, no replacement) | 3.0.0 |
+| [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md) | (endpoint dead, no replacement) | 3.0.0 |
 | [`wnba_leaguehustlestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | (endpoint dead, no replacement) | 3.0.0 |
-| [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayerleaders.md) | (endpoint dead, no replacement) | 3.0.0 |
-| [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteam.md) | (endpoint dead, no replacement) | 3.0.0 |
-| [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteamleaders.md) | (endpoint dead, no replacement) | 3.0.0 |
+| [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | (endpoint dead, no replacement) | 3.0.0 |
+| [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | (endpoint dead, no replacement) | 3.0.0 |
+| [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | (endpoint dead, no replacement) | 3.0.0 |
 | [`wnba_homepageleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_homepageleaders.md) | [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md) | 2.1.0 |
 | [`wnba_homepagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagev2.md) | [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md) | 2.1.0 |
 | [`wnba_leaderstiles()`](https://wehoop.sportsdataverse.org/reference/wnba_leaderstiles.md) | [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md) | 2.1.0 |
 | [`wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboard.md) | [`wnba_scoreboardv3()`](https://wehoop.sportsdataverse.org/reference/wnba_scoreboardv3.md) | 2.1.0 |
-| [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md) | [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md) | 3.0.0 |
+| [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md) | [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md) | 3.0.0 |
 | [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md) | [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md) | 3.0.0 |
 
 *Soft warning
@@ -745,7 +745,7 @@ message before the function call.
 
 - [`wnba_boxscoresummaryv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv3.md)
   →
-  [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2.md).
+  [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md).
   The V3 endpoint still answers 200 OK with the full schema, but the
   core result sets (`game_summary`, `line_score`, `inactive_players`,
   `other_stats`, `available_video`, `game_info`, `arena_info`) come back
@@ -762,8 +762,8 @@ from two columns (`col_name | types`) to three columns
 table rows; every result set on every function now ships a per-column
 description in `?<function>` help, the pkgdown reference, and the
 rendered man pages. Existing prose `\describe{}` blocks (notably on
-[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.md),
-[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.md),
+[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md),
 and `parameter_descriptions`) are unchanged.
 
 **Coverage** — frequency-weighted, what `?fn` readers actually see —
@@ -1012,17 +1012,17 @@ CRAN release: 2023-11-25
   function added.
 - [`wnba_boxscoretraditionalv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
-- [`wnba_boxscoreadvancedv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreadvancedv3.md)
+- [`wnba_boxscoreadvancedv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
-- [`wnba_boxscoremiscv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv3.md)
+- [`wnba_boxscoremiscv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
-- [`wnba_boxscorescoringv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorescoringv3.md)
+- [`wnba_boxscorescoringv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
-- [`wnba_boxscoreusagev3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev3.md)
+- [`wnba_boxscoreusagev3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
-- [`wnba_boxscorefourfactorsv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorefourfactorsv3.md)
+- [`wnba_boxscorefourfactorsv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
-- [`wnba_boxscoreplayertrackv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv3.md)
+- [`wnba_boxscoreplayertrackv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv3.md)
   function added.
 - [`wnba_boxscorehustlev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorehustlev2.md)
   function added.
@@ -1062,16 +1062,16 @@ CRAN release: 2023-11-25
 - Add proxy rlang dots option for passing httr::use_proxy() option to
   wnba_stats\_\*() functions
 - Improved output for
-  [`espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.md),
-  [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.md),
-  [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md),
-  [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md)
+  [`espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
+  [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
+  [`espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md),
+  [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
 
 ## **wehoop 1.7.0**
 
-- [`espn_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_rosters.md)
+- [`espn_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
   function added.
-- [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_rosters.md)
+- [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
   function added.
 - [`wnba_teams()`](https://wehoop.sportsdataverse.org/reference/wnba_teams.md)
   function added. Useful for cross-walking between ESPN and WNBA Stats
@@ -1093,14 +1093,14 @@ CRAN release: 2022-06-17
 | [`wnba_alltimeleadersgrids()`](https://wehoop.sportsdataverse.org/reference/wnba_alltimeleadersgrids.md) | R/wnba_stats_leaders.R |
 | [`wnba_assistleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_assistleaders.md) | R/wnba_stats_leaders.R |
 | [`wnba_assisttracker()`](https://wehoop.sportsdataverse.org/reference/wnba_assisttracker.md) | R/wnba_stats_leaders.R |
-| [`wnba_boxscoreadvancedv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreadvancedv2.md) | R/wnba_stats_boxscore.R |
-| [`wnba_boxscorefourfactorsv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorefourfactorsv2.md) | R/wnba_stats_boxscore.R |
-| [`wnba_boxscoremiscv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoremiscv2.md) | R/wnba_stats_boxscore.R |
+| [`wnba_boxscoreadvancedv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md) | R/wnba_stats_boxscore.R |
+| [`wnba_boxscorefourfactorsv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md) | R/wnba_stats_boxscore.R |
+| [`wnba_boxscoremiscv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md) | R/wnba_stats_boxscore.R |
 | [`wnba_boxscoreplayertrackv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md) | R/wnba_stats_boxscore.R |
-| [`wnba_boxscorescoringv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscorescoringv2.md) | R/wnba_stats_boxscore.R |
-| [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv2.md) | R/wnba_stats_boxscore.R |
+| [`wnba_boxscorescoringv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md) | R/wnba_stats_boxscore.R |
+| [`wnba_boxscoresummaryv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md) | R/wnba_stats_boxscore.R |
 | [`wnba_boxscoretraditionalv2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md) | R/wnba_stats_boxscore.R |
-| [`wnba_boxscoreusagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreusagev2.md) | R/wnba_stats_boxscore.R |
+| [`wnba_boxscoreusagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoretraditionalv2.md) | R/wnba_stats_boxscore.R |
 | [`wnba_commonallplayers()`](https://wehoop.sportsdataverse.org/reference/wnba_commonallplayers.md) | R/wnba_stats_roster.R |
 | [`wnba_commonplayerinfo()`](https://wehoop.sportsdataverse.org/reference/wnba_commonplayerinfo.md) | R/wnba_stats_roster.R |
 | [`wnba_commonplayoffseries()`](https://wehoop.sportsdataverse.org/reference/wnba_commonplayoffseries.md) | R/wnba_stats_roster.R |
@@ -1111,10 +1111,10 @@ CRAN release: 2022-06-17
 | [`wnba_cumestatsteamgames()`](https://wehoop.sportsdataverse.org/reference/wnba_cumestatsteamgames.md) | R/wnba_stats_cume.R |
 | [`wnba_data_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_data_pbp.md) | R/wnba_data_pbp.R |
 | [`wnba_draftboard()`](https://wehoop.sportsdataverse.org/reference/wnba_draftboard.md) | R/wnba_stats_draft.R |
-| [`wnba_draftcombinedrillresults()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinedrillresults.md) | R/wnba_stats_draft.R |
-| [`wnba_draftcombinenonstationaryshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinenonstationaryshooting.md) | R/wnba_stats_draft.R |
-| [`wnba_draftcombineplayeranthro()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombineplayeranthro.md) | R/wnba_stats_draft.R |
-| [`wnba_draftcombinespotshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinespotshooting.md) | R/wnba_stats_draft.R |
+| [`wnba_draftcombinedrillresults()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.md) | R/wnba_stats_draft.R |
+| [`wnba_draftcombinenonstationaryshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.md) | R/wnba_stats_draft.R |
+| [`wnba_draftcombineplayeranthro()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.md) | R/wnba_stats_draft.R |
+| [`wnba_draftcombinespotshooting()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.md) | R/wnba_stats_draft.R |
 | [`wnba_draftcombinestats()`](https://wehoop.sportsdataverse.org/reference/wnba_draftcombinestats.md) | R/wnba_stats_draft.R |
 | [`wnba_drafthistory()`](https://wehoop.sportsdataverse.org/reference/wnba_drafthistory.md) | R/wnba_stats_draft.R |
 | [`wnba_fantasywidget()`](https://wehoop.sportsdataverse.org/reference/wnba_fantasywidget.md) | R/wnba_stats_lineups.R |
@@ -1124,7 +1124,7 @@ CRAN release: 2022-06-17
 | [`wnba_gamerotation()`](https://wehoop.sportsdataverse.org/reference/wnba_gamerotation.md) | R/wnba_stats_boxscore.R |
 | [`wnba_homepageleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_homepageleaders.md) | R/wnba_stats_leaders.R |
 | [`wnba_homepagev2()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagev2.md) | R/wnba_stats_leaders.R |
-| [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_hustlestatsboxscore.md) | R/wnba_stats_boxscore.R |
+| [`wnba_hustlestatsboxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoreplayertrackv2.md) | R/wnba_stats_boxscore.R |
 | [`wnba_leaguedashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashlineups.md) | R/wnba_stats_lineups.R |
 | [`wnba_leaguedashplayerbiostats()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerbiostats.md) | R/wnba_stats_league_dash.R |
 | [`wnba_leaguedashplayerclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguedashplayerclutch.md) | R/wnba_stats_league_dash.R |
@@ -1136,9 +1136,9 @@ CRAN release: 2022-06-17
 | [`wnba_leaguegamefinder()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguegamefinder.md) | R/wnba_stats_league.R |
 | [`wnba_leaguegamelog()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguegamelog.md) | R/wnba_stats_league.R |
 | [`wnba_leaguehustlestatsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | R/wnba_stats_hustle.R |
-| [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayerleaders.md) | R/wnba_stats_hustle.R |
-| [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteam.md) | R/wnba_stats_hustle.R |
-| [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsteamleaders.md) | R/wnba_stats_hustle.R |
+| [`wnba_leaguehustlestatsplayerleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | R/wnba_stats_hustle.R |
+| [`wnba_leaguehustlestatsteam()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | R/wnba_stats_hustle.R |
+| [`wnba_leaguehustlestatsteamleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguehustlestatsplayer.md) | R/wnba_stats_hustle.R |
 | [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md) | R/wnba_stats_lineups.R |
 | [`wnba_leagueplayerondetails()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueplayerondetails.md) | R/wnba_stats_lineups.R |
 | [`wnba_leagueseasonmatchups()`](https://wehoop.sportsdataverse.org/reference/wnba_leagueseasonmatchups.md) | R/wnba_stats_lineups.R |
@@ -1150,13 +1150,13 @@ CRAN release: 2022-06-17
 | [`wnba_playercareerstats()`](https://wehoop.sportsdataverse.org/reference/wnba_playercareerstats.md) | R/wnba_stats_player.R |
 | [`wnba_playercompare()`](https://wehoop.sportsdataverse.org/reference/wnba_playercompare.md) | R/wnba_stats_player.R |
 | [`wnba_playerdashboardbyclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbygamesplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbygamesplits.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbygeneralsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbygeneralsplits.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbylastngames()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbylastngames.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbyopponent()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyopponent.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbyshootingsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyshootingsplits.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbyteamperformance()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyteamperformance.md) | R/wnba_stats_player_dash.R |
-| [`wnba_playerdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyyearoveryear.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbygamesplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbygeneralsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbylastngames()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbyopponent()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbyshootingsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbyteamperformance()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
+| [`wnba_playerdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_playerdashboardbyclutch.md) | R/wnba_stats_player_dash.R |
 | [`wnba_playerestimatedmetrics()`](https://wehoop.sportsdataverse.org/reference/wnba_playerestimatedmetrics.md) | R/wnba_stats_player.R |
 | [`wnba_playerfantasyprofile()`](https://wehoop.sportsdataverse.org/reference/wnba_playerfantasyprofile.md) | R/wnba_stats_player.R |
 | [`wnba_playerfantasyprofilebargraph()`](https://wehoop.sportsdataverse.org/reference/wnba_playerfantasyprofilebargraph.md) | R/wnba_stats_player.R |
@@ -1173,13 +1173,13 @@ CRAN release: 2022-06-17
 | [`wnba_shotchartdetail()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartdetail.md) | R/wnba_stats_shotchart.R |
 | [`wnba_shotchartleaguewide()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartleaguewide.md) | R/wnba_stats_shotchart.R |
 | [`wnba_teamdashboardbyclutch()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbygamesplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygamesplits.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbygeneralsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbygeneralsplits.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbylastngames()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbylastngames.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbyopponent()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyopponent.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbyshootingsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyshootingsplits.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbyteamperformance()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyteamperformance.md) | R/wnba_stats_team_dash.R |
-| [`wnba_teamdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyyearoveryear.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbygamesplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbygeneralsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbylastngames()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbyopponent()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbyshootingsplits()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbyteamperformance()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
+| [`wnba_teamdashboardbyyearoveryear()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashboardbyclutch.md) | R/wnba_stats_team_dash.R |
 | [`wnba_teamdashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashlineups.md) | R/wnba_stats_team_dash.R |
 | [`wnba_teamdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdetails.md) | R/wnba_stats_team.R |
 | [`wnba_teamestimatedmetrics()`](https://wehoop.sportsdataverse.org/reference/wnba_teamestimatedmetrics.md) | R/wnba_stats_team.R |
@@ -1189,11 +1189,11 @@ CRAN release: 2022-06-17
 | [`wnba_teamhistoricalleaders()`](https://wehoop.sportsdataverse.org/reference/wnba_teamhistoricalleaders.md) | R/wnba_stats_team.R |
 | [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md) | R/wnba_stats_team.R |
 | [`wnba_teamplayerdashboard()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.md) | R/wnba_stats_team.R |
-| [`wnba_teamplayeronoffdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayeronoffdetails.md) | R/wnba_stats_team.R |
-| [`wnba_teamplayeronoffsummary()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayeronoffsummary.md) | R/wnba_stats_team.R |
+| [`wnba_teamplayeronoffdetails()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.md) | R/wnba_stats_team.R |
+| [`wnba_teamplayeronoffsummary()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.md) | R/wnba_stats_team.R |
 | [`wnba_teamvsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_teamvsplayer.md) | R/wnba_stats_team.R |
 | [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md) | R/wnba_stats_team.R |
-| [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetails.md) | R/wnba_stats_video.R |
+| [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md) | R/wnba_stats_video.R |
 | [`wnba_videoevents()`](https://wehoop.sportsdataverse.org/reference/wnba_videoevents.md) | R/wnba_stats_video.R |
 | [`wnba_videostatus()`](https://wehoop.sportsdataverse.org/reference/wnba_videostatus.md) | R/wnba_stats_video.R |
 
@@ -1339,9 +1339,9 @@ shrink the list of dependencies.
 - [`wehoop::espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md) -
   a convenience wrapper function around the following three functions
   (returns the results as a list of three data frames)
-- [`wehoop::espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_box.md)
-- [`wehoop::espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_box.md)
-- [`wehoop::espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_pbp.md)
+- [`wehoop::espn_wnba_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+- [`wehoop::espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+- [`wehoop::espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
 - [`wehoop::espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)
 - [`wehoop::espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md)
 
@@ -1352,9 +1352,9 @@ shrink the list of dependencies.
 - [`wehoop::espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md) -
   a convenience wrapper function around the following three functions
   (returns the results as a list of three data frames)
-- [`wehoop::espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_box.md)
-- [`wehoop::espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_box.md)
-- [`wehoop::espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_pbp.md)
+- [`wehoop::espn_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
+- [`wehoop::espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
+- [`wehoop::espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
 - [`wehoop::espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)
 - [`wehoop::espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
 - [`wehoop::espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md)

@@ -126,7 +126,8 @@ metrics for one WBB season, in long format: one row per (team x stat).</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A long tibble with one row per (team x stat).</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>season_type</td><td>integer</td><td>1=preseason, 2=regular, 3=postseason.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team id.</td></tr><tr><td>stat_name</td><td>character</td><td>Internal stat key.</td></tr><tr><td>abbreviation</td><td>character</td><td>Short stat abbreviation.</td></tr><tr><td>display_name</td><td>character</td><td>Human-readable stat name.</td></tr><tr><td>description</td><td>character</td><td>Stat description.</td></tr><tr><td>value</td><td>numeric</td><td>Stat value.</td></tr><tr><td>display_value</td><td>character</td><td>Display-formatted value.</td></tr><tr><td>last_updated</td><td>character</td><td>Last-updated timestamp.</td></tr><tr><td>team_ref</td><td>character</td><td><code>$ref</code> to the team-in-season resource.</td></tr></table></div>
+    <p>A long tibble with one row per (team x stat).</p>
+<p></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>season_type</td><td>integer</td><td>1=preseason, 2=regular, 3=postseason.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team id.</td></tr><tr><td>stat_name</td><td>character</td><td>Internal stat key.</td></tr><tr><td>abbreviation</td><td>character</td><td>Short stat abbreviation.</td></tr><tr><td>display_name</td><td>character</td><td>Human-readable stat name.</td></tr><tr><td>description</td><td>character</td><td>Stat description.</td></tr><tr><td>value</td><td>numeric</td><td>Stat value.</td></tr><tr><td>display_value</td><td>character</td><td>Display-formatted value.</td></tr><tr><td>last_updated</td><td>character</td><td>Last-updated timestamp.</td></tr><tr><td>team_ref</td><td>character</td><td><code>$ref</code> to the team-in-season resource.</td></tr></table></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN WBB Functions:
@@ -141,51 +142,31 @@ metrics for one WBB season, in long format: one row per (team x stat).</p>
 <code><a href="espn_wbb_franchise.html">espn_wbb_franchise()</a></code>,
 <code><a href="espn_wbb_franchises.html">espn_wbb_franchises()</a></code>,
 <code><a href="espn_wbb_game_all.html">espn_wbb_game_all()</a></code>,
-<code><a href="espn_wbb_game_broadcasts.html">espn_wbb_game_broadcasts()</a></code>,
-<code><a href="espn_wbb_game_odds.html">espn_wbb_game_odds()</a></code>,
+<code><a href="espn_wbb_game_broadcasts.html">espn_wbb_game_odds()</a></code>,
 <code><a href="espn_wbb_game_official_detail.html">espn_wbb_game_official_detail()</a></code>,
-<code><a href="espn_wbb_game_officials.html">espn_wbb_game_officials()</a></code>,
 <code><a href="espn_wbb_game_play.html">espn_wbb_game_play()</a></code>,
 <code><a href="espn_wbb_game_play_personnel.html">espn_wbb_game_play_personnel()</a></code>,
 <code><a href="espn_wbb_game_player_box.html">espn_wbb_game_player_box()</a></code>,
-<code><a href="espn_wbb_game_powerindex.html">espn_wbb_game_powerindex()</a></code>,
-<code><a href="espn_wbb_game_predictor.html">espn_wbb_game_predictor()</a></code>,
 <code><a href="espn_wbb_game_probabilities.html">espn_wbb_game_probabilities()</a></code>,
 <code><a href="espn_wbb_game_propbets.html">espn_wbb_game_propbets()</a></code>,
-<code><a href="espn_wbb_game_rosters.html">espn_wbb_game_rosters()</a></code>,
-<code><a href="espn_wbb_game_situation.html">espn_wbb_game_situation()</a></code>,
-<code><a href="espn_wbb_game_team_leaders.html">espn_wbb_game_team_leaders()</a></code>,
-<code><a href="espn_wbb_game_team_linescores.html">espn_wbb_game_team_linescores()</a></code>,
-<code><a href="espn_wbb_game_team_records.html">espn_wbb_game_team_records()</a></code>,
-<code><a href="espn_wbb_game_team_roster.html">espn_wbb_game_team_roster()</a></code>,
+<code><a href="espn_wbb_game_team_leaders.html">espn_wbb_game_team_linescores()</a></code>,
 <code><a href="espn_wbb_game_team_roster_entry.html">espn_wbb_game_team_roster_entry()</a></code>,
-<code><a href="espn_wbb_game_team_score.html">espn_wbb_game_team_score()</a></code>,
-<code><a href="espn_wbb_game_team_statistics.html">espn_wbb_game_team_statistics()</a></code>,
 <code><a href="espn_wbb_injuries.html">espn_wbb_injuries()</a></code>,
 <code><a href="espn_wbb_leaders.html">espn_wbb_leaders()</a></code>,
 <code><a href="espn_wbb_news.html">espn_wbb_news()</a></code>,
-<code><a href="espn_wbb_pbp.html">espn_wbb_pbp()</a></code>,
 <code><a href="espn_wbb_player_awards.html">espn_wbb_player_awards()</a></code>,
-<code><a href="espn_wbb_player_box.html">espn_wbb_player_box()</a></code>,
 <code><a href="espn_wbb_player_career_stats.html">espn_wbb_player_career_stats()</a></code>,
-<code><a href="espn_wbb_player_eventlog.html">espn_wbb_player_eventlog()</a></code>,
 <code><a href="espn_wbb_player_eventlog_v2.html">espn_wbb_player_eventlog_v2()</a></code>,
-<code><a href="espn_wbb_player_gamelog.html">espn_wbb_player_gamelog()</a></code>,
 <code><a href="espn_wbb_player_info.html">espn_wbb_player_info()</a></code>,
-<code><a href="espn_wbb_player_overview.html">espn_wbb_player_overview()</a></code>,
+<code><a href="espn_wbb_player_eventlog.html">espn_wbb_player_overview()</a></code>,
 <code><a href="espn_wbb_player_seasons.html">espn_wbb_player_seasons()</a></code>,
-<code><a href="espn_wbb_player_splits.html">espn_wbb_player_splits()</a></code>,
-<code><a href="espn_wbb_player_statisticslog.html">espn_wbb_player_statisticslog()</a></code>,
 <code><a href="espn_wbb_player_stats.html">espn_wbb_player_stats()</a></code>,
-<code><a href="espn_wbb_player_stats_v3.html">espn_wbb_player_stats_v3()</a></code>,
 <code><a href="espn_wbb_position.html">espn_wbb_position()</a></code>,
 <code><a href="espn_wbb_positions.html">espn_wbb_positions()</a></code>,
 <code><a href="espn_wbb_rankings.html">espn_wbb_rankings()</a></code>,
 <code><a href="espn_wbb_scoreboard.html">espn_wbb_scoreboard()</a></code>,
 <code><a href="espn_wbb_season_awards.html">espn_wbb_season_awards()</a></code>,
 <code><a href="espn_wbb_season_group.html">espn_wbb_season_group()</a></code>,
-<code><a href="espn_wbb_season_group_children.html">espn_wbb_season_group_children()</a></code>,
-<code><a href="espn_wbb_season_group_teams.html">espn_wbb_season_group_teams()</a></code>,
 <code><a href="espn_wbb_season_groups.html">espn_wbb_season_groups()</a></code>,
 <code><a href="espn_wbb_season_info.html">espn_wbb_season_info()</a></code>,
 <code><a href="espn_wbb_season_leaders.html">espn_wbb_season_leaders()</a></code>,
@@ -198,14 +179,10 @@ metrics for one WBB season, in long format: one row per (team x stat).</p>
 <code><a href="espn_wbb_seasons.html">espn_wbb_seasons()</a></code>,
 <code><a href="espn_wbb_standings.html">espn_wbb_standings()</a></code>,
 <code><a href="espn_wbb_team.html">espn_wbb_team()</a></code>,
-<code><a href="espn_wbb_team_box.html">espn_wbb_team_box()</a></code>,
 <code><a href="espn_wbb_team_injuries.html">espn_wbb_team_injuries()</a></code>,
-<code><a href="espn_wbb_team_leaders.html">espn_wbb_team_leaders()</a></code>,
 <code><a href="espn_wbb_team_news.html">espn_wbb_team_news()</a></code>,
 <code><a href="espn_wbb_team_record_detail.html">espn_wbb_team_record_detail()</a></code>,
-<code><a href="espn_wbb_team_roster.html">espn_wbb_team_roster()</a></code>,
 <code><a href="espn_wbb_team_schedule.html">espn_wbb_team_schedule()</a></code>,
-<code><a href="espn_wbb_team_season_profile.html">espn_wbb_team_season_profile()</a></code>,
 <code><a href="espn_wbb_team_season_roster.html">espn_wbb_team_season_roster()</a></code>,
 <code><a href="espn_wbb_team_season_statistics.html">espn_wbb_team_season_statistics()</a></code>,
 <code><a href="espn_wbb_team_stats.html">espn_wbb_team_stats()</a></code>,
@@ -228,7 +205,7 @@ metrics for one WBB season, in long format: one row per (team x stat).</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wbb_powerindex</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Power Index ─────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 14:38:55 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-24 16:06:48 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,475 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league         season season_type team_id stat_name abbreviation display_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>

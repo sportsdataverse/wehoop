@@ -191,7 +191,7 @@ to right, general to specific: <code>team_season_roster</code>,
 </ol>
 <p>So “a team’s roster for a season, from ESPN” assembles in your head
 as <code>espn_</code> + <code>wnba_</code> + <code>team</code> +
-<code>_roster</code> -&gt; <code><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster()</a></code>. “The
+<code>_roster</code> -&gt; <code><a href="../reference/espn_wnba_team.html">espn_wnba_team_roster()</a></code>. “The
 league leaders from WNBA.com” is <code>wnba_</code> +
 <code>leagueleaders</code> -&gt; <code><a href="../reference/wnba_leagueleaders.html">wnba_leagueleaders()</a></code>.
 Hundreds of functions, one grammar. Memorize the grammar, not the
@@ -220,7 +220,7 @@ you which zoom you asked for. Start wide, push in.</p>
 <span></span>
 <span><span class="co"># Medium: the box score. team_box and player_box are siblings -- same</span></span>
 <span><span class="co"># noun (box), different grain.</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_team_box.html">espn_wnba_team_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_all.html">espn_wnba_team_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 57</span></span></span>
 <span><span class="co">#&gt;     game_id season season_type game_date  game_date_time      team_id team_uid  </span></span>
 <span><span class="co">#&gt;       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
@@ -233,7 +233,7 @@ you which zoom you asked for. Start wide, push in.</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   team_score &lt;int&gt;, team_winner &lt;lgl&gt;, assists &lt;int&gt;, blocks &lt;int&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   defensive_rebounds &lt;int&gt;, fast_break_points &lt;chr&gt;, field_goal_pct &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   field_goals_made &lt;int&gt;, field_goals_attempted &lt;int&gt;, …</span></span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_player_box.html">espn_wnba_player_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_all.html">espn_wnba_player_box</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 21 × 57</span></span></span>
 <span><span class="co">#&gt;      game_id season season_type game_date  game_date_time      athlete_id</span></span>
 <span><span class="co">#&gt;        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -256,7 +256,7 @@ you which zoom you asked for. Start wide, push in.</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   free_throws_attempted &lt;int&gt;, offensive_rebounds &lt;int&gt;, …</span></span></span>
 <span></span>
 <span><span class="co"># Tightest: play-by-play, one row per possession.</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_all.html">espn_wnba_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 405 × 54</span></span></span>
 <span><span class="co">#&gt;    id       sequence_number text  away_score home_score scoring_play score_value</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -403,7 +403,7 @@ grain – the arguments and the grain always move together.</p>
 <p>The event-detail siblings all share the <code>espn_wnba_event_</code>
 stem:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wnba_game_team_linescores.html">espn_wnba_game_team_linescores</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/espn_wnba_game_team_leaders.html">espn_wnba_game_team_linescores</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 7</span></span></span>
 <span><span class="co">#&gt;   league event_id  team_id period value display_value source      </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
@@ -415,7 +415,7 @@ stem:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> wnba   401736171 17           3    24 24            Basic/Manual</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> wnba   401736171 17           4    24 24            1           </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> wnba   401736171 17           4    24 24            Basic/Manual</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_game_officials.html">espn_wnba_game_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_game_broadcasts.html">espn_wnba_game_officials</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 8</span></span></span>
 <span><span class="co">#&gt;   event_id  official_id full_name         display_name position_id position_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
@@ -443,7 +443,7 @@ menu:</p>
 <code class="sourceCode R"><span><span class="va">team_id</span> <span class="op">&lt;-</span> <span class="fl">17</span>    <span class="co"># Las Vegas Aces</span></span>
 <span><span class="va">season</span>  <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_team_season_profile.html">espn_wnba_team_season_profile</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_team.html">espn_wnba_team_season_profile</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 35</span></span></span>
 <span><span class="co">#&gt;   id    guid       uid   slug  location name  nickname abbreviation display_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
@@ -474,7 +474,7 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   neutral_site &lt;lgl&gt;, conference_competition &lt;lgl&gt;, venue_id &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   venue_name &lt;chr&gt;, venue_city &lt;chr&gt;, venue_state &lt;chr&gt;, broadcast &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   result &lt;chr&gt;, team_score &lt;chr&gt;, opponent_score &lt;chr&gt;, winner &lt;lgl&gt;</span></span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_team.html">espn_wnba_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 15</span></span></span>
 <span><span class="co">#&gt;    athlete_id full_name jersey position_abbrev position_name height weight age  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
@@ -590,8 +590,8 @@ exactly as the grammar promises:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">season</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_season_draft.html">espn_wnba_season_draft</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>        <span class="co"># the draft, top level</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_draft_rounds.html">espn_wnba_draft_rounds</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>        <span class="co"># by round</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_season_draft</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>        <span class="co"># the draft, top level</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_draft_rounds</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>        <span class="co"># by round</span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_draft_athletes.html">espn_wnba_draft_athletes</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>      <span class="co"># every drafted player</span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_draft_pick.html">espn_wnba_draft_pick</a></span><span class="op">(</span>season <span class="op">=</span> <span class="va">season</span>, round <span class="op">=</span> <span class="fl">1</span>, pick <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
@@ -606,24 +606,24 @@ visible.</p>
 </h2>
 <p><strong>The story.</strong> You don’t want one game. You want every
 game – a full season to model on.</p>
-<p>Looping <code><a href="../reference/espn_wnba_pbp.html">espn_wnba_pbp()</a></code> over hundreds of
+<p>Looping <code><a href="../reference/espn_wnba_game_all.html">espn_wnba_pbp()</a></code> over hundreds of
 <code>game_id</code>s works but is slow and rude to ESPN. The
 <code>load_</code> prefix exists for exactly this: pre-built,
 pre-cleaned season files.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load / wnba / pbp -- one call, one season.</span></span>
-<span><span class="va">pbp_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="va">pbp_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/load_wnba_player_box.html">load_wnba_player_box</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/load_wnba_team_box.html">load_wnba_team_box</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/load_wnba_schedule.html">load_wnba_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/load_wnba_shots.html">load_wnba_shots</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span>        <span class="co"># shot locations, ready to chart</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_player_box</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_team_box</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_shots</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span>        <span class="co"># shot locations, ready to chart</span></span></code></pre></div>
 <p>There’s also a deeper, WNBA-Stats-API-sourced bulk family under the
 <code>load_wnba_stats_</code> stem – richer play-by-play with on-court
 lineups, possession assignment, and a garbage-time flag:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/load_wnba_stats_pbp.html">load_wnba_stats_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/load_wnba_stats_player_game_logs.html">load_wnba_stats_player_game_logs</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_player_game_logs</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span>, table <span class="op">=</span> <span class="st">"lineups_master"</span><span class="op">)</span></span></code></pre></div>
 <p>Every <code>load_wnba_stats_</code> family is published back to
 <strong>1997</strong>, with two documented exceptions: officials start
@@ -647,7 +647,7 @@ learn it once, you’ve learned it everywhere:</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dbi.r-dbi.org" class="external-link">DBI</a></span><span class="op">)</span></span>
 <span><span class="va">con</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dbi.r-dbi.org/reference/dbConnect.html" class="external-link">dbConnect</a></span><span class="op">(</span><span class="fu">RSQLite</span><span class="fu">::</span><span class="fu"><a href="https://rsqlite.r-dbi.org/reference/SQLite.html" class="external-link">SQLite</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"wnba.sqlite"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/load_wnba_pbp.html">load_wnba_pbp</a></span><span class="op">(</span></span>
+<span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_pbp</a></span><span class="op">(</span></span>
 <span>  seasons      <span class="op">=</span> <span class="fl">2020</span><span class="op">:</span><span class="fl">2024</span>,</span>
 <span>  dbConnection <span class="op">=</span> <span class="va">con</span>,</span>
 <span>  tablename    <span class="op">=</span> <span class="st">"wnba_pbp"</span></span>
@@ -681,7 +681,7 @@ everything: ESPN, WNBA Stats, loaders.</p>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># From here on, nothing changes -- just call functions normally.</span></span>
-<span><span class="fu"><a href="../reference/espn_wnba_team_roster.html">espn_wnba_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span>, season <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/espn_wnba_team.html">espn_wnba_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">17</span>, season <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_wnba_season.html">most_recent_wnba_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/wnba_leagueleaders.html">wnba_leagueleaders</a></span><span class="op">(</span>season <span class="op">=</span> <span class="st">"2024"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Layer 2 – one call, one proxy.</strong> Every WNBA Stats API
 function (<code>wnba_*</code>) threads <code>...</code> down to the HTTP
