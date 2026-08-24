@@ -187,7 +187,7 @@ Saiem Gilani
   espn_wbb_player_info(athlete_id = "4433404")
 #> $Bio
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com ──── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:40:36 UTC
+#> ℹ Data updated: 2026-08-24 01:43:03 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -199,7 +199,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com ─── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:40:36 UTC
+#> ℹ Data updated: 2026-08-24 01:43:03 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -207,7 +207,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com ───────────────
-#> ℹ Data updated: 2026-08-24 00:40:36 UTC
+#> ℹ Data updated: 2026-08-24 01:43:03 UTC
 #> # A tibble: 1 × 5
 #>   id    name    display_name abbreviation leaf 
 #>   <chr> <chr>   <chr>        <chr>        <lgl>
@@ -215,7 +215,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-08-24 00:40:36 UTC
+#> ℹ Data updated: 2026-08-24 01:43:03 UTC
 #> # A tibble: 1 × 4
 #>   id    name     type     abbreviation
 #>   <chr> <chr>    <chr>    <chr>       
@@ -223,7 +223,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com ────────────────
-#> ℹ Data updated: 2026-08-24 00:40:36 UTC
+#> ℹ Data updated: 2026-08-24 01:43:03 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                           
 #>   <chr>                                                           
@@ -231,7 +231,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:40:36 UTC
+#> ℹ Data updated: 2026-08-24 01:43:03 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

@@ -42,27 +42,27 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:41:35 UTC
+#> ℹ Data updated: 2026-08-24 01:44:06 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
 #>  1 1       CONFER… 1       Dream 24-13 .649  -     91.0  86.0  12-6  12-7  11-5 
-#>  2 1       CONFER… 2       Fever 24-14 .632  0.5   96.0  91.0  13-6  11-8  11-5 
+#>  2 1       CONFER… 2       Fever 25-14 .641  -     97.0  91.0  13-6  12-8  12-5 
 #>  3 1       CONFER… 3       Libe… 23-15 .605  1.5   91.0  88.0  13-5  10-10 11-5 
-#>  4 1       CONFER… 4       Myst… 21-15 .583  2.5   82.0  83.0  13-7  8-8   11-5 
-#>  5 1       CONFER… 5       Sky   15-22 .405  9.0   87.0  89.0  10-9  5-13  3-10 
-#>  6 1       CONFER… 6       Tempo 11-25 .306  12.5  88.0  94.0  7-12  4-13  5-11 
+#>  4 1       CONFER… 4       Myst… 22-15 .595  2.0   83.0  83.0  13-7  9-8   11-5 
+#>  5 1       CONFER… 5       Sky   15-23 .395  9.5   87.0  90.0  10-10 5-13  3-11 
+#>  6 1       CONFER… 6       Tempo 11-26 .297  13.0  87.0  94.0  7-13  4-13  5-11 
 #>  7 1       CONFER… 7       Sun   9-27  .250  14.5  79.0  87.0  6-12  3-15  2-13 
 #>  8 1       CONFER… NA      Lynx  31-7  .816  -     92.0  83.0  14-5  17-2  20-2 
 #>  9 1       CONFER… NA      Valk… 25-11 .694  5.0   83.0  77.0  15-5  10-6  10-7 
-#> 10 1       CONFER… NA      Aces  25-13 .658  6.0   91.0  87.0  12-7  13-6  13-6 
+#> 10 1       CONFER… NA      Aces  26-13 .667  5.5   91.0  87.0  12-7  14-6  13-6 
 #> # ℹ 20 more rows
 #> # ℹ 4 more variables: l10 <chr>, strk <chr>, entity_id <chr>, western <chr>
 # }
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:41:35 UTC
+#> ℹ Data updated: 2026-08-24 01:44:06 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>

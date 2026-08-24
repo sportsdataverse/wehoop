@@ -86,7 +86,7 @@ Saiem Gilani
     print(df[!is.na(df$shot_zone), c("shot_distance", "shot_zone")])
   })
 #> ── WNBA Shot Zones ───────────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:44:46 UTC
+#> ℹ Data updated: 2026-08-24 01:47:31 UTC
 #> # A tibble: 147 × 2
 #>    shot_distance shot_zone          
 #>            <int> <chr>              

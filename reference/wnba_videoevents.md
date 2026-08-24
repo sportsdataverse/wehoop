@@ -30,6 +30,8 @@ Return a list of tibbles: videoUrls, playlist
 
 ## Details
 
+(Possibly Defunct)
+
       wnba_videoevents(game_id = '1022200075', game_event_id = '10')
 
 ## See also

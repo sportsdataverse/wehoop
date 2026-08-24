@@ -337,23 +337,22 @@ espn_wnba_team_schedule(team_id = team_id, season = season)
 #> #   venue_name <chr>, venue_city <chr>, venue_state <chr>, broadcast <chr>,
 #> #   result <chr>, team_score <chr>, opponent_score <chr>, winner <lgl>
 espn_wnba_team_roster(team_id = team_id, season = season)
-#> # A tibble: 14 × 15
+#> # A tibble: 13 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
-#>  1 4565501    Janiah B… 2      F               Forward       "6' 4… 185 l… 22   
-#>  2 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
-#>  3 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
-#>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
-#>  5 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
-#>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
-#>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 34   
-#>  8 4682855    Justine … 13     G               Guard         "6' 4… NA     22   
-#>  9 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 26   
-#> 10 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
-#> 11 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
-#> 12 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
-#> 13 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
-#> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
+#>  1 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
+#>  2 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
+#>  3 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
+#>  4 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
+#>  5 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
+#>  6 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 34   
+#>  7 4682855    Justine … 13     G               Guard         "6' 4… NA     22   
+#>  8 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 26   
+#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
+#> 10 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
+#> 11 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
+#> 12 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
+#> 13 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 

@@ -132,7 +132,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_linescores(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Linescores ───────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 00:41:09 UTC
+#> ℹ Data updated: 2026-08-24 01:43:39 UTC
 #> # A tibble: 8 × 7
 #>   league event_id  team_id period value display_value source      
 #>   <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr>       
