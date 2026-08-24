@@ -178,3 +178,19 @@ test_that("load_ncaa_wbb_team_ids returns a wehoop_data tibble for a recent seas
   expect_s3_class(df, "wehoop_data")
   expect_in(sort(c("team", "conference", "id", "season")), sort(colnames(df)))
 })
+
+test_that("load_ncaa_wbb_team_ids accepts a multi-season vector", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_load_test()
+
+  season <- most_recent_wbb_season()
+  df <- load_ncaa_wbb_team_ids(seasons = c(season - 1, season))
+
+  if (length(df) == 0 || nrow(df) == 0) {
+    skip("No rows returned at test time -- release may not exist yet")
+  }
+
+  expect_s3_class(df, "wehoop_data")
+  expect_gte(length(unique(df$season)), 2)
+})

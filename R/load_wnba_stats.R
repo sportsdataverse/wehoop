@@ -1334,7 +1334,7 @@ NULL
 #' Valid `datasets` values:
 #' `"schedule"`, `"player_game_logs"`, `"pbp"`, `"rosters"`, `"coaches"`,
 #' `"player_stats"`, `"lineups"`, `"team_stats"`, `"standings"`,
-#' `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`.
+#' `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`, `"possessions"`.
 #'
 #' @param dbdir Directory in which the database is or shall be located.
 #' @param dbname File name of an existing or desired SQLite database within
@@ -1362,7 +1362,7 @@ update_wnba_stats_db <- function(dbdir = ".",
   valid <- c("schedule", "player_game_logs", "pbp",
              "rosters", "coaches", "player_stats", "lineups",
              "team_stats", "standings", "draft", "shots",
-             "game_rosters", "officials")
+             "game_rosters", "officials", "possessions")
   if (is.null(datasets) || length(datasets) == 0) {
     cli::cli_abort(c(
       "x" = "{.arg datasets} is required for {.fn update_wnba_stats_db}.",
@@ -1401,7 +1401,8 @@ update_wnba_stats_db <- function(dbdir = ".",
     draft        = load_wnba_stats_draft,
     shots        = load_wnba_stats_shots,
     game_rosters = load_wnba_stats_game_rosters,
-    officials    = load_wnba_stats_officials
+    officials    = load_wnba_stats_officials,
+    possessions  = load_wnba_stats_possessions
   )
 
   for (ds in datasets) {
@@ -1430,6 +1431,7 @@ NULL
 #' @title
 #' **Load cleaned WNBA Stats API possessions from the data repo**
 #' @rdname load_wnba_stats_possessions
+#' @author Saiem Gilani
 #' @description Loads possession-level data derived from the WNBA Stats API
 #'   play-by-play -- one row per possession, with the on-court 5-man lineups
 #'   for both teams, shooting/rebounding/turnover splits, and the possession
@@ -1502,8 +1504,8 @@ load_wnba_stats_possessions <- function(seasons = most_recent_wnba_stats_season(
   if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 1997,
-            seasons <= most_recent_wnba_stats_season())
+            all(seasons >= 1997),
+            all(seasons <= most_recent_wnba_stats_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -1516,7 +1518,7 @@ load_wnba_stats_possessions <- function(seasons = most_recent_wnba_stats_season(
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")

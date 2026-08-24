@@ -42,5 +42,5 @@ Unlike \code{update_wnba_db()} / \code{update_wbb_db()}, there is no historical
 Valid \code{datasets} values:
 \code{"schedule"}, \code{"player_game_logs"}, \code{"pbp"}, \code{"rosters"}, \code{"coaches"},
 \code{"player_stats"}, \code{"lineups"}, \code{"team_stats"}, \code{"standings"},
-\code{"draft"}, \code{"shots"}, \code{"game_rosters"}, \code{"officials"}.
+\code{"draft"}, \code{"shots"}, \code{"game_rosters"}, \code{"officials"}, \code{"possessions"}.
 }

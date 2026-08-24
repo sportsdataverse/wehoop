@@ -75,4 +75,7 @@ Other Model Dataset loader functions:
 \code{\link[=load_wbb_player_value]{load_wbb_player_value()}},
 \code{\link[=load_wbb_ratings]{load_wbb_ratings()}}
 }
+\author{
+Saiem Gilani
+}
 \concept{Model Dataset loader functions}

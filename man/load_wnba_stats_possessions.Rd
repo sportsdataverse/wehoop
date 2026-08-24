@@ -93,4 +93,7 @@ Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_standings]{load_wnba_stats_standings()}},
 \code{\link[=load_wnba_stats_team_stats]{load_wnba_stats_team_stats()}}
 }
+\author{
+Saiem Gilani
+}
 \concept{WNBA Stats loader functions}

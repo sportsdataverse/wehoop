@@ -60,4 +60,7 @@ Other NCAA WBB loader functions:
 \code{\link[=load_ncaa_wbb_team_box]{load_ncaa_wbb_team_box()}},
 \code{\link[=load_ncaa_wbb_team_rosters]{load_ncaa_wbb_team_rosters()}}
 }
+\author{
+Saiem Gilani
+}
 \concept{NCAA WBB loader functions}

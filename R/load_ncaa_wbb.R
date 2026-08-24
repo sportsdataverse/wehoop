@@ -10,6 +10,7 @@ NULL
 #' @title
 #' **Load cleaned NCAA women's college basketball play-by-play from the data repo**
 #' @rdname load_ncaa_wbb_pbp
+#' @author Saiem Gilani
 #' @description Loads season-level NCAA women's college basketball
 #'   play-by-play. One row per event, with reconstructed 5-man lineups,
 #'   possession numbering, shot context (transition/paint/second-chance), and
@@ -136,8 +137,8 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -150,7 +151,7 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -165,6 +166,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball shot events from the data repo**
 #' @rdname load_ncaa_wbb_shots
+#' @author Saiem Gilani
 #' @description Loads shot-chart events for NCAA women's college basketball --
 #'   one row per field goal attempt, with court coordinates, distance, shot
 #'   zone, and made/missed result. Coordinates are only available from the
@@ -224,8 +226,8 @@ load_ncaa_wbb_shots <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2019:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2019,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2019),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -238,7 +240,7 @@ load_ncaa_wbb_shots <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -253,6 +255,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball 5-man lineup stints from the data repo**
 #' @rdname load_ncaa_wbb_lineups
+#' @author Saiem Gilani
 #' @description Loads reconstructed 5-man lineup stints for NCAA women's
 #'   college basketball -- one row per contiguous stretch a specific 5-player
 #'   lineup was on court for a team, with on/off scoring, shooting, and
@@ -311,7 +314,7 @@ NULL
 #'    |fg2m               |integer   |2-point field goals made by the lineup.                                                |
 #'    |tpa                |integer   |3-point field goal attempts.                                                           |
 #'    |tpm                |integer   |3-point field goals made.                                                              |
-#'    |tp_ast             |integer   |Tp ast.                                                                                |
+#'    |tp_ast             |integer   |3-pointers made that came off an assist.                                               |
 #'    |fta                |integer   |Free throw attempts by the lineup.                                                     |
 #'    |ftm                |integer   |Free throws made by the lineup.                                                        |
 #'    |orb                |integer   |Offensive rebounds.                                                                    |
@@ -369,8 +372,8 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -383,7 +386,7 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -398,6 +401,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball 10-man matchup stints from the data repo**
 #' @rdname load_ncaa_wbb_matchup_stints
+#' @author Saiem Gilani
 #' @description Loads reconstructed 10-man matchup stints (the home 5-man
 #'   lineup crossed with the away 5-man lineup) for NCAA women's college
 #'   basketball -- one row per contiguous stretch both lineups were on court
@@ -470,8 +474,8 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -484,7 +488,7 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -499,6 +503,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball possessions from the data repo**
 #' @rdname load_ncaa_wbb_possessions
+#' @author Saiem Gilani
 #' @description Loads possession-level data for NCAA women's college
 #'   basketball -- one row per offensive possession, with the on-court 5-man
 #'   lineups for both teams, points scored, assist/transition/garbage-time
@@ -594,8 +599,8 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -608,7 +613,7 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -623,6 +628,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball within-team RAPM ratings from the data repo**
 #' @rdname load_ncaa_wbb_rapm_within_team
+#' @author Saiem Gilani
 #' @description Loads within-team regularized adjusted plus-minus (RAPM)
 #'   ratings for NCAA women's college basketball -- one row per
 #'   player-team-season, fit against teammate lineup variation within that
@@ -674,8 +680,8 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -688,7 +694,7 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -703,6 +709,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball advanced player box scores from the data repo**
 #' @rdname load_ncaa_wbb_player_box
+#' @author Saiem Gilani
 #' @description Loads advanced per-player, per-game box scores for NCAA
 #'   women's college basketball -- one row per player-game, with shooting
 #'   splits by zone (rim/mid/3), transition and half-court splits,
@@ -869,8 +876,8 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -883,7 +890,7 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -898,6 +905,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball advanced team box scores from the data repo**
 #' @rdname load_ncaa_wbb_team_box
+#' @author Saiem Gilani
 #' @description Loads advanced per-team, per-game box scores for NCAA women's
 #'   college basketball -- one row per team-game, with offensive/defensive
 #'   ratings, shot-zone rates and efficiency (rim/mid/3),
@@ -1018,8 +1026,8 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -1032,7 +1040,7 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -1047,6 +1055,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball season rosters from the data repo**
 #' @rdname load_ncaa_wbb_rosters
+#' @author Saiem Gilani
 #' @description Loads a lightweight season roster for NCAA women's college
 #'   basketball -- one row per player-team-season with a games-played count.
 #'   For the fuller roster (jersey, class, position, height, hometown, high
@@ -1089,8 +1098,8 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -1103,7 +1112,7 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -1118,6 +1127,7 @@ NULL
 #' @title
 #' **Load full NCAA women's college basketball team rosters from the data repo**
 #' @rdname load_ncaa_wbb_team_rosters
+#' @author Saiem Gilani
 #' @description Loads the full season roster for NCAA women's college
 #'   basketball -- one row per player-team-season with jersey number, class
 #'   year, position, height, hometown, high school, and games played/started.
@@ -1172,8 +1182,8 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -1186,7 +1196,7 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -1201,6 +1211,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball schedules from the data repo**
 #' @rdname load_ncaa_wbb_schedule
+#' @author Saiem Gilani
 #' @description Loads season schedules/results for NCAA women's college
 #'   basketball -- one row per game with home/away teams and final scores.
 #'   Produced by the sdv-py `ncaa_wbb` engine; backed by the
@@ -1245,8 +1256,8 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -1259,7 +1270,7 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -1274,6 +1285,7 @@ NULL
 #' @title
 #' **Load the NCAA women's college basketball team-id crosswalk from the data repo**
 #' @rdname load_ncaa_wbb_team_ids
+#' @author Saiem Gilani
 #' @description Loads the season-level stats.ncaa.org team-id / conference
 #'   crosswalk for NCAA women's college basketball -- one row per team-season.
 #'   Useful for joining `ncaa_team_id` columns on the other `ncaa_wbb_*`
@@ -1316,8 +1328,8 @@ load_ncaa_wbb_team_ids <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2010,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2010),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -1330,7 +1342,7 @@ load_ncaa_wbb_team_ids <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")

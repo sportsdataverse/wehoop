@@ -1,7 +1,9 @@
-# Model-dataset release loaders -- thin wrappers around parquet_from_url()
-# (these release tags are parquet-only; no csv/rds siblings) mirroring the
-# wnba_stats_* / ncaa_wbb_* loader shape. Backed by the sdv-py model programs
-# described in CLAUDE.md (nba-possession-engine-program, mbb-wbb-player-value-spine).
+# Model-dataset release loaders, mirroring the wnba_stats_* / ncaa_wbb_*
+# loader shape. Backed by the sdv-py model programs described in CLAUDE.md
+# (nba-possession-engine-program, mbb-wbb-player-value-spine).
+# wnba_player_impact ships csv/parquet/rds -- rds_from_url() is used to match
+# the WNBA loader family convention. wbb_player_value / wbb_ratings are
+# parquet-only (no csv/rds siblings), so those two use parquet_from_url().
 
 #' **Load WNBA player-impact ratings (RAPM / SPM / BPM / DARKO) from the data repo**
 #' @name load_wnba_player_impact
@@ -9,6 +11,7 @@ NULL
 #' @title
 #' **Load WNBA player-impact ratings (RAPM / SPM / BPM / DARKO) from the data repo**
 #' @rdname load_wnba_player_impact
+#' @author Saiem Gilani
 #' @description Loads season-level WNBA player-impact ratings -- one row per
 #'   player-team-season, combining regularized adjusted plus-minus (RAPM),
 #'   statistical plus-minus (SPM), box plus-minus (BPM), wins above
@@ -69,18 +72,18 @@ load_wnba_player_impact <- function(seasons = most_recent_wnba_stats_season(),
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- parquet_from_url
+  loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
   if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 1997,
-            seasons <= most_recent_wnba_stats_season())
+            all(seasons >= 1997),
+            all(seasons <= most_recent_wnba_stats_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    "wnba_player_impact/wnba_player_impact_", seasons, ".parquet"
+    "wnba_player_impact/wnba_player_impact_", seasons, ".rds"
   )
 
   p <- NULL
@@ -89,7 +92,7 @@ load_wnba_player_impact <- function(seasons = most_recent_wnba_stats_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -104,6 +107,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball player-value ratings (box BPM) from the data repo**
 #' @rdname load_wbb_player_value
+#' @author Saiem Gilani
 #' @description Loads season-level NCAA women's college basketball
 #'   player-value ratings -- one row per player-team-season, with a
 #'   box-score-derived offensive/defensive/net box plus-minus (BPM). Coverage
@@ -151,8 +155,8 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2014:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2014,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2014),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -165,7 +169,7 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
@@ -180,6 +184,7 @@ NULL
 #' @title
 #' **Load NCAA women's college basketball adjusted efficiency team ratings from the data repo**
 #' @rdname load_wbb_ratings
+#' @author Saiem Gilani
 #' @description Loads season-level NCAA women's college basketball team
 #'   ratings -- one row per team-season, with adjusted
 #'   (opponent-strength-normalized) offensive/defensive efficiency, adjusted
@@ -230,8 +235,8 @@ load_wbb_ratings <- function(seasons = most_recent_wbb_season(),
   if (isTRUE(seasons)) seasons <- 2008:most_recent_wbb_season()
 
   stopifnot(is.numeric(seasons),
-            seasons >= 2008,
-            seasons <= most_recent_wbb_season())
+            all(seasons >= 2008),
+            all(seasons <= most_recent_wbb_season()))
 
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
@@ -244,7 +249,7 @@ load_wbb_ratings <- function(seasons = most_recent_wbb_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")

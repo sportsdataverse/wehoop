@@ -66,7 +66,7 @@ Returns a \code{wehoop_data} tibble with one row per lineup stint.\tabular{lll}{
    fg2m \tab integer \tab 2-point field goals made by the lineup. \cr
    tpa \tab integer \tab 3-point field goal attempts. \cr
    tpm \tab integer \tab 3-point field goals made. \cr
-   tp_ast \tab integer \tab Tp ast. \cr
+   tp_ast \tab integer \tab 3-pointers made that came off an assist. \cr
    fta \tab integer \tab Free throw attempts by the lineup. \cr
    ftm \tab integer \tab Free throws made by the lineup. \cr
    orb \tab integer \tab Offensive rebounds. \cr
@@ -133,5 +133,8 @@ Other NCAA WBB loader functions:
 \code{\link[=load_ncaa_wbb_team_box]{load_ncaa_wbb_team_box()}},
 \code{\link[=load_ncaa_wbb_team_ids]{load_ncaa_wbb_team_ids()}},
 \code{\link[=load_ncaa_wbb_team_rosters]{load_ncaa_wbb_team_rosters()}}
+}
+\author{
+Saiem Gilani
 }
 \concept{NCAA WBB loader functions}

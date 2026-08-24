@@ -59,4 +59,7 @@ Other Model Dataset loader functions:
 \code{\link[=load_wbb_player_value]{load_wbb_player_value()}},
 \code{\link[=load_wnba_player_impact]{load_wnba_player_impact()}}
 }
+\author{
+Saiem Gilani
+}
 \concept{Model Dataset loader functions}
