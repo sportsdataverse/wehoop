@@ -42,13 +42,13 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_odds("2215"))
 #> ── Fox Sports WNBA odds ──────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-23 23:07:46 UTC
+#> ℹ Data updated: 2026-08-24 00:41:34 UTC
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(fox_wbb_odds("388986"))
 #> ── Fox Sports WCBK odds ──────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-23 23:07:46 UTC
+#> ℹ Data updated: 2026-08-24 00:41:34 UTC
 #> # A tibble: 0 × 0
 # }
 ```

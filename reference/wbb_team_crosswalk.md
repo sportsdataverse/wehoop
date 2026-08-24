@@ -69,92 +69,92 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_team_crosswalk(season = 2025))
-#> ✖ 2026-08-23 23:10:36.131883: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:14.562887: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "3", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:37.17731: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:15.679049: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "200", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:37.591432: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:15.945536: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "226", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:37.73712: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:16.204316: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "230", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:37.882166: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:16.72716: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "231", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:38.481028: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:17.274441: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "350", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:38.627587: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:17.452585: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "351", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:38.773808: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:17.694889: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "352", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:38.920506: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:17.884144: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "353", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:39.065379: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:18.09235: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "354", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:39.209682: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:18.344017: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "355", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:39.356476: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:18.603286: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "356", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:39.855823: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:18.838284: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "357", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.007128: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:19.057729: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "358", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.154843: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:19.279689: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "359", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.309099: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:19.543642: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "360", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.454084: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:19.715861: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "361", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.599056: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:19.894938: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "362", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.763381: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:20.091927: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "363", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:40.909935: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:20.359938: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "364", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:41.055887: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:20.599243: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "365", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:41.201075: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:20.830765: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "367", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:41.437045: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:21.008447: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "368", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:41.586465: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:21.184132: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "369", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:41.733779: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:21.38148: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "370", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:41.880211: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:21.58985: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "371", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:42.025902: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:21.766691: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "372", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
-#> ✖ 2026-08-23 23:10:42.173422: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-08-24 00:44:22.067615: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "373", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
 #> ── WBB team crosswalk (ESPN / Fox / Torvik) ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-23 23:10:42 UTC
+#> ℹ Data updated: 2026-08-24 00:44:22 UTC
 #> # A tibble: 362 × 18
 #>    season espn_team_id espn_abbreviation espn_display_name       espn_short_name
 #>     <int>        <int> <chr>             <chr>                   <chr>          

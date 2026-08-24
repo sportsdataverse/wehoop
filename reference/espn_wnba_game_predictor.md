@@ -135,7 +135,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_predictor(event_id = 401736171)
 #> ── ESPN WNBA Event Predictor ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-23 23:07:16 UTC
+#> ℹ Data updated: 2026-08-24 00:41:05 UTC
 #> # A tibble: 6 × 13
 #>   league event_id  name         short_name last_modified side  team_id stat_name
 #>   <chr>  <chr>     <chr>        <chr>      <chr>         <chr> <chr>   <chr>    
