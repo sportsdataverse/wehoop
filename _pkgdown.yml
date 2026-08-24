@@ -285,6 +285,21 @@ reference:
       - '`load_wnba_stats_officials`'
       - '`load_wnba_stats_officials_manifest`'
       - '`update_wnba_stats_db`'
+  - subtitle: NCAA Women's College Basketball Play-by-Play Engine Data Loaders
+    desc: Functions exported by wehoop to access sdv-py ncaa_wbb engine artifacts published to sportsdataverse-data
+    contents:
+      - '`load_ncaa_wbb_pbp`'
+      - '`load_ncaa_wbb_shots`'
+      - '`load_ncaa_wbb_lineups`'
+      - '`load_ncaa_wbb_matchup_stints`'
+      - '`load_ncaa_wbb_possessions`'
+      - '`load_ncaa_wbb_rapm_within_team`'
+      - '`load_ncaa_wbb_player_box`'
+      - '`load_ncaa_wbb_team_box`'
+      - '`load_ncaa_wbb_rosters`'
+      - '`load_ncaa_wbb_team_rosters`'
+      - '`load_ncaa_wbb_schedule`'
+      - '`load_ncaa_wbb_team_ids`'
   - title: ESPN Data
   - subtitle: ESPN Family Overview
     desc: ESPN basketball endpoint family overview (WNBA + WBB)
