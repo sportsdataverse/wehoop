@@ -85,21 +85,15 @@ Saiem Gilani
     df <- wnba_shot_zones(game_id = "1022400003")
     print(df[!is.na(df$shot_zone), c("shot_distance", "shot_zone")])
   })
-#> ── WNBA Shot Zones ───────────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:47:31 UTC
-#> # A tibble: 147 × 2
-#>    shot_distance shot_zone          
-#>            <int> <chr>              
-#>  1            25 above_the_break_3  
-#>  2            39 above_the_break_3  
-#>  3            16 mid_range          
-#>  4             2 restricted_area    
-#>  5             4 in_the_paint_non_ra
-#>  6            24 above_the_break_3  
-#>  7            26 above_the_break_3  
-#>  8            25 above_the_break_3  
-#>  9            19 mid_range          
-#> 10            28 above_the_break_3  
-#> # ℹ 137 more rows
+#> ✖ 2026-08-24 05:37:32.765455: Invalid arguments or no V3 play-by-play data for 1022400003 available!
+#> ✖ Args: game_id = "1022400003", start_period = 0, end_period = 0
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-08-24 05:38:32.802588: Invalid arguments or no traditional boxscore v3 data for 1022400003 available!
+#> ✖ Args: game_id = "1022400003", start_period = 0, end_period = 14, start_range = 0, end_range = 0, range_type = 0
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-08-24 05:38:32.818428: Invalid arguments or no V3 play-by-play data for 1022400003 available!
+#> ✖ Args: game_id = "1022400003", on_court = FALSE, version = "v3", p = NULL
+#> ✖ Error: incorrect number of dimensions
+#> Error in if (nrow(pbp) == 0L) { : argument is of length zero
 # }
 ```

@@ -88,17 +88,17 @@ Other WBB loader functions:
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 30,492 × 24
 #>    season group_id group_name        group_abbreviation group_short_name team_id
-#>     <int> <chr>    <chr>             <chr>              <chr>              <int>
-#>  1   2026 1        America East Con… aeast              Am. East            2349
-#>  2   2026 1        America East Con… aeast              Am. East            2349
-#>  3   2026 1        America East Con… aeast              Am. East            2349
-#>  4   2026 1        America East Con… aeast              Am. East            2349
-#>  5   2026 1        America East Con… aeast              Am. East            2349
-#>  6   2026 1        America East Con… aeast              Am. East            2349
-#>  7   2026 1        America East Con… aeast              Am. East            2349
-#>  8   2026 1        America East Con… aeast              Am. East            2349
-#>  9   2026 1        America East Con… aeast              Am. East            2349
-#> 10   2026 1        America East Con… aeast              Am. East            2349
+#>     <int>    <int> <chr>             <chr>              <chr>              <int>
+#>  1   2026        1 America East Con… aeast              Am. East            2349
+#>  2   2026        1 America East Con… aeast              Am. East            2349
+#>  3   2026        1 America East Con… aeast              Am. East            2349
+#>  4   2026        1 America East Con… aeast              Am. East            2349
+#>  5   2026        1 America East Con… aeast              Am. East            2349
+#>  6   2026        1 America East Con… aeast              Am. East            2349
+#>  7   2026        1 America East Con… aeast              Am. East            2349
+#>  8   2026        1 America East Con… aeast              Am. East            2349
+#>  9   2026        1 America East Con… aeast              Am. East            2349
+#> 10   2026        1 America East Con… aeast              Am. East            2349
 #> # ℹ 30,482 more rows
 #> # ℹ 18 more variables: team_uid <chr>, team_slug <chr>, team_location <chr>,
 #> #   team_name <chr>, team_abbreviation <chr>, team_display_name <chr>,

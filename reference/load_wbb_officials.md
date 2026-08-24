@@ -79,8 +79,8 @@ Other WBB loader functions:
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 17,458 × 11
-#>    season game_id   official_id official_uid official_full_name
-#>     <int> <chr>           <int> <chr>        <chr>             
+#>    season   game_id official_id official_uid official_full_name
+#>     <int>     <int>       <int> <chr>        <chr>             
 #>  1   2026 401811123       18886 NA           Tiffany Bird      
 #>  2   2026 401811123     4078084 NA           Tommi Paris       
 #>  3   2026 401811123     5123944 NA           Gina Cantanzariti 

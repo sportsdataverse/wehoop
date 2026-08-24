@@ -80,10 +80,10 @@ Other WBB loader functions:
 #> 10   2026       1 NA        UAA               Alaska Anchorage Seawolves
 #> # ℹ 9,768 more rows
 #> # ℹ 31 more variables: team_short_display_name <chr>, team_color <chr>,
-#> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <chr>, uid <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <int>, uid <chr>,
 #> #   guid <chr>, full_name <chr>, display_name <chr>, short_name <chr>,
 #> #   first_name <chr>, last_name <chr>, jersey <chr>,
-#> #   position_abbreviation <chr>, position_name <chr>, position_id <chr>,
+#> #   position_abbreviation <chr>, position_name <chr>, position_id <int>,
 #> #   height <chr>, weight <chr>, age <chr>, date_of_birth <chr>, …
 # }
 ```

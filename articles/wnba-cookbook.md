@@ -578,32 +578,7 @@ wnba_playbyplayv3(
   game_id = "1022400001",
   proxy   = "http://other-proxy.company.com:3128"
 )
-#> $PlayByPlay
-#> # A tibble: 434 × 24
-#>    game_id action_number clock period team_id team_tricode person_id player_name
-#>    <chr>           <int> <chr>  <int>   <int> <chr>            <int> <chr>      
-#>  1 102240…             2 PT10…      1  0      ""                   0 ""         
-#>  2 102240…             4 PT10…      1  1.61e9 "WAS"          1631022 "Austin"   
-#>  3 102240…             7 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
-#>  4 102240…             8 PT09…      1  1.61e9 "WAS"          1628878 "Atkins"   
-#>  5 102240…             9 PT09…      1  1.61e9 "NYL"          1627673 "Jones"    
-#>  6 102240…            10 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
-#>  7 102240…            11 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
-#>  8 102240…            14 PT09…      1  1.61e9 "NYL"          1627668 "Stewart"  
-#>  9 102240…            16 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
-#> 10 102240…            17 PT09…      1  1.61e9 "NYL"          1629477 "Ionescu"  
-#> # ℹ 424 more rows
-#> # ℹ 16 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
-#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
-#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
-#> #   description <chr>, action_type <chr>, sub_type <chr>,
-#> #   video_available <int>, shot_value <int>, action_id <int>
-#> 
-#> $AvailableVideo
-#> # A tibble: 1 × 1
-#>   video_available
-#>             <int>
-#> 1               1
+#> list()
 ```
 
 A grammar-flavored caveat: per-call `proxy =` works for the `wnba_*`

@@ -80,8 +80,8 @@ Other WBB loader functions:
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
 #> # A tibble: 168,228 × 22
-#>    season game_id   team_id team_slug        team_abbreviation team_display_name
-#>     <int> <chr>       <int> <chr>            <chr>             <chr>            
+#>    season   game_id team_id team_slug        team_abbreviation team_display_name
+#>     <int>     <int>   <int> <chr>            <chr>             <chr>            
 #>  1   2026 401811123    2253 grand-canyon-lo… GCU               Grand Canyon Lop…
 #>  2   2026 401811123    2253 grand-canyon-lo… GCU               Grand Canyon Lop…
 #>  3   2026 401811123    2253 grand-canyon-lo… GCU               Grand Canyon Lop…

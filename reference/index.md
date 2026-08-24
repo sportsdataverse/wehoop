@@ -413,10 +413,114 @@ API artifacts
 
   **Load wehoop WNBA Stats Officials**
 
+- [`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.md)
+  :
+
+  **Load cleaned WNBA Stats API possessions from the data repo**
+
 - [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md)
   :
 
   **Build/update wehoop WNBA Stats database**
+
+### NCAA Women’s College Basketball Play-by-Play Engine Data Loaders
+
+Functions exported by wehoop to access sdv-py ncaa_wbb engine artifacts
+published to sportsdataverse-data
+
+- [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.md)
+  :
+
+  **Load cleaned NCAA women's college basketball play-by-play from the
+  data repo**
+
+- [`load_ncaa_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_shots.md)
+  :
+
+  **Load NCAA women's college basketball shot events from the data
+  repo**
+
+- [`load_ncaa_wbb_lineups()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md)
+  :
+
+  **Load NCAA women's college basketball 5-man lineup stints from the
+  data repo**
+
+- [`load_ncaa_wbb_matchup_stints()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_matchup_stints.md)
+  :
+
+  **Load NCAA women's college basketball 10-man matchup stints from the
+  data repo**
+
+- [`load_ncaa_wbb_possessions()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_possessions.md)
+  :
+
+  **Load NCAA women's college basketball possessions from the data
+  repo**
+
+- [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm_within_team.md)
+  :
+
+  **Load NCAA women's college basketball within-team RAPM ratings from
+  the data repo**
+
+- [`load_ncaa_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_player_box.md)
+  :
+
+  **Load NCAA women's college basketball advanced player box scores from
+  the data repo**
+
+- [`load_ncaa_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_box.md)
+  :
+
+  **Load NCAA women's college basketball advanced team box scores from
+  the data repo**
+
+- [`load_ncaa_wbb_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rosters.md)
+  :
+
+  **Load NCAA women's college basketball season rosters from the data
+  repo**
+
+- [`load_ncaa_wbb_team_rosters()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_rosters.md)
+  :
+
+  **Load full NCAA women's college basketball team rosters from the data
+  repo**
+
+- [`load_ncaa_wbb_schedule()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_schedule.md)
+  :
+
+  **Load NCAA women's college basketball schedules from the data repo**
+
+- [`load_ncaa_wbb_team_ids()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_ids.md)
+  :
+
+  **Load the NCAA women's college basketball team-id crosswalk from the
+  data repo**
+
+### Model Dataset Loaders
+
+Functions exported by wehoop to access published WNBA / NCAA WBB
+model-output datasets
+
+- [`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.md)
+  :
+
+  **Load WNBA player-impact ratings (RAPM / SPM / BPM / DARKO) from the
+  data repo**
+
+- [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  :
+
+  **Load NCAA women's college basketball player-value ratings (box BPM)
+  from the data repo**
+
+- [`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.md)
+  :
+
+  **Load NCAA women's college basketball adjusted efficiency team
+  ratings from the data repo**
 
 ## ESPN Data
 

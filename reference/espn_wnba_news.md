@@ -144,14 +144,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:43:42 UTC
-#> # A tibble: 5 × 8
-#>         id type    headline     description published premium link_web league_id
-#>      <int> <chr>   <chr>        <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 49707341 Recap   Wilson scor… — A’ja Wil… 2026-08-… FALSE   http://… 59       
-#> 2 49707177 Media   Toronto Tem… Watch the … 2026-08-… FALSE   https:/… 59       
-#> 3 49705651 Recap   Paige Bueck… — Paige Bu… 2026-08-… FALSE   http://… 59       
-#> 4 49705599 Media   Dallas Wing… Watch the … 2026-08-… FALSE   https:/… 59       
-#> 5 49698893 Preview Chicago pla… Indiana Fe… 2026-08-… FALSE   http://… 59       
+#> ℹ Data updated: 2026-08-24 05:32:46 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  4.55e7 Story WNBA pl… Four WNBA … 2026-08-… FALSE   Keith… https:/… 59       
+#> 2  4.97e7 Recap Austin … — Shakira … 2026-08-… FALSE   NA     http://… 59       
+#> 3  4.97e7 Head… Kanter … Ex-NBA pla… 2026-08-… FALSE   Karee… https:/… 59       
+#> 4  4.97e7 Recap Caitlin… — Caitlin … 2026-08-… FALSE   NA     http://… 59       
+#> 5  4.97e7 Media Caitlin… Caitlin Cl… 2026-08-… FALSE   NA     https:/… 59       
 # }
 ```

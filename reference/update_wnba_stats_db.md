@@ -56,4 +56,5 @@ there is no historical "play-by-play table" default to preserve, so
 
 Valid `datasets` values: `"schedule"`, `"player_game_logs"`, `"pbp"`,
 `"rosters"`, `"coaches"`, `"player_stats"`, `"lineups"`, `"team_stats"`,
-`"standings"`, `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`.
+`"standings"`, `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`,
+`"possessions"`.

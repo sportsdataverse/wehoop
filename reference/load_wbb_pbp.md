@@ -107,7 +107,7 @@ A dataframe of play-by-play events with the columns documented below:
 # \donttest{
   try(load_wbb_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 2,824,090 × 67
+#> # A tibble: 2,824,090 × 70
 #>    game_play_number      id sequence_number type_id type_text   text  away_score
 #>               <int>   <dbl>           <int>   <int> <chr>       <chr>      <int>
 #>  1                1 4.02e17       115103884     615 Jumpball    Star…          0
@@ -121,7 +121,7 @@ A dataframe of play-by-play events with the columns documented below:
 #>  9                9 4.02e17       115103924     587 Defensive … Mica…          0
 #> 10               10 4.02e17       115103936     558 JumpShot    Mica…          3
 #> # ℹ 2,824,080 more rows
-#> # ℹ 60 more variables: home_score <int>, period_number <int>,
+#> # ℹ 63 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, wallclock <chr>, shooting_play <lgl>,
 #> #   coordinate_x_raw <dbl>, coordinate_y_raw <dbl>, points_attempted <int>,

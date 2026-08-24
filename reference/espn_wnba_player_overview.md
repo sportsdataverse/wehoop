@@ -175,12 +175,12 @@ Saiem Gilani
   espn_wnba_player_overview(athlete_id = "3149391", season = 2024)
 #> $Statistics
 #> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:43:46 UTC
+#> ℹ Data updated: 2026-08-24 05:32:50 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:43:46 UTC
+#> ℹ Data updated: 2026-08-24 05:32:50 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -188,12 +188,12 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:43:46 UTC
+#> ℹ Data updated: 2026-08-24 05:32:50 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:43:46 UTC
+#> ℹ Data updated: 2026-08-24 05:32:50 UTC
 #> # A tibble: 24 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
@@ -211,7 +211,7 @@ Saiem Gilani
 #> 
 #> $FantasyOutlook
 #> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 01:43:46 UTC
+#> ℹ Data updated: 2026-08-24 05:32:50 UTC
 #> # A tibble: 1 × 1
 #>   outlook
 #>   <chr>  

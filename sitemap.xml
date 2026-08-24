@@ -246,6 +246,18 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/hhs_team_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/hhs_teams.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/index.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_matchup_stints.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_pbp.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_player_box.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_possessions.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rapm_within_team.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_rosters.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_schedule.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_shots.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_box.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_ids.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_team_rosters.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_officials.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.html</loc></url>
@@ -253,6 +265,8 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_core.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_stats.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_ratings.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_rosters.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_schedule.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_schedule_crosswalk.html</loc></url>
@@ -268,6 +282,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_box.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_core.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_crosswalk.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_impact.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_player_stats.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_rosters.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_schedule.html</loc></url>
@@ -283,6 +298,7 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_pbp.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_game_logs.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_stats.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_possessions.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rosters.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_schedule.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_shots.html</loc></url>
