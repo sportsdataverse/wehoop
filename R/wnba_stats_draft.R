@@ -296,7 +296,7 @@ wnba_draftcombinedrillresults <- function(
   .args <- mget(setdiff(names(formals()), "..."))
 
   lifecycle::deprecate_warn(
-    when = "3.1.0",
+    when = "3.0.0",
     what = "wnba_draftcombinedrillresults()",
     details = "The draftcombinedrillresults endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
   )
@@ -361,7 +361,7 @@ wnba_draftcombinenonstationaryshooting <- function(
   .args <- mget(setdiff(names(formals()), "..."))
 
   lifecycle::deprecate_warn(
-    when = "3.1.0",
+    when = "3.0.0",
     what = "wnba_draftcombinenonstationaryshooting()",
     details = "The draftcombinenonstationaryshooting endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
   )
@@ -426,7 +426,7 @@ wnba_draftcombineplayeranthro <- function(
   .args <- mget(setdiff(names(formals()), "..."))
 
   lifecycle::deprecate_warn(
-    when = "3.1.0",
+    when = "3.0.0",
     what = "wnba_draftcombineplayeranthro()",
     details = "The draftcombineplayeranthro endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
   )
@@ -490,7 +490,7 @@ wnba_draftcombinespotshooting <- function(
   .args <- mget(setdiff(names(formals()), "..."))
 
   lifecycle::deprecate_warn(
-    when = "3.1.0",
+    when = "3.0.0",
     what = "wnba_draftcombinespotshooting()",
     details = "The draftcombinespotshooting endpoint returns HTTP 200 with zero result sets (2026-08-23 probe sweep, wehoop#75) -- no WNBA combine data. The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
   )

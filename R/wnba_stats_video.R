@@ -295,7 +295,7 @@ wnba_videoevents <- function(
   .args <- mget(setdiff(names(formals()), "..."))
 
   lifecycle::deprecate_warn(
-    when = "3.1.0",
+    when = "3.0.0",
     what = "wnba_videoevents()",
     details = "The videoevents endpoint returns HTTP 200 but zero rows for known games/events (2026-08-23 probe sweep, wehoop#75). The endpoint no longer serves WNBA data; no replacement exists. This is a soft warning -- the call still proceeds."
   )
