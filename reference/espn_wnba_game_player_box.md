@@ -119,7 +119,7 @@ Saiem Gilani
   espn_wnba_game_player_box(event_id = 401736171, team_id = 17,
                                athlete_id = 3149391)
 #> ── ESPN WNBA Event Player Box ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 16:39:34 UTC
+#> ℹ Data updated: 2026-08-24 18:04:01 UTC
 #> # A tibble: 97 × 12
 #>    league event_id  team_id athlete_id stat_type category_name category_display
 #>    <chr>  <chr>     <chr>   <chr>          <int> <chr>         <chr>           
