@@ -50,9 +50,8 @@ You can install the CRAN version of
 install.packages("wehoop")
 ```
 
-You can install the released version of
-[**`wehoop`**](https://github.com/sportsdataverse/wehoop) from
-[GitHub](https://github.com/sportsdataverse/wehoop) with:
+This documentation describes **wehoop 3.0.0**. If the CRAN release hasn't
+caught up yet, install the GitHub development version instead:
 
 ``` r
 # You can install using the pak package using the following code:
@@ -110,14 +109,26 @@ For more information on the package and function reference, please see
 the [**`wehoop`** documentation
 website](https://wehoop.sportsdataverse.org).
 
-`wehoop` 3.0.0 ships **80 ESPN basketball endpoint wrappers** (39
-`espn_wbb_*` + 41 `espn_wnba_*`) covering reference and catalog data,
+`wehoop` 3.0.0 ships **180 ESPN basketball endpoint wrappers** (88
+`espn_wbb_*` + 92 `espn_wnba_*`) covering reference and catalog data,
 team detail, athlete coverage, event-level enrichments (odds, win
 probability, officials, broadcasts), WNBA-only artifacts (draft, free
 agents, transactions), and league-wide catalogs. See the [ESPN
 basketball endpoints
 vignette](https://wehoop.sportsdataverse.org/articles/espn-endpoints.html)
 for a full walkthrough.
+
+Beyond the live ESPN scrapers, `wehoop` ships **90 `load_*()` release-dataset
+loaders** that pull pre-built season parquet/rds instead of hitting the
+source APIs: `load_wnba_*` / `load_wbb_*` (ESPN-backed pbp, box scores,
+rosters, standings, crosswalks), `load_wnba_stats_*` (WNBA Stats API,
+including `load_wnba_stats_possessions()`), and the **`load_ncaa_wbb_*`
+family** (`pbp`, `shots`, `lineups`, `matchup_stints`, `possessions`,
+`rapm_within_team`, `rapm` (league-wide), `player_box`, `team_box`, `rosters`,
+`team_rosters`, `schedule`, `team_ids`; seasons 2010-2026, `shots` 2019-2026,
+`rapm` 2011-2026) backed by the sportsdataverse-py NCAA engine. Model-dataset
+loaders round out the surface: `load_wnba_player_impact()`,
+`load_wbb_player_value()`, and `load_wbb_ratings()`.
 
 ## **Breaking Changes**
 
