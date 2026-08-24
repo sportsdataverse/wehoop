@@ -22,7 +22,7 @@ the season data into a database (used by \code{update_wbb_db()}).}
 \item{tablename}{The name of the play by play data table within the database}
 }
 \value{
-A dataframe with 55 columns:\tabular{ll}{
+A dataframe of play-by-play events with the columns documented below:\tabular{ll}{
    col_name \tab description \cr
    shooting_play \tab Logical value (TRUE/FALSE) indicating whether the play was a shooting play \cr
    sequence_number \tab Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) \cr

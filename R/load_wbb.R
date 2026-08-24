@@ -11,7 +11,7 @@ NULL
 #' the season data into a database (used by `update_wbb_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
-#' @return A dataframe with 55 columns:
+#' @return A dataframe of play-by-play events with the columns documented below:
 #'
 #' | col_name | description |
 #' |---|---|
