@@ -284,6 +284,7 @@ reference:
       - '`load_wnba_stats_game_rosters_manifest`'
       - '`load_wnba_stats_officials`'
       - '`load_wnba_stats_officials_manifest`'
+      - '`load_wnba_stats_possessions`'
       - '`update_wnba_stats_db`'
   - subtitle: NCAA Women's College Basketball Play-by-Play Engine Data Loaders
     desc: Functions exported by wehoop to access sdv-py ncaa_wbb engine artifacts published to sportsdataverse-data

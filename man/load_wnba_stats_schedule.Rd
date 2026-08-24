@@ -75,6 +75,7 @@ Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_pbp]{load_wnba_stats_pbp()}},
 \code{\link[=load_wnba_stats_player_game_logs]{load_wnba_stats_player_game_logs()}},
 \code{\link[=load_wnba_stats_player_stats]{load_wnba_stats_player_stats()}},
+\code{\link[=load_wnba_stats_possessions]{load_wnba_stats_possessions()}},
 \code{\link[=load_wnba_stats_rosters]{load_wnba_stats_rosters()}},
 \code{\link[=load_wnba_stats_shots]{load_wnba_stats_shots()}},
 \code{\link[=load_wnba_stats_standings]{load_wnba_stats_standings()}},
