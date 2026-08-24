@@ -148,6 +148,10 @@
 # ---------------------------------------------------------------------------
 
 #' Internal: ESPN basketball group children index
+#'
+#' Pages through ESPN Core v2 `pageIndex`/`pageCount` -- a parent group with
+#' more than 200 children (the flat `limit=200` request) would otherwise be
+#' silently truncated to the first page.
 #' @noRd
 .espn_basketball_season_group_children <- function(league, season,
                                                     season_type = 2L,
@@ -156,17 +160,29 @@
   .args <- list(league = league, season = season,
                 season_type = season_type, group_id = group_id)
   result <- NULL
-  url <- paste0(
+  base_url <- paste0(
     "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
     league, "/seasons/", season, "/types/", season_type,
-    "/groups/", group_id, "/children?limit=200&lang=en&region=us"
+    "/groups/", group_id, "/children"
   )
   tryCatch(
     expr = {
-      res <- .retry_request(url); check_status(res)
-      raw <- res %>% .resp_text() %>%
-        jsonlite::fromJSON(simplifyVector = FALSE)
-      items <- raw[["items"]] %||% list()
+      items <- list()
+      page <- 1L
+      repeat {
+        res <- .retry_request(base_url, params = list(
+          limit = 200L, page = page, lang = "en", region = "us"
+        ))
+        check_status(res)
+        raw <- res %>% .resp_text() %>%
+          jsonlite::fromJSON(simplifyVector = FALSE)
+        page_items <- raw[["items"]] %||% list()
+        items <- c(items, page_items)
+        page_count <- as.integer(raw[["pageCount"]] %||% 1L)
+        page_index <- as.integer(raw[["pageIndex"]] %||% page)
+        if (page_index >= page_count || length(page_items) == 0L) break
+        page <- page_index + 1L
+      }
       refs <- if (length(items) == 0L) character(0) else
         vapply(items, function(x) x[["$ref"]] %||% NA_character_,
                character(1))
