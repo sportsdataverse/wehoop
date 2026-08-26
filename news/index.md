@@ -2,6 +2,8 @@
 
 ## **wehoop 3.0.0**
 
+CRAN release: 2026-08-24
+
 #### **WBB cross-source crosswalk (`wbb_*_crosswalk` / `load_wbb_*_crosswalk`)**
 
 Three new live builders —

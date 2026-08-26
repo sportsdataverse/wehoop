@@ -214,12 +214,12 @@ Saiem Gilani
   espn_wbb_player_overview(athlete_id = "4433404", season = 2025)
 #> $Statistics
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Statistics from ESPN.com ────
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview NextGame from ESPN.com ──────
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -227,37 +227,37 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Last5Games from ESPN.com ────
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview Headlines from ESPN.com ─────
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 24 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
-#>  1 Cameron Brink gets the basket plus the fo… Cameron Br… 2026-08-… NA     Media
-#>  2 Cameron Brink drains 3-pointer for the Sp… Cameron Br… 2026-08-… NA     Media
-#>  3 Cameron Brink drains triple                Cameron Br… 2026-07-… NA     Media
-#>  4 Sparks' Cameron Brink out undetermined ti… Sparks for… 2026-06-… Alexa… Head…
-#>  5 Cameron Brink knocks down the shot         Cameron Br… 2026-06-… NA     Media
-#>  6 Cameron Brink finishes through contact     Cameron Br… 2026-06-… NA     Media
-#>  7 Cameron Brink hits the basket              Cameron Br… 2026-06-… NA     Media
-#>  8 Cameron Brink makes the bucket             Cameron Br… 2026-06-… NA     Media
-#>  9 WNBA awards: A'ja Wilson a familiar MVP f… Andre Snel… 2026-06-… Andre… Story
-#> 10 Cameron Brink drains the shot              Cameron Br… 2026-05-… NA     Media
+#>  1 Cameron Brink somehow gets the and-1 to f… Cameron Br… 2026-08-… NA     Media
+#>  2 Cameron Brink hits the basket              Cameron Br… 2026-08-… NA     Media
+#>  3 Cameron Brink gets the basket plus the fo… Cameron Br… 2026-08-… NA     Media
+#>  4 Cameron Brink drains 3-pointer for the Sp… Cameron Br… 2026-08-… NA     Media
+#>  5 Cameron Brink drains triple                Cameron Br… 2026-07-… NA     Media
+#>  6 Sparks' Cameron Brink out undetermined ti… Sparks for… 2026-06-… Alexa… Head…
+#>  7 Cameron Brink knocks down the shot         Cameron Br… 2026-06-… NA     Media
+#>  8 Cameron Brink finishes through contact     Cameron Br… 2026-06-… NA     Media
+#>  9 Cameron Brink hits the basket              Cameron Br… 2026-06-… NA     Media
+#> 10 Cameron Brink makes the bucket             Cameron Br… 2026-06-… NA     Media
 #> # ℹ 14 more rows
 #> 
 #> $FantasyOutlook
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Overview FantasyOutlook from ESPN.com 
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 0 × 0
 #> 
 # }
 # \donttest{
   espn_wbb_player_stats_v3(athlete_id = "4433985", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Stats from ESPN.com ── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 5 × 46
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
@@ -281,7 +281,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_player_splits(athlete_id = "4433404", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Splits from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 1 × 4
 #>   athlete_id season name  display_name
 #>   <chr>       <dbl> <chr> <chr>       
@@ -294,7 +294,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_player_statisticslog(athlete_id = "4433404", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Statisticslog from ESPN.com ──────────
-#> ℹ Data updated: 2026-08-24 18:03:35 UTC
+#> ℹ Data updated: 2026-08-26 19:55:11 UTC
 #> # A tibble: 4 × 3
 #>   athlete_id season$`$ref`                                            statistics
 #>   <chr>      <chr>                                                    <list>    

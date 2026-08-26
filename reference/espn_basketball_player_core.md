@@ -98,13 +98,13 @@ implementation is authoritative — a divergence is a review item.
 
 ## Twin
 
-`hoopR::espn_basketball_player_core()` is the identical function for the
-men's leagues. The core-v2 athlete resource is the same payload shape
-for nba/wnba/mbb/wbb, so the projection is league-agnostic – sdv-py
-implements it once and re-exports it per league. hoopR and wehoop are
-independently published and neither depends on the other, so here it is
-duplicated: **a change to one must land in the other in the same
-session, verified.**
+[`hoopR::espn_basketball_player_core()`](https://hoopR.sportsdataverse.org/reference/espn_basketball_player_core.html)
+is the identical function for the men's leagues. The core-v2 athlete
+resource is the same payload shape for nba/wnba/mbb/wbb, so the
+projection is league-agnostic – sdv-py implements it once and re-exports
+it per league. hoopR and wehoop are independently published and neither
+depends on the other, so here it is duplicated: **a change to one must
+land in the other in the same session, verified.**
 
 ## See also
 
@@ -132,7 +132,7 @@ Saiem Gilani
   )
   espn_basketball_player_core(payload, athlete_id = 1966)
 #> ── ESPN Basketball Player Core from ESPN.com ─────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:03:16 UTC
+#> ℹ Data updated: 2026-08-26 19:54:58 UTC
 #> # A tibble: 1 × 35
 #>   athlete_id guid  uid   slug  type  first_name last_name full_name display_name
 #>        <int> <chr> <chr> <chr> <chr> <chr>      <chr>     <chr>     <chr>       

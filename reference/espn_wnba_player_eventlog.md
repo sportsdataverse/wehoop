@@ -215,12 +215,12 @@ Saiem Gilani
   espn_wnba_player_overview(athlete_id = "3149391", season = 2024)
 #> $Statistics
 #> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -228,30 +228,30 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
-#> # A tibble: 24 × 5
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
+#> # A tibble: 22 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
-#>  1 Toronto Tempo vs. Las Vegas Aces - Game H… Watch the … 2026-08-… NA     Media
-#>  2 Las Vegas Aces vs. Connecticut Sun - Game… Watch the … 2026-08-… NA     Media
-#>  3 A'ja Wilson gets the hoop and the harm     A'ja Wilso… 2026-08-… NA     Media
-#>  4 Las Vegas Aces vs. Atlanta Dream - Game H… Watch the … 2026-08-… NA     Media
-#>  5 A'ja Wilson gets the basket and the foul   A'ja Wilso… 2026-08-… NA     Media
-#>  6 A'ja Wilson elevates for a tough block     A'ja Wilso… 2026-08-… NA     Media
-#>  7 WNBA Power Rankings: Can Liberty find way… New York, … 2026-08-… Micha… Story
-#>  8 Las Vegas Aces vs. Minnesota Lynx - Game … Watch the … 2026-08-… NA     Media
-#>  9 A'ja Wilson somehow gets the and-1 to fall A'ja Wilso… 2026-08-… NA     Media
+#>  1 WNBA Power Rankings: Valkyries make state… Golden Sta… 2026-08-… Micha… Story
+#>  2 Toronto Tempo vs. Las Vegas Aces - Game H… Watch the … 2026-08-… NA     Media
+#>  3 Las Vegas Aces vs. Connecticut Sun - Game… Watch the … 2026-08-… NA     Media
+#>  4 A'ja Wilson gets the hoop and the harm     A'ja Wilso… 2026-08-… NA     Media
+#>  5 Las Vegas Aces vs. Atlanta Dream - Game H… Watch the … 2026-08-… NA     Media
+#>  6 A'ja Wilson gets the basket and the foul   A'ja Wilso… 2026-08-… NA     Media
+#>  7 A'ja Wilson elevates for a tough block     A'ja Wilso… 2026-08-… NA     Media
+#>  8 WNBA Power Rankings: Can Liberty find way… New York, … 2026-08-… Micha… Story
+#>  9 Las Vegas Aces vs. Minnesota Lynx - Game … Watch the … 2026-08-… NA     Media
 #> 10 A'ja Wilson somehow gets the and-1 to fall A'ja Wilso… 2026-08-… NA     Media
-#> # ℹ 14 more rows
+#> # ℹ 12 more rows
 #> 
 #> $FantasyOutlook
 #> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 1 × 1
 #>   outlook
 #>   <chr>  
@@ -261,7 +261,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_stats_v3(athlete_id = "4068159", season = 2024)
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 9 × 47
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
@@ -272,8 +272,8 @@ Saiem Gilani
 #> 5 4068159      2024 NA      2024 Totals                     29                 0
 #> 6 4068159      2025 16      washington-mysti…               43                43
 #> 7 4068159      2026 132052  portland-fire                    3                 2
-#> 8 4068159      2026 3       dallas-wings                    20                 0
-#> 9 4068159      2026 NA      2026 Totals                     23                 2
+#> 8 4068159      2026 3       dallas-wings                    21                 0
+#> 9 4068159      2026 NA      2026 Totals                     24                 2
 #> # ℹ 41 more variables: avg_avg_minutes <dbl>, avg_avg_points <dbl>,
 #> #   avg_avg_offensive_rebounds <dbl>, avg_avg_defensive_rebounds <dbl>,
 #> #   avg_avg_rebounds <dbl>, avg_avg_assists <dbl>, avg_avg_steals <dbl>,
@@ -285,7 +285,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_gamelog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Gamelog from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 46 × 26
 #>    athlete_id season id        at_vs game_date   score home_team_id away_team_id
 #>    <chr>       <dbl> <chr>     <chr> <chr>       <chr> <chr>        <chr>       
@@ -310,7 +310,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_splits(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Splits from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 7 × 5
 #>   athlete_id season name       display_name splits       
 #>   <chr>       <dbl> <chr>      <chr>        <list>       
@@ -325,7 +325,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_eventlog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Eventlog from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 25 × 8
 #>    athlete_id season event_ref   competition_ref team_ref statistics_ref team_id
 #>    <chr>       <dbl> <chr>       <chr>           <chr>    <chr>          <chr>  
@@ -345,7 +345,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_statisticslog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Statisticslog from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-24 18:04:06 UTC
+#> ℹ Data updated: 2026-08-26 19:55:38 UTC
 #> # A tibble: 9 × 3
 #>   athlete_id season$`$ref`                                            statistics
 #>   <chr>      <chr>                                                    <list>    
