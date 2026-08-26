@@ -97,6 +97,22 @@ request_with_proxy <- function(url,
   return(json)
 }
 
+# Browser-like headers required by the WNBA CDN (cdn.wnba.com). Without them
+# the CDN returns an "Access Denied" HTML page instead of JSON. Shared by the
+# live-data wrappers (wnba_live_pbp, wnba_live_boxscore); mirrors hoopR's
+# .nba_cdn_headers.
+.wnba_cdn_headers <- function() {
+  c(
+    `User-Agent` = paste0(
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ",
+      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"),
+    `Accept` = "application/json, text/plain, */*",
+    `Accept-Language` = "en-US,en;q=0.9",
+    `Origin` = "https://www.wnba.com",
+    `Referer` = "https://www.wnba.com/"
+  )
+}
+
 wnba_live_endpoint <- function(endpoint){
   base_url = paste0("https://cdn.wnba.com/static/json/liveData/", endpoint)
   return(base_url)

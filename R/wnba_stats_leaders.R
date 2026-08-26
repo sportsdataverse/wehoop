@@ -1329,28 +1329,9 @@ wnba_homepagewidget <- function(
         return(df)
       })
       player_df_list_ext_names <- categories$items[[3]]$name
-      season_df_list_ext_names <- c(
-        "TOTAL_PTS",
-        "TOTAL_REB",
-        "TOTAL_AST",
-        "ALL_TIME_TD3",
-        "TD3",
-        "GAME_FG3M",
-        "GAME_PTS",
-        "PCT_PTS_3PT_PER_GAME",
-        "GAME_AST",
-        "GAME_AST",
-        "GAME_STL",
-        "GAME_BLK",
-        "GAME_FG3M",
-        "PCT_PTS_3PT",
-        "PCT_PTS_3PT",
-        "PCT_PTS_2PT",
-        "PCT_PTS_2PT",
-        "PCT_PTS_2PT_MR",
-        "PCT_PTS_2PT_MR"
-      )
-      names(players_df_list_ext) <- season_df_list_ext_names
+      # Name from the payload itself -- the widget's category list drifts
+      # upstream (a hardcoded name vector broke when 19 names met 18 rows).
+      names(players_df_list_ext) <- player_df_list_ext_names
       players_df_list_ext <- players_df_list_ext[sapply(players_df_list_ext, function(x) nrow(x) > 0)]
       
       players_df_list_final <- c(players_df_list, players_df_list_ext)
@@ -1379,7 +1360,7 @@ wnba_homepagewidget <- function(
         return(df)
       })
       
-      names(teams_df_list_ext) <- season_df_list_ext_names
+      names(teams_df_list_ext) <- player_df_list_ext_names
       teams_df_list_ext <- teams_df_list_ext[sapply(teams_df_list_ext, function(x) nrow(x) > 0)]
       
       teams_df_list_final <- c(teams_df_list, teams_df_list_ext)

@@ -1382,7 +1382,7 @@ wnba_live_pbp <- function(
   tryCatch(
     expr = {
       
-      res <- .retry_request(full_url)
+      res <- .retry_request(full_url, headers = .wnba_cdn_headers())
 
       resp <- res %>%
         .resp_text() %>%
@@ -1707,7 +1707,7 @@ wnba_live_boxscore <- function(
   tryCatch(
     expr = {
       
-      res <- .retry_request(full_url)
+      res <- .retry_request(full_url, headers = .wnba_cdn_headers())
 
       resp <- res %>%
         .resp_text() %>%
