@@ -56,10 +56,10 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
-#> ✖ 2026-08-26 20:15:58.027303: No women's schedule available for 2025!
+#> ✖ 2026-08-26 20:45:33.596905: No women's schedule available for 2025!
 #> ✖ Args: year = 2025
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
-#> ✖ 2026-08-26 20:15:58.06774: Could not build WBB schedule crosswalk for 2025!
+#> ✖ 2026-08-26 20:45:33.649518: Could not build WBB schedule crosswalk for 2025!
 #> ✖ Args: season = 2025
 #> ✖ Error: ℹ In argument: `muid = as.character(.data$muid)`. Caused by error in `.data$muid`: ! Column `muid` not found in `.data`.
 #> data frame with 0 columns and 0 rows
