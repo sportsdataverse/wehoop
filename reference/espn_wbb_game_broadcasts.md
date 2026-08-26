@@ -150,7 +150,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_odds(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Odds (event_id=401276115) from ESPN.com 
-#> ℹ Data updated: 2026-08-26 19:55:08 UTC
+#> ℹ Data updated: 2026-08-26 20:11:27 UTC
 #> # A tibble: 0 × 12
 #> # ℹ 12 variables: event_id <chr>, provider_id <chr>, provider_name <chr>,
 #> #   details <chr>, over_under <dbl>, spread <dbl>, home_money_line <int>,
@@ -161,7 +161,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_officials(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Officials (event_id=401276115) from ESPN
-#> ℹ Data updated: 2026-08-26 19:55:08 UTC
+#> ℹ Data updated: 2026-08-26 20:11:27 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name     display_name  position_id position_name
 #>   <chr>     <chr>       <chr>         <chr>         <chr>       <chr>        
@@ -173,7 +173,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_broadcasts(event_id = "401276115")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Broadcasts (event_id=401276115) from ESP
-#> ℹ Data updated: 2026-08-26 19:55:08 UTC
+#> ℹ Data updated: 2026-08-26 20:11:27 UTC
 #> # A tibble: 1 × 10
 #>   event_id  broadcast_id type_id type_short_name type_long_name market_id
 #>   <chr>     <chr>        <chr>   <chr>           <chr>          <chr>    
@@ -183,7 +183,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_situation(event_id = 401276115)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Situation ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:55:08 UTC
+#> ℹ Data updated: 2026-08-26 20:11:27 UTC
 #> # A tibble: 1 × 15
 #>   league                   event_id home_timeouts_current home_timeouts_remain…¹
 #>   <chr>                    <chr>                    <int>                  <int>
@@ -198,7 +198,7 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wbb_game_predictor(event_id = 401276115)
-#> ✖ 2026-08-26 19:55:08.861995: Failed to retrieve ESPN womens-college-basketball event predictor for event_id=401276115
+#> ✖ 2026-08-26 20:11:27.306626: Failed to retrieve ESPN womens-college-basketball event predictor for event_id=401276115
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115
 #> ✖ Error: The API returned an error
 #> NULL
@@ -206,7 +206,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_powerindex(event_id = 401276115)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Power Index ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:55:08 UTC
+#> ℹ Data updated: 2026-08-26 20:11:27 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, event_id <chr>, team_id <chr>, ref <chr>
 # }
