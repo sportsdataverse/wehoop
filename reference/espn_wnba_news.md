@@ -108,14 +108,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:24 UTC
+#> ℹ Data updated: 2026-08-27 11:02:24 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  4.97e7 Head… Fever-S… The Fever-… 2026-08-… FALSE   NA     https:/… 59       
-#> 2  4.97e7 Head… Unrival… Unrivaled … 2026-08-… FALSE   Kendr… https:/… 59       
-#> 3  4.97e7 Head… Opals c… The Austra… 2026-08-… FALSE   Megan… https:/… 55       
-#> 4  4.97e7 Prev… Phoenix… Washington… 2026-08-… FALSE   NA     http://… 59       
-#> 5  4.96e7 Story WNBA pl… Minnesota,… 2026-08-… FALSE   ESPN   https:/… 59       
+#> 1  4.97e7 Story Washing… Washington… 2026-08-… FALSE   Colin… https:/… 59       
+#> 2  4.97e7 Prev… Connect… Connecticu… 2026-08-… FALSE   NA     http://… 59       
+#> 3  4.97e7 Prev… Portlan… Portland F… 2026-08-… FALSE   NA     http://… 59       
+#> 4  4.97e7 Prev… New Yor… Golden Sta… 2026-08-… FALSE   NA     http://… 59       
+#> 5  4.97e7 Recap Flau’ja… — Flau’jae… 2026-08-… FALSE   NA     http://… 59       
 # }
 ```

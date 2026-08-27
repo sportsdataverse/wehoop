@@ -1,6 +1,6 @@
 # WNBA Cookbook
 
-## Before we cook
+### Before we cook
 
 Every recipe here is a small story: a real question about the WNBA, and
 the shortest honest path from that question to a tidy data frame. Most
@@ -15,7 +15,7 @@ grammar, not a list to memorize.** Learn the grammar and you can *guess*
 the function you need. That guessing skill is what this cookbook is
 really teaching; the basketball is the delivery vehicle.
 
-### The grammar of a `wehoop` function name
+#### The grammar of a `wehoop` function name
 
 Almost every function answers three questions, in order:
 
@@ -46,7 +46,7 @@ library(wehoop)
 library(dplyr)
 ```
 
-## Recipe 1: One game, three levels of detail
+### Recipe 1: One game, three levels of detail
 
 **The story.** You caught the end of a game on a stream and want to
 actually study it – not the recap, the game.
@@ -129,7 +129,7 @@ Margin note: `team_box` and `player_box` differ by exactly one word, and
 that word is the *grain* of the table. Two functions that differ by a
 single noun – that noun is telling you “one row per \_\_\_.”
 
-## Recipe 2: A franchise cornerstone’s whole career
+### Recipe 2: A franchise cornerstone’s whole career
 
 **The story.** You want A’ja Wilson’s career arc – all of it, tidy
 enough to plot – not just this season.
@@ -178,7 +178,7 @@ espn_wnba_player_seasons(athlete_id = 3149391)
 #> 9 wnba   3149391      2018 http://sports.core.api.espn.com/v2/sports/basketball…
 ```
 
-## Recipe 3: Game flow and the fourth-quarter swing
+### Recipe 3: Game flow and the fourth-quarter swing
 
 **The story.** That game from Recipe 1 turned on a late run. You want to
 *see* it – a win-probability line.
@@ -221,7 +221,7 @@ the *prefix* is the tiebreaker. `espn_wnba_*` is ESPN’s take; `wnba_*`
 is WNBA.com’s. Choose by which columns you want, not by which name you
 remembered.
 
-## Recipe 4: One player’s line from one game
+### Recipe 4: One player’s line from one game
 
 **The story.** You want a single athlete’s box score from a single game,
 long and tidy – not the whole `player_box`.
@@ -293,7 +293,7 @@ espn_wnba_game_play(event_id = 401736171, play_id = 4017361714)
 #> #   coordinate_x <dbl>, coordinate_y <dbl>, team_ref <chr>, wallclock <chr>
 ```
 
-## Recipe 5: A team’s season at a glance
+### Recipe 5: A team’s season at a glance
 
 **The story.** You’re previewing a team – record, schedule, roster, and
 how they really stack up.
@@ -392,7 +392,7 @@ Notice the family: `team_season_profile`, `team_season_roster`,
 subject; the last word is the lens. Find one member, you’ve found the
 family.
 
-## Recipe 6: The league-leaders board
+### Recipe 6: The league-leaders board
 
 **The story.** You want the scoring, rebounding, and assist leaders –
 the bones of every MVP argument.
@@ -446,7 +446,7 @@ Leaders live under *both* prefixes because both APIs publish them. That
 is normal and intentional – `wehoop` mirrors the data sources honestly
 rather than hiding one. You pick based on which columns you want.
 
-## Recipe 7: Draft night
+### Recipe 7: Draft night
 
 **The story.** You want to follow a draft class – order, picks, players.
 
@@ -470,7 +470,7 @@ Read it top to bottom: each step adds a word and narrows the grain.
 That’s the grammar’s “general to specific, left to right” rule made
 visible.
 
-## Recipe 8: A whole season at once
+### Recipe 8: A whole season at once
 
 **The story.** You don’t want one game. You want every game – a full
 season to model on.
@@ -514,7 +514,7 @@ plain family is ESPN-shaped, the `stats_` family is WNBA.com-shaped. An
 extra token in the middle of a name is never noise; it’s always
 narrowing something.
 
-## Recipe 9: Pour a season straight into a database
+### Recipe 9: Pour a season straight into a database
 
 **The story.** A season of play-by-play is big. You’d rather query it
 from disk than hold it in memory.
@@ -541,7 +541,7 @@ shares the `(seasons, ..., dbConnection, tablename)` signature, learning
 one teaches you all of them – guess the arguments the same way you guess
 the names.
 
-## Working through a proxy
+### Working through a proxy
 
 On a corporate or campus network your traffic may need a proxy. `wehoop`
 understands proxies in three layers – use the least invasive one that
@@ -578,7 +578,32 @@ wnba_playbyplayv3(
   game_id = "1022400001",
   proxy   = "http://other-proxy.company.com:3128"
 )
-#> list()
+#> $PlayByPlay
+#> # A tibble: 434 × 24
+#>    game_id action_number clock period team_id team_tricode person_id player_name
+#>    <chr>           <int> <chr>  <int>   <int> <chr>            <int> <chr>      
+#>  1 102240…             2 PT10…      1  0      ""                   0 ""         
+#>  2 102240…             4 PT10…      1  1.61e9 "WAS"          1631022 "Austin"   
+#>  3 102240…             7 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
+#>  4 102240…             8 PT09…      1  1.61e9 "WAS"          1628878 "Atkins"   
+#>  5 102240…             9 PT09…      1  1.61e9 "NYL"          1627673 "Jones"    
+#>  6 102240…            10 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
+#>  7 102240…            11 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
+#>  8 102240…            14 PT09…      1  1.61e9 "NYL"          1627668 "Stewart"  
+#>  9 102240…            16 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
+#> 10 102240…            17 PT09…      1  1.61e9 "NYL"          1629477 "Ionescu"  
+#> # ℹ 424 more rows
+#> # ℹ 16 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
+#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
+#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
+#> #   description <chr>, action_type <chr>, sub_type <chr>,
+#> #   video_available <int>, shot_value <int>, action_id <int>
+#> 
+#> $AvailableVideo
+#> # A tibble: 1 × 1
+#>   video_available
+#>             <int>
+#> 1               1
 ```
 
 A grammar-flavored caveat: per-call `proxy =` works for the `wnba_*`
@@ -605,7 +630,7 @@ libcurl reads these automatically whenever you haven’t set an explicit
 proxy. It’s the right layer for shared scripts and CI, where the proxy
 is a property of the machine, not the analysis.
 
-## Where to go next
+### Where to go next
 
 You have the grammar now. Every recipe above was the same move: decide
 where the data lives (the prefix), name the league, then name the thing
@@ -615,3 +640,43 @@ general to specific. The WNBA surface in `wehoop` is large but *regular*
 The women’s college game runs on the same package with the same grammar
 – swap `wnba` for `wbb`, meet the NCAA-sourced functions, and keep
 cooking. That’s the WBB cookbook.
+
+## **Our Authors**
+
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
+- [Geoffery Hutchinson](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
+
+### **Citation**
+
+To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{wehoop,
+  author = {Saiem Gilani and Geoffery Hutchinson},
+  title = {wehoop: The SportsDataverse},
+  url = {https://wehoop.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package

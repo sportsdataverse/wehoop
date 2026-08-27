@@ -1,6 +1,6 @@
 # Women's College Basketball Cookbook
 
-## Before we cook
+### Before we cook
 
 Women’s college basketball has never been more watched, and the data has
 never been better. `wehoop` covers it end to end – 360-odd Division I
@@ -13,7 +13,7 @@ If you’ve read the WNBA cookbook, you already know most of the grammar.
 This one swaps the league token from `wnba` to `wbb` and adds one new
 prefix – `ncaa_wbb_` for NCAA.com data. That’s nearly the whole diff.
 
-### The grammar, refreshed for college
+#### The grammar, refreshed for college
 
 A `wehoop` college function answers three questions, in order:
 
@@ -40,7 +40,7 @@ library(wehoop)
 library(dplyr)
 ```
 
-## Recipe 1: A powerhouse program’s season
+### Recipe 1: A powerhouse program’s season
 
 **The story.** It’s November and you want to set the table for UConn’s
 season – schedule, roster, where they sit.
@@ -142,7 +142,7 @@ is worth knowing. Every league in `wehoop` has a
 functions use it as their default `season`. Most of the time you can
 simply *omit* `season` – the function already knows what “now” means.
 
-## Recipe 2: The star guard
+### Recipe 2: The star guard
 
 **The story.** Women’s college basketball has become a star-driven
 sport, and you want a marquee guard’s numbers.
@@ -236,7 +236,7 @@ all share the `athlete_` stem. A repeated stem is a *namespace* – a
 promise that everything under it is about the same subject. Browsing by
 stem (`espn_wbb_athlete` + Tab) is often faster than searching.
 
-## Recipe 3: The NET rankings
+### Recipe 3: The NET rankings
 
 **The story.** Box scores and the eye test only get you so far in
 seeding arguments. The NCAA’s NET ranking is the number that actually
@@ -263,7 +263,7 @@ see `ncaa_wbb_`, you know the data is women’s-college-only and comes
 from the NCAA’s own systems rather than ESPN’s. Learn what each prefix
 promises and a lot of the documentation becomes redundant.
 
-## Recipe 4: Game flow
+### Recipe 4: Game flow
 
 **The story.** A December non-conference game went down to the wire. You
 want the play-by-play and a sense of the swing.
@@ -414,7 +414,7 @@ If you read the WNBA cookbook, you’ve now seen `espn_*_game_all`,
 *only the league token changing*. That’s the payoff of a regular
 grammar: a recipe learned once transfers by editing a single word.
 
-## Recipe 5: Per-player, per-game box scores
+### Recipe 5: Per-player, per-game box scores
 
 **The story.** You want one player’s line from one game, tidy and long –
 not the whole `player_box`.
@@ -446,7 +446,7 @@ espn_wbb_game_player_box(
 #> #   value <dbl>, display_value <chr>
 ```
 
-## Recipe 6: The conference race
+### Recipe 6: The conference race
 
 **The story.** It’s February and your conference is a dogfight. You want
 the standings and the structure beneath them.
@@ -522,7 +522,7 @@ package – `franchises`/`franchise`, `tournaments`/`tournament`,
 `positions`/`position`. Plural = “give me the list,” singular = “give me
 this one.” It’s the most reliable two-word rule in the grammar.
 
-## Recipe 7: March
+### Recipe 7: March
 
 **The story.** The bracket. You want the tournament.
 
@@ -578,7 +578,7 @@ from `tournaments` down to one `tournament_season`. By now you should be
 able to *predict* this family before reading it – which is the whole
 point of the cookbook.
 
-## Recipe 8: A whole season, in bulk
+### Recipe 8: A whole season, in bulk
 
 **The story.** You’re done with single games. You want every women’s
 college game of a season to model on.
@@ -615,7 +615,7 @@ Margin note: consistency is a feature. Every `load_` function shares the
 same signature, so learning one teaches you all of them – guess the
 arguments the same way you guess the names.
 
-## Working through a proxy
+### Working through a proxy
 
 Campus networks love a proxy. `wehoop` handles them in three layers –
 reach for the least invasive one that works.
@@ -663,7 +663,7 @@ Stats-API surface, so for `wbb` you’ll use Layer 1 or Layer 2 every
 time.) Once again, the prefix tells you the capability before you go
 looking.
 
-## Where to go next
+### Where to go next
 
 The women’s college game has more teams, a deeper conference hierarchy,
 and the `ncaa_wbb_` prefix – but the grammar is identical to every other
@@ -676,3 +676,43 @@ grammar bone for bone. `espn_wbb_team_roster` has a mirror image in
 `hoopR`’s `espn_mbb_team_roster`; a recipe you learn in one package
 crosses straight into the other. Four leagues, one grammar – and now
 it’s yours.
+
+## **Our Authors**
+
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
+- [Geoffery Hutchinson](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
+
+### **Citation**
+
+To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{wehoop,
+  author = {Saiem Gilani and Geoffery Hutchinson},
+  title = {wehoop: The SportsDataverse},
+  url = {https://wehoop.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package

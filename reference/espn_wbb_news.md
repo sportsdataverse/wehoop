@@ -108,14 +108,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:41:49 UTC
+#> ℹ Data updated: 2026-08-27 11:01:47 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  4.97e7 Head… Sources… SEC school… 2026-08-… FALSE   Mark … https:/… 28       
-#> 2  4.97e7 Head… SEC dra… After the … 2026-08-… FALSE   Heath… https:/… 23       
-#> 3  4.97e7 Media The typ… The types … 2026-08-… FALSE   NA     https:/… 54       
-#> 4  4.97e7 Head… Koval o… Ukrainian … 2026-08-… FALSE   NA     https:/… 54       
-#> 5  4.97e7 Story College… College ba… 2026-08-… FALSE   Myron… https:/… 41       
+#> 1  4.97e7 Head… Big 12 … The Big 12… 2026-08-… FALSE   NA     https:/… 23       
+#> 2  4.97e7 Head… Big Ten… The Big Te… 2026-08-… FALSE   Jake … https:/… 23       
+#> 3  4.97e7 Head… Sources… SEC school… 2026-08-… FALSE   Mark … https:/… 28       
+#> 4  4.97e7 Head… SEC dra… After the … 2026-08-… FALSE   Heath… https:/… 23       
+#> 5  4.97e7 Media The typ… The types … 2026-08-… FALSE   NA     https:/… 54       
 # }
 ```

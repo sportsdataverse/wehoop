@@ -117,7 +117,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_player_box(event_id = 401276115, team_id = 52,
                                athlete_id = 4433404)
-#> ✖ 2026-08-26 20:41:47.362999: Failed to retrieve ESPN womens-college-basketball event player box for event_id=401276115, team_id=52, athlete_id=4433404
+#> ✖ 2026-08-27 11:01:44.546496: Failed to retrieve ESPN womens-college-basketball event player box for event_id=401276115, team_id=52, athlete_id=4433404
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115, team_id = 52, athlete_id = 4433404, stat_type = 0L
 #> ✖ Error: The API returned an error
 #> NULL

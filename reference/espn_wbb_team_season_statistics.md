@@ -117,7 +117,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_season_statistics(team_id = 2509, season = 2024)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Statistics ─────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:05 UTC
+#> ℹ Data updated: 2026-08-27 11:02:03 UTC
 #> # A tibble: 77 × 13
 #>    league    season season_type team_id category_name category_display stat_name
 #>    <chr>      <int>       <int> <chr>   <chr>         <chr>            <chr>    

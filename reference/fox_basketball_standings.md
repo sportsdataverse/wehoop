@@ -83,29 +83,30 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
-#> # A tibble: 14 × 9
+#> ℹ Data updated: 2026-08-27 11:02:48 UTC
+#> # A tibble: 15 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
-#>  1 1       GUARD          Isobel Bor… G     21    "5'1… -     -       809       
-#>  2 1       GUARD          Jordin Can… G     31    "5'6… 135 … UCLA    203       
-#>  3 1       GUARD          Allisha Gr… G     31    "6'0… 167 … South … 138       
-#>  4 1       GUARD          Rhyne Howa… G     26    "6'2… 175 … -       638       
-#>  5 1       GUARD          Indya Nivar G     22    "5'1… -     -       934       
-#>  6 1       GUARD          Aaliyah Nye G/F   24    "6'0… -     -       854       
-#>  7 1       GUARD          Te-Hina Pa… G     24    "5'9… -     -       859       
-#>  8 1       GUARD          Jaylyn She… G     24    "5'7… 147 … -       822       
-#>  9 1       GUARD          Shatori Wa… G     31    "5'9… 140 … Maryla… 116       
-#> 10 1       FORWARD        Naz Hillmon F     26    "6'2… 190 … -       646       
-#> 11 1       FORWARD        Brionna Jo… F     30    "6'3… 215 … Maryla… 111       
-#> 12 1       FORWARD        Sika Koné   F     24    "6'3… 180 … -       630       
-#> 13 1       FORWARD        Angel Reese F     24    "6'4… 165 … -       799       
-#> 14 1       CENTER         Madina Okot C     22    "6'6… -     -       921       
+#>  1 1       GUARD          DeWanna Bo… G/F   39    "6'4… 140 … Auburn  211       
+#>  2 1       GUARD          Isobel Bor… G     21    "5'1… -     -       809       
+#>  3 1       GUARD          Jordin Can… G     31    "5'6… 135 … UCLA    203       
+#>  4 1       GUARD          Allisha Gr… G     31    "6'0… 167 … South … 138       
+#>  5 1       GUARD          Rhyne Howa… G     26    "6'2… 175 … -       638       
+#>  6 1       GUARD          Indya Nivar G     22    "5'1… -     -       934       
+#>  7 1       GUARD          Aaliyah Nye G/F   24    "6'0… -     -       854       
+#>  8 1       GUARD          Te-Hina Pa… G     24    "5'9… -     -       859       
+#>  9 1       GUARD          Jaylyn She… G     24    "5'7… 147 … -       822       
+#> 10 1       GUARD          Shatori Wa… G     31    "5'9… 140 … Maryla… 116       
+#> 11 1       FORWARD        Naz Hillmon F     26    "6'2… 190 … -       646       
+#> 12 1       FORWARD        Brionna Jo… F     30    "6'3… 215 … Maryla… 111       
+#> 13 1       FORWARD        Sika Koné   F     24    "6'3… 180 … -       630       
+#> 14 1       FORWARD        Angel Reese F     24    "6'4… 165 … -       799       
+#> 15 1       CENTER         Madina Okot C     22    "6'6… -     -       921       
 # }
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
+#> ℹ Data updated: 2026-08-27 11:02:49 UTC
 #> # A tibble: 16 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -129,7 +130,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
+#> ℹ Data updated: 2026-08-27 11:02:49 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
@@ -154,7 +155,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
+#> ℹ Data updated: 2026-08-27 11:02:49 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
@@ -173,7 +174,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
+#> ℹ Data updated: 2026-08-27 11:02:49 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -192,7 +193,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
+#> ℹ Data updated: 2026-08-27 11:02:49 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -211,7 +212,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:44 UTC
+#> ℹ Data updated: 2026-08-27 11:02:50 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -220,10 +221,10 @@ Other Fox Sports Functions:
 #>  3 1       CONFER… 3       Libe… 23-15 .605  2.0   91.0  88.0  13-5  10-10 11-5 
 #>  4 1       CONFER… 4       Myst… 23-15 .605  2.0   83.0  83.0  13-7  10-8  11-5 
 #>  5 1       CONFER… 5       Sky   15-24 .385  10.5  87.0  90.0  10-10 5-14  3-12 
-#>  6 1       CONFER… 6       Tempo 11-26 .297  13.5  87.0  94.0  7-13  4-13  5-11 
-#>  7 1       CONFER… 7       Sun   10-27 .270  14.5  79.0  87.0  7-12  3-15  3-13 
+#>  6 1       CONFER… 6       Tempo 11-27 .289  14.0  87.0  94.0  7-13  4-14  5-11 
+#>  7 1       CONFER… 7       Sun   10-28 .263  15.0  79.0  87.0  7-13  3-15  3-13 
 #>  8 1       CONFER… NA      Lynx  31-8  .795  -     92.0  83.0  14-6  17-2  20-3 
-#>  9 1       CONFER… NA      Valk… 26-11 .703  4.0   82.0  76.0  15-5  11-6  11-7 
+#>  9 1       CONFER… NA      Valk… 27-11 .711  3.5   83.0  76.0  15-5  12-6  11-7 
 #> 10 1       CONFER… NA      Aces  26-13 .667  5.0   91.0  87.0  12-7  14-6  13-6 
 #> # ℹ 20 more rows
 #> # ℹ 4 more variables: l10 <chr>, strk <chr>, entity_id <chr>, western <chr>
@@ -231,7 +232,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:45 UTC
+#> ℹ Data updated: 2026-08-27 11:02:51 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
@@ -251,7 +252,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:45 UTC
+#> ℹ Data updated: 2026-08-27 11:02:51 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -274,7 +275,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:45 UTC
+#> ℹ Data updated: 2026-08-27 11:02:51 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      

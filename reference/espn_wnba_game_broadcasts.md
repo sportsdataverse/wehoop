@@ -150,7 +150,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_odds(event_id = "401736171")
 #> ── ESPN WNBA Event Odds (event_id=401736171) from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:19 UTC
+#> ℹ Data updated: 2026-08-27 11:02:19 UTC
 #> # A tibble: 2 × 12
 #>   event_id  provider_id provider_name  details over_under spread home_money_line
 #>   <chr>     <chr>       <chr>          <chr>        <dbl>  <dbl>           <int>
@@ -163,7 +163,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_officials(event_id = "401736171")
 #> ── ESPN WNBA Event Officials (event_id=401736171) from ESPN.com ────────────────
-#> ℹ Data updated: 2026-08-26 20:42:19 UTC
+#> ℹ Data updated: 2026-08-27 11:02:19 UTC
 #> # A tibble: 3 × 8
 #>   event_id  official_id full_name         display_name position_id position_name
 #>   <chr>     <chr>       <chr>             <chr>        <chr>       <chr>        
@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_broadcasts(event_id = "401736171")
 #> ── ESPN WNBA Event Broadcasts (event_id=401736171) from ESPN.com ───────────────
-#> ℹ Data updated: 2026-08-26 20:42:19 UTC
+#> ℹ Data updated: 2026-08-27 11:02:19 UTC
 #> # A tibble: 3 × 10
 #>   event_id  broadcast_id type_id type_short_name      type_long_name   market_id
 #>   <chr>     <chr>        <chr>   <chr>                <chr>            <chr>    
@@ -187,7 +187,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_situation(event_id = 401736171)
 #> ── ESPN WNBA Event Situation ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:19 UTC
+#> ℹ Data updated: 2026-08-27 11:02:19 UTC
 #> # A tibble: 1 × 15
 #>   league event_id  home_timeouts_current home_timeouts_remaining
 #>   <chr>  <chr>                     <int>                   <int>
@@ -202,7 +202,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_predictor(event_id = 401736171)
 #> ── ESPN WNBA Event Predictor ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:19 UTC
+#> ℹ Data updated: 2026-08-27 11:02:19 UTC
 #> # A tibble: 6 × 13
 #>   league event_id  name         short_name last_modified side  team_id stat_name
 #>   <chr>  <chr>     <chr>        <chr>      <chr>         <chr> <chr>   <chr>    
@@ -218,7 +218,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_powerindex(event_id = 401736171)
 #> ── ESPN WNBA Event Power Index ───────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:42:19 UTC
+#> ℹ Data updated: 2026-08-27 11:02:19 UTC
 #> # A tibble: 2 × 4
 #>   league event_id  team_id ref                                                  
 #>   <chr>  <chr>     <chr>   <chr>                                                

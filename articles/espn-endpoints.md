@@ -1,6 +1,6 @@
 # ESPN basketball endpoints -- WBB & WNBA
 
-## What this vignette covers
+### What this vignette covers
 
 If you’ve used `wehoop` before, you’ve probably reached for
 [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
@@ -19,7 +19,7 @@ pieces. Most of the chunks run live when the package website is built,
 so the tables below are real ESPN responses – and every one of them
 works the same way when you copy it into an interactive session.
 
-## A note on the API surface
+### A note on the API surface
 
 ESPN exposes basketball data through three public, unauthenticated API
 hosts, and `wehoop` reaches into each:
@@ -57,12 +57,12 @@ the top of your session with
 authenticated proxies) and every ESPN call will pick it up
 automatically.
 
-## What’s available, by use case
+### What’s available, by use case
 
 The tables below are grouped by what you’re likely trying to do.
 Function names are clickable on the pkgdown reference.
 
-### Game data
+#### Game data
 
 These all key off `game_id` (also called `event_id` in some endpoints –
 they’re the same thing).
@@ -75,7 +75,7 @@ they’re the same thing).
 | [`espn_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md) / [`espn_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md) | Player box score |
 | [`espn_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md) / [`espn_wnba_game_rosters()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md) | Game-day rosters |
 
-### Scoreboard, conferences, and league reference
+#### Scoreboard, conferences, and league reference
 
 | Function | Returns |
 |----|----|
@@ -87,7 +87,7 @@ they’re the same thing).
 | [`espn_wbb_news()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_news.md) / [`espn_wnba_news()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_news.md) | League-wide news feed |
 | [`espn_wbb_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_calendar.md) / [`espn_wnba_calendar()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_calendar.md) | Season calendar weeks |
 
-### Team detail
+#### Team detail
 
 | Function | Returns |
 |----|----|
@@ -100,7 +100,7 @@ they’re the same thing).
 | [`espn_wbb_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team_injuries.md) / [`espn_wnba_team_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_injuries.md) | Team injury report |
 | [`espn_wbb_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_injuries.md) / [`espn_wnba_injuries()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_injuries.md) | League-wide injury report |
 
-### Athlete detail
+#### Athlete detail
 
 | Function | Returns |
 |----|----|
@@ -114,7 +114,7 @@ they’re the same thing).
 | [`espn_wbb_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_eventlog.md) / [`espn_wnba_player_statisticslog()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_eventlog.md) | Stats log (core-v2) |
 | [`espn_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_stats.md) / [`espn_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_player_stats.md) | Cross-athlete season stats |
 
-### Per-event enrichment
+#### Per-event enrichment
 
 These take an `event_id` and complement the play-by-play.
 
@@ -125,7 +125,7 @@ These take an `event_id` and complement the play-by-play.
 | [`espn_wbb_game_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_broadcasts.md) / [`espn_wnba_game_officials()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_broadcasts.md) | Officials |
 | [`espn_wbb_game_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_broadcasts.md) / [`espn_wnba_game_broadcasts()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_broadcasts.md) | Broadcast outlets |
 
-### League-wide catalogs
+#### League-wide catalogs
 
 | Function | Returns |
 |----|----|
@@ -136,7 +136,7 @@ These take an `event_id` and complement the play-by-play.
 | [`espn_wbb_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_seasons.md) / [`espn_wnba_seasons()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_seasons.md) | Seasons on record |
 | [`espn_wbb_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_info.md) / [`espn_wnba_season_info()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_info.md) | Single-season metadata |
 
-### WNBA-only
+#### WNBA-only
 
 The pro-league side has draft, free agency, and transaction logs that
 don’t have NCAA equivalents.
@@ -147,7 +147,7 @@ don’t have NCAA equivalents.
 | [`espn_wnba_freeagents()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_freeagents.md) | Free agents (during the FA window) |
 | [`espn_wnba_transactions()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_transactions.md) | Transactions log |
 
-## Worked examples
+### Worked examples
 
 The examples below use UConn (`team_id = 2509`) for WBB and the Las
 Vegas Aces (`team_id = 17`) for the WNBA. Most ESPN team IDs and athlete
@@ -157,7 +157,7 @@ IDs are easy to discover with
 [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md)
 and the various roster endpoints.
 
-### Browsing news and the season calendar
+#### Browsing news and the season calendar
 
 When you’re starting a new analysis, the easiest way to confirm the
 season is active and you’re hitting current data is to pull the news
@@ -173,12 +173,12 @@ head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
 #>   headline                                                             published
 #>   <chr>                                                                <chr>    
-#> 1 Sources: SEC to suspend head coaches who add pro players             2026-08-…
-#> 2 SEC draws rule to stop NFL, NBA, WNBA players from returning         2026-08-…
-#> 3 The types of highlight-reel plays Hannah Hidalgo is bringing back t… 2026-08-…
-#> 4 Koval of Ukraine leaves LSU after Tigers sign Russian player         2026-08-…
-#> 5 College basketball eligibility: What to know about latest rulings    2026-08-…
-#> 6 Court halts order, denies extra year of eligibility                  2026-08-…
+#> 1 Big 12 announces ban on all professionals from returning             2026-08-…
+#> 2 Big Ten rewards commissioner Tony Petitti with five-year extension   2026-08-…
+#> 3 Sources: SEC to suspend head coaches who add pro players             2026-08-…
+#> 4 SEC draws rule to stop NFL, NBA, WNBA players from returning         2026-08-…
+#> 5 The types of highlight-reel plays Hannah Hidalgo is bringing back t… 2026-08-…
+#> 6 Koval of Ukraine leaves LSU after Tigers sign Russian player         2026-08-…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -205,7 +205,7 @@ regular season, postseason, championship weeks, etc.), with start and
 end dates. It’s useful for filtering schedules and scoreboards down to a
 specific portion of the year.
 
-### Looking at a team
+#### Looking at a team
 
 [`espn_wbb_team()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md)
 and
@@ -252,7 +252,7 @@ A small caveat on the roster and leaders endpoints: ESPN serves only the
 you pass. The argument is preserved in the function signature for API
 symmetry, but it doesn’t change the request URL.
 
-### Tracking injuries
+#### Tracking injuries
 
 Injury data is a soft spot in ESPN’s WBB coverage – most college games
 don’t carry an active injury report. WNBA injuries are more reliably
@@ -273,7 +273,7 @@ wbb_inj <- espn_wbb_injuries(season = 2025)
 If you’re building a workflow that depends on injury data, gate
 downstream code on `nrow(...) > 0`.
 
-### Following an athlete
+#### Following an athlete
 
 The athlete endpoints are the deepest part of the surface. Pull a
 roster, pick a player, and you have biographical data, season-level
@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "Lafayette"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-26 20:48:14"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-27 11:10:35"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/2509?"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-26 20:48:14"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-27 11:10:35"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "3"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Guard"
 #>   ..$ abbreviation: chr "G"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-26 20:48:14"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-27 11:10:35"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-26 20:48:14"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-27 11:10:35"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-26 20:48:14"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-27 11:10:35"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-26 20:48:14"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-08-27 11:10:35"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -384,7 +384,7 @@ A few things to know about the athlete endpoints:
   of the surface. Some seasons before roughly 2018 return HTTP 404, and
   not every athlete is in the index.
 
-### Charting win probability
+#### Charting win probability
 
 The combination of `_pbp()` and `_event_probabilities()` is the quickest
 way to chart a game’s momentum. Event `'401736171'` below is a 2024 WNBA
@@ -448,7 +448,7 @@ always returns an empty tibble. The function exists for API symmetry;
 it’s not a bug. Win probabilities, officials, and broadcasts are all
 populated for both leagues.
 
-### Working with the WNBA draft and transactions
+#### Working with the WNBA draft and transactions
 
 The draft, free agency, and transaction logs only exist on the WNBA side
 – the NCAA doesn’t have a pro-style draft on ESPN, and the transfer
@@ -480,7 +480,7 @@ nrow(fa)
 If you’re stitching together a roster history, the natural sequence is
 draft -\> free agents -\> transactions, joined on `athlete_id`.
 
-### Browsing league-wide catalogs
+#### Browsing league-wide catalogs
 
 Sometimes you don’t have a specific team or athlete in mind – you want
 the league-wide leaderboard, every venue, every coach, or the full
@@ -559,7 +559,7 @@ head(wnba_seasons[, c("year", "start_date", "end_date")])
 wnba_s2025 <- espn_wnba_season_info(season = 2025)
 ```
 
-## Core-v2 deep expansion
+### Core-v2 deep expansion
 
 The post-3.0.0 release adds another ~62 ESPN core-v2 wrappers to
 `espn_wnba_*` + `espn_wbb_*`, bringing the total ESPN basketball surface
@@ -567,7 +567,7 @@ in `wehoop` to **180 functions**. Everything here is shimmed over an
 internal `.espn_basketball_*` helper so WNBA and WBB share parsing logic
 and bug fixes propagate to both leagues at once.
 
-### Function overview
+#### Function overview
 
 | Tier | Family | WNBA | WBB | What it gives you |
 |----|----|----|----|----|
@@ -617,7 +617,7 @@ Dashes mark families that don’t apply at ESPN for that league (no WNBA
 tournament structure; no WBB futures market; no WNBA coach detail
 endpoint; no WBB league-wide draft).
 
-### Athlete career, contracts, splits, and event log
+#### Athlete career, contracts, splits, and event log
 
 Beyond the gamelog and per-season stats wrappers we shipped in the
 initial ESPN batch, the core-v2 surface adds career-level rollups,
@@ -667,7 +667,7 @@ espn_wnba_player_seasons(athlete_id = 3149391)
 #> 9 wnba   3149391      2018 http://sports.core.api.espn.com/v2/sports/basketball…
 ```
 
-### Franchises, tournaments, and league dictionaries
+#### Franchises, tournaments, and league dictionaries
 
 ``` r
 
@@ -763,7 +763,7 @@ espn_wnba_position(position_id = 1)
 #> 1 1           Point Guard Point Guard  PG           TRUE  http://sports.… wnba
 ```
 
-### Season metadata, rankings, awards
+#### Season metadata, rankings, awards
 
 ``` r
 
@@ -824,7 +824,7 @@ espn_wbb_season_group_teams(group_id = 50, season = 2024, season_type = 2)
 #> # ℹ 190 more rows
 ```
 
-### Team season profile, roster, and stats
+#### Team season profile, roster, and stats
 
 ``` r
 
@@ -883,7 +883,7 @@ espn_wbb_team_season_statistics(team_id = 2509, season = 2024,
 #> #   display_value <chr>, rank <int>, rank_display_value <chr>
 ```
 
-### Coach detail, coach-in-season, and coach career record
+#### Coach detail, coach-in-season, and coach career record
 
 ``` r
 
@@ -911,16 +911,16 @@ espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 #> # A tibble: 5 × 12
 #>   league          coach_id record_type_id record_name record_type record_summary
 #>   <chr>           <chr>             <int> <chr>       <chr>       <chr>         
-#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
 #> # ℹ 6 more variables: record_display <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, stat_display_value <chr>
 ```
 
-### Event meta: live situation, predictor, power index, prop bets
+#### Event meta: live situation, predictor, power index, prop bets
 
 ``` r
 
@@ -967,7 +967,7 @@ espn_wnba_game_propbets(event_id = EID, provider_id = 58)
 #> NULL
 ```
 
-### Event competitor sub-resources
+#### Event competitor sub-resources
 
 Five resource families under
 `events/{eid}/competitions/{cid}/competitors/{team_id}/`, each shimmed
@@ -1055,7 +1055,7 @@ espn_wnba_game_team_score(event_id = EID, team_id = TID)
 #> # ℹ 1 more variable: source_description <chr>
 ```
 
-### Per-game player box score, play detail, and on-court lineups
+#### Per-game player box score, play detail, and on-court lineups
 
 This is the headline 2E.1 batch – the per-(game x player) box score in
 long format plus single-play deep dives.
@@ -1108,7 +1108,7 @@ espn_wnba_game_play_personnel(event_id = EID, play_id = PID)
 #> NULL
 ```
 
-### Officials, team records, and the draft
+#### Officials, team records, and the draft
 
 ``` r
 
@@ -1154,7 +1154,7 @@ espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 5170843)
 #> NULL
 ```
 
-### One thing to know about default season types
+#### One thing to know about default season types
 
 Most of the new wrappers that take a `season_type` parameter default to
 `c(2L, 3L)` (regular season + postseason) and bind the two results into
@@ -1205,7 +1205,7 @@ espn_wnba_season_leaders(season = 2024)
 #> #   athlete_ref <chr>, team_ref <chr>
 ```
 
-## What’s not here
+### What’s not here
 
 A few endpoints exist on ESPN but are deliberately not wrapped:
 
@@ -1237,3 +1237,43 @@ When something looks off, an empty tibble is far more often the correct,
 expected return than a bug. ESPN’s basketball coverage is uneven across
 leagues, seasons, and franchise tenures, and `wehoop` mirrors that
 unevenness honestly rather than papering over it.
+
+## **Our Authors**
+
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
+- [Geoffery Hutchinson](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/twitter/follow/hutchngo?color=blue&label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
+  [![@hutchngo](https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge)](https://github.com/hutchngo)
+
+### **Citation**
+
+To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{wehoop,
+  author = {Saiem Gilani and Geoffery Hutchinson},
+  title = {wehoop: The SportsDataverse},
+  url = {https://wehoop.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package
