@@ -8,6 +8,7 @@ opengraph:
   twitter:
     card: summary_large_image
     creator: "@saiemgilani"
+output: html_document
 ---
 
 ```{r, include = FALSE}
@@ -25,3 +26,38 @@ DT::datatable(wehoop::parameter_descriptions, options = list(scrollX = TRUE, pag
 ```{r eval = !with_dt}
 knitr::kable(wehoop::parameter_descriptions)
 ```
+
+# **Our Authors**
+-   [Saiem Gilani](https://x.com/saiemgilani)
+<a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a>
+<a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>
+-   [Geoffery Hutchinson](https://x.com/hutchngo)
+<a href='https://x.com/hutchngo' target='blank'><img src='https://img.shields.io/twitter/follow/hutchngo?color=blue&amp;label=%40hutchngo&amp;logo=x&amp;style=for-the-badge' alt='@hutchngo'/></a>
+<a href='https://github.com/hutchngo' target='blank'><img src='https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@hutchngo'/></a>
+
+## **Citation**
+
+To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org/) R package in publications, use:
+
+BibTex Citation
+
+```bibtex
+@misc{wehoop,
+  author = {Saiem Gilani, Geoffery Hutchinson},
+  title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data},
+  url = {https://wehoop.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+## **Related SportsDataverse packages**
+
+-   [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college football
+-   [**hoopR**](https://hoopR.sportsdataverse.org/) - men's basketball
+-   [**wehoop**](https://wehoop.sportsdataverse.org/) - women's basketball
+-   [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+-   [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+-   [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+-   [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+-   [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python package
+-   [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R meta-package
