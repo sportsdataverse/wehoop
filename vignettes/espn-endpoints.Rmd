@@ -1,7 +1,7 @@
 ---
 title: "ESPN basketball endpoints -- WBB & WNBA"
 description: "A tour of the ESPN basketball endpoint wrappers in <code>wehoop</code> -- around 180 of them -- grouped by use case: game data, team detail, athlete coverage, per-event enrichments, league-wide catalogs, WNBA draft/transactions/free-agency endpoints, and the post-3.0.0 core-v2 deep expansion (athlete career, team-season stats, per-game player box, play personnel, typed-detail companions)."
-author: "Saiem Gilani <br><a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+author: "Saiem Gilani, Geoffery Hutchinson <br><a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://x.com/hutchngo' target='blank'><img src='https://img.shields.io/twitter/follow/hutchngo?color=blue&amp;label=%40hutchngo&amp;logo=x&amp;style=for-the-badge' alt='@hutchngo'/></a> <a href='https://github.com/hutchngo' target='blank'><img src='https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@hutchngo'/></a>"
 opengraph:
   image:
     src: "https://github.com/sportsdataverse/wehoop-data/blob/main/themes/wehoop_gh.png?raw=true"
@@ -729,12 +729,12 @@ mirrors that unevenness honestly rather than papering over it.
 
 To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org/) R package in publications, use:
 
-BibTex Citation
+BibTeX Citation
 
 ```bibtex
 @misc{wehoop,
-  author = {Saiem Gilani, Geoffery Hutchinson},
-  title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data},
+  author = {Saiem Gilani and Geoffery Hutchinson},
+  title = {wehoop: The SportsDataverse},
   url = {https://wehoop.sportsdataverse.org/},
   year = {2026}
 }
