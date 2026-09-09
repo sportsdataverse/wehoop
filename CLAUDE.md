@@ -568,3 +568,10 @@ Split unrelated work into separate commits for reviewability.
 - All `dbConnection`/`tablename` DB-capable loaders forward `...` into `DBI::dbWriteTable(...)` and actually issue the write -- as of 3.0.0 every documented DB-write loader does this consistently (three loaders previously computed the `in_db` gate but never called `dbWriteTable()`).
 - `wnba_videoevents()` and the four `wnba_draftcombine*()` wrappers are soft-deprecated (`lifecycle::deprecate_warn()`) in 3.0.0 -- their upstream endpoints are dead but the functions still return whatever the endpoint gives back rather than erroring. Several other `wnba_*` wrappers (`wnba_scoreboard`, `wnba_playercareerbycollege`, `wnba_teamhistoricalleaders`, `wnba_teamgamestreakfinder`, `wnba_boxscoreplayertrackv2`) are already hard-deprecated (`lifecycle::deprecate_stop()`) from an earlier pass.
 - ESPN pbp participant columns are unnested with dynamically-named columns (not a hardcoded 2- or 4-participant assumption), so plays with either count parse correctly. `espn_wnba_season_group_children()` / `espn_wbb_season_group_children()` page through all group-children pages instead of truncating at `limit=200`.
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/wehoop.pdf>, one of [a set covering every SportsDataverse package](https://sportsdataverse.org/cheatsheets).
+Keep it in mind when adding or renaming an exported function: the sheet is a
+hand-built canvas, so a surface change means the sheet needs a revision too.

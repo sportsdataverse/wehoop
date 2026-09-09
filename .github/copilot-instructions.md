@@ -261,3 +261,10 @@ Supporting scrapers: `bart_wbb_ratings()`, `bart_wbb_game_schedule()`,
 - **`espn_wbb_standings()` is conference-grouped** (`level=3`) as of 3.0.0, not the flat `level=1` list, which silently omitted newer D-I teams. The result adds a `conference` column.
 - All DB-capable `load_*()` loaders (`dbConnection`/`tablename` args) now forward `...` into `DBI::dbWriteTable(...)` and actually issue the write — as of 3.0.0 this is consistent across every documented DB-write loader.
 - `wnba_videoevents()` and the four `wnba_draftcombine*()` wrappers are soft-deprecated (`lifecycle::deprecate_warn()`) in 3.0.0 (dead upstream endpoints, but they still return whatever comes back). `wnba_scoreboard`, `wnba_playercareerbycollege`, `wnba_teamhistoricalleaders`, `wnba_teamgamestreakfinder`, and `wnba_boxscoreplayertrackv2` are already hard-deprecated (`lifecycle::deprecate_stop()`).
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/wehoop.pdf>, one of [a set covering every SportsDataverse package](https://sportsdataverse.org/cheatsheets).
+Keep it in mind when adding or renaming an exported function: the sheet is a
+hand-built canvas, so a surface change means the sheet needs a revision too.

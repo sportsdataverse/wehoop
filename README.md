@@ -109,6 +109,9 @@ For more information on the package and function reference, please see
 the [**`wehoop`** documentation
 website](https://wehoop.sportsdataverse.org).
 
+There is also a printable [**`wehoop` cheat sheet (PDF)**](https://sportsdataverse.org/cheatsheets/wehoop.pdf), one of [a set covering every SportsDataverse package](https://sportsdataverse.org/cheatsheets).
+
+
 `wehoop` 3.0.0 ships **180 ESPN basketball endpoint wrappers** (88
 `espn_wbb_*` + 92 `espn_wnba_*`) covering reference and catalog data,
 team detail, athlete coverage, event-level enrichments (odds, win
@@ -154,6 +157,17 @@ stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&
 
 <a href="https://x.com/HutchNGo" target="blank"><img src="https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&logo=x&style=for-the-badge" alt="@HutchNGo" /></a>
 <a href="https://github.com/hutchngo" target="blank"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&logo=Github&style=for-the-badge" alt="@hutchngo" /></a>
+
+<!-- cheatsheet-section -->
+## **Cheat sheet**
+
+A printable one-page reference for **`wehoop`** — the function families, the loaders, and what each one returns.
+
+📄 **[Download the wehoop cheat sheet (PDF)](https://sportsdataverse.org/cheatsheets/wehoop.pdf)**
+
+Free to download, print and hand out; light and dark, US Letter landscape.
+Every SportsDataverse package has one — browse them all at
+**[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
 ## **Citations**
 
