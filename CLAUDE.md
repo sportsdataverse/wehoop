@@ -835,3 +835,12 @@ referencing AI tools.
   [`espn_wbb_season_group_children()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_group.md)
   page through all group-children pages instead of truncating at
   `limit=200`.
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/wehoop.pdf>, one of [a set
+covering every SportsDataverse
+package](https://sportsdataverse.org/cheatsheets). Keep it in mind when
+adding or renaming an exported function: the sheet is a hand-built
+canvas, so a surface change means the sheet needs a revision too.

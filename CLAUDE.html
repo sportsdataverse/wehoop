@@ -33,6 +33,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/wehoop.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -630,6 +631,10 @@ ci: update GitHub Actions workflow versions</code></pre>
 <code><a href="reference/wnba_videoevents.html">wnba_videoevents()</a></code> and the four <code>wnba_draftcombine*()</code> wrappers are soft-deprecated (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_warn()</a></code>) in 3.0.0 – their upstream endpoints are dead but the functions still return whatever the endpoint gives back rather than erroring. Several other <code>wnba_*</code> wrappers (<code>wnba_scoreboard</code>, <code>wnba_playercareerbycollege</code>, <code>wnba_teamhistoricalleaders</code>, <code>wnba_teamgamestreakfinder</code>, <code>wnba_boxscoreplayertrackv2</code>) are already hard-deprecated (<code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code>) from an earlier pass.</li>
 <li>ESPN pbp participant columns are unnested with dynamically-named columns (not a hardcoded 2- or 4-participant assumption), so plays with either count parse correctly. <code><a href="reference/espn_wnba_season_group.html">espn_wnba_season_group_children()</a></code> / <code><a href="reference/espn_wbb_season_group.html">espn_wbb_season_group_children()</a></code> page through all group-children pages instead of truncating at <code>limit=200</code>.</li>
 </ul></div>
+<div class="section level2">
+<h2 id="cheat-sheet">Cheat sheet<a class="anchor" aria-label="anchor" href="#cheat-sheet"></a></h2>
+<p>There is a printable one-page reference for this package at <a href="https://sportsdataverse.org/cheatsheets/wehoop.pdf" class="external-link uri">https://sportsdataverse.org/cheatsheets/wehoop.pdf</a>, one of <a href="https://sportsdataverse.org/cheatsheets" class="external-link">a set covering every SportsDataverse package</a>. Keep it in mind when adding or renaming an exported function: the sheet is a hand-built canvas, so a surface change means the sheet needs a revision too.</p>
+</div>
 </div>
 
 

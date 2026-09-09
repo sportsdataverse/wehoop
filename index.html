@@ -67,6 +67,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv">
 <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/wehoop.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -220,6 +221,7 @@
 <strong>Documentation</strong><a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
 <p>For more information on the package and function reference, please see the <a href="https://wehoop.sportsdataverse.org"><strong><code>wehoop</code></strong> documentation website</a>.</p>
+<p>There is also a printable <a href="https://sportsdataverse.org/cheatsheets/wehoop.pdf" class="external-link"><strong><code>wehoop</code> cheat sheet (PDF)</strong></a>, one of <a href="https://sportsdataverse.org/cheatsheets" class="external-link">a set covering every SportsDataverse package</a>.</p>
 <p><code>wehoop</code> 3.0.0 ships <strong>180 ESPN basketball endpoint wrappers</strong> (88 <code>espn_wbb_*</code> + 92 <code>espn_wnba_*</code>) covering reference and catalog data, team detail, athlete coverage, event-level enrichments (odds, win probability, officials, broadcasts), WNBA-only artifacts (draft, free agents, transactions), and league-wide catalogs. See the <a href="https://wehoop.sportsdataverse.org/articles/espn-endpoints.html">ESPN basketball endpoints vignette</a> for a full walkthrough.</p>
 <p>Beyond the live ESPN scrapers, <code>wehoop</code> ships <strong>90 <code>load_*()</code> release-dataset loaders</strong> that pull pre-built season parquet/rds instead of hitting the source APIs: <code>load_wnba_*</code> / <code>load_wbb_*</code> (ESPN-backed pbp, box scores, rosters, standings, crosswalks), <code>load_wnba_stats_*</code> (WNBA Stats API, including <code><a href="reference/load_wnba_stats_coaches.html">load_wnba_stats_possessions()</a></code>), and the <strong><code>load_ncaa_wbb_*</code> family</strong> (<code>pbp</code>, <code>shots</code>, <code>lineups</code>, <code>matchup_stints</code>, <code>possessions</code>, <code>rapm_within_team</code>, <code>rapm</code> (league-wide), <code>player_box</code>, <code>team_box</code>, <code>rosters</code>, <code>team_rosters</code>, <code>schedule</code>, <code>team_ids</code>; seasons 2010-2026, <code>shots</code> 2019-2026, <code>rapm</code> 2011-2026) backed by the sportsdataverse-py NCAA engine. Model-dataset loaders round out the surface: <code><a href="reference/load_wbb_player_value.html">load_wnba_player_impact()</a></code>, <code><a href="reference/load_wbb_player_value.html">load_wbb_player_value()</a></code>, and <code><a href="reference/load_wbb_player_value.html">load_wbb_ratings()</a></code>.</p>
 </div>
@@ -248,6 +250,15 @@
 <li><a href="https://x.com/hutchngo" class="external-link">Geoff Hutchinson - RIP</a></li>
 </ul>
 <p><a href="https://x.com/HutchNGo" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&amp;logo=x&amp;style=for-the-badge" alt="@HutchNGo"></a> <a href="https://github.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@hutchngo"></a></p>
+<!-- cheatsheet-section -->
+<div class="section level2">
+<h2 id="cheat-sheet">
+<strong>Cheat sheet</strong><a class="anchor" aria-label="anchor" href="#cheat-sheet"></a>
+</h2>
+<p>A printable one-page reference for <strong><code>wehoop</code></strong> — the function families, the loaders, and what each one returns.</p>
+<p>📄 <strong><a href="https://sportsdataverse.org/cheatsheets/wehoop.pdf" class="external-link">Download the wehoop cheat sheet (PDF)</a></strong></p>
+<p>Free to download, print and hand out; light and dark, US Letter landscape. Every SportsDataverse package has one — browse them all at <strong><a href="https://sportsdataverse.org/cheatsheets" class="external-link">sportsdataverse.org/cheatsheets</a></strong>.</p>
+</div>
 <div class="section level2">
 <h2 id="citations">
 <strong>Citations</strong><a class="anchor" aria-label="anchor" href="#citations"></a>

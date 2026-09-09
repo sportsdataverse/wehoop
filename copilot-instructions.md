@@ -453,3 +453,12 @@ loaders. Supporting scrapers:
   `wnba_teamhistoricalleaders`, `wnba_teamgamestreakfinder`, and
   `wnba_boxscoreplayertrackv2` are already hard-deprecated
   ([`lifecycle::deprecate_stop()`](https://lifecycle.r-lib.org/reference/deprecate_soft.html)).
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/wehoop.pdf>, one of [a set
+covering every SportsDataverse
+package](https://sportsdataverse.org/cheatsheets). Keep it in mind when
+adding or renaming an exported function: the sheet is a hand-built
+canvas, so a surface change means the sheet needs a revision too.

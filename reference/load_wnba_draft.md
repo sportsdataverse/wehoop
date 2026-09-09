@@ -359,20 +359,20 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 118,748 × 67
+#> # A tibble: 123,455 × 67
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  Kiah…          0
-#>  2                2   4.02e 9               7      45 Personal… Char…          0
-#>  3                3   4.02e 9               9      92 Jump Shot Gabb…          3
-#>  4                4   4.02e10              12      92 Jump Shot Diam…          3
-#>  5                5   4.02e10              13     156 Offensiv… Sun …          3
-#>  6                6   4.02e10              15      92 Jump Shot Sani…          3
-#>  7                7   4.02e10              16     156 Offensiv… Char…          3
-#>  8                8   4.02e10              17      95 Layup Sh… Diam…          3
-#>  9                9   4.02e10              19      45 Personal… Char…          3
-#> 10               10   4.02e10              21     584 Substitu… Hail…          3
-#> # ℹ 118,738 more rows
+#>  1                1   4.02e 9               4     615 "Jumpbal… "Nat…          0
+#>  2                2   4.02e 9               7     615 "Jumpbal… "Nap…          0
+#>  3                3   4.02e10              10      93 "Hook Sh… "Nat…          2
+#>  4                4   4.02e10              11     110 "Driving… "All…          2
+#>  5                5   4.02e10              13      63 "Lost Ba… "Nat…          2
+#>  6                6   4.02e10              15      92 "Jump Sh… "All…          2
+#>  7                7   4.02e10              17     110 "Driving… "Kay…          2
+#>  8                8   4.02e10              19     156 "Offensi… "Nat…          2
+#>  9                9   4.02e10              20      62 "Bad Pas… "Nat…          2
+#> 10               10   4.02e10              22      44 "Shootin… "Oli…          2
+#> # ℹ 123,445 more rows
 #> # ℹ 60 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,
@@ -383,20 +383,20 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_team_box())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 580 × 59
+#> # A tibble: 604 × 59
 #>      game_id season season_type game_date  game_date_time      team_id team_uid 
 #>        <int>  <int>       <int> <date>     <dttm>                <int> <chr>    
-#>  1 401857176   2026           2 2026-08-26 2026-08-26 19:00:00  129689 s:40~l:5…
-#>  2 401857176   2026           2 2026-08-26 2026-08-26 19:00:00      18 s:40~l:5…
-#>  3 401857177   2026           2 2026-08-26 2026-08-26 22:00:00  131935 s:40~l:5…
-#>  4 401857177   2026           2 2026-08-26 2026-08-26 22:00:00      14 s:40~l:5…
-#>  5 401857173   2026           2 2026-08-25 2026-08-25 19:00:00      19 s:40~l:5…
-#>  6 401857173   2026           2 2026-08-25 2026-08-25 19:00:00      18 s:40~l:5…
-#>  7 401857174   2026           2 2026-08-25 2026-08-25 20:00:00  132052 s:40~l:5…
-#>  8 401857174   2026           2 2026-08-25 2026-08-25 20:00:00       3 s:40~l:5…
-#>  9 401857175   2026           2 2026-08-25 2026-08-25 22:00:00      16 s:40~l:5…
-#> 10 401857175   2026           2 2026-08-25 2026-08-25 22:00:00      11 s:40~l:5…
-#> # ℹ 570 more rows
+#>  1 401857186   2026           2 2026-08-30 2026-08-30 15:00:00       8 s:40~l:5…
+#>  2 401857186   2026           2 2026-08-30 2026-08-30 15:00:00      20 s:40~l:5…
+#>  3 401857187   2026           2 2026-08-30 2026-08-30 17:00:00       6 s:40~l:5…
+#>  4 401857187   2026           2 2026-08-30 2026-08-30 17:00:00      14 s:40~l:5…
+#>  5 401857188   2026           2 2026-08-30 2026-08-30 19:00:00  129689 s:40~l:5…
+#>  6 401857188   2026           2 2026-08-30 2026-08-30 19:00:00  132052 s:40~l:5…
+#>  7 401857189   2026           2 2026-08-30 2026-08-30 20:30:00      18 s:40~l:5…
+#>  8 401857189   2026           2 2026-08-30 2026-08-30 20:30:00       3 s:40~l:5…
+#>  9 401857184   2026           2 2026-08-29 2026-08-29 13:00:00      19 s:40~l:5…
+#> 10 401857184   2026           2 2026-08-29 2026-08-29 13:00:00       9 s:40~l:5…
+#> # ℹ 594 more rows
 #> # ℹ 52 more variables: team_slug <chr>, team_location <chr>, team_name <chr>,
 #> #   team_abbreviation <chr>, team_display_name <chr>,
 #> #   team_short_display_name <chr>, team_color <chr>,
@@ -407,20 +407,20 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_player_box())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 6,998 × 57
+#> # A tibble: 7,284 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
-#>  1 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    2529622
-#>  2 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    3142328
-#>  3 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    4257500
-#>  4 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    2590093
-#>  5 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    4398935
-#>  6 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    4432834
-#>  7 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    4433634
-#>  8 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    4790264
-#>  9 401857176   2026           2 2026-08-26 2026-08-26 19:00:00    4066546
-#> 10 401857176   2026           2 2026-08-26 2026-08-26 19:00:00       1054
-#> # ℹ 6,988 more rows
+#>  1 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    2529130
+#>  2 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    3917450
+#>  3 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    2529205
+#>  4 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    2987891
+#>  5 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    4433791
+#>  6 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    3054590
+#>  7 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    4280877
+#>  8 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    4596309
+#>  9 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    5278237
+#> 10 401857186   2026           2 2026-08-30 2026-08-30 15:00:00    4280850
+#> # ℹ 7,274 more rows
 #> # ℹ 51 more variables: athlete_display_name <chr>, team_id <int>,
 #> #   team_name <chr>, team_location <chr>, team_short_display_name <chr>,
 #> #   minutes <dbl>, field_goals_made <int>, field_goals_attempted <int>,
@@ -455,7 +455,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_rosters(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 212 × 36
+#> # A tibble: 209 × 36
 #>    season team_id team_slug team_abbreviation team_display_name
 #>     <int>   <int> <chr>     <chr>             <chr>            
 #>  1   2026      11 NA        PHX               Phoenix Mercury  
@@ -468,7 +468,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026      11 NA        PHX               Phoenix Mercury  
 #>  9   2026      11 NA        PHX               Phoenix Mercury  
 #> 10   2026      11 NA        PHX               Phoenix Mercury  
-#> # ℹ 202 more rows
+#> # ℹ 199 more rows
 #> # ℹ 31 more variables: team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <chr>, uid <chr>,
 #> #   guid <chr>, full_name <chr>, display_name <chr>, short_name <chr>,
@@ -479,7 +479,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 9,896 × 16
+#> # A tibble: 10,045 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
 #>  1   2026       1054 Tiffany Hayes        Tiffany            Hayes            
@@ -492,7 +492,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #>  9   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #> 10   2026       1054 Tiffany Hayes        Tiffany            Hayes            
-#> # ℹ 9,886 more rows
+#> # ℹ 10,035 more rows
 #> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
 #> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
 #> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,
@@ -571,20 +571,20 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_shots(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 51,967 × 20
+#> # A tibble: 54,046 × 20
 #>      game_id season period_number clock_display_value team_id athlete_id_1
 #>        <int>  <int>         <int> <chr>                 <int>        <int>
-#>  1 401857176   2026             1 9:33                 129689      3142328
-#>  2 401857176   2026             1 9:09                     18      4433635
-#>  3 401857176   2026             1 9:06                     18      4433514
-#>  4 401857176   2026             1 8:56                     18      4433635
-#>  5 401857176   2026             1 8:29                     18      3922628
-#>  6 401857176   2026             1 8:18                 129689      3142328
-#>  7 401857176   2026             1 8:03                     18      4433412
-#>  8 401857176   2026             1 7:56                 129689      4398935
-#>  9 401857176   2026             1 7:45                 129689      4257500
-#> 10 401857176   2026             1 7:26                     18      4433635
-#> # ℹ 51,957 more rows
+#>  1 401857186   2026             1 9:34                      8      2529130
+#>  2 401857186   2026             1 9:21                     20      3058901
+#>  3 401857186   2026             1 8:51                     20      3058901
+#>  4 401857186   2026             1 8:33                      8      2529205
+#>  5 401857186   2026             1 8:25                     20      4433402
+#>  6 401857186   2026             1 8:25                     20      4433402
+#>  7 401857186   2026             1 8:14                      8      4433791
+#>  8 401857186   2026             1 8:00                     20      4398915
+#>  9 401857186   2026             1 7:51                      8      2987891
+#> 10 401857186   2026             1 7:43                      8      3917450
+#> # ℹ 54,036 more rows
 #> # ℹ 14 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
 #> #   scoring_play <lgl>, score_value <int>, coordinate_x <dbl>,
 #> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>,
@@ -594,7 +594,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_game_rosters(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 6,998 × 22
+#> # A tibble: 7,284 × 22
 #>    season game_id   team_id team_slug       team_abbreviation team_display_name
 #>     <int> <chr>       <int> <chr>           <chr>             <chr>            
 #>  1   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
@@ -607,7 +607,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
 #>  9   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
 #> 10   2026 401856890      18 connecticut-sun CON               Connecticut Sun  
-#> # ℹ 6,988 more rows
+#> # ℹ 7,274 more rows
 #> # ℹ 16 more variables: home_away <chr>, athlete_id <int>, athlete_uid <chr>,
 #> #   athlete_guid <chr>, athlete_display_name <chr>, athlete_short_name <chr>,
 #> #   athlete_first_name <chr>, athlete_last_name <chr>, athlete_jersey <chr>,
@@ -617,7 +617,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_officials(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 871 × 11
+#> # A tibble: 907 × 11
 #>    season game_id   official_id official_uid official_full_name    
 #>     <int> <chr>           <int> <chr>        <chr>                 
 #>  1   2026 401856890       52042 NA           Roy Gulbeyan          
@@ -630,7 +630,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026 401856892     5113092 NA           Sarah Williams        
 #>  9   2026 401856892     5184398 NA           Josh Reed             
 #> 10   2026 401856893        1183 NA           Tim Greene            
-#> # ℹ 861 more rows
+#> # ℹ 897 more rows
 #> # ℹ 6 more variables: official_display_name <chr>, official_first_name <chr>,
 #> #   official_last_name <chr>, official_order <int>, position_name <chr>,
 #> #   position_display_name <chr>
@@ -638,7 +638,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_player_core(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 234 × 36
+#> # A tibble: 235 × 36
 #>    season athlete_id guid       uid   slug  type  first_name last_name full_name
 #>     <int>      <int> <chr>      <chr> <chr> <chr> <chr>      <chr>     <chr>    
 #>  1   2026        869 74bfe609-… s:40… dewa… bask… DeWanna    Bonner    DeWanna …
@@ -651,7 +651,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026    2284331 3f0f0fd1-… s:40… emma… bask… Emma       Cannon    Emma Can…
 #>  9   2026    2327695 cea6f839-… s:40… rebe… bask… Rebekah    Gardner   Rebekah …
 #> 10   2026    2490553 40e7dc87-… s:40… brit… bask… Brittney   Griner    Brittney…
-#> # ℹ 224 more rows
+#> # ℹ 225 more rows
 #> # ℹ 27 more variables: display_name <chr>, short_name <chr>, height <dbl>,
 #> #   display_height <chr>, weight <dbl>, display_weight <chr>, age <int>,
 #> #   date_of_birth <chr>, birth_city <chr>, birth_state <chr>,

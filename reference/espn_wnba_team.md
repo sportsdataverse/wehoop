@@ -196,7 +196,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:02:35 UTC
+#> ℹ Data updated: 2026-09-09 22:11:22 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -206,25 +206,25 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:02:35 UTC
+#> ℹ Data updated: 2026-09-09 22:11:22 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 26-13   <df [21 × 2]>
-#> 2 Home Record    home  12-7    <df [5 × 2]> 
+#> 1 Overall Record total 27-13   <df [21 × 2]>
+#> 2 Home Record    home  13-7    <df [5 × 2]> 
 #> 3 Away Record    road  14-6    <df [5 × 2]> 
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:02:35 UTC
+#> ℹ Data updated: 2026-09-09 22:11:22 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401857182 2026-08-29T02:00Z Toronto Tempo at Las Vegas Aces TOR @ LV  
+#> 1 401857194 2026-09-18T02:00Z Las Vegas Aces at Seattle Storm LV @ SEA  
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:02:35 UTC
+#> ℹ Data updated: 2026-09-09 22:11:22 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
@@ -237,23 +237,24 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Roster from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:02:35 UTC
-#> # A tibble: 13 × 15
+#> ℹ Data updated: 2026-09-09 22:11:22 UTC
+#> # A tibble: 14 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
 #>  1 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
-#>  2 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
-#>  3 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
-#>  4 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
-#>  5 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
-#>  6 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 34   
-#>  7 4682855    Justine … 13     G               Guard         "6' 4… NA     22   
-#>  8 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 26   
-#>  9 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
-#> 10 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
-#> 11 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
-#> 12 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
-#> 13 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
+#>  2 3916514    Kalani B… 21     C               Center        "6' 7… 245 l… 29   
+#>  3 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
+#>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
+#>  5 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
+#>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 32   
+#>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 34   
+#>  8 4682855    Justine … 13     G               Guard         "6' 4… NA     22   
+#>  9 4398776    NaLyssa … 3      F               Forward       "6' 4… 185 l… 26   
+#> 10 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
+#> 11 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
+#> 12 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
+#> 13 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
+#> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 # }
@@ -264,7 +265,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Season Profile from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-08-27 11:02:36 UTC
+#> ℹ Data updated: 2026-09-09 22:11:22 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

@@ -148,7 +148,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_player_impact(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 221 × 28
+#> # A tibble: 231 × 28
 #>    player_id player_name        team_id team_abbreviation team_name teams season
 #>        <int> <chr>                <int> <chr>             <chr>     <chr>  <int>
 #>  1    201886 DeWanna Bonner      1.61e9 PHX               Phoenix … PHX     2026
@@ -161,7 +161,7 @@ Saiem Gilani
 #>  8    203400 Skylar Diggins      1.61e9 CHI               Chicago … CHI     2026
 #>  9    203405 Kayla Alexander     1.61e9 TOR               Toronto … TOR     2026
 #> 10    203822 Rebekah Gardner     1.61e9 NYL               New York… NYL     2026
-#> # ℹ 211 more rows
+#> # ℹ 221 more rows
 #> # ℹ 21 more variables: season_type <chr>, o_rapm <dbl>, d_rapm <dbl>,
 #> #   rapm <dbl>, off_poss <int>, def_poss <int>, o_adj_rapm <dbl>,
 #> #   d_adj_rapm <dbl>, adj_rapm <dbl>, ospm <dbl>, dspm <dbl>, spm <dbl>,

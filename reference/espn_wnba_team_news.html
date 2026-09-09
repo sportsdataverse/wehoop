@@ -35,6 +35,7 @@ Get ESPN WNBA Team News"><meta property="og:image" content="https://raw.githubus
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/wehoop.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -207,15 +208,15 @@ supported for ESPN wrappers).</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_team_news</span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">"17"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── <span style="font-style: italic;">wehoop 3.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-27 11:02:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-09 22:11:23 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        id type  headline description published premium byline link_web league_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  4.96<span style="color: #949494;">e</span>7 Story WNBA pl… Minnesota,… 2026-08-… FALSE   ESPN   https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  4.97<span style="color: #949494;">e</span>7 Story WNBA Po… Golden Sta… 2026-08-… FALSE   Micha… https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  4.84<span style="color: #949494;">e</span>7 Story 2026 WN… The Lynx r… 2026-08-… FALSE   Doug … https:/… 22000    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  4.97<span style="color: #949494;">e</span>7 Recap Wilson … — A’ja Wil… 2026-08-… FALSE   <span style="color: #BB0000;">NA</span>     http://… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  4.97<span style="color: #949494;">e</span>7 Media Toronto… Watch the … 2026-08-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  4.99<span style="color: #949494;">e</span>7 Story 2026 FI… The U.S. w… 2026-09-… FALSE   Alexa… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  4.99<span style="color: #949494;">e</span>7 Story WNBA  p… The first … 2026-09-… FALSE   ESPN   https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  4.98<span style="color: #949494;">e</span>7 Head… Clark, … Caitlin Cl… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 3700     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  4.98<span style="color: #949494;">e</span>7 Story 2026 FI… Sixteen na… 2026-09-… FALSE   Alexa… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  4.11<span style="color: #949494;">e</span>7 Story How do … The 2026 W… 2026-09-… FALSE   Keith… https:/… 59       </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

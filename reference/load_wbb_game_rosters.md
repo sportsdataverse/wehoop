@@ -416,7 +416,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wbb_schedule())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 6,054 × 86
+#> # A tibble: 6,054 × 95
 #>         id uid   date  attendance time_valid neutral_site conference_competition
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
 #>  1  4.02e8 s:40… 2026…      15856 TRUE       TRUE         FALSE                 
@@ -430,7 +430,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  9  4.02e8 s:40… 2026…       2258 TRUE       FALSE        FALSE                 
 #> 10  4.02e8 s:40… 2026…       1706 TRUE       FALSE        FALSE                 
 #> # ℹ 6,044 more rows
-#> # ℹ 79 more variables: play_by_play_available <lgl>, recent <lgl>,
+#> # ℹ 88 more variables: play_by_play_available <lgl>, recent <lgl>,
 #> #   start_date <chr>, broadcast <chr>, highlights <chr>, notes_type <chr>,
 #> #   notes_headline <chr>, broadcast_market <chr>, broadcast_name <chr>,
 #> #   type_id <int>, type_abbreviation <chr>, venue_id <int>,
