@@ -41,7 +41,9 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(wnba_player_crosswalk(season = 2024))
-#> ✖ 2026-09-09 22:16:33.582763: Invalid arguments or no league schedule data for 2024 available!
+#> ✖ 2026-09-10 00:58:19.211999: Could not fetch ESPN WNBA teams
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [site.api.espn.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-10 00:58:19.312083: Invalid arguments or no league schedule data for 2024 available!
 #> ✖ Args: league_id = "10", season = 2024
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
 #> Error in UseMethod("transmute") : 

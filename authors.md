@@ -20,7 +20,7 @@ https://doi.org/10.32614/CRAN.package.wehoop
       title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
       author = {Saiem Gilani and Geoff Hutchinson},
       url = {https://doi.org/10.32614/CRAN.package.wehoop},
-      doi = {10.32614/cran.package.wehoop},
+      doi = {10.32614/CRAN.package.wehoop},
       journal = {CRAN: Contributed Packages},
       publisher = {The R Foundation},
       year = {2026},
