@@ -15,7 +15,7 @@ bibentry(
     person("Geoff", "Hutchinson")
   ),
   url         = "https://doi.org/10.32614/CRAN.package.wehoop",
-  doi         = "10.32614/cran.package.wehoop",
+  doi         = "10.32614/CRAN.package.wehoop",
   journal     = "CRAN: Contributed Packages",
   publisher   = "The R Foundation",
   year        = year,
