@@ -149,7 +149,7 @@ aja |>
 #> # A tibble: 1 × 2
 #>   stat_type_id value
 #>   <chr>        <dbl>
-#> 1 0             22.0
+#> 1 0             22.1
 ```
 
 Margin note: `athlete_career_stats()` defaults to pulling *both* regular
@@ -341,7 +341,7 @@ espn_wnba_team_roster(team_id = team_id, season = season)
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
 #>  1 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
-#>  2 3916514    Kalani B… 21     C               Center        "6' 7… 245 l… 29   
+#>  2 3916514    Kalani B… 20     C               Center        "6' 7… 245 l… 29   
 #>  3 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
 #>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
 #>  5 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
@@ -353,7 +353,7 @@ espn_wnba_team_roster(team_id = team_id, season = season)
 #> 11 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
 #> 12 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
 #> 13 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
-#> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
+#> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 29   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 
@@ -432,8 +432,8 @@ espn_wnba_leaders(season = most_recent_wnba_season())
 #>  2   2026           2 pointsPerGame PTS          3142191    NA           5      
 #>  3   2026           2 pointsPerGame PTS          4433403    NA           5      
 #>  4   2026           2 pointsPerGame PTS          2998938    NA           11     
-#>  5   2026           2 pointsPerGame PTS          3904576    NA           131935 
-#>  6   2026           2 pointsPerGame PTS          4433730    NA           3      
+#>  5   2026           2 pointsPerGame PTS          4433730    NA           3      
+#>  6   2026           2 pointsPerGame PTS          3904576    NA           131935 
 #>  7   2026           2 pointsPerGame PTS          2998928    NA           9      
 #>  8   2026           2 pointsPerGame PTS          4433791    NA           8      
 #>  9   2026           2 pointsPerGame PTS          3058901    NA           20     
@@ -579,7 +579,32 @@ wnba_playbyplayv3(
   game_id = "1022400001",
   proxy   = "http://other-proxy.company.com:3128"
 )
-#> list()
+#> $PlayByPlay
+#> # A tibble: 434 × 24
+#>    game_id action_number clock period team_id team_tricode person_id player_name
+#>    <chr>           <int> <chr>  <int>   <int> <chr>            <int> <chr>      
+#>  1 102240…             2 PT10…      1  0      ""                   0 ""         
+#>  2 102240…             4 PT10…      1  1.61e9 "WAS"          1631022 "Austin"   
+#>  3 102240…             7 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
+#>  4 102240…             8 PT09…      1  1.61e9 "WAS"          1628878 "Atkins"   
+#>  5 102240…             9 PT09…      1  1.61e9 "NYL"          1627673 "Jones"    
+#>  6 102240…            10 PT09…      1  1.61e9 "NYL"           202664 "Vanderslo…
+#>  7 102240…            11 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
+#>  8 102240…            14 PT09…      1  1.61e9 "NYL"          1627668 "Stewart"  
+#>  9 102240…            16 PT09…      1  1.61e9 "WAS"          1631022 "Austin"   
+#> 10 102240…            17 PT09…      1  1.61e9 "NYL"          1629477 "Ionescu"  
+#> # ℹ 424 more rows
+#> # ℹ 16 more variables: player_name_i <chr>, x_legacy <int>, y_legacy <int>,
+#> #   shot_distance <int>, shot_result <chr>, is_field_goal <int>,
+#> #   score_home <chr>, score_away <chr>, points_total <int>, location <chr>,
+#> #   description <chr>, action_type <chr>, sub_type <chr>,
+#> #   video_available <int>, shot_value <int>, action_id <int>
+#> 
+#> $AvailableVideo
+#> # A tibble: 1 × 1
+#>   video_available
+#>             <int>
+#> 1               1
 ```
 
 A grammar-flavored caveat: per-call `proxy =` works for the `wnba_*`

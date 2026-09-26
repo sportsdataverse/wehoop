@@ -68,7 +68,7 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> # A tibble: 1 × 4
 #>   id        date              name                                    short_name
 #>   <chr>     <chr>             <chr>                                   <chr>     
-#> 1 401913709 2026-11-19T16:00Z Purdue Boilermakers at Florida State S… PUR VS FSU
+#> 1 401921451 2026-11-02T05:00Z IU Indianapolis Jaguars at Purdue Boil… IUIN @ PUR
 #> 
 #> $StandingSummary
 #> # A tibble: 1 × 1

@@ -83,77 +83,73 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:58 UTC
-#> # A tibble: 13 × 9
+#> ℹ Data updated: 2026-09-26 06:28:00 UTC
+#> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
 #>  1 1       GUARD          DeWanna Bo… G/F   39    "6'4… 140 … Auburn  211       
-#>  2 1       GUARD          Isobel Bor… G     21    "5'1… -     -       809       
+#>  2 1       GUARD          Isobel Bor… G     22    "5'1… -     -       809       
 #>  3 1       GUARD          Jordin Can… G     31    "5'6… 135 … UCLA    203       
 #>  4 1       GUARD          Allisha Gr… G     31    "6'0… 167 … South … 138       
 #>  5 1       GUARD          Rhyne Howa… G     26    "6'2… 175 … -       638       
 #>  6 1       GUARD          Indya Nivar G     22    "5'1… -     -       934       
 #>  7 1       GUARD          Te-Hina Pa… G     24    "5'9… -     -       859       
-#>  8 1       GUARD          Shatori Wa… G     31    "5'9… 140 … Maryla… 116       
-#>  9 1       FORWARD        Naz Hillmon F     26    "6'2… 190 … -       646       
-#> 10 1       FORWARD        Brionna Jo… F     30    "6'3… 215 … Maryla… 111       
-#> 11 1       FORWARD        Sika Koné   F     24    "6'3… 180 … -       630       
-#> 12 1       FORWARD        Angel Reese F     24    "6'4… 165 … -       799       
-#> 13 1       CENTER         Madina Okot C     22    "6'6… -     -       921       
+#>  8 1       GUARD          Matilde Vi… G     21    "5'7… -     -       816       
+#>  9 1       GUARD          Shatori Wa… G     31    "5'9… 140 … Maryla… 116       
+#> 10 1       FORWARD        Naz Hillmon F     26    "6'2… 190 … -       646       
+#> 11 1       FORWARD        Brionna Jo… F     30    "6'3… 215 … Maryla… 111       
+#> 12 1       FORWARD        Sika Koné   F     24    "6'3… 180 … -       630       
+#> 13 1       FORWARD        Angel Reese F     24    "6'4… 165 … -       799       
+#> 14 1       CENTER         Madina Okot C     22    "6'6… -     -       921       
 # }
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:58 UTC
-#> # A tibble: 16 × 7
+#> ℹ Data updated: 2026-09-26 06:28:00 UTC
+#> # A tibble: 11 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
 #>  1 11      GUARD          KK Arnold         G     JR    "5'9\""  16007     
 #>  2 11      GUARD          Morgan Cheli      G     SO    "6'2\""  21657     
-#>  3 11      GUARD          Caroline Ducharme G     SR    "6'2\""  13649     
-#>  4 11      GUARD          Marine Dursus     G     FR    "5'9\""  30433     
-#>  5 11      GUARD          Kelis Fisher      G     FR    "5'9\""  25928     
-#>  6 11      GUARD          Azzi Fudd         G     GS    "5'11\"" 13648     
-#>  7 11      GUARD          Kayleigh Heckel   G     SO    "5'9\""  21534     
-#>  8 11      GUARD          Ashlynn Shade     G     JR    "5'10\"" 16006     
-#>  9 11      GUARD          Allie Ziebell     G     SO    "6'0\""  21659     
-#> 10 11      FORWARD        Ice Brady         F     JR    "6'3\""  14739     
-#> 11 11      FORWARD        Ayanna Patterson  F     SO    "6'2\""  14740     
-#> 12 11      FORWARD        Blanca Quiñonez   F     FR    "6'2\""  25927     
-#> 13 11      FORWARD        Sarah Strong      F     SO    "6'2\""  21658     
-#> 14 11      FORWARD        Serah Williams    F     SR    "6'4\""  14797     
-#> 15 11      CENTER         Jana El Alfy      C     SO    "6'5\""  15956     
-#> 16 11      CENTER         Gandy Malou-Mamel C     FR    "6'5\""  25929     
+#>  3 11      GUARD          Marine Dursus     G     FR    "5'9\""  30433     
+#>  4 11      GUARD          Kelis Fisher      G     FR    "5'9\""  25928     
+#>  5 11      GUARD          Kayleigh Heckel   G     SO    "5'9\""  21534     
+#>  6 11      GUARD          Ashlynn Shade     G     JR    "5'10\"" 16006     
+#>  7 11      GUARD          Allie Ziebell     G     SO    "6'0\""  21659     
+#>  8 11      FORWARD        Blanca Quiñonez   F     FR    "6'2\""  25927     
+#>  9 11      FORWARD        Sarah Strong      F     SO    "6'2\""  21658     
+#> 10 11      CENTER         Jana El Alfy      C     SO    "6'5\""  15956     
+#> 11 11      CENTER         Gandy Malou-Mamel C     FR    "6'5\""  25929     
 # }
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:58 UTC
+#> ℹ Data updated: 2026-09-26 06:28:00 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
-#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.3 
-#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   12.4 
-#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   57.6 
-#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.4  
-#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  92   
-#>  6 1       PLAYER STATS DEFENSE    BLK               Rhyne Howard  35   
-#>  7 1       PLAYER STATS MISC       DBL DBL           Angel Reese   29   
-#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Rhyne Howard  120.3
-#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.6 
-#> 10 1       TEAM STATS   SCORING    PPG               NA            90.8 
-#> 11 1       TEAM STATS   REBOUNDING RPG               NA            35.5 
-#> 12 1       TEAM STATS   SHOOTING   FG%               NA            43.9 
-#> 13 1       TEAM STATS   ASSISTS    APG               NA            21.1 
-#> 14 1       TEAM STATS   DEFENSE    STL               NA            359  
-#> 15 1       TEAM STATS   DEFENSE    BLK               NA            132  
-#> 16 1       TEAM STATS   MISC       DBL DBL           NA            38   
-#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            6.3  
+#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.0 
+#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   12.1 
+#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   58.0 
+#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.3  
+#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  100  
+#>  6 1       PLAYER STATS DEFENSE    BLK               Rhyne Howard  39   
+#>  7 1       PLAYER STATS MISC       DBL DBL           Angel Reese   32   
+#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Allisha Gray  119.7
+#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.2 
+#> 10 1       TEAM STATS   SCORING    PPG               NA            91.3 
+#> 11 1       TEAM STATS   REBOUNDING RPG               NA            35.6 
+#> 12 1       TEAM STATS   SHOOTING   FG%               NA            44.2 
+#> 13 1       TEAM STATS   ASSISTS    APG               NA            21.5 
+#> 14 1       TEAM STATS   DEFENSE    STL               NA            400  
+#> 15 1       TEAM STATS   DEFENSE    BLK               NA            144  
+#> 16 1       TEAM STATS   MISC       DBL DBL           NA            41   
+#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            8.5  
 # }
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:59 UTC
+#> ℹ Data updated: 2026-09-26 06:28:00 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
@@ -172,26 +168,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:00 UTC
+#> ℹ Data updated: 2026-09-26 06:28:01 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 1       REGULAR SEASON scoring  2324    8/30      MIN      fgm          33   
-#>  2 1       REGULAR SEASON scoring  2324    8/30      MIN      fga          71   
-#>  3 1       REGULAR SEASON scoring  2324    8/30      MIN      fg_percent   46.5 
-#>  4 1       REGULAR SEASON scoring  2324    8/30      MIN      ftm          10   
-#>  5 1       REGULAR SEASON scoring  2324    8/30      MIN      fta          14   
-#>  6 1       REGULAR SEASON scoring  2324    8/30      MIN      ft_percent   71.0 
-#>  7 1       REGULAR SEASON scoring  2324    8/30      MIN      x3fgm        13   
-#>  8 1       REGULAR SEASON scoring  2324    8/30      MIN      x3fga        36   
-#>  9 1       REGULAR SEASON scoring  2324    8/30      MIN      x3fg_percent 36.1 
-#> 10 1       REGULAR SEASON scoring  2324    8/30      MIN      pts          89   
+#>  1 1       REGULAR SEASON scoring  2248    9/23      @NYL     fgm          30   
+#>  2 1       REGULAR SEASON scoring  2248    9/23      @NYL     fga          77   
+#>  3 1       REGULAR SEASON scoring  2248    9/23      @NYL     fg_percent   39.0 
+#>  4 1       REGULAR SEASON scoring  2248    9/23      @NYL     ftm          13   
+#>  5 1       REGULAR SEASON scoring  2248    9/23      @NYL     fta          15   
+#>  6 1       REGULAR SEASON scoring  2248    9/23      @NYL     ft_percent   87.0 
+#>  7 1       REGULAR SEASON scoring  2248    9/23      @NYL     x3fgm        10   
+#>  8 1       REGULAR SEASON scoring  2248    9/23      @NYL     x3fga        35   
+#>  9 1       REGULAR SEASON scoring  2248    9/23      @NYL     x3fg_percent 28.6 
+#> 10 1       REGULAR SEASON scoring  2248    9/23      @NYL     pts          83   
 #> # ℹ 155 more rows
 # }
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:01 UTC
+#> ℹ Data updated: 2026-09-26 06:28:02 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -210,54 +206,54 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:02 UTC
+#> ℹ Data updated: 2026-09-26 06:28:02 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
-#>  1 1       CONFER… 1       Dream 26-14 .650  -     91.0  86.0  13-7  13-7  11-5 
-#>  2 1       CONFER… 2       Fever 26-14 .650  -     97.0  91.0  14-6  12-8  13-5 
-#>  3 1       CONFER… 3       Libe… 24-16 .600  2.0   90.0  87.0  14-6  10-10 12-5 
-#>  4 1       CONFER… 4       Myst… 24-16 .600  2.0   83.0  83.0  13-7  11-9  11-5 
-#>  5 1       CONFER… 5       Sky   15-25 .375  11.0  87.0  90.0  10-10 5-15  3-13 
-#>  6 1       CONFER… 6       Tempo 11-29 .275  15.0  86.0  94.0  7-13  4-16  5-11 
-#>  7 1       CONFER… 7       Sun   10-30 .250  16.0  79.0  88.0  7-13  3-17  3-14 
-#>  8 1       CONFER… NA      Lynx  31-9  .775  -     91.0  83.0  14-6  17-3  20-3 
-#>  9 1       CONFER… NA      Valk… 29-11 .725  2.0   83.0  75.0  15-5  14-6  12-7 
-#> 10 1       CONFER… NA      Aces  27-13 .675  4.0   91.0  87.0  13-7  14-6  13-6 
+#>  1 1       CONFER… 1       Dream 30-14 .682  -     91.0  84.0  15-7  15-7  15-5 
+#>  2 1       CONFER… 2       Myst… 28-16 .636  2.0   84.0  83.0  15-7  13-9  15-5 
+#>  3 1       CONFER… 3       Fever 28-16 .636  2.0   96.0  90.0  15-7  13-9  14-6 
+#>  4 1       CONFER… 4       Libe… 26-18 .591  4.0   90.0  86.0  14-8  12-10 13-7 
+#>  5 1       CONFER… 5       Sky   16-28 .364  14.0  87.0  91.0  11-11 5-17  4-16 
+#>  6 1       CONFER… 6       Tempo 11-33 .250  19.0  86.0  94.0  7-15  4-18  5-15 
+#>  7 1       CONFER… 7       Sun   11-33 .250  19.0  79.0  88.0  8-14  3-19  4-16 
+#>  8 1       CONFER… NA      Lynx  33-11 .750  -     91.0  84.0  15-7  18-4  20-3 
+#>  9 1       CONFER… NA      Valk… 32-12 .727  1.0   82.0  75.0  17-5  15-7  15-8 
+#> 10 1       CONFER… NA      Aces  31-13 .705  2.0   91.0  86.0  15-7  16-6  17-6 
 #> # ℹ 20 more rows
 #> # ℹ 4 more variables: l10 <chr>, strk <chr>, entity_id <chr>, western <chr>
 # }
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:02 UTC
+#> ℹ Data updated: 2026-09-26 06:28:03 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
-#>  1 11      CONFERENCE 1        UConn  20-0  38-1  7-1    17-0  12-0  3387  1966 
-#>  2 11      CONFERENCE 2        Villa… 16-4  25-8  1-4    12-3  10-3  2351  2021 
-#>  3 11      CONFERENCE 3        Marqu… 12-8  18-12 0-3    11-4  7-5   2030  1891 
-#>  4 11      CONFERENCE 4        Seton… 12-8  19-13 0-2    10-6  8-6   2160  2053 
-#>  5 11      CONFERENCE 5        St. J… 11-9  22-12 1-2    11-4  8-7   2087  2081 
-#>  6 11      CONFERENCE 6        Creig… 11-9  16-15 0-3    8-6   6-8   2093  2132 
-#>  7 11      CONFERENCE 7        Provi… 7-13  15-18 0-3    11-7  2-9   1979  2108 
-#>  8 11      CONFERENCE 8        Georg… 6-14  14-17 0-4    8-8   5-8   1942  1937 
-#>  9 11      CONFERENCE 9        Butler 6-14  12-19 0-2    9-8   2-9   1927  2014 
-#> 10 11      CONFERENCE 10       DePaul 5-15  8-24  0-3    7-10  1-13  2016  2313 
-#> 11 11      CONFERENCE 11       Xavier 4-16  11-19 0-2    8-9   3-9   1751  1997 
+#>  1 11      CONFERENCE 1        Marqu… -     0-0   -      -     -     0     0    
+#>  2 11      CONFERENCE 2        St. J… -     0-0   -      -     -     0     0    
+#>  3 11      CONFERENCE 3        Xavier -     0-0   -      -     -     0     0    
+#>  4 11      CONFERENCE 4        Villa… -     0-0   -      -     -     0     0    
+#>  5 11      CONFERENCE 5        Seton… -     0-0   -      -     -     0     0    
+#>  6 11      CONFERENCE 6        Provi… -     0-0   -      -     -     0     0    
+#>  7 11      CONFERENCE 7        DePaul -     0-0   -      -     -     0     0    
+#>  8 11      CONFERENCE 8        UConn  -     0-0   -      -     -     0     0    
+#>  9 11      CONFERENCE 9        Creig… -     0-0   -      -     -     0     0    
+#> 10 11      CONFERENCE 10       Butler -     0-0   -      -     -     0     0    
+#> 11 11      CONFERENCE 11       Georg… -     0-0   -      -     -     0     0    
 #> # ℹ 2 more variables: strk <chr>, entity_id <chr>
 # }
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:02 UTC
+#> ℹ Data updated: 2026-09-26 06:28:04 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
 #>  1 1           Atlanta Dream          Connecticut Sun
-#>  2 4           Indiana Fever          Connecticut Sun
-#>  3 5           New York Liberty       Connecticut Sun
-#>  4 6           Washington Mystics     Connecticut Sun
+#>  2 6           Washington Mystics     Connecticut Sun
+#>  3 4           Indiana Fever          Connecticut Sun
+#>  4 5           New York Liberty       Connecticut Sun
 #>  5 2           Chicago Sky            Connecticut Sun
 #>  6 29          Toronto Tempo          Connecticut Sun
 #>  7 3           Connecticut Sun        Connecticut Sun
@@ -266,27 +262,27 @@ Other Fox Sports Functions:
 #> 10 11          Las Vegas Aces         Connecticut Sun
 #> 11 7           Dallas Wings           Connecticut Sun
 #> 12 30          Portland Fire          Connecticut Sun
-#> 13 8           Los Angeles Sparks     Connecticut Sun
-#> 14 10          Phoenix Mercury        Connecticut Sun
+#> 13 10          Phoenix Mercury        Connecticut Sun
+#> 14 8           Los Angeles Sparks     Connecticut Sun
 #> 15 12          Seattle Storm          Connecticut Sun
 # }
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:02 UTC
+#> ℹ Data updated: 2026-09-26 06:28:04 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      
-#>  1 11          Uconn Huskies           Big East   
-#>  2 77          Villanova Wildcats      Big East   
-#>  3 73          Marquette Golden Eagles Big East   
-#>  4 75          Seton Hall Pirates      Big East   
-#>  5 76          St. John's Red Storm    Big East   
-#>  6 70          Creighton Bluejays      Big East   
-#>  7 74          Providence Friars       Big East   
-#>  8 72          Georgetown Hoyas        Big East   
-#>  9 69          Butler Bulldogs         Big East   
-#> 10 71          Depaul Blue Demons      Big East   
-#> 11 78          Xavier Musketeers       Big East   
+#>  1 73          Marquette Golden Eagles Big East   
+#>  2 76          St. John's Red Storm    Big East   
+#>  3 78          Xavier Musketeers       Big East   
+#>  4 77          Villanova Wildcats      Big East   
+#>  5 75          Seton Hall Pirates      Big East   
+#>  6 74          Providence Friars       Big East   
+#>  7 71          Depaul Blue Demons      Big East   
+#>  8 11          Uconn Huskies           Big East   
+#>  9 70          Creighton Bluejays      Big East   
+#> 10 69          Butler Bulldogs         Big East   
+#> 11 72          Georgetown Hoyas        Big East   
 # }
 ```

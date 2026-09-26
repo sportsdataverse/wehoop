@@ -196,7 +196,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:41 UTC
+#> ℹ Data updated: 2026-09-26 06:27:51 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -206,25 +206,25 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:41 UTC
+#> ℹ Data updated: 2026-09-26 06:27:51 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 27-13   <df [21 × 2]>
-#> 2 Home Record    home  13-7    <df [5 × 2]> 
-#> 3 Away Record    road  14-6    <df [5 × 2]> 
+#> 1 Overall Record total 31-13   <df [21 × 2]>
+#> 2 Home Record    home  15-7    <df [5 × 2]> 
+#> 3 Away Record    road  16-6    <df [5 × 2]> 
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:41 UTC
+#> ℹ Data updated: 2026-09-26 06:27:51 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401857194 2026-09-18T02:00Z Las Vegas Aces at Seattle Storm LV @ SEA  
+#> 1 401918015 2026-09-27T20:00Z Indiana Fever at Las Vegas Aces IND @ LV  
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:41 UTC
+#> ℹ Data updated: 2026-09-26 06:27:51 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
@@ -237,12 +237,12 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Roster from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:42 UTC
+#> ℹ Data updated: 2026-09-26 06:27:51 UTC
 #> # A tibble: 14 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
 #>  1 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
-#>  2 3916514    Kalani B… 21     C               Center        "6' 7… 245 l… 29   
+#>  2 3916514    Kalani B… 20     C               Center        "6' 7… 245 l… 29   
 #>  3 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
 #>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
 #>  5 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
@@ -254,7 +254,7 @@ Saiem Gilani
 #> 11 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
 #> 12 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
 #> 13 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
-#> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 28   
+#> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 29   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 # }
@@ -265,7 +265,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Season Profile from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:48:42 UTC
+#> ℹ Data updated: 2026-09-26 06:27:51 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

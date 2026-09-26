@@ -110,7 +110,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(load_wnba_schedule_crosswalk(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 357 × 16
+#> # A tibble: 415 × 16
 #>    season season_type game_date  home_espn_team_id away_espn_team_id
 #>     <int> <chr>       <date>                 <int>             <int>
 #>  1   2026 Pre-Season  2026-04-25                 9                 5
@@ -123,7 +123,7 @@ Other WBB Crosswalk Functions:
 #>  8   2026 Pre-Season  2026-04-29            131935                18
 #>  9   2026 Pre-Season  2026-04-29                19                20
 #> 10   2026 Pre-Season  2026-04-29                14            132052
-#> # ℹ 347 more rows
+#> # ℹ 405 more rows
 #> # ℹ 11 more variables: espn_game_id <chr>, wnba_game_id <chr>,
 #> #   wnba_game_code <chr>, wnba_home_team_id <chr>, wnba_away_team_id <chr>,
 #> #   fox_game_id <chr>, fox_home_team_id <chr>, fox_away_team_id <chr>,
@@ -132,7 +132,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(load_wnba_player_crosswalk(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 209 × 21
+#> # A tibble: 220 × 21
 #>    season espn_team_id team_abbreviation player_name    espn_athlete_id
 #>     <int>        <int> <chr>             <chr>          <chr>          
 #>  1   2026           20 ATL               dewanna bonner 869            
@@ -145,7 +145,7 @@ Other WBB Crosswalk Functions:
 #>  8   2026           20 ATL               sika kone      5017721        
 #>  9   2026           20 ATL               indya nivar    5105740        
 #> 10   2026           20 ATL               madina okot    5108587        
-#> # ℹ 199 more rows
+#> # ℹ 210 more rows
 #> # ℹ 16 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, wnba_player_id <chr>, wnba_player_name <chr>,
 #> #   wnba_jersey_num <chr>, wnba_position <chr>, fox_athlete_id <chr>,
