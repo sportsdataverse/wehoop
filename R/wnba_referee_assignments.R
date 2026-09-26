@@ -101,7 +101,13 @@
   )
 }
 
-#' @title **WNBA referee assignments for a given date**
+#' **WNBA referee assignments for a given date**
+#' @name wnba_referee_assignments
+NULL
+#' @title
+#' **WNBA referee assignments for a given date**
+#' @rdname wnba_referee_assignments
+#' @author Saiem Gilani
 #' @description
 #' Retrieves the referee crew assignments and replay-center officials for
 #' every WNBA game on `date`, from official.nba.com's internal
@@ -177,7 +183,13 @@
 #'   for `date`.
 #' * `wehoop_fetch_error` -- any other non-200 status (e.g. an Akamai HTML
 #'   403 block, or a rate limit / 5xx that outlived the retries), an empty or
-#'   non-JSON body, or a transport failure (DNS, TLS, dropped connection).
+#'   non-JSON body, JSON without the `wnba` `Table`/`Table1` block, or a
+#'   transport failure (DNS, TLS, dropped connection). The feed carries the
+#'   `wnba` block on every date, with zero rows on a day without games, so a
+#'   missing block is never an empty day.
+#'
+#' A malformed `date`, including an impossible one such as `"2026-02-31"`, is
+#' an ordinary error raised before any request.
 #'
 #' Statuses 408, 429, 500, 502, 503 and 504 and transport failures are retried
 #' (3 attempts in total); 403 and 404 are definitive and never retried.
@@ -190,9 +202,11 @@
 wnba_referee_assignments <- function(date, proxy = NULL) {
   call <- environment()
   day <- if (inherits(date, c("Date", "POSIXt"))) format(date, "%Y-%m-%d") else as.character(date)
-  if (length(day) != 1L || is.na(day) || !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", day)) {
+  # The as.Date() parse rejects shape-valid but impossible dates ("2026-02-31").
+  if (length(day) != 1L || is.na(day) || !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", day) ||
+      is.na(as.Date(day, format = "%Y-%m-%d"))) {
     cli::cli_abort(
-      "{.arg date} must be a single Date, POSIXct/POSIXlt, or \"YYYY-MM-DD\" string, not {.val {day}}."
+      "{.arg date} must be a single Date, POSIXct/POSIXlt, or valid \"YYYY-MM-DD\" date string, not {.val {day}}."
     )
   }
 
@@ -260,6 +274,18 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
       )
     }
   )
+
+  # The feed always carries nba, gl and wnba blocks, each with Table and Table1
+  # (zero rows on a day without games), so a missing block is a changed schema
+  # or an error envelope, not a day without WNBA games.
+  block <- if (is.list(payload)) payload[["wnba"]] else NULL
+  if (!is.list(block) || !all(c("Table", "Table1") %in% names(block))) {
+    cli::cli_abort(
+      "official.nba.com returned no {.val wnba} Table/Table1 block for {day} ({.url {url}}).",
+      class = c("wehoop_fetch_error", "wehoop_error"),
+      call = call
+    )
+  }
 
   parsed <- .parse_wnba_referee_assignments(payload, league = "wnba")
   ts <- Sys.time()

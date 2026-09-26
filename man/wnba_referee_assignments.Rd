@@ -88,8 +88,14 @@ Failures are signalled as classed conditions, both inheriting
 for \code{date}.
 \item \code{wehoop_fetch_error} -- any other non-200 status (e.g. an Akamai HTML
 403 block, or a rate limit / 5xx that outlived the retries), an empty or
-non-JSON body, or a transport failure (DNS, TLS, dropped connection).
+non-JSON body, JSON without the \code{wnba} \code{Table}/\code{Table1} block, or a
+transport failure (DNS, TLS, dropped connection). The feed carries the
+\code{wnba} block on every date, with zero rows on a day without games, so a
+missing block is never an empty day.
 }
+
+A malformed \code{date}, including an impossible one such as \code{"2026-02-31"}, is
+an ordinary error raised before any request.
 
 Statuses 408, 429, 500, 502, 503 and 504 and transport failures are retried
 (3 attempts in total); 403 and 404 are definitive and never retried.
@@ -98,5 +104,8 @@ Statuses 408, 429, 500, 502, 503 and 504 and transport failures are retried
 \donttest{
   try(wnba_referee_assignments(date = "2026-06-13"))
 }
+}
+\author{
+Saiem Gilani
 }
 \concept{WNBA Officiating Functions}

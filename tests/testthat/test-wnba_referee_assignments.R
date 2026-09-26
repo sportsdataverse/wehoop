@@ -156,6 +156,23 @@ test_that("a malformed, multi-value or NA date is rejected before any request", 
   expect_error(wnba_referee_assignments(c("2026-06-13", "2026-06-14")), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(as.Date(c("2026-06-13", "2026-06-14"))), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(as.Date(NA)), regexp = "YYYY-MM-DD")
+  # Shape-valid but impossible: must fail here, not reach the (stubbed) request.
+  expect_error(wnba_referee_assignments("2026-02-31"), regexp = "YYYY-MM-DD")
+})
+
+test_that("a response without the wnba Table/Table1 block is a fetch error, not an empty day", {
+  # The live feed carries every league's block on every date (zero rows on a
+  # day without games), so a missing block is an error envelope or a new schema.
+  for (json in c('{"nba":{"Table":{"rows":[]},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":[]}}}',
+                 '{"message":"error"}')) {
+    local_official_response(function(req) httr2::response(200L, body = charToRaw(json)))
+    expect_error(wnba_referee_assignments("2026-06-13"), class = "wehoop_fetch_error", info = json)
+  }
+  local_official_response(function(req) empty_200())
+  result <- wnba_referee_assignments("2026-06-13")
+  expect_equal(nrow(result$officials), 0L)
+  expect_equal(nrow(result$replay_center), 0L)
 })
 
 test_that("an S3 AccessDenied 403 or a 404 signals wehoop_no_data", {
