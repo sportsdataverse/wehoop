@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [**wehoop 3.0.0.9000 (development version)**](#wehoop-3009000-development-version)
 - [**wehoop 3.0.0**](#wehoop-300)
 - [**wehoop 2.1.0**](#wehoop-210)
 - [**wehoop 2.0.0**](#wehoop-200)
@@ -26,14 +27,22 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# **wehoop 3.0.0**
+# **wehoop 3.0.0.9000 (development version)**
 
 ### **WNBA referee assignments (`wnba_referee_assignments()`)**
 
 New live wrapper for official.nba.com's `get-game-officials` feed. Returns a
 list of two tibbles for a given date: `officials` (long, one row per game x
-crew slot, with `crew_position` 1-4) and `replay_center`. Mirrors the sdv-py
-`nba_referee_assignments()` parity port.
+crew slot, with `crew_position` 1-4) and `replay_center`. Ids are integer, the
+schema is identical on a date with no games (zero-row tibbles), and a field
+the feed omits comes back as `NA`. Failures are classed conditions inheriting
+`wehoop_error`: `wehoop_no_data` (HTTP 404, or an S3 `AccessDenied` 403 -- no
+report for the date) and `wehoop_fetch_error` (any other non-200, an empty or
+non-JSON body, or a transport failure). Mirrors the sdv-py
+`nba_referee_assignments()` parity port. The `httr2` floor rises to 1.0.4 for
+`req_retry(retry_on_failure = )`.
+
+# **wehoop 3.0.0**
 
 ### **WBB cross-source crosswalk (`wbb_*_crosswalk` / `load_wbb_*_crosswalk`)**
 

@@ -1,6 +1,6 @@
 Package: wehoop
 Title: Access Women's Basketball Play by Play Data
-Version: 3.0.0
+Version: 3.0.0.9000
 Authors@R: c(
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-7194-9067")),
@@ -22,7 +22,7 @@ Imports:
     cli (>= 3.0.0),
     data.table (>= 1.15.0),
     dplyr (>= 1.0.0),
-    httr2 (>= 1.0.0),
+    httr2 (>= 1.0.4),
     janitor,
     jsonlite,
     lifecycle,
@@ -57,7 +57,7 @@ Suggests:
     rmarkdown (>= 2.6.0),
     RSQLite,
     stats,
-    testthat (>= 3.0.0),
+    testthat (>= 3.1.7),
     tibble (>= 3.0),
     tictoc,
     usethis (>= 1.6.0),

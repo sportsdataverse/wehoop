@@ -4,27 +4,66 @@
 \alias{wnba_referee_assignments}
 \title{\strong{WNBA referee assignments for a given date}}
 \usage{
-wnba_referee_assignments(date, ...)
+wnba_referee_assignments(date, proxy = NULL)
 }
 \arguments{
-\item{date}{Date to fetch, as a \code{Date} or a \code{"YYYY-MM-DD"} string.}
+\item{date}{Date to fetch: a single \code{Date}, \code{POSIXct}/\code{POSIXlt}, or
+\code{"YYYY-MM-DD"} string. Date-times are formatted in their own time zone,
+so a late-evening \code{POSIXct} keeps its calendar day.}
 
-\item{...}{Currently unused (reserved for future arguments).}
+\item{proxy}{Optional proxy config. \code{NULL} (default) falls back to
+\code{getOption("wehoop.proxy")}, then lets libcurl honor the standard
+\code{http_proxy} / \code{https_proxy} / \code{no_proxy} environment variables. A single
+URL string (e.g. \code{"http://host:port"}) is forwarded to
+\code{httr2::req_proxy(url = proxy)}. A named list is spread as keyword args
+into \code{httr2::req_proxy()} (\code{url}, \code{port}, \code{username}, \code{password}, \code{auth}).}
 }
 \value{
-A named list of two \code{wehoop_data} tibbles:
-\itemize{
-\item \code{officials} -- long format, one row per game x crew slot, with
-columns \code{league}, \code{game_id}, \code{game_date}, \code{season}, \code{season_type},
-\code{game_code}, \code{home_team_id}, \code{home_team_abbr}, \code{away_team_id},
-\code{away_team_abbr}, \code{crew_position}, \code{official_id}, \code{official_name},
-\code{jersey_num}.
-\item \code{replay_center} -- one row per replay-center official per
-game-date, with columns \code{league}, \code{game_date}, \code{official_id},
-\code{official_name}.
-}
-A date with no WNBA games returns zero-row tibbles carrying the
-documented schema, not an error.
+A named list of two \code{wehoop_data} tibbles.
+
+\code{officials} -- long format, one row per game x filled crew slot (WNBA
+crews have three officials, so slot 4 is usually absent):
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      league \tab character \tab League slug; always "wnba". \cr
+      game_id \tab character \tab 10-character zero-padded game id. \cr
+      game_date \tab Date \tab Game date. \cr
+      season \tab integer \tab Season (the START year of the feed's season
+      code; one calendar year for the WNBA). NA when the code is missing or
+      not 5 characters. \cr
+      season_type \tab character \tab One of preseason / regular /
+      all-star / playoffs / play-in / nba-cup-final, from the season code's
+      leading digit. NA when the code is missing or the digit is unknown. \cr
+      game_code \tab character \tab official.nba.com game code
+      (\code{YYYYMMDD/AWAYHOME}). \cr
+      home_team_id \tab integer \tab Home team id. \cr
+      home_team_abbr \tab character \tab Home team abbreviation. \cr
+      away_team_id \tab integer \tab Away team id. \cr
+      away_team_abbr \tab character \tab Away team abbreviation. \cr
+      crew_position \tab integer \tab Feed slot order (1-4); slot 1 is
+      inferred to be the crew chief. \cr
+      official_id \tab integer \tab Official id. \cr
+      official_name \tab character \tab Official display name. \cr
+      jersey_num \tab character \tab Official jersey number. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\code{replay_center} -- one row per replay-center official per game date:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      league \tab character \tab League slug; always "wnba". \cr
+      game_date \tab Date \tab Game date. \cr
+      official_id \tab integer \tab Replay-center official id. \cr
+      official_name \tab character \tab Replay-center official display
+      name. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+A date with no WNBA games returns zero-row tibbles carrying this schema,
+not an error. A field the feed omits comes back as \code{NA}; it never drops
+the row or the column.
 }
 \description{
 Retrieves the referee crew assignments and replay-center officials for
@@ -34,19 +73,26 @@ pages). That endpoint returns NBA and G-League blocks in the same
 payload; this function extracts only \code{"wnba"}.
 }
 \details{
-\strong{WNBA referee assignments for a given date}
+\code{crew_position} (1-4) is the feed's slot order; slot 1 is inferred to be
+the crew chief -- official.nba.com does not label crew roles in this feed.
+The feed encodes the season as \verb{<type digit><START year>} (e.g. \code{"22026"}
+is the 2026 regular season). \code{season} is that START year: a WNBA season
+sits inside one calendar year, so no end-year conversion is applied.
+\code{season_type} decodes the leading digit.
 
-\code{crew_position} (1-4) is the feed's slot order; slot 1 is INFERRED to be
-the crew chief -- official.nba.com does not label crew roles in this
-feed. \code{season} is the feed's \verb{<type digit><START year>} season code
-converted to an integer; WNBA plays a single-calendar-year season, so
-\code{season} is the START year unchanged.
+Failures are signalled as classed conditions, both inheriting
+\code{wehoop_error}:
+\itemize{
+\item \code{wehoop_no_data} -- HTTP 404, or HTTP 403 with an S3
+\verb{<Code>AccessDenied</Code>} XML body: official.nba.com has no report
+for \code{date}.
+\item \code{wehoop_fetch_error} -- any other non-200 status (e.g. an Akamai HTML
+403 block, or a rate limit / 5xx that outlived the retries), an empty or
+non-JSON body, or a transport failure (DNS, TLS, dropped connection).
+}
 
-A 403 response whose body is an S3 \code{AccessDenied} XML document means
-there is no report for that date and is treated as empty data (mirrors
-the Akamai-block handling used elsewhere in wehoop, e.g.
-\code{ncaa_wbb_team_list()}); any other non-200 response aborts via
-\code{cli::cli_abort()}.
+Statuses 408, 429, 500, 502, 503 and 504 and transport failures are retried
+(3 attempts in total); 403 and 404 are definitive and never retried.
 }
 \examples{
 \donttest{

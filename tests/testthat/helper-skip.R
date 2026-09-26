@@ -30,6 +30,18 @@ skip_fox_test <- function(){
   }
 }
 
+# Gates live tests against official.nba.com (L2M reports, referee
+# assignments). Kept separate from `WNBA_STATS_TESTS` even though both are
+# browser-UA-required NBA-family JSON APIs: official.nba.com is a distinct
+# host with its own Akamai/S3 fronting and rate-limit behavior.
+skip_official_nba_test <- function(){
+  if(Sys.getenv("OFFICIAL_NBA_TESTS") != "1"){
+    skip("User can't run official.nba.com tests")
+  } else {
+    invisible()
+  }
+}
+
 # Gates tests for `load_*()` functions that download release-asset .rds/.parquet
 # files from `github.com/sportsdataverse/sportsdataverse-data/releases/...`.
 # Triggered by `WEHOOP_LOAD_TESTS=1`.
