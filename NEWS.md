@@ -28,6 +28,13 @@
 
 # **wehoop 3.0.0**
 
+### **WNBA referee assignments (`wnba_referee_assignments()`)**
+
+New live wrapper for official.nba.com's `get-game-officials` feed. Returns a
+list of two tibbles for a given date: `officials` (long, one row per game x
+crew slot, with `crew_position` 1-4) and `replay_center`. Mirrors the sdv-py
+`nba_referee_assignments()` parity port.
+
 ### **WBB cross-source crosswalk (`wbb_*_crosswalk` / `load_wbb_*_crosswalk`)**
 
 Three new live builders — `wbb_team_crosswalk()`, `wbb_schedule_crosswalk()`,
