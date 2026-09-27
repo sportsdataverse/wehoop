@@ -299,8 +299,9 @@ load_wbb_team_group_seasons <- function(seasons = most_recent_wbb_season(),
     files <- "wbb_team_group_seasons"
   } else {
     stopifnot(is.numeric(seasons),
-              all(seasons >= 2002))
-    files <- paste0("wbb_team_group_seasons_", seasons)
+              all(seasons >= 2002),
+              all(seasons == trunc(seasons)))
+    files <- paste0("wbb_team_group_seasons_", unique(seasons))
   }
 
   urls <- paste0(
@@ -342,8 +343,9 @@ load_wnba_team_group_seasons <- function(seasons = most_recent_wnba_season(),
     files <- "wnba_team_group_seasons"
   } else {
     stopifnot(is.numeric(seasons),
-              all(seasons >= 1997))
-    files <- paste0("wnba_team_group_seasons_", seasons)
+              all(seasons >= 1997),
+              all(seasons == trunc(seasons)))
+    files <- paste0("wnba_team_group_seasons_", unique(seasons))
   }
 
   urls <- paste0(
