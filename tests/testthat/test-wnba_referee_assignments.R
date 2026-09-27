@@ -237,9 +237,9 @@ test_that("retries cover transient statuses and transport failures, never 403/40
 })
 
 test_that("wnba_referee_assignments() live smoke test", {
-  skip_official_nba_test()
   skip_on_cran()
   skip_on_ci()
+  skip_official_nba_test()
   skip_if_offline("official.nba.com")
 
   result <- wnba_referee_assignments(Sys.Date() - 1)
