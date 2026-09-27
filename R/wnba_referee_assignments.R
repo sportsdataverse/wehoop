@@ -316,10 +316,14 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
     is.list(r) && is.null(names(r)) &&
       all(vapply(r, function(x) is.list(x) && !is.null(names(x)), logical(1)))
   }
-  # As in the sdv-py oracle, every game row must carry one non-empty game_id: a
-  # row without one could never be joined to anything.
+  # Every game row must carry a real game id: after .gid10() pads a numeric id it
+  # must be exactly 10 digits, the documented game_id contract. A missing id, or
+  # one like "not-an-id", could never be joined to anything.
   has_game_ids <- function() {
-    all(vapply(block[["Table"]][["rows"]], function(g) !is.na(.gid10(g[["game_id"]])), logical(1)))
+    all(vapply(block[["Table"]][["rows"]], function(g) {
+      id <- .gid10(g[["game_id"]])
+      !is.na(id) && grepl("^[0-9]{10}$", id)
+    }, logical(1)))
   }
   if (!is.list(block) || !has_rows("Table") || !has_rows("Table1") || !has_game_ids()) {
     cli::cli_abort(

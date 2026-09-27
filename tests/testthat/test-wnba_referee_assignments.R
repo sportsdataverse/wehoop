@@ -239,7 +239,11 @@ test_that("a missing or malformed wnba Table/Table1 block is a fetch error, not 
                  '{"wnba":{"Table":{},"Table1":{"rows":[]}}}',
                  '{"wnba":{"Table":{"rows":null},"Table1":{"rows":[]}}}',
                  '{"wnba":{"Table":{"rows":{"game_id":"1022600097"}},"Table1":{"rows":[]}}}',
-                 '{"wnba":{"Table":{"rows":[1,2]},"Table1":{"rows":[]}}}')) {
+                 '{"wnba":{"Table":{"rows":[1,2]},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":{}},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":[]},"Table1":{"rows":{}}}}',
+                 '{"wnba":{"Table":{"rows":[{"game_id":"not-an-id","official1":"A Ref"}]},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":[{"game_id":"12345678901","official1":"A Ref"}]},"Table1":{"rows":[]}}}')) {
     local_official_response(function(req) httr2::response(200L, body = charToRaw(json)))
     expect_error(wnba_referee_assignments("2026-06-13"), class = "wehoop_fetch_error", info = json)
   }
