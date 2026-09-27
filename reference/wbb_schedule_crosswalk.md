@@ -56,12 +56,9 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
-#> ✖ 2026-09-27 05:35:06.106643: No women's schedule available for 2025!
-#> ✖ Args: year = 2025
-#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
-#> ✖ 2026-09-27 05:35:06.155382: Could not build WBB schedule crosswalk for 2025!
+#> ✖ 2026-09-27 21:23:29.555291: Could not build WBB schedule crosswalk for 2025!
 #> ✖ Args: season = 2025
-#> ✖ Error: ℹ In argument: `muid = as.character(.data$muid)`. Caused by error in `.data$muid`: ! Column `muid` not found in `.data`.
+#> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
 #> data frame with 0 columns and 0 rows
 # }
 ```

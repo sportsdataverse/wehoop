@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_tournaments()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Tournaments Index ─────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 05:31:14 UTC
+#> ℹ Data updated: 2026-09-27 21:20:54 UTC
 #> # A tibble: 38 × 3
 #>    tournament_id ref                                                      league
 #>    <chr>         <chr>                                                    <chr> 

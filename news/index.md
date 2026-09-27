@@ -21,6 +21,32 @@
   `load_wnba_team_group_seasons(seasons)` (1997 onward), one row per
   team per season. The loaders read parquet, not the tags’ csv copies,
   so `team_id` stays character.
+- [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
+  now reads every source as of the requested season, matching the
+  sportsdataverse-py builder (sportsdataverse-py
+  [\#604](https://github.com/sportsdataverse/wehoop/issues/604) /
+  [\#605](https://github.com/sportsdataverse/wehoop/issues/605)) that
+  `wehoop-wbb-data` runs by default:
+  - `espn_conference` is the conference each team was in that season,
+    under that season’s name, from the `wbb_groups` release. It used to
+    be today’s ESPN name. The ESPN Core v2 group walk is gone.
+  - `fox_section` comes from Fox’s `league/standings?groupId=&season=`
+    for that season (2018-19 on; earlier seasons get `NA`), not today’s
+    standings. Fox lists teams under the conference they join the next
+    season, so `fox_section` is `NA` where it disagrees with
+    `espn_conference`, or where fewer than two teams that stay put the
+    next season confirm the Fox conference. `fox_team_id` is kept.
+  - A blocked (403) or empty Torvik response now raises an error of
+    class `crosswalk_source_error` instead of writing an all-`NA`
+    `bart_conf`. Seasons before 2021 skip Torvik, whose women’s data
+    starts there.
+  - Any failed source (ESPN, Fox, Torvik, or the conference reference)
+    now raises instead of being reported and returned as an empty
+    tibble.
+- [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md)
+  returned an empty tibble for 2021 and 2022: those files quote one
+  header, `fread()` warns while fixing it, and the warning discarded the
+  season. That warning is no longer fatal.
 
 ## **wehoop 3.0.0**
 
