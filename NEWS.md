@@ -44,8 +44,8 @@ without a `game_id` -- or a transport failure). Mirrors the sdv-py
 `nba_referee_assignments()` parity port. Port of the scraping logic in
 [atlhawksfanatic/L2M](https://github.com/atlhawksfanatic/L2M) (MIT). The
 `httr2` floor rises to 1.0.4 for `req_retry(retry_on_failure = )`, and the
-`testthat` floor (Suggests) rises to 3.1.7 for
-`local_mocked_bindings(.package = )`.
+`testthat` floor (Suggests) rises to 3.1.9: `local_mocked_bindings(.package = )`
+needs 3.1.7, and `expect_in()`, already used across the test suite, needs 3.1.9.
 
 # **wehoop 3.0.0**
 

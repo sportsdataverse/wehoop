@@ -15,7 +15,7 @@ replay_schema <- c(
 )
 
 read_payload <- function() {
-  jsonlite::read_json(official_fixture("referee_assignments_2026-06-13.json"))
+  jsonlite::read_json(official_fixture("referee_assignments_2026-06-13.json"), simplifyVector = FALSE)
 }
 read_gold <- function(name) {
   utils::read.csv(official_fixture(name), colClasses = "character")
