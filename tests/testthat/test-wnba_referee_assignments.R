@@ -332,11 +332,14 @@ test_that("wnba_referee_assignments() live smoke test", {
   skip_official_nba_test()
   skip_if_offline("official.nba.com")
 
-  result <- wnba_referee_assignments(Sys.Date() - 1)
+  # A fixed date with known WNBA games (the committed fixture's date: 4 games,
+  # 12 officials), so the test is deterministic and an empty or refused
+  # response fails instead of passing as a day without games.
+  result <- wnba_referee_assignments("2026-06-13")
   expect_named(result, c("officials", "replay_center"))
   expect_s3_class(result$officials, "wehoop_data")
   expect_s3_class(result$replay_center, "wehoop_data")
-  # A zero-row day is fine; the schema must match regardless.
+  expect_gt(nrow(result$officials), 0)
   expect_identical(col_classes(result$officials), officials_schema)
   expect_identical(col_classes(result$replay_center), replay_schema)
 })
