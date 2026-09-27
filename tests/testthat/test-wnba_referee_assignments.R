@@ -288,6 +288,8 @@ test_that("a caller mistake surfaces as itself, not as a wehoop_fetch_error", {
 })
 
 test_that("the wehoop.proxy option is the fallback proxy; an explicit proxy wins", {
+  # Reads httr2 internals (`req$options$proxy`), which a new httr2 may rename.
+  skip_on_cran()
   seen <- NULL
   local_official_response(function(req) {
     seen <<- req$options$proxy
