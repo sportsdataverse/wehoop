@@ -210,11 +210,28 @@ test_that("a POSIXct date keeps its own calendar day (no as.Date() UTC shift)", 
   expect_identical(sent, "2026-06-13")
 })
 
+test_that("the request carries the Referer and browser User-Agent official.nba.com requires", {
+  # Reads httr2's internal request fields, which can change between httr2
+  # releases: not a CRAN check (as in hoopR's twin test).
+  skip_on_cran()
+  sent <- NULL
+  local_official_response(function(req) {
+    sent <<- req$headers
+    empty_200()
+  })
+
+  wnba_referee_assignments("2026-06-13")
+  expect_identical(sent[["Referer"]], "https://official.nba.com/")
+  expect_match(sent[["User-Agent"]], "^Mozilla/")
+})
+
 test_that("a malformed, multi-value or NA date is rejected before any request", {
   local_official_response(function(req) stop("no request expected"))
 
   expect_error(wnba_referee_assignments("06/13/2026"), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments("2026-6-13"), regexp = "YYYY-MM-DD")
+  # strptime alone accepts trailing text; the whole string must be the date.
+  expect_error(wnba_referee_assignments("2026-06-13junk"), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(NA_character_), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(c("2026-06-13", "2026-06-14")), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(as.Date(c("2026-06-13", "2026-06-14"))), regexp = "YYYY-MM-DD")
