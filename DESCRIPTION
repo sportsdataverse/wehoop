@@ -22,12 +22,12 @@ Imports:
     cli (>= 3.0.0),
     data.table (>= 1.15.0),
     dplyr (>= 1.0.0),
+    glmnet,
     httr2 (>= 1.0.4),
     janitor,
     jsonlite,
     lifecycle,
     lubridate,
-    glmnet,
     magrittr,
     Matrix,
     progressr (>= 0.6.0),
@@ -62,8 +62,8 @@ Suggests:
     tictoc,
     usethis (>= 1.6.0),
     xml2 (>= 1.3)
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-Config/roxygen2/version: 8.1.0
