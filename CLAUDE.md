@@ -28,7 +28,7 @@ wehoop is an R package providing clean, tidy women's basketball play-by-play and
 
 When this guide differs from current repository docs, treat `CONTRIBUTING.md` and current test implementations as authoritative.
 
-- **Version**: 3.0.0 (dev)
+- **Version**: 3.0.0.9000 (dev)
 - **R Requirement**: >= 4.1.0
 - **License**: MIT
 - **Branch**: `main` is the default branch and release branch.
@@ -394,6 +394,7 @@ Tests are gated by source-specific env-var helpers in `tests/testthat/helper-ski
 | `ESPN_TESTS=1`        | Enable ESPN API tests             | `skip_espn_test()`        |
 | `NCAA_WBB_TESTS=1`    | Enable NCAA WBB tests             | `skip_ncaa_wbb_test()`    |
 | `FOX_TESTS=1`         | Enable Fox Sports tests           | `skip_fox_test()`         |
+| `OFFICIAL_NBA_TESTS=1` | Enable official.nba.com tests    | `skip_official_nba_test()` |
 | `WEHOOP_LOAD_TESTS=1` | Enable `load_*()` release-asset tests | (gated in `helper-skip.R`) |
 
 `WEHOOP_LOAD_TESTS` is kept separate from the API gates because `load_*()`

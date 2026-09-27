@@ -33,14 +33,19 @@
 
 New live wrapper for official.nba.com's `get-game-officials` feed. Returns a
 list of two tibbles for a given date: `officials` (long, one row per game x
-crew slot, with `crew_position` 1-4) and `replay_center`. Ids are integer, the
-schema is identical on a date with no games (zero-row tibbles), and a field
-the feed omits comes back as `NA`. Failures are classed conditions inheriting
-`wehoop_error`: `wehoop_no_data` (HTTP 404, or an S3 `AccessDenied` 403 -- no
-report for the date) and `wehoop_fetch_error` (any other non-200, an empty or
-non-JSON body, or a transport failure). Mirrors the sdv-py
-`nba_referee_assignments()` parity port. The `httr2` floor rises to 1.0.4 for
-`req_retry(retry_on_failure = )`.
+crew slot, with `crew_position` 1-4) and `replay_center`. Team and official
+ids are integer (`game_id` is a 10-character string), the schema is identical
+on a date with no games (zero-row tibbles), and a field the feed omits comes
+back as `NA`. Failures are classed conditions inheriting `wehoop_error`:
+`wehoop_no_data` (HTTP 404, or an S3 `AccessDenied` 403 -- no report for the
+date) and `wehoop_fetch_error` (any other non-200, an empty or non-JSON body,
+a missing or malformed `wnba` `Table`/`Table1` block -- including a game row
+without a `game_id` -- or a transport failure). Mirrors the sdv-py
+`nba_referee_assignments()` parity port. Port of the scraping logic in
+[atlhawksfanatic/L2M](https://github.com/atlhawksfanatic/L2M) (MIT). The
+`httr2` floor rises to 1.0.4 for `req_retry(retry_on_failure = )`, and the
+`testthat` floor (Suggests) rises to 3.1.7 for
+`local_mocked_bindings(.package = )`.
 
 # **wehoop 3.0.0**
 
