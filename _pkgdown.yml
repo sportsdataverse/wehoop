@@ -322,6 +322,17 @@ reference:
       - '`load_wnba_player_impact`'
       - '`load_wbb_player_value`'
       - '`load_wbb_ratings`'
+  - subtitle: Conference and Division Group Loaders
+    desc: Season-by-season conference and division lineages, names, aliases, and team membership published to sportsdataverse-data
+    contents:
+      - '`load_wbb_groups`'
+      - '`load_wbb_group_seasons`'
+      - '`load_wbb_group_aliases`'
+      - '`load_wbb_team_group_seasons`'
+      - '`load_wnba_groups`'
+      - '`load_wnba_group_seasons`'
+      - '`load_wnba_group_aliases`'
+      - '`load_wnba_team_group_seasons`'
   - title: ESPN Data
   - subtitle: ESPN Family Overview
     desc: ESPN basketball endpoint family overview (WNBA + WBB)

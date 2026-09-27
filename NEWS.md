@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [**wehoop 3.0.0.9000 (development version)**](#wehoop-3009000-development-version)
 - [**wehoop 3.0.0**](#wehoop-300)
 - [**wehoop 2.1.0**](#wehoop-210)
 - [**wehoop 2.0.0**](#wehoop-200)
@@ -25,6 +26,21 @@
 - [**wehoop 0.1.0**](#wehoop-010)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# **wehoop 3.0.0.9000 (development version)**
+
+* Eight new loaders read the `wbb_groups` and `wnba_groups` releases on
+  sportsdataverse-data, which record conference and division membership as
+  it was each season rather than back-applying today's alignment:
+  `load_wbb_groups()` / `load_wnba_groups()` (one row per lineage, with one
+  `group_id` kept across renames), `load_wbb_group_seasons()` /
+  `load_wnba_group_seasons()` (names, parent group and member count as of
+  each season), `load_wbb_group_aliases()` / `load_wnba_group_aliases()` (the
+  names and ids ESPN, NCAA and WNBA Stats use for each group) and
+  `load_wbb_team_group_seasons(seasons)` (2002 onward, ending years) /
+  `load_wnba_team_group_seasons(seasons)` (1997 onward), one row per team per
+  season. The loaders read parquet, not the tags' csv copies, so `team_id`
+  stays character.
 
 # **wehoop 3.0.0**
 
