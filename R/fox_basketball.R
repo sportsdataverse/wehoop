@@ -23,7 +23,7 @@
 # `getOption("wehoop.proxy")` -> `http(s)_proxy` env vars).
 #' @keywords internal
 #' @importFrom jsonlite fromJSON
-.fox_bb_get <- function(path, query = list()) {
+.fox_bb_get <- function(path, query = list(), missing_ok = FALSE) {
   query[["apikey"]] <- .fox_or(query[["apikey"]], .fox_bb_key())
   query[["api-version"]] <- .fox_or(query[["api-version"]], "1.1")
   resp <- .retry_request(
@@ -32,6 +32,8 @@
     headers = c(Origin = "https://www.foxsports.com",
                 Referer = "https://www.foxsports.com/")
   )
+  # A 404 is Fox saying "no such resource"; `missing_ok` callers skip it.
+  if (missing_ok && httr2::resp_status(resp) == 404L) return(NULL)
   check_status(resp)
   .resp_text(resp) |>
     jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
