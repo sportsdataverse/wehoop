@@ -358,7 +358,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 ``` r
 # \donttest{
   try(load_wnba_pbp())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 135,650 × 67
 #>    game_play_number        id sequence_number type_id type_text text  away_score
 #>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
@@ -382,7 +382,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_team_box())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 664 × 59
 #>      game_id season season_type game_date  game_date_time      team_id team_uid 
 #>        <int>  <int>       <int> <date>     <dttm>                <int> <chr>    
@@ -406,7 +406,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_player_box())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 8,051 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
@@ -430,7 +430,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_schedule())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 362 × 77
 #>         id uid   date  attendance time_valid neutral_site conference_competition
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
@@ -454,7 +454,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_rosters(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 221 × 36
 #>    season team_id team_slug team_abbreviation team_display_name
 #>     <int>   <int> <chr>     <chr>             <chr>            
@@ -478,8 +478,8 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
-#> # A tibble: 10,371 × 16
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> # A tibble: 10,396 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
 #>  1   2026       1054 Tiffany Hayes        Tiffany            Hayes            
@@ -492,7 +492,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #>  9   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #> 10   2026       1054 Tiffany Hayes        Tiffany            Hayes            
-#> # ℹ 10,361 more rows
+#> # ℹ 10,386 more rows
 #> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
 #> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
 #> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,
@@ -500,7 +500,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_team_stats(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 675 × 16
 #>    season team_id team_slug team_abbreviation team_display_name
 #>     <int>   <int> <chr>     <chr>             <chr>            
@@ -522,7 +522,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_standings(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 345 × 24
 #>    season group_id group_name        group_abbreviation group_short_name team_id
 #>     <int> <chr>    <chr>             <chr>              <chr>              <int>
@@ -546,7 +546,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_draft(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 45 × 35
 #>    season round round_display_name  pick overall_pick pick_traded pick_notes
 #>     <int> <int> <chr>              <int>        <int> <chr>       <chr>     
@@ -570,7 +570,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_shots(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 59,413 × 20
 #>      game_id season period_number clock_display_value team_id athlete_id_1
 #>        <int>  <int>         <int> <chr>                 <int>        <int>
@@ -593,7 +593,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_game_rosters(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 8,051 × 22
 #>    season game_id   team_id team_slug       team_abbreviation team_display_name
 #>     <int> <chr>       <int> <chr>           <chr>             <chr>            
@@ -616,7 +616,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_officials(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 997 × 11
 #>    season game_id   official_id official_uid official_full_name    
 #>     <int> <chr>           <int> <chr>        <chr>                 
@@ -637,7 +637,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wnba_player_core(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 244 × 36
 #>    season athlete_id guid       uid   slug  type  first_name last_name full_name
 #>     <int>      <int> <chr>      <chr> <chr> <chr> <chr>      <chr>     <chr>    

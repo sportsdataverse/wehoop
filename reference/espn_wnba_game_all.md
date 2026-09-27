@@ -231,8 +231,8 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_game_all(game_id = 401244185))
 #> $Plays
-#> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:35 UTC
+#> ── ESPN WNBA Play-by-Play Information from ESPN.com ─────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:21 UTC
 #> # A tibble: 388 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -255,8 +255,8 @@ Saiem Gilani
 #> #   play_id <chr>, athlete_id_1 <int>, athlete_id_2 <int>, …
 #> 
 #> $Team
-#> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:35 UTC
+#> ── ESPN WNBA Team Box Information from ESPN.com ─────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:21 UTC
 #> # A tibble: 2 × 57
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -271,8 +271,8 @@ Saiem Gilani
 #> #   field_goals_made <int>, field_goals_attempted <int>, …
 #> 
 #> $Player
-#> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:35 UTC
+#> ── ESPN WNBA Player Box Information from ESPN.com ───────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:21 UTC
 #> # A tibble: 25 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
@@ -298,8 +298,8 @@ Saiem Gilani
 
 # \donttest{
    try(espn_wnba_pbp(game_id = 401455681))
-#> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:36 UTC
+#> ── ESPN WNBA Play-by-Play Information from ESPN.com ─────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:22 UTC
 #> # A tibble: 343 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -324,8 +324,8 @@ Saiem Gilani
 
 # \donttest{
    try(espn_wnba_team_box(game_id = 401244185))
-#> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:36 UTC
+#> ── ESPN WNBA Team Box Information from ESPN.com ─────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:22 UTC
 #> # A tibble: 2 × 57
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -341,8 +341,8 @@ Saiem Gilani
 # }
 # \donttest{
   try(espn_wnba_player_box(game_id = 401244185))
-#> ── ESPN WNBA Player Box Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:36 UTC
+#> ── ESPN WNBA Player Box Information from ESPN.com ───────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:23 UTC
 #> # A tibble: 25 × 57
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
@@ -367,8 +367,8 @@ Saiem Gilani
 
 # \donttest{
   try(espn_wnba_game_rosters(game_id = 401244185))
-#> ── ESPN WNBA Game Roster Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:38 UTC
+#> ── ESPN WNBA Game Roster Information from ESPN.com ──────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:24 UTC
 #> # A tibble: 24 × 156
 #>    athlete_id athlete_uid  athlete_guid athlete_type    sdr first_name last_name
 #>         <int> <chr>        <chr>        <chr>         <int> <chr>      <chr>    

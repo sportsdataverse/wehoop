@@ -121,8 +121,8 @@ Saiem Gilani
 # \donttest{
   # LeBron James — regular + postseason combined
   espn_wnba_player_career_stats(athlete_id = 3149391)
-#> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Career Stats ───────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 112 × 17
 #>    league athlete_id stat_type_id split_id split_name split_type category_name
 #>    <chr>  <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
@@ -143,8 +143,8 @@ Saiem Gilani
 #> #   display_value <chr>
   # Just career aggregate
   espn_wnba_player_career_stats(athlete_id = 3149391, stat_type = 2L)
-#> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Career Stats ───────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

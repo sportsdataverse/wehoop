@@ -112,8 +112,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_player_eventlog_v2(athlete_id = 2999102, season = 2025)
-#> ── ESPN WNBA Athlete Event Log ───────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Event Log ──────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 0 × 8
 #> # ℹ 8 variables: league <chr>, athlete_id <chr>, season <int>, event_id <chr>,
 #> #   team_id <chr>, played <lgl>, event_ref <chr>, competition_ref <chr>

@@ -82,7 +82,7 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(load_wnba_team_crosswalk(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 15 × 19
 #>    season espn_team_id espn_abbreviation espn_display_name      espn_short_name
 #>     <int>        <int> <chr>             <chr>                  <chr>          
@@ -109,7 +109,7 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wnba_schedule_crosswalk(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 415 × 16
 #>    season season_type game_date  home_espn_team_id away_espn_team_id
 #>     <int> <chr>       <date>                 <int>             <int>
@@ -131,7 +131,7 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wnba_player_crosswalk(seasons = most_recent_wnba_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 220 × 21
 #>    season espn_team_id team_abbreviation player_name    espn_athlete_id
 #>     <int>        <int> <chr>             <chr>          <chr>          
@@ -155,7 +155,7 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wbb_team_crosswalk(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 361 × 18
 #>    season espn_team_id espn_abbreviation espn_display_name       espn_short_name
 #>     <int>        <int> <chr>             <chr>                   <chr>          
@@ -178,7 +178,7 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 6,521 × 13
 #>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
 #>     <int> <date>                 <int>             <int> <chr>        <chr>     
@@ -199,7 +199,7 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 5,018 × 17
 #>    season espn_team_id team_abbreviation player_name     espn_athlete_id
 #>     <int>        <int> <chr>             <chr>           <chr>          

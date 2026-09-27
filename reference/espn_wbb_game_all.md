@@ -227,8 +227,8 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_game_all(game_id = 401276115))
 #> $Plays
-#> ── ESPN WBB Play-by-Play Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:09 UTC
+#> ── ESPN WBB Play-by-Play Information from ESPN.com ──────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:51 UTC
 #> # A tibble: 386 × 53
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -251,8 +251,8 @@ Saiem Gilani
 #> #   play_id <chr>, athlete_id_1 <int>, athlete_id_2 <int>, …
 #> 
 #> $Team
-#> ── ESPN WBB Team Box Information from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:09 UTC
+#> ── ESPN WBB Team Box Information from ESPN.com ──────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:51 UTC
 #> # A tibble: 2 × 56
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -267,8 +267,8 @@ Saiem Gilani
 #> #   field_goals_made <int>, field_goals_attempted <int>, fouls <int>, …
 #> 
 #> $Player
-#> ── ESPN WBB Player Box Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:09 UTC
+#> ── ESPN WBB Player Box Information from ESPN.com ────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:51 UTC
 #> # A tibble: 25 × 54
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
@@ -293,8 +293,8 @@ Saiem Gilani
  # }
 # \donttest{
   try(espn_wbb_pbp(game_id = 401498717))
-#> ── ESPN WBB Play-by-Play Information from ESPN.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:10 UTC
+#> ── ESPN WBB Play-by-Play Information from ESPN.com ──────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:52 UTC
 #> # A tibble: 369 × 49
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
@@ -318,8 +318,8 @@ Saiem Gilani
 # }
 # \donttest{
   try(espn_wbb_team_box(game_id = 401276115))
-#> ── ESPN WBB Team Box Information from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:10 UTC
+#> ── ESPN WBB Team Box Information from ESPN.com ──────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:52 UTC
 #> # A tibble: 2 × 56
 #>     game_id season season_type game_date  game_date_time      team_id team_uid  
 #>       <int>  <int>       <int> <date>     <dttm>                <int> <chr>     
@@ -335,8 +335,8 @@ Saiem Gilani
 # }
 # \donttest{
   try(espn_wbb_player_box(game_id = 401276115))
-#> ── ESPN WBB Player Box Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:11 UTC
+#> ── ESPN WBB Player Box Information from ESPN.com ────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:53 UTC
 #> # A tibble: 25 × 54
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
@@ -360,8 +360,8 @@ Saiem Gilani
 # }
 # \donttest{
   try(espn_wbb_game_rosters(game_id = 401276115))
-#> ── ESPN WBB Game Roster Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:12 UTC
+#> ── ESPN WBB Game Roster Information from ESPN.com ───────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:53 UTC
 #> # A tibble: 25 × 147
 #>    athlete_id athlete_uid  athlete_guid athlete_type    sdr first_name last_name
 #>         <int> <chr>        <chr>        <chr>         <int> <chr>      <chr>    

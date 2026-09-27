@@ -343,7 +343,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 ``` r
 # \donttest{
   try(load_wbb_pbp())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 2,824,090 × 70
 #>    game_play_number      id sequence_number type_id type_text   text  away_score
 #>               <int>   <dbl>           <int>   <int> <chr>       <chr>      <int>
@@ -367,7 +367,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_team_box())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 12,058 × 58
 #>      game_id season season_type game_date  game_date_time      team_id team_uid 
 #>        <int>  <int>       <int> <date>     <dttm>                <int> <chr>    
@@ -391,7 +391,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_player_box())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 168,228 × 55
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
@@ -415,7 +415,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_schedule())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 6,054 × 95
 #>         id uid   date  attendance time_valid neutral_site conference_competition
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
@@ -439,7 +439,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_rosters(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 9,778 × 36
 #>    season team_id team_slug team_abbreviation team_display_name         
 #>     <int>   <int> <chr>     <chr>             <chr>                     
@@ -463,7 +463,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_player_stats(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 41,919 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
@@ -485,7 +485,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_team_stats(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 25,740 × 16
 #>    season team_id team_slug team_abbreviation team_display_name         
 #>     <int>   <int> <chr>     <chr>             <chr>                     
@@ -507,7 +507,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_standings(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 30,492 × 24
 #>    season group_id group_name        group_abbreviation group_short_name team_id
 #>     <int>    <int> <chr>             <chr>              <chr>              <int>
@@ -531,7 +531,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 907,805 × 20
 #>      game_id season period_number clock_display_value team_id athlete_id_1
 #>        <int>  <int>         <int> <chr>                 <int>        <int>
@@ -554,7 +554,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 168,228 × 22
 #>    season   game_id team_id team_slug        team_abbreviation team_display_name
 #>     <int>     <int>   <int> <chr>            <chr>             <chr>            
@@ -577,7 +577,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 17,458 × 11
 #>    season   game_id official_id official_uid official_full_name
 #>     <int>     <int>       <int> <chr>        <chr>             
@@ -598,7 +598,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_player_core(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 9,870 × 36
 #>    season athlete_id guid       uid   slug  type  first_name last_name full_name
 #>     <int>      <int> <chr>      <chr> <chr> <chr> <chr>      <chr>     <chr>    

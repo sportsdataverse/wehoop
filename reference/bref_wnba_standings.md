@@ -45,8 +45,8 @@ Other WNBA Basketball-Reference Functions:
 ``` r
 # \donttest{
   try(bref_wnba_standings(season = 2024))
-#> ── WNBA standings from basketball-reference.com ──────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:26:57 UTC
+#> ── WNBA standings from basketball-reference.com ─────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:35 UTC
 #> # A tibble: 12 × 11
 #>    team         wins losses win_loss_pct gb    pts_per_g opp_pts_per_g wins_pyth
 #>    <chr>       <dbl>  <dbl>        <dbl> <chr>     <dbl>         <dbl>     <dbl>

@@ -195,8 +195,8 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
-#> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:51 UTC
+#> ── ESPN WNBA Team Info from ESPN.com ────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:38 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -205,8 +205,8 @@ Saiem Gilani
 #> #   logo_dark <chr>
 #> 
 #> $Record
-#> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:51 UTC
+#> ── ESPN WNBA Team Record from ESPN.com ──────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:39 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -215,16 +215,16 @@ Saiem Gilani
 #> 3 Away Record    road  16-6    <df [5 × 2]> 
 #> 
 #> $NextEvent
-#> ── ESPN WNBA Team Next Event from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:51 UTC
+#> ── ESPN WNBA Team Next Event from ESPN.com ──────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:39 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
 #> 1 401918015 2026-09-27T20:00Z Indiana Fever at Las Vegas Aces IND @ LV  
 #> 
 #> $StandingSummary
-#> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:51 UTC
+#> ── ESPN WNBA Team Standing Summary from ESPN.com ────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:39 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
@@ -236,8 +236,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
-#> ── ESPN WNBA Team Roster from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:51 UTC
+#> ── ESPN WNBA Team Roster from ESPN.com ──────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:39 UTC
 #> # A tibble: 14 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
@@ -264,8 +264,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_team_season_profile(team_id = "17", season = 2025)
-#> ── ESPN WNBA Team Season Profile from ESPN.com ───────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:51 UTC
+#> ── ESPN WNBA Team Season Profile from ESPN.com ──────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:39 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

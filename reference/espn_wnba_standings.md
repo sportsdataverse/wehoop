@@ -119,8 +119,8 @@ Geoff Hutchinson
 ``` r
 # \donttest{
   try(espn_wnba_standings(year = 2021))
-#> ── ESPN WNBA Standings Information from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:50 UTC
+#> ── ESPN WNBA Standings Information from ESPN.com ────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:38 UTC
 #> # A tibble: 12 × 25
 #>    team_id team              avgpointsagainst avgpointsfor clincher differential
 #>      <int> <chr>                        <dbl>        <dbl>    <dbl>        <dbl>

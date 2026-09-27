@@ -156,8 +156,8 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_info(athlete_id = "3149391")
 #> $Bio
-#> ── ESPN WNBA Athlete Bio from ESPN.com ───────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Bio from ESPN.com ──────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -168,40 +168,40 @@ Saiem Gilani
 #> #   birth_country <chr>
 #> 
 #> $Team
-#> ── ESPN WNBA Athlete Team from ESPN.com ──────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Team from ESPN.com ─────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:31 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
 #> 1 http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/202…
 #> 
 #> $Position
-#> ── ESPN WNBA Athlete Position from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Position from ESPN.com ─────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:31 UTC
 #> # A tibble: 1 × 5
 #>   id    name   display_name abbreviation leaf 
 #>   <chr> <chr>  <chr>        <chr>        <lgl>
 #> 1 9     Center Center       C            FALSE
 #> 
 #> $Status
-#> ── ESPN WNBA Athlete Status from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Status from ESPN.com ───────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:31 UTC
 #> # A tibble: 1 × 4
 #>   id    name   type   abbreviation
 #>   <chr> <chr>  <chr>  <chr>       
 #> 1 1     Active active Active      
 #> 
 #> $College
-#> ── ESPN WNBA Athlete College from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete College from ESPN.com ──────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:31 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                             
 #>   <chr>                                                             
 #> 1 http://sports.core.api.espn.com/v2/colleges/2579?lang=en&region=us
 #> 
 #> $Draft
-#> ── ESPN WNBA Athlete Draft from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Draft from ESPN.com ────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:31 UTC
 #> # A tibble: 1 × 4
 #>   year  round selection display_text               
 #>   <chr> <chr> <chr>     <chr>                      

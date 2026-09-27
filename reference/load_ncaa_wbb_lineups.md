@@ -846,7 +846,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_ncaa_wbb_pbp(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 2,986,683 × 87
 #>    game_date  home          away  period clock game_time game_seconds home_score
 #>    <chr>      <chr>         <chr>  <int> <chr> <chr>            <int>      <int>
@@ -870,7 +870,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_shots(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 708,038 × 19
 #>    season team_id     shooter_id shot_x shot_y dist_ft shot_zone shot_type made 
 #>     <int> <chr>       <chr>       <dbl>  <dbl>   <dbl> <chr>     <chr>     <lgl>
@@ -891,7 +891,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_lineups(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 286,277 × 77
 #>    lineup_key   date  location_type team  team_year opponent lineup_id start_min
 #>    <chr>        <chr> <chr>         <chr>     <int> <chr>    <chr>         <dbl>
@@ -915,7 +915,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_matchup_stints(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 208,582 × 33
 #>    contest_id season game_date  home   away  game_stint_num period start_seconds
 #>    <chr>       <int> <chr>      <chr>  <chr>          <int>  <int>         <int>
@@ -939,7 +939,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_possessions(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 862,940 × 56
 #>    game_date  home   away  period poss_num poss_team home_1 home_2 home_3 home_4
 #>    <chr>      <chr>  <chr>  <int>    <int> <chr>     <chr>  <chr>  <chr>  <chr> 
@@ -963,7 +963,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_rapm_within_team(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 4,118 × 11
 #>    team  player_code rapm_off rapm_def team_off_poss num_players rapm_net season
 #>    <chr> <chr>          <dbl>    <dbl>         <dbl>       <int>    <dbl>  <int>
@@ -982,7 +982,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_rapm(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 4,596 × 11
 #>    season player_id person_id     player     team  orapm drapm rapm_net off_poss
 #>     <int> <chr>     <chr>         <chr>      <chr> <dbl> <dbl>    <dbl>    <int>
@@ -1001,7 +1001,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_player_box(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 121,918 × 125
 #>    game_date home  away  team  player  mins o_poss   pts   orb   drb   ast   stl
 #>    <chr>     <chr> <chr> <chr> <chr>  <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
@@ -1025,7 +1025,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_team_box(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 12,038 × 81
 #>    home   away  team   mins o_mins d_mins o_poss d_poss  ortg  drtg netrtg   pts
 #>    <chr>  <chr> <chr> <dbl>  <dbl>  <dbl>  <dbl>  <dbl> <dbl> <dbl>  <dbl> <dbl>
@@ -1049,7 +1049,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_rosters(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 8,382 × 4
 #>    season team               player              games
 #>     <int> <chr>              <chr>               <int>
@@ -1067,7 +1067,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_team_rosters(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 4,969 × 16
 #>    season team_id team   player_id player clean_name name  jersey class position
 #>     <int> <chr>   <chr>  <chr>     <chr>  <chr>      <chr> <chr>  <chr> <chr>   
@@ -1087,7 +1087,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_schedule(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 6,019 × 7
 #>    contest_id game_date  home              away     home_score away_score season
 #>    <chr>      <chr>      <chr>             <chr>         <int>      <int>  <int>
@@ -1105,7 +1105,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_team_ids(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 359 × 4
 #>    team               conference id     season
 #>    <chr>              <chr>      <chr>   <int>

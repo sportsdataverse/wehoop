@@ -131,8 +131,8 @@ Saiem Gilani
     team = list(`$ref` = team_ref)
   )
   espn_basketball_player_core(payload, athlete_id = 1966)
-#> ── ESPN Basketball Player Core from ESPN.com ─────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:01 UTC
+#> ── ESPN Basketball Player Core from ESPN.com ────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:42 UTC
 #> # A tibble: 1 × 35
 #>   athlete_id guid  uid   slug  type  first_name last_name full_name display_name
 #>        <int> <chr> <chr> <chr> <chr> <chr>      <chr>     <chr>     <chr>       

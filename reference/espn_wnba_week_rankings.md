@@ -129,8 +129,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_week_rankings(week = 5, season = 2025)
-#> ── ESPN WNBA Week Rankings Index ─────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:55 UTC
+#> ── ESPN WNBA Week Rankings Index ────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:43 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>, week <int>,
 #> #   ranking_id <chr>, ref <chr>

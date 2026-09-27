@@ -36,8 +36,8 @@ Saiem Gilani
 # Get current NCAA NET rankings
 # \donttest{
   try(ncaa_wbb_NET_rankings())
-#> ── NCAA WBB NET Rankings Information from NCAA.com ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:30:04 UTC
+#> ── NCAA WBB NET Rankings Information from NCAA.com ──────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:33:35 UTC
 #> # A tibble: 363 × 13
 #>     rank school  record conference road  neutral home  non_div_i previous quad_1
 #>    <int> <chr>   <chr>  <chr>      <chr> <chr>   <chr> <chr>        <int> <chr> 

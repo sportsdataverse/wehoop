@@ -226,8 +226,12 @@
 <url><loc>https://wehoop.sportsdataverse.org/reference/index.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_group_aliases.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_group_seasons.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_groups.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.html</loc></url>
+<url><loc>https://wehoop.sportsdataverse.org/reference/load_wbb_team_group_seasons.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_draft.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.html</loc></url>
 <url><loc>https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.html</loc></url>

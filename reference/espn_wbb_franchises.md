@@ -106,8 +106,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_franchises()
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchises Index ───────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:08 UTC
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchises Index ──────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:30:49 UTC
 #> # A tibble: 200 × 3
 #>    franchise_id ref                                                       league
 #>    <chr>        <chr>                                                     <chr> 

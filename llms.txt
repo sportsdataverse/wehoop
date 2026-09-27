@@ -472,6 +472,39 @@ model-output datasets
   **Load WNBA player-impact ratings (RAPM / SPM / BPM / DARKO) from the
   data repo**
 
+### Conference and Division Group Loaders
+
+Season-by-season conference and division lineages, names, aliases, and
+team membership published to sportsdataverse-data
+
+- [`load_wbb_groups()`](https://wehoop.sportsdataverse.org/reference/load_wbb_groups.md)
+  [`load_wnba_groups()`](https://wehoop.sportsdataverse.org/reference/load_wbb_groups.md)
+  :
+
+  **Load conference and division lineages (WBB / WNBA) from the data
+  repo**
+
+- [`load_wbb_group_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_group_seasons.md)
+  [`load_wnba_group_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_group_seasons.md)
+  :
+
+  **Load conference and division names by season (WBB / WNBA) from the
+  data repo**
+
+- [`load_wbb_group_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_group_aliases.md)
+  [`load_wnba_group_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_group_aliases.md)
+  :
+
+  **Load conference and division aliases (WBB / WNBA) from the data
+  repo**
+
+- [`load_wbb_team_group_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_group_seasons.md)
+  [`load_wnba_team_group_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_group_seasons.md)
+  :
+
+  **Load team conference membership by season (WBB / WNBA) from the data
+  repo**
+
 ## ESPN Data
 
 ### ESPN Family Overview

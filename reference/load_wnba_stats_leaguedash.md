@@ -77,7 +77,7 @@ Other WNBA Stats loader functions:
 # \donttest{
   try(load_wnba_stats_leaguedash(seasons = most_recent_wnba_stats_season(),
                                  table = "player_bio"))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.0.0 ──
+#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
 #> # A tibble: 226 × 27
 #>    player_id player_name        team_id team_abbreviation   age player_height
 #>        <int> <chr>                <int> <chr>             <dbl> <chr>        

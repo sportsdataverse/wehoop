@@ -214,26 +214,26 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_overview(athlete_id = "3149391", season = 2024)
 #> $Statistics
-#> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ──── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
-#> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ─────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
 #> 1 NA    NA    NA    NA        
 #> 
 #> $Last5Games
-#> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ───────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ──── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
-#> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ───── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 13 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
@@ -252,8 +252,8 @@ Saiem Gilani
 #> 13 Seattle Storm vs. Las Vegas Aces - Game H… "Watch the… 2026-09-… NA     Media
 #> 
 #> $FantasyOutlook
-#> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ───── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ─────────────────────
+#> ℹ Data updated: 2026-09-27 05:31:29 UTC
 #> # A tibble: 1 × 1
 #>   outlook
 #>   <chr>  
@@ -262,8 +262,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_player_stats_v3(athlete_id = "4068159", season = 2024)
-#> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:43 UTC
+#> ── ESPN WNBA Athlete Stats from ESPN.com ────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 9 × 47
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
@@ -286,8 +286,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_player_gamelog(athlete_id = "3149391", season = 2024)
-#> ── ESPN WNBA Athlete Gamelog from ESPN.com ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Gamelog from ESPN.com ──────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 46 × 26
 #>    athlete_id season id        at_vs game_date   score home_team_id away_team_id
 #>    <chr>       <dbl> <chr>     <chr> <chr>       <chr> <chr>        <chr>       
@@ -311,8 +311,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_player_splits(athlete_id = "3149391", season = 2024)
-#> ── ESPN WNBA Athlete Splits from ESPN.com ────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Splits from ESPN.com ───────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 7 × 5
 #>   athlete_id season name       display_name splits       
 #>   <chr>       <dbl> <chr>      <chr>        <list>       
@@ -326,8 +326,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_player_eventlog(athlete_id = "3149391", season = 2024)
-#> ── ESPN WNBA Athlete Eventlog from ESPN.com ──────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Eventlog from ESPN.com ─────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 25 × 8
 #>    athlete_id season event_ref   competition_ref team_ref statistics_ref team_id
 #>    <chr>       <dbl> <chr>       <chr>           <chr>    <chr>          <chr>  
@@ -346,8 +346,8 @@ Saiem Gilani
 # }
 # \donttest{
   espn_wnba_player_statisticslog(athlete_id = "3149391", season = 2024)
-#> ── ESPN WNBA Athlete Statisticslog from ESPN.com ─────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:44 UTC
+#> ── ESPN WNBA Athlete Statisticslog from ESPN.com ────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:30 UTC
 #> # A tibble: 9 × 3
 #>   athlete_id season$`$ref`                                            statistics
 #>   <chr>      <chr>                                                    <list>    

@@ -108,8 +108,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_game_play(event_id = 401736171, play_id = 4017361714)
-#> ── ESPN WNBA Event Play Detail ───────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:39 UTC
+#> ── ESPN WNBA Event Play Detail ──────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:25 UTC
 #> # A tibble: 1 × 19
 #>   league event_id  play_id    sequence_number type_id type_text text  short_text
 #>   <chr>  <chr>     <chr>      <chr>           <chr>   <chr>     <chr> <chr>     

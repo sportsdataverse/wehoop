@@ -58,8 +58,8 @@ Other Fox Sports Functions:
 ``` r
 # \donttest{
   try(fox_wnba_pbp("2215"))
-#> ── Fox Sports WNBA pbp ───────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:56 UTC
+#> ── Fox Sports WNBA pbp ──────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:44 UTC
 #> # A tibble: 382 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            
@@ -78,8 +78,8 @@ Other Fox Sports Functions:
 # }
 # \donttest{
   try(fox_wbb_pbp("388986"))
-#> ── Fox Sports WCBK pbp ───────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:56 UTC
+#> ── Fox Sports WCBK pbp ──────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:44 UTC
 #> # A tibble: 312 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            
@@ -98,8 +98,8 @@ Other Fox Sports Functions:
 # }
 # \donttest{
   try(fox_wnba_boxscore("2215"))
-#> ── Fox Sports WNBA boxscore ──────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:56 UTC
+#> ── Fox Sports WNBA boxscore ─────────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:45 UTC
 #> # A tibble: 338 × 7
 #>    game_id team  stat_group player     athlete_id stat  value
 #>    <chr>   <chr> <chr>      <chr>      <chr>      <chr> <chr>
@@ -117,8 +117,8 @@ Other Fox Sports Functions:
 # }
 # \donttest{
   try(fox_wbb_boxscore("388986"))
-#> ── Fox Sports WCBK boxscore ──────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:57 UTC
+#> ── Fox Sports WCBK boxscore ─────────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:45 UTC
 #> # A tibble: 378 × 7
 #>    game_id team  stat_group player      athlete_id stat  value
 #>    <chr>   <chr> <chr>      <chr>       <chr>      <chr> <chr>
@@ -136,14 +136,14 @@ Other Fox Sports Functions:
 # }
 # \donttest{
   try(fox_wnba_odds("2215"))
-#> ── Fox Sports WNBA odds ──────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:58 UTC
+#> ── Fox Sports WNBA odds ─────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:45 UTC
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(fox_wbb_odds("388986"))
-#> ── Fox Sports WCBK odds ──────────────────────────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:59 UTC
+#> ── Fox Sports WCBK odds ─────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:45 UTC
 #> # A tibble: 0 × 0
 # }
 ```

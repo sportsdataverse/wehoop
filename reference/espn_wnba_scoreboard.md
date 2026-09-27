@@ -100,8 +100,8 @@ Saiem Gilani.
 # Get schedule from date 2022-08-31
 # \donttest{
   try(espn_wnba_scoreboard (season = "20220831"))
-#> ── ESPN WNBA Scoreboard Information from ESPN.com ────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:46 UTC
+#> ── ESPN WNBA Scoreboard Information from ESPN.com ───────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:32 UTC
 #> # A tibble: 2 × 37
 #>   matchup          matchup_short season season_type season_slug game_id game_uid
 #>   <chr>            <chr>          <int>       <int> <chr>         <int> <chr>   

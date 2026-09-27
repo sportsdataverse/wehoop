@@ -114,8 +114,8 @@ Saiem Gilani
   espn_wnba_game_team_roster_entry(event_id = 401736171,
                                             team_id = 17,
                                             athlete_id = 3149391)
-#> ── ESPN WNBA Event Competitor Roster Entry ───────────────────── wehoop 3.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:27:42 UTC
+#> ── ESPN WNBA Event Competitor Roster Entry ──────────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-27 05:31:28 UTC
 #> # A tibble: 1 × 16
 #>   league event_id  team_id athlete_id player_id period active starter
 #>   <chr>  <chr>     <chr>   <chr>      <chr>      <int> <lgl>  <lgl>  
