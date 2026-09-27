@@ -264,7 +264,8 @@ test_that("a missing or malformed wnba Table/Table1 block is a fetch error, not 
                  # every replay-center row names its official (sdv-py parity)
                  '{"wnba":{"Table":{"rows":[]},"Table1":{"rows":[{}]}}}',
                  '{"wnba":{"Table":{"rows":[]},"Table1":{"rows":[{"game_date":"06/13/2026","official":"A Ref"}]}}}',
-                 '{"wnba":{"Table":{"rows":[]},"Table1":{"rows":[{"replaycenter_official":" "}]}}}')) {
+                 '{"wnba":{"Table":{"rows":[]},"Table1":{"rows":[{"replaycenter_official":" "}]}}}',
+                 '{"wnba":{"Table":{"rows":[]},"Table1":{"rows":[{"replaycenter_official":"\\u00a0"}]}}}')) {
     local_official_response(function(req) httr2::response(200L, body = charToRaw(json)))
     expect_error(wnba_referee_assignments("2026-06-13"), class = "wehoop_fetch_error", info = json)
   }
