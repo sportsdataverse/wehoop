@@ -208,7 +208,8 @@ NULL
 #' * `wehoop_fetch_error` -- any other non-200 status (e.g. an Akamai HTML
 #'   403 block, or a rate limit / 5xx that outlived the retries), an empty or
 #'   non-JSON body, JSON without the `wnba` `Table`/`Table1` `rows` lists or
-#'   with a `Table` row that has no `game_id`, or a transport failure (DNS,
+#'   with a `Table` row that has no `game_id` or a `Table1` row that has no
+#'   `replaycenter_official` name, or a transport failure (DNS,
 #'   TLS, dropped connection). The feed carries the `wnba` block on every
 #'   date, with zero rows on a day without games, so a missing block is never
 #'   an empty day.
@@ -325,7 +326,18 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
       !is.na(id) && grepl("^[0-9]{10}$", id)
     }, logical(1)))
   }
-  if (!is.list(block) || !has_rows("Table") || !has_rows("Table1") || !has_game_ids()) {
+  # A replay-center row names its official (every real row does): an empty
+  # record, a missing, null or blank name, or a renamed field would otherwise
+  # parse to a row of NAs. A non-scalar name keeps its row with an NA name, as
+  # a crew slot does.
+  has_replay_names <- function() {
+    all(vapply(block[["Table1"]][["rows"]], function(r) {
+      v <- r[["replaycenter_official"]]
+      length(v) > 0L && !(is.character(v) && length(v) == 1L && !nzchar(trimws(v)))
+    }, logical(1)))
+  }
+  if (!is.list(block) || !has_rows("Table") || !has_rows("Table1") || !has_game_ids() ||
+      !has_replay_names()) {
     cli::cli_abort(
       "official.nba.com returned a missing or malformed {.val wnba} Table/Table1 block for {day} ({.url {url}}).",
       class = c("wehoop_fetch_error", "wehoop_error"),

@@ -53,7 +53,8 @@ back as `NA`. Failures are classed conditions inheriting `wehoop_error`:
 `wehoop_no_data` (HTTP 404, or an S3 `AccessDenied` 403 -- no report for the
 date) and `wehoop_fetch_error` (any other non-200, an empty or non-JSON body,
 a missing or malformed `wnba` `Table`/`Table1` block -- including a game row
-without a `game_id` -- or a transport failure). Mirrors the sdv-py
+without a `game_id` or a replay-center row without a name -- or a transport
+failure). Mirrors the sdv-py
 `nba_referee_assignments()` parity port. Port of the scraping logic in
 [atlhawksfanatic/L2M](https://github.com/atlhawksfanatic/L2M) (MIT). The
 `httr2` floor rises to 1.0.4 for `req_retry(retry_on_failure = )`, and the

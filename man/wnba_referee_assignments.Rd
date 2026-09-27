@@ -91,7 +91,8 @@ for \code{date}.
 \item \code{wehoop_fetch_error} -- any other non-200 status (e.g. an Akamai HTML
 403 block, or a rate limit / 5xx that outlived the retries), an empty or
 non-JSON body, JSON without the \code{wnba} \code{Table}/\code{Table1} \code{rows} lists or
-with a \code{Table} row that has no \code{game_id}, or a transport failure (DNS,
+with a \code{Table} row that has no \code{game_id} or a \code{Table1} row that has no
+\code{replaycenter_official} name, or a transport failure (DNS,
 TLS, dropped connection). The feed carries the \code{wnba} block on every
 date, with zero rows on a day without games, so a missing block is never
 an empty day.
