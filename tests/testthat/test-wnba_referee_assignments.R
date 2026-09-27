@@ -340,3 +340,18 @@ test_that("wnba_referee_assignments() live smoke test", {
   expect_identical(col_classes(result$officials), officials_schema)
   expect_identical(col_classes(result$replay_center), replay_schema)
 })
+
+test_that("an empty official-name slot makes no row; a non-empty non-scalar name keeps it", {
+  row <- function(name_json) {
+    payload <- jsonlite::parse_json(sprintf(
+      '{"wnba":{"Table":{"rows":[{"game_id":"1022600097","official1":%s}]},"Table1":{"rows":[]}}}',
+      name_json
+    ), simplifyVector = FALSE)
+    nrow(.parse_wnba_referee_assignments(payload, league = "wnba")$officials)
+  }
+  # No official in the slot: absent value forms all mean an empty slot (matches hoopR / sdv-py).
+  for (empty in c("null", '""', "[]", "{}")) expect_identical(row(empty), 0L, info = empty)
+  # A real but malformed name keeps the official's row.
+  for (full in c('["A","B"]', '{"a":1}')) expect_identical(row(full), 1L, info = full)
+  expect_identical(row('"Kevin Fahy"'), 1L)
+})

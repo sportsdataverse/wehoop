@@ -77,14 +77,16 @@
   replay_rows <- block[["Table1"]][["rows"]] %||% list()
 
   # Every field goes through .scalar(), so a null, array or object field comes
-  # back as NA: it never drops the row, duplicates it, or raises. A non-numeric
+  # back as NA: it never drops the row, duplicates it, or raises. The one rule
+  # that decides whether a row exists at all is the official-name slot below. A non-numeric
   # or out-of-range id or season year is NA too, without a coercion warning.
   officials <- purrr::map(games, function(g) {
     s <- as.character(.scalar(g[["season"]]))
     rows <- purrr::map(1:4, function(k) {
       name <- g[[paste0("official", k)]]
-      # An absent, null, "" or empty name is an empty slot. Any other name fills
-      # the slot and keeps its row, with NA as the name when it is not a scalar.
+      # An absent, null, "" or EMPTY array/object name means no official in that
+      # slot, so no row (as in hoopR and sdv-py). A non-empty array or object name
+      # fills the slot and keeps its row, with NA as the name.
       if (length(name) == 0L || identical(name, "")) return(NULL)
       dplyr::tibble(
         league = league,
