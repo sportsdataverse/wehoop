@@ -165,7 +165,10 @@ test_that("a response without the wnba Table/Table1 block is a fetch error, not 
   # day without games), so a missing block is an error envelope or a new schema.
   for (json in c('{"nba":{"Table":{"rows":[]},"Table1":{"rows":[]}}}',
                  '{"wnba":{"Table":{"rows":[]}}}',
-                 '{"message":"error"}')) {
+                 '{"message":"error"}',
+                 '{"wnba":{"Table":null,"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":null},"Table1":{"rows":[]}}}')) {
     local_official_response(function(req) httr2::response(200L, body = charToRaw(json)))
     expect_error(wnba_referee_assignments("2026-06-13"), class = "wehoop_fetch_error", info = json)
   }

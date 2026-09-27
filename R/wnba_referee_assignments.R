@@ -183,7 +183,7 @@ NULL
 #'   for `date`.
 #' * `wehoop_fetch_error` -- any other non-200 status (e.g. an Akamai HTML
 #'   403 block, or a rate limit / 5xx that outlived the retries), an empty or
-#'   non-JSON body, JSON without the `wnba` `Table`/`Table1` block, or a
+#'   non-JSON body, JSON without the `wnba` `Table`/`Table1` `rows` lists, or a
 #'   transport failure (DNS, TLS, dropped connection). The feed carries the
 #'   `wnba` block on every date, with zero rows on a day without games, so a
 #'   missing block is never an empty day.
@@ -202,9 +202,11 @@ NULL
 wnba_referee_assignments <- function(date, proxy = NULL) {
   call <- environment()
   day <- if (inherits(date, c("Date", "POSIXt"))) format(date, "%Y-%m-%d") else as.character(date)
-  # The as.Date() parse rejects shape-valid but impossible dates ("2026-02-31").
+  # Parse and round-trip, so a shape-valid but impossible date ("2026-02-31") is
+  # rejected even where strptime would normalize it.
+  parsed <- if (length(day) == 1L && !is.na(day)) as.Date(day, format = "%Y-%m-%d") else as.Date(NA)
   if (length(day) != 1L || is.na(day) || !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", day) ||
-      is.na(as.Date(day, format = "%Y-%m-%d"))) {
+      is.na(parsed) || format(parsed, "%Y-%m-%d") != day) {
     cli::cli_abort(
       "{.arg date} must be a single Date, POSIXct/POSIXlt, or valid \"YYYY-MM-DD\" date string, not {.val {day}}."
     )
@@ -279,7 +281,9 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
   # (zero rows on a day without games), so a missing block is a changed schema
   # or an error envelope, not a day without WNBA games.
   block <- if (is.list(payload)) payload[["wnba"]] else NULL
-  if (!is.list(block) || !all(c("Table", "Table1") %in% names(block))) {
+  # Each table must hold a rows list; a null table or missing rows is not an empty day.
+  has_rows <- function(t) is.list(block[[t]]) && is.list(block[[t]][["rows"]])
+  if (!is.list(block) || !has_rows("Table") || !has_rows("Table1")) {
     cli::cli_abort(
       "official.nba.com returned no {.val wnba} Table/Table1 block for {day} ({.url {url}}).",
       class = c("wehoop_fetch_error", "wehoop_error"),
