@@ -219,6 +219,8 @@ test_that("a malformed, multi-value or NA date is rejected before any request", 
   expect_error(wnba_referee_assignments(c("2026-06-13", "2026-06-14")), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(as.Date(c("2026-06-13", "2026-06-14"))), regexp = "YYYY-MM-DD")
   expect_error(wnba_referee_assignments(as.Date(NA)), regexp = "YYYY-MM-DD")
+  # A zero-length date names itself instead of rendering "not .".
+  expect_error(wnba_referee_assignments(NULL), regexp = "not .*NULL")
   # Shape-valid but impossible: must fail here, not reach the (stubbed) request.
   expect_error(wnba_referee_assignments("2026-02-31"), regexp = "YYYY-MM-DD")
 })

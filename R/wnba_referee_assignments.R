@@ -231,7 +231,7 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
   if (length(day) != 1L || is.na(day) || !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", day) ||
       is.na(parsed) || format(parsed, "%Y-%m-%d") != day) {
     cli::cli_abort(
-      "{.arg date} must be a single Date, POSIXct/POSIXlt, or valid \"YYYY-MM-DD\" date string, not {.val {date}}."
+      "{.arg date} must be a single Date, POSIXct/POSIXlt, or valid \"YYYY-MM-DD\" date string, not {.val {if (length(date)) date else deparse(date)}}."
     )
   }
 
