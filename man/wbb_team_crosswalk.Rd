@@ -7,12 +7,12 @@
 wbb_team_crosswalk(season = most_recent_wbb_season(), fox = NULL)
 }
 \arguments{
-\item{season}{Season year (4-digit, e.g. \code{2025}). Defaults to
-\code{most_recent_wbb_season()}.}
+\item{season}{Season year (4-digit, ending year, e.g. \code{2025} = 2024-25).
+Defaults to \code{most_recent_wbb_season()}.}
 
-\item{fox}{An already-fetched \code{fox_wbb_teams_all()} frame, or \code{NULL}
-(default) to fetch live. Accepts a pre-fetched frame to avoid the
-~60-second Fox enumeration when calling repeatedly.}
+\item{fox}{An already-fetched frame with \code{fox_team_id}, \code{fox_team_name}
+and \code{fox_section}, or \code{NULL} (default) to fetch \code{season}'s Fox
+standings live. Pass an empty \code{data.frame()} to skip Fox.}
 }
 \value{
 A \code{wehoop_data} tibble, one row per ESPN team:
@@ -26,10 +26,10 @@ A \code{wehoop_data} tibble, one row per ESPN team:
      espn_short_name \tab character \tab ESPN short name. \cr
      espn_location \tab character \tab ESPN school/location only. \cr
      espn_mascot \tab character \tab ESPN mascot/nickname. \cr
-     espn_conference \tab character \tab ESPN conference name. \cr
+     espn_conference \tab character \tab Conference that season, under that season's name (NA if not in a Division I conference). \cr
      fox_team_id \tab character \tab Fox Bifrost team id (NA if unmatched). \cr
      fox_team_name \tab character \tab Fox team name (NA if unmatched). \cr
-     fox_section \tab character \tab Fox conference/section label (NA if unmatched). \cr
+     fox_section \tab character \tab Fox conference that season (NA if unmatched or unconfirmed). \cr
      bart_team \tab character \tab Torvik team name (NA if unmatched). \cr
      bart_conf \tab character \tab Torvik conference abbreviation (NA if unmatched). \cr
      yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
@@ -50,6 +50,29 @@ a curated alias bridge for cases where Fox and ESPN differ); Torvik is
 joined on the normalized school/location name after a curated alias pass
 for common divergences (e.g. "UConn" / "Connecticut", "Ole Miss" /
 "Mississippi").
+
+Every source is read \strong{as of \code{season}}:
+\itemize{
+\item \code{espn_conference} is the conference each team was in that season, under
+that season's name, from the SDV conference reference
+(\code{\link[=load_wbb_team_group_seasons]{load_wbb_team_group_seasons()}} and \code{\link[=load_wbb_group_seasons]{load_wbb_group_seasons()}}). The
+ESPN team list itself is today's Division I list, so a team that was not
+in a Division I conference that season has an NA \code{espn_conference}.
+\item \code{fox_section} comes from Fox's per-conference standings for that season
+(\verb{league/standings?groupId=&season=}), which start in 2018-19: earlier
+seasons get NA \verb{fox_*}. Fox lists teams under the conference they joined
+the NEXT season, so \code{fox_section} is set to NA where it disagrees with
+\code{espn_conference}, and for any Fox conference with fewer than two
+agreeing teams that stay put the next season. \code{fox_team_id} is kept.
+\item \verb{bart_*} comes from Torvik's \verb{/ncaaw/\{season\}_team_results.csv} (2021
+on; earlier seasons get NA \verb{bart_*}).
+}
+
+A source that fails raises an error instead of returning a crosswalk
+whose columns are silently all NA. Torvik answering with no teams
+(blocked or empty) for a season it covers, Fox returning no standings for
+the season, and a missing conference reference raise an error of class
+\code{crosswalk_source_error}.
 }
 \examples{
 \donttest{

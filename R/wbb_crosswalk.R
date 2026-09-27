@@ -190,6 +190,13 @@
 # Exported builder
 # ---------------------------------------------------------------------------
 
+# First season (ending year) each source answers for. Before it Fox's
+# league/standings?season= silently answers with the CURRENT season and
+# Torvik's /ncaaw/{year}_team_results.csv 404s, so those columns stay NA --
+# never another season's data.
+.wbb_fox_first_season    <- 2019L
+.wbb_torvik_first_season <- 2021L
+
 #' **Get the WBB cross-source team crosswalk**
 #' @name wbb_team_crosswalk
 NULL
@@ -207,11 +214,33 @@ NULL
 #' for common divergences (e.g. "UConn" / "Connecticut", "Ole Miss" /
 #' "Mississippi").
 #'
-#' @param season Season year (4-digit, e.g. `2025`). Defaults to
-#'   `most_recent_wbb_season()`.
-#' @param fox An already-fetched `fox_wbb_teams_all()` frame, or `NULL`
-#'   (default) to fetch live. Accepts a pre-fetched frame to avoid the
-#'   ~60-second Fox enumeration when calling repeatedly.
+#' Every source is read **as of `season`**:
+#'
+#' * `espn_conference` is the conference each team was in that season, under
+#'   that season's name, from the SDV conference reference
+#'   ([load_wbb_team_group_seasons()] and [load_wbb_group_seasons()]). The
+#'   ESPN team list itself is today's Division I list, so a team that was not
+#'   in a Division I conference that season has an NA `espn_conference`.
+#' * `fox_section` comes from Fox's per-conference standings for that season
+#'   (`league/standings?groupId=&season=`), which start in 2018-19: earlier
+#'   seasons get NA `fox_*`. Fox lists teams under the conference they joined
+#'   the NEXT season, so `fox_section` is set to NA where it disagrees with
+#'   `espn_conference`, and for any Fox conference with fewer than two
+#'   agreeing teams that stay put the next season. `fox_team_id` is kept.
+#' * `bart_*` comes from Torvik's `/ncaaw/{season}_team_results.csv` (2021
+#'   on; earlier seasons get NA `bart_*`).
+#'
+#' A source that fails raises an error instead of returning a crosswalk
+#' whose columns are silently all NA. Torvik answering with no teams
+#' (blocked or empty) for a season it covers, Fox returning no standings for
+#' the season, and a missing conference reference raise an error of class
+#' `crosswalk_source_error`.
+#'
+#' @param season Season year (4-digit, ending year, e.g. `2025` = 2024-25).
+#'   Defaults to `most_recent_wbb_season()`.
+#' @param fox An already-fetched frame with `fox_team_id`, `fox_team_name`
+#'   and `fox_section`, or `NULL` (default) to fetch `season`'s Fox
+#'   standings live. Pass an empty `data.frame()` to skip Fox.
 #' @return A `wehoop_data` tibble, one row per ESPN team:
 #'
 #'   \if{html}{\tabular{lll}{
@@ -223,10 +252,10 @@ NULL
 #'      espn_short_name \tab character \tab ESPN short name. \cr
 #'      espn_location \tab character \tab ESPN school/location only. \cr
 #'      espn_mascot \tab character \tab ESPN mascot/nickname. \cr
-#'      espn_conference \tab character \tab ESPN conference name. \cr
+#'      espn_conference \tab character \tab Conference that season, under that season's name (NA if not in a Division I conference). \cr
 #'      fox_team_id \tab character \tab Fox Bifrost team id (NA if unmatched). \cr
 #'      fox_team_name \tab character \tab Fox team name (NA if unmatched). \cr
-#'      fox_section \tab character \tab Fox conference/section label (NA if unmatched). \cr
+#'      fox_section \tab character \tab Fox conference that season (NA if unmatched or unconfirmed). \cr
 #'      bart_team \tab character \tab Torvik team name (NA if unmatched). \cr
 #'      bart_conf \tab character \tab Torvik conference abbreviation (NA if unmatched). \cr
 #'      yahoo_team_id \tab character \tab Yahoo team id (NA placeholder). \cr
@@ -246,39 +275,19 @@ NULL
 #' }
 wbb_team_crosswalk <- function(season = most_recent_wbb_season(),
                                fox = NULL) {
-  .args <- .capture_args()
-  out <- data.frame()
-  tryCatch(
-    expr = {
-      espn_raw <- espn_wbb_teams(year = season)
-      bart_raw <- bart_wbb_ratings(year = season)
-      fox_raw  <- if (!is.null(fox)) fox else {
-        tryCatch(fox_wbb_teams_all(), error = function(e) NULL)
-      }
-      out <- .bb_assemble_team_crosswalk_wbb(
-        espn   = as.data.frame(espn_raw),
-        fox    = if (!is.null(fox_raw)) as.data.frame(fox_raw) else NULL,
-        bart   = as.data.frame(bart_raw),
-        season = season
-      ) |>
-        make_wehoop_data(
-          "WBB team crosswalk (ESPN / Fox / Torvik)",
-          Sys.time()
-        )
-    },
-    error   = function(e) .report_api_error(
-      e,
-      hint = "Could not build WBB team crosswalk for {season}!",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning building WBB team crosswalk for {season}",
-      args = .args
-    ),
-    finally = {}
+  season <- as.integer(season)
+  espn <- .bb_espn_team_directory("womens-college-basketball", "wbb", season)
+  if (is.null(fox)) fox <- .bb_fox_season_teams("wcbk", season, .wbb_fox_first_season)
+  out <- .bb_assemble_team_crosswalk_wbb(
+    espn   = espn,
+    fox    = as.data.frame(fox),
+    bart   = .bb_torvik_teams(bart_wbb_ratings, season, .wbb_torvik_first_season),
+    season = season
   )
-  out
+  if (any(!is.na(out$fox_section))) {
+    out <- .bb_drop_unconfirmed_fox_sections(out, .bb_next_season_movers("wbb", season))
+  }
+  make_wehoop_data(out, "WBB team crosswalk (ESPN / Fox / Torvik)", Sys.time())
 }
 
 # ---------------------------------------------------------------------------
