@@ -30,8 +30,8 @@ crews have three officials, so slot 4 is usually absent):
       game_id \tab character \tab 10-character zero-padded game id. \cr
       game_date \tab Date \tab Game date. \cr
       season \tab integer \tab Season (the START year of the feed's season
-      code; one calendar year for the WNBA). NA when the code is missing or
-      not 5 characters. \cr
+      code; one calendar year for the WNBA). NA when the code is missing,
+      not 5 characters, or its year is not numeric. \cr
       season_type \tab character \tab One of preseason / regular /
       all-star / playoffs / play-in / nba-cup-final, from the season code's
       leading digit. NA when the code is missing or the digit is unknown. \cr
@@ -70,7 +70,9 @@ Retrieves the referee crew assignments and replay-center officials for
 every WNBA game on \code{date}, from official.nba.com's internal
 \code{get-game-officials} endpoint (the same feed used by the NBA officiating
 pages). That endpoint returns NBA and G-League blocks in the same
-payload; this function extracts only \code{"wnba"}.
+payload; this function extracts only \code{"wnba"}. Port of the scraping logic
+in \href{https://github.com/atlhawksfanatic/L2M}{atlhawksfanatic/L2M} (MIT,
+(c) 2019 atlhawksfanatic).
 }
 \details{
 \code{crew_position} (1-4) is the feed's slot order; slot 1 is inferred to be
@@ -88,14 +90,15 @@ Failures are signalled as classed conditions, both inheriting
 for \code{date}.
 \item \code{wehoop_fetch_error} -- any other non-200 status (e.g. an Akamai HTML
 403 block, or a rate limit / 5xx that outlived the retries), an empty or
-non-JSON body, JSON without the \code{wnba} \code{Table}/\code{Table1} \code{rows} lists, or a
-transport failure (DNS, TLS, dropped connection). The feed carries the
-\code{wnba} block on every date, with zero rows on a day without games, so a
-missing block is never an empty day.
+non-JSON body, JSON without the \code{wnba} \code{Table}/\code{Table1} \code{rows} lists or
+with a \code{Table} row that has no \code{game_id}, or a transport failure (DNS,
+TLS, dropped connection). The feed carries the \code{wnba} block on every
+date, with zero rows on a day without games, so a missing block is never
+an empty day.
 }
 
-A malformed \code{date}, including an impossible one such as \code{"2026-02-31"}, is
-an ordinary error raised before any request.
+An invalid argument (\code{date} or \code{proxy}), including an impossible date such
+as \code{"2026-02-31"}, is an ordinary error raised before any request.
 
 Statuses 408, 429, 500, 502, 503 and 504 and transport failures are retried
 (3 attempts in total); 403 and 404 are definitive and never retried.

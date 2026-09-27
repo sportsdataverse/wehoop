@@ -17,9 +17,27 @@
   "4" = "playoffs", "5" = "play-in", "6" = "nba-cup-final"
 )
 
-.mdy_to_date <- function(x) {
-  if (is.null(x)) return(as.Date(NA))
-  as.Date(x, format = "%m/%d/%Y")
+# One parsed JSON field as one value, else NA. A null (NULL), an array or an
+# object (a list) would otherwise drop the row (a length-0 column recycles a
+# one-row tibble() to zero rows), duplicate it (a length-2 column makes two)
+# or raise.
+.scalar <- function(x) if (length(x) == 1L && !is.list(x)) x else NA
+
+# "MM/DD/YYYY" to Date, else NA. as.character() first: as.Date() ignores
+# `format` for a number (and counts days from 1970), and raises on a boolean.
+.mdy_to_date <- function(x) as.Date(as.character(.scalar(x)), format = "%m/%d/%Y")
+
+# Port of hoopR's .gid10(): zero-pads an all-digit game id of up to 10
+# characters and keeps anything else verbatim; a missing, empty or non-scalar
+# id is NA. It never raises and never fabricates an id. A number is formatted
+# without scientific notation, and `digits = 15` keeps a fractional part
+# visible: at format()'s default 7 digits, 1022600097.5 would round to
+# "1022600098", another game.
+.gid10 <- function(game_id) {
+  x <- .scalar(game_id)
+  if (is.na(x) || !nzchar(x)) return(NA_character_)
+  s <- if (is.numeric(x)) format(x, scientific = FALSE, trim = TRUE, digits = 15) else as.character(x)
+  if (grepl("^[0-9]{1,10}$", s)) paste0(strrep("0", 10L - nchar(s)), s) else s
 }
 
 # Typed zero-row prototypes for `purrr::list_rbind(ptype = )`: a date with no
@@ -58,29 +76,31 @@
   games <- block[["Table"]][["rows"]] %||% list()
   replay_rows <- block[["Table1"]][["rows"]] %||% list()
 
-  # A null field must become NA, never vanish: `as.character(NULL)` is
-  # `character(0)`, which recycles a one-row tibble() down to zero rows, and a
-  # bare NULL drops the column. `%||% NA` pins every field to length 1 first.
+  # Every field goes through .scalar(), so a null, array or object field comes
+  # back as NA: it never drops the row, duplicates it, or raises. A non-numeric
+  # or out-of-range id or season year is NA too, without a coercion warning.
   officials <- purrr::map(games, function(g) {
-    s <- as.character(g[["season"]] %||% "")
+    s <- as.character(.scalar(g[["season"]]))
     rows <- purrr::map(1:4, function(k) {
       name <- g[[paste0("official", k)]]
-      if (is.null(name) || identical(name, "")) return(NULL)
+      # An absent, null, "" or empty name is an empty slot. Any other name fills
+      # the slot and keeps its row, with NA as the name when it is not a scalar.
+      if (length(name) == 0L || identical(name, "")) return(NULL)
       dplyr::tibble(
         league = league,
-        game_id = if (is.null(g[["game_id"]])) NA_character_ else pad_id(g[["game_id"]]),
+        game_id = .gid10(g[["game_id"]]),
         game_date = .mdy_to_date(g[["game_date"]]),
-        season = if (identical(nchar(s), 5L)) as.integer(substr(s, 2, 5)) else NA_integer_,
+        season = if (identical(nchar(s), 5L)) suppressWarnings(as.integer(substr(s, 2, 5))) else NA_integer_,
         season_type = unname(.officiating_season_types[substr(s, 1, 1)]),
-        game_code = as.character(g[["game_code"]] %||% NA),
-        home_team_id = as.integer(g[["home_team_id"]] %||% NA),
-        home_team_abbr = as.character(g[["home_team_abbr"]] %||% NA),
-        away_team_id = as.integer(g[["away_team_id"]] %||% NA),
-        away_team_abbr = as.character(g[["away_team_abbr"]] %||% NA),
+        game_code = as.character(.scalar(g[["game_code"]])),
+        home_team_id = suppressWarnings(as.integer(.scalar(g[["home_team_id"]]))),
+        home_team_abbr = as.character(.scalar(g[["home_team_abbr"]])),
+        away_team_id = suppressWarnings(as.integer(.scalar(g[["away_team_id"]]))),
+        away_team_abbr = as.character(.scalar(g[["away_team_abbr"]])),
         crew_position = k,
-        official_id = as.integer(g[[paste0("official", k, "_code")]] %||% NA),
-        official_name = as.character(name),
-        jersey_num = as.character(g[[paste0("official", k, "_JNum")]] %||% NA)
+        official_id = suppressWarnings(as.integer(.scalar(g[[paste0("official", k, "_code")]]))),
+        official_name = as.character(.scalar(name)),
+        jersey_num = as.character(.scalar(g[[paste0("official", k, "_JNum")]]))
       )
     })
     purrr::list_rbind(purrr::compact(rows), ptype = .OFFICIALS_PTYPE)
@@ -90,8 +110,8 @@
     dplyr::tibble(
       league = league,
       game_date = .mdy_to_date(r[["game_date"]]),
-      official_id = as.integer(r[["official_code"]] %||% NA),
-      official_name = as.character(r[["replaycenter_official"]] %||% NA)
+      official_id = suppressWarnings(as.integer(.scalar(r[["official_code"]]))),
+      official_name = as.character(.scalar(r[["replaycenter_official"]]))
     )
   })
 
@@ -113,7 +133,9 @@ NULL
 #' every WNBA game on `date`, from official.nba.com's internal
 #' `get-game-officials` endpoint (the same feed used by the NBA officiating
 #' pages). That endpoint returns NBA and G-League blocks in the same
-#' payload; this function extracts only `"wnba"`.
+#' payload; this function extracts only `"wnba"`. Port of the scraping logic
+#' in \href{https://github.com/atlhawksfanatic/L2M}{atlhawksfanatic/L2M} (MIT,
+#' (c) 2019 atlhawksfanatic).
 #' @param date Date to fetch: a single `Date`, `POSIXct`/`POSIXlt`, or
 #'   `"YYYY-MM-DD"` string. Date-times are formatted in their own time zone,
 #'   so a late-evening `POSIXct` keeps its calendar day.
@@ -134,8 +156,8 @@ NULL
 #'       game_id \tab character \tab 10-character zero-padded game id. \cr
 #'       game_date \tab Date \tab Game date. \cr
 #'       season \tab integer \tab Season (the START year of the feed's season
-#'       code; one calendar year for the WNBA). NA when the code is missing or
-#'       not 5 characters. \cr
+#'       code; one calendar year for the WNBA). NA when the code is missing,
+#'       not 5 characters, or its year is not numeric. \cr
 #'       season_type \tab character \tab One of preseason / regular /
 #'       all-star / playoffs / play-in / nba-cup-final, from the season code's
 #'       leading digit. NA when the code is missing or the digit is unknown. \cr
@@ -183,13 +205,14 @@ NULL
 #'   for `date`.
 #' * `wehoop_fetch_error` -- any other non-200 status (e.g. an Akamai HTML
 #'   403 block, or a rate limit / 5xx that outlived the retries), an empty or
-#'   non-JSON body, JSON without the `wnba` `Table`/`Table1` `rows` lists, or a
-#'   transport failure (DNS, TLS, dropped connection). The feed carries the
-#'   `wnba` block on every date, with zero rows on a day without games, so a
-#'   missing block is never an empty day.
+#'   non-JSON body, JSON without the `wnba` `Table`/`Table1` `rows` lists or
+#'   with a `Table` row that has no `game_id`, or a transport failure (DNS,
+#'   TLS, dropped connection). The feed carries the `wnba` block on every
+#'   date, with zero rows on a day without games, so a missing block is never
+#'   an empty day.
 #'
-#' A malformed `date`, including an impossible one such as `"2026-02-31"`, is
-#' an ordinary error raised before any request.
+#' An invalid argument (`date` or `proxy`), including an impossible date such
+#' as `"2026-02-31"`, is an ordinary error raised before any request.
 #'
 #' Statuses 408, 429, 500, 502, 503 and 504 and transport failures are retried
 #' (3 attempts in total); 403 and 404 are definitive and never retried.
@@ -208,7 +231,7 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
   if (length(day) != 1L || is.na(day) || !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", day) ||
       is.na(parsed) || format(parsed, "%Y-%m-%d") != day) {
     cli::cli_abort(
-      "{.arg date} must be a single Date, POSIXct/POSIXlt, or valid \"YYYY-MM-DD\" date string, not {.val {day}}."
+      "{.arg date} must be a single Date, POSIXct/POSIXlt, or valid \"YYYY-MM-DD\" date string, not {.val {date}}."
     )
   }
 
@@ -265,8 +288,10 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
       call = call
     )
   }
+  # parse_json(), not fromJSON(): fromJSON() treats a short body that names a
+  # URL or an existing file as a location to read, not as JSON text.
   payload <- tryCatch(
-    jsonlite::fromJSON(body, simplifyVector = FALSE),
+    jsonlite::parse_json(body, simplifyVector = FALSE),
     error = function(cnd) {
       cli::cli_abort(
         "official.nba.com returned an empty or non-JSON body for {.url {url}}.",
@@ -289,9 +314,14 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
     is.list(r) && is.null(names(r)) &&
       all(vapply(r, function(x) is.list(x) && !is.null(names(x)), logical(1)))
   }
-  if (!is.list(block) || !has_rows("Table") || !has_rows("Table1")) {
+  # As in the sdv-py oracle, every game row must carry one non-empty game_id: a
+  # row without one could never be joined to anything.
+  has_game_ids <- function() {
+    all(vapply(block[["Table"]][["rows"]], function(g) !is.na(.gid10(g[["game_id"]])), logical(1)))
+  }
+  if (!is.list(block) || !has_rows("Table") || !has_rows("Table1") || !has_game_ids()) {
     cli::cli_abort(
-      "official.nba.com returned no {.val wnba} Table/Table1 block for {day} ({.url {url}}).",
+      "official.nba.com returned a missing or malformed {.val wnba} Table/Table1 block for {day} ({.url {url}}).",
       class = c("wehoop_fetch_error", "wehoop_error"),
       call = call
     )

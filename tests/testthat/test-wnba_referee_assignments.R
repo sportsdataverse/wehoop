@@ -112,6 +112,69 @@ test_that("string-encoded ids are coerced to integer", {
   expect_identical(result$replay_center$official_id, 101284L)
 })
 
+test_that("game_id is zero-padded only when all digits; it never raises or fabricates an id", {
+  gid <- function(game_id) {
+    raw <- list(wnba = list(Table = list(rows = list(list(game_id = game_id, official1 = "Kevin Fahy")))))
+    .parse_wnba_referee_assignments(raw, league = "wnba")$officials$game_id
+  }
+  expect_identical(gid("1022600097"), "1022600097")
+  expect_identical(gid("22600097"), "0022600097")
+  expect_identical(gid(1022600097), "1022600097")
+  # Never scientific notation ("001.02e+09").
+  expect_identical(gid(1020000000), "1020000000")
+  # Too long or fractional: kept verbatim, never an error or a rounded id.
+  expect_identical(gid("10226000971"), "10226000971")
+  expect_identical(gid(1022600097.5), "1022600097.5")
+  expect_identical(gid("abc"), "abc")
+  expect_identical(gid(""), NA_character_)
+  expect_identical(gid(list("1022600097")), NA_character_)
+})
+
+test_that("an array, object, boolean or number in a scalar field becomes NA -- no extra, lost or failed row", {
+  game <- list(
+    game_id = "1022600097", game_date = "06/13/2026", season = "22026",
+    game_code = "20260613/INDCON",
+    home_team_id = "1611661323", home_team_abbr = "CON",
+    away_team_id = "1611661325", away_team_abbr = "IND",
+    official1 = "Kevin Fahy", official1_code = "1628952", official1_JNum = "43"
+  )
+  bad <- game
+  bad["game_date"] <- list(20260613)          # a number, not days since 1970
+  bad["game_code"] <- list(list())            # [] must not drop the row
+  bad["official1_code"] <- list(list(1L, 2L)) # [1,2] must not duplicate it
+  bad["home_team_id"] <- list("abc")          # NA without a coercion warning
+  bad["away_team_id"] <- list(3e9)            # out of integer range
+  bad["season"] <- list("2abcd")              # year not numeric
+  obj_date <- game
+  obj_date["game_date"] <- list(list(a = 1L))
+  lgl_date <- game
+  lgl_date["game_date"] <- list(TRUE)
+  arr_name <- game
+  arr_name["official1"] <- list(list("Kevin", "Fahy"))
+  raw <- list(wnba = list(
+    Table = list(rows = list(bad, obj_date, lgl_date, arr_name)),
+    Table1 = list(rows = list(list(game_date = "06/13/2026", official_code = "101284", replaycenter_official = list())))
+  ))
+
+  result <- expect_silent(.parse_wnba_referee_assignments(raw, league = "wnba"))
+
+  officials <- result$officials
+  expect_equal(nrow(officials), 4L)
+  expect_identical(col_classes(officials), officials_schema)
+  expect_identical(is.na(officials$game_date), c(TRUE, TRUE, TRUE, FALSE))
+  expect_true(is.na(officials$game_code[1]))
+  expect_true(is.na(officials$official_id[1]))
+  expect_true(is.na(officials$home_team_id[1]))
+  expect_true(is.na(officials$away_team_id[1]))
+  expect_true(is.na(officials$season[1]))
+  expect_identical(officials$official_id[4], 1628952L)
+  expect_true(is.na(officials$official_name[4]))
+
+  expect_equal(nrow(result$replay_center), 1L)
+  expect_identical(result$replay_center$official_id, 101284L)
+  expect_true(is.na(result$replay_center$official_name))
+})
+
 test_that("end to end: a mocked 200 returns wehoop_data tibbles matching the goldens", {
   local_official_response(official_response(200L, "referee_assignments_2026-06-13.json"))
   result <- wnba_referee_assignments("2026-06-13")
@@ -160,10 +223,14 @@ test_that("a malformed, multi-value or NA date is rejected before any request", 
   expect_error(wnba_referee_assignments("2026-02-31"), regexp = "YYYY-MM-DD")
 })
 
-test_that("a response without the wnba Table/Table1 block is a fetch error, not an empty day", {
+test_that("a missing or malformed wnba Table/Table1 block is a fetch error, not an empty day", {
   # The live feed carries every league's block on every date (zero rows on a
   # day without games), so a missing block is an error envelope or a new schema.
-  for (json in c('{"nba":{"Table":{"rows":[]},"Table1":{"rows":[]}}}',
+  # A game row without a game_id could never be joined, so it fails the same way.
+  for (json in c('{"wnba":{"Table":{"rows":[{"official1":"Kevin Fahy"}]},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":[{}]},"Table1":{"rows":[]}}}',
+                 '{"wnba":{"Table":{"rows":[{"game_id":"","official1":"Kevin Fahy"}]},"Table1":{"rows":[]}}}',
+                 '{"nba":{"Table":{"rows":[]},"Table1":{"rows":[]}}}',
                  '{"wnba":{"Table":{"rows":[]}}}',
                  '{"message":"error"}',
                  '{"wnba":{"Table":null,"Table1":{"rows":[]}}}',
@@ -200,6 +267,8 @@ test_that("a block, a bad status, an empty or non-JSON body, or a transport fail
     bodiless_503 = httr2::response(status_code = 503L),
     empty_200 = httr2::response(status_code = 200L),
     html_200 = official_response(200L, "akamai_403_blocked_ua.html"),
+    # A body that names a local file is not JSON; it must never be read from disk.
+    path_200 = httr2::response(200L, body = charToRaw(normalizePath(official_fixture("referee_assignments_2026-06-13.json")))),
     transport = function(req) stop("simulated connection reset")
   )
   for (nm in names(cases)) {
@@ -216,7 +285,24 @@ test_that("a caller mistake surfaces as itself, not as a wehoop_fetch_error", {
   expect_false(inherits(cnd, "wehoop_fetch_error"))
 })
 
+test_that("the wehoop.proxy option is the fallback proxy; an explicit proxy wins", {
+  seen <- NULL
+  local_official_response(function(req) {
+    seen <<- req$options$proxy
+    empty_200()
+  })
+  old <- options(wehoop.proxy = "http://127.0.0.1:9")
+  tryCatch({
+    wnba_referee_assignments("2026-06-13")
+    expect_identical(seen, "http://127.0.0.1:9")
+    wnba_referee_assignments("2026-06-13", proxy = "http://127.0.0.2:9")
+    expect_identical(seen, "http://127.0.0.2:9")
+  }, finally = options(old))
+})
+
 test_that("retries cover transient statuses and transport failures, never 403/404", {
+  # Reads httr2 internals (`req$policies`), which a new httr2 may rename.
+  skip_on_cran()
   sent <- NULL
   local_official_response(function(req) {
     sent <<- req
