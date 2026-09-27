@@ -281,8 +281,14 @@ wnba_referee_assignments <- function(date, proxy = NULL) {
   # (zero rows on a day without games), so a missing block is a changed schema
   # or an error envelope, not a day without WNBA games.
   block <- if (is.list(payload)) payload[["wnba"]] else NULL
-  # Each table must hold a rows list; a null table or missing rows is not an empty day.
-  has_rows <- function(t) is.list(block[[t]]) && is.list(block[[t]][["rows"]])
+  # Each table must hold a rows array of row objects: with simplifyVector = FALSE a
+  # JSON array is an unnamed list and an object a named one. A null table, missing
+  # rows, or rows that are an object or scalars is not an empty day.
+  has_rows <- function(t) {
+    r <- if (is.list(block[[t]])) block[[t]][["rows"]] else NULL
+    is.list(r) && is.null(names(r)) &&
+      all(vapply(r, function(x) is.list(x) && !is.null(names(x)), logical(1)))
+  }
   if (!is.list(block) || !has_rows("Table") || !has_rows("Table1")) {
     cli::cli_abort(
       "official.nba.com returned no {.val wnba} Table/Table1 block for {day} ({.url {url}}).",
