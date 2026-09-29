@@ -729,7 +729,9 @@ wnba_todays_scoreboard <- function(
 
   tryCatch(
     expr = {
-      full_url <- "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_10.json"
+      # The WNBA's own host. cdn.nba.com also serves a todaysScoreboard_10.json,
+      # but it has been frozen at 2020-10-06 (one 2020 Finals game), not today.
+      full_url <- paste0(wnba_live_endpoint("scoreboard"), "/todaysScoreboard_10.json")
       res <- .retry_request(full_url, headers = .wnba_cdn_headers())
 
       resp <- res %>%

@@ -31,6 +31,8 @@
 
 * `wnba_todays_scoreboard()` returned nothing on every call: it sent no
   browser headers, and cdn.nba.com answered with a 403 "Access Denied" page.
+  It also read cdn.nba.com's `todaysScoreboard_10.json`, which has been frozen
+  at 2020-10-06; it now reads the current one on cdn.wnba.com.
   The four CDN wrappers (`wnba_live_pbp()`, `wnba_live_boxscore()`,
   `wnba_schedule()` and `wnba_todays_scoreboard()`) now share one header set
   that adds Chrome's client hints and fetch metadata, as hoopR's NBA CDN

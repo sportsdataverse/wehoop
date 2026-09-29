@@ -40,6 +40,8 @@ test_that("every WNBA CDN wrapper sends the shared browser header set", {
   })
 
   expect_length(seen, 4)
+  # The scoreboard comes from the WNBA's own host: cdn.nba.com's copy is frozen at 2020.
+  expect_in("https://cdn.wnba.com/static/json/liveData/scoreboard/todaysScoreboard_10.json", names(seen))
   for (url in names(seen)) {
     expect_identical(seen[[url]]$headers, .wnba_cdn_headers(), info = url)
   }
