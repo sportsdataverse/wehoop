@@ -743,7 +743,11 @@ wnba_todays_scoreboard <- function(
         purrr::pluck("games")
 
       # A day without games ships `games: []`, which fromJSON reads as an empty
-      # list: that is an empty scoreboard, not an error.
+      # list: that is an empty scoreboard, not an error. A payload without a
+      # games list at all is a changed feed, never an empty day.
+      if (!is.list(raw_games) || (!is.data.frame(raw_games) && length(raw_games) > 0)) {
+        stop("the scoreboard payload has no games list")
+      }
       if (is.data.frame(raw_games) && nrow(raw_games) > 0) {
         games <- raw_games %>%
           tidyr::unnest("homeTeam", names_sep = '_') %>%

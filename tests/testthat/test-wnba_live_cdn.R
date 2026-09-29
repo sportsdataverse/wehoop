@@ -98,3 +98,40 @@ test_that("wnba_todays_scoreboard() on a day without games is empty, not an erro
   expect_silent(out <- wnba_todays_scoreboard())
   expect_equal(nrow(out), 0)
 })
+
+test_that("wnba_todays_scoreboard() reports a payload without a games list, not an empty day", {
+  local_mocked_bindings(
+    .retry_request = function(url, params = list(), headers = NULL, ...) {
+      httr2::response(
+        200L,
+        headers = list(`Content-Type` = "application/json"),
+        body = charToRaw('{"scoreboard":{"gameDate":"2026-09-29","leagueId":"10"}}')
+      )
+    }
+  )
+  expect_message(wnba_todays_scoreboard(), "no games list")
+})
+
+test_that("wnba_schedule() and wnba_todays_scoreboard() keep their result through a parse warning", {
+  local_mocked_bindings(
+    .retry_request = function(url, params = list(), headers = NULL, ...) {
+      body <- if (grepl("schedule", url, fixed = TRUE)) {
+        paste0(
+          '{"leagueSchedule":{"seasonYear":"2026","leagueId":"10","gameDates":[{"gameDate":',
+          '"05/16/2026 00:00:00","games":[{"gameId":"1022600001","homeTeam":{"teamId":1},"awayTeam":{"teamId":2}}]}]}}'
+        )
+      } else {
+        '{"scoreboard":{"gameDate":"2026-09-29","leagueId":"10","games":[]}}'
+      }
+      httr2::response(200L, headers = list(`Content-Type` = "application/json"), body = charToRaw(body))
+    }
+  )
+  resp_text <- .resp_text
+  local_mocked_bindings(.resp_text = function(resp) {
+    warning("simulated parse warning")
+    resp_text(resp)
+  })
+  expect_warning(sched <- wnba_schedule(season = 2026), "simulated")
+  expect_equal(nrow(sched), 1)
+  expect_warning(wnba_todays_scoreboard(), "simulated")
+})

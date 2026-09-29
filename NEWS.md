@@ -37,7 +37,8 @@
   wrappers do. The old set only worked over HTTP/2; over HTTP/1.1 cdn.nba.com
   answered 403 and cdn.wnba.com a 200 HTML page instead of the JSON
   (verified on Windows R). On a day without games the scoreboard now returns
-  an empty result instead of printing an `unnest` error, and a warning raised
+  an empty result instead of printing an `unnest` error (a payload with no
+  games list at all is still reported), and a warning raised
   while parsing no longer discards the result: the wrappers' `warning`
   handler abandoned the parse at the first warning. New offline tests parse
   captured cdn.wnba.com payloads.
