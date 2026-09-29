@@ -97,19 +97,34 @@ request_with_proxy <- function(url,
   return(json)
 }
 
-# Browser-like headers required by the WNBA CDN (cdn.wnba.com). Without them
-# the CDN returns an "Access Denied" HTML page instead of JSON. Shared by the
-# live-data wrappers (wnba_live_pbp, wnba_live_boxscore); mirrors hoopR's
-# .nba_cdn_headers.
+# Browser headers for the WNBA CDN wrappers (wnba_live_pbp, wnba_live_boxscore,
+# wnba_schedule, wnba_todays_scoreboard), mirroring hoopR's .nba_cdn_headers().
+# Probed 2026-09-29 from a residential IP (Windows R 4.6.1) on cdn.wnba.com and
+# cdn.nba.com, over HTTP/2 and HTTP/1.1:
+# - No browser headers: 403 "Access Denied" on both hosts and protocols.
+# - The previous five-header set (a Chrome/120 User-Agent, Accept,
+#   Accept-Language, Origin, Referer): the JSON over HTTP/2 only. Over HTTP/1.1
+#   cdn.nba.com answered 403 and cdn.wnba.com a 200 HTML page, not the JSON.
+# - This set, which adds the client hints (sec-ch-*) and fetch metadata
+#   (Sec-Fetch-*): the JSON on both hosts over both protocols.
+# Chrome 140. To move to another version, copy the WHOLE sec-ch-ua value from a
+# real Chrome of the User-Agent's major version: Chromium derives the
+# placeholder brand and the brand order from the major version.
 .wnba_cdn_headers <- function() {
   c(
+    `sec-ch-ua` = '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"',
+    `sec-ch-ua-mobile` = "?0",
+    `sec-ch-ua-platform` = '"Windows"',
     `User-Agent` = paste0(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ",
-      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"),
+      "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"),
     `Accept` = "application/json, text/plain, */*",
-    `Accept-Language` = "en-US,en;q=0.9",
     `Origin` = "https://www.wnba.com",
-    `Referer` = "https://www.wnba.com/"
+    `Sec-Fetch-Site` = "same-site",
+    `Sec-Fetch-Mode` = "cors",
+    `Sec-Fetch-Dest` = "empty",
+    `Referer` = "https://www.wnba.com/",
+    `Accept-Language` = "en-US,en;q=0.9"
   )
 }
 

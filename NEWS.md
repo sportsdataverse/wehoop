@@ -29,6 +29,18 @@
 
 # **wehoop 3.0.0.9000 (development version)**
 
+* `wnba_todays_scoreboard()` returned nothing on every call: it sent no
+  browser headers, and cdn.nba.com answered with a 403 "Access Denied" page.
+  The four CDN wrappers (`wnba_live_pbp()`, `wnba_live_boxscore()`,
+  `wnba_schedule()` and `wnba_todays_scoreboard()`) now share one header set
+  that adds Chrome's client hints and fetch metadata, as hoopR's NBA CDN
+  wrappers do. The old set only worked over HTTP/2; over HTTP/1.1 cdn.nba.com
+  answered 403 and cdn.wnba.com a 200 HTML page instead of the JSON
+  (verified on Windows R). On a day without games the scoreboard now returns
+  an empty result instead of printing an `unnest` error, and a warning raised
+  while parsing no longer discards the result: the wrappers' `warning`
+  handler abandoned the parse at the first warning. New offline tests parse
+  captured cdn.wnba.com payloads.
 * Eight new loaders read the `wbb_groups` and `wnba_groups` releases on
   sportsdataverse-data, which record conference and division membership as
   it was each season rather than back-applying today's alignment:

@@ -1432,7 +1432,6 @@ wnba_live_pbp <- function(
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1861,7 +1860,6 @@ wnba_live_boxscore <- function(
       hint = "Invalid arguments or no boxscore data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
