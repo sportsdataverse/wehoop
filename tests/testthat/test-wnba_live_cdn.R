@@ -1,5 +1,5 @@
-# The WNBA CDN wrappers: wnba_live_pbp(), wnba_live_boxscore(), wnba_schedule()
-# (cdn.wnba.com) and wnba_todays_scoreboard() (cdn.nba.com). See .wnba_cdn_headers()
+# The WNBA CDN wrappers: wnba_live_pbp(), wnba_live_boxscore(), wnba_schedule() and
+# wnba_todays_scoreboard(), all on cdn.wnba.com. See .wnba_cdn_headers()
 # for the 2026-09-29 probe: no browser headers got a 403 on both hosts, and the old
 # five-header set got the JSON over HTTP/2 only.
 
@@ -99,6 +99,7 @@ test_that("wnba_todays_scoreboard() on a day without games is empty, not an erro
   )
   expect_silent(out <- wnba_todays_scoreboard())
   expect_equal(nrow(out), 0)
+  expect_s3_class(out, "wehoop_data")
 })
 
 test_that("wnba_todays_scoreboard() reports a payload without a games list, not an empty day", {

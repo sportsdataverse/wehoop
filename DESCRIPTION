@@ -57,7 +57,7 @@ Suggests:
     rmarkdown (>= 2.6.0),
     RSQLite,
     stats,
-    testthat (>= 3.0.0),
+    testthat (>= 3.1.9),
     tibble (>= 3.0),
     tictoc,
     usethis (>= 1.6.0),

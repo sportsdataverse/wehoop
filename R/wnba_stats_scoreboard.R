@@ -762,10 +762,10 @@ wnba_todays_scoreboard <- function(
         colnames(games) <- gsub("homeTeam","home", colnames(games))
         colnames(games) <- gsub("awayTeam","away", colnames(games))
 
-        games <- games %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Today's Scoreboard Information from NBA.com", Sys.time())
+        games <- janitor::clean_names(games)
       }
+      # One finalization for both a day with games and an empty day.
+      games <- make_wehoop_data(games, "WNBA Today's Scoreboard Information from WNBA.com", Sys.time())
       
     },
     error = function(e) .report_api_error(
