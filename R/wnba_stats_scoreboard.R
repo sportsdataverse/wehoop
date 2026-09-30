@@ -87,22 +87,12 @@ wnba_schedule <- function(
   # available through load_wnba_schedule(seasons = ...), which reads cached
   # ESPN snapshots from the sportsdataverse-data release artifacts.
   cdn_url <- "https://cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json"
-  cdn_headers <- c(
-    `User-Agent` = paste0(
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ",
-      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"),
-    `Accept` = "application/json, text/plain, */*",
-    `Accept-Language` = "en-US,en;q=0.9",
-    `Origin` = "https://www.wnba.com",
-    `Referer` = "https://www.wnba.com/"
-  )
-
   games <- NULL
 
   tryCatch(
     expr = {
 
-      resp <- .retry_request(cdn_url, headers = cdn_headers) %>%
+      resp <- .retry_request(cdn_url, headers = .wnba_cdn_headers()) %>%
         .resp_text() %>%
         jsonlite::fromJSON()
 
@@ -147,7 +137,6 @@ wnba_schedule <- function(
       hint = "Invalid arguments or no league schedule data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -740,8 +729,10 @@ wnba_todays_scoreboard <- function(
 
   tryCatch(
     expr = {
-      full_url <- "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_10.json"
-      res <- .retry_request(full_url)
+      # The WNBA's own host. cdn.nba.com also serves a todaysScoreboard_10.json,
+      # but it has been frozen at 2020-10-06 (one 2020 Finals game), not today.
+      full_url <- paste0(wnba_live_endpoint("scoreboard"), "/todaysScoreboard_10.json")
+      res <- .retry_request(full_url, headers = .wnba_cdn_headers())
 
       resp <- res %>%
         .resp_text() %>%
@@ -750,29 +741,38 @@ wnba_todays_scoreboard <- function(
       scoreboard <- resp %>%
         purrr::pluck("scoreboard")
       
-      games <- scoreboard %>%
-        purrr::pluck("games") %>%
-        tidyr::unnest("homeTeam", names_sep = '_') %>%
-        tidyr::unnest("awayTeam", names_sep = '_') %>%
-        tidyr::unnest("gameLeaders") %>%
-        tidyr::unnest("homeLeaders", names_sep = '_') %>%
-        tidyr::unnest("awayLeaders", names_sep = '_') %>%
-        tidyr::unnest("pbOdds", names_sep = '_')
-      
-      colnames(games) <- gsub("homeTeam","home", colnames(games))
-      colnames(games) <- gsub("awayTeam","away", colnames(games))
-      
-      games <- games %>%
-        janitor::clean_names() %>%
-        make_wehoop_data("WNBA Today's Scoreboard Information from NBA.com", Sys.time())
+      raw_games <- scoreboard %>%
+        purrr::pluck("games")
+
+      # A day without games ships `games: []`, which fromJSON reads as an empty
+      # list: that is an empty scoreboard, not an error. A payload without a
+      # games list at all is a changed feed, never an empty day.
+      if (!is.list(raw_games) || (!is.data.frame(raw_games) && length(raw_games) > 0)) {
+        stop("the scoreboard payload has no games list")
+      }
+      if (is.data.frame(raw_games) && nrow(raw_games) > 0) {
+        games <- raw_games %>%
+          tidyr::unnest("homeTeam", names_sep = '_') %>%
+          tidyr::unnest("awayTeam", names_sep = '_') %>%
+          tidyr::unnest("gameLeaders") %>%
+          tidyr::unnest("homeLeaders", names_sep = '_') %>%
+          tidyr::unnest("awayLeaders", names_sep = '_') %>%
+          tidyr::unnest("pbOdds", names_sep = '_')
+
+        colnames(games) <- gsub("homeTeam","home", colnames(games))
+        colnames(games) <- gsub("awayTeam","away", colnames(games))
+
+        games <- janitor::clean_names(games)
+      }
+      # One finalization for both a day with games and an empty day.
+      games <- make_wehoop_data(games, "WNBA Today's Scoreboard Information from WNBA.com", Sys.time())
       
     },
     error = function(e) .report_api_error(
       e,
-      hint = "Invalid arguments or no today's scoreboard data for {game_date} available!",
+      hint = "Invalid arguments or no today's scoreboard data available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
