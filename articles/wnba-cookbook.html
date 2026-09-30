@@ -363,8 +363,7 @@ run. You want to <em>see</em> it – a win-probability line.</p>
 <span><span class="co"># so lift a real one off the schedule first.</span></span>
 <span><span class="va">sched</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wnba_schedule.html">wnba_schedule</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">sched</span><span class="op">$</span><span class="va">game_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `if (zeros == 0) ...`:</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> argument is of length zero</span></span></code></pre></div>
+<span><span class="co">#&gt; list()</span></span></code></pre></div>
 <p>The grammar doing real work: when two functions look like
 near-synonyms, the <em>prefix</em> is the tiebreaker.
 <code>espn_wnba_*</code> is ESPN’s take; <code>wnba_*</code> is
@@ -522,7 +521,7 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: stat_abbrev &lt;chr&gt;, stat_display &lt;chr&gt;, value &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   display_value &lt;chr&gt;, rank &lt;int&gt;, rank_display_value &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_team_record.html">espn_wnba_team_record</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 14</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 14</span></span></span>
 <span><span class="co">#&gt;   league team_id season season_type record_id name     abbreviation display_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> wnba   17        <span style="text-decoration: underline;">2</span>026           2 0         overall  Total        Overall     </span></span>
@@ -532,6 +531,7 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 0         overall  Total        Overall     </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 33        Home     <span style="color: #BB0000;">NA</span>           Home        </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 34        Road     <span style="color: #BB0000;">NA</span>           Road        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 901       Last Te… Last Ten     Last Ten Ga…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: short_display_name &lt;chr&gt;, description &lt;chr&gt;, type &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   summary &lt;chr&gt;, display_value &lt;chr&gt;, value &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>Notice the family: <code>team_season_profile</code>,

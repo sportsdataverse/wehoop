@@ -198,7 +198,7 @@ Saiem Gilani
   espn_wbb_team(team_id = "2509", season = 2025)
 #> $Info
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Info from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-09-27 21:20:49 UTC
+#> ℹ Data updated: 2026-09-30 01:51:52 UTC
 #> # A tibble: 1 × 13
 #>   id    uid    slug  abbreviation display_name short_display_name name  nickname
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -211,7 +211,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Next Event from ESPN.com ────────────────
-#> ℹ Data updated: 2026-09-27 21:20:49 UTC
+#> ℹ Data updated: 2026-09-30 01:51:52 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                                    short_name
 #>   <chr>     <chr>             <chr>                                   <chr>     
@@ -219,7 +219,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Standing Summary from ESPN.com ──────────
-#> ℹ Data updated: 2026-09-27 21:20:49 UTC
+#> ℹ Data updated: 2026-09-30 01:51:52 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           
@@ -232,8 +232,8 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_roster(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Roster from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-09-27 21:20:49 UTC
-#> # A tibble: 13 × 15
+#> ℹ Data updated: 2026-09-30 01:51:52 UTC
+#> # A tibble: 12 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
 #>  1 5311737    Carley B… 24     G               Guard         "5' 7… NA     NA   
@@ -247,8 +247,7 @@ Saiem Gilani
 #>  9 5240041    Lana McC… 35     F               Forward       "6' 4… NA     NA   
 #> 10 5240040    Kendall … 22     F               Forward       "6' 3… NA     NA   
 #> 11 5239064    Kiki Smi… 23     G               Guard         "5' 7… NA     NA   
-#> 12 5243531    Nya Smith 3      G               Guard         "5' 9… NA     NA   
-#> 13 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
+#> 12 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 # }
@@ -259,7 +258,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Profile from ESPN.com ────────────
-#> ℹ Data updated: 2026-09-27 21:20:49 UTC
+#> ℹ Data updated: 2026-09-30 01:51:52 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <chr>    <chr>        <chr>       

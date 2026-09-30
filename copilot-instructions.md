@@ -280,11 +280,12 @@ regions by hand.
   two:
 
   - `NEWS.md` — all new bullets go under the most recent **unreleased**
-    version heading (currently `# **wehoop 3.0.0**`). Do NOT create a
-    new version section ahead of release; extend the existing
-    subsections (`### Bug fixes`, `### Deprecations`,
-    `### Test infrastructure`, …). After the release ships the rule
-    rolls forward to the next dev version.
+    version heading (currently
+    `# **wehoop 3.0.0.9000 (development version)**`; 3.0.0 shipped to
+    CRAN on 2026-08-24). Do NOT create a new version section ahead of
+    release; extend the existing subsections (`### Bug fixes`,
+    `### Deprecations`, `### Test infrastructure`, …). After the release
+    ships the rule rolls forward to the next dev version.
   - `cran-comments.md` — every user-visible / behavioral change in
     `NEWS.md` should be reflected in `cran-comments.md` before
     submission. Internal-only changes (refactors, test infra, dev

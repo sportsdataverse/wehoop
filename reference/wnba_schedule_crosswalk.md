@@ -39,13 +39,26 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(wnba_schedule_crosswalk(season = 2024))
-#> ✖ 2026-09-27 21:23:50.651946: Invalid arguments or no league schedule data for 2024 available!
-#> ✖ Args: league_id = "10", season = 2024
-#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
-#> ✖ 2026-09-27 21:23:50.785421: Invalid arguments or no league schedule data for 2024 available!
-#> ✖ Args: league_id = "10", season = 2024
-#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
-#> Error in UseMethod("transmute") : 
-#>   no applicable method for 'transmute' applied to an object of class "NULL"
+#> ℹ WNBA CDN schedule is for season 2026, not 2024. For historical seasons use `load_wnba_schedule(seasons = 2024)`.
+#> ── WNBA schedule crosswalk (ESPN / WNBA Stats) ──────────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-30 02:10:52 UTC
+#> # A tibble: 403 × 16
+#>    season season_type game_date  home_espn_team_id away_espn_team_id
+#>     <int> <chr>       <date>                 <int>             <int>
+#>  1   2024 Pre-Season  2026-04-25                 9                 5
+#>  2   2024 NA          2026-04-25                 6             17476
+#>  3   2024 Pre-Season  2026-04-25                11                19
+#>  4   2024 Pre-Season  2026-04-25                16                 8
+#>  5   2024 Pre-Season  2026-04-25            129689                14
+#>  6   2024 NA          2026-04-26                17             17475
+#>  7   2024 NA          2026-04-27                 8             17476
+#>  8   2024 Pre-Season  2026-04-29            131935                18
+#>  9   2024 Pre-Season  2026-04-29                19                20
+#> 10   2024 Pre-Season  2026-04-29                14            132052
+#> # ℹ 393 more rows
+#> # ℹ 11 more variables: espn_game_id <chr>, wnba_game_id <chr>,
+#> #   wnba_game_code <chr>, wnba_home_team_id <chr>, wnba_away_team_id <chr>,
+#> #   fox_game_id <chr>, fox_home_team_id <chr>, fox_away_team_id <chr>,
+#> #   yahoo_game_id <chr>, match_method <chr>, match_confidence <dbl>
 # }
 ```

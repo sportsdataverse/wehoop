@@ -734,7 +734,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 45,296 × 18
+#> # A tibble: 45,833 × 18
 #>    game_id    season period clock     team_id team_tricode person_id player_name
 #>    <chr>       <int>  <int> <chr>       <int> <chr>            <int> <chr>      
 #>  1 1022600001   2026      1 PT09M44.…  1.61e9 CON            1642800 Morrow     
@@ -747,7 +747,7 @@ Saiem Gilani
 #>  8 1022600001   2026      1 PT07M36.…  1.61e9 CON             203398 Griner     
 #>  9 1022600001   2026      1 PT07M20.…  1.61e9 NYL            1629546 Johannes   
 #> 10 1022600001   2026      1 PT07M06.…  1.61e9 NYL             204335 Laney-Hami…
-#> # ℹ 45,286 more rows
+#> # ℹ 45,823 more rows
 #> # ℹ 10 more variables: action_type <chr>, sub_type <chr>, shot_result <chr>,
 #> #   shot_value <int>, shot_distance <int>, x_legacy <int>, y_legacy <int>,
 #> #   description <chr>, score_home <chr>, score_away <chr>
@@ -755,7 +755,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 948 × 10
+#> # A tibble: 958 × 10
 #>    player_id first_name last_name        jersey_num  team_id team_city team_name
 #>        <int> <chr>      <chr>            <chr>         <int> <chr>     <chr>    
 #>  1   1630469 Marine     Fauthoux         "4   "       1.61e9 New York  Liberty  
@@ -768,13 +768,13 @@ Saiem Gilani
 #>  8   1643424 Costanza   Verona           "6   "       1.61e9 Dallas    Wings    
 #>  9   1630389 Dana       Evans            "11  "       1.61e9 Las Vegas Aces     
 #> 10   1643434 Janiah     Barker           "2   "       1.61e9 Las Vegas Aces     
-#> # ℹ 938 more rows
+#> # ℹ 948 more rows
 #> # ℹ 3 more variables: team_abbreviation <chr>, season <int>, game_id <chr>
 # }
 # \donttest{
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 990 × 6
+#> # A tibble: 1,004 × 6
 #>    official_id first_name last_name        jersey_num season game_id   
 #>          <int> <chr>      <chr>            <chr>       <int> <chr>     
 #>  1      100274 Roy        Gulbeyan         "42  "       2026 1022600001
@@ -787,25 +787,25 @@ Saiem Gilani
 #>  8     1641525 Sarah      Williams         "44  "       2026 1022600003
 #>  9     1642142 Josh       Reed             "46  "       2026 1022600003
 #> 10      202297 Tim        Greene           "9   "       2026 1022600004
-#> # ℹ 980 more rows
+#> # ℹ 994 more rows
 # }
 # \donttest{
   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,671 × 35
+#> # A tibble: 4,679 × 35
 #>    season_id team_id team_abbreviation team_name game_id game_date matchup wl   
 #>    <chr>       <int> <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
-#>  1 22026      1.61e9 NYL               New York… 102260… 2026-05-… NYL vs… W    
-#>  2 22026      1.61e9 WAS               Washingt… 102260… 2026-05-… WAS @ … W    
-#>  3 22026      1.61e9 CON               Connecti… 102260… 2026-05-… CON @ … L    
-#>  4 22026      1.61e9 SEA               Seattle … 102260… 2026-05-… SEA vs… L    
-#>  5 22026      1.61e9 GSV               Golden S… 102260… 2026-05-… GSV @ … W    
-#>  6 22026      1.61e9 TOR               Toronto … 102260… 2026-05-… TOR vs… L    
-#>  7 22026      1.61e9 DAL               Dallas W… 102260… 2026-05-… DAL @ … W    
-#>  8 22026      1.61e9 MIN               Minnesot… 102260… 2026-05-… MIN vs… L    
-#>  9 22026      1.61e9 IND               Indiana … 102260… 2026-05-… IND vs… L    
-#> 10 22026      1.61e9 PDX               Portland… 102260… 2026-05-… PDX vs… L    
-#> # ℹ 4,661 more rows
+#>  1 42026      1.61e9 DAL               Dallas W… 104260… 2026-09-… DAL @ … L    
+#>  2 42026      1.61e9 GSV               Golden S… 104260… 2026-09-… GSV vs… W    
+#>  3 42026      1.61e9 LVA               Las Vega… 104260… 2026-09-… LVA vs… W    
+#>  4 42026      1.61e9 MIN               Minnesot… 104260… 2026-09-… MIN vs… L    
+#>  5 42026      1.61e9 NYL               New York… 104260… 2026-09-… NYL @ … W    
+#>  6 42026      1.61e9 IND               Indiana … 104260… 2026-09-… IND @ … L    
+#>  7 42026      1.61e9 ATL               Atlanta … 104260… 2026-09-… ATL vs… W    
+#>  8 42026      1.61e9 WAS               Washingt… 104260… 2026-09-… WAS @ … L    
+#>  9 22026      1.61e9 NYL               New York… 102260… 2026-05-… NYL vs… W    
+#> 10 22026      1.61e9 WAS               Washingt… 102260… 2026-05-… WAS @ … W    
+#> # ℹ 4,669 more rows
 #> # ℹ 27 more variables: min <int>, fgm <int>, fga <int>, fg_pct <dbl>,
 #> #   fg3m <int>, fg3a <int>, fg3_pct <dbl>, ftm <int>, fta <int>, ft_pct <dbl>,
 #> #   oreb <int>, dreb <int>, reb <int>, ast <int>, stl <int>, blk <int>,

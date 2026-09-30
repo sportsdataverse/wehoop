@@ -99,7 +99,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_positions()
 #> ── ESPN WNBA Positions Index ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:12 UTC
+#> ℹ Data updated: 2026-09-30 01:52:16 UTC
 #> # A tibble: 12 × 3
 #>    position_id ref                                                        league
 #>    <chr>       <chr>                                                      <chr> 

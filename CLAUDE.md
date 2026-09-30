@@ -49,7 +49,7 @@ shares its architecture; companion data repos are
 When this guide differs from current repository docs, treat
 `CONTRIBUTING.md` and current test implementations as authoritative.
 
-- **Version**: 3.0.0 (dev)
+- **Version**: 3.0.0.9000 (dev)
 - **R Requirement**: \>= 4.1.0
 - **License**: MIT
 - **Branch**: `main` is the default branch and release branch.
@@ -547,6 +547,7 @@ corresponding variable is set:
 | `ESPN_TESTS=1` | Enable ESPN API tests | `skip_espn_test()` |
 | `NCAA_WBB_TESTS=1` | Enable NCAA WBB tests | `skip_ncaa_wbb_test()` |
 | `FOX_TESTS=1` | Enable Fox Sports tests | `skip_fox_test()` |
+| `OFFICIAL_NBA_TESTS=1` | Enable official.nba.com tests | `skip_official_nba_test()` |
 | `WEHOOP_LOAD_TESTS=1` | Enable `load_*()` release-asset tests | (gated in `helper-skip.R`) |
 
 `WEHOOP_LOAD_TESTS` is kept separate from the API gates because
@@ -719,12 +720,14 @@ committing**:
 
 - **`NEWS.md`** — authoritative changelog for downstream users; rendered
   into the pkgdown changelog. **All new bullets go under the most recent
-  unreleased version heading** (currently `# **wehoop 3.0.0**`). Do NOT
-  create a new version section ahead of release. Add to or extend an
-  existing subsection (`### Bug fixes`, `### Deprecations`,
-  `### Test infrastructure`, etc.) instead of starting a new one when
-  the change is incremental. Once `3.0.0` ships to CRAN, the development
-  version gets its own heading and the rule rolls forward.
+  unreleased version heading** (currently
+  `# **wehoop 3.0.0.9000 (development version)**`; 3.0.0 shipped to CRAN
+  on 2026-08-24). Do NOT create a new version section ahead of release.
+  Add to or extend an existing subsection (`### Bug fixes`,
+  `### Deprecations`, `### Test infrastructure`, etc.) instead of
+  starting a new one when the change is incremental. When a version
+  ships to CRAN, the next development version gets its own heading and
+  the rule rolls forward.
 
 - **`cran-comments.md`** — what gets submitted to CRAN. Every behavioral
   or user-visible change you add to `NEWS.md` should also be reflected

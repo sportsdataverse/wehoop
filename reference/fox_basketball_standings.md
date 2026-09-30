@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ───────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:26 UTC
+#> ℹ Data updated: 2026-09-30 01:52:33 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ───────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:26 UTC
+#> ℹ Data updated: 2026-09-30 01:52:34 UTC
 #> # A tibble: 11 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -124,32 +124,32 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ───────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:26 UTC
+#> ℹ Data updated: 2026-09-30 01:52:34 UTC
 #> # A tibble: 17 × 6
-#>    team_id category     stat       stat_abbreviation player        value
-#>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
-#>  1 1       PLAYER STATS SCORING    PPG               Allisha Gray  19.0 
-#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   12.1 
-#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   58.0 
-#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 7.3  
-#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  100  
-#>  6 1       PLAYER STATS DEFENSE    BLK               Rhyne Howard  39   
-#>  7 1       PLAYER STATS MISC       DBL DBL           Angel Reese   32   
-#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Allisha Gray  119.7
-#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  34.2 
-#> 10 1       TEAM STATS   SCORING    PPG               NA            91.3 
-#> 11 1       TEAM STATS   REBOUNDING RPG               NA            35.6 
-#> 12 1       TEAM STATS   SHOOTING   FG%               NA            44.2 
-#> 13 1       TEAM STATS   ASSISTS    APG               NA            21.5 
-#> 14 1       TEAM STATS   DEFENSE    STL               NA            400  
-#> 15 1       TEAM STATS   DEFENSE    BLK               NA            144  
-#> 16 1       TEAM STATS   MISC       DBL DBL           NA            41   
-#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            8.5  
+#>    team_id category     stat       stat_abbreviation player         value
+#>    <chr>   <chr>        <chr>      <chr>             <chr>          <chr>
+#>  1 1       PLAYER STATS SCORING    PPG               Rhyne Howard   26.0 
+#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese    12.0 
+#>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot    66.7 
+#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada  10.0 
+#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard   5    
+#>  6 1       PLAYER STATS DEFENSE    BLK               Allisha Gray   1    
+#>  7 1       PLAYER STATS MISC       DBL DBL           Jordin Canada  1    
+#>  8 1       PLAYER STATS ADVANCED   OFF RTG           DeWanna Bonner 125.0
+#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard   39.0 
+#> 10 1       TEAM STATS   SCORING    PPG               NA             92.0 
+#> 11 1       TEAM STATS   REBOUNDING RPG               NA             31.0 
+#> 12 1       TEAM STATS   SHOOTING   FG%               NA             40.8 
+#> 13 1       TEAM STATS   ASSISTS    APG               NA             15.0 
+#> 14 1       TEAM STATS   DEFENSE    STL               NA             16   
+#> 15 1       TEAM STATS   DEFENSE    BLK               NA             5    
+#> 16 1       TEAM STATS   MISC       DBL DBL           NA             2    
+#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA             17.6 
 # }
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ───────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:26 UTC
+#> ℹ Data updated: 2026-09-30 01:52:34 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
@@ -168,26 +168,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ──────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:26 UTC
+#> ℹ Data updated: 2026-09-30 01:52:34 UTC
 #> # A tibble: 165 × 8
-#>    team_id season_type    category game_id game_date opponent stat         value
-#>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 1       REGULAR SEASON scoring  2248    9/23      @NYL     fgm          30   
-#>  2 1       REGULAR SEASON scoring  2248    9/23      @NYL     fga          77   
-#>  3 1       REGULAR SEASON scoring  2248    9/23      @NYL     fg_percent   39.0 
-#>  4 1       REGULAR SEASON scoring  2248    9/23      @NYL     ftm          13   
-#>  5 1       REGULAR SEASON scoring  2248    9/23      @NYL     fta          15   
-#>  6 1       REGULAR SEASON scoring  2248    9/23      @NYL     ft_percent   87.0 
-#>  7 1       REGULAR SEASON scoring  2248    9/23      @NYL     x3fgm        10   
-#>  8 1       REGULAR SEASON scoring  2248    9/23      @NYL     x3fga        35   
-#>  9 1       REGULAR SEASON scoring  2248    9/23      @NYL     x3fg_percent 28.6 
-#> 10 1       REGULAR SEASON scoring  2248    9/23      @NYL     pts          83   
+#>    team_id season_type category game_id game_date opponent stat         value
+#>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
+#>  1 1       POSTSEASON  scoring  2571    9/27      WAS      fgm          31   
+#>  2 1       POSTSEASON  scoring  2571    9/27      WAS      fga          76   
+#>  3 1       POSTSEASON  scoring  2571    9/27      WAS      fg_percent   40.8 
+#>  4 1       POSTSEASON  scoring  2571    9/27      WAS      ftm          25   
+#>  5 1       POSTSEASON  scoring  2571    9/27      WAS      fta          26   
+#>  6 1       POSTSEASON  scoring  2571    9/27      WAS      ft_percent   96.0 
+#>  7 1       POSTSEASON  scoring  2571    9/27      WAS      x3fgm        5    
+#>  8 1       POSTSEASON  scoring  2571    9/27      WAS      x3fga        21   
+#>  9 1       POSTSEASON  scoring  2571    9/27      WAS      x3fg_percent 23.8 
+#> 10 1       POSTSEASON  scoring  2571    9/27      WAS      pts          92   
 #> # ℹ 155 more rows
 # }
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ──────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:27 UTC
+#> ℹ Data updated: 2026-09-30 01:52:35 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -206,7 +206,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:27 UTC
+#> ℹ Data updated: 2026-09-30 01:52:35 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -226,7 +226,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:27 UTC
+#> ℹ Data updated: 2026-09-30 01:52:35 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
@@ -246,7 +246,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:27 UTC
+#> ℹ Data updated: 2026-09-30 01:52:35 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -269,7 +269,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:27 UTC
+#> ℹ Data updated: 2026-09-30 01:52:36 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      

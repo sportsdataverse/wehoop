@@ -1858,6 +1858,16 @@ Functions exported by wehoop to access WNBA Stats API Data
 
   **Get WNBA Stats API Video Status**
 
+### WNBA Officiating Functions
+
+Referee crew assignments and replay-center officials from
+official.nba.com’s get-game-officials feed.
+
+- [`wnba_referee_assignments()`](https://wehoop.sportsdataverse.org/reference/wnba_referee_assignments.md)
+  :
+
+  **WNBA referee assignments for a given date**
+
 ### WNBA Basketball-Reference Functions
 
 Functions exported by wehoop to scrape WNBA data from

@@ -105,7 +105,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_game_play_personnel(event_id = 401276115, play_id = 401276115101899901)
-#> ✖ 2026-09-27 21:20:33.368692: Failed to retrieve ESPN womens-college-basketball play personnel for event_id=401276115, play_id=401276115101899904
+#> ✖ 2026-09-30 01:51:35.973198: Failed to retrieve ESPN womens-college-basketball play personnel for event_id=401276115, play_id=401276115101899904
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115, play_id = 401276115101899904
 #> ✖ Error: The API returned an error
 #> NULL

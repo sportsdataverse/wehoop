@@ -41,10 +41,73 @@ Other WNBA Crosswalk Functions:
 ``` r
 # \donttest{
   try(wnba_player_crosswalk(season = 2024))
-#> ✖ 2026-09-27 21:23:45.038677: Invalid arguments or no league schedule data for 2024 available!
-#> ✖ Args: league_id = "10", season = 2024
-#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE html> <html>  <head>                       (right here) ------^ 
-#> Error in UseMethod("transmute") : 
-#>   no applicable method for 'transmute' applied to an object of class "NULL"
+#> ℹ WNBA CDN schedule is for season 2026, not 2024. For historical seasons use `load_wnba_schedule(seasons = 2024)`.
+#> ✖ 2026-09-30 01:56:18.534158: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661330"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 01:57:18.711298: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661329"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 01:58:19.056305: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661323"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 01:59:19.40079: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661321"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:00:19.714301: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661331"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:01:20.057994: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661325"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:02:20.505521: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661319"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:03:20.972916: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661320"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:04:21.364788: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661324"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:05:21.889611: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661313"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:06:22.191848: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661317"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:07:22.556373: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661327"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:08:22.888188: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661328"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60001 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:09:23.177779: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661332"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60000 milliseconds with 0 bytes received
+#> ✖ 2026-09-30 02:10:23.552147: Invalid arguments or common team roster data for 2024 available!
+#> ✖ Args: league_id = "10", season = 2024, team_id = "1611661322"
+#> ✖ Error: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [stats.wnba.com]: Operation timed out after 60002 milliseconds with 0 bytes received
+#> ── WNBA player crosswalk (ESPN / WNBA Stats / Fox) ──────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-09-30 02:10:23 UTC
+#> # A tibble: 221 × 21
+#>    season espn_team_id team_abbreviation player_name    espn_athlete_id
+#>     <int>        <int> <chr>             <chr>          <chr>          
+#>  1   2024           20 ATL               dewanna bonner 869            
+#>  2   2024           20 ATL               isobel borlase 5208983        
+#>  3   2024           20 ATL               jordin canada  3142250        
+#>  4   2024           20 ATL               allisha gray   3058901        
+#>  5   2024           20 ATL               naz hillmon    4398915        
+#>  6   2024           20 ATL               rhyne howard   4398674        
+#>  7   2024           20 ATL               brionna jones  3058895        
+#>  8   2024           20 ATL               sika kone      5017721        
+#>  9   2024           20 ATL               indya nivar    5105740        
+#> 10   2024           20 ATL               madina okot    5108587        
+#> # ℹ 211 more rows
+#> # ℹ 16 more variables: espn_full_name <chr>, espn_jersey <chr>,
+#> #   espn_position <chr>, wnba_player_id <chr>, wnba_player_name <chr>,
+#> #   wnba_jersey_num <chr>, wnba_position <chr>, fox_athlete_id <chr>,
+#> #   fox_player <chr>, fox_jersey <chr>, fox_position_group <chr>,
+#> #   yahoo_player_id <chr>, yahoo_player_name <chr>, match_method <chr>,
+#> #   match_confidence <dbl>, match_keys <chr>
 # }
 ```

@@ -301,7 +301,7 @@
 <li>
 <p><strong>Release notes triad — <code>NEWS.md</code> / <code>cran-comments.md</code> / <code>_pkgdown.yml</code>.</strong> Whenever you add a <code>NEWS.md</code> bullet, check the other two:</p>
 <ul><li>
-<code>NEWS.md</code> — all new bullets go under the most recent <strong>unreleased</strong> version heading (currently <code># **wehoop 3.0.0**</code>). Do NOT create a new version section ahead of release; extend the existing subsections (<code>### Bug fixes</code>, <code>### Deprecations</code>, <code>### Test infrastructure</code>, …). After the release ships the rule rolls forward to the next dev version.</li>
+<code>NEWS.md</code> — all new bullets go under the most recent <strong>unreleased</strong> version heading (currently <code># **wehoop 3.0.0.9000 (development version)**</code>; 3.0.0 shipped to CRAN on 2026-08-24). Do NOT create a new version section ahead of release; extend the existing subsections (<code>### Bug fixes</code>, <code>### Deprecations</code>, <code>### Test infrastructure</code>, …). After the release ships the rule rolls forward to the next dev version.</li>
 <li>
 <code>cran-comments.md</code> — every user-visible / behavioral change in <code>NEWS.md</code> should be reflected in <code>cran-comments.md</code> before submission. Internal-only changes (refactors, test infra, dev tooling) can be omitted.</li>
 <li>

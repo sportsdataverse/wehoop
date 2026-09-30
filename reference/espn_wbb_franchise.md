@@ -121,7 +121,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_franchise(franchise_id = 2509)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchise from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-09-27 21:20:27 UTC
+#> ℹ Data updated: 2026-09-30 01:51:29 UTC
 #> # A tibble: 1 × 16
 #>   id    uid              slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>            <chr> <chr>    <chr> <chr>    <chr>        <chr>       

@@ -125,7 +125,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_powerindex(season = 2025)
 #> ── ESPN WNBA Season Power Index ─────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-27 21:21:12 UTC
+#> ℹ Data updated: 2026-09-30 01:52:17 UTC
 #> # A tibble: 0 × 12
 #> # ℹ 12 variables: league <chr>, season <int>, season_type <int>, team_id <chr>,
 #> #   stat_name <chr>, abbreviation <chr>, display_name <chr>, description <chr>,

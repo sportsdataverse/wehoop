@@ -2,6 +2,26 @@
 
 ## **wehoop 3.0.0.9000 (development version)**
 
+- [`wnba_todays_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.md)
+  returned nothing on every call: it sent no browser headers, and
+  cdn.nba.com answered with a 403 “Access Denied” page. It also read
+  cdn.nba.com’s `todaysScoreboard_10.json`, which has been frozen at
+  2020-10-06; it now reads the current one on cdn.wnba.com. The four CDN
+  wrappers
+  ([`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md),
+  [`wnba_live_boxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_live_boxscore.md),
+  [`wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule.md)
+  and
+  [`wnba_todays_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.md))
+  now share one header set that adds Chrome’s client hints and fetch
+  metadata, as hoopR’s NBA CDN wrappers do. The old set only worked over
+  HTTP/2; over HTTP/1.1 cdn.nba.com answered 403 and cdn.wnba.com a 200
+  HTML page instead of the JSON (verified on Windows R). On a day
+  without games the scoreboard now returns an empty result instead of
+  printing an `unnest` error (a payload with no games list at all is
+  still reported), and a warning raised while parsing no longer discards
+  the result: the wrappers’ `warning` handler abandoned the parse at the
+  first warning. New offline tests parse captured cdn.wnba.com payloads.
 - Eight new loaders read the `wbb_groups` and `wnba_groups` releases on
   sportsdataverse-data, which record conference and division membership
   as it was each season rather than back-applying today’s alignment:
@@ -47,6 +67,26 @@
   returned an empty tibble for 2021 and 2022: those files quote one
   header, `fread()` warns while fixing it, and the warning discarded the
   season. That warning is no longer fatal.
+
+#### **WNBA referee assignments (`wnba_referee_assignments()`)**
+
+New live wrapper for official.nba.com’s `get-game-officials` feed.
+Returns a list of two tibbles for a given date: `officials` (long, one
+row per game x crew slot, with `crew_position` 1-4) and `replay_center`.
+Team and official ids are integer (`game_id` is a 10-character string),
+the schema is identical on a date with no games (zero-row tibbles), and
+a field the feed omits comes back as `NA`. Failures are classed
+conditions inheriting `wehoop_error`: `wehoop_no_data` (HTTP 404, or an
+S3 `AccessDenied` 403 – no report for the date) and `wehoop_fetch_error`
+(any other non-200, an empty or non-JSON body, a missing or malformed
+`wnba` `Table`/`Table1` block – including a game row without a `game_id`
+or a replay-center row without a name – or a transport failure). Mirrors
+the sdv-py `nba_referee_assignments()` parity port. Port of the scraping
+logic in [atlhawksfanatic/L2M](https://github.com/atlhawksfanatic/L2M)
+(MIT). The `httr2` floor rises to 1.0.4 for
+`req_retry(retry_on_failure = )`, and the `testthat` floor (Suggests)
+rises to 3.1.9: `local_mocked_bindings(.package = )` needs 3.1.7, and
+`expect_in()`, already used across the test suite, needs 3.1.9.
 
 ## **wehoop 3.0.0**
 

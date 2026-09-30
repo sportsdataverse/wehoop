@@ -212,8 +212,7 @@ espn_wnba_game_probabilities(event_id = 401736171)
 # so lift a real one off the schedule first.
 sched <- wnba_schedule()
 wnba_playbyplayv3(game_id = sched$game_id[1])
-#> Error in `if (zeros == 0) ...`:
-#> ! argument is of length zero
+#> list()
 ```
 
 The grammar doing real work: when two functions look like near-synonyms,
@@ -377,7 +376,7 @@ espn_wnba_team_season_statistics(team_id = team_id, season = season)
 #> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
 #> #   display_value <chr>, rank <int>, rank_display_value <chr>
 espn_wnba_team_record(team_id = team_id, season = season)
-#> # A tibble: 7 × 14
+#> # A tibble: 8 × 14
 #>   league team_id season season_type record_id name     abbreviation display_name
 #>   <chr>  <chr>    <int>       <int> <chr>     <chr>    <chr>        <chr>       
 #> 1 wnba   17        2026           2 0         overall  Total        Overall     
@@ -387,6 +386,7 @@ espn_wnba_team_record(team_id = team_id, season = season)
 #> 5 wnba   17        2026           3 0         overall  Total        Overall     
 #> 6 wnba   17        2026           3 33        Home     NA           Home        
 #> 7 wnba   17        2026           3 34        Road     NA           Road        
+#> 8 wnba   17        2026           3 901       Last Te… Last Ten     Last Ten Ga…
 #> # ℹ 6 more variables: short_display_name <chr>, description <chr>, type <chr>,
 #> #   summary <chr>, display_value <chr>, value <dbl>
 ```

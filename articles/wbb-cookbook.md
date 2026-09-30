@@ -98,7 +98,7 @@ espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
 #> #   venue_name <chr>, venue_city <chr>, venue_state <chr>, broadcast <chr>,
 #> #   result <chr>, team_score <chr>, opponent_score <chr>, winner <lgl>
 espn_wbb_team_roster(team_id = team_id, season = season)      # the players
-#> # A tibble: 13 × 15
+#> # A tibble: 12 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
 #>  1 5311737    Carley B… 24     G               Guard         "5' 7… NA     NA   
@@ -112,8 +112,7 @@ espn_wbb_team_roster(team_id = team_id, season = season)      # the players
 #>  9 5240041    Lana McC… 35     F               Forward       "6' 4… NA     NA   
 #> 10 5240040    Kendall … 22     F               Forward       "6' 3… NA     NA   
 #> 11 5239064    Kiki Smi… 23     G               Guard         "5' 7… NA     NA   
-#> 12 5243531    Nya Smith 3      G               Guard         "5' 9… NA     NA   
-#> 13 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
+#> 12 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 espn_wbb_team_season_statistics(team_id = team_id, season = season)
