@@ -595,6 +595,14 @@ reference:
     desc: Functions exported by wehoop to access WNBA Stats API Data
     contents:
       - starts_with("wnba_")
+      - '-`wnba_referee_assignments`'
+
+  - subtitle: WNBA Officiating Functions
+    desc: >
+      Referee crew assignments and replay-center officials from
+      official.nba.com's get-game-officials feed.
+    contents:
+      - '`wnba_referee_assignments`'
 
   - subtitle: WNBA Basketball-Reference Functions
     desc: Functions exported by wehoop to scrape WNBA data from basketball-reference.com/wnba
