@@ -111,6 +111,7 @@
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -137,6 +138,7 @@
 <li>
 <a href="#wehoop-">wehoop </a><a href="https://wehoop.sportsdataverse.org"><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right" width="20%" min-width="100px" alt="wehoop logo"></a>
 <ul>
+<li><a href="#data-status"><strong>Data status</strong></a></li>
 <li><a href="#installation"><strong>Installation</strong></a></li>
 <li><a href="#quick-start"><strong>Quick Start</strong></a></li>
 <li><a href="#documentation"><strong>Documentation</strong></a></li>
@@ -162,6 +164,71 @@
 <!-- badges: end -->
 <p><code>wehoop</code> is an R package for working with women’s college and professional basketball data. The package has functions to access <strong>live play by play and box score</strong> data from ESPN with shot locations when available.</p>
 <p>A scraping and aggregating interface for ESPN’s women’s college basketball and WNBA statistics. It provides users with the capability to access the API’s game play-by-plays, box scores, standings and results to analyze the data for themselves.</p>
+<div class="section level2">
+<h2 id="data-status">
+<strong>Data status</strong><a class="anchor" aria-label="anchor" href="#data-status"></a>
+</h2>
+<p>The <code>load_*()</code> functions read release assets on <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a>. The badges below are rebuilt nightly from each producer’s latest workflow run and newest release files; idle means the sport is out of season. Full detail: <a href="https://sportsdataverse.org/status" class="external-link">sportsdataverse.org/status</a>.</p>
+<table class="table">
+<colgroup>
+<col width="5%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="51%">
+</colgroup>
+<thead><tr>
+<th align="left">Dataset</th>
+<th align="left">Data updated</th>
+<th align="left">Through</th>
+<th align="left">Pipeline</th>
+<th align="left">Update workflows</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/wehoop-wbb-data" class="external-link">Women’s college basketball (ESPN)</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wbb-data%2Fupdated.json" alt="wehoop-wbb-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wbb-data%2Fthrough.json" alt="wehoop-wbb-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#wehoop-wbb-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wbb-data%2Fstatus.json" alt="wehoop-wbb-data pipeline state"></a></td>
+<td align="left">
+<a href="https://github.com/sportsdataverse/wehoop-wbb-data/actions/workflows/daily_wbb.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wbb-data%2Fwf-daily_wbb.json" alt="wehoop-wbb-data daily_wbb"></a> <a href="https://github.com/sportsdataverse/wehoop-wbb-data/actions/workflows/weekly_wbb.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wbb-data%2Fwf-weekly_wbb.json" alt="wehoop-wbb-data weekly_wbb"></a> <a href="https://github.com/sportsdataverse/wehoop-wbb-data/actions/workflows/wbb_models_cron.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wbb-data%2Fwf-wbb_models_cron.json" alt="wehoop-wbb-data wbb_models_cron"></a>
+</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/ncaa-wbb-hoops-data" class="external-link">Women’s college basketball (stats.ncaa.org)</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fncaa-wbb-hoops-data%2Fupdated.json" alt="ncaa-wbb-hoops-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fncaa-wbb-hoops-data%2Fthrough.json" alt="ncaa-wbb-hoops-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#ncaa-wbb-hoops-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fncaa-wbb-hoops-data%2Fstatus.json" alt="ncaa-wbb-hoops-data pipeline state"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/ncaa-wbb-hoops-data/actions/workflows/ncaa_wbb_models.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fncaa-wbb-hoops-data%2Fwf-ncaa_wbb_models.json" alt="ncaa-wbb-hoops-data ncaa_wbb_models"></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/wehoop-wnba-data" class="external-link">WNBA (ESPN)</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-data%2Fupdated.json" alt="wehoop-wnba-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-data%2Fthrough.json" alt="wehoop-wnba-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#wehoop-wnba-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-data%2Fstatus.json" alt="wehoop-wnba-data pipeline state"></a></td>
+<td align="left">
+<a href="https://github.com/sportsdataverse/wehoop-wnba-data/actions/workflows/daily_wnba.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-data%2Fwf-daily_wnba.json" alt="wehoop-wnba-data daily_wnba"></a> <a href="https://github.com/sportsdataverse/wehoop-wnba-data/actions/workflows/weekly_wnba.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-data%2Fwf-weekly_wnba.json" alt="wehoop-wnba-data weekly_wnba"></a> <a href="https://github.com/sportsdataverse/wehoop-wnba-data/actions/workflows/annual_wnba_draft.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-data%2Fwf-annual_wnba_draft.json" alt="wehoop-wnba-data annual_wnba_draft"></a>
+</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/wehoop-wnba-stats-data" class="external-link">WNBA Stats API</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-stats-data%2Fupdated.json" alt="wehoop-wnba-stats-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-stats-data%2Fthrough.json" alt="wehoop-wnba-stats-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#wehoop-wnba-stats-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-stats-data%2Fstatus.json" alt="wehoop-wnba-stats-data pipeline state"></a></td>
+<td align="left">
+<a href="https://github.com/sportsdataverse/wehoop-wnba-stats-data/actions/workflows/daily_wnba_stats.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-stats-data%2Fwf-daily_wnba_stats.json" alt="wehoop-wnba-stats-data daily_wnba_stats"></a> <a href="https://github.com/sportsdataverse/wehoop-wnba-stats-data/actions/workflows/wnba_models.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-stats-data%2Fwf-wnba_models.json" alt="wehoop-wnba-stats-data wnba_models"></a> <a href="https://github.com/sportsdataverse/wehoop-wnba-stats-data/actions/workflows/annual_wnba_stats_draft.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fwehoop-wnba-stats-data%2Fwf-annual_wnba_stats_draft.json" alt="wehoop-wnba-stats-data annual_wnba_stats_draft"></a>
+</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/sdv-reference-data" class="external-link">Conference, division and ballpark reference</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fupdated.json" alt="sdv-reference-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fthrough.json" alt="sdv-reference-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#sdv-reference-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fstatus.json" alt="sdv-reference-data pipeline state"></a></td>
+<td align="left">—</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section level2">
 <h2 id="installation">
 <strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>

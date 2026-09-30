@@ -41,8 +41,8 @@ Other WNBA Crosswalk Functions:
   try(wnba_schedule_crosswalk(season = 2024))
 #> ℹ WNBA CDN schedule is for season 2026, not 2024. For historical seasons use `load_wnba_schedule(seasons = 2024)`.
 #> ── WNBA schedule crosswalk (ESPN / WNBA Stats) ──────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-30 02:10:52 UTC
-#> # A tibble: 403 × 16
+#> ℹ Data updated: 2026-09-30 15:04:41 UTC
+#> # A tibble: 402 × 16
 #>    season season_type game_date  home_espn_team_id away_espn_team_id
 #>     <int> <chr>       <date>                 <int>             <int>
 #>  1   2024 Pre-Season  2026-04-25                 9                 5
@@ -55,7 +55,7 @@ Other WNBA Crosswalk Functions:
 #>  8   2024 Pre-Season  2026-04-29            131935                18
 #>  9   2024 Pre-Season  2026-04-29                19                20
 #> 10   2024 Pre-Season  2026-04-29                14            132052
-#> # ℹ 393 more rows
+#> # ℹ 392 more rows
 #> # ℹ 11 more variables: espn_game_id <chr>, wnba_game_id <chr>,
 #> #   wnba_game_code <chr>, wnba_home_team_id <chr>, wnba_away_team_id <chr>,
 #> #   fox_game_id <chr>, fox_home_team_id <chr>, fox_away_team_id <chr>,

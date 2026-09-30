@@ -76,6 +76,7 @@ Get ESPN WNBA News"><meta property="og:image" content="https://raw.githubusercon
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/sportsdataverse-data/releases">SDV Data Releases</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/wehoop-data">wehoop Data Repository</a></li>
   </ul></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/saiemgilani" aria-label="X (Twitter)"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
@@ -205,15 +206,15 @@ Get ESPN WNBA News"><meta property="og:image" content="https://raw.githubusercon
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_news</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA News from ESPN.com ─────────────────────────── <span style="font-style: italic;">wehoop 3.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-30 01:52:13 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-30 14:45:53 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        id type  headline description published premium byline link_web league_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  5.01<span style="color: #949494;">e</span>7 Head… Clark's… <span style="color: #949494;">"</span>Caitlin C… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  5.01<span style="color: #949494;">e</span>7 Recap Caitlin… <span style="color: #949494;">"</span>— Caitlin… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     http://… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  5.01<span style="color: #949494;">e</span>7 Media Indiana… <span style="color: #949494;">"</span>Watch the… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  5.01<span style="color: #949494;">e</span>7 Story WNBA pl… <span style="color: #949494;">"</span>No. 6 see… 2026-09-… FALSE   ESPN   https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  5.01<span style="color: #949494;">e</span>7 Story How Lyn… <span style="color: #949494;">"</span>From the … 2026-09-… FALSE   Myron… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  5.00<span style="color: #949494;">e</span>7 Story 2026 WN… The WNBA w… 2026-09-… FALSE   Keith… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  5.01<span style="color: #949494;">e</span>7 Story WNBA pl… With home-… 2026-09-… FALSE   Micha… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  5.01<span style="color: #949494;">e</span>7 Head… Reeve l… The Lynx b… 2026-09-… FALSE   Alexa… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  5.01<span style="color: #949494;">e</span>7 Prev… Aces, F… Indiana Fe… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     http://… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  5.01<span style="color: #949494;">e</span>7 Media A'ja Wi… A'ja Wilso… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

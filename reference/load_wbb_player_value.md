@@ -148,7 +148,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_player_impact(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 325 × 28
+#> # A tibble: 326 × 28
 #>    player_id player_name        team_id team_abbreviation team_name teams season
 #>        <int> <chr>                <int> <chr>             <chr>     <chr>  <int>
 #>  1    201886 DeWanna Bonner      1.61e9 PHX               Phoenix … PHX     2026
@@ -161,7 +161,7 @@ Saiem Gilani
 #>  8    203400 Skylar Diggins      1.61e9 CHI               Chicago … CHI     2026
 #>  9    203405 Kayla Alexander     1.61e9 TOR               Toronto … TOR     2026
 #> 10    203822 Rebekah Gardner     1.61e9 NYL               New York… NYL     2026
-#> # ℹ 315 more rows
+#> # ℹ 316 more rows
 #> # ℹ 21 more variables: season_type <chr>, o_rapm <dbl>, d_rapm <dbl>,
 #> #   rapm <dbl>, off_poss <int>, def_poss <int>, o_adj_rapm <dbl>,
 #> #   d_adj_rapm <dbl>, adj_rapm <dbl>, ospm <dbl>, dspm <dbl>, spm <dbl>,
@@ -172,19 +172,19 @@ Saiem Gilani
 # \donttest{
   try(load_wbb_player_value(seasons = most_recent_wbb_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 8,305 × 8
-#>    player_id player              season team_id   min box_obpm box_dbpm box_bpm
-#>    <chr>     <chr>                <int> <chr>   <dbl>    <dbl>    <dbl>   <dbl>
-#>  1 5318437   Claudia Ierullo       2026 215         7    22.3    -3.21     19.1
-#>  2 5321613   Maggie Chambers       2026 2654        4    18.8    -0.261    18.5
-#>  3 5312308   Gandy Malou-Mamel     2026 41          4    16.7     1.70     18.4
-#>  4 5125264   Jana El Alfy          2026 41        402     6.70   11.4      18.1
-#>  5 4682860   Kyla Oldacre          2026 251       830    10.4     7.54     17.9
-#>  6 5317669   Abigail Wilson        2026 2880        4    22.3    -4.42     17.8
-#>  7 5313314   Ari Paraskevopoulou   2026 219        13    11.8     6.00     17.8
-#>  8 5318684   J'Nyria Kelly         2026 2170        2    24.4    -6.80     17.6
-#>  9 5108587   Madina Okot           2026 2579      906    10.6     6.86     17.4
-#> 10 5239592   Sarah Strong          2026 41       1044    15.8     1.61     17.4
+#> # A tibble: 8,305 × 9
+#>    player_id player     season team_id   min box_obpm box_dbpm box_bpm qualified
+#>    <chr>     <chr>       <int> <chr>   <dbl>    <dbl>    <dbl>   <dbl> <lgl>    
+#>  1 5318437   Claudia I…   2026 215         7    22.3    -3.21     19.1 FALSE    
+#>  2 5321613   Maggie Ch…   2026 2654        4    18.8    -0.261    18.5 FALSE    
+#>  3 5312308   Gandy Mal…   2026 41          4    16.7     1.70     18.4 FALSE    
+#>  4 5125264   Jana El A…   2026 41        402     6.70   11.4      18.1 TRUE     
+#>  5 4682860   Kyla Olda…   2026 251       830    10.4     7.54     17.9 TRUE     
+#>  6 5317669   Abigail W…   2026 2880        4    22.3    -4.42     17.8 FALSE    
+#>  7 5313314   Ari Paras…   2026 219        13    11.8     6.00     17.8 FALSE    
+#>  8 5318684   J'Nyria K…   2026 2170        2    24.4    -6.80     17.6 FALSE    
+#>  9 5108587   Madina Ok…   2026 2579      906    10.6     6.86     17.4 TRUE     
+#> 10 5239592   Sarah Str…   2026 41       1044    15.8     1.61     17.4 TRUE     
 #> # ℹ 8,295 more rows
 # }
 # \donttest{

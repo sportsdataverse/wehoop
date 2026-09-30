@@ -78,20 +78,20 @@ Other WNBA Stats loader functions:
   try(load_wnba_stats_leaguedash(seasons = most_recent_wnba_stats_season(),
                                  table = "player_bio"))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 226 × 27
+#> # A tibble: 327 × 27
 #>    player_id player_name        team_id team_abbreviation   age player_height
 #>        <int> <chr>                <int> <chr>             <dbl> <chr>        
 #>  1   1628932 A'ja Wilson     1611661319 LVA                  30 6-4          
 #>  2   1642290 Aaliyah Edwards 1611661323 CON                  24 6-3          
-#>  3   1642801 Aaliyah Nye     1611661330 ATL                  23 6-0          
-#>  4   1642786 Aicha Coulibaly 1611661329 CHI                  24 6-0          
-#>  5   1629501 Alanna Smith    1611661321 DAL                  29 6-4          
-#>  6   1643525 Alex Fowler     1611661313 NYL                  25 6-2          
-#>  7   1642775 Alex Wilson     1611661322 WAS                  32 5-9          
-#>  8   1643644 Alicia Florez   1611661322 WAS                  22 5-9          
-#>  9   1642293 Alissa Pili     1611661320 LAS                  25 5-11         
-#> 10   1641648 Aliyah Boston   1611661325 IND                  24 6-5          
-#> # ℹ 216 more rows
+#>  3   1642801 Aaliyah Nye     1611661320 LAS                  24 6-0          
+#>  4   1630462 Aari McDonald   1611661324 MIN                  28 5-6          
+#>  5   1642786 Aicha Coulibaly 1611661329 CHI                  24 6-0          
+#>  6   1629501 Alanna Smith    1611661321 DAL                  30 6-4          
+#>  7   1643525 Alex Fowler     1611661313 NYL                  25 6-2          
+#>  8   1642775 Alex Wilson     1611661322 WAS                  32 5-9          
+#>  9   1643644 Alicia Florez   1611661322 WAS                  22 5-9          
+#> 10   1642293 Alissa Pili     1611661320 LAS                  25 5-11         
+#> # ℹ 317 more rows
 #> # ℹ 21 more variables: player_height_inches <int>, player_weight <chr>,
 #> #   college <chr>, country <chr>, draft_year <chr>, draft_round <chr>,
 #> #   draft_number <chr>, gp <int>, pts <int>, reb <int>, ast <int>,

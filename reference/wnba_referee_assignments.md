@@ -115,7 +115,7 @@ Saiem Gilani
   try(wnba_referee_assignments(date = "2026-06-13"))
 #> $officials
 #> ── WNBA referee assignments from official.nba.com ───────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-30 02:10:28 UTC
+#> ℹ Data updated: 2026-09-30 15:04:19 UTC
 #> # A tibble: 12 × 14
 #>    league game_id    game_date  season season_type game_code       home_team_id
 #>    <chr>  <chr>      <date>      <int> <chr>       <chr>                  <int>
@@ -137,7 +137,7 @@ Saiem Gilani
 #> 
 #> $replay_center
 #> ── WNBA replay-center officials from official.nba.com ───── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-30 02:10:28 UTC
+#> ℹ Data updated: 2026-09-30 15:04:19 UTC
 #> # A tibble: 1 × 4
 #>   league game_date  official_id official_name
 #>   <chr>  <date>           <int> <chr>        
