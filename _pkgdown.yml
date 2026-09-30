@@ -68,7 +68,7 @@ home:
     
 navbar:
   structure:
-    left:  [home, reference, articles, news, network, data]
+    left:  [home, reference, articles, news, network, data, status]
     right: [search, twitter, github, lightswitch]
   icon: https://raw.githubusercontent.com/sportsdataverse/wehoop/main/man/figures/logo.ico
   title: "wehoop"
@@ -173,6 +173,9 @@ navbar:
         href: https://github.com/sportsdataverse/sportsdataverse-data/releases
       - text: "wehoop Data Repository"
         href: https://github.com/sportsdataverse/wehoop-data
+    status:
+      text: "Data status"
+      href: https://sportsdataverse.org/status
     twitter:
       icon: "fab fa-x-twitter fa-lg"
       aria-label: "X (Twitter)"
