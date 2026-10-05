@@ -166,7 +166,7 @@ wnba_teamgamestreakfinder(
   min_games = "",
   outcome = "",
   po_round = "",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   team_id = "",

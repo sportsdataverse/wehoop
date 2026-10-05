@@ -25,7 +25,7 @@ wnba_teamvsplayer(
   player_id = "",
   plus_minus = "N",
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",

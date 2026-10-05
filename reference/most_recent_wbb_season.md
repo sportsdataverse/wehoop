@@ -21,5 +21,5 @@ season).
 
 ``` r
 most_recent_wbb_season()
-#> [1] 2026
+#> [1] 2027
 ```

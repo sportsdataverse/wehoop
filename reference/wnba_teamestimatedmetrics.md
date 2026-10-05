@@ -9,7 +9,7 @@
 ``` r
 wnba_teamestimatedmetrics(
   league_id = "10",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_type = "Regular Season",
   ...
 )

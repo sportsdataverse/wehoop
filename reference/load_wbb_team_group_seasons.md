@@ -88,16 +88,16 @@ Saiem Gilani
 #> # A tibble: 363 × 11
 #>    league season team_id team_id_source team_name   subdivision_id conference_id
 #>    <chr>   <int> <chr>   <chr>          <chr>       <chr>          <chr>        
-#>  1 wbb      2026 103     espn           Boston Col… wbb:d1         wbb:acc      
-#>  2 wbb      2026 104     espn           Boston Uni… wbb:d1         wbb:patriot  
-#>  3 wbb      2026 107     espn           Holy Cross… wbb:d1         wbb:patriot  
-#>  4 wbb      2026 108     espn           Harvard Cr… wbb:d1         wbb:ivy      
-#>  5 wbb      2026 111     espn           Northeaste… wbb:d1         wbb:caa      
-#>  6 wbb      2026 112358  espn           Long Islan… wbb:d1         wbb:nec      
-#>  7 wbb      2026 113     espn           Massachuse… wbb:d1         wbb:mac      
-#>  8 wbb      2026 116     espn           Mount St. … wbb:d1         wbb:maac     
-#>  9 wbb      2026 119     espn           Towson Tig… wbb:d1         wbb:caa      
-#> 10 wbb      2026 12      espn           Arizona Wi… wbb:d1         wbb:big-12   
+#>  1 wbb      2027 103     espn           Boston Col… wbb:d1         wbb:acc      
+#>  2 wbb      2027 104     espn           Boston Uni… wbb:d1         wbb:patriot  
+#>  3 wbb      2027 107     espn           Holy Cross… wbb:d1         wbb:patriot  
+#>  4 wbb      2027 108     espn           Harvard Cr… wbb:d1         wbb:ivy      
+#>  5 wbb      2027 111     espn           Northeaste… wbb:d1         wbb:caa      
+#>  6 wbb      2027 112358  espn           Long Islan… wbb:d1         wbb:nec      
+#>  7 wbb      2027 113     espn           Massachuse… wbb:d1         wbb:mac      
+#>  8 wbb      2027 116     espn           Mount St. … wbb:d1         wbb:maac     
+#>  9 wbb      2027 119     espn           Towson Tig… wbb:d1         wbb:caa      
+#> 10 wbb      2027 12      espn           Arizona Wi… wbb:d1         wbb:big-12   
 #> # ℹ 353 more rows
 #> # ℹ 4 more variables: division_id <chr>, source <chr>, sources_agree <lgl>,
 #> #   notes <chr>

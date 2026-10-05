@@ -111,7 +111,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 3149391)
-#> ✖ 2026-09-30 14:45:41.964916: Failed to retrieve ESPN wnba draft athlete detail for season=2024, athlete_id=3149391
+#> ✖ 2026-10-05 18:56:46.904699: Failed to retrieve ESPN wnba draft athlete detail for season=2024, athlete_id=3149391
 #> ✖ Args: league = "wnba", season = 2024, athlete_id = 3149391
 #> ✖ Error: The API returned an error
 #> NULL

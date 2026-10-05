@@ -26,7 +26,7 @@ wnba_teamdashlineups(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -216,7 +216,7 @@ table.
 
 ## Details
 
-      wnba_teamdashlineups(team_id = '1611661328', season = most_recent_wnba_season())
+      wnba_teamdashlineups(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 
 ## See also
 

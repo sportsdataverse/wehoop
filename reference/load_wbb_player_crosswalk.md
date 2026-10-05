@@ -155,69 +155,23 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wbb_team_crosswalk(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_team_crosswalk_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_team_crosswalk_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 362 × 18
-#>    season espn_team_id espn_abbreviation espn_display_name       espn_short_name
-#>     <int>        <int> <chr>             <chr>                   <chr>          
-#>  1   2026         2000 ACU               Abilene Christian Wild… Abilene Chrstn 
-#>  2   2026         2005 AF                Air Force Falcons       Air Force      
-#>  3   2026         2006 AKR               Akron Zips              Akron          
-#>  4   2026         2010 AAMU              Alabama A&M Bulldogs    Alabama A&M    
-#>  5   2026          333 ALA               Alabama Crimson Tide    Alabama        
-#>  6   2026         2011 ALST              Alabama State Lady Hor… Alabama St     
-#>  7   2026         2016 ALCN              Alcorn State Lady Brav… Alcorn St      
-#>  8   2026           44 AMER              American University Ea… American       
-#>  9   2026         2026 APP               App State Mountaineers  App State      
-#> 10   2026            9 ASU               Arizona State Sun Devi… Arizona St     
-#> # ℹ 352 more rows
-#> # ℹ 13 more variables: espn_location <chr>, espn_mascot <chr>,
-#> #   espn_conference <chr>, fox_team_id <chr>, fox_team_name <chr>,
-#> #   fox_section <chr>, bart_team <chr>, bart_conf <chr>, yahoo_team_id <chr>,
-#> #   yahoo_team_name <chr>, fox_match_confidence <dbl>,
-#> #   bart_match_confidence <dbl>, match_method <chr>
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_schedule_crosswalk_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_schedule_crosswalk_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 6,521 × 13
-#>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
-#>     <int> <date>                 <int>             <int> <chr>        <chr>     
-#>  1   2026 2025-11-03              2579              2253 401811123    Grand Can…
-#>  2   2026 2025-11-03                21                26 401822217    San Diego…
-#>  3   2026 2025-11-03               251              2916 401809048    Incarnate…
-#>  4   2026 2025-11-03               201              2057 401827851    BelmontOk…
-#>  5   2026 2025-11-03               239               150 401817556    BaylorDuk…
-#>  6   2026 2025-11-03               120              2352 401818636    Loyola MD…
-#>  7   2026 2025-11-03               153              2428 401807516    North Car…
-#>  8   2026 2025-11-03               145              2450 401827820    Norfolk S…
-#>  9   2026 2025-11-03                66              2900 401819923    St. Thoma…
-#> 10   2026 2025-11-03               238                25 401817548    Californi…
-#> # ℹ 6,511 more rows
-#> # ℹ 7 more variables: bart_team1 <chr>, bart_team2 <chr>, bart_winner <chr>,
-#> #   fox_game_id <chr>, yahoo_game_id <chr>, match_method <chr>,
-#> #   match_confidence <dbl>
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 5,018 × 17
-#>    season espn_team_id team_abbreviation player_name     espn_athlete_id
-#>     <int>        <int> <chr>             <chr>           <chr>          
-#>  1   2026         2000 ACU               natalia chavez  5109756        
-#>  2   2026         2000 ACU               jordyn coleman  5315743        
-#>  3   2026         2000 ACU               emma daugherty  5315740        
-#>  4   2026         2000 ACU               molly daugherty 5315739        
-#>  5   2026         2000 ACU               breanna davis   5108299        
-#>  6   2026         2000 ACU               aimee flippen   5241475        
-#>  7   2026         2000 ACU               riley grohman   5315742        
-#>  8   2026         2000 ACU               payton hull     5175545        
-#>  9   2026         2000 ACU               meredith mayes  5175546        
-#> 10   2026         2000 ACU               bree riley      5315741        
-#> # ℹ 5,008 more rows
-#> # ℹ 12 more variables: espn_full_name <chr>, espn_jersey <chr>,
-#> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
-#> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,
-#> #   yahoo_player_name <chr>, match_method <chr>, match_confidence <dbl>,
-#> #   match_keys <chr>
+#> # A tibble: 0 × 0
 # }
 ```

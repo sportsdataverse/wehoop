@@ -97,7 +97,7 @@ Other ESPN WBB Functions:
 # \donttest{
   try(espn_wbb_scoreboard (season = "20230225"))
 #> ── ESPN WBB Scoreboard Information from ESPN.com ────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-30 14:45:25 UTC
+#> ℹ Data updated: 2026-10-05 18:56:33 UTC
 #> # A tibble: 532 × 36
 #>    matchup         matchup_short season season_type season_slug game_id game_uid
 #>    <chr>           <chr>          <int>       <int> <chr>         <int> <chr>   

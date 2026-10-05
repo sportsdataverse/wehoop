@@ -148,7 +148,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_player_impact(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 326 × 28
+#> # A tibble: 328 × 28
 #>    player_id player_name        team_id team_abbreviation team_name teams season
 #>        <int> <chr>                <int> <chr>             <chr>     <chr>  <int>
 #>  1    201886 DeWanna Bonner      1.61e9 PHX               Phoenix … PHX     2026
@@ -161,7 +161,7 @@ Saiem Gilani
 #>  8    203400 Skylar Diggins      1.61e9 CHI               Chicago … CHI     2026
 #>  9    203405 Kayla Alexander     1.61e9 TOR               Toronto … TOR     2026
 #> 10    203822 Rebekah Gardner     1.61e9 NYL               New York… NYL     2026
-#> # ℹ 316 more rows
+#> # ℹ 318 more rows
 #> # ℹ 21 more variables: season_type <chr>, o_rapm <dbl>, d_rapm <dbl>,
 #> #   rapm <dbl>, off_poss <int>, def_poss <int>, o_adj_rapm <dbl>,
 #> #   d_adj_rapm <dbl>, adj_rapm <dbl>, ospm <dbl>, dspm <dbl>, spm <dbl>,
@@ -171,38 +171,18 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wbb_player_value(seasons = most_recent_wbb_season()))
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_player_value/wbb_player_value_2027.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_player_value/wbb_player_value_2027.parquet>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 8,305 × 9
-#>    player_id player     season team_id   min box_obpm box_dbpm box_bpm qualified
-#>    <chr>     <chr>       <int> <chr>   <dbl>    <dbl>    <dbl>   <dbl> <lgl>    
-#>  1 5318437   Claudia I…   2026 215         7    22.3    -3.21     19.1 FALSE    
-#>  2 5321613   Maggie Ch…   2026 2654        4    18.8    -0.261    18.5 FALSE    
-#>  3 5312308   Gandy Mal…   2026 41          4    16.7     1.70     18.4 FALSE    
-#>  4 5125264   Jana El A…   2026 41        402     6.70   11.4      18.1 TRUE     
-#>  5 4682860   Kyla Olda…   2026 251       830    10.4     7.54     17.9 TRUE     
-#>  6 5317669   Abigail W…   2026 2880        4    22.3    -4.42     17.8 FALSE    
-#>  7 5313314   Ari Paras…   2026 219        13    11.8     6.00     17.8 FALSE    
-#>  8 5318684   J'Nyria K…   2026 2170        2    24.4    -6.80     17.6 FALSE    
-#>  9 5108587   Madina Ok…   2026 2579      906    10.6     6.86     17.4 TRUE     
-#> 10 5239592   Sarah Str…   2026 41       1044    15.8     1.61     17.4 TRUE     
-#> # ℹ 8,295 more rows
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_ratings(seasons = most_recent_wbb_season()))
+#> Warning: downloaded length 0 != reported length 9
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_ratings/wbb_ratings_2027.parquet': HTTP status was '404 Not Found'
+#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_ratings/wbb_ratings_2027.parquet>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 663 × 11
-#>    season team_id adj_o adj_d adj_em adj_tempo raw_o raw_d games  rank adj_em_z
-#>     <int> <chr>   <dbl> <dbl>  <dbl>     <dbl> <dbl> <dbl> <int> <int>    <dbl>
-#>  1   2026 41       129.  58.1   71.2      72.9  119.  69.4    39     1     2.45
-#>  2   2026 26       135.  63.9   71.1      68.2  122.  81.8    38     2     2.45
-#>  3   2026 2579     131.  63.4   67.1      71.9  117.  79.5    40     3     2.35
-#>  4   2026 251      127.  61.3   66.0      71.8  116.  77.7    39     4     2.32
-#>  5   2026 99       131.  68.4   62.3      77.0  122.  79.1    35     5     2.23
-#>  6   2026 130      120.  66.6   53.1      74.7  109.  83.3    35     6     2.00
-#>  7   2026 150      116.  67.1   48.4      71.4  103.  83.5    36     7     1.89
-#>  8   2026 238      124.  76.7   47.6      72.8  115.  89.1    34     8     1.87
-#>  9   2026 135      118.  72.1   45.8      68.0  109.  86.3    33     9     1.82
-#> 10   2026 97       120.  74.1   45.5      71.3  110.  85.7    37    10     1.82
-#> # ℹ 653 more rows
+#> # A tibble: 0 × 0
 # }
 ```

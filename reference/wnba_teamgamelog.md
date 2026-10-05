@@ -11,7 +11,7 @@ wnba_teamgamelog(
   date_from = "",
   date_to = "",
   league_id = "10",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_type = "Regular Season",
   team_id = "1611661328",
   ...

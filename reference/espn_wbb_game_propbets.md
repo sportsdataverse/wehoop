@@ -113,7 +113,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_propbets(event_id = 401276115, provider_id = 58)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Prop Bets ───────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-09-30 14:45:19 UTC
+#> ℹ Data updated: 2026-10-05 18:56:27 UTC
 #> # A tibble: 0 × 13
 #> # ℹ 13 variables: league <chr>, event_id <chr>, provider_id <chr>,
 #> #   athlete_id <chr>, prop_type_id <chr>, prop_type_name <chr>, american <chr>,

@@ -126,7 +126,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_week_ranking(ranking_id = 1, week = 5, season = 2025)
-#> ✖ 2026-09-30 14:46:08.10206: Failed to retrieve ESPN wnba week-5 ranking 1 for season=2025
+#> ✖ 2026-10-05 18:57:07.946519: Failed to retrieve ESPN wnba week-5 ranking 1 for season=2025
 #> ✖ Args: league = "wnba", season = 2025, season_type = 2L, week = 5, ranking_id = 1
 #> ✖ Error: The API returned an error
 #> NULL

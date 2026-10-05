@@ -22,7 +22,7 @@ wnba_teamgamelogs(
   per_mode = "Totals",
   period = 0,
   player_id = "",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   team_id = "1611661328",

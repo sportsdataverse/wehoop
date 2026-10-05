@@ -2,6 +2,41 @@
 
 ## **wehoop 3.0.0.9000 (development version)**
 
+- 24 WNBA Stats wrappers now default `season` to the previous season,
+  `most_recent_wnba_season() - 1`, like wehoop’s other 54 WNBA Stats
+  wrappers. 23 defaulted to the current season, which stats.wnba.com
+  answers with empty tables until that season’s games begin: the team
+  dashboards and game logs (`wnba_teamdashboardby*()`,
+  [`wnba_teamdashlineups()`](https://wehoop.sportsdataverse.org/reference/wnba_teamdashlineups.md),
+  [`wnba_teamgamelog()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamelog.md),
+  [`wnba_teamgamelogs()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamelogs.md),
+  [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md),
+  [`wnba_teamplayerdashboard()`](https://wehoop.sportsdataverse.org/reference/wnba_teamplayerdashboard.md),
+  `wnba_teamplayeronoff*()`,
+  [`wnba_teamvsplayer()`](https://wehoop.sportsdataverse.org/reference/wnba_teamvsplayer.md),
+  [`wnba_teamestimatedmetrics()`](https://wehoop.sportsdataverse.org/reference/wnba_teamestimatedmetrics.md)),
+  [`wnba_leaguestandingsv3()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguestandingsv3.md),
+  [`wnba_playercompare()`](https://wehoop.sportsdataverse.org/reference/wnba_playercompare.md)
+  and
+  [`wnba_shotchartlineupdetail()`](https://wehoop.sportsdataverse.org/reference/wnba_shotchartlineupdetail.md),
+  plus three that are defunct and always error
+  ([`wnba_teamgamestreakfinder()`](https://wehoop.sportsdataverse.org/reference/wnba_teamgamestreakfinder.md),
+  [`wnba_videodetails()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md),
+  [`wnba_videodetailsasset()`](https://wehoop.sportsdataverse.org/reference/wnba_videodetailsasset.md)).
+  [`wnba_commonplayoffseries()`](https://wehoop.sportsdataverse.org/reference/wnba_commonplayoffseries.md)
+  defaulted two seasons back; the previous season’s playoffs are always
+  complete once the season rolls over in May. Pass `season` for another
+  season.
+  [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
+  rolls over in May, so from January to April the default is two seasons
+  back from the one about to start.
+  [`wnba_draftboard()`](https://wehoop.sportsdataverse.org/reference/wnba_draftboard.md)
+  keeps the current year, which is already the latest completed draft,
+  and
+  [`wnba_teams()`](https://wehoop.sportsdataverse.org/reference/wnba_teams.md)
+  keeps the current season so expansion teams appear. sportsdataverse-py
+  uses the same previous-season rule, and hoopR adopts it in
+  sportsdataverse/hoopR#225.
 - [`wnba_todays_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.md)
   returned nothing on every call: it sent no browser headers, and
   cdn.nba.com answered with a 403 “Access Denied” page. It also read

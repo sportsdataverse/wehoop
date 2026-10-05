@@ -9,7 +9,7 @@
 ``` r
 wnba_commonplayoffseries(
   league_id = "10",
-  season = most_recent_wnba_season() - 2,
+  season = most_recent_wnba_season() - 1,
   series_id = "",
   ...
 )
@@ -50,7 +50,7 @@ Return a named list of data frames: PlayoffSeries
 
 ## Details
 
-     wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 2)
+     wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 1)
 
 ## Author
 

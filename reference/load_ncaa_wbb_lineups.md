@@ -846,279 +846,93 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_ncaa_wbb_pbp(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_pbp/ncaa_wbb_pbp_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_pbp/ncaa_wbb_pbp_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 2,986,683 × 87
-#>    game_date  home          away  period clock game_time game_seconds home_score
-#>    <chr>      <chr>         <chr>  <int> <chr> <chr>            <int>      <int>
-#>  1 11/03/2025 George Washi… Dist…      1 09:59 00:01                1          0
-#>  2 11/03/2025 George Washi… Dist…      1 09:59 00:01                1          0
-#>  3 11/03/2025 George Washi… Dist…      1 09:38 00:22               22          0
-#>  4 11/03/2025 George Washi… Dist…      1 09:11 00:49               49          0
-#>  5 11/03/2025 George Washi… Dist…      1 08:44 01:16               76          2
-#>  6 11/03/2025 George Washi… Dist…      1 08:19 01:41              101          2
-#>  7 11/03/2025 George Washi… Dist…      1 08:16 01:44              104          2
-#>  8 11/03/2025 George Washi… Dist…      1 08:10 01:50              110          5
-#>  9 11/03/2025 George Washi… Dist…      1 07:44 02:16              136          5
-#> 10 11/03/2025 George Washi… Dist…      1 07:23 02:37              157          5
-#> # ℹ 2,986,673 more rows
-#> # ℹ 79 more variables: away_score <int>, event_team <chr>,
-#> #   event_description <chr>, player_1 <chr>, player_2 <chr>, event_type <chr>,
-#> #   event_result <chr>, shot_value <int>, event_length <int>, poss_num <int>,
-#> #   poss_team <chr>, poss_length <int>, is_transition <lgl>, home_1 <chr>,
-#> #   home_2 <chr>, home_3 <chr>, home_4 <chr>, home_5 <chr>, away_1 <chr>,
-#> #   away_2 <chr>, away_3 <chr>, away_4 <chr>, away_5 <chr>, status <chr>, …
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_shots(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_shots/ncaa_wbb_shots_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_shots/ncaa_wbb_shots_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 708,038 × 19
-#>    season team_id     shooter_id shot_x shot_y dist_ft shot_zone shot_type made 
-#>     <int> <chr>       <chr>       <dbl>  <dbl>   <dbl> <chr>     <chr>     <lgl>
-#>  1   2026 Dist. Colu… KrHarris      9    18.5    20.6  mid       unknown   TRUE 
-#>  2   2026 George Was… MiJames      -8    13.8    16.0  mid       unknown   TRUE 
-#>  3   2026 Dist. Colu… DaColeman   -16.5  18.5    24.8  abovebre… unknown   FALSE
-#>  4   2026 George Was… KaSims       22     6.28   22.9  corner3   unknown   TRUE 
-#>  5   2026 Dist. Colu… AiEllis       2     2.52    3.22 rim       unknown   TRUE 
-#>  6   2026 George Was… EmTheodor…   -2.5   2.52    3.55 rim       unknown   TRUE 
-#>  7   2026 George Was… KaSims      -14.5  21.3    25.8  abovebre… unknown   TRUE 
-#>  8   2026 Dist. Colu… AiEllis       3.5  -0.3     3.51 rim       unknown   FALSE
-#>  9   2026 George Was… GaReynolds  -19    17.6    25.9  abovebre… unknown   TRUE 
-#> 10   2026 Dist. Colu… AiEllis       3    24.1    24.3  abovebre… unknown   FALSE
-#> # ℹ 708,028 more rows
-#> # ℹ 10 more variables: point_value <int>, period <???>, sec_left <???>,
-#> #   source <chr>, contest_id <chr>, ncaa_team_id <chr>, espn_team_id <chr>,
-#> #   shooter_player_id <chr>, shooter_clean_name <chr>, espn_game_id <chr>
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_lineups(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_lineups/ncaa_wbb_lineups_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_lineups/ncaa_wbb_lineups_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 286,277 × 77
-#>    lineup_key   date  location_type team  team_year opponent lineup_id start_min
-#>    <chr>        <chr> <chr>         <chr>     <int> <chr>    <chr>         <dbl>
-#>  1 df6fae292b6… 2025… Home          Geor…      2025 Dist. C… MiJames_…      0   
-#>  2 2f2aac04c50… 2025… Home          Geor…      2025 Dist. C… CoPhiri_…     33.3 
-#>  3 24edf54ac02… 2025… Home          Geor…      2025 Dist. C… CoPhiri_…     34.2 
-#>  4 985e9726e60… 2025… Home          Geor…      2025 Dist. C… MiJames_…     34.6 
-#>  5 f4de5f52ce5… 2025… Home          Geor…      2025 Dist. C… CoPhiri_…     36.9 
-#>  6 e1c6a31d4f9… 2025… Home          Geor…      2025 Dist. C… CoPhiri_…      9.10
-#>  7 b9749a2194c… 2025… Home          Geor…      2025 Dist. C… EmTheodo…     10   
-#>  8 b00030feb96… 2025… Home          Geor…      2025 Dist. C… JaWilson…     12.4 
-#>  9 f0274ff383f… 2025… Home          Geor…      2025 Dist. C… GaReynol…     14.5 
-#> 10 893c7c14841… 2025… Home          Geor…      2025 Dist. C… CoPhiri_…     15.6 
-#> # ℹ 286,267 more rows
-#> # ℹ 69 more variables: end_min <dbl>, duration_mins <dbl>, player_1 <chr>,
-#> #   player_2 <chr>, player_3 <chr>, player_4 <chr>, player_5 <chr>,
-#> #   players_in <chr>, players_out <chr>, start_scored <int>,
-#> #   start_allowed <int>, end_scored <int>, end_allowed <int>, start_diff <int>,
-#> #   end_diff <int>, player_count_error <???>, poss <int>, pts <int>,
-#> #   plus_minus <int>, fga <int>, fgm <int>, rima <int>, rimm <int>, …
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_matchup_stints(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_matchup_stints/ncaa_wbb_matchup_stints_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_matchup_stints/ncaa_wbb_matchup_stints_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 208,582 × 33
-#>    contest_id season game_date  home   away  game_stint_num period start_seconds
-#>    <chr>       <int> <chr>      <chr>  <chr>          <int>  <int>         <int>
-#>  1 6387146      2026 11/03/2025 Georg… Dist…              1      1             1
-#>  2 6387146      2026 11/03/2025 Georg… Dist…              2      1           264
-#>  3 6387146      2026 11/03/2025 Georg… Dist…              3      1           351
-#>  4 6387146      2026 11/03/2025 Georg… Dist…              4      1           402
-#>  5 6387146      2026 11/03/2025 Georg… Dist…              5      1           482
-#>  6 6387146      2026 11/03/2025 Georg… Dist…              6      1           543
-#>  7 6387146      2026 11/03/2025 Georg… Dist…              7      1           554
-#>  8 6387146      2026 11/03/2025 Georg… Dist…              8      2           600
-#>  9 6387146      2026 11/03/2025 Georg… Dist…              9      2           685
-#> 10 6387146      2026 11/03/2025 Georg… Dist…             10      2           794
-#> # ℹ 208,572 more rows
-#> # ℹ 25 more variables: end_seconds <int>, duration_seconds <int>,
-#> #   matchup_key <chr>, home_lineup_key <chr>, away_lineup_key <chr>,
-#> #   home_lineup <chr>, away_lineup <chr>, end_home_score <int>,
-#> #   end_away_score <int>, n_events <int>, n_possessions <int>,
-#> #   start_home_score <int>, start_away_score <int>, home_pts <int>,
-#> #   away_pts <int>, home_1 <chr>, home_2 <chr>, home_3 <chr>, home_4 <chr>, …
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_possessions(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_possessions/ncaa_wbb_possessions_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_possessions/ncaa_wbb_possessions_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 862,940 × 56
-#>    game_date  home   away  period poss_num poss_team home_1 home_2 home_3 home_4
-#>    <chr>      <chr>  <chr>  <int>    <int> <chr>     <chr>  <chr>  <chr>  <chr> 
-#>  1 11/03/2025 Georg… Dist…      1        1 George W… EMMA.… GABBY… KAMAR… MIA.J…
-#>  2 11/03/2025 Georg… Dist…      1        2 Dist. Co… EMMA.… GABBY… KAMAR… MIA.J…
-#>  3 11/03/2025 Georg… Dist…      1        3 George W… EMMA.… GABBY… KAMAR… MIA.J…
-#>  4 11/03/2025 Georg… Dist…      1        4 Dist. Co… EMMA.… GABBY… KAMAR… MIA.J…
-#>  5 11/03/2025 Georg… Dist…      1        5 George W… EMMA.… GABBY… KAMAR… MIA.J…
-#>  6 11/03/2025 Georg… Dist…      1        6 Dist. Co… EMMA.… GABBY… KAMAR… MIA.J…
-#>  7 11/03/2025 Georg… Dist…      1        7 George W… EMMA.… GABBY… KAMAR… MIA.J…
-#>  8 11/03/2025 Georg… Dist…      1        8 Dist. Co… EMMA.… GABBY… KAMAR… MIA.J…
-#>  9 11/03/2025 Georg… Dist…      1        9 George W… EMMA.… GABBY… KAMAR… MIA.J…
-#> 10 11/03/2025 Georg… Dist…      1       10 Dist. Co… EMMA.… GABBY… KAMAR… MIA.J…
-#> # ℹ 862,930 more rows
-#> # ℹ 46 more variables: home_5 <chr>, away_1 <chr>, away_2 <chr>, away_3 <chr>,
-#> #   away_4 <chr>, away_5 <chr>, home_score <int>, away_score <int>, pts <int>,
-#> #   is_assisted <int>, is_transition <int>, is_garbage_time <int>,
-#> #   start_event_type <chr>, first_shot_time <int>, first_shot_type <chr>,
-#> #   last_event_time <int>, last_event_type <chr>, contest_id <chr>,
-#> #   home_ncaa_team_id <chr>, home_espn_team_id <chr>, …
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_rapm_within_team(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_rapm_within_team/ncaa_wbb_rapm_within_team_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_rapm_within_team/ncaa_wbb_rapm_within_team_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,118 × 11
-#>    team  player_code rapm_off rapm_def team_off_poss num_players rapm_net season
-#>    <chr> <chr>          <dbl>    <dbl>         <dbl>       <int>    <dbl>  <int>
-#>  1 A&M-… Shelton, M…   -1.90     2.36           1862           9    -4.26   2026
-#>  2 A&M-… Walker, As…   -2.05     2.22           1862           9    -4.27   2026
-#>  3 A&M-… Slocum, Tr…   -2.71    -0.310          1862           9    -2.40   2026
-#>  4 A&M-… Wooten, Ch…   -3.07     2.35           1862           9    -5.42   2026
-#>  5 A&M-… Sevier, To…   -2.27    -0.119          1862           9    -2.15   2026
-#>  6 A&M-… Holliday, …   -0.962    0.345          1862           9    -1.31   2026
-#>  7 A&M-… Williams, …   -1.44     1.35           1862           9    -2.79   2026
-#>  8 A&M-… Watson, Sa…   -1.13     2.46           1862           9    -3.59   2026
-#>  9 A&M-… Anguera, B…   -2.57     0.988          1862           9    -3.56   2026
-#> 10 Abil… Davis, Bre…    1.87    -0.929          2168          12     2.80   2026
-#> # ℹ 4,108 more rows
-#> # ℹ 3 more variables: player_id <chr>, team_id <chr>, person_id <chr>
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_rapm(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_rapm/ncaa_wbb_rapm_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_rapm/ncaa_wbb_rapm_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,596 × 11
-#>    season player_id person_id     player     team  orapm drapm rapm_net off_poss
-#>     <int> <chr>     <chr>         <chr>      <chr> <dbl> <dbl>    <dbl>    <int>
-#>  1   2026 9341835   pedde933d1164 SARAH.STR… UConn 11.2   8.44     19.7     1954
-#>  2   2026 9342055   p04aec3b0b845 MADISON.B… Texas  8.53  9.21     17.7     2328
-#>  3   2026 10809355  pa5aeb0eead4a AZZI.FUDD  UConn  8.04  8.95     17.0     2088
-#>  4   2026 9342023   p664f8ed3b328 JOYCE.EDW… Sout…  8.33  7.52     15.9     2270
-#>  5   2026 9343365   pab59a68757fa GABRIELA.… UCLA   8.72  6.03     14.8     1998
-#>  6   2026 9341960   p3950ead3c152 HANNAH.HI… Notr…  6.84  7.68     14.5     2316
-#>  7   2026 10802884  p1b97dafd99e9 MADINA.OK… Sout…  8.93  4.96     13.9     1678
-#>  8   2026 9342060   p81f1d7261d79 JORDAN.LEE Texas  8.86  4.61     13.5     2260
-#>  9   2026 10011276  p0e80e1c24e79 MILAYSIA.… LSU    6.47  6.95     13.4     1567
-#> 10   2026 9341828   p797f514500dc ASHLYNN.S… UConn  4.69  8.40     13.1     1934
-#> # ℹ 4,586 more rows
-#> # ℹ 2 more variables: def_poss <int>, estimand <chr>
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_player_box(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_player_box/ncaa_wbb_player_box_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_player_box/ncaa_wbb_player_box_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 121,918 × 125
-#>    game_date home  away  team  player  mins o_poss   pts   orb   drb   ast   stl
-#>    <chr>     <chr> <chr> <chr> <chr>  <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-#>  1 11/03/20… Geor… Dist… Dist… AIYAN…  34.8     60     4     1     2     1     1
-#>  2 11/03/20… Geor… Dist… Dist… CALIS…  26.5     47     8     1     1     0     0
-#>  3 11/03/20… Geor… Dist… Dist… DASHA…  27.2     46    10     0     1     1     1
-#>  4 11/03/20… Geor… Dist… Dist… KRIST…  33.0     55     6     1     1     4     0
-#>  5 11/03/20… Geor… Dist… Dist… LEASI…  29.7     53     6     2     4     0     0
-#>  6 11/03/20… Geor… Dist… Dist… MAYA.…  31.6     52    10     0     2     1     0
-#>  7 11/03/20… Geor… Dist… Dist… NHAIK…  16.6     27     3     1     0     1     1
-#>  8 11/03/20… Geor… Dist… Geor… CAIA.…   6.7     11     2     0     3     0     0
-#>  9 11/03/20… Geor… Dist… Geor… COLLE…  22.7     41    18     3     2     2     0
-#> 10 11/03/20… Geor… Dist… Geor… EMMA.…  18.3     36    10     0     3     2     0
-#> # ℹ 121,908 more rows
-#> # ℹ 113 more variables: blk <dbl>, tov <dbl>, pf <dbl>, ts_pct <dbl>,
-#> #   efg_pct <dbl>, fgm <dbl>, fga <dbl>, fg_pct <dbl>, tpm <dbl>, tpa <dbl>,
-#> #   tp_pct <dbl>, ftm <dbl>, fta <dbl>, ft_pct <dbl>, rimm <dbl>, rima <dbl>,
-#> #   rim_pct <dbl>, midm <dbl>, mida <dbl>, mid_pct <dbl>, pbackm <dbl>,
-#> #   pbacka <dbl>, pback_pct <dbl>, blk_rim <dbl>, blk_mid <dbl>,
-#> #   blk_three <dbl>, pct_fga_trans <dbl>, pct_tpa_trans <dbl>, …
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_team_box(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_box/ncaa_wbb_team_box_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_box/ncaa_wbb_team_box_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 12,038 × 81
-#>    home   away  team   mins o_mins d_mins o_poss d_poss  ortg  drtg netrtg   pts
-#>    <chr>  <chr> <chr> <dbl>  <dbl>  <dbl>  <dbl>  <dbl> <dbl> <dbl>  <dbl> <dbl>
-#>  1 Georg… Dist… Dist…  39.4   20.8   18.6     68     70  69.1 123.  -53.7     47
-#>  2 Georg… Dist… Geor…  39.4   18.6   20.8     70     68 123.   69.1  53.7     86
-#>  3 Temple Geor… Geor…  38.9   22.2   16.7     69     71  72.5 121.  -48.7     50
-#>  4 Temple Geor… Temp…  38.9   16.7   22.2     71     69 121.   72.5  48.7     86
-#>  5 Georg… Howa… Geor…  39.8   21.4   18.4     68     69  88.2  89.9  -1.62    60
-#>  6 Georg… Howa… Howa…  39.8   18.4   21.4     69     68  89.9  88.2   1.62    62
-#>  7 Longw… Geor… Geor…  39.8   19.4   20.4     76     76  81.6  93.4 -11.8     62
-#>  8 Longw… Geor… Long…  39.8   20.4   19.4     76     76  93.4  81.6  11.8     71
-#>  9 Georg… Geor… Geor…  38.7   20.0   18.7     69     71  72.5 111.  -38.8     50
-#> 10 Georg… Geor… Geor…  38.7   18.7   20.0     71     69 111.   72.5  38.8     79
-#> # ℹ 12,028 more rows
-#> # ℹ 69 more variables: d_pts <dbl>, fga <dbl>, d_fga <dbl>, fgm <dbl>,
-#> #   d_fgm <dbl>, tpa <dbl>, d_tpa <dbl>, tpm <dbl>, d_tpm <dbl>, fta <dbl>,
-#> #   d_fta <dbl>, ftm <dbl>, d_ftm <dbl>, rima <dbl>, d_rima <dbl>, rimm <dbl>,
-#> #   d_rimm <dbl>, orb <dbl>, d_orb <dbl>, drb <dbl>, d_drb <dbl>, blk <dbl>,
-#> #   d_blk <dbl>, to <dbl>, d_to <dbl>, ast <dbl>, d_ast <dbl>, e_poss <dbl>,
-#> #   fg_pct <dbl>, d_fg_pct <dbl>, tpp <dbl>, d_tpp <dbl>, ftp <dbl>, …
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_rosters(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_rosters/ncaa_wbb_rosters_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_rosters/ncaa_wbb_rosters_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 8,382 × 4
-#>    season team               player              games
-#>     <int> <chr>              <chr>               <int>
-#>  1   2026 A&M-Corpus Christi ASHA.WALKER            29
-#>  2   2026 A&M-Corpus Christi BRUNA.ANGUERA          23
-#>  3   2026 A&M-Corpus Christi CHELSEA.WOOTEN         28
-#>  4   2026 A&M-Corpus Christi KNARI.HOLLIDAY         27
-#>  5   2026 A&M-Corpus Christi MARISSA.SHELTON        29
-#>  6   2026 A&M-Corpus Christi RAYNA.WILLIAMS         29
-#>  7   2026 A&M-Corpus Christi SAMORA.WATSON          22
-#>  8   2026 A&M-Corpus Christi TAMAR.VOOR.DE.POORT    19
-#>  9   2026 A&M-Corpus Christi TORIE.SEVIER           29
-#> 10   2026 A&M-Corpus Christi TRINITY.SLOCUM         28
-#> # ℹ 8,372 more rows
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_team_rosters(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_rosters/ncaa_wbb_team_rosters_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_rosters/ncaa_wbb_team_rosters_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,969 × 16
-#>    season team_id team   player_id player clean_name name  jersey class position
-#>     <int> <chr>   <chr>  <chr>     <chr>  <chr>      <chr> <chr>  <chr> <chr>   
-#>  1   2026 610016  A&M-C… 10005559  ASHA.… Asha Walk… Asha… 11     Jr.   G       
-#>  2   2026 610016  A&M-C… 9341790   BRUNA… Bruna Ang… Brun… 14     Sr.   C       
-#>  3   2026 610016  A&M-C… 10005568  CHELS… Chelsea W… Chel… 3      Sr.   G       
-#>  4   2026 610016  A&M-C… 10005541  KNARI… K'Nari Ho… K'Na… 32     Sr.   F       
-#>  5   2026 610016  A&M-C… 10005553  MARIS… Marissa S… Mari… 4      Sr.   G       
-#>  6   2026 610016  A&M-C… 9341797   NAIYA… Naiya Car… Naiy… 0      So.   G       
-#>  7   2026 610016  A&M-C… 10005564  RAYNA… Rayna Wil… Rayn… 12     So.   F       
-#>  8   2026 610016  A&M-C… 9341791   SAMOR… Samora Wa… Samo… 5      Sr.   G       
-#>  9   2026 610016  A&M-C… 10005543  SYDNE… Sydney Pe… Sydn… 21     Jr.   F       
-#> 10   2026 610016  A&M-C… 10005549  TAMAR… Tamar voo… Tama… 2      Sr.   G       
-#> # ℹ 4,959 more rows
-#> # ℹ 6 more variables: height <chr>, ht_inches <int>, hometown <chr>,
-#> #   high_school <chr>, gp <chr>, gs <chr>
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_schedule(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_schedule/ncaa_wbb_schedule_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_schedule/ncaa_wbb_schedule_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 6,019 × 7
-#>    contest_id game_date  home              away     home_score away_score season
-#>    <chr>      <chr>      <chr>             <chr>         <int>      <int>  <int>
-#>  1 6387146    11/03/2025 George Washington Dist. C…         86         47   2026
-#>  2 6387150    11/07/2025 Temple            George …         86         50   2026
-#>  3 6387163    11/11/2025 George Washington Howard           60         62   2026
-#>  4 6387165    11/17/2025 Longwood          George …         71         62   2026
-#>  5 6387168    11/21/2025 Georgetown        George …         79         50   2026
-#>  6 6387172    11/23/2025 George Washington Morgan …         82         56   2026
-#>  7 6387173    12/06/2025 George Washington Brown            53         48   2026
-#>  8 6387176    12/10/2025 Delaware          George …         59         63   2026
-#>  9 6387179    12/14/2025 George Washington American         70         44   2026
-#> 10 6387182    12/21/2025 George Washington Northwe…         75         62   2026
-#> # ℹ 6,009 more rows
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_ncaa_wbb_team_ids(seasons = most_recent_wbb_season()))
+#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_ids/ncaa_wbb_team_ids_2027.rds': HTTP status was '404 Not Found'
+#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_ids/ncaa_wbb_team_ids_2027.rds>
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 359 × 4
-#>    team               conference id     season
-#>    <chr>              <chr>      <chr>   <int>
-#>  1 A&M-Corpus Christi Southland  610016   2026
-#>  2 Abilene Christian  WAC        610128   2026
-#>  3 Air Force          MWC        609930   2026
-#>  4 Akron              MAC        610133   2026
-#>  5 Alabama            SEC        610143   2026
-#>  6 Alabama A&M        SWAC       610135   2026
-#>  7 Alabama St.        SWAC       610138   2026
-#>  8 Alcorn             SWAC       610153   2026
-#>  9 American           Patriot    610157   2026
-#> 10 App State          Sun Belt   610159   2026
-#> # ℹ 349 more rows
+#> # A tibble: 0 × 0
 # }
 ```
