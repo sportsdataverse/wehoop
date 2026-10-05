@@ -43,6 +43,8 @@
   `wnba_videodetailsasset()`). `wnba_commonplayoffseries()` defaulted two
   seasons back; the previous season's playoffs are always complete once the
   season rolls over in May. Pass `season` for another season.
+  `most_recent_wnba_season()` rolls over in May, so from January to April the
+  default is two seasons back from the one about to start.
   `wnba_draftboard()` keeps the current year, which is already the latest
   completed draft, and `wnba_teams()` keeps the current season so expansion
   teams appear. sportsdataverse-py uses the same previous-season rule, and
