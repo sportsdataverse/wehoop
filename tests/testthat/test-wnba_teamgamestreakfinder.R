@@ -5,7 +5,7 @@ test_that("WNBA Team Game Streak Finder", {
   
   
   skip("Deprecated: wnba_teamgamestreakfinder() now errors by design; use wnba_teamgamelogs().")
-x <- wnba_teamgamestreakfinder(season = most_recent_wnba_season())
+x <- wnba_teamgamestreakfinder(season = most_recent_wnba_season() - 1)
 
   if (length(x) == 0 || is.null(x[[1]]) || !is.data.frame(x[[1]]) || nrow(x[[1]]) == 0) {
     fail("No rows returned from endpoint at test time")

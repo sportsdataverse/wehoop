@@ -50,6 +50,8 @@ wnba_teams <- function(...){
 
   tryCatch(
     expr = {
+      # The current season on purpose: its standings list every team before tip-off,
+      # and an expansion team appears only in the season it joins.
       season <- most_recent_wnba_season()
 
       standings <- wnba_leaguestandingsv3(season = season, ...) %>%
@@ -325,7 +327,7 @@ NULL
 #' ```
 wnba_teamestimatedmetrics <- function(
     league_id = '10',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_type = 'Regular Season',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
@@ -440,7 +442,7 @@ wnba_teamgamelog <- function(
     date_from = '',
     date_to = '',
     league_id = '10',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
@@ -603,7 +605,7 @@ wnba_teamgamelogs <- function(
     per_mode = 'Totals',
     period = 0,
     player_id = '',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     team_id = '1611661328',
@@ -834,7 +836,7 @@ NULL
 #' ```
 wnba_teaminfocommon <- function(
     league_id = '10',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_type = 'Regular Season',
     team_id = '1611661328',
     ...){
@@ -953,7 +955,7 @@ wnba_teamplayeronoffdetails <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1104,7 +1106,7 @@ wnba_teamplayeronoffsummary <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1365,7 +1367,7 @@ wnba_teamplayerdashboard <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1797,7 +1799,7 @@ wnba_teamvsplayer <- function(
     player_id = '',
     plus_minus = 'N',
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -2254,7 +2256,7 @@ wnba_teamgamestreakfinder <- function(
     min_games = '',
     outcome = '',
     po_round = '',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     team_id = '',

@@ -22,7 +22,7 @@ wnba_playercompare(
   player_id_list = "100720,202250,204319,1627668,1628931",
   plus_minus = "N",
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",

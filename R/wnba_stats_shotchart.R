@@ -325,7 +325,7 @@ NULL
 #' @family WNBA Lineup Functions
 #' @details
 #' ```r
-#'  wnba_shotchartlineupdetail(group_id = '-1628899-1629481-1630096-1631019-1642784-', opponent_team_id = '1611661324', season = most_recent_wnba_season())
+#'  wnba_shotchartlineupdetail(group_id = '-1628899-1629481-1630096-1631019-1642784-', opponent_team_id = '1611661324', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_shotchartlineupdetail <- function(
     ahead_behind = '',
@@ -367,7 +367,7 @@ wnba_shotchartlineupdetail <- function(
     position = '',
     range_type = '0',
     rookie_year = '',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
