@@ -29,6 +29,26 @@
 
 # **wehoop 3.0.0.9000 (development version)**
 
+* 24 WNBA Stats wrappers now default `season` to the previous season,
+  `most_recent_wnba_season() - 1`, like wehoop's other 54 WNBA Stats wrappers.
+  23 defaulted to the current season, which stats.wnba.com answers with empty
+  tables until that season's games begin: the team dashboards and game logs
+  (`wnba_teamdashboardby*()`, `wnba_teamdashlineups()`, `wnba_teamgamelog()`,
+  `wnba_teamgamelogs()`, `wnba_teaminfocommon()`,
+  `wnba_teamplayerdashboard()`, `wnba_teamplayeronoff*()`,
+  `wnba_teamvsplayer()`, `wnba_teamestimatedmetrics()`),
+  `wnba_leaguestandingsv3()`, `wnba_playercompare()` and
+  `wnba_shotchartlineupdetail()`, plus three that are defunct and always error
+  (`wnba_teamgamestreakfinder()`, `wnba_videodetails()`,
+  `wnba_videodetailsasset()`). `wnba_commonplayoffseries()` defaulted two
+  seasons back; the previous season's playoffs are always complete once the
+  season rolls over in May. Pass `season` for another season.
+  `most_recent_wnba_season()` rolls over in May, so from January to April the
+  default is two seasons back from the one about to start.
+  `wnba_draftboard()` keeps the current year, which is already the latest
+  completed draft, and `wnba_teams()` keeps the current season so expansion
+  teams appear. sportsdataverse-py uses the same previous-season rule, and
+  hoopR adopts it in sportsdataverse/hoopR#225.
 * `wnba_todays_scoreboard()` returned nothing on every call: it sent no
   browser headers, and cdn.nba.com answered with a 403 "Access Denied" page.
   It also read cdn.nba.com's `todaysScoreboard_10.json`, which has been frozen

@@ -23,7 +23,7 @@ wnba_teamdashlineups(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -158,7 +158,7 @@ Columns as documented in the shared \link{wnba_team_summary_overall_schema} tabl
 \strong{Get WNBA Stats API Team Dashboard - Lineups}
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashlineups(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashlineups(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 }
 \seealso{

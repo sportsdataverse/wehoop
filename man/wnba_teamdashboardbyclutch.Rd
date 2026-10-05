@@ -28,7 +28,7 @@ wnba_teamdashboardbyclutch(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -55,7 +55,7 @@ wnba_teamdashboardbygamesplits(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -82,7 +82,7 @@ wnba_teamdashboardbygeneralsplits(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -109,7 +109,7 @@ wnba_teamdashboardbylastngames(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -136,7 +136,7 @@ wnba_teamdashboardbyopponent(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -163,7 +163,7 @@ wnba_teamdashboardbyshootingsplits(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -190,7 +190,7 @@ wnba_teamdashboardbyteamperformance(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -217,7 +217,7 @@ wnba_teamdashboardbyyearoveryear(
   per_mode = "Totals",
   period = 0,
   rank = "N",
-  season = most_recent_wnba_season(),
+  season = most_recent_wnba_season() - 1,
   season_segment = "",
   season_type = "Regular Season",
   shot_clock_range = "",
@@ -912,30 +912,30 @@ Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
 \strong{Get WNBA Stats API Team Dashboard Year over Year}
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyclutch(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyclutch(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbygamesplits(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbygamesplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbygeneralsplits(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbygeneralsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbylastngames(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbylastngames(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
 \href{https://www.nba.com/stats/team/1610612749/shooting}{Team Dashboard by Shooting Splits}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyteamperformance(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyteamperformance(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyyearoveryear(team_id = '1611661328', season = most_recent_wnba_season())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyyearoveryear(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 }
 \seealso{

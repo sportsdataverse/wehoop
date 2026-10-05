@@ -6,7 +6,7 @@
 \usage{
 wnba_commonplayoffseries(
   league_id = "10",
-  season = most_recent_wnba_season() - 2,
+  season = most_recent_wnba_season() - 1,
   series_id = "",
   ...
 )
@@ -38,7 +38,7 @@ Return a named list of data frames: PlayoffSeries
 \strong{Get WNBA Stats API Playoff Series}
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 2)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 }
 \author{

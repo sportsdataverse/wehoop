@@ -100,7 +100,7 @@ NULL
 #' @family WNBA Clutch Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbyclutch(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbyclutch(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbyclutch <- function(
     date_from = '',
@@ -119,7 +119,7 @@ wnba_teamdashboardbyclutch <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -248,7 +248,7 @@ wnba_teamdashboardbyclutch <- function(
 #' @family WNBA Team Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbygamesplits(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbygamesplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbygamesplits <- function(
     date_from = '',
@@ -267,7 +267,7 @@ wnba_teamdashboardbygamesplits <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -750,7 +750,7 @@ wnba_teamdashboardbygamesplits <- function(
 #' @family WNBA Team Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbygeneralsplits(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbygeneralsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbygeneralsplits <- function(
     date_from = '',
@@ -769,7 +769,7 @@ wnba_teamdashboardbygeneralsplits <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -904,7 +904,7 @@ wnba_teamdashboardbygeneralsplits <- function(
 #' @family WNBA Team Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbylastngames(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbylastngames(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbylastngames <- function(
     date_from = '',
@@ -923,7 +923,7 @@ wnba_teamdashboardbylastngames <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1047,7 +1047,7 @@ wnba_teamdashboardbylastngames <- function(
 #' @family WNBA Team Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbyopponent <- function(
     date_from = '',
@@ -1066,7 +1066,7 @@ wnba_teamdashboardbyopponent <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1207,7 +1207,7 @@ wnba_teamdashboardbyopponent <- function(
 #' @details
 #' [Team Dashboard by Shooting Splits](https://www.nba.com/stats/team/1610612749/shooting)
 #' ```r
-#'   wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbyshootingsplits <- function(
     date_from = '',
@@ -1226,7 +1226,7 @@ wnba_teamdashboardbyshootingsplits <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1406,7 +1406,7 @@ wnba_teamdashboardbyshootingsplits <- function(
 #' @family WNBA Team Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbyteamperformance(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbyteamperformance(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbyteamperformance <- function(
     date_from = '',
@@ -1425,7 +1425,7 @@ wnba_teamdashboardbyteamperformance <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1537,7 +1537,7 @@ wnba_teamdashboardbyteamperformance <- function(
 #' @family WNBA Team Functions
 #' @details
 #' ```r
-#'   wnba_teamdashboardbyyearoveryear(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashboardbyyearoveryear(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashboardbyyearoveryear <- function(
     date_from = '',
@@ -1556,7 +1556,7 @@ wnba_teamdashboardbyyearoveryear <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',
@@ -1730,7 +1730,7 @@ NULL
 #' @family WNBA Lineup Functions
 #' @details
 #' ```r
-#'   wnba_teamdashlineups(team_id = '1611661328', season = most_recent_wnba_season())
+#'   wnba_teamdashlineups(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_teamdashlineups <- function(
     date_from = '',
@@ -1751,7 +1751,7 @@ wnba_teamdashlineups <- function(
     per_mode = 'Totals',
     period = 0,
     rank = 'N',
-    season = most_recent_wnba_season(),
+    season = most_recent_wnba_season() - 1,
     season_segment = '',
     season_type = 'Regular Season',
     shot_clock_range = '',

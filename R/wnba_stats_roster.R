@@ -235,11 +235,11 @@ NULL
 #' @export
 #' @details
 #' ```r
-#'  wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 2)
+#'  wnba_commonplayoffseries(league_id = '10', season = most_recent_wnba_season() - 1)
 #' ```
 wnba_commonplayoffseries <- function(
     league_id = '10',
-    season = most_recent_wnba_season() - 2,
+    season = most_recent_wnba_season() - 1,
     series_id = '',
     ...){
   .args <- mget(setdiff(names(formals()), "..."))
