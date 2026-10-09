@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ───────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ───────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 13 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -126,7 +126,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ───────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player         value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>          <chr>
@@ -151,7 +151,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ───────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
@@ -170,7 +170,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ──────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -189,7 +189,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ──────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -208,7 +208,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -228,7 +228,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:36 UTC
+#> ℹ Data updated: 2026-10-09 05:44:36 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
@@ -248,7 +248,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:37 UTC
+#> ℹ Data updated: 2026-10-09 05:44:37 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -271,7 +271,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 03:19:37 UTC
+#> ℹ Data updated: 2026-10-09 05:44:37 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      

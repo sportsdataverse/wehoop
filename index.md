@@ -191,7 +191,7 @@ landscape. Every SportsDataverse package has one — browse them all at
 To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org) R package
 in publications, use:
 
-BibTex Citation
+BibTeX Citation
 
 ``` bibtex
 @misc{hutchinson_gilani_2021_wehoop,
