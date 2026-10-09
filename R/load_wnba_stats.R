@@ -1424,7 +1424,7 @@ update_wnba_stats_db <- function(dbdir = ".",
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
 #'       game_id \tab character \tab Unique game identifier. \cr
-#'       period \tab integer \tab Period of the game (1-2 halves pre-2016, 1-4 quarters 2016+). \cr
+#'       period \tab integer \tab Period of the game (1-2 halves for 1997-2005, 1-4 quarters from 2006; 5+ for overtime). \cr
 #'       possession_number \tab integer \tab Sequential possession number within the game. \cr
 #'       offense_team_id \tab integer \tab Team identifier for the team on offense. \cr
 #'       defense_team_id \tab integer \tab Team identifier for the team on defense. \cr
