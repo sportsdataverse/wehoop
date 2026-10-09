@@ -65,7 +65,7 @@ Other WNBA Crosswalk Functions:
   try(wnba_team_crosswalk(season = 2024))
 #> ℹ WNBA CDN schedule is for season 2026, not 2024. For historical seasons use `load_wnba_schedule(seasons = 2024)`.
 #> ── WNBA team crosswalk (ESPN / WNBA Stats / Fox) ────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-05 19:15:30 UTC
+#> ℹ Data updated: 2026-10-09 03:38:09 UTC
 #> # A tibble: 15 × 19
 #>    season espn_team_id espn_abbreviation espn_display_name      espn_short_name
 #>     <int>        <int> <chr>             <chr>                  <chr>          

@@ -171,14 +171,14 @@ library(wehoop)
 wbb_news <- espn_wbb_news(limit = 10)
 head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
-#>   headline                                                          published   
-#>   <chr>                                                             <chr>       
-#> 1 Lawson using Team USA stint to manage Duke's pressure to win      2026-10-05T…
-#> 2 UCLA's Lena Bilic to miss upcoming season with an ACL tear        2026-10-04T…
-#> 3 Staley, Gamecocks land commit from No. 30 recruit Taylor Brown    2026-10-03T…
-#> 4 UK senior Clara Strack embraces leading a 'team full of shooters' 2026-10-03T…
-#> 5 WNBA rookies Key, Morgan on being back in Lexington: 'So surreal' 2026-10-03T…
-#> 6 Sam Purcell on Starkville, MS: 'This place is about people'       2026-10-02T…
+#>   headline                                                            published 
+#>   <chr>                                                               <chr>     
+#> 1 Big Ten has '18 strong members,' no expansion talks, commish says   2026-10-0…
+#> 2 Kentucky State player released on bond from ICE custody             2026-10-0…
+#> 3 How top 2027 women's basketball commits fit at their schools        2026-10-0…
+#> 4 Micah Ojo, No. 6 prospect in 2027 SC Next 100, picks North Carolina 2026-10-0…
+#> 5 USC's JuJu Watkins expects to be 'smarter player' after ACL layoff  2026-10-0…
+#> 6 UCLA women's basketball feeling 'overlooked' after title run        2026-10-0…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -295,50 +295,50 @@ bio <- espn_wbb_player_info(athlete_id = athlete_id)
 glimpse(bio)
 #> List of 6
 #>  $ Bio     : wehop_dt [1 × 16] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
-#>   ..$ id            : chr "5311737"
-#>   ..$ uid           : chr "s:40~l:54~a:5311737"
-#>   ..$ guid          : chr "e082d6da-e8f8-32d8-8085-45ea3bfc5eac"
-#>   ..$ first_name    : chr "Carley"
-#>   ..$ last_name     : chr "Barrett"
-#>   ..$ full_name     : chr "Carley Barrett"
-#>   ..$ display_name  : chr "Carley Barrett"
-#>   ..$ short_name    : chr "C. Barrett"
-#>   ..$ height        : num 67
-#>   ..$ display_height: chr "5' 7\""
-#>   ..$ jersey        : chr "24"
+#>   ..$ id            : chr "5239976"
+#>   ..$ uid           : chr "s:40~l:54~a:5239976"
+#>   ..$ guid          : chr "4027b526-4b60-367f-b973-1e9d7d3bd1c7"
+#>   ..$ first_name    : chr "Averi"
+#>   ..$ last_name     : chr "Aaron"
+#>   ..$ full_name     : chr "Averi Aaron"
+#>   ..$ display_name  : chr "Averi Aaron"
+#>   ..$ short_name    : chr "A. Aaron"
+#>   ..$ height        : num 73
+#>   ..$ display_height: chr "6' 1\""
+#>   ..$ jersey        : chr "25"
 #>   ..$ active        : logi TRUE
-#>   ..$ headshot_href : chr "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5311737.png"
-#>   ..$ birth_city    : chr "Lafayette"
-#>   ..$ birth_state   : chr "IN"
+#>   ..$ headshot_href : chr "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5239976.png"
+#>   ..$ birth_city    : chr "Boerne"
+#>   ..$ birth_state   : chr "TX"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/2509?"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
-#>   ..$ id          : chr "3"
-#>   ..$ name        : chr "Guard"
-#>   ..$ display_name: chr "Guard"
-#>   ..$ abbreviation: chr "G"
+#>   ..$ id          : chr "2"
+#>   ..$ name        : chr "Forward"
+#>   ..$ display_name: chr "Forward"
+#>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -356,17 +356,17 @@ gamelog <- espn_wbb_player_gamelog(
 head(gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")])
 #> Error in `gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")]`:
 #> ! Can't subset columns that don't exist.
-#> ✖ Columns `game_date`, `opponent`, `points`, `rebounds`, and `assists` don't exist.
+#> ✖ Columns `opponent`, `points`, `rebounds`, and `assists` don't exist.
 
 # Situational splits (home/away, by month, vs ranked, ...)
 splits <- espn_wbb_player_splits(
   athlete_id = athlete_id, season = 2025
 )
 head(splits)
-#> # A tibble: 1 × 4
-#>   athlete_id season name  display_name
-#>   <chr>       <dbl> <chr> <chr>       
-#> 1 5311737      2025 split split
+#> # A tibble: 1 × 5
+#>   athlete_id season name  display_name splits      
+#>   <chr>       <dbl> <chr> <chr>        <list>      
+#> 1 5239976      2025 split split        <df [2 × 3]>
 ```
 
 Everything above works the same on the WNBA side – swap `espn_wbb_*` for

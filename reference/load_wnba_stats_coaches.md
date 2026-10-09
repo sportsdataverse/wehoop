@@ -596,7 +596,7 @@ Saiem Gilani
 #>   player_stats_{base,advanced,misc,scoring,usage,defense} assets back into the
 #>   old stacked-by-measure_type contract.
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 1,974 × 213
+#> # A tibble: 1,980 × 213
 #>    player_id player_name    nickname team_id team_abbreviation   age    gp     w
 #>        <int> <chr>          <chr>      <int> <chr>             <dbl> <int> <int>
 #>  1   1628932 A'ja Wilson    A'ja      1.61e9 LVA                  30    41    30
@@ -609,7 +609,7 @@ Saiem Gilani
 #>  8   1642775 Alex Wilson    Alex      1.61e9 WAS                  32     4     2
 #>  9   1643644 Alicia Florez  Alicia    1.61e9 WAS                  22    35    23
 #> 10   1642293 Alissa Pili    Alissa    1.61e9 LAS                  25     5     2
-#> # ℹ 1,964 more rows
+#> # ℹ 1,970 more rows
 #> # ℹ 205 more variables: l <int>, w_pct <dbl>, min <dbl>, fgm <int>, fga <int>,
 #> #   fg_pct <dbl>, fg3_m <int>, fg3_a <int>, fg3_pct <dbl>, ftm <int>,
 #> #   fta <int>, ft_pct <dbl>, oreb <int>, dreb <int>, reb <int>, ast <int>,
@@ -626,7 +626,7 @@ Saiem Gilani
 #>   call filters the cube's lineups_{base,advanced} assets down to group_quantity
 #>   == 5 to match the old contract.
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,440 × 98
+#> # A tibble: 4,494 × 98
 #>    group_set group_id     group_name team_id team_abbreviation    gp     w     l
 #>    <chr>     <chr>        <chr>        <int> <chr>             <int> <int> <int>
 #>  1 Lineups   -1628277-16… A. Gray -…  1.61e9 ATL                  40    30    10
@@ -639,7 +639,7 @@ Saiem Gilani
 #>  8 Lineups   -1629484-16… M. DiLeo …  1.61e9 PDX                  18     7    11
 #>  9 Lineups   -1629481-16… A. Ogunbo…  1.61e9 DAL                  21    15     6
 #> 10 Lineups   -1629567-16… N. Hiedem…  1.61e9 SEA                  22     3    19
-#> # ℹ 4,430 more rows
+#> # ℹ 4,484 more rows
 #> # ℹ 90 more variables: w_pct <dbl>, min <dbl>, fgm <int>, fga <int>,
 #> #   fg_pct <dbl>, fg3_m <int>, fg3_a <int>, fg3_pct <dbl>, ftm <int>,
 #> #   fta <int>, ft_pct <dbl>, oreb <int>, dreb <int>, reb <int>, ast <int>,

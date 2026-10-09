@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   # LeBron James (1966): 23 career seasons
   espn_wbb_player_seasons(athlete_id = 4433404)
-#> ✖ 2026-10-05 18:56:30.874152: Failed to retrieve ESPN womens-college-basketball athlete seasons for athlete_id=4433404
+#> ✖ 2026-10-09 03:18:42.40741: Failed to retrieve ESPN womens-college-basketball athlete seasons for athlete_id=4433404
 #> ✖ Args: league = "womens-college-basketball", athlete_id = 4433404
 #> ✖ Error: The API returned an error
 #> NULL

@@ -60,16 +60,20 @@ Get ESPN WNBA Team News"><meta property="og:image" content="https://raw.githubus
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a></li>
     <li><a class="external-link dropdown-item" href="https://recruitR.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfbseedR.sportsdataverse.org/">cfbseedR</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplotR.sportsdataverse.org/">sdvplotR</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplot.sportsdataverse.org/">sdvplot</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a></li>
+    <li><a class="external-link dropdown-item" href="https://plot.sportsdataverse.org/">sdvplot-js</a></li>
   </ul></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
@@ -212,15 +216,15 @@ supported for ESPN wrappers).</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_team_news</span><span class="op">(</span>team_id <span class="op">=</span> <span class="st">"17"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Team News (team_id=17) from ESPN.com ───────── <span style="font-style: italic;">wehoop 3.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-05 18:57:04 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-09 03:19:26 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        id type  headline description published premium byline link_web league_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  5.01<span style="color: #949494;">e</span>7 Story 2026 WN… How the se… 2026-10-… FALSE   ESPN   https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  5.01<span style="color: #949494;">e</span>7 Media Valkyri… Valkyries … 2026-10-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  4.99<span style="color: #949494;">e</span>7 Story WNBA pl… Atlanta, G… 2026-10-… FALSE   ESPN   https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  5.01<span style="color: #949494;">e</span>7 Head… Valkyri… Valkyries … 2026-10-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  4.84<span style="color: #949494;">e</span>7 Story WNBA ch… The Las Ve… 2026-10-… FALSE   Doug … https:/… 22000    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  4.13<span style="color: #949494;">e</span>7 Story Who has… The annual… 2026-10-… FALSE   Keith… https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  5.01<span style="color: #949494;">e</span>7 Media A'ja Wi… A'ja Wilso… 2026-10-… FALSE   <span style="color: #BB0000;">NA</span>     https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  4.84<span style="color: #949494;">e</span>7 Story WNBA ch… The outcom… 2026-10-… FALSE   Doug … https:/… 22000    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  2.96<span style="color: #949494;">e</span>7 Story Shai Gi… The Oklaho… 2026-10-… FALSE   ESPN   https:/… 59       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  5.01<span style="color: #949494;">e</span>7 Story A'ja Wi… As Wilson … 2026-10-… FALSE   Neil … https:/… 59       </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

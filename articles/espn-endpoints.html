@@ -90,16 +90,20 @@
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a></li>
     <li><a class="external-link dropdown-item" href="https://recruitR.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfbseedR.sportsdataverse.org/">cfbseedR</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplotR.sportsdataverse.org/">sdvplotR</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplot.sportsdataverse.org/">sdvplot</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a></li>
+    <li><a class="external-link dropdown-item" href="https://plot.sportsdataverse.org/">sdvplot-js</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -632,14 +636,14 @@ feed and the calendar.</p>
 <span><span class="va">wbb_news</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_news.html">espn_wbb_news</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wbb_news</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"headline"</span>, <span class="st">"published"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 2</span></span></span>
-<span><span class="co">#&gt;   headline                                                          published   </span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Lawson using Team USA stint to manage Duke's pressure to win      2026-10-05T…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> UCLA's Lena Bilic to miss upcoming season with an ACL tear        2026-10-04T…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Staley, Gamecocks land commit from No. 30 recruit Taylor Brown    2026-10-03T…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> UK senior Clara Strack embraces leading a 'team full of shooters' 2026-10-03T…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> WNBA rookies Key, Morgan on being back in Lexington: 'So surreal' 2026-10-03T…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Sam Purcell on Starkville, MS: 'This place is about people'       2026-10-02T…</span></span>
+<span><span class="co">#&gt;   headline                                                            published </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Big Ten has '18 strong members,' no expansion talks, commish says   2026-10-0…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Kentucky State player released on bond from ICE custody             2026-10-0…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> How top 2027 women's basketball commits fit at their schools        2026-10-0…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Micah Ojo, No. 6 prospect in 2027 SC Next 100, picks North Carolina 2026-10-0…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> USC's JuJu Watkins expects to be 'smarter player' after ACL layoff  2026-10-0…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> UCLA women's basketball feeling 'overlooked' after title run        2026-10-0…</span></span>
 <span></span>
 <span><span class="co"># 2025 WBB season calendar</span></span>
 <span><span class="va">wbb_cal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_calendar.html">espn_wbb_calendar</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span>
@@ -746,50 +750,50 @@ keyed off the same <code>athlete_id</code>.</p>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">bio</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 6</span></span>
 <span><span class="co">#&gt;  $ Bio     : wehop_dt [1 × 16] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)</span></span>
-<span><span class="co">#&gt;   ..$ id            : chr "5311737"</span></span>
-<span><span class="co">#&gt;   ..$ uid           : chr "s:40~l:54~a:5311737"</span></span>
-<span><span class="co">#&gt;   ..$ guid          : chr "e082d6da-e8f8-32d8-8085-45ea3bfc5eac"</span></span>
-<span><span class="co">#&gt;   ..$ first_name    : chr "Carley"</span></span>
-<span><span class="co">#&gt;   ..$ last_name     : chr "Barrett"</span></span>
-<span><span class="co">#&gt;   ..$ full_name     : chr "Carley Barrett"</span></span>
-<span><span class="co">#&gt;   ..$ display_name  : chr "Carley Barrett"</span></span>
-<span><span class="co">#&gt;   ..$ short_name    : chr "C. Barrett"</span></span>
-<span><span class="co">#&gt;   ..$ height        : num 67</span></span>
-<span><span class="co">#&gt;   ..$ display_height: chr "5' 7\""</span></span>
-<span><span class="co">#&gt;   ..$ jersey        : chr "24"</span></span>
+<span><span class="co">#&gt;   ..$ id            : chr "5239976"</span></span>
+<span><span class="co">#&gt;   ..$ uid           : chr "s:40~l:54~a:5239976"</span></span>
+<span><span class="co">#&gt;   ..$ guid          : chr "4027b526-4b60-367f-b973-1e9d7d3bd1c7"</span></span>
+<span><span class="co">#&gt;   ..$ first_name    : chr "Averi"</span></span>
+<span><span class="co">#&gt;   ..$ last_name     : chr "Aaron"</span></span>
+<span><span class="co">#&gt;   ..$ full_name     : chr "Averi Aaron"</span></span>
+<span><span class="co">#&gt;   ..$ display_name  : chr "Averi Aaron"</span></span>
+<span><span class="co">#&gt;   ..$ short_name    : chr "A. Aaron"</span></span>
+<span><span class="co">#&gt;   ..$ height        : num 73</span></span>
+<span><span class="co">#&gt;   ..$ display_height: chr "6' 1\""</span></span>
+<span><span class="co">#&gt;   ..$ jersey        : chr "25"</span></span>
 <span><span class="co">#&gt;   ..$ active        : logi TRUE</span></span>
-<span><span class="co">#&gt;   ..$ headshot_href : chr "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5311737.png"</span></span>
-<span><span class="co">#&gt;   ..$ birth_city    : chr "Lafayette"</span></span>
-<span><span class="co">#&gt;   ..$ birth_state   : chr "IN"</span></span>
+<span><span class="co">#&gt;   ..$ headshot_href : chr "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5239976.png"</span></span>
+<span><span class="co">#&gt;   ..$ birth_city    : chr "Boerne"</span></span>
+<span><span class="co">#&gt;   ..$ birth_state   : chr "TX"</span></span>
 <span><span class="co">#&gt;   ..$ birth_country : chr "USA"</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"</span></span>
+<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"</span></span>
 <span><span class="co">#&gt;   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"</span></span>
 <span><span class="co">#&gt;  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)</span></span>
 <span><span class="co">#&gt;   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/2509?"| __truncated__</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"</span></span>
+<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"</span></span>
 <span><span class="co">#&gt;   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"</span></span>
 <span><span class="co">#&gt;  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)</span></span>
-<span><span class="co">#&gt;   ..$ id          : chr "3"</span></span>
-<span><span class="co">#&gt;   ..$ name        : chr "Guard"</span></span>
-<span><span class="co">#&gt;   ..$ display_name: chr "Guard"</span></span>
-<span><span class="co">#&gt;   ..$ abbreviation: chr "G"</span></span>
+<span><span class="co">#&gt;   ..$ id          : chr "2"</span></span>
+<span><span class="co">#&gt;   ..$ name        : chr "Forward"</span></span>
+<span><span class="co">#&gt;   ..$ display_name: chr "Forward"</span></span>
+<span><span class="co">#&gt;   ..$ abbreviation: chr "F"</span></span>
 <span><span class="co">#&gt;   ..$ leaf        : logi FALSE</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"</span></span>
+<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"</span></span>
 <span><span class="co">#&gt;   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"</span></span>
 <span><span class="co">#&gt;  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)</span></span>
 <span><span class="co">#&gt;   ..$ id          : chr "1"</span></span>
 <span><span class="co">#&gt;   ..$ name        : chr "Active"</span></span>
 <span><span class="co">#&gt;   ..$ type        : chr "active"</span></span>
 <span><span class="co">#&gt;   ..$ abbreviation: chr "Active"</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"</span></span>
+<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"</span></span>
 <span><span class="co">#&gt;   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"</span></span>
 <span><span class="co">#&gt;  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)</span></span>
 <span><span class="co">#&gt;  Named list()</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"</span></span>
+<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"</span></span>
 <span><span class="co">#&gt;   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"</span></span>
 <span><span class="co">#&gt;  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)</span></span>
 <span><span class="co">#&gt;  Named list()</span></span>
-<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-05 19:15:38"</span></span>
+<span><span class="co">#&gt;   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-09 03:38:21"</span></span>
 <span><span class="co">#&gt;   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"</span></span>
 <span></span>
 <span><span class="co"># Season overview (web-common-v3)</span></span>
@@ -807,17 +811,17 @@ keyed off the same <code>athlete_id</code>.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">gamelog</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"game_date"</span>, <span class="st">"opponent"</span>, <span class="st">"points"</span>, <span class="st">"rebounds"</span>, <span class="st">"assists"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `gamelog[, c("game_date", "opponent", "points", "rebounds", "assists")]`:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> Can't subset columns that don't exist.</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> Columns `game_date`, `opponent`, `points`, `rebounds`, and `assists` don't exist.</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> Columns `opponent`, `points`, `rebounds`, and `assists` don't exist.</span></span>
 <span></span>
 <span><span class="co"># Situational splits (home/away, by month, vs ranked, ...)</span></span>
 <span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wbb_player_eventlog.html">espn_wbb_player_splits</a></span><span class="op">(</span></span>
 <span>  athlete_id <span class="op">=</span> <span class="va">athlete_id</span>, season <span class="op">=</span> <span class="fl">2025</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">splits</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
-<span><span class="co">#&gt;   athlete_id season name  display_name</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5311737      <span style="text-decoration: underline;">2</span>025 split split</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
+<span><span class="co">#&gt;   athlete_id season name  display_name splits      </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5239976      <span style="text-decoration: underline;">2</span>025 split split        <span style="color: #949494;">&lt;df [2 × 3]&gt;</span></span></span></code></pre></div>
 <p>Everything above works the same on the WNBA side – swap
 <code>espn_wbb_*</code> for <code>espn_wnba_*</code> and use a WNBA
 <code>athlete_id</code> (A’ja Wilson is <code>"3149391"</code>).</p>

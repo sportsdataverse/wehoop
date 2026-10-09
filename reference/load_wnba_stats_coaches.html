@@ -350,16 +350,20 @@ artifacts to the wnba_stats_possessions release tag."><meta property="og:image" 
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a></li>
     <li><a class="external-link dropdown-item" href="https://recruitR.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfbseedR.sportsdataverse.org/">cfbseedR</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplotR.sportsdataverse.org/">sdvplotR</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplot.sportsdataverse.org/">sdvplot</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a></li>
+    <li><a class="external-link dropdown-item" href="https://plot.sportsdataverse.org/">sdvplot-js</a></li>
   </ul></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
@@ -770,7 +774,7 @@ game with the home/away sides pre-joined into <code>home_*</code> / <code>away_*
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   player_stats_{base,advanced,misc,scoring,usage,defense} assets back into the</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   old stacked-by-measure_type contract.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ─────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0.9000</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,974 × 213</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,980 × 213</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    player_id player_name    nickname team_id team_abbreviation   age    gp     w</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   1<span style="text-decoration: underline;">628</span>932 A'ja Wilson    A'ja      1.61<span style="color: #949494;">e</span>9 LVA                  30    41    30</span>
@@ -783,7 +787,7 @@ game with the home/away sides pre-joined into <code>home_*</code> / <code>away_*
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   1<span style="text-decoration: underline;">642</span>775 Alex Wilson    Alex      1.61<span style="color: #949494;">e</span>9 WAS                  32     4     2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   1<span style="text-decoration: underline;">643</span>644 Alicia Florez  Alicia    1.61<span style="color: #949494;">e</span>9 WAS                  22    35    23</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   1<span style="text-decoration: underline;">642</span>293 Alissa Pili    Alissa    1.61<span style="color: #949494;">e</span>9 LAS                  25     5     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,964 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,970 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 205 more variables: l &lt;int&gt;, w_pct &lt;dbl&gt;, min &lt;dbl&gt;, fgm &lt;int&gt;, fga &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fg_pct &lt;dbl&gt;, fg3_m &lt;int&gt;, fg3_a &lt;int&gt;, fg3_pct &lt;dbl&gt;, ftm &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fta &lt;int&gt;, ft_pct &lt;dbl&gt;, oreb &lt;int&gt;, dreb &lt;int&gt;, reb &lt;int&gt;, ast &lt;int&gt;,</span></span>
@@ -800,7 +804,7 @@ game with the home/away sides pre-joined into <code>home_*</code> / <code>away_*
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   call filters the cube's lineups_{base,advanced} assets down to group_quantity</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   == 5 to match the old contract.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ─────────────────────────────────────────────────────────── <span style="font-style: italic;">wehoop 3.0.0.9000</span> ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,440 × 98</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,494 × 98</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    group_set group_id     group_name team_id team_abbreviation    gp     w     l</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Lineups   -1628277-16… A. Gray -…  1.61<span style="color: #949494;">e</span>9 ATL                  40    30    10</span>
@@ -813,7 +817,7 @@ game with the home/away sides pre-joined into <code>home_*</code> / <code>away_*
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Lineups   -1629484-16… M. DiLeo …  1.61<span style="color: #949494;">e</span>9 PDX                  18     7    11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Lineups   -1629481-16… A. Ogunbo…  1.61<span style="color: #949494;">e</span>9 DAL                  21    15     6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Lineups   -1629567-16… N. Hiedem…  1.61<span style="color: #949494;">e</span>9 SEA                  22     3    19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,430 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4,484 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 90 more variables: w_pct &lt;dbl&gt;, min &lt;dbl&gt;, fgm &lt;int&gt;, fga &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fg_pct &lt;dbl&gt;, fg3_m &lt;int&gt;, fg3_a &lt;int&gt;, fg3_pct &lt;dbl&gt;, ftm &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fta &lt;int&gt;, ft_pct &lt;dbl&gt;, oreb &lt;int&gt;, dreb &lt;int&gt;, reb &lt;int&gt;, ast &lt;int&gt;,</span></span>

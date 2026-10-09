@@ -89,8 +89,8 @@ espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
 #>  5 401913709   2027          NA     3 2026-11-19T1… Purd… PUR VS FSU NA         
 #>  6 401918944   2027          NA     3 2026-11-21T1… Purd… PUR VS TTU NA         
 #>  7 401919711   2027          NA     4 2026-11-25T0… Murr… MUR @ PUR  NA         
-#>  8 401921455   2027          NA     4 2026-11-29T0… UT M… UTM @ PUR  NA         
-#>  9 401921852   2027          NA     5 2026-12-06T0… Minn… MINN @ PUR NA         
+#>  8 401921455   2027          NA     4 2026-11-29T2… UT M… UTM @ PUR  NA         
+#>  9 401921852   2027          NA     5 2026-12-06T1… Minn… MINN @ PUR NA         
 #> 10 401921456   2027          NA     6 2026-12-10T0… Cent… CMU @ PUR  NA         
 #> # ℹ 20 more rows
 #> # ℹ 13 more variables: opponent_abbrev <chr>, home_away <chr>,
@@ -98,21 +98,22 @@ espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
 #> #   venue_name <chr>, venue_city <chr>, venue_state <chr>, broadcast <chr>,
 #> #   result <chr>, team_score <chr>, opponent_score <chr>, winner <lgl>
 espn_wbb_team_roster(team_id = team_id, season = season)      # the players
-#> # A tibble: 12 × 15
+#> # A tibble: 13 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
-#>  1 5311737    Carley B… 24     G               Guard         "5' 7… NA     NA   
-#>  2 5106182    Tara Daye 44     G               Guard         "5' 1… NA     NA   
-#>  3 5107710    Taylor F… 5      G               Guard         "5' 8… NA     NA   
-#>  4 5311739    Avery Go… 55     F               Forward       "6' 7… NA     NA   
-#>  5 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
-#>  6 5311736    Hila Kar… 8      G               Guard         "5' 8… NA     NA   
-#>  7 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
-#>  8 4433438    Madison … 33     G               Guard         "6' 1… NA     NA   
-#>  9 5240041    Lana McC… 35     F               Forward       "6' 4… NA     NA   
-#> 10 5240040    Kendall … 22     F               Forward       "6' 3… NA     NA   
-#> 11 5239064    Kiki Smi… 23     G               Guard         "5' 7… NA     NA   
-#> 12 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
+#>  1 5239976    Averi Aa… 25     F               Forward       "6' 1… NA     NA   
+#>  2 5315054    Jelena B… 8      G               Guard         "5' 1… NA     NA   
+#>  3 5456419    Keona Do… 4      G               Guard         "5' 9… NA     NA   
+#>  4 5456421    Katka Se… 6      F               Forward       "6' 1… NA     NA   
+#>  5 5311739    Avery Go… 55     C               Center        "6' 7… NA     NA   
+#>  6 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
+#>  7 4433806    Kyndall … 3      G               Guard         "5' 7… NA     NA   
+#>  8 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
+#>  9 5456422    Anjela M… 10     C               Center        "6' 5… NA     NA   
+#> 10 5175419    Aysia Pr… 12     G               Guard         "5' 8… NA     NA   
+#> 11 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
+#> 12 5456420    Zoja Sti… 5      G               Guard         "5' 1… NA     NA   
+#> 13 5240777    Hannah W… 7      G               Guard         "5' 1… NA     NA   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 espn_wbb_team_season_statistics(team_id = team_id, season = season)
@@ -145,7 +146,7 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> # A tibble: 1 × 16
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
-#> 1 5311737 s:40~l:5… e082… Carley     Barrett   Carley B… Carley Barr… C. Barrett
+#> 1 5239976 s:40~l:5… 4027… Averi      Aaron     Averi Aa… Averi Aaron  A. Aaron  
 #> # ℹ 8 more variables: height <dbl>, display_height <chr>, jersey <chr>,
 #> #   active <lgl>, headshot_href <chr>, birth_city <chr>, birth_state <chr>,
 #> #   birth_country <chr>
@@ -158,9 +159,9 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> 
 #> $Position
 #> # A tibble: 1 × 5
-#>   id    name  display_name abbreviation leaf 
-#>   <chr> <chr> <chr>        <chr>        <lgl>
-#> 1 3     Guard Guard        G            FALSE
+#>   id    name    display_name abbreviation leaf 
+#>   <chr> <chr>   <chr>        <chr>        <lgl>
+#> 1 2     Forward Forward      F            FALSE
 #> 
 #> $Status
 #> # A tibble: 1 × 4
@@ -179,16 +180,16 @@ espn_wbb_player_career_stats(athlete_id = athlete_id)    # career rollup, long f
 #> # A tibble: 87 × 17
 #>    league   athlete_id stat_type_id split_id split_name split_type category_name
 #>    <chr>    <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
-#>  1 womens-… 5311737    0            0        Season     season     defensive    
-#>  2 womens-… 5311737    0            0        Season     season     defensive    
-#>  3 womens-… 5311737    0            0        Season     season     defensive    
-#>  4 womens-… 5311737    0            0        Season     season     defensive    
-#>  5 womens-… 5311737    0            0        Season     season     defensive    
-#>  6 womens-… 5311737    0            0        Season     season     defensive    
-#>  7 womens-… 5311737    0            0        Season     season     defensive    
-#>  8 womens-… 5311737    0            0        Season     season     defensive    
-#>  9 womens-… 5311737    0            0        Season     season     general      
-#> 10 womens-… 5311737    0            0        Season     season     general      
+#>  1 womens-… 5239976    0            0        Season     season     defensive    
+#>  2 womens-… 5239976    0            0        Season     season     defensive    
+#>  3 womens-… 5239976    0            0        Season     season     defensive    
+#>  4 womens-… 5239976    0            0        Season     season     defensive    
+#>  5 womens-… 5239976    0            0        Season     season     defensive    
+#>  6 womens-… 5239976    0            0        Season     season     defensive    
+#>  7 womens-… 5239976    0            0        Season     season     defensive    
+#>  8 womens-… 5239976    0            0        Season     season     defensive    
+#>  9 womens-… 5239976    0            0        Season     season     general      
+#> 10 womens-… 5239976    0            0        Season     season     general      
 #> # ℹ 77 more rows
 #> # ℹ 10 more variables: category_display <chr>, category_short <chr>,
 #> #   category_abbrev <chr>, stat_name <chr>, stat_abbrev <chr>,

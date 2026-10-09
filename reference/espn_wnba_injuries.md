@@ -113,7 +113,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_injuries()
 #> ── ESPN WNBA Injury Information from ESPN.com ───────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-05 18:56:55 UTC
+#> ℹ Data updated: 2026-10-09 03:19:13 UTC
 #> # A tibble: 14 × 12
 #>    team_id athlete_id athlete_name position status date  type  side  returns_at
 #>    <chr>   <chr>      <chr>        <chr>    <chr>  <chr> <chr> <chr> <chr>     

@@ -90,16 +90,20 @@
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslR/">nwslR</a></li>
     <li><a class="external-link dropdown-item" href="https://recruitR.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
+    <li><a class="external-link dropdown-item" href="https://cfbseedR.sportsdataverse.org/">cfbseedR</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplotR.sportsdataverse.org/">sdvplotR</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nwslR/nwslpy/">nwslpy</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nathanblumenfeld/collegebaseball/">collegebaseball</a></li>
+    <li><a class="external-link dropdown-item" href="https://sdvplot.sportsdataverse.org/">sdvplot</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a></li>
+    <li><a class="external-link dropdown-item" href="https://plot.sportsdataverse.org/">sdvplot-js</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -252,8 +256,8 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 401913709   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     3 2026-11-19T1… Purd… PUR VS FSU <span style="color: #BB0000;">NA</span>         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 401918944   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     3 2026-11-21T1… Purd… PUR VS TTU <span style="color: #BB0000;">NA</span>         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 401919711   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     4 2026-11-25T0… Murr… MUR @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401921455   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     4 2026-11-29T0… UT M… UTM @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401921852   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     5 2026-12-06T0… Minn… MINN @ PUR <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 401921455   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     4 2026-11-29T2… UT M… UTM @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 401921852   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     5 2026-12-06T1… Minn… MINN @ PUR <span style="color: #BB0000;">NA</span>         </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 401921456   <span style="text-decoration: underline;">2</span>027          <span style="color: #BB0000;">NA</span>     6 2026-12-10T0… Cent… CMU @ PUR  <span style="color: #BB0000;">NA</span>         </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 13 more variables: opponent_abbrev &lt;chr&gt;, home_away &lt;chr&gt;,</span></span></span>
@@ -261,21 +265,22 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   venue_name &lt;chr&gt;, venue_city &lt;chr&gt;, venue_state &lt;chr&gt;, broadcast &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   result &lt;chr&gt;, team_score &lt;chr&gt;, opponent_score &lt;chr&gt;, winner &lt;lgl&gt;</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_team.html">espn_wbb_team_roster</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span>      <span class="co"># the players</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 15</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 15</span></span></span>
 <span><span class="co">#&gt;    athlete_id full_name jersey position_abbrev position_name height weight age  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 5311737    Carley B… 24     G               Guard         <span style="color: #949494;">"</span>5' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 5106182    Tara Daye 44     G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 5107710    Taylor F… 5      G               Guard         <span style="color: #949494;">"</span>5' 8… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 5311739    Avery Go… 55     F               Forward       <span style="color: #949494;">"</span>6' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 5108895    Taylor H… 2      G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 5311736    Hila Kar… 8      G               Guard         <span style="color: #949494;">"</span>5' 8… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 5175722    McKenna … 11     G               Guard         <span style="color: #949494;">"</span>6' 2… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 4433438    Madison … 33     G               Guard         <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 5240041    Lana McC… 35     F               Forward       <span style="color: #949494;">"</span>6' 4… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 5240040    Kendall … 22     F               Forward       <span style="color: #949494;">"</span>6' 3… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 5239064    Kiki Smi… 23     G               Guard         <span style="color: #949494;">"</span>5' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 5178283    Saige St… 13     F               Forward       <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 5239976    Averi Aa… 25     F               Forward       <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 5315054    Jelena B… 8      G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 5456419    Keona Do… 4      G               Guard         <span style="color: #949494;">"</span>5' 9… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 5456421    Katka Se… 6      F               Forward       <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 5311739    Avery Go… 55     C               Center        <span style="color: #949494;">"</span>6' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 5108895    Taylor H… 2      G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 4433806    Kyndall … 3      G               Guard         <span style="color: #949494;">"</span>5' 7… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 5175722    McKenna … 11     G               Guard         <span style="color: #949494;">"</span>6' 2… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 5456422    Anjela M… 10     C               Center        <span style="color: #949494;">"</span>6' 5… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 5175419    Aysia Pr… 12     G               Guard         <span style="color: #949494;">"</span>5' 8… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 5178283    Saige St… 13     F               Forward       <span style="color: #949494;">"</span>6' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 5456420    Zoja Sti… 5      G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> 5240777    Hannah W… 7      G               Guard         <span style="color: #949494;">"</span>5' 1… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>   </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 7 more variables: birth_date &lt;chr&gt;, birth_place &lt;chr&gt;, headshot &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   link_web &lt;chr&gt;, status &lt;chr&gt;, team_id &lt;chr&gt;, season &lt;int&gt;</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_team_season_statistics.html">espn_wbb_team_season_statistics</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
@@ -305,7 +310,7 @@ star-driven sport, and you want a marquee guard’s numbers.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 16</span></span></span>
 <span><span class="co">#&gt;   id      uid       guid  first_name last_name full_name display_name short_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5311737 s:40~l:5… e082… Carley     Barrett   Carley B… Carley Barr… C. Barrett</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 5239976 s:40~l:5… 4027… Averi      Aaron     Averi Aa… Averi Aaron  A. Aaron  </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 8 more variables: height &lt;dbl&gt;, display_height &lt;chr&gt;, jersey &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   active &lt;lgl&gt;, headshot_href &lt;chr&gt;, birth_city &lt;chr&gt;, birth_state &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   birth_country &lt;chr&gt;</span></span></span>
@@ -318,9 +323,9 @@ star-driven sport, and you want a marquee guard’s numbers.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $Position</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
-<span><span class="co">#&gt;   id    name  display_name abbreviation leaf </span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 3     Guard Guard        G            FALSE</span></span>
+<span><span class="co">#&gt;   id    name    display_name abbreviation leaf </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2     Forward Forward      F            FALSE</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $Status</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
@@ -339,16 +344,16 @@ star-driven sport, and you want a marquee guard’s numbers.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 87 × 17</span></span></span>
 <span><span class="co">#&gt;    league   athlete_id stat_type_id split_id split_name split_type category_name</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-… 5311737    0            0        Season     season     defensive    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-… 5311737    0            0        Season     season     general      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-… 5311737    0            0        Season     season     general      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> womens-… 5239976    0            0        Season     season     defensive    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> womens-… 5239976    0            0        Season     season     general      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> womens-… 5239976    0            0        Season     season     general      </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 77 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 10 more variables: category_display &lt;chr&gt;, category_short &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   category_abbrev &lt;chr&gt;, stat_name &lt;chr&gt;, stat_abbrev &lt;chr&gt;,</span></span></span>
