@@ -43,26 +43,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ───────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:35 UTC
+#> ℹ Data updated: 2026-10-10 23:07:46 UTC
 #> # A tibble: 75 × 6
 #>    players v2             gp    entity_id min   mpg  
 #>    <chr>   <chr>          <chr> <chr>     <chr> <chr>
-#>  1 1       C. Zandalasini 5     21        NA    NA   
-#>  2 2       T. Hayes       5     30        NA    NA   
-#>  3 3       K. Stokes      5     39        NA    NA   
-#>  4 4       C. Gray        5     61        NA    NA   
-#>  5 5       C. Parker-Tyus 5     88        NA    NA   
-#>  6 6       K. Thornton    5     136       NA    NA   
-#>  7 7       G. Williams    5     177       NA    NA   
-#>  8 8       A. Wilson      5     192       NA    NA   
-#>  9 9       B. Turner      5     247       NA    NA   
-#> 10 10      J. Young       5     258       NA    NA   
+#>  1 1       C. Zandalasini 6     21        NA    NA   
+#>  2 2       T. Hayes       6     30        NA    NA   
+#>  3 3       K. Stokes      6     39        NA    NA   
+#>  4 4       C. Gray        6     61        NA    NA   
+#>  5 5       C. Parker-Tyus 6     88        NA    NA   
+#>  6 6       K. Thornton    6     136       NA    NA   
+#>  7 7       G. Williams    6     177       NA    NA   
+#>  8 8       A. Wilson      6     192       NA    NA   
+#>  9 9       B. Turner      6     247       NA    NA   
+#> 10 10      J. Young       6     258       NA    NA   
 #> # ℹ 65 more rows
 # }
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ───────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:35 UTC
+#> ℹ Data updated: 2026-10-10 23:07:46 UTC
 #> # A tibble: 100 × 8
 #>    players v2          gp    entity_id gs    mpg   ppg   pts  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>

@@ -342,7 +342,7 @@ espn_wnba_team_roster(team_id = team_id, season = season)
 #>  1 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
 #>  2 3916514    Kalani B… 20     C               Center        "6' 7… 245 l… 29   
 #>  3 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
-#>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
+#>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 34   
 #>  5 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
 #>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 33   
 #>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 34   

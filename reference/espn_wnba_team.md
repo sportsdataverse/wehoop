@@ -196,7 +196,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:27 UTC
+#> ℹ Data updated: 2026-10-10 23:07:39 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -206,7 +206,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ──────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:27 UTC
+#> ℹ Data updated: 2026-10-10 23:07:39 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -216,7 +216,7 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN WNBA Team Next Event from ESPN.com ──────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:27 UTC
+#> ℹ Data updated: 2026-10-10 23:07:39 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                                    short_name
 #>   <chr>     <chr>             <chr>                                   <chr>     
@@ -224,7 +224,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:27 UTC
+#> ℹ Data updated: 2026-10-10 23:07:39 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
@@ -237,14 +237,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Roster from ESPN.com ──────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:27 UTC
+#> ℹ Data updated: 2026-10-10 23:07:39 UTC
 #> # A tibble: 14 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
 #>  1 4433633    Kierstan… 1      F               Forward       "6' 1… 176 l… 26   
 #>  2 3916514    Kalani B… 20     C               Center        "6' 7… 245 l… 29   
 #>  3 4281190    Dana Eva… 11     G               Guard         "5' 6… 145 l… 28   
-#>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 33   
+#>  4 2529122    Chelsea … 12     G               Guard         "5' 1… 170 l… 34   
 #>  5 4609797    Ta'Niya … 5      G               Guard         "5' 8… NA     22   
 #>  6 2987869    Jewell L… 24     G               Guard         "5' 1… 175 l… 33   
 #>  7 2529458    Cheyenne… 32     F               Forward       "6' 4… 193 l… 34   
@@ -265,7 +265,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Season Profile from ESPN.com ──────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-09 05:44:27 UTC
+#> ℹ Data updated: 2026-10-10 23:07:39 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

@@ -61,7 +61,7 @@ Other WBB Crosswalk Functions:
 ``` r
 # \donttest{
   try(wbb_player_crosswalk(season = 2025))
-#> ✖ 2026-10-09 05:45:33.049721: Could not build WBB player crosswalk for 2025!
+#> ✖ 2026-10-10 23:08:40.023808: Could not build WBB player crosswalk for 2025!
 #> ✖ Args: season = 2025, min_confidence = 0.92
 #> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
 #> data frame with 0 columns and 0 rows
