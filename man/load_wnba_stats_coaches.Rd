@@ -343,7 +343,7 @@ Returns a \code{wehoop_data} tibble with one row per possession.
 \if{html}{\tabular{lll}{
       col_name \tab types \tab description \cr
       game_id \tab character \tab Unique game identifier. \cr
-      period \tab integer \tab Period of the game (1-2 halves pre-2016, 1-4 quarters 2016+). \cr
+      period \tab integer \tab Period of the game: 1-2 for the two halves of 1997-2005 (overtime from period 3), 1-4 for the four quarters from 2006 (overtime from period 5). \cr
       possession_number \tab integer \tab Sequential possession number within the game. \cr
       offense_team_id \tab integer \tab Team identifier for the team on offense. \cr
       defense_team_id \tab integer \tab Team identifier for the team on defense. \cr
