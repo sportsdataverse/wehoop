@@ -345,6 +345,12 @@
   box <- .espn_past_roster_cache[[key]]
   if (is.null(box)) {
     loader <- if (league == "wnba") load_wnba_player_box else load_wbb_player_box
+    minimum_season <- if (league == "wnba") 2002L else 2003L
+    if (as.integer(season) < minimum_season) {
+      cli::cli_abort(
+        "Season {season} is not supported for {league} player box scores (minimum: {minimum_season})."
+      )
+    }
     box <- loader(seasons = as.integer(season))
     if (is.null(box) || !nrow(box)) {
       cli::cli_abort(c(
