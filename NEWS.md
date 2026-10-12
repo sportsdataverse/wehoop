@@ -29,6 +29,14 @@
 
 # **wehoop 3.0.0.9000 (development version)**
 
+* `espn_wnba_team_roster()` / `espn_wbb_team_roster()` for a past season now
+  build the roster from that season's published player box scores
+  (`load_wnba_player_box()` / `load_wbb_player_box()`), and error when none are
+  published. ESPN's roster endpoint ignores `?season=`, so a past season used
+  to return today's roster under the past season's label, which also fed
+  `wnba_player_crosswalk()` / `wbb_player_crosswalk()`. Mirrors
+  sportsdataverse-py #782.
+
 * 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop's other 54 WNBA Stats wrappers.
   23 defaulted to the current season, which stats.wnba.com answers with empty

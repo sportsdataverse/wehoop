@@ -87,6 +87,10 @@ espn_wnba_team <- function(team_id,
 #' @return A single tibble with one row per athlete.
 #'
 #'    Columns as documented in the shared [espn_basketball_team_roster_schema] table.
+#'    ESPN's roster endpoint ignores the season, so a season before the current
+#'    one is built from that season's published player box scores (name, jersey,
+#'    position and headshot from the athlete's last game; bio columns `NA`), and
+#'    errors when none are published.
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble bind_rows any_of
