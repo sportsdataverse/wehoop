@@ -55,7 +55,8 @@ test_that("ESPN - WNBA Play-by-Play", {
     "season",
     "season_type",
     "game_date",
-    "game_date_time"
+    "game_date_time",
+    "score_source"
   )
   
   expect_in(sort(cols), sort(colnames(x)))
