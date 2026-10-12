@@ -59,6 +59,10 @@ Columns as documented in the shared \link{espn_basketball_player_overview_next_g
 A single tibble with one row per athlete.
 
 Columns as documented in the shared \link{espn_basketball_team_roster_schema} table.
+ESPN's roster endpoint ignores the season, so a season before the current
+one is built from that season's published player box scores (name, jersey,
+position and headshot from the athlete's last game; bio columns \code{NA}), and
+errors when none are published.
 
 A single long-format tibble (one row per category-rank-athlete).
 
