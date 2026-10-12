@@ -2,9 +2,10 @@
 
 Real ESPN summary payloads for `tests/testthat/test-espn_score_repair.R`, and sportsdataverse-py's
 output on the same bytes (`expected/<name>.csv`: `row` = 1-based array position, `sequence_number`,
-`home_score`, `away_score`, `score_source`). Never hand-edit either: regenerate with
-`ClaudeCowork/scripts/score-repair-r/write_expected.py` (plan `2026-10-11-bball-score-repair-r.md`, Task 1)
-from a sportsdataverse-py checkout. Expected files written from sportsdataverse-py @ 78a0fb8130b5acd8180e8784b67e26481c4c44a8.
+`home_score`, `away_score`, `score_source`). Never hand-edit either: regenerate with the maintainer
+script `ClaudeCowork/scripts/score-repair-r/write_expected.py` (private repo; it runs sportsdataverse-py's
+`espn_<lg>_pbp` -> `helper_<lg>_play_by_play` on each payload and writes the five columns) from a
+sportsdataverse-py checkout. Expected files written from sportsdataverse-py @ 78a0fb8130b5acd8180e8784b67e26481c4c44a8.
 
 | File | Source | What it pins |
 |---|---|---|
