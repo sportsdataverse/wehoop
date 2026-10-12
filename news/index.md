@@ -2,6 +2,23 @@
 
 ## **wehoop 3.0.0.9000 (development version)**
 
+- [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md)
+  /
+  [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md)
+  for a past season now build the roster from that season’s published
+  player box scores
+  ([`load_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+  /
+  [`load_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)),
+  and error when none are published. ESPN’s roster endpoint ignores
+  `?season=`, so a past season used to return today’s roster under the
+  past season’s label, which also fed
+  [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
+  /
+  [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md).
+  Mirrors sportsdataverse-py
+  [\#782](https://github.com/sportsdataverse/wehoop/issues/782).
+
 - 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop’s other 54 WNBA Stats
   wrappers. 23 defaulted to the current season, which stats.wnba.com
@@ -37,6 +54,7 @@
   keeps the current season so expansion teams appear. sportsdataverse-py
   uses the same previous-season rule, and hoopR adopts it in
   sportsdataverse/hoopR#225.
+
 - [`wnba_todays_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.md)
   returned nothing on every call: it sent no browser headers, and
   cdn.nba.com answered with a 403 “Access Denied” page. It also read
@@ -57,6 +75,7 @@
   still reported), and a warning raised while parsing no longer discards
   the result: the wrappers’ `warning` handler abandoned the parse at the
   first warning. New offline tests parse captured cdn.wnba.com payloads.
+
 - Eight new loaders read the `wbb_groups` and `wnba_groups` releases on
   sportsdataverse-data, which record conference and division membership
   as it was each season rather than back-applying today’s alignment:
@@ -76,12 +95,14 @@
   `load_wnba_team_group_seasons(seasons)` (1997 onward), one row per
   team per season. The loaders read parquet, not the tags’ csv copies,
   so `team_id` stays character.
+
 - [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
   now reads every source as of the requested season, matching the
   sportsdataverse-py builder (sportsdataverse-py
   [\#604](https://github.com/sportsdataverse/wehoop/issues/604) /
   [\#605](https://github.com/sportsdataverse/wehoop/issues/605)) that
   `wehoop-wbb-data` runs by default:
+
   - `espn_conference` is the conference each team was in that season,
     under that season’s name, from the `wbb_groups` release. It used to
     be today’s ESPN name. The ESPN Core v2 group walk is gone.
@@ -98,6 +119,7 @@
   - Any failed source (ESPN, Fox, Torvik, or the conference reference)
     now raises instead of being reported and returned as an empty
     tibble.
+
 - [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md)
   returned an empty tibble for 2021 and 2022: those files quote one
   header, `fread()` warns while fixing it, and the warning discarded the
