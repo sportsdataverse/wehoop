@@ -143,7 +143,7 @@ the season data into a database.}
 \item{tablename}{The name of the player core table within the database}
 }
 \value{
-A dataframe with 42 columns
+A dataframe with the columns documented below:
 
 \if{html}{\tabular{ll}{
    col_name \tab description \cr

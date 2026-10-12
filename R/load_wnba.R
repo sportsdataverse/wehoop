@@ -8,7 +8,7 @@
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the play by play data table within the database
-#' @return A dataframe with 42 columns
+#' @return A dataframe with the columns documented below:
 #'
 #' \if{html}{\tabular{ll}{
 #'    col_name \tab description \cr
