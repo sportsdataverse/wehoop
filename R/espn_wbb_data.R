@@ -2824,6 +2824,8 @@ helper_espn_wbb_pbp <- function(resp) {
         ~ as.integer(.x)
       ))
 
+    plays <- .repair_running_score(plays, homeTeamId, awayTeamId, homeTeamScore, awayTeamScore)
+
     plays_df <- plays %>%
       make_wehoop_data(
         "ESPN WBB Play-by-Play Information from ESPN.com",
