@@ -37,7 +37,7 @@
   last column, `score_source` (`"rebuilt"` / `"espn"`), says which. This repairs plays
   keyed late (ESPN's score ran backwards and could end short of the final), WNBA
   2013-2019 free throws, and college neutral-site games whose scores were stored on the
-  wrong side. Mirrors sportsdataverse-py #<sdv-py PR> and hoopR #<hoopR PR>;
+  wrong side. Mirrors sportsdataverse/sportsdataverse-py#830 and hoopR #<hoopR PR>;
   `load_wnba_pbp()` / `load_wbb_pbp()` carry the column once a season is republished.
 
 * `espn_wnba_team_roster()` / `espn_wbb_team_roster()` for a past season now
@@ -46,7 +46,7 @@
   published. ESPN's roster endpoint ignores `?season=`, so a past season used
   to return today's roster under the past season's label, which also fed
   `wnba_player_crosswalk()` / `wbb_player_crosswalk()`. Mirrors
-  sportsdataverse-py #782.
+  sportsdataverse/sportsdataverse-py#782.
 
 * 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop's other 54 WNBA Stats wrappers.
