@@ -37,7 +37,7 @@
   last column, `score_source` (`"rebuilt"` / `"espn"`), says which. This repairs plays
   keyed late (ESPN's score ran backwards and could end short of the final), WNBA
   2013-2019 free throws, and college neutral-site games whose scores were stored on the
-  wrong side. Mirrors sportsdataverse/sportsdataverse-py#830 and hoopR #<hoopR PR>;
+  wrong side. Mirrors sportsdataverse/sportsdataverse-py#830 and sportsdataverse/hoopR#237;
   `load_wnba_pbp()` / `load_wbb_pbp()` carry the column once a season is republished.
 
 * `espn_wnba_team_roster()` / `espn_wbb_team_roster()` for a past season now
