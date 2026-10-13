@@ -143,7 +143,7 @@ the season data into a database.}
 \item{tablename}{The name of the player core table within the database}
 }
 \value{
-A dataframe with 42 columns
+A dataframe with the columns documented below:
 
 \if{html}{\tabular{ll}{
    col_name \tab description \cr
@@ -151,7 +151,7 @@ A dataframe with 42 columns
    sequence_number \tab Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) \cr
    period_display_value \tab Long form of period (1st quarter, 2nd Quarter, OT, etc.) \cr
    period_number \tab The numeric period of play in the game \cr
-   home_score \tab Home score at the time of the play \cr
+   home_score \tab Home score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') \cr
    coordinate_x \tab The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. \cr
    coordinate_y \tab  \cr
    scoring_play \tab Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored \cr
@@ -159,7 +159,7 @@ A dataframe with 42 columns
    team_id \tab Unique team identification number for the offensive team \cr
    type_id \tab Unique play type identifcation number \cr
    type_text \tab Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with \code{scoring_play} (TRUE = made), not \code{type_text} \cr
-   away_score \tab Away score at the time of the play \cr
+   away_score \tab Away score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') \cr
    id \tab Unique play identifcation number \cr
    text \tab Text description of the play \cr
    score_value \tab The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use \code{scoring_play} to identify points actually scored \cr
@@ -189,6 +189,7 @@ A dataframe with 42 columns
    lead_half \tab A lead column on the half \cr
    game_play_number \tab Game play number \cr
    game_id \tab Unique identifier for the game event \cr
+   score_source \tab Where this game's home_score/away_score come from: 'rebuilt' (summed from the scoring plays and equal to the official final on the last play) or 'espn' (ESPN's per-play values, kept when the rebuild misses the final or the game has no final). Absent from seasons published before the repair \cr
 }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
 

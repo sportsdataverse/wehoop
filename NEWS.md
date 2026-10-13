@@ -29,13 +29,24 @@
 
 # **wehoop 3.0.0.9000 (development version)**
 
+* `espn_wnba_pbp()`, `espn_wbb_pbp()`, the `Plays` frame of `espn_wnba_game_all()` /
+  `espn_wbb_game_all()`, and `helper_espn_wnba_pbp()` / `helper_espn_wbb_pbp()` now
+  rebuild `home_score` / `away_score` from the scoring plays (in ESPN's order, a made
+  free throw shipped with `scoreValue` 0 counting 1) and keep the rebuild only when its
+  last row equals the official final; otherwise ESPN's per-play scores are kept. A new
+  last column, `score_source` (`"rebuilt"` / `"espn"`), says which. This repairs plays
+  keyed late (ESPN's score ran backwards and could end short of the final), WNBA
+  2013-2019 free throws, and college neutral-site games whose scores were stored on the
+  wrong side. Mirrors sportsdataverse/sportsdataverse-py#830 and sportsdataverse/hoopR#237;
+  `load_wnba_pbp()` / `load_wbb_pbp()` carry the column once a season is republished.
+
 * `espn_wnba_team_roster()` / `espn_wbb_team_roster()` for a past season now
   build the roster from that season's published player box scores
   (`load_wnba_player_box()` / `load_wbb_player_box()`), and error when none are
   published. ESPN's roster endpoint ignores `?season=`, so a past season used
   to return today's roster under the past season's label, which also fed
   `wnba_player_crosswalk()` / `wbb_player_crosswalk()`. Mirrors
-  sportsdataverse-py #782.
+  sportsdataverse/sportsdataverse-py#782.
 
 * 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop's other 54 WNBA Stats wrappers.

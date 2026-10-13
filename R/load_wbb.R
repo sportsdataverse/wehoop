@@ -16,13 +16,13 @@
 #'    sequence_number \tab Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) \cr
 #'    period_display_value \tab Long form of period (1st quarter, 2nd Quarter, OT, etc.) \cr
 #'    period_number \tab The numeric period of play in the game \cr
-#'    home_score \tab Home score at the time of the play \cr
+#'    home_score \tab Home score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') \cr
 #'    scoring_play \tab Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored \cr
 #'    clock_display_value \tab Time left within the period \cr
 #'    team_id \tab Unique team identification number for the offensive team \cr
 #'    type_id \tab Unique play type identifcation number \cr
 #'    type_text \tab Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with \code{scoring_play} (TRUE = made), not \code{type_text} \cr
-#'    away_score \tab Away score at the time of the play \cr
+#'    away_score \tab Away score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') \cr
 #'    id \tab Unique play identifcation number \cr
 #'    text \tab Text description of the play \cr
 #'    score_value \tab The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use \code{scoring_play} to identify points actually scored \cr
@@ -69,6 +69,7 @@
 #'    media_id \tab Where did you come from \cr
 #'    pregame_home_prob \tab Pre-game win probability for the home team, constant across every play of the game \cr
 #'    home_win_prob \tab Home team's win probability at this play, updated play-by-play \cr
+#'    score_source \tab Where this game's home_score/away_score come from: 'rebuilt' (summed from the scoring plays and equal to the official final on the last play) or 'espn' (ESPN's per-play values, kept when the rebuild misses the final or the game has no final). Absent from seasons published before the repair \cr
 #' }}
 #' \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
