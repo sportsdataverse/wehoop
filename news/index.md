@@ -2,6 +2,30 @@
 
 ## **wehoop 3.0.0.9000 (development version)**
 
+- [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md),
+  [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
+  the `Plays` frame of
+  [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+  /
+  [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
+  and
+  [`helper_espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wnba_pbp.md)
+  /
+  [`helper_espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/helper_espn_wbb_pbp.md)
+  now rebuild `home_score` / `away_score` from the scoring plays (in
+  ESPN’s order, a made free throw shipped with `scoreValue` 0
+  counting 1) and keep the rebuild only when its last row equals the
+  official final; otherwise ESPN’s per-play scores are kept. A new last
+  column, `score_source` (`"rebuilt"` / `"espn"`), says which. This
+  repairs plays keyed late (ESPN’s score ran backwards and could end
+  short of the final), WNBA 2013-2019 free throws, and college
+  neutral-site games whose scores were stored on the wrong side. Mirrors
+  sportsdataverse/sportsdataverse-py#830 and sportsdataverse/hoopR#237;
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+  /
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
+  carry the column once a season is republished.
+
 - [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md)
   /
   [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md)
@@ -16,8 +40,7 @@
   [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
   /
   [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md).
-  Mirrors sportsdataverse-py
-  [\#782](https://github.com/sportsdataverse/wehoop/issues/782).
+  Mirrors sportsdataverse/sportsdataverse-py#782.
 
 - 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop’s other 54 WNBA Stats

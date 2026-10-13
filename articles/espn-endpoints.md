@@ -171,14 +171,14 @@ library(wehoop)
 wbb_news <- espn_wbb_news(limit = 10)
 head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
-#>   headline                                                          published   
-#>   <chr>                                                             <chr>       
-#> 1 How top 2027 women's basketball commits fit at their schools      2026-10-10T…
-#> 2 Jezelle 'GG' Banks, No. 4 in class of 2027, picks South Carolina  2026-10-10T…
-#> 3 Reports - Watchdog eyes NIL violations at 5-10 Power 4 schools    2026-10-09T…
-#> 4 Avery Arije, 6-foot, left-handed guard, commits to Notre Dame     2026-10-10T…
-#> 5 Women's March Madness 2027 schedule, locations and more           2026-10-09T…
-#> 6 Big Ten has '18 strong members,' no expansion talks, commish says 2026-10-08T…
+#>   headline                                                         published    
+#>   <chr>                                                            <chr>        
+#> 1 How top 2027 women's basketball commits fit at their schools     2026-10-12T2…
+#> 2 Carter, No. 13 in 2027 SC Next 100, chooses North Carolina       2026-10-12T2…
+#> 3 Bill Fennelly says he'll retire after 32nd season at Iowa State  2026-10-12T1…
+#> 4 James Madison to exit Sun Belt, join American Conference         2026-10-12T1…
+#> 5 Ex-NBA star, coach Jason Kidd, Cal to host UCLA in charity game  2026-10-12T1…
+#> 6 Jezelle 'GG' Banks, No. 4 in class of 2027, picks South Carolina 2026-10-10T2…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -306,16 +306,16 @@ glimpse(bio)
 #>   ..$ height        : num 75
 #>   ..$ display_height: chr "6' 3\""
 #>   ..$ jersey        : chr "15"
-#>   ..$ active        : logi TRUE
+#>   ..$ active        : logi FALSE
 #>   ..$ headshot_href : chr "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4565530.png"
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-12 03:27:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-13 01:32:47"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
-#>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/250?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-12 03:27:39"
+#>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2026/teams/250?l"| __truncated__
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-13 01:32:47"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "2"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-12 03:27:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-13 01:32:47"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
-#>   ..$ id          : chr "1"
-#>   ..$ name        : chr "Active"
-#>   ..$ type        : chr "active"
-#>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-12 03:27:39"
+#>   ..$ id          : chr "2"
+#>   ..$ name        : chr "Inactive"
+#>   ..$ type        : chr "inactive"
+#>   ..$ abbreviation: chr "Inactive"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-13 01:32:47"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-12 03:27:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-13 01:32:47"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-12 03:27:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-13 01:32:47"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -915,11 +915,11 @@ espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 #> # A tibble: 5 × 12
 #>   league          coach_id record_type_id record_name record_type record_summary
 #>   <chr>           <chr>             <int> <chr>       <chr>       <chr>         
-#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
 #> # ℹ 6 more variables: record_display <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, stat_display_value <chr>
 ```

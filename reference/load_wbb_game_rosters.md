@@ -242,13 +242,13 @@ A dataframe of play-by-play events with the columns documented below:
 | sequence_number | Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) |
 | period_display_value | Long form of period (1st quarter, 2nd Quarter, OT, etc.) |
 | period_number | The numeric period of play in the game |
-| home_score | Home score at the time of the play |
+| home_score | Home score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') |
 | scoring_play | Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored |
 | clock_display_value | Time left within the period |
 | team_id | Unique team identification number for the offensive team |
 | type_id | Unique play type identifcation number |
 | type_text | Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with `scoring_play` (TRUE = made), not `type_text` |
-| away_score | Away score at the time of the play |
+| away_score | Away score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') |
 | id | Unique play identifcation number |
 | text | Text description of the play |
 | score_value | The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use `scoring_play` to identify points actually scored |
@@ -295,6 +295,7 @@ A dataframe of play-by-play events with the columns documented below:
 | media_id | Where did you come from |
 | pregame_home_prob | Pre-game win probability for the home team, constant across every play of the game |
 | home_win_prob | Home team's win probability at this play, updated play-by-play |
+| score_source | Where this game's home_score/away_score come from: 'rebuilt' (summed from the scoring plays and equal to the official final on the last play) or 'espn' (ESPN's per-play values, kept when the rebuild misses the final or the game has no final). Absent from seasons published before the repair |
 
 Returns a tibble
 

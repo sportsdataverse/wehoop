@@ -68,13 +68,13 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> # A tibble: 1 × 4
 #>   id        date              name                                    short_name
 #>   <chr>     <chr>             <chr>                                   <chr>     
-#> 1 401921451 2026-11-02T05:00Z IU Indianapolis Jaguars at Purdue Boil… IUIN @ PUR
+#> 1 401922067 2027-01-01T17:00Z Michigan Wolverines at Purdue Boilerma… MICH @ PUR
 #> 
 #> $StandingSummary
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           
-#> 1 14th in Big Ten 
+#> 1 1st in Big Ten  
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows
@@ -249,7 +249,7 @@ game_id <- 401276115
 
 espn_wbb_game_all(game_id = game_id)      # everything, as a named list
 #> $Plays
-#> # A tibble: 386 × 53
+#> # A tibble: 386 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
 #>  1 4012761… 101899901       Jump…          0          0 FALSE                  0
@@ -263,7 +263,7 @@ espn_wbb_game_all(game_id = game_id)      # everything, as a named list
 #>  9 4012761… 101919501       Myka…          5          5 TRUE                   2
 #> 10 4012761… 101924601       Morg…          5          5 FALSE                  2
 #> # ℹ 376 more rows
-#> # ℹ 46 more variables: wallclock <chr>, shooting_play <lgl>,
+#> # ℹ 47 more variables: wallclock <chr>, shooting_play <lgl>,
 #> #   points_attempted <int>, short_description <chr>, type_id <int>,
 #> #   type_text <chr>, period_number <int>, period_display_value <chr>,
 #> #   clock_display_value <chr>, team_id <int>, coordinate_x_raw <dbl>,
@@ -340,7 +340,7 @@ espn_wbb_player_box(game_id = game_id)    # player box
 #> #   three_point_field_goals_attempted <int>, free_throws_made <int>,
 #> #   free_throws_attempted <int>, offensive_rebounds <int>, …
 espn_wbb_pbp(game_id = game_id)           # play-by-play
-#> # A tibble: 386 × 53
+#> # A tibble: 386 × 54
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
 #>  1 4012761… 101899901       Jump…          0          0 FALSE                  0
@@ -354,7 +354,7 @@ espn_wbb_pbp(game_id = game_id)           # play-by-play
 #>  9 4012761… 101919501       Myka…          5          5 TRUE                   2
 #> 10 4012761… 101924601       Morg…          5          5 FALSE                  2
 #> # ℹ 376 more rows
-#> # ℹ 46 more variables: wallclock <chr>, shooting_play <lgl>,
+#> # ℹ 47 more variables: wallclock <chr>, shooting_play <lgl>,
 #> #   points_attempted <int>, short_description <chr>, type_id <int>,
 #> #   type_text <chr>, period_number <int>, period_display_value <chr>,
 #> #   clock_display_value <chr>, team_id <int>, coordinate_x_raw <dbl>,

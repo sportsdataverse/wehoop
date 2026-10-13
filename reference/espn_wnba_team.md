@@ -199,7 +199,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-12 03:11:30 UTC
+#> ℹ Data updated: 2026-10-13 01:16:09 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -209,29 +209,22 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ──────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-12 03:11:30 UTC
-#> # A tibble: 3 × 4
-#>   description    type  summary stats        
-#>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 31-13   <df [21 × 2]>
-#> 2 Home Record    home  15-7    <df [5 × 2]> 
-#> 3 Away Record    road  16-6    <df [5 × 2]> 
+#> ℹ Data updated: 2026-10-13 01:16:09 UTC
+#> # A tibble: 1 × 4
+#>   description    stats         summary type 
+#>   <chr>          <list>        <chr>   <chr>
+#> 1 Overall Record <df [31 × 2]> 30-14   total
 #> 
 #> $NextEvent
-#> ── ESPN WNBA Team Next Event from ESPN.com ──────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-12 03:11:30 UTC
-#> # A tibble: 1 × 4
-#>   id        date              name                                    short_name
-#>   <chr>     <chr>             <chr>                                   <chr>     
-#> 1 401918300 2026-10-10T01:30Z Golden State Valkyries at Las Vegas Ac… GS @ LV   
+#> data frame with 0 columns and 0 rows
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-12 03:11:30 UTC
+#> ℹ Data updated: 2026-10-13 01:16:09 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
-#> 1 3rd in Western Conference Division
+#> 1 2nd in Western Conference Division
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows
@@ -240,7 +233,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Roster from ESPN.com player box scores ── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-12 03:11:31 UTC
+#> ℹ Data updated: 2026-10-13 01:16:10 UTC
 #> # A tibble: 15 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
@@ -269,7 +262,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Season Profile from ESPN.com ──────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-12 03:11:31 UTC
+#> ℹ Data updated: 2026-10-13 01:16:10 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

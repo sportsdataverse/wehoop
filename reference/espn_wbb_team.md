@@ -201,7 +201,7 @@ Saiem Gilani
   espn_wbb_team(team_id = "2509", season = 2025)
 #> $Info
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Info from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-10-12 03:10:59 UTC
+#> ℹ Data updated: 2026-10-13 01:15:30 UTC
 #> # A tibble: 1 × 13
 #>   id    uid    slug  abbreviation display_name short_display_name name  nickname
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -210,23 +210,23 @@ Saiem Gilani
 #> #   logo <chr>, logo_dark <chr>
 #> 
 #> $Record
-#> data frame with 0 columns and 0 rows
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Record from ESPN.com ────────────────────
+#> ℹ Data updated: 2026-10-13 01:15:30 UTC
+#> # A tibble: 1 × 4
+#>   description    stats         summary type 
+#>   <chr>          <list>        <chr>   <chr>
+#> 1 Overall Record <df [30 × 2]> 10-19   total
 #> 
 #> $NextEvent
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Next Event from ESPN.com ────────────────
-#> ℹ Data updated: 2026-10-12 03:10:59 UTC
-#> # A tibble: 1 × 4
-#>   id        date              name                                    short_name
-#>   <chr>     <chr>             <chr>                                   <chr>     
-#> 1 401921451 2026-11-02T05:00Z IU Indianapolis Jaguars at Purdue Boil… IUIN @ PUR
+#> data frame with 0 columns and 0 rows
 #> 
 #> $StandingSummary
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Standing Summary from ESPN.com ──────────
-#> ℹ Data updated: 2026-10-12 03:10:59 UTC
+#> ℹ Data updated: 2026-10-13 01:15:30 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           
-#> 1 14th in Big Ten 
+#> 1 1st in Big Ten  
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows
@@ -235,7 +235,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_roster(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Roster from ESPN.com player box scores ──
-#> ℹ Data updated: 2026-10-12 03:11:01 UTC
+#> ℹ Data updated: 2026-10-13 01:15:32 UTC
 #> # A tibble: 14 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
@@ -263,7 +263,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_season_profile(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Season Profile from ESPN.com ────────────
-#> ℹ Data updated: 2026-10-12 03:11:02 UTC
+#> ℹ Data updated: 2026-10-13 01:15:32 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <chr>    <chr>        <chr>       

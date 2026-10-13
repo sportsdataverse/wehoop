@@ -246,7 +246,7 @@ load_wnba_player_core(
 
 ## Value
 
-A dataframe with 42 columns
+A dataframe with the columns documented below:
 
 |  |  |
 |----|----|
@@ -255,7 +255,7 @@ A dataframe with 42 columns
 | sequence_number | Sequence number is supposed to represent a shot-possession, examine the last two numbers to see if there are multiple events that occur within the same shot-possession. A shot-possession is basically any sequence of plays until there is a shot, change in possession, and probably things like technical fouls and the like. So as soon as a shot goes up, a new sequence starts regardless, even if the shooting team retains possession via offensive or deadball rebound. The first portion of the number is usually time related (i.e. the numeric representation of when the sequence started, from a seconds remaining in the period perspective or so) |
 | period_display_value | Long form of period (1st quarter, 2nd Quarter, OT, etc.) |
 | period_number | The numeric period of play in the game |
-| home_score | Home score at the time of the play |
+| home_score | Home score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') |
 | coordinate_x | The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. |
 | coordinate_y |  |
 | scoring_play | Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored |
@@ -263,7 +263,7 @@ A dataframe with 42 columns
 | team_id | Unique team identification number for the offensive team |
 | type_id | Unique play type identifcation number |
 | type_text | Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with `scoring_play` (TRUE = made), not `type_text` |
-| away_score | Away score at the time of the play |
+| away_score | Away score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') |
 | id | Unique play identifcation number |
 | text | Text description of the play |
 | score_value | The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use `scoring_play` to identify points actually scored |
@@ -293,6 +293,7 @@ A dataframe with 42 columns
 | lead_half | A lead column on the half |
 | game_play_number | Game play number |
 | game_id | Unique identifier for the game event |
+| score_source | Where this game's home_score/away_score come from: 'rebuilt' (summed from the scoring plays and equal to the official final on the last play) or 'espn' (ESPN's per-play values, kept when the rebuild misses the final or the game has no final). Absent from seasons published before the repair |
 
 Returns a tibble
 

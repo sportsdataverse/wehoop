@@ -235,13 +235,13 @@ menu:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
 <span><span class="co">#&gt;   id        date              name                                    short_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 401921451 2026-11-02T05:00Z IU Indianapolis Jaguars at Purdue Boil… IUIN @ PUR</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 401922067 2027-01-01T17:00Z Michigan Wolverines at Purdue Boilerma… MICH @ PUR</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $StandingSummary</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 1</span></span></span>
 <span><span class="co">#&gt;   standing_summary</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 14th in Big Ten </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 1st in Big Ten  </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $Coaches</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span>
@@ -407,7 +407,7 @@ league-agnostic:</p>
 <span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_game_all.html">espn_wbb_game_all</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span>      <span class="co"># everything, as a named list</span></span>
 <span><span class="co">#&gt; $Plays</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 386 × 53</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 386 × 54</span></span></span>
 <span><span class="co">#&gt;    id       sequence_number text  away_score home_score scoring_play score_value</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 4012761… 101899901       Jump…          0          0 FALSE                  0</span></span>
@@ -421,7 +421,7 @@ league-agnostic:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 4012761… 101919501       Myka…          5          5 TRUE                   2</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 4012761… 101924601       Morg…          5          5 FALSE                  2</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 376 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 46 more variables: wallclock &lt;chr&gt;, shooting_play &lt;lgl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 47 more variables: wallclock &lt;chr&gt;, shooting_play &lt;lgl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   points_attempted &lt;int&gt;, short_description &lt;chr&gt;, type_id &lt;int&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   type_text &lt;chr&gt;, period_number &lt;int&gt;, period_display_value &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   clock_display_value &lt;chr&gt;, team_id &lt;int&gt;, coordinate_x_raw &lt;dbl&gt;,</span></span></span>
@@ -498,7 +498,7 @@ league-agnostic:</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   three_point_field_goals_attempted &lt;int&gt;, free_throws_made &lt;int&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   free_throws_attempted &lt;int&gt;, offensive_rebounds &lt;int&gt;, …</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wbb_game_all.html">espn_wbb_pbp</a></span><span class="op">(</span>game_id <span class="op">=</span> <span class="va">game_id</span><span class="op">)</span>           <span class="co"># play-by-play</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 386 × 53</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 386 × 54</span></span></span>
 <span><span class="co">#&gt;    id       sequence_number text  away_score home_score scoring_play score_value</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 4012761… 101899901       Jump…          0          0 FALSE                  0</span></span>
@@ -512,7 +512,7 @@ league-agnostic:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 4012761… 101919501       Myka…          5          5 TRUE                   2</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 4012761… 101924601       Morg…          5          5 FALSE                  2</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 376 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 46 more variables: wallclock &lt;chr&gt;, shooting_play &lt;lgl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 47 more variables: wallclock &lt;chr&gt;, shooting_play &lt;lgl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   points_attempted &lt;int&gt;, short_description &lt;chr&gt;, type_id &lt;int&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   type_text &lt;chr&gt;, period_number &lt;int&gt;, period_display_value &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   clock_display_value &lt;chr&gt;, team_id &lt;int&gt;, coordinate_x_raw &lt;dbl&gt;,</span></span></span>

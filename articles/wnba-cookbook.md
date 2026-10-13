@@ -103,7 +103,7 @@ espn_wnba_player_box(game_id = game_id)
 
 # Tightest: play-by-play, one row per possession.
 espn_wnba_pbp(game_id = game_id)
-#> # A tibble: 405 × 54
+#> # A tibble: 405 × 55
 #>    id       sequence_number text  away_score home_score scoring_play score_value
 #>    <chr>    <chr>           <chr>      <int>      <int> <lgl>              <int>
 #>  1 4017361… 4               Azur…          0          0 FALSE                  0
@@ -117,7 +117,7 @@ espn_wnba_pbp(game_id = game_id)
 #>  9 4017361… 15              Azur…          0          0 FALSE                  0
 #> 10 4017361… 17              A'ja…          0          1 TRUE                   1
 #> # ℹ 395 more rows
-#> # ℹ 47 more variables: wallclock <chr>, shooting_play <lgl>,
+#> # ℹ 48 more variables: wallclock <chr>, shooting_play <lgl>,
 #> #   points_attempted <int>, short_description <chr>, type_id <int>,
 #> #   type_text <chr>, period_number <int>, period_display_value <chr>,
 #> #   clock_display_value <chr>, team_id <int>, coordinate_x_raw <dbl>,
