@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [**wehoop 3.0.0.9000 (development version)**](#wehoop-3009000-development-version)
+- [**wehoop 3.1.0**](#wehoop-310)
 - [**wehoop 3.0.0**](#wehoop-300)
 - [**wehoop 2.1.0**](#wehoop-210)
 - [**wehoop 2.0.0**](#wehoop-200)
@@ -27,7 +27,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# **wehoop 3.0.0.9000 (development version)**
+# **wehoop 3.1.0**
 
 ### **International basketball**
 
@@ -148,6 +148,15 @@ failure). Mirrors the sdv-py
 `httr2` floor rises to 1.0.4 for `req_retry(retry_on_failure = )`, and the
 `testthat` floor (Suggests) rises to 3.1.9: `local_mocked_bindings(.package = )`
 needs 3.1.7, and `expect_in()`, already used across the test suite, needs 3.1.9.
+
+### **Dependencies**
+
+* Imports trimmed so `R CMD check` no longer notes too many non-default packages.
+  glmnet and Matrix moved to Suggests: `wnba_rapm()` now needs them installed (it says so
+  with an install prompt if they are missing). stringdist moved to Suggests: the live
+  player-crosswalk builders `wnba_player_crosswalk()` and `wbb_player_crosswalk()` now need it; the cached `load_*_crosswalk()` loaders
+  do not. magrittr, lubridate and xml2 are no longer dependencies (`%>%` still comes from dplyr; date
+  parsing now uses base R with the same results).
 
 # **wehoop 3.0.0**
 

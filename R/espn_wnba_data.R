@@ -777,7 +777,6 @@ espn_wnba_teams <- function(){
 #' @importFrom dplyr select rename any_of mutate
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest_wider unchop hoist
-#' @importFrom lubridate with_tz ymd_hm
 #' @import rvest
 #' @export
 #' @keywords WNBA Scoreboard
@@ -850,8 +849,7 @@ espn_wnba_scoreboard <- function(season){
       
       wnba_data <- wnba_data %>%
         dplyr::mutate(
-          game_date_time = lubridate::ymd_hm(substr(.data$game_date, 1, nchar(.data$game_date) - 1)) %>%
-            lubridate::with_tz(tzone = "America/New_York"),
+          game_date_time = .espn_utc_to_et(substr(.data$game_date, 1, nchar(.data$game_date) - 1)),
           game_date = as.Date(substr(.data$game_date_time, 1, 10)))
       
       wnba_data <- wnba_data %>% 
@@ -1701,7 +1699,6 @@ espn_wnba_player_stats <- function(
 #'   when the game has no play-by-play. `home_score` / `away_score` are rebuilt from the
 #'   scoring plays when that reproduces the header's official final, otherwise they are
 #'   ESPN's per-play values; the last column, `score_source` (`"rebuilt"` / `"espn"`), says which.
-#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wnba_pbp <- function(resp){
   
@@ -1719,8 +1716,7 @@ helper_espn_wnba_pbp <- function(resp){
     season_type <- game_json[['header']][['season']][['type']]
     game_date_time <- substr(game_json[['header']][['competitions']][['date']], 1,
                              nchar(game_json[['header']][['competitions']][['date']]) - 1) %>%
-      lubridate::ymd_hm() %>%
-      lubridate::with_tz(tzone = "America/New_York")
+      .espn_utc_to_et()
     
     game_date <- as.Date(substr(game_date_time, 0, 10))
     
@@ -1990,7 +1986,6 @@ helper_espn_wnba_pbp <- function(resp){
 #' @rdname helper_espn_wnba_pbp
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
-#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wnba_team_box <- function(resp){
   
@@ -2000,8 +1995,7 @@ helper_espn_wnba_team_box <- function(resp){
   gameId <- as.integer(game_json[["header"]][["id"]])
   game_date_time <- substr(game_json[['header']][['competitions']][['date']], 1,
                            nchar(game_json[['header']][['competitions']][['date']]) - 1) %>%
-    lubridate::ymd_hm() %>%
-    lubridate::with_tz(tzone = "America/New_York")
+    .espn_utc_to_et()
   
   game_date <- as.Date(substr(game_date_time, 0, 10))
   # ESPN's header `boxscoreAvailable` flag is unreliable for archival games
@@ -2209,7 +2203,6 @@ helper_espn_wnba_team_box <- function(resp){
 #' @rdname helper_espn_wnba_pbp
 #' @param resp Response object from the ESPN WNBA game summary endpoint
 #' @return Returns a tibble
-#' @importFrom lubridate with_tz ymd_hm
 #' @export
 helper_espn_wnba_player_box <- function(resp){
   
@@ -2226,8 +2219,7 @@ helper_espn_wnba_player_box <- function(resp){
   season_type <- game_json[["header"]][["season"]][["type"]]
   game_date_time <- substr(game_json[['header']][['competitions']][['date']], 1,
                            nchar(game_json[['header']][['competitions']][['date']]) - 1) %>%
-    lubridate::ymd_hm() %>%
-    lubridate::with_tz(tzone = "America/New_York")
+    .espn_utc_to_et()
   
   game_date <- as.Date(substr(game_date_time, 0, 10))
   

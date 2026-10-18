@@ -28,7 +28,7 @@ wehoop is an R package providing clean, tidy women's basketball play-by-play and
 
 When this guide differs from current repository docs, treat `CONTRIBUTING.md` and current test implementations as authoritative.
 
-- **Version**: 3.0.0.9000 (dev)
+- **Version**: 3.1.0
 - **R Requirement**: >= 4.1.0
 - **License**: MIT
 - **Branch**: `main` is the default branch and release branch.
@@ -525,7 +525,7 @@ This re-orders fields, alphabetizes `Imports`/`Suggests`, and reflows long lines
 
 Three files describe the same release at different audiences. Whenever you add a `NEWS.md` bullet, **think through all three before committing**:
 
-- **`NEWS.md`** — authoritative changelog for downstream users; rendered into the pkgdown changelog. **All new bullets go under the most recent unreleased version heading** (currently `# **wehoop 3.0.0.9000 (development version)**`; 3.0.0 shipped to CRAN on 2026-08-24). Do NOT create a new version section ahead of release. Add to or extend an existing subsection (`### Bug fixes`, `### Deprecations`, `### Test infrastructure`, etc.) instead of starting a new one when the change is incremental. When a version ships to CRAN, the next development version gets its own heading and the rule rolls forward.
+- **`NEWS.md`** — authoritative changelog for downstream users; rendered into the pkgdown changelog. **All new bullets go under the most recent unreleased version heading** (currently `# **wehoop 3.1.0**`, not yet on CRAN; 3.0.0 shipped to CRAN on 2026-08-24). Do NOT create a new version section ahead of release. Add to or extend an existing subsection (`### Bug fixes`, `### Deprecations`, `### Test infrastructure`, etc.) instead of starting a new one when the change is incremental. When a version ships to CRAN, the next development version gets its own heading and the rule rolls forward.
 
 - **`cran-comments.md`** — what gets submitted to CRAN. Every behavioral or user-visible change you add to `NEWS.md` should also be reflected in `cran-comments.md` before submission. The two files are not duplicates: `NEWS.md` is the long-form changelog, `cran-comments.md` is the short-form release summary. If a `NEWS.md` bullet is purely internal (refactor, test infrastructure, dev tooling) it can be omitted from `cran-comments.md`.
 
