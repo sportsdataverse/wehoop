@@ -346,26 +346,26 @@ Returns a `wehoop_data` tibble of athlete core records.
   try(load_wbb_pbp())
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_pbp/play_by_play_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_pbp/play_by_play_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_team_box())
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_boxscores/team_box_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_boxscores/team_box_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_player_box())
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_boxscores/player_box_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_boxscores/player_box_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_schedule())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 2,283 × 93
 #>         id uid   date  attendance time_valid neutral_site conference_competition
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
@@ -389,7 +389,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_rosters(seasons = most_recent_wbb_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 5,616 × 36
 #>    season team_id team_slug team_abbreviation team_display_name         
 #>     <int>   <int> <chr>     <chr>             <chr>                     
@@ -415,49 +415,49 @@ Returns a `wehoop_data` tibble of athlete core records.
   try(load_wbb_player_stats(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_season_stats/player_season_stats_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_season_stats/player_season_stats_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_team_stats(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_season_stats/team_season_stats_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_season_stats/team_season_stats_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_standings(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_standings/standings_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_standings/standings_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_shots/shots_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_shots/shots_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_game_rosters/game_rosters_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_game_rosters/game_rosters_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_player_core(seasons = most_recent_wbb_season()))
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_core/player_core_2027.rds': HTTP status was '404 Not Found'
 #> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_core/player_core_2027.rds>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 ```

@@ -107,8 +107,8 @@ Other Genius:
 ``` r
 # \donttest{
   try(genius_competitions(org = "ESAKE"))
-#> ── Genius LiveStats competitions ────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:59:00 UTC
+#> ── Genius LiveStats competitions ─────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:24:11 UTC
 #> # A tibble: 47 × 8
 #>    org   comp_id label               league_id  year season season_rule selected
 #>    <chr>   <int> <chr>                   <int> <int>  <int> <chr>       <lgl>   

@@ -201,8 +201,8 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_games_recent())
-#> ── BBL/DBBL Recent Games from the SCB API ───────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:00:33 UTC
+#> ── BBL/DBBL Recent Games from the SCB API ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:25:08 UTC
 #> # A tibble: 27 × 92
 #>    league season season_id game_id competition stage status bucket game_progress
 #>    <chr>   <int>     <int> <chr>   <chr>       <chr> <chr>  <chr>  <chr>        

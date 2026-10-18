@@ -162,8 +162,8 @@ Other Atrium:
 ``` r
 # \donttest{
   try(atrium_box_score(website_id = 14, fixture_id = "0dc631bd-c34c-11f1-8d16-4d5a21afb79d"))
-#> ── Atrium box score from embed-api.eui.connect.sportradar.com ──────────────────
-#> ℹ Data updated: 2026-10-18 16:56:40 UTC
+#> ── Atrium box score from embed-api.eui.connect.sportradar.com ── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:22:01 UTC
 #> # A tibble: 24 × 41
 #>    website_id fixture_id   season_id entity_id side  person_id person_name bib  
 #>         <int> <chr>        <chr>     <chr>     <chr> <chr>     <chr>       <chr>

@@ -63,7 +63,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_wbb_group_seasons())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 937 × 9
 #>    league group_id season level    name  short_name abbreviation parent_group_id
 #>    <chr>  <chr>     <int> <chr>    <chr> <chr>      <chr>        <chr>          
@@ -82,7 +82,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_group_seasons())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 90 × 9
 #>    league group_id  season level   name  short_name abbreviation parent_group_id
 #>    <chr>  <chr>      <int> <chr>   <chr> <chr>      <chr>        <chr>          

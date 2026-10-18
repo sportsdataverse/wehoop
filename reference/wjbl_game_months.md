@@ -120,8 +120,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game_months(season = 2026))
-#> ── W League Game Months from api.wjbl.01core.app ────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:01:10 UTC
+#> ── W League Game Months from api.wjbl.01core.app ─────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:25:42 UTC
 #> # A tibble: 9 × 4
 #>   league_id season game_month game_month_jpn
 #>       <int>  <int> <chr>      <chr>         

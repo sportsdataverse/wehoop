@@ -164,8 +164,8 @@ Other FIBA Functions:
 ``` r
 # \donttest{
   try(fiba_gamepage_pbp(game_id = 100720, comp = 208182))
-#> ── FIBA gamepage_pbp from fiba.basketball ───────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:18 UTC
+#> ── FIBA gamepage_pbp from fiba.basketball ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:34 UTC
 #> # A tibble: 497 × 26
 #>    game_id competition_id statistic_system period period_number action_id order
 #>      <int>          <int> <chr>            <chr>          <int> <chr>     <int>

@@ -119,8 +119,8 @@ Other TBF:
 ``` r
 # \donttest{
   try(tbf_pbp(match_id = 346279))
-#> ── TBF Play-by-Play ─────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:00:47 UTC
+#> ── TBF Play-by-Play ──────────────────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:25:21 UTC
 #> # A tibble: 639 × 13
 #>    match_id action_number period period_type clock seconds_remaining home_score
 #>       <int>         <int>  <int>       <int> <chr>             <int>      <int>

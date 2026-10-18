@@ -117,8 +117,8 @@ Other FEB:
 ``` r
 # \donttest{
   try(feb_results(group = 1, season = 2027))
-#> ── FEB results from baloncestoenvivo.feb.es ─────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:10 UTC
+#> ── FEB results from baloncestoenvivo.feb.es ──────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:27 UTC
 #> # A tibble: 18 × 17
 #>    group season competition comp_id section    round_title  game_id home_team_id
 #>    <int>  <int> <chr>         <int> <chr>      <chr>          <int>        <int>

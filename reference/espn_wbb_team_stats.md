@@ -203,8 +203,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_wbb_team_stats(team_id = 2509, year = 2020))
-#> ── ESPN WBB Team Season Stats from ESPN.com ─────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:34 UTC
+#> ── ESPN WBB Team Season Stats from ESPN.com ──────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:22:55 UTC
 #> # A tibble: 1 × 180
 #>   team_x_ref_4       team_id team_guid team_uid team_sdr team_slug team_location
 #>   <chr>                <int> <chr>     <chr>       <int> <chr>     <chr>        

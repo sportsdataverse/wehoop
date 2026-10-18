@@ -137,8 +137,8 @@ Other TBF:
 ``` r
 # \donttest{
   try(tbf_standings(competition = "bsl", season = 2027))
-#> ── TBF Standings ────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:00:54 UTC
+#> ── TBF Standings ─────────────────────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:25:27 UTC
 #> # A tibble: 16 × 18
 #>    season competition group activity_id team_process_id team_name     week  rank
 #>     <int> <chr>       <chr>       <int>           <int> <chr>        <int> <int>

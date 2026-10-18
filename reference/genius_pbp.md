@@ -129,8 +129,8 @@ Other Genius:
 ``` r
 # \donttest{
   try(genius_pbp(match_id = 2902690))
-#> ── Genius LiveStats play-by-play ────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:59:02 UTC
+#> ── Genius LiveStats play-by-play ─────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:24:12 UTC
 #> # A tibble: 663 × 25
 #>    match_id row_index action_number previous_action period period_type gt   
 #>       <int>     <int>         <int>           <int>  <int> <chr>       <chr>

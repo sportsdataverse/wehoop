@@ -132,8 +132,8 @@ Other NBL Rosetta:
 ``` r
 # \donttest{
   try(nbl_rosetta_match_pbp(match_id = "b217a699-4bef-11f0-bc08-933162362355"))
-#> ── NBL Rosetta match_pbp from prod.rosetta.nbl.com.au ───── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:00:12 UTC
+#> ── NBL Rosetta match_pbp from prod.rosetta.nbl.com.au ────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:24:47 UTC
 #> # A tibble: 982 × 29
 #>    match_id     rosetta_match_id match_status action_id period period_type clock
 #>    <chr>        <chr>            <chr>            <int>  <int> <chr>       <chr>

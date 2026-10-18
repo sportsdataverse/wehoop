@@ -120,8 +120,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_futures(season = 2025)
-#> ── ESPN WNBA Season Futures ─────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:42 UTC
+#> ── ESPN WNBA Season Futures ──────────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:02 UTC
 #> # A tibble: 144 × 11
 #>    season league market_id market_name   market_type market_display provider_id
 #>     <int> <chr>      <int> <chr>         <chr>       <chr>          <chr>      

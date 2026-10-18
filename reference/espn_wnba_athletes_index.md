@@ -124,8 +124,8 @@ Saiem Gilani
 # \donttest{
   espn_wnba_athletes_index(season = 2025, limit = 50)
 #> Fetching page 1 of 1 for wnba athletes (season=2025)...
-#> ── ESPN WNBA Athletes Index from ESPN.com ───────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:38 UTC
+#> ── ESPN WNBA Athletes Index from ESPN.com ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:22:58 UTC
 #> # A tibble: 50 × 9
 #>    athlete_id full_name jersey position team_id headshot status link     ref_url
 #>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>    <chr>  

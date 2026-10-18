@@ -121,8 +121,8 @@ Other FEB:
 ``` r
 # \donttest{
   try(feb_schedule(group = 1, season = 2027))
-#> ── FEB schedule from baloncestoenvivo.feb.es ────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:12 UTC
+#> ── FEB schedule from baloncestoenvivo.feb.es ─────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:29 UTC
 #> # A tibble: 306 × 18
 #>    group season competition round round_label    round_date game_id home_team_id
 #>    <int>  <int> <chr>       <int> <chr>          <date>       <int>        <int>

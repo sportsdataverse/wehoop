@@ -147,7 +147,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_wnba_player_impact(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 329 × 28
 #>    player_id player_name        team_id team_abbreviation team_name teams season
 #>        <int> <chr>                <int> <chr>             <chr>     <chr>  <int>
@@ -174,7 +174,7 @@ Saiem Gilani
 #> Warning: downloaded length 0 != reported length 9
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_player_value/wbb_player_value_2027.parquet': HTTP status was '404 Not Found'
 #> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_player_value/wbb_player_value_2027.parquet>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
@@ -182,7 +182,7 @@ Saiem Gilani
 #> Warning: downloaded length 0 != reported length 9
 #> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_ratings/wbb_ratings_2027.parquet': HTTP status was '404 Not Found'
 #> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_ratings/wbb_ratings_2027.parquet>
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 ```

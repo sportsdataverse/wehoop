@@ -114,8 +114,8 @@ Saiem Gilani
 # \donttest{
   try(wnba_referee_assignments(date = "2026-06-13"))
 #> $officials
-#> ── WNBA referee assignments from official.nba.com ───────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:13:41 UTC
+#> ── WNBA referee assignments from official.nba.com ────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:38:11 UTC
 #> # A tibble: 12 × 14
 #>    league game_id    game_date  season season_type game_code       home_team_id
 #>    <chr>  <chr>      <date>      <int> <chr>       <chr>                  <int>
@@ -136,8 +136,8 @@ Saiem Gilani
 #> #   official_name <chr>, jersey_num <chr>
 #> 
 #> $replay_center
-#> ── WNBA replay-center officials from official.nba.com ───── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:13:41 UTC
+#> ── WNBA replay-center officials from official.nba.com ────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:38:11 UTC
 #> # A tibble: 1 × 4
 #>   league game_date  official_id official_name
 #>   <chr>  <date>           <int> <chr>        

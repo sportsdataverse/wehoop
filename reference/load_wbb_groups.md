@@ -69,7 +69,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_wbb_groups())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 50 × 6
 #>    league group_id         level      first_season last_season notes            
 #>    <chr>  <chr>            <chr>             <int>       <int> <chr>            
@@ -87,7 +87,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_groups())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 3 × 6
 #>   league group_id  level      first_season last_season notes                    
 #>   <chr>  <chr>     <chr>             <int>       <int> <chr>                    

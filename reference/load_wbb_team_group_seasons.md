@@ -84,7 +84,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_wbb_team_group_seasons(seasons = most_recent_wbb_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 363 × 11
 #>    league season team_id team_id_source team_name   subdivision_id conference_id
 #>    <chr>   <int> <chr>   <chr>          <chr>       <chr>          <chr>        
@@ -104,7 +104,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_team_group_seasons(seasons = most_recent_wnba_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 15 × 11
 #>    league season team_id team_id_source team_name   subdivision_id conference_id
 #>    <chr>   <int> <chr>   <chr>          <chr>       <chr>          <chr>        

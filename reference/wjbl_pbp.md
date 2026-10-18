@@ -141,8 +141,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_pbp(play_schedule_id = 7987))
-#> ── W League Play-by-Play from api.wjbl.01core.app ───────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:01:16 UTC
+#> ── W League Play-by-Play from api.wjbl.01core.app ────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:25:49 UTC
 #> # A tibble: 439 × 24
 #>    play_schedule_id    no period rest_time seconds_remaining team_id team_name  
 #>               <int> <int>  <int> <chr>                 <int>   <int> <chr>      

@@ -131,8 +131,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_team_record(team_id = 17, season = 2025)
-#> ── ESPN WNBA Team Record ────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:03 UTC
+#> ── ESPN WNBA Team Record ─────────────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:21 UTC
 #> # A tibble: 8 × 14
 #>   league team_id season season_type record_id name     abbreviation display_name
 #>   <chr>  <chr>    <int>       <int> <chr>     <chr>    <chr>        <chr>       

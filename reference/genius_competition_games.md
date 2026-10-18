@@ -118,8 +118,8 @@ Other Genius:
 ``` r
 # \donttest{
   try(genius_competition_games(comp_id = 49915))
-#> ── Genius LiveStats competition games ───────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:56 UTC
+#> ── Genius LiveStats competition games ────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:24:00 UTC
 #> # A tibble: 2 × 20
 #>   league_id competition_id match_id match_status match_time match_time_utc  live
 #>       <int>          <int>    <int> <chr>        <chr>      <chr>          <int>

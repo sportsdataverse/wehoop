@@ -113,8 +113,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_leaders(season = 2024, season_type = 2)
-#> ── ESPN WNBA Leaders from ESPN.com ──────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:51 UTC
+#> ── ESPN WNBA Leaders from ESPN.com ───────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:10 UTC
 #> # A tibble: 375 × 11
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  

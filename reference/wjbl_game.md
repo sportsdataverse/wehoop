@@ -153,8 +153,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game(play_schedule_id = 7987))
-#> ── W League Game from api.wjbl.01core.app ───────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 17:01:07 UTC
+#> ── W League Game from api.wjbl.01core.app ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:25:39 UTC
 #> # A tibble: 1 × 36
 #>   play_schedule_id game_status home_team_id home_season_team_name      
 #>              <int> <chr>              <int> <chr>                      

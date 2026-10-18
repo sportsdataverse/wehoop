@@ -112,8 +112,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_coach_season(coach_id = 2167842, season = 2025)
-#> ── ESPN WOMENS-COLLEGE-BASKETBALL Coach-in-Season Detail ── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:08 UTC
+#> ── ESPN WOMENS-COLLEGE-BASKETBALL Coach-in-Season Detail ─────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:22:29 UTC
 #> # A tibble: 1 × 13
 #>   league     season coach_id uid   first_name last_name date_of_birth birth_city
 #>   <chr>       <int> <chr>    <chr> <chr>      <chr>     <chr>         <chr>     

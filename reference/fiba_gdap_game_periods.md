@@ -118,8 +118,8 @@ Other FIBA Functions:
 ``` r
 # \donttest{
   try(fiba_gdap_game_periods(game_id = 100720))
-#> ── FIBA gdap_game_periods from fiba.basketball ──────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:24 UTC
+#> ── FIBA gdap_game_periods from fiba.basketball ───────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:41 UTC
 #> # A tibble: 4 × 7
 #>   game_id name  number team_a_score team_b_score team_a_from       team_b_from  
 #>     <int> <chr>  <int>        <int>        <int> <chr>             <chr>        

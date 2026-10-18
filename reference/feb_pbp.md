@@ -124,8 +124,8 @@ Other FEB:
 ``` r
 # \donttest{
   try(feb_pbp(game_id = 2535725))
-#> ── FEB pbp from intrafeb.feb.es ─────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:58:09 UTC
+#> ── FEB pbp from intrafeb.feb.es ──────────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:26 UTC
 #> # A tibble: 570 × 27
 #>    game_id play_num period clock clock_seconds team_side team_id player_id
 #>      <int>    <int>  <int> <chr>         <int> <chr>       <int>     <int>

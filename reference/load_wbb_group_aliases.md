@@ -62,7 +62,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_wbb_group_aliases())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 373 × 8
 #>    league group_id         source source_id name_kind  value valid_from valid_to
 #>    <chr>  <chr>            <chr>  <chr>     <chr>      <chr>      <int>    <int>
@@ -80,7 +80,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_group_aliases())
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 17 × 8
 #>    league group_id  source     source_id name_kind    value  valid_from valid_to
 #>    <chr>  <chr>     <chr>      <chr>     <chr>        <chr>       <int>    <int>

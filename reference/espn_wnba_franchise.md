@@ -120,8 +120,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_franchise(franchise_id = 17)
-#> ── ESPN WNBA Franchise from ESPN.com ────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:41 UTC
+#> ── ESPN WNBA Franchise from ESPN.com ─────────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:23:01 UTC
 #> # A tibble: 1 × 16
 #>   id    uid            slug    location name  nickname abbreviation display_name
 #>   <chr> <chr>          <chr>   <chr>    <chr> <lgl>    <chr>        <chr>       

@@ -548,7 +548,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(load_wnba_stats_rosters(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 223 × 18
 #>       team_id season league_id player nickname player_slug num   position height
 #>         <int>  <int> <chr>     <chr>  <chr>    <chr>       <chr> <chr>    <chr> 
@@ -569,7 +569,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_coaches(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 89 × 11
 #>       team_id season coach_id first_name last_name  coach_name      is_assistant
 #>         <int>  <int>    <int> <chr>      <chr>      <chr>                  <int>
@@ -595,7 +595,7 @@ Saiem Gilani
 #>   call reshapes the cube's
 #>   player_stats_{base,advanced,misc,scoring,usage,defense} assets back into the
 #>   old stacked-by-measure_type contract.
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 1,980 × 213
 #>    player_id player_name    nickname team_id team_abbreviation   age    gp     w
 #>        <int> <chr>          <chr>      <int> <chr>             <dbl> <int> <int>
@@ -625,7 +625,7 @@ Saiem Gilani
 #>   Python-scraped parameter cube covering 2/3/4/5-man x 6 measure types). This
 #>   call filters the cube's lineups_{base,advanced} assets down to group_quantity
 #>   == 5 to match the old contract.
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 4,556 × 98
 #>    group_set group_id     group_name team_id team_abbreviation    gp     w     l
 #>    <chr>     <chr>        <chr>        <int> <chr>             <int> <int> <int>
@@ -655,7 +655,7 @@ Saiem Gilani
 #>   call reshapes the cube's
 #>   team_stats_{base,advanced,misc,scoring,defense,opponent} assets back into the
 #>   old stacked-by-measure_type contract.
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 138 × 179
 #>       team_id team_name      gp     w     l w_pct   min   fgm   fga fg_pct fg3_m
 #>         <int> <chr>       <int> <int> <int> <dbl> <dbl> <int> <int>  <dbl> <int>
@@ -683,7 +683,7 @@ Saiem Gilani
 #> ℹ Backing data moved from the wnba_stats_standings release tag to the
 #>   wnba_stats_leaguedash release tag's standings_{season}.parquet asset (same
 #>   underlying leaguestandingsv3 endpoint/params, Python-scraped).
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 15 × 94
 #>    league_id season_id    team_id team_city    team_name team_slug conference
 #>    <chr>     <chr>          <int> <chr>        <chr>     <chr>     <chr>     
@@ -712,7 +712,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_draft(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 45 × 14
 #>    person_id player_name  season round_number round_pick overall_pick draft_type
 #>        <int> <chr>         <int>        <int>      <int>        <int> <chr>     
@@ -733,7 +733,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 47,585 × 18
 #>    game_id    season period clock     team_id team_tricode person_id player_name
 #>    <chr>       <int>  <int> <chr>       <int> <chr>            <int> <chr>      
@@ -754,7 +754,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 992 × 10
 #>    player_id first_name last_name        jersey_num  team_id team_city team_name
 #>        <int> <chr>      <chr>            <chr>         <int> <chr>     <chr>    
@@ -773,7 +773,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 1,054 × 6
 #>    official_id first_name last_name        jersey_num season game_id   
 #>          <int> <chr>      <chr>            <chr>       <int> <chr>     
@@ -791,7 +791,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 4,705 × 35
 #>    season_id team_id team_abbreviation team_name game_id game_date matchup wl   
 #>    <chr>       <int> <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
@@ -815,7 +815,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 347 × 15
 #>    game_id    season season_type    game_date  matchup     home_team_id
 #>    <chr>       <int> <chr>          <chr>      <chr>              <int>
@@ -837,7 +837,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 147,791 × 38
 #>    order_index action_number clock       period   team_id team_tricode person_id
 #>          <int>         <int> <chr>        <int>     <int> <chr>            <int>
@@ -861,7 +861,7 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
-#> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 55,404 × 34
 #>    game_id    period possession_number offense_team_id defense_team_id
 #>    <chr>       <int>             <int>           <int>           <int>

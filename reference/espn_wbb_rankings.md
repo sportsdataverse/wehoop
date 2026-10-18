@@ -129,8 +129,8 @@ Saiem Gilani
 # Get current AP and Coaches Poll rankings
 # \donttest{
   try(espn_wbb_rankings())
-#> ── ESPN WBB Rankings Information from ESPN.com ──────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 16:57:21 UTC
+#> ── ESPN WBB Rankings Information from ESPN.com ───────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-10-18 19:22:43 UTC
 #> # A tibble: 79 × 38
 #>       id name   short_name type  headline short_headline current previous points
 #>    <int> <chr>  <chr>      <chr> <chr>    <chr>            <int>    <int>  <dbl>

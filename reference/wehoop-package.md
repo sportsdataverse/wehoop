@@ -2,17 +2,15 @@
 
 A utility for working with women's basketball data. A scraping and
 aggregating interface for the WNBA Stats API <https://stats.wnba.com/>
-and ESPN's <https://www.espn.com> women's college basketball and WNBA
-statistics. It provides users with the capability to access the game
-play-by-plays, box scores, standings and results to analyze the data for
-themselves.
+and ESPN's women's college basketball and WNBA statistics. It provides
+users with the capability to access the game play-by-plays, box scores,
+standings and results to analyze the data for themselves.
 
 A utility for working with women's basketball data. A scraping and
 aggregating interface for the WNBA Stats API <https://stats.wnba.com/>
-and ESPN's <https://www.espn.com> women's college basketball and WNBA
-statistics. It provides users with the capability to access the game
-play-by-plays, box scores, standings and results to analyze the data for
-themselves.
+and ESPN's women's college basketball and WNBA statistics. It provides
+users with the capability to access the game play-by-plays, box scores,
+standings and results to analyze the data for themselves.
 
 ## See also
 
