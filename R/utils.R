@@ -469,8 +469,6 @@ year_to_season <- function(year) {
 #' @import utils
 utils::globalVariables(c("where"))
 
-# check if a package is installed
-is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 
 #' @keywords internal
 "_PACKAGE"
