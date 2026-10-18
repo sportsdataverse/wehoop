@@ -110,8 +110,7 @@ test_that("every wrapper matches sdv-py's frame on the same fixture (columns, or
   for (case in names(SCB_CASES)) {
     res <- run_case(case)
     got <- res$out
-    want <- utils::read.csv(scb_fixture("parity", paste0(case, ".csv")), colClasses = "character",
-                            na.strings = "", check.names = FALSE, encoding = "UTF-8")
+    want <- intl_read_oracle(scb_fixture("parity", paste0(case, ".csv")))
     expect_s3_class(got, "wehoop_data")
     expect_identical(names(got), names(want), label = case)
     expect_identical(nrow(got), nrow(want), label = case)
@@ -349,8 +348,7 @@ test_that("wehoop defaults to the DBBL: the default call hits the DBBL host and 
     expect_identical(sub("\\?.*$", "", seen$reqs[[1]]$url), requests[[case]]$url, label = case)
     expect_true(startsWith(seen$reqs[[1]]$url, "https://api-1.dbbl.scb.world/"), label = case)
     expect_identical(unique(got$league), "dbbl", label = case)
-    want <- utils::read.csv(scb_fixture("parity", paste0(case, ".csv")), colClasses = "character",
-                            na.strings = "", check.names = FALSE, encoding = "UTF-8")
+    want <- intl_read_oracle(scb_fixture("parity", paste0(case, ".csv")))
     expect_identical(names(got), names(want), label = case)
     expect_identical(nrow(got), nrow(want), label = case)
     if ("tv_channel" %in% names(want)) want$tv_channel <- oracle_channel_names(want$tv_channel)
