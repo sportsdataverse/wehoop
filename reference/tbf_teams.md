@@ -82,7 +82,7 @@ time (`Europe/Istanbul`).
 
 ## See also
 
-Other TBF:
+Other TBF Functions:
 [`tbf_daily_matches()`](https://wehoop.sportsdataverse.org/reference/tbf_daily_matches.md),
 [`tbf_game_header()`](https://wehoop.sportsdataverse.org/reference/tbf_game_header.md),
 [`tbf_game_leaders()`](https://wehoop.sportsdataverse.org/reference/tbf_game_leaders.md),
@@ -121,7 +121,7 @@ Other TBF:
 # \donttest{
   try(tbf_teams(competition = "bsl", season = 2027))
 #> ── TBF Teams ─────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:25:31 UTC
+#> ℹ Data updated: 2026-10-18 20:10:40 UTC
 #> # A tibble: 16 × 9
 #>    season competition team_process_id club_id team_name    city  code  season_id
 #>     <int> <chr>                 <int>   <int> <chr>        <chr> <chr>     <int>

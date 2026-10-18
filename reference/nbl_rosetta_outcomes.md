@@ -100,7 +100,7 @@ a malformed id, or HTTP 400 / 422.
 
 ## See also
 
-Other NBL Rosetta:
+Other NBL Rosetta Functions:
 [`nbl_rosetta_match()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match.md),
 [`nbl_rosetta_match_by_id()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_by_id.md),
 [`nbl_rosetta_match_pbp()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_pbp.md),

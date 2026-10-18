@@ -94,7 +94,7 @@ time (`Europe/Istanbul`).
 
 ## See also
 
-Other TBF:
+Other TBF Functions:
 [`tbf_daily_matches()`](https://wehoop.sportsdataverse.org/reference/tbf_daily_matches.md),
 [`tbf_game_leaders()`](https://wehoop.sportsdataverse.org/reference/tbf_game_leaders.md),
 [`tbf_game_players()`](https://wehoop.sportsdataverse.org/reference/tbf_game_players.md),
@@ -133,7 +133,7 @@ Other TBF:
 # \donttest{
   try(tbf_game_header(match_id = 346279))
 #> ── TBF Game Header ───────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:25:16 UTC
+#> ℹ Data updated: 2026-10-18 20:10:26 UTC
 #> # A tibble: 1 × 27
 #>   match_id match_code genius_id activity_id activity_name season_id season_label
 #>      <int> <chr>          <int>       <int> <chr>             <int> <chr>       

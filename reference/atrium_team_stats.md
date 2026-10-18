@@ -117,7 +117,7 @@ team than the one asked for.
 
 ## See also
 
-Other Atrium:
+Other Atrium Functions:
 [`atrium_box_score()`](https://wehoop.sportsdataverse.org/reference/atrium_box_score.md),
 [`atrium_competition_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_player_stats.md),
 [`atrium_competition_team_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_team_stats.md),
@@ -154,7 +154,7 @@ Other Atrium:
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 #> ── Atrium team stats from embed-api.eui.connect.sportradar.com ─────────────────
-#> ℹ Data updated: 2026-10-18 19:22:13 UTC
+#> ℹ Data updated: 2026-10-18 20:06:41 UTC
 #> # A tibble: 400 × 13
 #>    website_id season_id    table_key table_label person_id person_name entity_id
 #>         <int> <chr>        <chr>     <chr>       <chr>     <chr>       <chr>    

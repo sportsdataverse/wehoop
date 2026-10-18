@@ -102,7 +102,7 @@ time (`Europe/Istanbul`).
 
 ## See also
 
-Other TBF:
+Other TBF Functions:
 [`tbf_daily_matches()`](https://wehoop.sportsdataverse.org/reference/tbf_daily_matches.md),
 [`tbf_game_header()`](https://wehoop.sportsdataverse.org/reference/tbf_game_header.md),
 [`tbf_game_leaders()`](https://wehoop.sportsdataverse.org/reference/tbf_game_leaders.md),
@@ -141,7 +141,7 @@ Other TBF:
 # \donttest{
   try(tbf_player_box(match_id = 346279))
 #> ── TBF Player Box Score ──────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:25:22 UTC
+#> ℹ Data updated: 2026-10-18 20:10:31 UTC
 #> # A tibble: 24 × 33
 #>    match_id side  team_process_id player_id player_name jersey_number is_starter
 #>       <int> <chr>           <int>     <int> <chr>       <chr>         <lgl>     

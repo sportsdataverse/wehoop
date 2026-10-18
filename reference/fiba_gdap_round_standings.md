@@ -138,7 +138,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_round_standings(comp = 208182))
 #> ── FIBA gdap_round_standings from fiba.basketball ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:23:45 UTC
+#> ℹ Data updated: 2026-10-18 20:08:13 UTC
 #> # A tibble: 88 × 23
 #>    round_id round_name  round_code group_name group_status_code  rank
 #>       <int> <chr>       <chr>      <chr>      <chr>             <int>

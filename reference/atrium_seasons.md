@@ -87,7 +87,7 @@ team than the one asked for.
 
 ## See also
 
-Other Atrium:
+Other Atrium Functions:
 [`atrium_box_score()`](https://wehoop.sportsdataverse.org/reference/atrium_box_score.md),
 [`atrium_competition_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_player_stats.md),
 [`atrium_competition_team_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_team_stats.md),
@@ -122,7 +122,7 @@ Other Atrium:
 # \donttest{
   try(atrium_seasons(website_id = 12))
 #> ── Atrium seasons from embed-api.eui.connect.sportradar.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:22:09 UTC
+#> ℹ Data updated: 2026-10-18 20:06:34 UTC
 #> # A tibble: 19 × 9
 #>    website_id season_id              competition_id competition_name season_name
 #>         <int> <chr>                  <chr>          <chr>            <chr>      

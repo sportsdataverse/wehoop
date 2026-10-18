@@ -110,7 +110,7 @@ team than the one asked for.
 
 ## See also
 
-Other Atrium:
+Other Atrium Functions:
 [`atrium_box_score()`](https://wehoop.sportsdataverse.org/reference/atrium_box_score.md),
 [`atrium_competition_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_player_stats.md),
 [`atrium_competition_team_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_team_stats.md),
@@ -145,7 +145,7 @@ Other Atrium:
 # \donttest{
   try(atrium_pbp(website_id = 14, fixture_id = "0dc631bd-c34c-11f1-8d16-4d5a21afb79d"))
 #> ── Atrium play-by-play from embed-api.eui.connect.sportradar.com ───────────────
-#> ℹ Data updated: 2026-10-18 19:22:05 UTC
+#> ℹ Data updated: 2026-10-18 20:06:23 UTC
 #> # A tibble: 497 × 22
 #>    website_id fixture_id             season_id sequence event_id period_id clock
 #>         <int> <chr>                  <chr>        <int> <chr>        <int> <chr>

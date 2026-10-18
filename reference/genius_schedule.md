@@ -106,7 +106,7 @@ competition or ORG.
 
 ## See also
 
-Other Genius:
+Other Genius Functions:
 [`genius_competition_games()`](https://wehoop.sportsdataverse.org/reference/genius_competition_games.md),
 [`genius_competitions()`](https://wehoop.sportsdataverse.org/reference/genius_competitions.md),
 [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md),
@@ -128,7 +128,7 @@ Other Genius:
 # \donttest{
   try(genius_schedule(org = "CEBL", comp_id = 47852))
 #> ── Genius LiveStats schedule ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:24:14 UTC
+#> ℹ Data updated: 2026-10-18 20:09:20 UTC
 #> # A tibble: 130 × 16
 #>    match_id link_match_id comp_id org   status     date_time venue_id venue_name
 #>       <int>         <int>   <int> <chr> <chr>      <chr>        <int> <chr>     

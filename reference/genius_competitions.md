@@ -86,7 +86,7 @@ competition or ORG.
 
 ## See also
 
-Other Genius:
+Other Genius Functions:
 [`genius_competition_games()`](https://wehoop.sportsdataverse.org/reference/genius_competition_games.md),
 [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md),
 [`genius_game_crosswalk()`](https://wehoop.sportsdataverse.org/reference/genius_game_crosswalk.md),
@@ -108,7 +108,7 @@ Other Genius:
 # \donttest{
   try(genius_competitions(org = "ESAKE"))
 #> ── Genius LiveStats competitions ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:24:11 UTC
+#> ℹ Data updated: 2026-10-18 20:09:08 UTC
 #> # A tibble: 47 × 8
 #>    org   comp_id label               league_id  year season season_rule selected
 #>    <chr>   <int> <chr>                   <int> <int>  <int> <chr>       <lgl>   

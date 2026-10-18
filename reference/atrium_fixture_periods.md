@@ -101,7 +101,7 @@ team than the one asked for.
 
 ## See also
 
-Other Atrium:
+Other Atrium Functions:
 [`atrium_box_score()`](https://wehoop.sportsdataverse.org/reference/atrium_box_score.md),
 [`atrium_competition_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_player_stats.md),
 [`atrium_competition_team_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_team_stats.md),

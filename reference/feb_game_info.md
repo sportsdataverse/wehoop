@@ -100,7 +100,7 @@ game, a page for another group or season, or layout drift). All inherit
 
 ## See also
 
-Other FEB:
+Other FEB Functions:
 [`feb_leaders()`](https://wehoop.sportsdataverse.org/reference/feb_leaders.md),
 [`feb_overview()`](https://wehoop.sportsdataverse.org/reference/feb_overview.md),
 [`feb_pbp()`](https://wehoop.sportsdataverse.org/reference/feb_pbp.md),
@@ -118,7 +118,7 @@ Other FEB:
 # \donttest{
   try(feb_game_info(game_id = 2535725))
 #> ── FEB game info from intrafeb.feb.es ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:23:25 UTC
+#> ℹ Data updated: 2026-10-18 20:07:52 UTC
 #> # A tibble: 1 × 24
 #>   game_id comp_id competition group_label period clock start_time          venue
 #>     <int>   <int> <chr>       <chr>        <int> <chr> <dttm>              <chr>

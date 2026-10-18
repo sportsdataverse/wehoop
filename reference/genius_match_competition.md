@@ -93,7 +93,7 @@ competition or ORG.
 
 ## See also
 
-Other Genius:
+Other Genius Functions:
 [`genius_competition_games()`](https://wehoop.sportsdataverse.org/reference/genius_competition_games.md),
 [`genius_competitions()`](https://wehoop.sportsdataverse.org/reference/genius_competitions.md),
 [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md),

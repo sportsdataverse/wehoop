@@ -83,7 +83,7 @@ game, a page for another group or season, or layout drift). All inherit
 
 ## See also
 
-Other FEB:
+Other FEB Functions:
 [`feb_game_info()`](https://wehoop.sportsdataverse.org/reference/feb_game_info.md),
 [`feb_leaders()`](https://wehoop.sportsdataverse.org/reference/feb_leaders.md),
 [`feb_overview()`](https://wehoop.sportsdataverse.org/reference/feb_overview.md),

@@ -43,7 +43,7 @@ raises `wehoop_bad_request`.
 
 ## See also
 
-Other Genius:
+Other Genius Functions:
 [`genius_competition_games()`](https://wehoop.sportsdataverse.org/reference/genius_competition_games.md),
 [`genius_competitions()`](https://wehoop.sportsdataverse.org/reference/genius_competitions.md),
 [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md),
@@ -66,7 +66,7 @@ Other Genius:
   standings <- data.frame(team_uuid = c("a1", "b2"), team_id = c(101L, 102L))
   genius_team_crosswalk(standings, "sportality_standings")
 #> ── Genius LiveStats team crosswalk ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 19:24:15 UTC
+#> ℹ Data updated: 2026-10-18 20:09:21 UTC
 #> # A tibble: 2 × 2
 #>   team_uuid genius_team_id
 #>   <chr>              <int>
