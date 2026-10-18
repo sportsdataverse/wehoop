@@ -162,6 +162,9 @@ Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badg
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&logo=github&style=for-the-badge&label=Star%20wehoop&maxAge=2592000)](https://github.com/sportsdataverse/wehoop)
 
+[![Star history of
+sportsdataverse/wehoop](https://raw.githubusercontent.com/sportsdataverse/wehoop/star-history/star-history.png)](https://github.com/sportsdataverse/wehoop/stargazers)
+
 # **Our Authors**
 
 - [Saiem Gilani](https://x.com/saiemgilani)
