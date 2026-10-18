@@ -1,0 +1,4 @@
+match_id,match_code,genius_id,activity_id,activity_name,competition,season_id,season_label,season,tipoff,match_date,week,phase,status_id,home_team_process_id,home_team,home_score,away_team_process_id,away_team,away_score,venue,province,gender,broadcast_channel,has_overtime
+345690,1BA3529,2913596,22209,KBSL 2026-2027,kbsl,174,2026-2027,2027,2026-09-26 14:00:00,2026-09-26,1. Hafta,1,1,265758,FENERBAHÇE TARFİN,87,265756,EMLAK KONUT,78,Fenerbahçe Metro Enerji Spor Salonu,İSTANBUL,Kadın,HT SPOR,false
+345693,1BA3531,2913597,22209,KBSL 2026-2027,kbsl,174,2026-2027,2027,2026-09-26 16:00:00,2026-09-26,1. Hafta,1,1,265761,OGM ORMANSPOR,71,265759,İSTANBUL GENÇLİK SPOR,76,M. Sait Zarifoğlu Spor Salonu,ANKARA,Kadın,Youtube / TBF TV,false
+345694,1BA3532,2913598,22209,KBSL 2026-2027,kbsl,174,2026-2027,2027,2026-09-26 18:00:00,2026-09-26,1. Hafta,1,1,265763,TURGUTLU BELEDİYESPOR,65,265762,NESİBE AYDIN OKULLARI,83,Yıldırım Beyazıt Spor Salonu,MANİSA,Kadın,Youtube / TBF TV,false

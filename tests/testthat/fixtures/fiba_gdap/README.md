@@ -2,8 +2,11 @@
 
 Copied from sdv-py (`sportsdataverse-py`) at e3d232ebc9bf9e9f98225666a67707b8e554f9b7 (origin/main), renamed short (R CMD check warns on
 paths over 100 characters). `parity/*.csv` are sdv-py's parser frames on the SAME fixture
-(`parse_<route>(raw, columns=_PARSER_COLUMNS[route])`, `write_csv(null_value="NA")`), generated with
-sdv-py's own venv and that tree on PYTHONPATH; `fiba_gdap/parity/dtypes.csv` holds their polars dtypes.
+(`parse_<route>(raw, columns=_PARSER_COLUMNS[route])`), generated with sdv-py's own venv and that tree on
+PYTHONPATH; `fiba_gdap/parity/dtypes.csv` holds their polars dtypes. The parity CSVs (both dirs) were regenerated
+on sdv-py `38a22f936d` (2026-10-18) with polars' default `write_csv()`: a null is an empty field and `""` a quoted
+one, so a literal "NA" (Namibia's code) stays a value; the tests read them with `intl_read_oracle()` of
+`helper-intl.R`. The frames are unchanged from e3d232ebc9, which wrote `null_value="NA"`.
 
 `fiba_gamepage/page_wc2023_final.rsc.gz` is the live `RSC: 1` text/x-component payload of
 https://www.fiba.basketball/en/history/201-fiba-basketball-world-cup/208182/games/100720-GER-SRB,
@@ -56,3 +59,15 @@ Extra (wehoop): `fiba_gdap/schedule_elw2025.json` <- `tests/fixtures/fiba_gdap/g
 and `parity/schedule_elw2025.csv` (sdv-py `parse_fiba_gdap_schedule(raw, columns=_PARSER_COLUMNS["schedule"])` on it,
 same SHA and method): the women's alias parity case `fiba_elw_schedule(comp = 208858)`. sdv-py's minted alias returns
 the base frame unchanged, so the base parser's frame is the alias oracle.
+
+Extra (wehoop), the women's ranking defaults (`category` / `gender = "women"`): `federation_ranking_women.json` and
+`gateway_federation_ranking_women.json` are live bodies, byte for byte, of
+`GET https://digital-api.fiba.basketball/hapi/getgdapfederationsranking?gdapCategory=women&zoneRankingId=1` and
+`GET https://digital-api.fiba.basketball/hapi/getcustomgateway?fibaFunction=federationRanking&gender=women&zoneId=1`,
+captured 2026-10-18 18:33 UTC (two requests 1.5 s apart, the package's public APIM key; the ranking as of
+2026-09-14, 118 teams; no personal data). sdv-py has no women's ranking fixture. `parity/federation_ranking_women.csv`
+and `parity/gateway_federation_ranking_women.csv` are the frames of sdv-py `fiba_gdap_federation_ranking(category="women")`
+and `fiba_gdap_gateway_federation_ranking(gender="women")` run end to end on those bodies (the transport and key
+faked), with sdv-py `38a22f936d` and polars' default `write_csv()`; `parity/women_defaults.json` holds per case the
+wrapper, its arguments, the row count, the request sdv-py sent and the polars dtypes. `test-fiba_gdap.R` checks that
+wehoop's default calls give the same frames and requests.

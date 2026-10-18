@@ -1,0 +1,81 @@
+{
+ "league_seasons": {
+  "wrapper": "tbf_league_seasons",
+  "args": {
+   "competition": "kbsl"
+  },
+  "fixture": "cap/league_seasons_kbsl.json",
+  "rows": 3,
+  "requests": [
+   {
+    "url": "https://miniappapi.tbf.org.tr/webapi-service/api/League/get-leagues-and-seasons-by-prefix",
+    "params": {
+     "prefix": "kbsl"
+    }
+   }
+  ],
+  "dtypes": {
+   "activity_id": "Int64",
+   "activity_name": "String",
+   "url": "String",
+   "season_id": "Int64",
+   "season_label": "String",
+   "season": "Int64",
+   "competition": "String"
+  }
+ },
+ "schedule": {
+  "wrapper": "tbf_schedule",
+  "args": {
+   "season": 2027,
+   "week": 1,
+   "competition": "kbsl"
+  },
+  "fixture": "cap/schedule_kbsl.json",
+  "rows": 3,
+  "requests": [
+   {
+    "url": "https://miniappapi.tbf.org.tr/webapi-service/api/League/get-leagues-and-seasons-by-prefix",
+    "params": {
+     "prefix": "kbsl"
+    }
+   },
+   {
+    "url": "https://miniappapi.tbf.org.tr/webapi-service/api/Match/get-all-matches-for-filter",
+    "params": {
+     "ActivityId": 22209,
+     "WeekFilter": "1",
+     "Page": 1,
+     "PageSize": -1
+    }
+   }
+  ],
+  "dtypes": {
+   "match_id": "Int64",
+   "match_code": "String",
+   "genius_id": "Int64",
+   "activity_id": "Int64",
+   "activity_name": "String",
+   "competition": "String",
+   "season_id": "Int64",
+   "season_label": "String",
+   "season": "Int64",
+   "tipoff": "Datetime(time_unit='us', time_zone=None)",
+   "match_date": "Date",
+   "week": "String",
+   "phase": "Int64",
+   "status_id": "Int64",
+   "home_team_process_id": "Int64",
+   "home_team": "String",
+   "home_score": "Int64",
+   "away_team_process_id": "Int64",
+   "away_team": "String",
+   "away_score": "Int64",
+   "venue": "String",
+   "province": "String",
+   "gender": "String",
+   "broadcast_channel": "String",
+   "has_overtime": "Boolean"
+  }
+ }
+}

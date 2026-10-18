@@ -68,7 +68,7 @@ or ORG.
 }
 }
 \seealso{
-Other Genius:
+Other Genius Functions:
 \code{\link[=genius_competition_games]{genius_competition_games()}},
 \code{\link[=genius_game]{genius_game()}},
 \code{\link[=genius_game_crosswalk]{genius_game_crosswalk()}},
@@ -84,4 +84,4 @@ Other Genius:
 \code{\link{lfb_competition}},
 \code{\link{wbbl_competition}}
 }
-\concept{Genius}
+\concept{Genius Functions}

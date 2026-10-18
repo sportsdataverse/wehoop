@@ -42,3 +42,12 @@ for the capture details. The bodies carry no e-mail address or phone number.
   by a generator kept outside the repo (the same `tbf_parsers.parse` on the manifest bodies). The test asserts each R column's class against it.
   Datetimes are written `%Y-%m-%d %H:%M:%S` (Turkey local time), dates ISO, nulls empty, booleans `true`/`false`.
   `test-tbf.R` compares every cell; NA-vs-value counts as a mismatch.
+
+* wehoop's KBSL default (`competition = "kbsl"`): `cap/schedule_kbsl.json` <- `captures/Match__get-all-matches-for-filter@a22209_w1.json`
+  (KBSL 2026-27 week 1, cut to 3 rows; `count` patched to 3 by both sides). `parity/default_league_seasons.csv` and
+  `parity/default_schedule.csv` are the frames of sdv-py `tbf_league_seasons(competition="kbsl")` and
+  `tbf_schedule(season=2027, week=1, competition="kbsl")` run END TO END on `cap/league_seasons_kbsl.json` and
+  `cap/schedule_kbsl.json` (`tbf_runtime._rt._download_json` faked to serve them), with sdv-py `38a22f936d`
+  (2026-10-18) and the same CSV conventions; `parity/defaults.json` holds per case the wrapper, its arguments, the row
+  count, every request sdv-py sent and the polars dtypes. `test-tbf.R` checks that wehoop's default calls
+  (`tbf_league_seasons()`, `tbf_schedule(2027, week = 1)`) give the same frames and requests.

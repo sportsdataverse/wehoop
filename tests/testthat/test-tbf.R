@@ -184,6 +184,37 @@ test_that("wehoop defaults to the KBSL: the default call reads the kbsl season l
   expect_identical(prefixes, c("kbsl", "bsl"))
 })
 
+test_that("the KBSL default calls match sdv-py's kbsl frames on the same fixtures (parity)", {
+  # sdv-py tbf_league_seasons(competition = "kbsl") / tbf_schedule(2027, week = 1, competition = "kbsl") run end to
+  # end on these bodies (fixtures/tbf/README.md); wehoop's default call must give the same frame and requests
+  defaults <- jsonlite::read_json(tbf_fx("parity", "defaults.json"))
+  sched <- tbf_read("cap/schedule_kbsl.json")
+  sched$count <- length(sched$data) # a refs sample cut to 3 rows; the oracle patched it the same way
+  calls <- list(league_seasons = function() tbf_league_seasons(), schedule = function() tbf_schedule(2027, week = 1))
+  expect_setequal(names(calls), names(defaults))
+  for (case in names(calls)) {
+    log <- tbf_mock(list("/League/get-leagues-and-seasons-by-prefix" = "cap/league_seasons_kbsl.json",
+                         "/Match/get-all-matches-for-filter" = sched))
+    got <- calls[[case]]()
+    want <- intl_read_oracle(tbf_fx("parity", paste0("default_", case, ".csv")))
+    expect_s3_class(got, "wehoop_data")
+    expect_identical(intl_r_types(got), intl_oracle_types(defaults[[case]]$dtypes), label = case)
+    expect_identical(names(got), names(want), info = case)
+    expect_identical(nrow(got), nrow(want), info = case)
+    expect_identical(nrow(got), as.integer(defaults[[case]]$rows), info = case)
+    expect_identical(unique(got$competition), "kbsl", info = case)
+    bad <- vapply(names(got), function(col) tbf_mismatches(got[[col]], want[[col]]), integer(1))
+    expect_identical(bad[bad > 0], stats::setNames(integer(0), character(0)), info = case)
+    reqs <- defaults[[case]]$requests
+    expect_identical(length(log$calls), length(reqs), info = case)
+    for (i in seq_along(reqs)) {
+      expect_identical(paste0("https://miniappapi.tbf.org.tr/webapi-service/api", log$calls[[i]]$path), reqs[[i]]$url,
+                       info = case)
+      expect_identical(log$calls[[i]]$query, reqs[[i]]$params, info = case)
+    }
+  }
+})
+
 test_that("bad arguments are wehoop_bad_request before any request", {
   log <- tbf_mock(list())
   expect_error(tbf_weeks(2027, competition = "BSL"), class = "wehoop_bad_request")
