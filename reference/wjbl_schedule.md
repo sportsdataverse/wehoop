@@ -169,7 +169,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_schedule(game_month = "2026-04", season = 2026))
 #> ── W League Schedule from api.wjbl.01core.app ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 20:10:58 UTC
+#> ℹ Data updated: 2026-10-18 22:14:33 UTC
 #> # A tibble: 4 × 40
 #>   league_id league_title  season season_id season_title         season_full_name
 #>       <int> <chr>          <int>     <int> <chr>                <chr>           

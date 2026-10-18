@@ -146,7 +146,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_schedule(competition = "bsl", season = 2027, week = 1))
 #> ── TBF Schedule ──────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 20:10:33 UTC
+#> ℹ Data updated: 2026-10-18 22:14:06 UTC
 #> # A tibble: 8 × 25
 #>   match_id match_code genius_id activity_id activity_name competition season_id
 #>      <int> <chr>          <int>       <int> <chr>         <chr>           <int>

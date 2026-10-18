@@ -190,7 +190,7 @@ Other SCB Functions:
 # \donttest{
   try(scb_player_statistics(season = 2026))
 #> ── BBL/DBBL Season Player Statistics from the SCB API ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 20:10:19 UTC
+#> ℹ Data updated: 2026-10-18 22:13:49 UTC
 #> # A tibble: 138 × 72
 #>    league season display_type season_player_id real_player_id first_name     
 #>    <chr>   <int> <chr>        <chr>                     <int> <chr>          
@@ -202,8 +202,8 @@ Other SCB Functions:
 #>  6 dbbl     2026 MAIN_ROUND   20887                     10795 Katelyn        
 #>  7 dbbl     2026 MAIN_ROUND   20512                     10482 Alexandria     
 #>  8 dbbl     2026 MAIN_ROUND   20746                     10647 Sara           
-#>  9 dbbl     2026 MAIN_ROUND   20362                     10351 Deeshyra       
-#> 10 dbbl     2026 MAIN_ROUND   20565                     10527 Nicole Margaret
+#>  9 dbbl     2026 MAIN_ROUND   20565                     10527 Nicole Margaret
+#> 10 dbbl     2026 MAIN_ROUND   20362                     10351 Deeshyra       
 #> # ℹ 128 more rows
 #> # ℹ 66 more variables: last_name <chr>, shirt_number <chr>, position <chr>,
 #> #   team_id <chr>, season_team_id <chr>, team_name <chr>, team_tlc <chr>,

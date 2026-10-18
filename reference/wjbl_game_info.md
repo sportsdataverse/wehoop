@@ -165,7 +165,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_game_info(play_schedule_id = 7987))
 #> ── W League Game Info from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 20:10:49 UTC
+#> ℹ Data updated: 2026-10-18 22:14:23 UTC
 #> # A tibble: 1 × 47
 #>   play_schedule_id league_id league_title  season season_id season_title        
 #>              <int>     <int> <chr>          <int>     <int> <chr>               
