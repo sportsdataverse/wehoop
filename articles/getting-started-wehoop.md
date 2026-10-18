@@ -112,7 +112,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.914 sec elapsed
+    ## 1.491 sec elapsed
 
 ``` r
 
@@ -255,7 +255,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.54 sec elapsed
+    ## 0.348 sec elapsed
 
 ``` r
 
@@ -343,7 +343,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.559 sec elapsed
+    ## 0.563 sec elapsed
 
 ``` r
 
@@ -403,7 +403,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.321 sec elapsed
+    ## 0.255 sec elapsed
 
 ``` r
 
@@ -428,7 +428,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.429 sec elapsed
+    ## 0.247 sec elapsed
 
 ``` r
 
@@ -453,7 +453,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.306 sec elapsed
+    ## 0.237 sec elapsed
 
 ``` r
 

@@ -626,7 +626,7 @@ Saiem Gilani
 #>   call filters the cube's lineups_{base,advanced} assets down to group_quantity
 #>   == 5 to match the old contract.
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,536 × 98
+#> # A tibble: 4,556 × 98
 #>    group_set group_id     group_name team_id team_abbreviation    gp     w     l
 #>    <chr>     <chr>        <chr>        <int> <chr>             <int> <int> <int>
 #>  1 Lineups   -1628277-16… A. Gray -…  1.61e9 ATL                  40    30    10
@@ -639,7 +639,7 @@ Saiem Gilani
 #>  8 Lineups   -1629484-16… M. DiLeo …  1.61e9 PDX                  18     7    11
 #>  9 Lineups   -1629481-16… A. Ogunbo…  1.61e9 DAL                  21    15     6
 #> 10 Lineups   -1629567-16… N. Hiedem…  1.61e9 SEA                  22     3    19
-#> # ℹ 4,526 more rows
+#> # ℹ 4,546 more rows
 #> # ℹ 90 more variables: w_pct <dbl>, min <dbl>, fgm <int>, fga <int>,
 #> #   fg_pct <dbl>, fg3_m <int>, fg3_a <int>, fg3_pct <dbl>, ftm <int>,
 #> #   fta <int>, ft_pct <dbl>, oreb <int>, dreb <int>, reb <int>, ast <int>,
@@ -734,7 +734,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 47,443 × 18
+#> # A tibble: 47,585 × 18
 #>    game_id    season period clock     team_id team_tricode person_id player_name
 #>    <chr>       <int>  <int> <chr>       <int> <chr>            <int> <chr>      
 #>  1 1022600001   2026      1 PT09M44.…  1.61e9 CON            1642800 Morrow     
@@ -747,7 +747,7 @@ Saiem Gilani
 #>  8 1022600001   2026      1 PT07M36.…  1.61e9 CON             203398 Griner     
 #>  9 1022600001   2026      1 PT07M20.…  1.61e9 NYL            1629546 Johannes   
 #> 10 1022600001   2026      1 PT07M06.…  1.61e9 NYL             204335 Laney-Hami…
-#> # ℹ 47,433 more rows
+#> # ℹ 47,575 more rows
 #> # ℹ 10 more variables: action_type <chr>, sub_type <chr>, shot_result <chr>,
 #> #   shot_value <int>, shot_distance <int>, x_legacy <int>, y_legacy <int>,
 #> #   description <chr>, score_home <chr>, score_away <chr>
@@ -755,7 +755,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 991 × 10
+#> # A tibble: 992 × 10
 #>    player_id first_name last_name        jersey_num  team_id team_city team_name
 #>        <int> <chr>      <chr>            <chr>         <int> <chr>     <chr>    
 #>  1   1630469 Marine     Fauthoux         "4   "       1.61e9 New York  Liberty  
@@ -768,13 +768,13 @@ Saiem Gilani
 #>  8   1643424 Costanza   Verona           "6   "       1.61e9 Dallas    Wings    
 #>  9   1630389 Dana       Evans            "11  "       1.61e9 Las Vegas Aces     
 #> 10   1643434 Janiah     Barker           "2   "       1.61e9 Las Vegas Aces     
-#> # ℹ 981 more rows
+#> # ℹ 982 more rows
 #> # ℹ 3 more variables: team_abbreviation <chr>, season <int>, game_id <chr>
 # }
 # \donttest{
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 1,050 × 6
+#> # A tibble: 1,054 × 6
 #>    official_id first_name last_name        jersey_num season game_id   
 #>          <int> <chr>      <chr>            <chr>       <int> <chr>     
 #>  1      100274 Roy        Gulbeyan         "42  "       2026 1022600001
@@ -787,12 +787,12 @@ Saiem Gilani
 #>  8     1641525 Sarah      Williams         "44  "       2026 1022600003
 #>  9     1642142 Josh       Reed             "46  "       2026 1022600003
 #> 10      202297 Tim        Greene           "9   "       2026 1022600004
-#> # ℹ 1,040 more rows
+#> # ℹ 1,044 more rows
 # }
 # \donttest{
   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 4,703 × 35
+#> # A tibble: 4,705 × 35
 #>    season_id team_id team_abbreviation team_name game_id game_date matchup wl   
 #>    <chr>       <int> <chr>             <chr>     <chr>   <chr>     <chr>   <chr>
 #>  1 42026      1.61e9 MIN               Minnesot… 104260… 2026-09-… MIN vs… L    
@@ -805,7 +805,7 @@ Saiem Gilani
 #>  8 42026      1.61e9 LVA               Las Vega… 104260… 2026-09-… LVA vs… W    
 #>  9 42026      1.61e9 IND               Indiana … 104260… 2026-09-… IND vs… W    
 #> 10 42026      1.61e9 MIN               Minnesot… 104260… 2026-09-… MIN @ … L    
-#> # ℹ 4,693 more rows
+#> # ℹ 4,695 more rows
 #> # ℹ 27 more variables: min <int>, fgm <int>, fga <int>, fg_pct <dbl>,
 #> #   fg3m <int>, fg3a <int>, fg3_pct <dbl>, ftm <int>, fta <int>, ft_pct <dbl>,
 #> #   oreb <int>, dreb <int>, reb <int>, ast <int>, stl <int>, blk <int>,
@@ -816,7 +816,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 346 × 15
+#> # A tibble: 347 × 15
 #>    game_id    season season_type    game_date  matchup     home_team_id
 #>    <chr>       <int> <chr>          <chr>      <chr>              <int>
 #>  1 1022600001   2026 regular-season 2026-05-08 NYL vs. CON   1611661313
@@ -829,7 +829,7 @@ Saiem Gilani
 #>  8 1022600008   2026 regular-season 2026-05-10 WAS vs. NYL   1611661322
 #>  9 1022600009   2026 regular-season 2026-05-10 LAS vs. LVA   1611661320
 #> 10 1022600010   2026 regular-season 2026-05-09 MIN vs. ATL   1611661324
-#> # ℹ 336 more rows
+#> # ℹ 337 more rows
 #> # ℹ 9 more variables: home_team_abbreviation <chr>, home_team_name <chr>,
 #> #   home_pts <int>, home_wl <chr>, away_team_id <int>,
 #> #   away_team_abbreviation <chr>, away_team_name <chr>, away_pts <int>,
@@ -838,7 +838,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 147,364 × 38
+#> # A tibble: 147,791 × 38
 #>    order_index action_number clock       period   team_id team_tricode person_id
 #>          <int>         <int> <chr>        <int>     <int> <chr>            <int>
 #>  1           0             2 PT10M00.00S      1    0      ""              0     
@@ -851,7 +851,7 @@ Saiem Gilani
 #>  8           7            15 PT08M50.00S      1    1.61e9 "CON"           2.03e5
 #>  9           8            16 PT08M50.00S      1    0      ""              1.61e9
 #> 10           9            17 PT08M34.00S      1    1.61e9 "NYL"           1.63e6
-#> # ℹ 147,354 more rows
+#> # ℹ 147,781 more rows
 #> # ℹ 31 more variables: player_name <chr>, player_name_i <chr>, x_legacy <int>,
 #> #   y_legacy <int>, shot_distance <int>, shot_result <chr>,
 #> #   is_field_goal <int>, score_home <chr>, score_away <chr>,
@@ -862,7 +862,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
 #> ─────────────────────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> # A tibble: 55,255 × 34
+#> # A tibble: 55,404 × 34
 #>    game_id    period possession_number offense_team_id defense_team_id
 #>    <chr>       <int>             <int>           <int>           <int>
 #>  1 1022600001      1                 1      1611661323      1611661313
@@ -875,7 +875,7 @@ Saiem Gilani
 #>  8 1022600001      1                 8      1611661313      1611661323
 #>  9 1022600001      1                 9      1611661323      1611661313
 #> 10 1022600001      1                10      1611661313      1611661323
-#> # ℹ 55,245 more rows
+#> # ℹ 55,394 more rows
 #> # ℹ 29 more variables: start_order_index <int>, end_order_index <int>,
 #> #   start_seconds_remaining <dbl>, end_seconds_remaining <dbl>, points <int>,
 #> #   is_second_chance <lgl>, number_in_period <int>,

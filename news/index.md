@@ -2,6 +2,25 @@
 
 ## **wehoop 3.0.0.9000 (development version)**
 
+#### **International basketball**
+
+- New wrappers mirroring sportsdataverse-py’s international basketball
+  families (same function names, arguments and columns): FIBA, Genius
+  Sports, Sportradar Atrium, NBL / WNBL (Rosetta), SCB (DBBL), FEB, TBF
+  and the W League (WJBL), plus the women’s per-competition aliases;
+  shared engines default to the women’s league. They share one polite
+  transport (at least 1 s between requests to a host) and raise classed
+  conditions instead of returning empty: `wehoop_no_data`,
+  `wehoop_asset_fetch` (with a `transient` field) and
+  `wehoop_bad_request`, all inheriting `wehoop_error`. In all, 289 new
+  exports (8 families plus 108 per-competition aliases). Every route is
+  tested at parity with sdv-py on the same fixtures (column names,
+  types, every cell and the request sent). Python-only arguments
+  (`return_parsed`, `return_as_pandas`) are not ported, and a
+  whole-number double is accepted wherever sdv-py takes an integer. Live
+  tests run only with `WEHOOP_INTL_LIVE_TESTS=1`; Genius needs
+  `GENIUS_PROXY`.
+
 - [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md),
   [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md),
   the `Plays` frame of

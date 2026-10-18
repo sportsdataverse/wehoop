@@ -1768,6 +1768,1128 @@ Internal functions used by wehoop
 
   **Add players on court in WNBA Stats API play-by-play**
 
+## International Basketball
+
+### FIBA
+
+FIBA GDAP API and fiba.basketball game pages: national-team events and
+FIBA club competitions (`comp` picks the edition).
+
+- [`fiba_gdap_awards()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_awards.md)
+  :
+
+  **FIBA GDAP: awards**
+
+- [`fiba_gdap_competition()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_competition.md)
+  :
+
+  **FIBA GDAP: competition**
+
+- [`fiba_gdap_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_editions.md)
+  :
+
+  **FIBA GDAP: editions**
+
+- [`fiba_gdap_federation_games()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_federation_games.md)
+  :
+
+  **FIBA GDAP: federation games**
+
+- [`fiba_gdap_federation_ranking()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_federation_ranking.md)
+  :
+
+  **FIBA GDAP: federation ranking**
+
+- [`fiba_gdap_final_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_final_standings.md)
+  :
+
+  **FIBA GDAP: final standings**
+
+- [`fiba_gdap_game()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_game.md)
+  :
+
+  **FIBA GDAP: game**
+
+- [`fiba_gdap_game_officials()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_game_officials.md)
+  :
+
+  **FIBA GDAP: game officials**
+
+- [`fiba_gdap_game_periods()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_game_periods.md)
+  :
+
+  **FIBA GDAP: game periods**
+
+- [`fiba_gdap_games_between()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_games_between.md)
+  :
+
+  **FIBA GDAP: games between**
+
+- [`fiba_gdap_gateway_competition_ids()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_gateway_competition_ids.md)
+  :
+
+  **FIBA GDAP: gateway competition ids**
+
+- [`fiba_gdap_gateway_federation_ranking()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_gateway_federation_ranking.md)
+  :
+
+  **FIBA GDAP: gateway federation ranking**
+
+- [`fiba_gdap_medal_count()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_medal_count.md)
+  :
+
+  **FIBA GDAP: medal count**
+
+- [`fiba_gdap_national_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_national_teams.md)
+  :
+
+  **FIBA GDAP: national teams**
+
+- [`fiba_gdap_nominations()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_nominations.md)
+  :
+
+  **FIBA GDAP: nominations**
+
+- [`fiba_gdap_player_game_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_player_game_stats.md)
+  :
+
+  **FIBA GDAP: player game stats**
+
+- [`fiba_gdap_player_info()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_player_info.md)
+  :
+
+  **FIBA GDAP: player info**
+
+- [`fiba_gdap_player_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_player_stats.md)
+  :
+
+  **FIBA GDAP: player stats**
+
+- [`fiba_gdap_ranking_zones()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_ranking_zones.md)
+  :
+
+  **FIBA GDAP: ranking zones**
+
+- [`fiba_gdap_roster()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_roster.md)
+  :
+
+  **FIBA GDAP: roster**
+
+- [`fiba_gdap_roster_coaches()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_roster_coaches.md)
+  :
+
+  **FIBA GDAP: roster coaches**
+
+- [`fiba_gdap_roster_latest()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_roster_latest.md)
+  :
+
+  **FIBA GDAP: roster latest**
+
+- [`fiba_gdap_round_gamedays()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_round_gamedays.md)
+  :
+
+  **FIBA GDAP: round gamedays**
+
+- [`fiba_gdap_round_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_round_standings.md)
+  :
+
+  **FIBA GDAP: round standings**
+
+- [`fiba_gdap_rounds()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_rounds.md)
+  :
+
+  **FIBA GDAP: rounds**
+
+- [`fiba_gdap_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_schedule.md)
+  :
+
+  **FIBA GDAP: schedule**
+
+- [`fiba_gdap_team_games()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_games.md)
+  :
+
+  **FIBA GDAP: team games**
+
+- [`fiba_gdap_team_player_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_player_stats.md)
+  :
+
+  **FIBA GDAP: team player stats**
+
+- [`fiba_gdap_team_staff()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_staff.md)
+  :
+
+  **FIBA GDAP: team staff**
+
+- [`fiba_gdap_team_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_stats.md)
+  :
+
+  **FIBA GDAP: team stats**
+
+- [`fiba_gdap_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_teams.md)
+  :
+
+  **FIBA GDAP: teams**
+
+- [`fiba_gamepage_box_players()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_box_players.md)
+  :
+
+  **FIBA GAMEPAGE: box players**
+
+- [`fiba_gamepage_box_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_box_teams.md)
+  :
+
+  **FIBA GAMEPAGE: box teams**
+
+- [`fiba_gamepage_lineup()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_lineup.md)
+  :
+
+  **FIBA GAMEPAGE: lineup**
+
+- [`fiba_gamepage_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_pbp.md)
+  :
+
+  **FIBA GAMEPAGE: pbp**
+
+- [`fiba_gamepage_period_scores()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_period_scores.md)
+  :
+
+  **FIBA GAMEPAGE: period scores**
+
+- [`fiba_gamepage_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_shots.md)
+  :
+
+  **FIBA GAMEPAGE: shots**
+
+### FIBA competitions
+
+Per-competition FIBA aliases (one family per competition, season =
+edition).
+
+- [`fiba_wwc_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  [`fiba_wwc_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_wwc_competition.md)
+  :
+
+  **FIBA competition: FIBA Women's Basketball World Cup**
+
+- [`fiba_woly_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  [`fiba_woly_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_woly_competition.md)
+  :
+
+  **FIBA competition: Women's Olympic Basketball Tournament**
+
+- [`fiba_elw_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  [`fiba_elw_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_elw_competition.md)
+  :
+
+  **FIBA competition: EuroLeague Women (FIBA Women's European Club
+  Competitions Tier 1)**
+
+- [`fiba_weurobasket_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  [`fiba_weurobasket_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_weurobasket_competition.md)
+  :
+
+  **FIBA competition: FIBA Women's EuroBasket**
+
+- [`fiba_ecw_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  [`fiba_ecw_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_ecw_competition.md)
+  :
+
+  **FIBA competition: EuroCup Women (FIBA Women's European Club
+  Competitions Tier 2)**
+
+- [`fiba_wamericup_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  [`fiba_wamericup_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_wamericup_competition.md)
+  :
+
+  **FIBA competition: FIBA Women's AmeriCup**
+
+- [`fiba_wasiacup_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  [`fiba_wasiacup_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_wasiacup_competition.md)
+  :
+
+  **FIBA competition: FIBA Women's Asia Cup (Division A)**
+
+- [`fiba_wafrobasket_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_player_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_team_box()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  [`fiba_wafrobasket_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_wafrobasket_competition.md)
+  :
+
+  **FIBA competition: FIBA Women's AfroBasket**
+
+### Genius Sports
+
+Genius Sports hosted, LiveStats and widget feeds (`org` picks the
+league).
+
+- [`genius_competition_games()`](https://wehoop.sportsdataverse.org/reference/genius_competition_games.md)
+  :
+
+  **Genius Competition Games**
+
+- [`genius_competitions()`](https://wehoop.sportsdataverse.org/reference/genius_competitions.md)
+  :
+
+  **Genius Competitions**
+
+- [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md)
+  :
+
+  **Genius Game**
+
+- [`genius_game_crosswalk()`](https://wehoop.sportsdataverse.org/reference/genius_game_crosswalk.md)
+  :
+
+  **Genius Game Crosswalk**
+
+- [`genius_match_competition()`](https://wehoop.sportsdataverse.org/reference/genius_match_competition.md)
+  :
+
+  **Genius Match Competition**
+
+- [`genius_pbp()`](https://wehoop.sportsdataverse.org/reference/genius_pbp.md)
+  :
+
+  **Genius Play-by-Play**
+
+- [`genius_player_box()`](https://wehoop.sportsdataverse.org/reference/genius_player_box.md)
+  :
+
+  **Genius Player Box Score**
+
+- [`genius_schedule()`](https://wehoop.sportsdataverse.org/reference/genius_schedule.md)
+  :
+
+  **Genius Schedule**
+
+- [`genius_schedule_embed()`](https://wehoop.sportsdataverse.org/reference/genius_schedule_embed.md)
+  :
+
+  **Genius Schedule (Embed)**
+
+- [`genius_shots()`](https://wehoop.sportsdataverse.org/reference/genius_shots.md)
+  :
+
+  **Genius Shot Chart**
+
+- [`genius_team_box()`](https://wehoop.sportsdataverse.org/reference/genius_team_box.md)
+  :
+
+  **Genius Team Box Score**
+
+- [`genius_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/genius_team_crosswalk.md)
+  :
+
+  **Genius Team Crosswalk**
+
+- [`genius_widget_games()`](https://wehoop.sportsdataverse.org/reference/genius_widget_games.md)
+  :
+
+  **Genius Widget Games**
+
+### Genius competitions
+
+Per-league Genius aliases.
+
+- [`wbbl_competitions()`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
+  [`wbbl_schedule()`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
+  [`wbbl_team_box()`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
+  [`wbbl_player_box()`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
+  [`wbbl_pbp()`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
+  [`wbbl_shots()`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
+  :
+
+  **Women's British Basketball League (Genius LiveStats)**
+
+- [`lfb_competitions()`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
+  [`lfb_schedule()`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
+  [`lfb_team_box()`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
+  [`lfb_player_box()`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
+  [`lfb_pbp()`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
+  [`lfb_shots()`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
+  :
+
+  **Ligue Feminine de Basket (France, FFBB) (Genius LiveStats)**
+
+### Atrium (Sportradar)
+
+Sportradar Atrium embed sites (`website_id` picks the site).
+
+- [`atrium_box_score()`](https://wehoop.sportsdataverse.org/reference/atrium_box_score.md)
+  :
+
+  **Atrium Player Box Score**
+
+- [`atrium_competition_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_player_stats.md)
+  :
+
+  **Atrium Competition Player Stats (long form)**
+
+- [`atrium_competition_team_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_competition_team_stats.md)
+  :
+
+  **Atrium Competition Team Stats (long form)**
+
+- [`atrium_end_year()`](https://wehoop.sportsdataverse.org/reference/atrium_end_year.md)
+  :
+
+  **Atrium END Year**
+
+- [`atrium_fixture()`](https://wehoop.sportsdataverse.org/reference/atrium_fixture.md)
+  :
+
+  **Atrium Fixture (game header)**
+
+- [`atrium_fixture_periods()`](https://wehoop.sportsdataverse.org/reference/atrium_fixture_periods.md)
+  :
+
+  **Atrium Fixture Periods**
+
+- [`atrium_fixtures()`](https://wehoop.sportsdataverse.org/reference/atrium_fixtures.md)
+  :
+
+  **Atrium Fixtures (schedule and results)**
+
+- [`atrium_fixtures_ribbon()`](https://wehoop.sportsdataverse.org/reference/atrium_fixtures_ribbon.md)
+  :
+
+  **Atrium Fixtures Ribbon**
+
+- [`atrium_leaders()`](https://wehoop.sportsdataverse.org/reference/atrium_leaders.md)
+  :
+
+  **Atrium Leaders**
+
+- [`atrium_pbp()`](https://wehoop.sportsdataverse.org/reference/atrium_pbp.md)
+  :
+
+  **Atrium Play-by-Play**
+
+- [`atrium_player()`](https://wehoop.sportsdataverse.org/reference/atrium_player.md)
+  :
+
+  **Atrium Player Page**
+
+- [`atrium_player_game_log()`](https://wehoop.sportsdataverse.org/reference/atrium_player_game_log.md)
+  :
+
+  **Atrium Player Game Log**
+
+- [`atrium_player_seasons()`](https://wehoop.sportsdataverse.org/reference/atrium_player_seasons.md)
+  :
+
+  **Atrium Player Seasons**
+
+- [`atrium_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_player_stats.md)
+  :
+
+  **Atrium Player Stats (season, long form)**
+
+- [`atrium_players()`](https://wehoop.sportsdataverse.org/reference/atrium_players.md)
+  :
+
+  **Atrium Players**
+
+- [`atrium_season_id()`](https://wehoop.sportsdataverse.org/reference/atrium_season_id.md)
+  :
+
+  **Atrium Season Id**
+
+- [`atrium_seasons()`](https://wehoop.sportsdataverse.org/reference/atrium_seasons.md)
+  :
+
+  **Atrium Seasons**
+
+- [`atrium_shots()`](https://wehoop.sportsdataverse.org/reference/atrium_shots.md)
+  :
+
+  **Atrium Shots**
+
+- [`atrium_standings()`](https://wehoop.sportsdataverse.org/reference/atrium_standings.md)
+  :
+
+  **Atrium Standings**
+
+- [`atrium_standings_summary()`](https://wehoop.sportsdataverse.org/reference/atrium_standings_summary.md)
+  :
+
+  **Atrium Standings Summary**
+
+- [`atrium_team()`](https://wehoop.sportsdataverse.org/reference/atrium_team.md)
+  :
+
+  **Atrium Team Page**
+
+- [`atrium_team_box_score()`](https://wehoop.sportsdataverse.org/reference/atrium_team_box_score.md)
+  :
+
+  **Atrium Team Box Score**
+
+- [`atrium_team_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_team_stats.md)
+  :
+
+  **Atrium Team Stats (season, long form)**
+
+- [`atrium_teams()`](https://wehoop.sportsdataverse.org/reference/atrium_teams.md)
+  :
+
+  **Atrium Teams**
+
+### Atrium competitions
+
+Per-site Atrium aliases.
+
+- [`lnbp_seasons()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_schedule()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_standings()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_teams()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_player_box()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_team_box()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_pbp()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  [`lnbp_shots()`](https://wehoop.sportsdataverse.org/reference/lnbp_competition.md)
+  :
+
+  **LNBP (Mexico, with COPA VALUE and LNBP FEMENIL) (Atrium shortcuts)**
+
+- [`nbl1_seasons()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_schedule()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_standings()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_teams()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_player_box()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_team_box()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_pbp()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  [`nbl1_shots()`](https://wehoop.sportsdataverse.org/reference/nbl1_competition.md)
+  :
+
+  **NBL1 (Australia) (Atrium shortcuts)**
+
+- [`lmb_seasons()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_schedule()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_standings()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_teams()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_player_box()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_team_box()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_pbp()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  [`lmb_shots()`](https://wehoop.sportsdataverse.org/reference/lmb_competition.md)
+  :
+
+  **Liga Mayor de Baloncesto (El Salvador) (Atrium shortcuts)**
+
+- [`lpb_seasons()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_schedule()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_standings()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_teams()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_player_box()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_team_box()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_pbp()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  [`lpb_shots()`](https://wehoop.sportsdataverse.org/reference/lpb_competition.md)
+  :
+
+  **LPB / LPBF Liga Profesional de Baloncesto (Panama) (Atrium
+  shortcuts)**
+
+### NBL / WNBL (Rosetta)
+
+WNBL, NBL and NBL1 (Australia) on the Rosetta stats API; `org` defaults
+to the WNBL.
+
+- [`nbl_rosetta_match()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match.md)
+  :
+
+  **NBL Rosetta Match**
+
+- [`nbl_rosetta_match_by_id()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_by_id.md)
+  :
+
+  **NBL Rosetta Match by Id**
+
+- [`nbl_rosetta_match_pbp()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_pbp.md)
+  :
+
+  **NBL Rosetta Match Play-by-Play**
+
+- [`nbl_rosetta_match_player_box()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_player_box.md)
+  :
+
+  **NBL Rosetta Match Player Box Score**
+
+- [`nbl_rosetta_match_player_period_box()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_player_period_box.md)
+  :
+
+  **NBL Rosetta Match Player Box Score by Period**
+
+- [`nbl_rosetta_match_team_box()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_team_box.md)
+  :
+
+  **NBL Rosetta Match Team Box Score**
+
+- [`nbl_rosetta_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_matches.md)
+  :
+
+  **NBL Rosetta Matches**
+
+- [`nbl_rosetta_next_match()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_next_match.md)
+  :
+
+  **NBL Rosetta Next Match**
+
+- [`nbl_rosetta_next_match_team()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_next_match_team.md)
+  :
+
+  **NBL Rosetta Next Match Team**
+
+- [`nbl_rosetta_next_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_next_matches.md)
+  :
+
+  **NBL Rosetta Next Matches**
+
+- [`nbl_rosetta_outcomes()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_outcomes.md)
+  :
+
+  **NBL Rosetta Outcomes**
+
+- [`nbl_rosetta_player_game_log()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_player_game_log.md)
+  :
+
+  **NBL Rosetta Player Game Log**
+
+- [`nbl_rosetta_player_stats()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_player_stats.md)
+  :
+
+  **NBL Rosetta Player Stats**
+
+- [`nbl_rosetta_players()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_players.md)
+  :
+
+  **NBL Rosetta Players**
+
+- [`nbl_rosetta_seasons()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_seasons.md)
+  :
+
+  **NBL Rosetta Seasons**
+
+- [`nbl_rosetta_seasons_current()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_seasons_current.md)
+  :
+
+  **NBL Rosetta Seasons Current**
+
+- [`nbl_rosetta_standings()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_standings.md)
+  :
+
+  **NBL Rosetta Standings**
+
+- [`nbl_rosetta_stats_leaders()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_stats_leaders.md)
+  :
+
+  **NBL Rosetta Stats Leaders**
+
+- [`nbl_rosetta_team_players()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_team_players.md)
+  :
+
+  **NBL Rosetta Team Players**
+
+- [`nbl_rosetta_team_stats()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_team_stats.md)
+  :
+
+  **NBL Rosetta Team Stats**
+
+- [`nbl_rosetta_team_stats_leaders()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_team_stats_leaders.md)
+  :
+
+  **NBL Rosetta Team Stats Leaders**
+
+- [`nbl_rosetta_teams()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_teams.md)
+  :
+
+  **NBL Rosetta Teams**
+
+### SCB (DBBL)
+
+DBBL and BBL (Germany) over the SCB API; defaults to the DBBL.
+
+- [`scb_game()`](https://wehoop.sportsdataverse.org/reference/scb_game.md)
+  :
+
+  **Get BBL / DBBL Game**
+
+- [`scb_game_actions()`](https://wehoop.sportsdataverse.org/reference/scb_game_actions.md)
+  :
+
+  **Get BBL / DBBL Game Play-by-Play**
+
+- [`scb_game_players()`](https://wehoop.sportsdataverse.org/reference/scb_game_players.md)
+  :
+
+  **Get BBL / DBBL Game Player Box Score**
+
+- [`scb_game_teams()`](https://wehoop.sportsdataverse.org/reference/scb_game_teams.md)
+  :
+
+  **Get BBL / DBBL Game Team Box Score**
+
+- [`scb_games()`](https://wehoop.sportsdataverse.org/reference/scb_games.md)
+  :
+
+  **Get BBL / DBBL Games**
+
+- [`scb_games_recent()`](https://wehoop.sportsdataverse.org/reference/scb_games_recent.md)
+  :
+
+  **Get BBL / DBBL Recent Games**
+
+- [`scb_player_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_player_statistics.md)
+  :
+
+  **Get BBL / DBBL Season Player Statistics**
+
+- [`scb_playoff_games()`](https://wehoop.sportsdataverse.org/reference/scb_playoff_games.md)
+  :
+
+  **Get BBL / DBBL Playoff Games**
+
+- [`scb_playoff_series()`](https://wehoop.sportsdataverse.org/reference/scb_playoff_series.md)
+  :
+
+  **Get BBL / DBBL Playoff Series**
+
+- [`scb_records_per_game()`](https://wehoop.sportsdataverse.org/reference/scb_records_per_game.md)
+  :
+
+  **Get BBL / DBBL Single-Game Records**
+
+- [`scb_records_season_averages()`](https://wehoop.sportsdataverse.org/reference/scb_records_season_averages.md)
+  :
+
+  **Get BBL / DBBL Season-Average Records**
+
+- [`scb_referees()`](https://wehoop.sportsdataverse.org/reference/scb_referees.md)
+  :
+
+  **Get BBL Referees**
+
+- [`scb_season_player()`](https://wehoop.sportsdataverse.org/reference/scb_season_player.md)
+  :
+
+  **Get BBL / DBBL Season Player Profile**
+
+- [`scb_season_players()`](https://wehoop.sportsdataverse.org/reference/scb_season_players.md)
+  :
+
+  **Get BBL / DBBL Season Players**
+
+- [`scb_season_teams()`](https://wehoop.sportsdataverse.org/reference/scb_season_teams.md)
+  :
+
+  **Get BBL / DBBL Season Teams**
+
+- [`scb_seasons()`](https://wehoop.sportsdataverse.org/reference/scb_seasons.md)
+  :
+
+  **Get BBL / DBBL Seasons**
+
+- [`scb_standings()`](https://wehoop.sportsdataverse.org/reference/scb_standings.md)
+  :
+
+  **Get BBL / DBBL Standings**
+
+- [`scb_team()`](https://wehoop.sportsdataverse.org/reference/scb_team.md)
+  :
+
+  **Get BBL / DBBL Team Profile**
+
+- [`scb_team_rosters()`](https://wehoop.sportsdataverse.org/reference/scb_team_rosters.md)
+  :
+
+  **Get BBL Team Rosters**
+
+- [`scb_team_seasons()`](https://wehoop.sportsdataverse.org/reference/scb_team_seasons.md)
+  :
+
+  **Get BBL / DBBL Team Seasons**
+
+- [`scb_team_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_team_statistics.md)
+  :
+
+  **Get BBL / DBBL Season Team Statistics**
+
+- [`scb_transfers()`](https://wehoop.sportsdataverse.org/reference/scb_transfers.md)
+  :
+
+  **Get BBL Transfers**
+
+- [`scb_transfers_teams()`](https://wehoop.sportsdataverse.org/reference/scb_transfers_teams.md)
+  :
+
+  **Get BBL Team Transfers**
+
+### FEB
+
+Spanish FEB competitions; defaults to the Liga Femenina Endesa.
+
+- [`feb_game_info()`](https://wehoop.sportsdataverse.org/reference/feb_game_info.md)
+  :
+
+  **FEB Game Info**
+
+- [`feb_leaders()`](https://wehoop.sportsdataverse.org/reference/feb_leaders.md)
+  :
+
+  **FEB Game Leaders**
+
+- [`feb_overview()`](https://wehoop.sportsdataverse.org/reference/feb_overview.md)
+  :
+
+  **FEB Overview**
+
+- [`feb_pbp()`](https://wehoop.sportsdataverse.org/reference/feb_pbp.md)
+  :
+
+  **FEB Play-by-Play**
+
+- [`feb_period_scores()`](https://wehoop.sportsdataverse.org/reference/feb_period_scores.md)
+  :
+
+  **FEB Period Scores**
+
+- [`feb_player_box()`](https://wehoop.sportsdataverse.org/reference/feb_player_box.md)
+  :
+
+  **FEB Player Box Score**
+
+- [`feb_results()`](https://wehoop.sportsdataverse.org/reference/feb_results.md)
+  :
+
+  **FEB Results**
+
+- [`feb_schedule()`](https://wehoop.sportsdataverse.org/reference/feb_schedule.md)
+  :
+
+  **FEB Schedule**
+
+- [`feb_shots()`](https://wehoop.sportsdataverse.org/reference/feb_shots.md)
+  :
+
+  **FEB Shots**
+
+- [`feb_standings()`](https://wehoop.sportsdataverse.org/reference/feb_standings.md)
+  :
+
+  **FEB Standings**
+
+- [`feb_team_stats()`](https://wehoop.sportsdataverse.org/reference/feb_team_stats.md)
+  :
+
+  **FEB Team Stats**
+
+### TBF
+
+Turkish Basketball Federation app API; defaults to the KBSL.
+
+- [`tbf_daily_matches()`](https://wehoop.sportsdataverse.org/reference/tbf_daily_matches.md)
+  :
+
+  **TBF Daily Matches**
+
+- [`tbf_game_header()`](https://wehoop.sportsdataverse.org/reference/tbf_game_header.md)
+  :
+
+  **TBF Game Header**
+
+- [`tbf_game_leaders()`](https://wehoop.sportsdataverse.org/reference/tbf_game_leaders.md)
+  :
+
+  **TBF Game Leaders**
+
+- [`tbf_game_players()`](https://wehoop.sportsdataverse.org/reference/tbf_game_players.md)
+  :
+
+  **TBF Game Players**
+
+- [`tbf_highlights()`](https://wehoop.sportsdataverse.org/reference/tbf_highlights.md)
+  :
+
+  **TBF Highlights**
+
+- [`tbf_leaders_assists()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_assists.md)
+  :
+
+  **TBF Leaders: Assists**
+
+- [`tbf_leaders_blocks()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_blocks.md)
+  :
+
+  **TBF Leaders: Blocks**
+
+- [`tbf_leaders_efficiency()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_efficiency.md)
+  :
+
+  **TBF Leaders: Efficiency**
+
+- [`tbf_leaders_minutes()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_minutes.md)
+  :
+
+  **TBF Leaders: Minutes**
+
+- [`tbf_leaders_points()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_points.md)
+  :
+
+  **TBF Leaders: Points**
+
+- [`tbf_leaders_rebounds()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_rebounds.md)
+  :
+
+  **TBF Leaders: Rebounds**
+
+- [`tbf_leaders_steals()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_steals.md)
+  :
+
+  **TBF Leaders: Steals**
+
+- [`tbf_leaders_threes()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_threes.md)
+  :
+
+  **TBF Leaders: Threes**
+
+- [`tbf_leaders_turnovers()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_turnovers.md)
+  :
+
+  **TBF Leaders: Turnovers**
+
+- [`tbf_league_seasons()`](https://wehoop.sportsdataverse.org/reference/tbf_league_seasons.md)
+  :
+
+  **TBF League Seasons**
+
+- [`tbf_leagues()`](https://wehoop.sportsdataverse.org/reference/tbf_leagues.md)
+  :
+
+  **TBF Leagues**
+
+- [`tbf_pbp()`](https://wehoop.sportsdataverse.org/reference/tbf_pbp.md)
+  :
+
+  **TBF Play-by-Play**
+
+- [`tbf_period_scores()`](https://wehoop.sportsdataverse.org/reference/tbf_period_scores.md)
+  :
+
+  **TBF Period Scores**
+
+- [`tbf_player_box()`](https://wehoop.sportsdataverse.org/reference/tbf_player_box.md)
+  :
+
+  **TBF Player Box Score**
+
+- [`tbf_player_career()`](https://wehoop.sportsdataverse.org/reference/tbf_player_career.md)
+  :
+
+  **TBF Player Career**
+
+- [`tbf_players()`](https://wehoop.sportsdataverse.org/reference/tbf_players.md)
+  :
+
+  **TBF Players**
+
+- [`tbf_schedule()`](https://wehoop.sportsdataverse.org/reference/tbf_schedule.md)
+  :
+
+  **TBF Schedule**
+
+- [`tbf_seasons()`](https://wehoop.sportsdataverse.org/reference/tbf_seasons.md)
+  :
+
+  **TBF Seasons**
+
+- [`tbf_shots()`](https://wehoop.sportsdataverse.org/reference/tbf_shots.md)
+  :
+
+  **TBF Shots**
+
+- [`tbf_standings()`](https://wehoop.sportsdataverse.org/reference/tbf_standings.md)
+  :
+
+  **TBF Standings**
+
+- [`tbf_team_box()`](https://wehoop.sportsdataverse.org/reference/tbf_team_box.md)
+  :
+
+  **TBF Team Box Score**
+
+- [`tbf_team_games()`](https://wehoop.sportsdataverse.org/reference/tbf_team_games.md)
+  :
+
+  **TBF Team Games**
+
+- [`tbf_team_player_stats()`](https://wehoop.sportsdataverse.org/reference/tbf_team_player_stats.md)
+  :
+
+  **TBF Team Player Stats**
+
+- [`tbf_team_roster()`](https://wehoop.sportsdataverse.org/reference/tbf_team_roster.md)
+  :
+
+  **TBF Team Roster**
+
+- [`tbf_team_staff()`](https://wehoop.sportsdataverse.org/reference/tbf_team_staff.md)
+  :
+
+  **TBF Team Staff**
+
+- [`tbf_teams()`](https://wehoop.sportsdataverse.org/reference/tbf_teams.md)
+  :
+
+  **TBF Teams**
+
+- [`tbf_weeks()`](https://wehoop.sportsdataverse.org/reference/tbf_weeks.md)
+  :
+
+  **TBF Weeks**
+
+### WJBL
+
+Women’s Japan Basketball League (W League).
+
+- [`wjbl_box_score()`](https://wehoop.sportsdataverse.org/reference/wjbl_box_score.md)
+  :
+
+  **Get W League Box Score**
+
+- [`wjbl_game()`](https://wehoop.sportsdataverse.org/reference/wjbl_game.md)
+  :
+
+  **Get W League Game**
+
+- [`wjbl_game_info()`](https://wehoop.sportsdataverse.org/reference/wjbl_game_info.md)
+  :
+
+  **Get W League Game Info**
+
+- [`wjbl_game_months()`](https://wehoop.sportsdataverse.org/reference/wjbl_game_months.md)
+  :
+
+  **Get W League Game Months**
+
+- [`wjbl_head_to_head()`](https://wehoop.sportsdataverse.org/reference/wjbl_head_to_head.md)
+  :
+
+  **Get W League Head-to-Head**
+
+- [`wjbl_leagues()`](https://wehoop.sportsdataverse.org/reference/wjbl_leagues.md)
+  :
+
+  **Get W League Leagues**
+
+- [`wjbl_pbp()`](https://wehoop.sportsdataverse.org/reference/wjbl_pbp.md)
+  :
+
+  **Get W League Play-by-Play**
+
+- [`wjbl_period_scores()`](https://wehoop.sportsdataverse.org/reference/wjbl_period_scores.md)
+  :
+
+  **Get W League Period Scores**
+
+- [`wjbl_player()`](https://wehoop.sportsdataverse.org/reference/wjbl_player.md)
+  :
+
+  **Get W League Player**
+
+- [`wjbl_player_period_leaders()`](https://wehoop.sportsdataverse.org/reference/wjbl_player_period_leaders.md)
+  :
+
+  **Get W League Player Period Leaders**
+
+- [`wjbl_roster()`](https://wehoop.sportsdataverse.org/reference/wjbl_roster.md)
+  :
+
+  **Get W League Roster**
+
+- [`wjbl_schedule()`](https://wehoop.sportsdataverse.org/reference/wjbl_schedule.md)
+  :
+
+  **Get W League Schedule**
+
+- [`wjbl_staff()`](https://wehoop.sportsdataverse.org/reference/wjbl_staff.md)
+  :
+
+  **Get W League Staff**
+
+- [`wjbl_standing_seasons()`](https://wehoop.sportsdataverse.org/reference/wjbl_standing_seasons.md)
+  :
+
+  **Get W League Standing Seasons**
+
+- [`wjbl_team_box_score()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_box_score.md)
+  :
+
+  **Get W League Team Box Score**
+
+- [`wjbl_team_period_stats()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_period_stats.md)
+  :
+
+  **Get W League Team Period Stats**
+
+- [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md)
+  :
+
+  **Get W League Team Ranking**
+
+- [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md)
+  :
+
+  **Get W League Team Standings**
+
+- [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
+  :
+
+  **Get W League Teams**
+
 ## Datasets
 
 ### Bundled reference data

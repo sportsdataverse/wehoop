@@ -1,0 +1,163 @@
+# **FIBA GDAP: federation ranking**
+
+FIBA world ranking of national teams.
+
+Endpoint:
+`GET https://digital-api.fiba.basketball/hapi/getgdapfederationsranking`
+
+## Usage
+
+``` r
+fiba_gdap_federation_ranking(
+  category = "women",
+  zone_id = 1L,
+  as_of_date = NULL,
+  return_parsed = TRUE
+)
+```
+
+## Arguments
+
+- category:
+
+  (character, default `"women"` in wehoop; sdv-py and hoopR default
+  `"men"`) Ranking category: men or women (the site also knows
+  boys/girls)
+
+- zone_id:
+
+  (integer, default `1L`) Ranking zone id from getgdaprankingzones (1 =
+  World, 2 = Africa, 3 = Americas, 4 = Asia, 5 = Europe)
+
+- as_of_date:
+
+  (character, optional) Ranking as of this date, ISO 8601: the latest
+  ranking published on or before it (2026-03-10 answers the 2026-03-03
+  ranking). Omitted = the latest ranking
+
+- return_parsed:
+
+  Parse the payload into a tibble (default `TRUE`); `FALSE` returns the
+  raw JSON list.
+
+## Value
+
+A `wehoop_data` tibble (the raw JSON list when `return_parsed = FALSE`)
+with the following columns:
+
+|  |  |  |
+|----|----|----|
+| col_name | type | description |
+| as_of_date | character | Date of the ranking returned: the latest ranking published on or before the requested date. |
+| zone_ranking_code | character | Ranking zone code (WORLD, AFRICA...). |
+| zone_ranking_official_name | character | Ranking zone official name. |
+| world_rank | integer | Position in the FIBA world ranking (1 = best). |
+| country_name | character | Country name in English. |
+| zone_rank | integer | Rank within the zone. |
+| ioc_code | character | IOC country code. |
+| fiba_code | character | FIBA three-letter country code (GER, USA; historic URS, YUG). |
+| current_points | numeric | Ranking points (one decimal). |
+| world_rank_variation | integer | Change in world rank since the previous release (positive = up). |
+| comments | character | Ranking note; null in every sample. |
+
+## Details
+
+FIBA's terms restrict this source. The GDAP developer-portal terms limit
+API use to 'Authorized Users' (federations, organisers, FIBA partners)
+and say any broader use 'is not authorised'; the fiba.basketball terms
+say no portion of the site may be duplicated, redistributed or
+manipulated. The package owner reviewed both clauses on 2026-10-12,
+accepted them and approved the full intake, published data releases
+included. Users who are not themselves authorised by FIBA should check
+the terms before using the wrappers.
+
+The GDAP subscription key is public (fiba.basketball ships it in every
+page); the runtime reads it from the live page at run time and never
+logs it. Officials' contact details and coaches' and officials' dates of
+birth are dropped from every body.
+
+Id key spaces: competition_id is one per edition (2023 World Cup =
+208182) and game_id is global across competitions (the `<gameId>` of a
+game-page URL). team_id is per team per competition (Germany is 279569
+at the 2023 World Cup and 281545 at Paris 2024), while organisation_id
+is the stable federation or club (64 = Germany, every year); the game
+page's T\_`<id>` and the play-by-play oId are organisation ids, not team
+ids.
+
+Errors are classed conditions (all inherit `wehoop_error`):
+`wehoop_no_data` when FIBA has nothing (HTTP 404, or GDAP answers
+[`{}`](https://rdrr.io/r/base/Paren.html) / `[]` for an unknown id);
+`wehoop_bad_request` for HTTP 400 / 422 or a malformed id, season or
+date; `wehoop_asset_fetch` for any other failed fetch or an answer that
+is not about the request (an error envelope, HTTP 401 after a key
+refresh, HTTP 500, a body for another game, competition, team, player,
+federation, family or season). Seasons are FIBA's own key, which equals
+the sdv key: the END year for club competitions, the event year for
+national-team events, the target tournament year for qualifiers.
+
+## See also
+
+Other FIBA Functions:
+[`fiba_gamepage_box_players()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_box_players.md),
+[`fiba_gamepage_box_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_box_teams.md),
+[`fiba_gamepage_lineup()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_lineup.md),
+[`fiba_gamepage_pbp()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_pbp.md),
+[`fiba_gamepage_period_scores()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_period_scores.md),
+[`fiba_gamepage_shots()`](https://wehoop.sportsdataverse.org/reference/fiba_gamepage_shots.md),
+[`fiba_gdap_awards()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_awards.md),
+[`fiba_gdap_competition()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_competition.md),
+[`fiba_gdap_editions()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_editions.md),
+[`fiba_gdap_federation_games()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_federation_games.md),
+[`fiba_gdap_final_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_final_standings.md),
+[`fiba_gdap_game()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_game.md),
+[`fiba_gdap_game_officials()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_game_officials.md),
+[`fiba_gdap_game_periods()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_game_periods.md),
+[`fiba_gdap_games_between()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_games_between.md),
+[`fiba_gdap_gateway_competition_ids()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_gateway_competition_ids.md),
+[`fiba_gdap_gateway_federation_ranking()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_gateway_federation_ranking.md),
+[`fiba_gdap_medal_count()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_medal_count.md),
+[`fiba_gdap_national_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_national_teams.md),
+[`fiba_gdap_nominations()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_nominations.md),
+[`fiba_gdap_player_game_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_player_game_stats.md),
+[`fiba_gdap_player_info()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_player_info.md),
+[`fiba_gdap_player_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_player_stats.md),
+[`fiba_gdap_ranking_zones()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_ranking_zones.md),
+[`fiba_gdap_roster()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_roster.md),
+[`fiba_gdap_roster_coaches()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_roster_coaches.md),
+[`fiba_gdap_roster_latest()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_roster_latest.md),
+[`fiba_gdap_round_gamedays()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_round_gamedays.md),
+[`fiba_gdap_round_standings()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_round_standings.md),
+[`fiba_gdap_rounds()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_rounds.md),
+[`fiba_gdap_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_schedule.md),
+[`fiba_gdap_team_games()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_games.md),
+[`fiba_gdap_team_player_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_player_stats.md),
+[`fiba_gdap_team_staff()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_staff.md),
+[`fiba_gdap_team_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_stats.md),
+[`fiba_gdap_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_teams.md)
+
+## Examples
+
+``` r
+# \donttest{
+  try(fiba_gdap_federation_ranking(category = "women", zone_id = 1, as_of_date = "2025-09-15"))
+#> ── FIBA gdap_federation_ranking from fiba.basketball ────── wehoop 3.0.0.9000 ──
+#> ℹ Data updated: 2026-10-18 14:04:51 UTC
+#> # A tibble: 120 × 11
+#>    as_of_date   zone_ranking_code zone_ranking_officia…¹ world_rank country_name
+#>    <chr>        <chr>             <chr>                       <int> <chr>       
+#>  1 2025-08-08T… W                 World                           1 USA         
+#>  2 2025-08-08T… W                 World                           2 Australia   
+#>  3 2025-08-08T… W                 World                           3 France      
+#>  4 2025-08-08T… W                 World                           4 People 's R…
+#>  5 2025-08-08T… W                 World                           5 Belgium     
+#>  6 2025-08-08T… W                 World                           6 Spain       
+#>  7 2025-08-08T… W                 World                           7 Canada      
+#>  8 2025-08-08T… W                 World                           8 Nigeria     
+#>  9 2025-08-08T… W                 World                           9 Brazil      
+#> 10 2025-08-08T… W                 World                          10 Serbia      
+#> # ℹ 110 more rows
+#> # ℹ abbreviated name: ¹​zone_ranking_official_name
+#> # ℹ 6 more variables: zone_rank <int>, ioc_code <chr>, fiba_code <chr>,
+#> #   current_points <dbl>, world_rank_variation <int>, comments <chr>
+# }
+```
