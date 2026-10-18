@@ -92,17 +92,6 @@ parity_mismatches <- function(got, want_chr) {
   sum(na_diff) + sum(val_diff)
 }
 
-# Documented divergence (R/scb_parsers.R `.scb_join()`): where the API sends channel objects, sdv-py
-# e3d232e writes Python dict reprs ("{'channelId': 4, 'name': 'DYN', ...},{...}") into tv_channel;
-# wehoop joins the channel names. Compare against the names inside the oracle's reprs.
-oracle_channel_names <- function(x) {
-  vapply(x, function(cell) {
-    if (is.na(cell) || !startsWith(cell, "{")) return(cell)
-    m <- regmatches(cell, gregexpr("'name': '[^']*'", cell))[[1]]
-    paste(substr(m, 10L, nchar(m) - 1L), collapse = ",")
-  }, character(1), USE.NAMES = FALSE)
-}
-
 test_that("every wrapper matches sdv-py's frame on the same fixture (columns, order, dtypes, cells, request)", {
   dtypes <- jsonlite::read_json(scb_fixture("parity", "dtypes.json"))
   requests <- jsonlite::read_json(scb_fixture("parity", "requests.json"))
@@ -117,7 +106,6 @@ test_that("every wrapper matches sdv-py's frame on the same fixture (columns, or
     types <- vapply(got, function(x) if (is.double(x)) "numeric" else class(x)[[1]], character(1))
     want_types <- stats::setNames(unname(SCB_RTYPE[unlist(dtypes[[case]])]), names(dtypes[[case]]))
     expect_identical(types, want_types[names(got)], label = case)
-    if ("tv_channel" %in% names(want)) want$tv_channel <- oracle_channel_names(want$tv_channel)
     bad <- vapply(names(got), function(n) parity_mismatches(got[[n]], want[[n]]), numeric(1))
     expect_identical(names(bad)[bad > 0], character(), label = paste(case, "mismatched columns"))
     # the same request sdv-py sends: host, path and query (league picks the host, never sent)
@@ -351,7 +339,6 @@ test_that("wehoop defaults to the DBBL: the default call hits the DBBL host and 
     want <- intl_read_oracle(scb_fixture("parity", paste0(case, ".csv")))
     expect_identical(names(got), names(want), label = case)
     expect_identical(nrow(got), nrow(want), label = case)
-    if ("tv_channel" %in% names(want)) want$tv_channel <- oracle_channel_names(want$tv_channel)
     bad <- vapply(names(got), function(n) parity_mismatches(got[[n]], want[[n]]), numeric(1))
     expect_identical(names(bad)[bad > 0], character(), label = paste(case, "mismatched columns"))
   }
