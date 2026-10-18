@@ -395,7 +395,6 @@ test_that(".bb_assemble_player_crosswalk_wbb output has all required columns", {
 })
 
 test_that(".bb_assemble_player_crosswalk_wbb handles empty Fox gracefully", {
-  skip_if_not_installed("stringdist")
   skip_on_cran()
   espn <- .make_espn_players()
   fox_empty <- data.frame(

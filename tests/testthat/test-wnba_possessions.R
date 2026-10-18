@@ -388,7 +388,6 @@ test_that(".build_rapm_design handles empty possessions without raising", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design drops possessions with NA lineup cells (never-raise)", {
-  skip_if_not_installed("glmnet")
   skip_if_not_installed("Matrix")
   skip_on_cran()
   df <- data.frame(
