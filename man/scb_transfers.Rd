@@ -53,11 +53,9 @@ a game not yet started), \code{wehoop_bad_request} (a bad argument, another 400 
 truncated page, a body for another game, season, club or league, a box score still in play), all
 inheriting \code{wehoop_error}. Wrappers raise; they never return an empty frame.
 }
-}
-\examples{
-\donttest{
-  try(scb_transfers())
-}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ scb_transfers()
+}\if{html}{\out{</div>}}
 }
 \seealso{
 Other SCB Functions:
