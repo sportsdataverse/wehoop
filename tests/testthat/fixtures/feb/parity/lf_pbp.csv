@@ -1,0 +1,4 @@
+game_id,play_num,period,clock,clock_seconds,team_side,team_id,player_id,license_id,action,text,score_home,score_away,x,y,log_param1,log_param2,log_param3,log_param4,log_param5,log_param6,log_param7,log_param8,log_param9,log_param10,log_time,log_time_utc
+2522775,466,4,07:41,461,away,1008686,2880229,11325921,shoot,(VALENCIA B.C.) E. BALOGUN: TIRO DE 2 ANOTADO (Puntos: 4),70,54,5.756208071479751,41.55420141005819,00000000-0000-0002-0000-000002522775,11325921,,1,1,2,1,13,,,2026-10-03 20:03:12,2026-10-03 18:03:12
+2522775,565,4,00:07,7,away,1008686,2880228,11325917,fthrow,(VALENCIA B.C.) A. JENKINS: TIRO DE 1 ANOTADO (Puntos: 9),88,71,,,00000000-0000-0002-0000-000002522775,11325917,0,1,,1,0,,,,2026-10-03 20:22:04,2026-10-03 18:22:04
+2522775,569,4,00:00,0,,,,,period,Fin del Cuarto 4,,,,,4,1,,,,,,,,,2026-10-03 20:38:26,2026-10-03 18:38:26

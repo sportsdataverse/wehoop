@@ -1,0 +1,10 @@
+play_schedule_id,league_id,league_title,season,season_id,season_title,season_full_name,game_date,game_day,game_start_time,started_at,opening_time,venue,game_icon,venue_address,venue_others,allow_shoes_on,allow_shoes_on_others,ticket_info,ticket_url,event_info,live_link,vod_link,bs_url,cs_url,ground_url,other_url,cancel_flg,delay_flg,game_status,box_flg,pbp_flg,referee_name,sub_referee_name1,sub_referee_name2,comment,report,home_team_id,home_season_team_name,home_season_team_short_name,home_team_logo_image,home_free_text,away_team_id,away_season_team_name,away_season_team_short_name,away_team_logo_image,away_free_text
+7987,45,25-26 Wリーグ,2026,176,プレーオフ　ファイナル,25-26 Wリーグ プレーオフ　ファイナル,2026年4月4日(土),2026-04-04,15:00,15:01,13:00,京王アリーナTOKYO,0,東京都調布市西町290-11,京王線「飛田給」駅下車 徒歩5分,2,,"＜チケット取扱い＞\r
+　■<a href=""https://fan.pia.jp/wjbl/"" target=""_blank"">Wリーグユニバース</a>\r
+",,"＜当日券販売／Wリーグユニバース有料会員先行入場／公式グッズ販売＞12:30～\r
+＜一般開場＞13:00～\r
+＜飲食＞飲食OK\r
+＜土足＞OK\r
+＜試合時間＞15:00 TIPOFF",https://basketball.mb.softbank.jp/lives/108969?utm_source=wleague&utm_medium=gtog&utm_campaign=wleague_gtog_001,https://basketball.mb.softbank.jp/videos/19804?utm_source=wleague&utm_medium=gtog&utm_campaign=wleague_gtog_001,,,,,0,0,fixed,1,1,須黒 祥子,北沢 あや子,熊谷 久美子,"クルーチーフ　　　　：須黒　祥子\r
+ファーストアンパイア：北沢　あや子\r
+セカンドアンパイア　：熊谷　久美子",,13,トヨタ自動車 アンテロープス,トヨタ自動車,/static/images/base_team/Bs3ia3gEK6OX9YfmScdRJNCistrBTkx6.png,,12,デンソー アイリス,デンソー,/assets/img/team/iris.png,

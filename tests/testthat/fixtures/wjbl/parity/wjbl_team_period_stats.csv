@@ -1,0 +1,8 @@
+play_schedule_id,home_team_id,away_team_id,period_category,period_label,home_ptr,home_pt2r,home_pt3r,home_ftr,home_rebound_off,home_rebound_def,home_rebound_tot,home_assist,home_turnovers,home_max_difference,away_ptr,away_pt2r,away_pt3r,away_ftr,away_rebound_off,away_rebound_def,away_rebound_tot,away_assist,away_turnovers,away_max_difference,lead_count,tie_count
+7987,13,12,1,Q1,61.5,77.8,25.0,100.0,3,4,7,3,6,2,62.5,71.4,0.0,100.0,2,2,4,8,2,8,0,4
+7987,13,12,2,Q2,14.3,10.0,25.0,0.0,1,6,7,2,3,0,38.5,55.6,0.0,100.0,2,11,13,5,2,16,0,0
+7987,13,12,3,Q3,37.5,41.7,25.0,66.7,6,6,12,4,1,0,53.8,50.0,66.7,100.0,0,6,6,5,2,18,0,0
+7987,13,12,4,Q4,44.4,28.6,54.5,75.0,4,6,10,6,2,0,46.2,50.0,33.3,85.7,2,7,9,7,3,19,0,0
+7987,13,12,15,H1,37.0,42.1,25.0,100.0,4,10,14,5,9,2,51.7,65.2,0.0,100.0,4,13,17,13,4,16,0,4
+7987,13,12,16,H2,41.2,36.8,46.7,70.0,10,12,22,10,3,0,50.0,50.0,50.0,87.5,2,13,15,12,5,19,0,0
+7987,13,12,18,GAME,39.3,39.5,39.1,75.0,14,22,36,15,12,2,50.9,58.1,25.0,94.1,6,26,32,25,9,19,0,4

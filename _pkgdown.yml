@@ -642,6 +642,74 @@ reference:
       - '`year_to_season`'
       - '`.players_on_court`'
 
+  - title: International Basketball
+  - subtitle: FIBA
+    desc: >
+      FIBA GDAP API and fiba.basketball game pages: national-team events and FIBA club competitions (`comp` picks the edition).
+    contents:
+      - starts_with("fiba_gdap_")
+      - starts_with("fiba_gamepage_")
+  - subtitle: FIBA competitions
+    desc: >
+      Per-competition FIBA aliases (one family per competition, season = edition).
+    contents:
+      - starts_with("fiba_wwc_")
+      - starts_with("fiba_woly_")
+      - starts_with("fiba_elw_")
+      - starts_with("fiba_weurobasket_")
+      - starts_with("fiba_ecw_")
+      - starts_with("fiba_wamericup_")
+      - starts_with("fiba_wasiacup_")
+      - starts_with("fiba_wafrobasket_")
+  - subtitle: Genius Sports
+    desc: >
+      Genius Sports hosted, LiveStats and widget feeds (`org` picks the league).
+    contents:
+      - starts_with("genius_")
+  - subtitle: Genius competitions
+    desc: >
+      Per-league Genius aliases.
+    contents:
+      - starts_with("wbbl_")
+      - starts_with("lfb_")
+  - subtitle: Atrium (Sportradar)
+    desc: >
+      Sportradar Atrium embed sites (`website_id` picks the site).
+    contents:
+      - starts_with("atrium_")
+  - subtitle: Atrium competitions
+    desc: >
+      Per-site Atrium aliases.
+    contents:
+      - starts_with("lnbp_")
+      - starts_with("nbl1_")
+      - starts_with("lmb_")
+      - starts_with("lpb_")
+  - subtitle: NBL / WNBL (Rosetta)
+    desc: >
+      WNBL, NBL and NBL1 (Australia) on the Rosetta stats API; `org` defaults to the WNBL.
+    contents:
+      - starts_with("nbl_rosetta_")
+  - subtitle: SCB (DBBL)
+    desc: >
+      DBBL and BBL (Germany) over the SCB API; defaults to the DBBL.
+    contents:
+      - starts_with("scb_")
+  - subtitle: FEB
+    desc: >
+      Spanish FEB competitions; defaults to the Liga Femenina Endesa.
+    contents:
+      - starts_with("feb_")
+  - subtitle: TBF
+    desc: >
+      Turkish Basketball Federation app API; defaults to the KBSL.
+    contents:
+      - starts_with("tbf_")
+  - subtitle: WJBL
+    desc: >
+      Women's Japan Basketball League (W League).
+    contents:
+      - starts_with("wjbl_")
   - title: Datasets
   - subtitle: Bundled reference data
     desc: Reference datasets shipped with the package
