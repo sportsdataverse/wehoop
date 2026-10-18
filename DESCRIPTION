@@ -39,7 +39,8 @@ Imports:
     stringdist (>= 0.9.0),
     stringi (>= 1.7.0),
     stringr (>= 1.4.0),
-    tidyr (>= 1.2.0)
+    tidyr (>= 1.2.0),
+    withr
 Suggests:
     arrow (>= 6.0.0),
     cachem (>= 1.0.0),
