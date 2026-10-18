@@ -89,6 +89,8 @@ intermittent HTTP 500 "A website error has occurred" page
 a cut-off page, an unfinished game, or a body for another match,
 competition or ORG.
 
+     genius_match_competition(org = "ESAKE", match_id = 2902690)
+
 ## See also
 
 Other Genius:
@@ -106,17 +108,3 @@ Other Genius:
 [`genius_widget_games()`](https://wehoop.sportsdataverse.org/reference/genius_widget_games.md),
 [`lfb_competition`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md),
 [`wbbl_competition`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(genius_match_competition(org = "ESAKE", match_id = 2902690))
-#> ── Genius LiveStats match competition ───────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:49 UTC
-#> # A tibble: 1 × 6
-#>   match_id comp_id competition_name        org_label og_description        org  
-#>      <int>   <int> <chr>                   <chr>     <chr>                 <chr>
-#> 1  2902690   49915 Stoiximan GBL 2026-2027 ESAKE     ESAKE ,  Stoiximan G… ESAKE
-# }
-```

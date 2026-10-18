@@ -123,6 +123,8 @@ these, in this order (sdv-py `wjbl_player`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_player(player_id = 9799)
+
 ## See also
 
 Other WJBL Functions:
@@ -144,24 +146,3 @@ Other WJBL Functions:
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md),
 [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_player(player_id = 9799))
-#> ── W League Player from api.wjbl.01core.app ─────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:23 UTC
-#> # A tibble: 1 × 36
-#>   player_id player_name player_name_en player_furigana team_id season_team_name 
-#>       <int> <chr>       <chr>          <chr>             <int> <chr>            
-#> 1      9799 岡本 美優   OKAMOTO MIYUU  おかもと みゆう      13 トヨタ自動車 アンテロープス……
-#> # ℹ 30 more variables: season_team_short_name <chr>,
-#> #   season_team_player_number <chr>, team_logo_image <chr>, team_url <chr>,
-#> #   player_birthday <chr>, player_nickname <chr>, player_position <chr>,
-#> #   player_home_town <chr>, player_height <chr>, player_weight <chr>,
-#> #   player_height_cm <int>, player_weight_kg <int>,
-#> #   player_affiliation_history <chr>, player_independent_flg <int>,
-#> #   player_national_team <chr>, player_awards <chr>, …
-# }
-```

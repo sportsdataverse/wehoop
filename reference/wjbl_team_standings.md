@@ -133,7 +133,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_team_standings(season_ids = "169"))
 #> ── W League Team Standings from api.wjbl.01core.app ─────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:33 UTC
+#> ℹ Data updated: 2026-10-18 17:01:22 UTC
 #> # A tibble: 8 × 15
 #>   season_id season_title       league_name season_league_name season_league_flg
 #>       <int> <chr>              <chr>       <chr>                          <int>

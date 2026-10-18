@@ -123,7 +123,7 @@ Other Genius:
 # \donttest{
   try(genius_game(match_id = 2902690))
 #> ── Genius LiveStats game ────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:48 UTC
+#> ℹ Data updated: 2026-10-18 16:59:01 UTC
 #> # A tibble: 1 × 21
 #>   match_id period period_type in_ot clock periods_max period_length_regular
 #>      <int>  <int> <chr>       <int> <chr>       <int>                 <int>

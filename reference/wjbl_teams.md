@@ -82,6 +82,8 @@ these, in this order (sdv-py `wjbl_teams`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_teams()
+
 ## See also
 
 Other WJBL Functions:
@@ -103,27 +105,3 @@ Other WJBL Functions:
 [`wjbl_team_period_stats()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_period_stats.md),
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_teams())
-#> ── W League Teams from api.wjbl.01core.app ──────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:34 UTC
-#> # A tibble: 69 × 2
-#>    team_id team_name                           
-#>      <int> <chr>                               
-#>  1      30 富士通レッドウェーブ                
-#>  2     591 TEAM シリウス                       
-#>  3     592 TEAM アンタレス                     
-#>  4      12 デンソー アイリス                   
-#>  5      11 シャンソン化粧品 シャンソンVマジック
-#>  6       8 ＥＮＥＯＳサンフラワーズ            
-#>  7      13 トヨタ自動車アンテロープス          
-#>  8      31 トヨタ紡織 サンシャインラビッツ     
-#>  9      10 アイシン ウィングス                 
-#> 10      14 東京羽田ヴィッキーズ                
-#> # ℹ 59 more rows
-# }
-```

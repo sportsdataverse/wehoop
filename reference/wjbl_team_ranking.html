@@ -165,7 +165,8 @@ non-2xx, an empty or non-JSON body, a game that is not final, a truncated play-b
 game, league edition, month, team, season phase or player than the one asked for; <code>transient</code> is TRUE for 408
 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers raise; they never warn and return an empty
 frame.</p></li>
-</ul></div>
+</ul><p></p><div class="sourceCode r"><pre><code><span> <span class="fu"><a href="../reference/wjbl_team_ranking.html">wjbl_team_ranking</a></span><span class="op">(</span>season_ids <span class="op">=</span> <span class="st">"169,170"</span><span class="op">)</span></span></code></pre><p></p></div>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other WJBL Functions:
@@ -189,40 +190,6 @@ frame.</p></li>
 <code><a href="wjbl_teams.html">wjbl_teams()</a></code></p></div>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_team_ranking</span><span class="op">(</span>season_ids <span class="op">=</span> <span class="st">"169,170"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Team Ranking from api.wjbl.01core.app ───────── <span style="font-style: italic;">wehoop 3.0.0.9000</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 14:08:31 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 33</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    league_id league_title  season season_id season_title       season_full_name </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       169 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       170 レギュラーシーズン 25-26 Wリーグ レギュラー…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27 more variables: season_league_name &lt;chr&gt;, season_league_flg &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   season_league_img &lt;chr&gt;, season_tournament_text &lt;chr&gt;, update_info &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_id &lt;int&gt;, season_team_name &lt;chr&gt;, season_team_short_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_entry_flg &lt;int&gt;, position &lt;int&gt;, season_team_area &lt;chr&gt;, win &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   lost &lt;int&gt;, winning_rate &lt;dbl&gt;, ppg &lt;dbl&gt;, opp &lt;dbl&gt;, fg &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   opp_fg &lt;dbl&gt;, p3pg &lt;dbl&gt;, rpg &lt;dbl&gt;, apg &lt;dbl&gt;, spg &lt;dbl&gt;, bpg &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tpg &lt;dbl&gt;, gpd &lt;dbl&gt;, win_point &lt;chr&gt;, unsatisfied &lt;chr&gt;</span></span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

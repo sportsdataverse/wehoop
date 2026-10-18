@@ -117,6 +117,8 @@ these, in this order (sdv-py `wjbl_team_period_stats`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_team_period_stats(play_schedule_id = 7987)
+
 ## See also
 
 Other WJBL Functions:
@@ -138,30 +140,3 @@ Other WJBL Functions:
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md),
 [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_team_period_stats(play_schedule_id = 7987))
-#> ── W League Team Period Stats from api.wjbl.01core.app ──── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:30 UTC
-#> # A tibble: 7 × 27
-#>   play_schedule_id home_team_id away_team_id period_category period_label
-#>              <int>        <int>        <int>           <int> <chr>       
-#> 1             7987           13           12               1 Q1          
-#> 2             7987           13           12               2 Q2          
-#> 3             7987           13           12               3 Q3          
-#> 4             7987           13           12               4 Q4          
-#> 5             7987           13           12              15 H1          
-#> 6             7987           13           12              16 H2          
-#> 7             7987           13           12              18 GAME        
-#> # ℹ 22 more variables: home_ptr <dbl>, home_pt2r <dbl>, home_pt3r <dbl>,
-#> #   home_ftr <dbl>, home_rebound_off <int>, home_rebound_def <int>,
-#> #   home_rebound_tot <int>, home_assist <int>, home_turnovers <int>,
-#> #   home_max_difference <int>, away_ptr <dbl>, away_pt2r <dbl>,
-#> #   away_pt3r <dbl>, away_ftr <dbl>, away_rebound_off <int>,
-#> #   away_rebound_def <int>, away_rebound_tot <int>, away_assist <int>,
-#> #   away_turnovers <int>, away_max_difference <int>, lead_count <int>, …
-# }
-```

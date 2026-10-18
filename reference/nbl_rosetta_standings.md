@@ -142,7 +142,7 @@ Other NBL Rosetta:
 # \donttest{
   try(nbl_rosetta_standings(org = "nbl", season = 2026))
 #> ── NBL Rosetta standings from prod.rosetta.nbl.com.au ───── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:06:57 UTC
+#> ℹ Data updated: 2026-10-18 17:00:22 UTC
 #> # A tibble: 10 × 24
 #>    org   rosetta_standing_id       position   won  lost played points_percentage
 #>    <chr> <chr>                        <int> <int> <int>  <int>             <dbl>

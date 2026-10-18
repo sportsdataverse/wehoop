@@ -118,7 +118,7 @@ Other FEB:
 # \donttest{
   try(feb_standings(group = 1, season = 2027))
 #> ── FEB standings from baloncestoenvivo.feb.es ───────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:04:33 UTC
+#> ℹ Data updated: 2026-10-18 16:58:13 UTC
 #> # A tibble: 18 × 17
 #>    group season competition comp_id table position team_id team     played   won
 #>    <int>  <int> <chr>         <int> <chr>    <int>   <int> <chr>     <int> <int>

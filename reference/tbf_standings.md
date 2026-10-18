@@ -138,7 +138,7 @@ Other TBF:
 # \donttest{
   try(tbf_standings(competition = "bsl", season = 2027))
 #> ── TBF Standings ────────────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:49 UTC
+#> ℹ Data updated: 2026-10-18 17:00:54 UTC
 #> # A tibble: 16 × 18
 #>    season competition group activity_id team_process_id team_name     week  rank
 #>     <int> <chr>       <chr>       <int>           <int> <chr>        <int> <int>
@@ -148,14 +148,14 @@ Other TBF:
 #>  4   2027 bsl         NA          22214          265990 ANADOLU EFES     4     4
 #>  5   2027 bsl         NA          22214          266027 KARŞIYAKA        4     5
 #>  6   2027 bsl         NA          22214          268222 BİOTEKNO KÖ…     4     6
-#>  7   2027 bsl         NA          22214          265995 TOFAŞ            4     7
-#>  8   2027 bsl         NA          22214          266024 ESENLER ERO…     4     8
-#>  9   2027 bsl         NA          22214          265993 PİZZABULLS …     4     9
-#> 10   2027 bsl         NA          22214          266025 FENERBAHÇE …     4    10
-#> 11   2027 bsl         NA          22214          266028 YUKATEL DEN…     4    11
-#> 12   2027 bsl         NA          22214          266176 BURSASPOR B…     4    12
-#> 13   2027 bsl         NA          22214          266026 GALATASARAY…     4    13
-#> 14   2027 bsl         NA          22214          266048 ALİAĞA PETK…     4    14
+#>  7   2027 bsl         NA          22214          266048 ALİAĞA PETK…     4     7
+#>  8   2027 bsl         NA          22214          266025 FENERBAHÇE …     4     8
+#>  9   2027 bsl         NA          22214          265995 TOFAŞ            4     9
+#> 10   2027 bsl         NA          22214          266024 ESENLER ERO…     4    10
+#> 11   2027 bsl         NA          22214          265993 PİZZABULLS …     4    11
+#> 12   2027 bsl         NA          22214          266028 YUKATEL DEN…     4    12
+#> 13   2027 bsl         NA          22214          266176 BURSASPOR B…     4    13
+#> 14   2027 bsl         NA          22214          266026 GALATASARAY…     4    14
 #> 15   2027 bsl         NA          22214          265992 BEŞİKTAŞ         4    15
 #> 16   2027 bsl         NA          22214          265994 GLİNT ÇAYIR…     4    16
 #> # ℹ 10 more variables: played <int>, won <int>, lost <int>, points_for <int>,

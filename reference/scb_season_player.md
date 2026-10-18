@@ -101,6 +101,8 @@ position, club and previous clubs. An empty valid answer raises
   play), all inheriting `wehoop_error`. Wrappers raise; they never
   return an empty frame.
 
+     scb_season_player(season_player_id = "56414")
+
 ## See also
 
 Other SCB Functions:
@@ -126,14 +128,3 @@ Other SCB Functions:
 [`scb_team_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_team_statistics.md),
 [`scb_transfers()`](https://wehoop.sportsdataverse.org/reference/scb_transfers.md),
 [`scb_transfers_teams()`](https://wehoop.sportsdataverse.org/reference/scb_transfers_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(scb_season_player(season_player_id = "56414"))
-#> Error in scb_season_player(season_player_id = "56414") : 
-#>   api-1.dbbl.scb.world/season-players/56414 answered HTTP 204: no content
-#> for this id.
-# }
-```

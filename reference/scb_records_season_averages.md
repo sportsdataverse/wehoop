@@ -89,6 +89,8 @@ raises `wehoop_no_data`; the columns are always these, in this order
   play), all inheriting `wehoop_error`. Wrappers raise; they never
   return an empty frame.
 
+     scb_records_season_averages()
+
 ## See also
 
 Other SCB Functions:
@@ -114,29 +116,3 @@ Other SCB Functions:
 [`scb_team_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_team_statistics.md),
 [`scb_transfers()`](https://wehoop.sportsdataverse.org/reference/scb_transfers.md),
 [`scb_transfers_teams()`](https://wehoop.sportsdataverse.org/reference/scb_transfers_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(scb_records_season_averages())
-#> ── BBL/DBBL Season-Average Records from the SCB API ─────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:16 UTC
-#> # A tibble: 200 × 14
-#>    league stat      season season_id place order_id value ratio season_player_id
-#>    <chr>  <chr>      <int>     <int> <int>    <int> <dbl> <dbl> <chr>           
-#>  1 dbbl   assist_a…   2025      2024     1        1  5.96    NA 20423           
-#>  2 dbbl   assist_a…   2026      2025     2        2  5.65    NA 20410           
-#>  3 dbbl   assist_a…   2025      2024     3        3  5.5     NA 20468           
-#>  4 dbbl   assist_a…   2025      2024     4        4  4.93    NA 20410           
-#>  5 dbbl   assist_a…   2026      2025     5        5  4.82    NA 20389           
-#>  6 dbbl   assist_a…   2025      2024     6        6  4.69    NA 20478           
-#>  7 dbbl   assist_a…   2026      2025     7        7  4.56    NA 20444           
-#>  8 dbbl   assist_a…   2027      2026     8        8  4.5     NA 21110           
-#>  9 dbbl   assist_a…   2027      2026     8        9  4.5     NA 20389           
-#> 10 dbbl   assist_a…   2025      2024     9       10  4.42    NA 20463           
-#> # ℹ 190 more rows
-#> # ℹ 5 more variables: real_player_id <int>, first_name <chr>, last_name <chr>,
-#> #   team_name <chr>, team_tlc <chr>
-# }
-```

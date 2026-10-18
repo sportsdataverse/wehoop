@@ -97,6 +97,8 @@ these, in this order (sdv-py `wjbl_head_to_head`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_head_to_head(season_ids = "169")
+
 ## See also
 
 Other WJBL Functions:
@@ -118,27 +120,3 @@ Other WJBL Functions:
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md),
 [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_head_to_head(season_ids = "169"))
-#> ── W League Head-to-Head from api.wjbl.01core.app ───────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:16 UTC
-#> # A tibble: 224 × 7
-#>    season_id team_id opponent_team_id game_number   win  losg result 
-#>        <int>   <int>            <int>       <int> <int> <int> <chr>  
-#>  1       169      13               12           1    63    56 ○ 63-56
-#>  2       169      13               12           2    66    67 ● 66-67
-#>  3       169      13               12           3    46    60 ● 46-60
-#>  4       169      13               12           4    76    58 ○ 76-58
-#>  5       169      13               30           1    20     0 ○ 20-0 
-#>  6       169      13               30           2    20     0 ○ 20-0 
-#>  7       169      13               30           3    69    64 ○ 69-64
-#>  8       169      13               30           4    75    68 ○ 75-68
-#>  9       169      13               31           1    68    46 ○ 68-46
-#> 10       169      13               31           2    63    75 ● 63-75
-#> # ℹ 214 more rows
-# }
-```

@@ -95,6 +95,8 @@ federation, family or season). Seasons are FIBA's own key, which equals
 the sdv key: the END year for club competitions, the event year for
 national-team events, the target tournament year for qualifiers.
 
+     fiba_gdap_federation_ranking(category = "women", zone_id = 1, as_of_date = "2025-09-15")
+
 ## See also
 
 Other FIBA Functions:
@@ -134,30 +136,3 @@ Other FIBA Functions:
 [`fiba_gdap_team_staff()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_staff.md),
 [`fiba_gdap_team_stats()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_team_stats.md),
 [`fiba_gdap_teams()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(fiba_gdap_federation_ranking(category = "women", zone_id = 1, as_of_date = "2025-09-15"))
-#> ── FIBA gdap_federation_ranking from fiba.basketball ────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:04:51 UTC
-#> # A tibble: 120 × 11
-#>    as_of_date   zone_ranking_code zone_ranking_officia…¹ world_rank country_name
-#>    <chr>        <chr>             <chr>                       <int> <chr>       
-#>  1 2025-08-08T… W                 World                           1 USA         
-#>  2 2025-08-08T… W                 World                           2 Australia   
-#>  3 2025-08-08T… W                 World                           3 France      
-#>  4 2025-08-08T… W                 World                           4 People 's R…
-#>  5 2025-08-08T… W                 World                           5 Belgium     
-#>  6 2025-08-08T… W                 World                           6 Spain       
-#>  7 2025-08-08T… W                 World                           7 Canada      
-#>  8 2025-08-08T… W                 World                           8 Nigeria     
-#>  9 2025-08-08T… W                 World                           9 Brazil      
-#> 10 2025-08-08T… W                 World                          10 Serbia      
-#> # ℹ 110 more rows
-#> # ℹ abbreviated name: ¹​zone_ranking_official_name
-#> # ℹ 6 more variables: zone_rank <int>, ioc_code <chr>, fiba_code <chr>,
-#> #   current_points <dbl>, world_rank_variation <int>, comments <chr>
-# }
-```

@@ -316,6 +316,9 @@ unchecked.
 Access, proxy and error notes: see
 [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md).
 
+     wbbl_competitions()
+     wbbl_schedule()
+
 ## See also
 
 Other Genius:
@@ -333,47 +336,3 @@ Other Genius:
 [`genius_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/genius_team_crosswalk.md),
 [`genius_widget_games()`](https://wehoop.sportsdataverse.org/reference/genius_widget_games.md),
 [`lfb_competition`](https://wehoop.sportsdataverse.org/reference/lfb_competition.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wbbl_competitions())
-#> ── Genius LiveStats competitions ────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:06 UTC
-#> # A tibble: 46 × 8
-#>    org   comp_id label               league_id  year season season_rule selected
-#>    <chr>   <int> <chr>                   <int> <int>  <int> <chr>       <lgl>   
-#>  1 WBBL    38098 All-Stars 2024             10  2023   2024 genius yea… FALSE   
-#>  2 WBBL    24207 benecos WBBL Play-…        10  2018   2019 genius yea… FALSE   
-#>  3 WBBL    49543 Betty Codona Cup 2…        10  2026   2027 label span  FALSE   
-#>  4 WBBL    36574 Betty Codona Troph…        10  2023   2024 label span  FALSE   
-#>  5 WBBL    39606 Betty Codona Troph…        10  2024   2025 label span  FALSE   
-#>  6 WBBL    41771 Betty Codona Troph…        10  2025   2026 label span  FALSE   
-#>  7 WBBL    21248 Betty Codona WBBL …        10  2018   2019 label span  FALSE   
-#>  8 WBBL    25202 Betty Codona WBBL …        10  2019   2020 label span  FALSE   
-#>  9 WBBL    29098 Betty Codona WBBL …        10  2020   2021 label span  FALSE   
-#> 10 WBBL    30242 Betty Codona WBBL …        10  2021   2022 label span  FALSE   
-#> # ℹ 36 more rows
-  try(wbbl_schedule())
-#> ── Genius LiveStats schedule ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:08 UTC
-#> # A tibble: 86 × 16
-#>    match_id link_match_id comp_id org   status   date_time   venue_id venue_name
-#>       <int>         <int>   <int> <chr> <chr>    <chr>          <int> <chr>     
-#>  1  2874218       2874218   49542 WBBL  COMPLETE Oct 3, 202…      354 Archers A…
-#>  2  2874220       2874220   49542 WBBL  COMPLETE Oct 3, 202…      359 Nottingha…
-#>  3  2874222       2874222   49542 WBBL  COMPLETE Oct 4, 202…      357 National …
-#>  4  2874224       2874224   49542 WBBL  COMPLETE Oct 4, 202…    33463 Playsport…
-#>  5  2874226       2874226   49542 WBBL  COMPLETE Oct 4, 202…     1588 Netball C…
-#>  6  2874228       2874228   49542 WBBL  COMPLETE Oct 10, 20…    18794 Essex Spo…
-#>  7  2874230       2874230   49542 WBBL  COMPLETE Oct 10, 20…    37052 New City …
-#>  8  2874232       2874232   49542 WBBL  COMPLETE Oct 10, 20…    33458 Canon Med…
-#>  9  2874234       2874234   49542 WBBL  COMPLETE Oct 10, 20…    37008 Oaklands …
-#> 10  2874235       2874235   49542 WBBL  COMPLETE Oct 11, 20…    21116 Vertu Are…
-#> # ℹ 76 more rows
-#> # ℹ 8 more variables: home_team_id <int>, home_team_name <chr>,
-#> #   home_team_code <chr>, home_score <int>, away_team_id <int>,
-#> #   away_team_name <chr>, away_team_code <chr>, away_score <int>
-# }
-```

@@ -116,7 +116,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_standing_seasons())
 #> ── W League Standing Seasons from api.wjbl.01core.app ───── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:28 UTC
+#> ℹ Data updated: 2026-10-18 17:01:19 UTC
 #> # A tibble: 89 × 7
 #>    season_id season_full_name       season season_league_name team_standings_flg
 #>        <int> <chr>                   <int> <chr>                           <int>

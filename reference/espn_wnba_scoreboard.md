@@ -101,7 +101,7 @@ Saiem Gilani.
 # \donttest{
   try(espn_wnba_scoreboard (season = "20220831"))
 #> ── ESPN WNBA Scoreboard Information from ESPN.com ───────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:04:14 UTC
+#> ℹ Data updated: 2026-10-18 16:57:55 UTC
 #> # A tibble: 2 × 37
 #>   matchup          matchup_short season season_type season_slug game_id game_uid
 #>   <chr>            <chr>          <int>       <int> <chr>         <int> <chr>   

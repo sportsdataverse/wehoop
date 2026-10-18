@@ -118,7 +118,7 @@ Other FEB:
 # \donttest{
   try(feb_game_info(game_id = 2535725))
 #> ── FEB game info from intrafeb.feb.es ───────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:04:25 UTC
+#> ℹ Data updated: 2026-10-18 16:58:08 UTC
 #> # A tibble: 1 × 24
 #>   game_id comp_id competition group_label period clock start_time          venue
 #>     <int>   <int> <chr>       <chr>        <int> <chr> <dttm>              <chr>

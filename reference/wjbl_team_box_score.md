@@ -143,7 +143,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_team_box_score(play_schedule_id = 7987))
 #> ── W League Team Box Score from api.wjbl.01core.app ─────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:29 UTC
+#> ℹ Data updated: 2026-10-18 17:01:20 UTC
 #> # A tibble: 4 × 25
 #>   play_schedule_id team_side team_id row_type   pts   p2m   p2a   p3m   p3a
 #>              <int> <chr>       <int> <chr>    <int> <int> <int> <int> <int>

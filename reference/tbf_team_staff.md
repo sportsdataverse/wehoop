@@ -87,6 +87,8 @@ or team, an error envelope, a redirect, a partial page or a changed
 capped list). All inherit `wehoop_error`. Timestamps are Turkey local
 time (`Europe/Istanbul`).
 
+     tbf_team_staff(season = 2027, team_process_id = 265995)
+
 ## See also
 
 Other TBF:
@@ -121,15 +123,3 @@ Other TBF:
 [`tbf_team_roster()`](https://wehoop.sportsdataverse.org/reference/tbf_team_roster.md),
 [`tbf_teams()`](https://wehoop.sportsdataverse.org/reference/tbf_teams.md),
 [`tbf_weeks()`](https://wehoop.sportsdataverse.org/reference/tbf_weeks.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(tbf_team_staff(season = 2027, team_process_id = 265995))
-#> Error in tbf_team_staff(season = 2027, team_process_id = 265995) : 
-#>   
-#> miniappapi.tbf.org.tr/webapi-service/api/Team/get-team-detail-team-staff-by-season-and-league:
-#> no rows for this team-season.
-# }
-```

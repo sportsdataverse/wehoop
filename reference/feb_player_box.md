@@ -137,7 +137,7 @@ Other FEB:
 # \donttest{
   try(feb_player_box(game_id = 2535725))
 #> ── FEB player box from intrafeb.feb.es ──────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:04:29 UTC
+#> ℹ Data updated: 2026-10-18 16:58:10 UTC
 #> # A tibble: 24 × 38
 #>    game_id team_side team_id team  player_id shirt_number player starter captain
 #>      <int> <chr>       <int> <chr>     <int> <chr>        <chr>  <lgl>   <lgl>  

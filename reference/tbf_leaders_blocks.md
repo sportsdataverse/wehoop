@@ -83,6 +83,8 @@ or team, an error envelope, a redirect, a partial page or a changed
 capped list). All inherit `wehoop_error`. Timestamps are Turkey local
 time (`Europe/Istanbul`).
 
+     tbf_leaders_blocks(competition = "bsl", season = 2027)
+
 ## See also
 
 Other TBF:
@@ -117,28 +119,3 @@ Other TBF:
 [`tbf_team_staff()`](https://wehoop.sportsdataverse.org/reference/tbf_team_staff.md),
 [`tbf_teams()`](https://wehoop.sportsdataverse.org/reference/tbf_teams.md),
 [`tbf_weeks()`](https://wehoop.sportsdataverse.org/reference/tbf_weeks.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(tbf_leaders_blocks(competition = "bsl", season = 2027))
-#> ── TBF Leaders: Blocks ──────────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:32 UTC
-#> # A tibble: 40 × 11
-#>    season competition category kind   rank person_id player_name team_process_id
-#>     <int> <chr>       <chr>    <chr> <int>     <int> <chr>                 <int>
-#>  1   2027 bsl         blocks   total     1    283725 Furkan Hal…          265991
-#>  2   2027 bsl         blocks   total     2    778182 Alex Reese           268222
-#>  3   2027 bsl         blocks   total     3    778727 Ismael Bako          266030
-#>  4   2027 bsl         blocks   total     4    470765 Mahir Ağva           266028
-#>  5   2027 bsl         blocks   total     5    778461 Nate Watson          266176
-#>  6   2027 bsl         blocks   total     6    609083 Steven Eno…          266027
-#>  7   2027 bsl         blocks   total     7    485299 Terrell Ca…          265995
-#>  8   2027 bsl         blocks   total     8    779278 Alen Smail…          266026
-#>  9   2027 bsl         blocks   total     9    779274 Oumar Ballo          266026
-#> 10   2027 bsl         blocks   total    10    512899 Akwasi Yeb…          266029
-#> # ℹ 30 more rows
-#> # ℹ 3 more variables: team_name <chr>, games <int>, value <dbl>
-# }
-```

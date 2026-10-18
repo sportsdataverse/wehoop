@@ -317,6 +317,9 @@ unchecked.
 Access, proxy and error notes: see
 [`genius_game()`](https://wehoop.sportsdataverse.org/reference/genius_game.md).
 
+     lfb_competitions()
+     lfb_schedule()
+
 ## See also
 
 Other Genius:
@@ -334,43 +337,3 @@ Other Genius:
 [`genius_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/genius_team_crosswalk.md),
 [`genius_widget_games()`](https://wehoop.sportsdataverse.org/reference/genius_widget_games.md),
 [`wbbl_competition`](https://wehoop.sportsdataverse.org/reference/wbbl_competition.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(lfb_competitions())
-#> ── Genius LiveStats competitions ────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:56 UTC
-#> # A tibble: 7 × 8
-#>   org   comp_id label                league_id  year season season_rule selected
-#>   <chr>   <int> <chr>                    <int> <int>  <int> <chr>       <lgl>   
-#> 1 FFBB    22217 COUPE DE FRANCE ROB…        95  2018   2019 genius yea… FALSE   
-#> 2 FFBB    21851 LIGUE FEMININE 2            95  2018   2019 genius yea… FALSE   
-#> 3 FFBB    21849 LIGUE FEMININE DE B…        95  2018   2019 genius yea… FALSE   
-#> 4 FFBB    18539 NATIONALE MASCULINE…        95  2017   2018 genius yea… FALSE   
-#> 5 FFBB    21850 NATIONALE MASCULINE…        95  2018   2019 genius yea… TRUE    
-#> 6 FFBB    18540 LIGUE FEMININE              95  2017   2018 genius yea… FALSE   
-#> 7 FFBB    18541 LIGUE FEMININE 2            95  2017   2018 genius yea… FALSE   
-  try(lfb_schedule())
-#> ── Genius LiveStats schedule ────────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:59 UTC
-#> # A tibble: 168 × 16
-#>    match_id link_match_id comp_id org   status    date_time  venue_id venue_name
-#>       <int>         <int>   <int> <chr> <chr>     <chr>         <int> <chr>     
-#>  1  1145701            NA   21849 FFBB  SCHEDULED NA               NA ""        
-#>  2   909156            NA   21849 FFBB  COMPLETE  Oct 13, 2…       NA "SALLE PI…
-#>  3   909159            NA   21849 FFBB  COMPLETE  Oct 13, 2…       NA "SALLE PI…
-#>  4   909157            NA   21849 FFBB  COMPLETE  Oct 14, 2…       NA "SALLE PI…
-#>  5   909154            NA   21849 FFBB  COMPLETE  Oct 14, 2…       NA "SALLE PI…
-#>  6   909158            NA   21849 FFBB  COMPLETE  Oct 14, 2…       NA "SALLE PI…
-#>  7   909160            NA   21849 FFBB  COMPLETE  Oct 17, 2…       NA "Guinguet…
-#>  8   909161            NA   21849 FFBB  COMPLETE  Oct 17, 2…       NA "GYMNASE …
-#>  9   909162            NA   21849 FFBB  COMPLETE  Oct 17, 2…       NA "LA CIMEN…
-#> 10   909163            NA   21849 FFBB  COMPLETE  Oct 17, 2…       NA "SALLE DE…
-#> # ℹ 158 more rows
-#> # ℹ 8 more variables: home_team_id <int>, home_team_name <chr>,
-#> #   home_team_code <chr>, home_score <int>, away_team_id <int>,
-#> #   away_team_name <chr>, away_team_code <chr>, away_score <int>
-# }
-```

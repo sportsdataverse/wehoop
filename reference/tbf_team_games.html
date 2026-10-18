@@ -160,6 +160,7 @@ the league list lacks, an empty list, a finished game before 2025-26 asked for p
 the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
 an error envelope, a redirect, a partial page or a changed capped list). All inherit <code>wehoop_error</code>.
 Timestamps are Turkey local time (<code>Europe/Istanbul</code>).</p>
+<p></p><div class="sourceCode r"><pre><code><span> <span class="fu"><a href="../reference/tbf_team_games.html">tbf_team_games</a></span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2027</span>, team_process_id <span class="op">=</span> <span class="fl">265995</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -197,17 +198,6 @@ Timestamps are Turkey local time (<code>Europe/Istanbul</code>).</p>
 <code><a href="tbf_weeks.html">tbf_weeks()</a></code></p></div>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">tbf_team_games</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2027</span>, team_process_id <span class="op">=</span> <span class="fl">265995</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in tbf_team_games(season = 2027, team_process_id = 265995) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> miniappapi.tbf.org.tr/webapi-service/api/Team/get-team-detail-matches-by-season-and-league:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> no rows for this team-season.</span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

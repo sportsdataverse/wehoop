@@ -192,7 +192,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_team_games(team_id = 279569))
 #> ── FIBA gdap_team_games from fiba.basketball ────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:13 UTC
+#> ℹ Data updated: 2026-10-18 16:58:32 UTC
 #> # A tibble: 8 × 78
 #>   game_id round_name     game_number status    status_code game_day team_a_from 
 #>     <int> <chr>          <chr>       <chr>     <chr>          <int> <chr>       

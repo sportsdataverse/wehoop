@@ -107,6 +107,8 @@ these, in this order (sdv-py `wjbl_player_period_leaders`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_player_period_leaders(play_schedule_id = 7987)
+
 ## See also
 
 Other WJBL Functions:
@@ -128,29 +130,3 @@ Other WJBL Functions:
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md),
 [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_player_period_leaders(play_schedule_id = 7987))
-#> ── W League Player Period Leaders from api.wjbl.01core.app ─────────────────────
-#> ℹ Data updated: 2026-10-18 14:08:24 UTC
-#> # A tibble: 7 × 17
-#>   play_schedule_id home_team_id away_team_id period_category period_label
-#>              <int>        <int>        <int>           <int> <chr>       
-#> 1             7987           13           12               1 Q1          
-#> 2             7987           13           12               2 Q2          
-#> 3             7987           13           12               3 Q3          
-#> 4             7987           13           12               4 Q4          
-#> 5             7987           13           12              15 H1          
-#> 6             7987           13           12              16 H2          
-#> 7             7987           13           12              18 GAME        
-#> # ℹ 12 more variables: home_point_player <chr>, home_point_value <chr>,
-#> #   home_assist_player <chr>, home_assist_value <chr>,
-#> #   home_rebound_player <chr>, home_rebound_value <chr>,
-#> #   away_point_player <chr>, away_point_value <chr>, away_assist_player <chr>,
-#> #   away_assist_value <chr>, away_rebound_player <chr>,
-#> #   away_rebound_value <chr>
-# }
-```

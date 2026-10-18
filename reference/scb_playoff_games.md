@@ -95,6 +95,8 @@ and the points of each series team. An empty valid answer raises
   play), all inheriting `wehoop_error`. Wrappers raise; they never
   return an empty frame.
 
+     scb_playoff_games(season = 2026)
+
 ## See also
 
 Other SCB Functions:
@@ -120,30 +122,3 @@ Other SCB Functions:
 [`scb_team_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_team_statistics.md),
 [`scb_transfers()`](https://wehoop.sportsdataverse.org/reference/scb_transfers.md),
 [`scb_transfers_teams()`](https://wehoop.sportsdataverse.org/reference/scb_transfers_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(scb_playoff_games(season = 2026))
-#> ── BBL/DBBL Playoff Games from the SCB API ──────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:13 UTC
-#> # A tibble: 32 × 15
-#>    league season season_id round         series game_id scheduled_time timestamp
-#>    <chr>   <int>     <int> <chr>          <int> <chr>   <chr>              <int>
-#>  1 dbbl     2026      2025 quarter_fina…      1 11133   2026-04-01T16…    1.78e9
-#>  2 dbbl     2026      2025 quarter_fina…      1 11137   2026-04-04T16…    1.78e9
-#>  3 dbbl     2026      2025 quarter_fina…      1 11141   2026-04-06T14…    1.78e9
-#>  4 dbbl     2026      2025 quarter_fina…      1 11158   2026-04-19T15…    1.78e9
-#>  5 dbbl     2026      2025 quarter_fina…      1 11160   2026-04-25T15…    1.78e9
-#>  6 dbbl     2026      2025 quarter_fina…      2 11135   2026-04-02T17…    1.78e9
-#>  7 dbbl     2026      2025 quarter_fina…      2 11139   2026-04-04T17…    1.78e9
-#>  8 dbbl     2026      2025 quarter_fina…      2 11156   2026-04-19T14…    1.78e9
-#>  9 dbbl     2026      2025 quarter_fina…      2 11161   2026-04-26T14…    1.78e9
-#> 10 dbbl     2026      2025 quarter_fina…      3 11136   2026-04-02T17…    1.78e9
-#> # ℹ 22 more rows
-#> # ℹ 7 more variables: game_winner_id <chr>, home_team_id <chr>,
-#> #   guest_team_id <chr>, team_a_id <chr>, team_b_id <chr>, points_team_a <int>,
-#> #   points_team_b <int>
-# }
-```

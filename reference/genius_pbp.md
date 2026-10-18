@@ -130,7 +130,7 @@ Other Genius:
 # \donttest{
   try(genius_pbp(match_id = 2902690))
 #> ── Genius LiveStats play-by-play ────────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:50 UTC
+#> ℹ Data updated: 2026-10-18 16:59:02 UTC
 #> # A tibble: 663 × 25
 #>    match_id row_index action_number previous_action period period_type gt   
 #>       <int>     <int>         <int>           <int>  <int> <chr>       <chr>

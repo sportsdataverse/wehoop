@@ -202,20 +202,20 @@ Other SCB Functions:
 # \donttest{
   try(scb_games_recent())
 #> ── BBL/DBBL Recent Games from the SCB API ───────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:11 UTC
+#> ℹ Data updated: 2026-10-18 17:00:33 UTC
 #> # A tibble: 27 × 92
 #>    league season season_id game_id competition stage status bucket game_progress
 #>    <chr>   <int>     <int> <chr>   <chr>       <chr> <chr>  <chr>  <chr>        
 #>  1 dbbl     2027      2026 11579   DBBL_CUP    SECO… OFFIC… past   NA           
 #>  2 dbbl     2027      2026 11580   DBBL_CUP    SECO… OFFIC… past   E            
-#>  3 dbbl     2027      2026 11581   DBBL_CUP    SECO… OFFIC… past   E            
-#>  4 dbbl     2027      2026 11585   DBBL_CUP    SECO… OFFIC… past   E            
-#>  5 dbbl     2027      2026 11208   DBBL        MAIN… OFFIC… past   E            
-#>  6 dbbl     2027      2026 11586   DBBL_CUP    SECO… OFFIC… past   E            
-#>  7 dbbl     2027      2026 11209   DBBL        MAIN… OFFIC… past   E            
-#>  8 dbbl     2027      2026 11210   DBBL        MAIN… OFFIC… past   E            
-#>  9 dbbl     2027      2026 11587   DBBL_CUP    SECO… OFFIC… past   NA           
-#> 10 dbbl     2027      2026 11211   DBBL        MAIN… OFFIC… prese… E            
+#>  3 dbbl     2027      2026 11585   DBBL_CUP    SECO… OFFIC… past   E            
+#>  4 dbbl     2027      2026 11208   DBBL        MAIN… OFFIC… past   E            
+#>  5 dbbl     2027      2026 11586   DBBL_CUP    SECO… OFFIC… past   E            
+#>  6 dbbl     2027      2026 11209   DBBL        MAIN… OFFIC… past   E            
+#>  7 dbbl     2027      2026 11210   DBBL        MAIN… OFFIC… past   E            
+#>  8 dbbl     2027      2026 11587   DBBL_CUP    SECO… OFFIC… past   NA           
+#>  9 dbbl     2027      2026 11211   DBBL        MAIN… OFFIC… past   E            
+#> 10 dbbl     2027      2026 11213   DBBL        MAIN… OFFIC… prese… E            
 #> # ℹ 17 more rows
 #> # ℹ 83 more variables: scheduled_time <chr>, match_day <int>, is_tbd <lgl>,
 #> #   is_hidden <lgl>, home_team_id <chr>, home_season_team_id <chr>,

@@ -145,7 +145,7 @@ Other Atrium:
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 #> ── Atrium teams from embed-api.eui.connect.sportradar.com ──────────────────────
-#> ℹ Data updated: 2026-10-18 14:03:17 UTC
+#> ℹ Data updated: 2026-10-18 16:56:53 UTC
 #> # A tibble: 16 × 5
 #>    website_id season_id                            entity_id     name  image_url
 #>         <int> <chr>                                <chr>         <chr> <chr>    

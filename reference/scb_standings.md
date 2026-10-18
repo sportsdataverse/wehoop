@@ -173,19 +173,19 @@ Other SCB Functions:
 # \donttest{
   try(scb_standings())
 #> ── BBL/DBBL Standings from the SCB API ──────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:21 UTC
+#> ℹ Data updated: 2026-10-18 17:00:39 UTC
 #> # A tibble: 10 × 55
 #>    league season standing_id season_team_id team_id team_name           team_tlc
 #>    <chr>   <int> <chr>       <chr>          <chr>   <chr>               <chr>   
 #>  1 dbbl     2027 4000        107            107     Rutronik Stars Kel… KEL     
 #>  2 dbbl     2027 3994        101            101     BC Marburg          MAR     
-#>  3 dbbl     2027 3997        104            104     GiroLive Panthers … OSN     
-#>  4 dbbl     2027 4001        108            108     Saarlouis Royals    SAR     
-#>  5 dbbl     2027 3993        100            100     ALBA BERLIN         ALB     
-#>  6 dbbl     2027 4002        109            109     halfit LIONS        hfL     
-#>  7 dbbl     2027 3995        102            102     Eigner Angels Nörd… NÖR     
-#>  8 dbbl     2027 3996        103            103     Eisvögel USC Freib… FRE     
-#>  9 dbbl     2027 3998        105            105     Herner TC           HER     
+#>  3 dbbl     2027 3993        100            100     ALBA BERLIN         ALB     
+#>  4 dbbl     2027 3996        103            103     Eisvögel USC Freib… FRE     
+#>  5 dbbl     2027 4002        109            109     halfit LIONS        hfL     
+#>  6 dbbl     2027 3997        104            104     GiroLive Panthers … OSN     
+#>  7 dbbl     2027 4001        108            108     Saarlouis Royals    SAR     
+#>  8 dbbl     2027 3998        105            105     Herner TC           HER     
+#>  9 dbbl     2027 3995        102            102     Eigner Angels Nörd… NÖR     
 #> 10 dbbl     2027 4003        110            110     TK Hannover Luchse  HAN     
 #> # ℹ 48 more variables: team_name_short <chr>, has_reached_playoffs <lgl>,
 #> #   has_reached_playins <lgl>, is_relegation_certain <lgl>, season_id <int>,

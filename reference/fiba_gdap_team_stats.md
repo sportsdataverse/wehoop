@@ -190,7 +190,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_team_stats(team_id = 279569))
 #> ── FIBA gdap_team_stats from fiba.basketball ────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:05:16 UTC
+#> ℹ Data updated: 2026-10-18 16:58:33 UTC
 #> # A tibble: 1 × 75
 #>   team_id competition_id points_per_game rebounds_per_game
 #>     <int>          <int>           <dbl>             <dbl>

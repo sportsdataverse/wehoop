@@ -114,6 +114,8 @@ these, in this order (sdv-py `wjbl_roster`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_roster(season_id = 169, team_id = 13)
+
 ## See also
 
 Other WJBL Functions:
@@ -135,34 +137,3 @@ Other WJBL Functions:
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md),
 [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_roster(season_id = 169, team_id = 13))
-#> ── W League Roster from api.wjbl.01core.app ─────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:25 UTC
-#> # A tibble: 13 × 22
-#>    league_id league_title  season season_id season_full_name      season_team_id
-#>        <int> <chr>          <int>     <int> <chr>                          <int>
-#>  1        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  2        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  3        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  4        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  5        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  6        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  7        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  8        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#>  9        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#> 10        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#> 11        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#> 12        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#> 13        45 25-26 Wリーグ   2026       169 25-26 Wリーグ レギュラーシーズン…           1343
-#> # ℹ 16 more variables: team_id <int>, coach_id <int>, coach_name <chr>,
-#> #   team_comment <chr>, player_id <int>, player_name <chr>,
-#> #   player_number <chr>, captain_flg <int>, sub_captain_flg <int>,
-#> #   transfer_flg <int>, position <chr>, rookie <int>, early_entry <int>,
-#> #   picture <chr>, foreign_national_flg <int>, naturalized_flg <int>
-# }
-```

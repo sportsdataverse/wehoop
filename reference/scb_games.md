@@ -229,7 +229,7 @@ Other SCB Functions:
 # \donttest{
   try(scb_games())
 #> ── BBL/DBBL Games from the SCB API ──────────────────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:10 UTC
+#> ℹ Data updated: 2026-10-18 17:00:33 UTC
 #> # A tibble: 124 × 89
 #>    league season season_id game_id competition stage       status scheduled_time
 #>    <chr>   <int>     <int> <chr>   <chr>       <chr>       <chr>  <chr>         

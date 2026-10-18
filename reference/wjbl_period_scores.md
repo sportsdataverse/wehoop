@@ -96,6 +96,8 @@ these, in this order (sdv-py `wjbl_period_scores`):
   408 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers
   raise; they never warn and return an empty frame.
 
+     wjbl_period_scores(play_schedule_id = 7987)
+
 ## See also
 
 Other WJBL Functions:
@@ -117,24 +119,3 @@ Other WJBL Functions:
 [`wjbl_team_ranking()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_ranking.md),
 [`wjbl_team_standings()`](https://wehoop.sportsdataverse.org/reference/wjbl_team_standings.md),
 [`wjbl_teams()`](https://wehoop.sportsdataverse.org/reference/wjbl_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(wjbl_period_scores(play_schedule_id = 7987))
-#> ── W League Period Scores from api.wjbl.01core.app ──────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:08:22 UTC
-#> # A tibble: 8 × 6
-#>   play_schedule_id team_side team_id period period_label score
-#>              <int> <chr>       <int>  <int> <chr>        <int>
-#> 1             7987 home           13      1 Q1              19
-#> 2             7987 home           13      2 Q2               5
-#> 3             7987 home           13      3 Q3              17
-#> 4             7987 home           13      4 Q4              25
-#> 5             7987 away           12      1 Q1              22
-#> 6             7987 away           12      2 Q2              17
-#> 7             7987 away           12      3 Q3              17
-#> 8             7987 away           12      4 Q4              19
-# }
-```

@@ -101,6 +101,8 @@ all-time ones, one row per record. An empty valid answer raises
   play), all inheriting `wehoop_error`. Wrappers raise; they never
   return an empty frame.
 
+     scb_records_per_game(season = 2026)
+
 ## See also
 
 Other SCB Functions:
@@ -126,31 +128,3 @@ Other SCB Functions:
 [`scb_team_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_team_statistics.md),
 [`scb_transfers()`](https://wehoop.sportsdataverse.org/reference/scb_transfers.md),
 [`scb_transfers_teams()`](https://wehoop.sportsdataverse.org/reference/scb_transfers_teams.md)
-
-## Examples
-
-``` r
-# \donttest{
-  try(scb_records_per_game(season = 2026))
-#> ── BBL/DBBL Single-Game Records from the SCB API ────────── wehoop 3.0.0.9000 ──
-#> ℹ Data updated: 2026-10-18 14:07:15 UTC
-#> # A tibble: 200 × 21
-#>    league season season_id scope  stat    place all_time_place order_id
-#>    <chr>   <int>     <int> <chr>  <chr>   <int>          <int>    <int>
-#>  1 dbbl     2026      2025 season assists     1              2        1
-#>  2 dbbl     2026      2025 season assists     2              2        2
-#>  3 dbbl     2026      2025 season assists     3              3        3
-#>  4 dbbl     2026      2025 season assists     3              3        4
-#>  5 dbbl     2026      2025 season assists     4             NA        5
-#>  6 dbbl     2026      2025 season assists     5             NA        6
-#>  7 dbbl     2026      2025 season assists     5             NA        7
-#>  8 dbbl     2026      2025 season assists     5              3        8
-#>  9 dbbl     2026      2025 season assists     6              3        9
-#> 10 dbbl     2026      2025 season assists     6             NA       10
-#> # ℹ 190 more rows
-#> # ℹ 13 more variables: all_time_order_id <int>, value <dbl>, ratio <dbl>,
-#> #   season_player_id <chr>, real_player_id <int>, first_name <chr>,
-#> #   last_name <chr>, team_name <chr>, team_tlc <chr>, home_tlc <chr>,
-#> #   guest_tlc <chr>, game_id <chr>, scheduled_time <chr>
-# }
-```
