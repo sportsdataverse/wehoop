@@ -1,0 +1,65 @@
+{
+ "federation_ranking_women": {
+  "wrapper": "fiba_gdap_federation_ranking",
+  "args": {
+   "category": "women"
+  },
+  "fixture": "federation_ranking_women.json",
+  "rows": 118,
+  "requests": [
+   {
+    "url": "https://digital-api.fiba.basketball/hapi/getgdapfederationsranking",
+    "params": {
+     "gdapCategory": "women",
+     "zoneRankingId": 1
+    }
+   }
+  ],
+  "dtypes": {
+   "as_of_date": "String",
+   "zone_ranking_code": "String",
+   "zone_ranking_official_name": "String",
+   "world_rank": "Int64",
+   "country_name": "String",
+   "zone_rank": "Int64",
+   "ioc_code": "String",
+   "fiba_code": "String",
+   "current_points": "Float64",
+   "world_rank_variation": "Int64",
+   "comments": "String"
+  }
+ },
+ "gateway_federation_ranking_women": {
+  "wrapper": "fiba_gdap_gateway_federation_ranking",
+  "args": {
+   "gender": "women"
+  },
+  "fixture": "gateway_federation_ranking_women.json",
+  "rows": 118,
+  "requests": [
+   {
+    "url": "https://digital-api.fiba.basketball/hapi/getcustomgateway",
+    "params": {
+     "fibaFunction": "federationRanking",
+     "gender": "women",
+     "zoneId": 1
+    }
+   }
+  ],
+  "dtypes": {
+   "as_of_date": "String",
+   "zone_ranking_code": "String",
+   "zone_ranking_official_name": "String",
+   "world_rank": "Int64",
+   "country_name": "String",
+   "zone_rank": "Int64",
+   "ioc_code": "String",
+   "fiba_code": "String",
+   "current_points": "Float64",
+   "world_rank_variation": "Int64",
+   "comments": "String",
+   "organisation_id": "Int64",
+   "organisation_status_code": "String"
+  }
+ }
+}

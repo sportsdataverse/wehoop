@@ -126,17 +126,33 @@ test_that("a wrapper sends the documented query, the APIM key and never retries 
   expect_identical(raw$competition$competitionId, 208182L)
 })
 
-test_that("the ranking wrappers default to the women's category in wehoop", {
-  log <- fiba_net(list(getgdapfederationsranking = fiba_json("federation_ranking_men.json"),
-                       getcustomgateway = fiba_json("gateway_federation_ranking.json")))
+test_that("the ranking wrappers default to the women's category in wehoop and match sdv-py's women's frames", {
+  # live women's bodies (fixtures/fiba_gdap/README.md); the oracle is sdv-py's wrapper with category / gender = "women"
+  defaults <- jsonlite::read_json(fiba_fx("fiba_gdap", "parity", "women_defaults.json"))
   expect_identical(formals(fiba_gdap_federation_ranking)$category, "women")
   expect_identical(formals(fiba_gdap_gateway_federation_ranking)$gender, "women")
-  fiba_gdap_federation_ranking(return_parsed = FALSE)
-  fiba_gdap_gateway_federation_ranking(return_parsed = FALSE)
-  calls <- gdap_calls(log)
-  expect_identical(calls[[1]]$query$gdapCategory, "women")
-  expect_identical(calls[[2]]$query$gender, "women")
-  expect_identical(calls[[2]]$query$fibaFunction, "federationRanking")
+  calls <- list(federation_ranking_women = function() fiba_gdap_federation_ranking(),
+                gateway_federation_ranking_women = function() fiba_gdap_gateway_federation_ranking())
+  expect_setequal(names(calls), names(defaults))
+  for (case in names(calls)) {
+    d <- defaults[[case]]
+    method <- sub(".*/", "", d$requests[[1]]$url)
+    log <- fiba_net(stats::setNames(list(fiba_json(d$fixture)), method))
+    df <- calls[[case]]()
+    ref <- intl_read_oracle(fiba_fx("fiba_gdap", "parity", paste0(case, ".csv")))
+    expect_s3_class(df, "wehoop_data")
+    expect_identical(names(df), names(ref), label = case)
+    expect_identical(nrow(df), as.integer(d$rows), label = case)
+    expect_identical(nrow(df), nrow(ref), label = case)
+    expect_identical(vapply(df, typeof, ""), stats::setNames(unname(fiba_rtype[unlist(d$dtypes)]), names(d$dtypes)),
+                     label = case)
+    mis <- fiba_mismatches(df, ref)
+    expect_true(all(mis == 0), label = paste(case, paste(names(mis)[mis > 0], collapse = ",")))
+    got <- gdap_calls(log)
+    expect_length(got, length(d$requests))
+    expect_identical(got[[1]]$url, d$requests[[1]]$url, label = case)
+    expect_identical(got[[1]]$query, d$requests[[1]]$params, label = case)
+  }
 })
 
 test_that("the key page is read once; an unreadable page falls back to the documented key", {
