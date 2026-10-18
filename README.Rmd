@@ -116,6 +116,15 @@ There is also a printable [**`wehoop` cheat sheet (PDF)**](https://sportsdataver
 
 [**Full News on Releases**](https://wehoop.sportsdataverse.org/news/index.html)
 
+## Star History
+
+<a href="https://github.com/sportsdataverse/wehoop/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/wehoop/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/wehoop" src="https://raw.githubusercontent.com/sportsdataverse/wehoop/star-history/star-history.png" width="600">
+  </picture>
+</a>
+
 ## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
 
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse
