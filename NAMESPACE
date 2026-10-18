@@ -804,7 +804,8 @@ importFrom(purrr,
 )
 importFrom(rlang,
   "%||%",
-  .data
+  .data,
+  .env
 )
 importFrom(rvest,
   html_attr,
