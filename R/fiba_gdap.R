@@ -733,7 +733,9 @@ fiba_gdap_gateway_competition_ids <- function(start_date, end_date, return_parse
 #' @export
 #' @examples
 #' \donttest{
-#'   try(fiba_gdap_gateway_federation_ranking(gender = "women", zone_id = 1, as_of_date = "2025-09-15"))
+#'   try(fiba_gdap_gateway_federation_ranking(
+#'     gender = "women", zone_id = 1, as_of_date = "2025-09-15"
+#'   ))
 #' }
 fiba_gdap_gateway_federation_ranking <- function(gender = "women", zone_id = 1L, as_of_date = NULL, return_parsed = TRUE) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))

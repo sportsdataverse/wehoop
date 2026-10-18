@@ -159,6 +159,7 @@
 #' An integer from an integer, a whole double or an integer string; never a logical; else `NA`.
 #' @noRd
 .wjbl_i <- function(v) {
+  v <- .intl_ascii_digits(v) # full-width digits, as sdv-py's \d / int() read them
   if (!.wjbl_scalar(v) || is.logical(v)) return(NA_integer_)
   if (is.integer(v)) return(v)
   if (is.double(v)) {
@@ -174,6 +175,7 @@
 #' A double from a number or a numeric string (a trailing `%` is dropped); never a logical; else `NA`.
 #' @noRd
 .wjbl_f <- function(v) {
+  v <- .intl_ascii_digits(v) # full-width digits, as sdv-py's \d / int() read them
   if (!.wjbl_scalar(v) || is.logical(v)) return(NA_real_)
   if (is.numeric(v)) return(as.double(v))
   if (is.character(v)) {
@@ -254,6 +256,7 @@
 #' The captured groups of a perl regex, or `NULL` (`search = FALSE` anchors nothing itself).
 #' @noRd
 .wjbl_match <- function(x, re) {
+  x <- .intl_ascii_digits(x) # full-width digits, as sdv-py's \d / int() read them
   if (!is.character(x) || length(x) != 1L || is.na(x)) return(NULL)
   m <- regmatches(x, regexec(re, x, perl = TRUE))[[1]]
   if (length(m)) m[-1] else NULL
@@ -270,7 +273,7 @@
 #' @noRd
 .wjbl_counter <- function(v) {
   if (is.character(v) && length(v) == 1L) {
-    m <- .wjbl_match(v, "(*UCP)^\\s*([0-9]+)\\s*[^0-9]{0,2}\\s*$")
+    m <- .wjbl_match(v, "(*UCP)^\\s*([0-9]+)\\s*\\D{0,2}\\s*$") # Python \D: any non-digit, Unicode-aware
     return(if (is.null(m)) NA_integer_ else as.integer(m[[1]]))
   }
   .wjbl_i(v)

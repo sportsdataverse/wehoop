@@ -366,3 +366,5 @@ test_that("live: the league list and a final game's box score", {
   box <- wjbl_box_score(WJBL_G)
   expect_identical(sum(box$pts), 141L)
 })
+
+test_that("full-width digits read as ASCII; \\D{0,2} is any two non-digits", expect_identical(c(.wjbl_i("\uff11\uff12"), .wjbl_counter("\uff11\uff12\u4eba"), .wjbl_counter("\uff11\uff12\uff0e")), c(12L, 12L, 12L)))
