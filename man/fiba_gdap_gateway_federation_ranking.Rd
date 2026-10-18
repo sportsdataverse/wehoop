@@ -69,7 +69,9 @@ competitions, the event year for national-team events, the target tournament yea
 }
 \examples{
 \donttest{
-  try(fiba_gdap_gateway_federation_ranking(gender = "women", zone_id = 1, as_of_date = "2025-09-15"))
+  try(fiba_gdap_gateway_federation_ranking(
+    gender = "women", zone_id = 1, as_of_date = "2025-09-15"
+  ))
 }
 }
 \seealso{
