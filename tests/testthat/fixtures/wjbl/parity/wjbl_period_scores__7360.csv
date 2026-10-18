@@ -1,0 +1,11 @@
+play_schedule_id,team_side,team_id,period,period_label,score
+7360,home,13,1,Q1,21
+7360,home,13,2,Q2,11
+7360,home,13,3,Q3,7
+7360,home,13,4,Q4,14
+7360,home,13,5,OT1,7
+7360,away,30,1,Q1,17
+7360,away,30,2,Q2,14
+7360,away,30,3,Q3,16
+7360,away,30,4,Q4,6
+7360,away,30,5,OT1,2

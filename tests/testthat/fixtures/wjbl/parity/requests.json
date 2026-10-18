@@ -1,0 +1,209 @@
+{
+ "wjbl_leagues": [
+  {
+   "route": "/leagues",
+   "params": {
+    "target": "play_schedule"
+   }
+  }
+ ],
+ "wjbl_game_months": [
+  {
+   "route": "/leagues",
+   "params": {
+    "target": "play_schedule"
+   }
+  },
+  {
+   "route": "/play-schedule-months",
+   "params": {
+    "league_id": "45"
+   }
+  }
+ ],
+ "wjbl_schedule": [
+  {
+   "route": "/leagues",
+   "params": {
+    "target": "play_schedule"
+   }
+  },
+  {
+   "route": "/play-schedules",
+   "params": {
+    "game_month": "2026-04",
+    "league_id": "45"
+   }
+  }
+ ],
+ "wjbl_game": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_period_scores": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_period_scores__7360": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7360"
+   }
+  }
+ ],
+ "wjbl_game_info": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  },
+  {
+   "route": "/play-schedule",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_box_score": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  },
+  {
+   "route": "/boxscore",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_team_box_score": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  },
+  {
+   "route": "/boxscore",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_pbp": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  },
+  {
+   "route": "/pbp/play-by-play",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_team_period_stats": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  },
+  {
+   "route": "/pbp/team-stats",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_player_period_leaders": [
+  {
+   "route": "/play-schedule/detail",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  },
+  {
+   "route": "/pbp/player-stats",
+   "params": {
+    "play_schedule_id": "7987"
+   }
+  }
+ ],
+ "wjbl_standing_seasons": [
+  {
+   "route": "/seasons/standings",
+   "params": {}
+  }
+ ],
+ "wjbl_team_standings": [
+  {
+   "route": "/team-standings",
+   "params": {
+    "season_ids": "169"
+   }
+  }
+ ],
+ "wjbl_head_to_head": [
+  {
+   "route": "/team-standings",
+   "params": {
+    "season_ids": "169"
+   }
+  }
+ ],
+ "wjbl_team_ranking": [
+  {
+   "route": "/team-ranking",
+   "params": {
+    "season_ids": "169,170"
+   }
+  }
+ ],
+ "wjbl_teams": [
+  {
+   "route": "/teams/base",
+   "params": {}
+  }
+ ],
+ "wjbl_roster": [
+  {
+   "route": "/team/roster",
+   "params": {
+    "team_id": "13",
+    "season_id": "169"
+   }
+  }
+ ],
+ "wjbl_staff": [
+  {
+   "route": "/team/roster",
+   "params": {
+    "team_id": "13",
+    "season_id": "169"
+   }
+  }
+ ],
+ "wjbl_player": [
+  {
+   "route": "/player",
+   "params": {
+    "player_id": "9799"
+   }
+  }
+ ]
+}
