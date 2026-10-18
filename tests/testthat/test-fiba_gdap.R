@@ -77,8 +77,7 @@ test_that("every fiba_gdap route matches sdv-py's frame on the same fixture (col
   expect_length(routes, 31L)
   for (r in routes) {
     df <- .fiba_gdap_parse(r$route, fiba_json(r$fixture))
-    ref <- utils::read.csv(fiba_fx("fiba_gdap", r$csv), colClasses = "character", na.strings = "NA",
-                           check.names = FALSE, encoding = "UTF-8")
+    ref <- intl_read_oracle(fiba_fx("fiba_gdap", r$csv))
     route <- paste0("fiba_gdap_", r$route)
     expect_identical(names(df), names(ref), label = route)
     expect_identical(names(df), names(.FIBA_DTYPES[[route]]), label = route)
@@ -319,8 +318,7 @@ test_that("a women's alias (fiba_elw_schedule) matches sdv-py's frame on the ELW
   fiba_net(list(getGdapCompetitionById = fiba_comp_elw(),
                 getgdapgamesbycompetitionid = fiba_json("schedule_elw2025.json")))
   df <- fiba_elw_schedule(comp = 208858)
-  ref <- utils::read.csv(fiba_fx("fiba_gdap", "parity", "schedule_elw2025.csv"), colClasses = "character",
-                         na.strings = "NA", check.names = FALSE, encoding = "UTF-8")
+  ref <- intl_read_oracle(fiba_fx("fiba_gdap", "parity", "schedule_elw2025.csv"))
   expect_identical(names(df), names(ref))
   expect_equal(nrow(df), 3L)
   d <- fiba_dtypes()
