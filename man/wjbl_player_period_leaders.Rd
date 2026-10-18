@@ -77,11 +77,9 @@ game, league edition, month, team, season phase or player than the one asked for
 / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers raise; they never warn and return an empty
 frame.
 }
-}
-\examples{
-\donttest{
-  try(wjbl_player_period_leaders(play_schedule_id = 7987))
-}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ wjbl_player_period_leaders(play_schedule_id = 7987)
+}\if{html}{\out{</div>}}
 }
 \seealso{
 Other WJBL Functions:

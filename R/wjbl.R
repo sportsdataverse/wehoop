@@ -3,6 +3,45 @@
 # R/wjbl_runtime.R; frames and columns: R/wjbl_parsers.R. Generated once from sdv-py's endpoint YAML and
 # manual_column_descriptions.yaml (Japanese folded out: roxygen stays ASCII), then maintained by hand.
 
+# The @details of every wjbl topic that shares the wjbl_leagues() notes (roxygen @eval .intl_details()).
+.wjbl_leagues_details <- c(
+  "* Unofficial and unsupported: these wrappers read the JSON backend of www.wjbl.org (api.wjbl.01core.app),",
+  "  keyless, found in the site's own JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid",
+  "  reproducing, republishing or otherwise using site content without permission: a copyright clause, not an",
+  "  anti-scraping one. The wrappers fetch on the user's behalf; a published data release or a hosted mirror needs",
+  "  the owner's decision first. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is",
+  "  published; the runtime waits at least 1 s before every request, retries included. Payloads are not",
+  "  redistributed as release assets.",
+  "* Women's league: the W League is Japan's top women's basketball league (the SportsDataverse R counterpart is",
+  "  wehoop). All text is Japanese (team names, phases, play-by-play actions); the column descriptions translate",
+  "  the vocabulary.",
+  "* Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys a season edition by an opaque league_id",
+  "  (45 = '25-26 W League'; every all-star game, cup and camp has one too) and the wrappers map the END year with",
+  "  the live league list (one extra, cached request; END = 2000 + the second YY of league_title). Phases inside an",
+  "  edition (season_id: 169 = regular season Premier, 170 = Future, 176 = playoff final; two divisions from",
+  "  2024-25) are native ids, passed as given: wjbl_standing_seasons lists them with their END year.",
+  "* The schedule is paged by month: wjbl_schedule answers ONE month (game_month, YYYY-MM; omitted = the season's",
+  "  latest month only). List the months with wjbl_game_months and loop. The game routes take only the global",
+  "  play_schedule_id and serve final games only: each makes one extra, cached request (the game header) to prove",
+  "  the game is final and that the answer is the game and the teams asked for.",
+  "* Errors are HTTP 200: an unknown id answers \\[\\] (wehoop_no_data) and a missing or non-numeric parameter",
+  "  answers an error envelope (wehoop_asset_fetch). Coverage: schedules from 1999-2000, box scores from 2013-14,",
+  "  play-by-play and the period stats from 2018-19 (earlier games answer \\[\\] on the /pbp routes: wehoop_no_data).",
+  "  No route carries shot coordinates.",
+  "* Personal data: the organiser's contact details (phones, e-mail) and the player's blood type are never output,",
+  "  and phone numbers and e-mail addresses inside free text are replaced by \\[redacted-phone\\] /",
+  "  \\[redacted-email\\]. Do not add them back. Player bio fields and referee names are public and stay.",
+  "* Errors are classed conditions, all inheriting `wehoop_error`: `wehoop_no_data` (HTTP 404 or the API has",
+  "  nothing for the request: an empty list, an id it does not know, a game without play-by-play before 2018-19, a",
+  "  season without months or games), `wehoop_bad_request` (a season that is not the END year of a W League",
+  "  edition, an id that is not an integer or a game_month that is not YYYY-MM, raised before the request, or the",
+  "  API's HTTP 400 / 422) and `wehoop_asset_fetch` (any other failure: an error envelope at HTTP 200, any other",
+  "  non-2xx, an empty or non-JSON body, a game that is not final, a truncated play-by-play, or a body for another",
+  "  game, league edition, month, team, season phase or player than the one asked for; `transient` is TRUE for 408",
+  "  / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers raise; they never warn and return an empty",
+  "  frame."
+)
+
 #' @title
 #' **Get W League Leagues**
 #' @description
@@ -18,42 +57,7 @@
 #' | league_id | integer | Competition-edition id league_id (key space: W League competitions; sequential, ONE id per season of the league AND per all-star game, cup or camp: 45 = '25-26 W League', 47 = '26-27', 20 = '13-14', 46 = All-Star 2025-26). The league_id parameter of /play-schedules and /play-schedule-months; enumerate with /leagues. The sdv season is the END year of league_title (END = 2000 + the second YY: '25-26' -> 2026, '99-00' -> 2000). |
 #' | league_title | character | Competition-edition title in Japanese: '25-26 W League' = 2025-26 W League (sdv END year 2026; END = 2000 + the second YY: '25-26' -> 2026, '99-00' -> 2000); also All-Star game, Autumn Cup, Summer Camp, 'W League SUPERGAMES'. |
 #' | season | integer | Season END year (2025-26 = 2026, 1999-2000 = 2000) from league_title ('25-26 W League'); null for an all-star game, cup or camp. |
-#' @details
-#' * Unofficial and unsupported: these wrappers read the JSON backend of www.wjbl.org (api.wjbl.01core.app),
-#'   keyless, found in the site's own JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
-#'   reproducing, republishing or otherwise using site content without permission: a copyright clause, not an
-#'   anti-scraping one. The wrappers fetch on the user's behalf; a published data release or a hosted mirror needs
-#'   the owner's decision first. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is
-#'   published; the runtime waits at least 1 s before every request, retries included. Payloads are not
-#'   redistributed as release assets.
-#' * Women's league: the W League is Japan's top women's basketball league (the SportsDataverse R counterpart is
-#'   wehoop). All text is Japanese (team names, phases, play-by-play actions); the column descriptions translate
-#'   the vocabulary.
-#' * Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys a season edition by an opaque league_id
-#'   (45 = '25-26 W League'; every all-star game, cup and camp has one too) and the wrappers map the END year with
-#'   the live league list (one extra, cached request; END = 2000 + the second YY of league_title). Phases inside an
-#'   edition (season_id: 169 = regular season Premier, 170 = Future, 176 = playoff final; two divisions from
-#'   2024-25) are native ids, passed as given: wjbl_standing_seasons lists them with their END year.
-#' * The schedule is paged by month: wjbl_schedule answers ONE month (game_month, YYYY-MM; omitted = the season's
-#'   latest month only). List the months with wjbl_game_months and loop. The game routes take only the global
-#'   play_schedule_id and serve final games only: each makes one extra, cached request (the game header) to prove
-#'   the game is final and that the answer is the game and the teams asked for.
-#' * Errors are HTTP 200: an unknown id answers \[\] (wehoop_no_data) and a missing or non-numeric parameter
-#'   answers an error envelope (wehoop_asset_fetch). Coverage: schedules from 1999-2000, box scores from 2013-14,
-#'   play-by-play and the period stats from 2018-19 (earlier games answer \[\] on the /pbp routes: wehoop_no_data).
-#'   No route carries shot coordinates.
-#' * Personal data: the organiser's contact details (phones, e-mail) and the player's blood type are never output,
-#'   and phone numbers and e-mail addresses inside free text are replaced by \[redacted-phone\] /
-#'   \[redacted-email\]. Do not add them back. Player bio fields and referee names are public and stay.
-#' * Errors are classed conditions, all inheriting `wehoop_error`: `wehoop_no_data` (HTTP 404 or the API has
-#'   nothing for the request: an empty list, an id it does not know, a game without play-by-play before 2018-19, a
-#'   season without months or games), `wehoop_bad_request` (a season that is not the END year of a W League
-#'   edition, an id that is not an integer or a game_month that is not YYYY-MM, raised before the request, or the
-#'   API's HTTP 400 / 422) and `wehoop_asset_fetch` (any other failure: an error envelope at HTTP 200, any other
-#'   non-2xx, an empty or non-JSON body, a game that is not final, a truncated play-by-play, or a body for another
-#'   game, league edition, month, team, season phase or player than the one asked for; `transient` is TRUE for 408
-#'   / 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers raise; they never warn and return an empty
-#'   frame.
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_leagues())
@@ -253,11 +257,7 @@ wjbl_game <- function(play_schedule_id) {
 #' | period | integer | Period number: 1-4 are the quarters and 5-8 the first to fourth overtime (score_ot1 to score_ot4). |
 #' | period_label | character | Readable period: Q1-Q4 quarters, OT1-OT10 overtimes (period categories 5-14), H1 / H2 halves (15 / 16), OT all overtimes together (17), GAME the whole game (18). |
 #' | score | integer | Points the side scored in that period (null periods, such as overtimes not played, have no row). |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_period_scores(play_schedule_id = 7987))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_period_scores(play_schedule_id = 7987)")
 #' @export
 #' @family WJBL Functions
 wjbl_period_scores <- function(play_schedule_id) {
@@ -541,11 +541,7 @@ wjbl_pbp <- function(play_schedule_id) {
 #' | away_max_difference | integer | Away team's largest lead in the period, points (integer). |
 #' | lead_count | integer | Lead changes in the period, from the wire's counted string (0 times). |
 #' | tie_count | integer | Times the score was tied in the period, from the wire's counted string (4 times). |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_team_period_stats(play_schedule_id = 7987))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_team_period_stats(play_schedule_id = 7987)")
 #' @export
 #' @family WJBL Functions
 wjbl_team_period_stats <- function(play_schedule_id) {
@@ -586,11 +582,7 @@ wjbl_team_period_stats <- function(play_schedule_id) {
 #' | away_assist_value | character | Their assists with the counter (Japanese) ((Japanese text)), ', '-joined for ties. |
 #' | away_rebound_player | character | Away rebound leader(s), '#NUMBER NAME', ties joined with ', '. |
 #' | away_rebound_value | character | Their rebounds 'offensive-defensive-total' ('0-3-3'), ', '-joined for ties. |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_player_period_leaders(play_schedule_id = 7987))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_player_period_leaders(play_schedule_id = 7987)")
 #' @export
 #' @family WJBL Functions
 wjbl_player_period_leaders <- function(play_schedule_id) {
@@ -696,11 +688,7 @@ wjbl_team_standings <- function(season_ids) {
 #' | win | integer | The ROW team's points in that game (a string on the wire, whatever the result; 56 on a loss). |
 #' | losg | integer | The OPPONENT's points in that game (a string on the wire; the wire key is spelled losg). |
 #' | result | character | 'o 63-56' = row team won, 'x 56-63' = lost (row team's points first); 'o 20-0' is a forfeit win (FIBA forfeit score). |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_head_to_head(season_ids = "169"))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, 'wjbl_head_to_head(season_ids = "169")')
 #' @export
 #' @family WJBL Functions
 wjbl_head_to_head <- function(season_ids) {
@@ -757,11 +745,7 @@ wjbl_head_to_head <- function(season_ids) {
 #' | gpd | double | Point differential summed over the season (GPD), NOT per game: (ppg - opp) x games ('193.00'), a string; parsed to a number. |
 #' | win_point | character | Unobserved: null in every sample, so no type and no meaning is claimed. (By the site's JS: league points, a column shown only when filled.) |
 #' | unsatisfied | character | Unobserved: null in every sample, so no type and no meaning is claimed. (By the site's JS: a column shown only when filled; meaning unverified.) |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_team_ranking(season_ids = "169,170"))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, 'wjbl_team_ranking(season_ids = "169,170")')
 #' @export
 #' @family WJBL Functions
 wjbl_team_ranking <- function(season_ids) {
@@ -784,11 +768,7 @@ wjbl_team_ranking <- function(season_ids) {
 #' |:---|:---|:---|
 #' | team_id | integer | Franchise id team_id (key space: W League franchises, STABLE across seasons and sponsor renames: 13 = Toyota Antelopes, 12 = Denso Iris, 8 = ENEOS Sunflowers; all-star sides have their own ids, e.g. 591). The team_id of /team/roster and of the site's /team/roster/?team_id=. Not season_team_id. |
 #' | team_name | character | Franchise name, Japanese or English (Fujitsu Red Wave; all-star side Team Sirius). |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_teams())
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_teams()")
 #' @export
 #' @family WJBL Functions
 wjbl_teams <- function() {
@@ -835,11 +815,7 @@ wjbl_teams <- function() {
 #' | picture | character | Player photo path relative to https://www.wjbl.org. |
 #' | foreign_national_flg | integer | Foreign national ((Japanese) icon): 1 = yes, 0 = no. |
 #' | naturalized_flg | integer | Naturalised player ((Japanese) icon): 1 = yes, 0 = no. |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_roster(season_id = 169, team_id = 13))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_roster(season_id = 169, team_id = 13)")
 #' @export
 #' @family WJBL Functions
 wjbl_roster <- function(team_id, season_id = NULL) {
@@ -874,11 +850,7 @@ wjbl_roster <- function(team_id, season_id = NULL) {
 #' | staff_name | character | Staff member name, Japanese. |
 #' | position | character | Staff role, Japanese: (Japanese) associate head coach, (Japanese) assistant coach, (Japanese) general manager, (Japanese) team director, (Japanese) support staff. |
 #' | url | character | Link attached to the staff entry; empty in most rows. |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_staff(season_id = 169, team_id = 13))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_staff(season_id = 169, team_id = 13)")
 #' @export
 #' @family WJBL Functions
 wjbl_staff <- function(team_id, season_id = NULL) {
@@ -937,11 +909,7 @@ wjbl_staff <- function(team_id, season_id = NULL) {
 #' | player_facebook_url | character | Facebook URL; empty string in the sample. |
 #' | player_twitter_url | character | X (Twitter) URL; empty string in the sample. |
 #' | player_instagram_url | character | Instagram URL; empty string in the sample. |
-#' @inherit wjbl_leagues details
-#' @examples
-#' \donttest{
-#'   try(wjbl_player(player_id = 9799))
-#' }
+#' @eval .intl_details(.wjbl_leagues_details, "wjbl_player(player_id = 9799)")
 #' @export
 #' @family WJBL Functions
 wjbl_player <- function(player_id) {
