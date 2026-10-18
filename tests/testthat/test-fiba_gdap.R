@@ -127,6 +127,19 @@ test_that("a wrapper sends the documented query, the APIM key and never retries 
   expect_identical(raw$competition$competitionId, 208182L)
 })
 
+test_that("the ranking wrappers default to the women's category in wehoop", {
+  log <- fiba_net(list(getgdapfederationsranking = fiba_json("federation_ranking_men.json"),
+                       getcustomgateway = fiba_json("gateway_federation_ranking.json")))
+  expect_identical(formals(fiba_gdap_federation_ranking)$category, "women")
+  expect_identical(formals(fiba_gdap_gateway_federation_ranking)$gender, "women")
+  fiba_gdap_federation_ranking(return_parsed = FALSE)
+  fiba_gdap_gateway_federation_ranking(return_parsed = FALSE)
+  calls <- gdap_calls(log)
+  expect_identical(calls[[1]]$query$gdapCategory, "women")
+  expect_identical(calls[[2]]$query$gender, "women")
+  expect_identical(calls[[2]]$query$fibaFunction, "federationRanking")
+})
+
 test_that("the key page is read once; an unreadable page falls back to the documented key", {
   log <- fiba_net(list(getgdaprankingzones = fiba_json("ranking_zones.json")))
   fiba_gdap_ranking_zones()

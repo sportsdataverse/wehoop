@@ -5,14 +5,14 @@
 \title{\strong{FIBA GDAP: gateway federation ranking}}
 \usage{
 fiba_gdap_gateway_federation_ranking(
-  gender = "men",
+  gender = "women",
   zone_id = 1L,
   as_of_date = NULL,
   return_parsed = TRUE
 )
 }
 \arguments{
-\item{gender}{(character, default \code{"men"}) federationRanking: men or women (= gdapCategory)}
+\item{gender}{(character, default \code{"women"} in wehoop; sdv-py and hoopR default \code{"men"}) federationRanking: men or women (= gdapCategory)}
 
 \item{zone_id}{(integer, default \code{1L}) federationRanking: ranking zone id (= zoneRankingId)}
 
@@ -69,7 +69,7 @@ competitions, the event year for national-team events, the target tournament yea
 }
 \examples{
 \donttest{
-  try(fiba_gdap_gateway_federation_ranking(gender = "men", zone_id = 1, as_of_date = "2025-09-15"))
+  try(fiba_gdap_gateway_federation_ranking(gender = "women", zone_id = 1, as_of_date = "2025-09-15"))
 }
 }
 \seealso{

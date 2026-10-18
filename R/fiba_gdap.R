@@ -316,7 +316,7 @@ fiba_gdap_federation_games <- function(federation_id, return_parsed = TRUE) {
 #' FIBA world ranking of national teams.
 #'
 #' Endpoint: `GET https://digital-api.fiba.basketball/hapi/getgdapfederationsranking`
-#' @param category (character, default `"men"`) Ranking category: men or women (the site also knows boys/girls)
+#' @param category (character, default `"women"` in wehoop; sdv-py and hoopR default `"men"`) Ranking category: men or women (the site also knows boys/girls)
 #' @param zone_id (integer, default `1L`) Ranking zone id from getgdaprankingzones (1 = World, 2 = Africa, 3 =
 #'   Americas, 4 = Asia, 5 = Europe)
 #' @param as_of_date (character, optional) Ranking as of this date, ISO 8601: the latest ranking published on or
@@ -344,9 +344,9 @@ fiba_gdap_federation_games <- function(federation_id, return_parsed = TRUE) {
 #' @export
 #' @examples
 #' \donttest{
-#'   try(fiba_gdap_federation_ranking(category = "men", zone_id = 1, as_of_date = "2025-09-15"))
+#'   try(fiba_gdap_federation_ranking(category = "women", zone_id = 1, as_of_date = "2025-09-15"))
 #' }
-fiba_gdap_federation_ranking <- function(category = "men", zone_id = 1L, as_of_date = NULL, return_parsed = TRUE) {
+fiba_gdap_federation_ranking <- function(category = "women", zone_id = 1L, as_of_date = NULL, return_parsed = TRUE) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   call <- rlang::current_env()
   .fiba_gdap_route("federation_ranking", "getgdapfederationsranking", list(
@@ -704,7 +704,7 @@ fiba_gdap_gateway_competition_ids <- function(start_date, end_date, return_parse
 #' FIBA world ranking from the server-side gateway (same items as fiba_gdap_federation_ranking).
 #'
 #' Endpoint: `GET https://digital-api.fiba.basketball/hapi/getcustomgateway`
-#' @param gender (character, default `"men"`) federationRanking: men or women (= gdapCategory)
+#' @param gender (character, default `"women"` in wehoop; sdv-py and hoopR default `"men"`) federationRanking: men or women (= gdapCategory)
 #' @param zone_id (integer, default `1L`) federationRanking: ranking zone id (= zoneRankingId)
 #' @param as_of_date (character, optional) Ranking as of this date, ISO 8601: the latest ranking published on or
 #'   before it (2026-03-10 answers the 2026-03-03 ranking). Omitted = the latest ranking
@@ -733,9 +733,9 @@ fiba_gdap_gateway_competition_ids <- function(start_date, end_date, return_parse
 #' @export
 #' @examples
 #' \donttest{
-#'   try(fiba_gdap_gateway_federation_ranking(gender = "men", zone_id = 1, as_of_date = "2025-09-15"))
+#'   try(fiba_gdap_gateway_federation_ranking(gender = "women", zone_id = 1, as_of_date = "2025-09-15"))
 #' }
-fiba_gdap_gateway_federation_ranking <- function(gender = "men", zone_id = 1L, as_of_date = NULL, return_parsed = TRUE) {
+fiba_gdap_gateway_federation_ranking <- function(gender = "women", zone_id = 1L, as_of_date = NULL, return_parsed = TRUE) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   call <- rlang::current_env()
   .fiba_gdap_route("gateway_federation_ranking", "getcustomgateway", list(
