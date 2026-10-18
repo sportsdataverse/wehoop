@@ -149,6 +149,15 @@ failure). Mirrors the sdv-py
 `testthat` floor (Suggests) rises to 3.1.9: `local_mocked_bindings(.package = )`
 needs 3.1.7, and `expect_in()`, already used across the test suite, needs 3.1.9.
 
+### **Dependencies**
+
+* Imports trimmed so `R CMD check` no longer notes too many non-default packages.
+  glmnet and Matrix moved to Suggests: `wnba_rapm()` now needs them installed (it says so
+  with an install prompt if they are missing). stringdist moved to Suggests: the live
+  player-crosswalk builders `wnba_player_crosswalk()` and `wbb_player_crosswalk()` now need it; the cached `load_*_crosswalk()` loaders
+  do not. magrittr, lubridate and xml2 are no longer dependencies (`%>%` still comes from dplyr; date
+  parsing now uses base R with the same results).
+
 # **wehoop 3.0.0**
 
 ### **WBB cross-source crosswalk (`wbb_*_crosswalk` / `load_wbb_*_crosswalk`)**

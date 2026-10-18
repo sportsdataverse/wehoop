@@ -57,6 +57,7 @@ test_that(".bb_assemble_schedule_crosswalk_wnba full-outer joins on ET date + te
 })
 
 test_that(".bb_assemble_player_crosswalk_wnba matches ESPN/Stats within team blocks", {
+  skip_if_not_installed("stringdist")
   skip_on_cran()
   espn <- data.frame(
     espn_team_id = c(17L, 17L), team_abbreviation = c("LV", "LV"),

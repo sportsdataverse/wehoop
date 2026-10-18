@@ -316,6 +316,7 @@ test_that("possession engine is never-raise on empty PBP", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design encodes offense/defense indicators correctly", {
+  skip_if_not_installed("Matrix")
   skip_on_cran()
   rows <- list(
     list(off = c(1L, 2L, 3L, 4L, 5L),    def = c(11L, 12L, 13L, 14L, 15L), pts = 2),
@@ -361,6 +362,7 @@ test_that(".build_rapm_design encodes offense/defense indicators correctly", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design handles empty possessions without raising", {
+  skip_if_not_installed("Matrix")
   skip_on_cran()
   empty <- data.frame(
     off_player_1 = integer(0), off_player_2 = integer(0),
@@ -386,6 +388,8 @@ test_that(".build_rapm_design handles empty possessions without raising", {
 # ---------------------------------------------------------------------------
 
 test_that(".build_rapm_design drops possessions with NA lineup cells (never-raise)", {
+  skip_if_not_installed("glmnet")
+  skip_if_not_installed("Matrix")
   skip_on_cran()
   df <- data.frame(
     off_player_1 = c(NA_integer_, 1L),
@@ -429,6 +433,7 @@ test_that(".build_rapm_design drops possessions with NA lineup cells (never-rais
 # ---------------------------------------------------------------------------
 
 test_that("wnba_rapm returns correct schema on a tiny hand frame", {
+  skip_if_not_installed("glmnet")
   skip_on_cran()
   rows <- list(
     list(off = c(1L, 2L, 3L, 7L, 8L), def = c(4L, 5L, 6L, 9L, 10L), pts = 2),
@@ -458,6 +463,7 @@ test_that("wnba_rapm returns correct schema on a tiny hand frame", {
 # ---------------------------------------------------------------------------
 
 test_that("wnba_rapm returns 0-row schema frame on empty input (never-raise)", {
+  skip_if_not_installed("glmnet")
   skip_on_cran()
   empty <- data.frame(
     off_player_1 = integer(0), off_player_2 = integer(0),
@@ -489,6 +495,7 @@ test_that("wnba_rapm returns 0-row schema frame on empty input (never-raise)", {
 # ---------------------------------------------------------------------------
 
 test_that("wnba_rapm recovers planted player effects (synthetic recovery)", {
+  skip_if_not_installed("glmnet")
   skip_on_cran()
   set.seed(42)
   P         <- 40L
@@ -538,6 +545,7 @@ test_that("wnba_rapm recovers planted player effects (synthetic recovery)", {
 # ===========================================================================
 
 test_that("wnba_rapm runs end-to-end on a real WNBA game (offline smoke)", {
+  skip_if_not_installed("glmnet")
   skip_on_cran()
   fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
   skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
@@ -572,6 +580,7 @@ test_that("wnba_rapm runs end-to-end on a real WNBA game (offline smoke)", {
 # ===========================================================================
 
 test_that("wnba_possession_lineups + wnba_rapm work live", {
+  skip_if_not_installed("glmnet")
   skip_on_cran()
   skip_on_ci()
   skip_wnba_stats_test()

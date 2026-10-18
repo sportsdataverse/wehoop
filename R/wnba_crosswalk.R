@@ -372,6 +372,7 @@ NULL
 #' }
 wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
                                   min_confidence = 0.92) {
+  rlang::check_installed("stringdist", reason = "to fuzzy-match player names")
   team_xwalk <- wnba_team_crosswalk(season = season)
 
   fetch_team <- function(i) {

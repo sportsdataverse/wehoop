@@ -355,6 +355,7 @@ test_that(".bb_assemble_schedule_crosswalk_wbb no duplicate espn_game_id columns
 }
 
 test_that(".bb_assemble_player_crosswalk_wbb exact + fuzzy match for 2 players", {
+  skip_if_not_installed("stringdist")
   skip_on_cran()
   espn <- .make_espn_players()
   fox  <- .make_fox_players()
@@ -377,6 +378,7 @@ test_that(".bb_assemble_player_crosswalk_wbb exact + fuzzy match for 2 players",
 })
 
 test_that(".bb_assemble_player_crosswalk_wbb output has all required columns", {
+  skip_if_not_installed("stringdist")
   skip_on_cran()
   espn   <- .make_espn_players()
   fox    <- .make_fox_players()
@@ -393,6 +395,7 @@ test_that(".bb_assemble_player_crosswalk_wbb output has all required columns", {
 })
 
 test_that(".bb_assemble_player_crosswalk_wbb handles empty Fox gracefully", {
+  skip_if_not_installed("stringdist")
   skip_on_cran()
   espn <- .make_espn_players()
   fox_empty <- data.frame(
@@ -427,6 +430,7 @@ test_that("wbb_schedule_crosswalk() live: date parsing + pair-key join (offline 
 })
 
 test_that("wbb_player_crosswalk() live: ESPN+Fox roster join for one team", {
+  skip_if_not_installed("stringdist")
   skip_on_cran()
   skip_on_ci()
   skip_espn_test()
