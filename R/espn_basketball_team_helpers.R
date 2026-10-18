@@ -339,6 +339,7 @@
 #' @param team_id character or numeric.
 #' @param season numeric.
 #' @return A tibble with the live roster's columns.
+#' @importFrom rlang .env
 #' @noRd
 .espn_basketball_past_roster <- function(league, team_id, season) {
   key <- paste(league, season)

@@ -25,6 +25,7 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^CRAN-SUBMISSION$
 ^\.omc$
 ^\.remember$
 ^\.ruff_cache$

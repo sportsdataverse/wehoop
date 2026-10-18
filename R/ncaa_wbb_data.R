@@ -38,7 +38,7 @@ ncaa_wbb_NET_rankings <- function(){
   tryCatch(
     expr = {
       x <- (NET_url %>%
-              xml2::read_html() %>%
+              rvest::read_html() %>%
               rvest::html_nodes("table"))[[1]] %>%
         rvest::html_table(fill = TRUE) %>%
         dplyr::as_tibble() %>%
@@ -176,7 +176,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
         ))
       }
 
-      data_read <- xml2::read_html(body)
+      data_read <- rvest::read_html(body)
 
       .level2 <- rvest::html_elements(data_read, ".level2")
       if (length(.level2) < 4L) {
@@ -227,7 +227,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
 
         page <- resp %>%
           .resp_text() %>%
-          xml2::read_html()
+          rvest::read_html()
 
         urls  <- page %>%
           rvest::html_elements("table") %>%
