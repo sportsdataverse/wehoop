@@ -88,7 +88,7 @@ test_that("every wrapper matches sdv-py's frame on the same fixture (columns, ty
     local_mocked_bindings(.intl_get = function(url, query = list(), ...) body)
     r <- do.call(spec[[1]], spec[[3]])
     py <- utils::read.csv(testthat::test_path("fixtures", "atrium", "parity", paste0(case, ".csv")),
-                          colClasses = "character", na.strings = "", check.names = FALSE, fileEncoding = "UTF-8")
+                          colClasses = "character", na.strings = "", check.names = FALSE, encoding = "UTF-8")
     types <- atrium_dtypes[atrium_dtypes$case == case, ]
     expect_s3_class(r, "wehoop_data")
     expect_identical(names(r), types$column, label = paste(case, "columns"))
@@ -221,7 +221,7 @@ test_that("the both-gender aliases (LNBP, NBL1) match sdv-py's frame on the same
     local_mocked_bindings(.intl_get = function(url, query = list(), ...) body)
     r <- alias_cases[[case]]()
     py <- utils::read.csv(testthat::test_path("fixtures", "atrium", "parity", paste0(case, ".csv")),
-                          colClasses = "character", na.strings = "", check.names = FALSE, fileEncoding = "UTF-8")
+                          colClasses = "character", na.strings = "", check.names = FALSE, encoding = "UTF-8")
     expect_identical(names(r), atrium_dtypes$column[atrium_dtypes$case == case], label = paste(case, "columns"))
     expect_identical(nrow(r), nrow(py), label = paste(case, "rows"))
     expect_identical(atrium_mismatches(r, py), integer(), label = paste(case, "alias mismatched cells"))
