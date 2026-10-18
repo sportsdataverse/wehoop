@@ -1,0 +1,4 @@
+season_id,season_title,league_name,season_league_name,season_league_flg,update_date,team_id,season_team_name,season_team_short_name,team_entry_flg,position,season_team_area,win_lost,wins,losses
+169,レギュラーシーズン,プレミア,プレミア,1,2026年2月8日(日),13,トヨタ自動車 アンテロープス,トヨタ自動車,1,1,\N,23勝5負,23,5
+169,レギュラーシーズン,プレミア,プレミア,1,2026年2月8日(日),12,デンソー アイリス,デンソー,1,2,\N,18勝10負,18,10
+169,レギュラーシーズン,プレミア,プレミア,1,2026年2月8日(日),30,富士通 レッドウェーブ,富士通,1,3,\N,16勝12負,16,12
