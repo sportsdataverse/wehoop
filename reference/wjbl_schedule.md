@@ -168,21 +168,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_schedule(game_month = "2026-04", season = 2026))
-#> ── W League Schedule from api.wjbl.01core.app ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:33 UTC
-#> # A tibble: 4 × 40
-#>   league_id league_title  season season_id season_title         season_full_name
-#>       <int> <chr>          <int>     <int> <chr>                <chr>           
-#> 1        45 25-26 Wリーグ   2026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…
-#> 2        45 25-26 Wリーグ   2026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…
-#> 3        45 25-26 Wリーグ   2026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…
-#> 4        45 25-26 Wリーグ   2026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…
-#> # ℹ 34 more variables: play_schedule_id <int>, game_year <int>,
-#> #   game_date <chr>, game_day <chr>, game_date_week_day_name <chr>,
-#> #   game_start_time <chr>, started_at <chr>, opening_time <chr>, venue <chr>,
-#> #   venue_address <chr>, game_icon <int>, ticket_url <chr>, vod_link <chr>,
-#> #   live_link <chr>, game_status <chr>, box_flg <int>, pbp_flg <int>,
-#> #   cancel_flg <int>, delay_flg <int>, ot_flg <int>, home_team_id <int>,
-#> #   home_season_team_name <chr>, home_season_team_short_name <chr>, …
+#> Error in wjbl_schedule(game_month = "2026-04", season = 2026) : 
+#>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service
+#> Unavailable"}
 # }
 ```

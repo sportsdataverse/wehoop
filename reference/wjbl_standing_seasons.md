@@ -115,23 +115,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_standing_seasons())
-#> ── W League Standing Seasons from api.wjbl.01core.app ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:34 UTC
-#> # A tibble: 89 × 7
-#>    season_id season_full_name       season season_league_name team_standings_flg
-#>        <int> <chr>                   <int> <chr>                           <int>
-#>  1       181 26-27 Wリーグ 大樹生命 Wリーグ …   2027 "グループステージ"                  0
-#>  2       179 26-27 Wリーグ レギュラーシーズン……   2027 "プレミア"                          0
-#>  3       180 26-27 Wリーグ レギュラーシーズン……   2027 "フューチャー"                      0
-#>  4       178 Wリーグオールスター2025-26 in …     NA ""                                  0
-#>  5       175 25-26 Wリーグ プレーオフ セミファ…   2026 ""                                  0
-#>  6       174 25-26 Wリーグ 入替戦     2026 ""                                  0
-#>  7       169 25-26 Wリーグ レギュラーシーズン……   2026 "プレミア"                          1
-#>  8       170 25-26 Wリーグ レギュラーシーズン……   2026 "フューチャー"                      1
-#>  9       172 25-26 Wリーグ 大樹生命 Wリーグ …   2026 "グループステージ"                  0
-#> 10       173 25-26 Wリーグ 大樹生命 Wリーグ …   2026 "ファイナルステージ"……                  0
-#> # ℹ 79 more rows
-#> # ℹ 2 more variables: season_tournament_text_flg <int>,
-#> #   season_tournament_text <chr>
+#> Error in wjbl_standing_seasons() : 
+#>   api.wjbl.01core.app/api/seasons/standings answered HTTP 503:
+#> {"message":"Service Unavailable"}
 # }
 ```

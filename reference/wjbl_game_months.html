@@ -192,20 +192,9 @@ frame.</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_game_months</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Game Months from api.wjbl.01core.app ─────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 22:14:25 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_id season game_month game_month_jpn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>        45   <span style="text-decoration: underline;">2</span>026 2026-04    2026年4月     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>        45   <span style="text-decoration: underline;">2</span>026 2026-03    2026年3月     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>        45   <span style="text-decoration: underline;">2</span>026 2026-02    2026年2月     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>        45   <span style="text-decoration: underline;">2</span>026 2026-01    2026年1月     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>        45   <span style="text-decoration: underline;">2</span>026 2025-12    2025年12月    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>        45   <span style="text-decoration: underline;">2</span>026 2025-11    2025年11月    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>        45   <span style="text-decoration: underline;">2</span>026 2025-10    2025年10月    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>        45   <span style="text-decoration: underline;">2</span>026 2025-09    2025年9月     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span>        45   <span style="text-decoration: underline;">2</span>026 2025-07    2025年7月     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in wjbl_game_months(season = 2026) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unavailable"}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

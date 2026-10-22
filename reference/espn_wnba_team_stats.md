@@ -226,7 +226,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_team_stats(team_id = 17, year = 2020))
 #> ── ESPN WNBA Team Season Stats from ESPN.com ─────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:11:53 UTC
+#> ℹ Data updated: 2026-10-22 02:35:19 UTC
 #> # A tibble: 1 × 198
 #>   team_id team_guid          team_uid team_sdr team_slug team_location team_name
 #>     <int> <chr>              <chr>       <int> <chr>     <chr>         <chr>    

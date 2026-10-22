@@ -189,27 +189,7 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_player_statistics(season = 2026))
-#> ── BBL/DBBL Season Player Statistics from the SCB API ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:13:49 UTC
-#> # A tibble: 138 × 72
-#>    league season display_type season_player_id real_player_id first_name     
-#>    <chr>   <int> <chr>        <chr>                     <int> <chr>          
-#>  1 dbbl     2026 MAIN_ROUND   20832                     10730 Lashae         
-#>  2 dbbl     2026 MAIN_ROUND   20463                     10412 Martha Ann     
-#>  3 dbbl     2026 MAIN_ROUND   20834                     10732 Alyssa         
-#>  4 dbbl     2026 MAIN_ROUND   20654                     10578 Samantha       
-#>  5 dbbl     2026 MAIN_ROUND   20450                     10411 Alexandra      
-#>  6 dbbl     2026 MAIN_ROUND   20887                     10795 Katelyn        
-#>  7 dbbl     2026 MAIN_ROUND   20512                     10482 Alexandria     
-#>  8 dbbl     2026 MAIN_ROUND   20746                     10647 Sara           
-#>  9 dbbl     2026 MAIN_ROUND   20565                     10527 Nicole Margaret
-#> 10 dbbl     2026 MAIN_ROUND   20362                     10351 Deeshyra       
-#> # ℹ 128 more rows
-#> # ℹ 66 more variables: last_name <chr>, shirt_number <chr>, position <chr>,
-#> #   team_id <chr>, season_team_id <chr>, team_name <chr>, team_tlc <chr>,
-#> #   season_id <int>, round_code <int>, competition <chr>, seconds_played <int>,
-#> #   points <int>, two_point_shots_made <int>, two_point_shots_attempted <int>,
-#> #   two_point_shot_success_percent <dbl>, three_point_shots_made <int>,
-#> #   three_point_shots_attempted <int>, …
+#> Error in scb_player_statistics(season = 2026) : 
+#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
 # }
 ```

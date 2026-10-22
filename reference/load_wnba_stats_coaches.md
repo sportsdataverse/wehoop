@@ -603,7 +603,7 @@ Saiem Gilani
 #>  2   1642290 Aaliyah Edwar… Aaliyah   1.61e9 CON                  24    30     9
 #>  3   1642801 Aaliyah Nye    Aaliyah   1.61e9 LAS                  24    20    12
 #>  4   1630462 Aari McDonald  Aari      1.61e9 MIN                  28     3     2
-#>  5   1642786 Aicha Couliba… Aicha     1.61e9 CHI                  24    30    10
+#>  5   1642786 Aicha Couliba… Aicha     1.61e9 CHI                  25    30    10
 #>  6   1629501 Alanna Smith   Alanna    1.61e9 DAL                  30    32    20
 #>  7   1643525 Alex Fowler    Alex      1.61e9 NYL                  25     2     1
 #>  8   1642775 Alex Wilson    Alex      1.61e9 WAS                  32     4     2
@@ -626,7 +626,7 @@ Saiem Gilani
 #>   call filters the cube's lineups_{base,advanced} assets down to group_quantity
 #>   == 5 to match the old contract.
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,556 × 98
+#> # A tibble: 4,574 × 98
 #>    group_set group_id     group_name team_id team_abbreviation    gp     w     l
 #>    <chr>     <chr>        <chr>        <int> <chr>             <int> <int> <int>
 #>  1 Lineups   -1628277-16… A. Gray -…  1.61e9 ATL                  40    30    10
@@ -639,7 +639,7 @@ Saiem Gilani
 #>  8 Lineups   -1629484-16… M. DiLeo …  1.61e9 PDX                  18     7    11
 #>  9 Lineups   -1629481-16… A. Ogunbo…  1.61e9 DAL                  21    15     6
 #> 10 Lineups   -1629567-16… N. Hiedem…  1.61e9 SEA                  22     3    19
-#> # ℹ 4,546 more rows
+#> # ℹ 4,564 more rows
 #> # ℹ 90 more variables: w_pct <dbl>, min <dbl>, fgm <int>, fga <int>,
 #> #   fg_pct <dbl>, fg3_m <int>, fg3_a <int>, fg3_pct <dbl>, ftm <int>,
 #> #   fta <int>, ft_pct <dbl>, oreb <int>, dreb <int>, reb <int>, ast <int>,

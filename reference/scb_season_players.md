@@ -118,22 +118,7 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_season_players(season = 2026))
-#> ── BBL/DBBL Season Players from the SCB API ──────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:13:51 UTC
-#> # A tibble: 124 × 8
-#>    league season season_id season_player_id real_player_id season_team_id
-#>    <chr>   <int>     <int> <chr>                     <int> <chr>         
-#>  1 dbbl     2026      2025 20565                     10527 102           
-#>  2 dbbl     2026      2025 20633                     10403 109           
-#>  3 dbbl     2026      2025 20347                     10336 100           
-#>  4 dbbl     2026      2025 20348                     10337 100           
-#>  5 dbbl     2026      2025 20349                     10338 100           
-#>  6 dbbl     2026      2025 20353                     10342 100           
-#>  7 dbbl     2026      2025 20354                     10343 100           
-#>  8 dbbl     2026      2025 20357                     10346 100           
-#>  9 dbbl     2026      2025 20358                     10347 100           
-#> 10 dbbl     2026      2025 20360                     10349 100           
-#> # ℹ 114 more rows
-#> # ℹ 2 more variables: first_name <chr>, last_name <chr>
+#> Error in scb_season_players(season = 2026) : 
+#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
 # }
 ```

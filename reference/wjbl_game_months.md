@@ -120,19 +120,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game_months(season = 2026))
-#> ── W League Game Months from api.wjbl.01core.app ─────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:25 UTC
-#> # A tibble: 9 × 4
-#>   league_id season game_month game_month_jpn
-#>       <int>  <int> <chr>      <chr>         
-#> 1        45   2026 2026-04    2026年4月     
-#> 2        45   2026 2026-03    2026年3月     
-#> 3        45   2026 2026-02    2026年2月     
-#> 4        45   2026 2026-01    2026年1月     
-#> 5        45   2026 2025-12    2025年12月    
-#> 6        45   2026 2025-11    2025年11月    
-#> 7        45   2026 2025-10    2025年10月    
-#> 8        45   2026 2025-09    2025年9月     
-#> 9        45   2026 2025-07    2025年7月     
+#> Error in wjbl_game_months(season = 2026) : 
+#>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service
+#> Unavailable"}
 # }
 ```

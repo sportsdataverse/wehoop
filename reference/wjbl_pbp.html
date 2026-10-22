@@ -193,28 +193,9 @@ frame.</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_pbp</span><span class="op">(</span>play_schedule_id <span class="op">=</span> <span class="fl">7987</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Play-by-Play from api.wjbl.01core.app ────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 22:14:31 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 439 × 24</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    play_schedule_id    no period rest_time seconds_remaining team_id team_name  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>             <span style="text-decoration: underline;">7</span>987     1      1 10:00                   600      13 トヨタ自動車　アンテ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>             <span style="text-decoration: underline;">7</span>987     2      1 10:00                   600      13 トヨタ自動車　アンテ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>             <span style="text-decoration: underline;">7</span>987     3      1 10:00                   600      13 トヨタ自動車　アンテ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>             <span style="text-decoration: underline;">7</span>987     4      1 10:00                   600      13 トヨタ自動車　アンテ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             <span style="text-decoration: underline;">7</span>987     5      1 10:00                   600      13 トヨタ自動車　アンテ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             <span style="text-decoration: underline;">7</span>987     6      1 10:00                   600      12 デンソーアイリス……</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>             <span style="text-decoration: underline;">7</span>987     7      1 10:00                   600      12 デンソーアイリス……</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             <span style="text-decoration: underline;">7</span>987     8      1 10:00                   600      12 デンソーアイリス……</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             <span style="text-decoration: underline;">7</span>987     9      1 10:00                   600      12 デンソーアイリス……</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>             <span style="text-decoration: underline;">7</span>987    10      1 10:00                   600      12 デンソーアイリス……</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 429 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more variables: team_side &lt;chr&gt;, player_number1 &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_number2 &lt;chr&gt;, player_name1 &lt;chr&gt;, player_name2 &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_id1 &lt;int&gt;, player_id2 &lt;int&gt;, play_text &lt;chr&gt;, score &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_score &lt;int&gt;, away_score &lt;int&gt;, end_period_flg &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   end_game_flg &lt;int&gt;, action1 &lt;chr&gt;, action2 &lt;chr&gt;, action3 &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_away &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in wjbl_pbp(play_schedule_id = 7987) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"message":"Service Unavailable"}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

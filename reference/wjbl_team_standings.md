@@ -132,22 +132,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_team_standings(season_ids = "169"))
-#> ── W League Team Standings from api.wjbl.01core.app ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:37 UTC
-#> # A tibble: 8 × 15
-#>   season_id season_title       league_name season_league_name season_league_flg
-#>       <int> <chr>              <chr>       <chr>                          <int>
-#> 1       169 レギュラーシーズン プレミア    プレミア                           1
-#> 2       169 レギュラーシーズン プレミア    プレミア                           1
-#> 3       169 レギュラーシーズン プレミア    プレミア                           1
-#> 4       169 レギュラーシーズン プレミア    プレミア                           1
-#> 5       169 レギュラーシーズン プレミア    プレミア                           1
-#> 6       169 レギュラーシーズン プレミア    プレミア                           1
-#> 7       169 レギュラーシーズン プレミア    プレミア                           1
-#> 8       169 レギュラーシーズン プレミア    プレミア                           1
-#> # ℹ 10 more variables: update_date <chr>, team_id <int>,
-#> #   season_team_name <chr>, season_team_short_name <chr>, team_entry_flg <int>,
-#> #   position <int>, season_team_area <chr>, win_lost <chr>, wins <int>,
-#> #   losses <int>
+#> Error in wjbl_team_standings(season_ids = "169") : 
+#>   api.wjbl.01core.app/api/team-standings answered HTTP 503:
+#> {"message":"Service Unavailable"}
 # }
 ```

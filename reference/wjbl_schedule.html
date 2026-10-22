@@ -202,22 +202,9 @@ frame.</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_schedule</span><span class="op">(</span>game_month <span class="op">=</span> <span class="st">"2026-04"</span>, season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Schedule from api.wjbl.01core.app ────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 22:14:33 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 40</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_id league_title  season season_id season_title         season_full_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       176 プレーオフ　ファイナル…… 25-26 Wリーグ プレーオ…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 34 more variables: play_schedule_id &lt;int&gt;, game_year &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_date &lt;chr&gt;, game_day &lt;chr&gt;, game_date_week_day_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_start_time &lt;chr&gt;, started_at &lt;chr&gt;, opening_time &lt;chr&gt;, venue &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_address &lt;chr&gt;, game_icon &lt;int&gt;, ticket_url &lt;chr&gt;, vod_link &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   live_link &lt;chr&gt;, game_status &lt;chr&gt;, box_flg &lt;int&gt;, pbp_flg &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cancel_flg &lt;int&gt;, delay_flg &lt;int&gt;, ot_flg &lt;int&gt;, home_team_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_season_team_name &lt;chr&gt;, home_season_team_short_name &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in wjbl_schedule(game_month = "2026-04", season = 2026) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unavailable"}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -142,17 +142,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_team_box_score(play_schedule_id = 7987))
-#> ── W League Team Box Score from api.wjbl.01core.app ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:35 UTC
-#> # A tibble: 4 × 25
-#>   play_schedule_id team_side team_id row_type   pts   p2m   p2a   p3m   p3a
-#>              <int> <chr>       <int> <chr>    <int> <int> <int> <int> <int>
-#> 1             7987 home           13 team         0     0     0     0     0
-#> 2             7987 home           13 total       66    15    38     9    23
-#> 3             7987 away           12 team         0     0     0     0     0
-#> 4             7987 away           12 total       75    25    43     3    12
-#> # ℹ 16 more variables: ftm <int>, fta <int>, f <int>, off <int>, def <int>,
-#> #   tot <int>, ast <int>, stl <int>, blk <int>, to <int>, min <chr>,
-#> #   min_seconds <int>, p2p <dbl>, p3p <dbl>, ftp <dbl>, fgp <dbl>
+#> Error in wjbl_team_box_score(play_schedule_id = 7987) : 
+#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
+#> {"message":"Service Unavailable"}
 # }
 ```

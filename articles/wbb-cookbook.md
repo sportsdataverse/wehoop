@@ -85,16 +85,16 @@ espn_wbb_team_schedule(team_id = team_id, season = season)    # the slate
 #> # A tibble: 30 × 21
 #>    event_id  season season_type  week date          name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      
-#>  1 401921451   2027          NA     1 2026-11-02T0… IU I… IUIN @ PUR NA         
-#>  2 401921452   2027          NA     1 2026-11-05T0… East… EMU @ PUR  NA         
-#>  3 401921453   2027          NA     2 2026-11-10T0… Sout… SEMO @ PUR NA         
-#>  4 401921454   2027          NA     2 2026-11-15T0… Samf… SAM @ PUR  NA         
+#>  1 401921451   2027          NA     1 2026-11-03T0… IU I… IUIN @ PUR NA         
+#>  2 401921452   2027          NA     1 2026-11-06T0… East… EMU @ PUR  NA         
+#>  3 401921453   2027          NA     2 2026-11-11T0… Sout… SEMO @ PUR NA         
+#>  4 401921454   2027          NA     2 2026-11-15T1… Samf… SAM @ PUR  NA         
 #>  5 401913709   2027          NA     3 2026-11-19T1… Purd… PUR VS FSU NA         
 #>  6 401918944   2027          NA     3 2026-11-21T1… Purd… PUR VS TTU NA         
-#>  7 401919711   2027          NA     4 2026-11-25T0… Murr… MUR @ PUR  NA         
-#>  8 401921455   2027          NA     4 2026-11-29T2… UT M… UTM @ PUR  NA         
+#>  7 401919711   2027          NA     4 2026-11-25T1… Murr… MUR @ PUR  NA         
+#>  8 401921455   2027          NA     4 2026-11-29T1… UT M… UTM @ PUR  NA         
 #>  9 401921852   2027          NA     5 2026-12-06T1… Minn… MINN @ PUR NA         
-#> 10 401921456   2027          NA     6 2026-12-10T0… Cent… CMU @ PUR  NA         
+#> 10 401921456   2027          NA     6 2026-12-10T1… Cent… CMU @ PUR  NA         
 #> # ℹ 20 more rows
 #> # ℹ 13 more variables: opponent_abbrev <chr>, home_away <chr>,
 #> #   neutral_site <lgl>, conference_competition <lgl>, venue_id <chr>,
@@ -107,13 +107,13 @@ espn_wbb_team_roster(team_id = team_id, season = season)      # the players
 #>  1 5239976    Averi Aa… 25     F               Forward       "6' 1… NA     NA   
 #>  2 5315054    Jelena B… 8      G               Guard         "5' 1… NA     NA   
 #>  3 5456419    Keona Do… 4      G               Guard         "5' 9… NA     NA   
-#>  4 5456421    Katka Se… 6      F               Forward       "6' 1… NA     NA   
-#>  5 5311739    Avery Go… 55     C               Center        "6' 7… NA     NA   
-#>  6 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
-#>  7 4433806    Kyndall … 3      G               Guard         "5' 7… NA     NA   
-#>  8 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
-#>  9 5456422    Anjela M… 10     C               Center        "6' 5… NA     NA   
-#> 10 5175419    Aysia Pr… 12     G               Guard         "5' 8… NA     NA   
+#>  4 5311739    Avery Go… 55     C               Center        "6' 7… NA     NA   
+#>  5 5108895    Taylor H… 2      G               Guard         "5' 1… NA     NA   
+#>  6 4433806    Kyndall … 3      G               Guard         "5' 7… NA     NA   
+#>  7 5175722    McKenna … 11     G               Guard         "6' 2… NA     NA   
+#>  8 5456422    Anjela M… 10     C               Center        "6' 5… NA     NA   
+#>  9 5175419    Aysia Pr… 12     G               Guard         "5' 8… NA     NA   
+#> 10 5456421    Katka Se… 6      F               Forward       "6' 1… NA     NA   
 #> 11 5178283    Saige St… 13     F               Forward       "6' 1… NA     NA   
 #> 12 5456420    Zoja Sti… 5      G               Guard         "5' 1… NA     NA   
 #> 13 5240777    Hannah W… 7      G               Guard         "5' 1… NA     NA   

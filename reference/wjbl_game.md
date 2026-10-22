@@ -153,18 +153,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game(play_schedule_id = 7987))
-#> ── W League Game from api.wjbl.01core.app ────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:22 UTC
-#> # A tibble: 1 × 36
-#>   play_schedule_id game_status home_team_id home_season_team_name      
-#>              <int> <chr>              <int> <chr>                      
-#> 1             7987 fixed                 13 トヨタ自動車 アンテロープス
-#> # ℹ 32 more variables: home_season_team_short_name <chr>,
-#> #   home_team_logo_image <chr>, home_team_entry_flg <int>,
-#> #   home_season_team_area <chr>, home_free_text <chr>, home_winner_flg <int>,
-#> #   home_score <int>, home_score_p1 <int>, home_score_p2 <int>,
-#> #   home_score_p3 <int>, home_score_p4 <int>, home_score_ot1 <int>,
-#> #   home_score_ot2 <int>, home_score_ot3 <int>, home_score_ot4 <int>,
-#> #   away_team_id <int>, away_season_team_name <chr>, …
+#> Error in wjbl_game(play_schedule_id = 7987) : 
+#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
+#> {"message":"Service Unavailable"}
 # }
 ```

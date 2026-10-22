@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:30 UTC
+#> ℹ Data updated: 2026-10-22 02:35:56 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:30 UTC
+#> ℹ Data updated: 2026-10-22 02:35:56 UTC
 #> # A tibble: 13 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -126,32 +126,32 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:30 UTC
+#> ℹ Data updated: 2026-10-22 02:35:56 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
-#>  1 1       PLAYER STATS SCORING    PPG               Rhyne Howard  18.0 
-#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   9.0  
+#>  1 1       PLAYER STATS SCORING    PPG               Angel Reese   19.1 
+#>  2 1       PLAYER STATS REBOUNDING RPG               Angel Reese   10.0 
 #>  3 1       PLAYER STATS SHOOTING   FG%               Madina Okot   66.7 
-#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 8.5  
-#>  5 1       PLAYER STATS DEFENSE    STL               Jordin Canada 13   
-#>  6 1       PLAYER STATS DEFENSE    BLK               Angel Reese   12   
-#>  7 1       PLAYER STATS MISC       DBL DBL           Jordin Canada 3    
-#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Jordin Canada 126.5
-#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  38.2 
-#> 10 1       TEAM STATS   SCORING    PPG               NA            87.8 
-#> 11 1       TEAM STATS   REBOUNDING RPG               NA            32.5 
-#> 12 1       TEAM STATS   SHOOTING   FG%               NA            40.8 
-#> 13 1       TEAM STATS   ASSISTS    APG               NA            19.0 
-#> 14 1       TEAM STATS   DEFENSE    STL               NA            57   
-#> 15 1       TEAM STATS   DEFENSE    BLK               NA            24   
-#> 16 1       TEAM STATS   MISC       DBL DBL           NA            6    
-#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            9.3  
+#>  4 1       PLAYER STATS ASSISTS    APG               Jordin Canada 8.7  
+#>  5 1       PLAYER STATS DEFENSE    STL               Rhyne Howard  18   
+#>  6 1       PLAYER STATS DEFENSE    BLK               Angel Reese   14   
+#>  7 1       PLAYER STATS MISC       DBL DBL           Jordin Canada 4    
+#>  8 1       PLAYER STATS ADVANCED   OFF RTG           Jordin Canada 119.7
+#>  9 1       PLAYER STATS ADVANCED   MPG               Rhyne Howard  36.7 
+#> 10 1       TEAM STATS   SCORING    PPG               NA            86.6 
+#> 11 1       TEAM STATS   REBOUNDING RPG               NA            33.0 
+#> 12 1       TEAM STATS   SHOOTING   FG%               NA            40.0 
+#> 13 1       TEAM STATS   ASSISTS    APG               NA            18.7 
+#> 14 1       TEAM STATS   DEFENSE    STL               NA            71   
+#> 15 1       TEAM STATS   DEFENSE    BLK               NA            28   
+#> 16 1       TEAM STATS   MISC       DBL DBL           NA            8    
+#> 17 1       TEAM STATS   ADVANCED   NET RTG           NA            10.5 
 # }
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:30 UTC
+#> ℹ Data updated: 2026-10-22 02:35:56 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
@@ -170,26 +170,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:31 UTC
+#> ℹ Data updated: 2026-10-22 02:35:57 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 1       POSTSEASON  scoring  2587    10/17     @GSV     fgm          21   
-#>  2 1       POSTSEASON  scoring  2587    10/17     @GSV     fga          64   
-#>  3 1       POSTSEASON  scoring  2587    10/17     @GSV     fg_percent   32.8 
-#>  4 1       POSTSEASON  scoring  2587    10/17     @GSV     ftm          18   
-#>  5 1       POSTSEASON  scoring  2587    10/17     @GSV     fta          21   
-#>  6 1       POSTSEASON  scoring  2587    10/17     @GSV     ft_percent   86.0 
-#>  7 1       POSTSEASON  scoring  2587    10/17     @GSV     x3fgm        4    
-#>  8 1       POSTSEASON  scoring  2587    10/17     @GSV     x3fga        25   
-#>  9 1       POSTSEASON  scoring  2587    10/17     @GSV     x3fg_percent 16.0 
-#> 10 1       POSTSEASON  scoring  2587    10/17     @GSV     pts          64   
+#>  1 1       POSTSEASON  scoring  2589    10/21     GSV      fgm          34   
+#>  2 1       POSTSEASON  scoring  2589    10/21     GSV      fga          69   
+#>  3 1       POSTSEASON  scoring  2589    10/21     GSV      fg_percent   49.3 
+#>  4 1       POSTSEASON  scoring  2589    10/21     GSV      ftm          20   
+#>  5 1       POSTSEASON  scoring  2589    10/21     GSV      fta          29   
+#>  6 1       POSTSEASON  scoring  2589    10/21     GSV      ft_percent   69.0 
+#>  7 1       POSTSEASON  scoring  2589    10/21     GSV      x3fgm        9    
+#>  8 1       POSTSEASON  scoring  2589    10/21     GSV      x3fga        22   
+#>  9 1       POSTSEASON  scoring  2589    10/21     GSV      x3fg_percent 40.9 
+#> 10 1       POSTSEASON  scoring  2589    10/21     GSV      pts          97   
 #> # ℹ 155 more rows
 # }
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:31 UTC
+#> ℹ Data updated: 2026-10-22 02:35:57 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -208,7 +208,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:31 UTC
+#> ℹ Data updated: 2026-10-22 02:35:57 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -228,7 +228,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:31 UTC
+#> ℹ Data updated: 2026-10-22 02:35:57 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
@@ -248,7 +248,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:31 UTC
+#> ℹ Data updated: 2026-10-22 02:35:57 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -271,7 +271,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:12:31 UTC
+#> ℹ Data updated: 2026-10-22 02:35:57 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      

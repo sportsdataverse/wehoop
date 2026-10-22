@@ -162,7 +162,7 @@ Other Atrium Functions:
 # \donttest{
   try(atrium_fixture(website_id = 14, fixture_id = "0dc631bd-c34c-11f1-8d16-4d5a21afb79d"))
 #> ── Atrium fixture from embed-api.eui.connect.sportradar.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:10:18 UTC
+#> ℹ Data updated: 2026-10-22 02:33:43 UTC
 #> # A tibble: 1 × 42
 #>   website_id fixture_id  season_id competition_name name  fixture_type age_group
 #>        <int> <chr>       <chr>     <chr>            <chr> <chr>        <chr>    

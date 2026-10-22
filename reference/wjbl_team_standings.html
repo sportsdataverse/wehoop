@@ -193,23 +193,9 @@ frame.</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_team_standings</span><span class="op">(</span>season_ids <span class="op">=</span> <span class="st">"169"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Team Standings from api.wjbl.01core.app ──────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 22:14:37 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_id season_title       league_name season_league_name season_league_flg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>       169 レギュラーシーズン プレミア    プレミア                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10 more variables: update_date &lt;chr&gt;, team_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   season_team_name &lt;chr&gt;, season_team_short_name &lt;chr&gt;, team_entry_flg &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   position &lt;int&gt;, season_team_area &lt;chr&gt;, win_lost &lt;chr&gt;, wins &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   losses &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in wjbl_team_standings(season_ids = "169") : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   api.wjbl.01core.app/api/team-standings answered HTTP 503:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"message":"Service Unavailable"}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

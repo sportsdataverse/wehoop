@@ -109,13 +109,7 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_seasons())
-#> ── BBL/DBBL Seasons from the SCB API ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:13:53 UTC
-#> # A tibble: 3 × 4
-#>   league season season_id is_active
-#>   <chr>   <int>     <int> <lgl>    
-#> 1 dbbl     2027      2026 TRUE     
-#> 2 dbbl     2026      2025 FALSE    
-#> 3 dbbl     2025      2024 FALSE    
+#> Error in scb_seasons() : 
+#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
 # }
 ```

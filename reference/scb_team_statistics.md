@@ -176,27 +176,7 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_team_statistics(season = 2026))
-#> ── BBL/DBBL Season Team Statistics from the SCB API ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:13:55 UTC
-#> # A tibble: 10 × 59
-#>    league season display_type team_id season_team_id team_name          team_tlc
-#>    <chr>   <int> <chr>        <chr>   <chr>          <chr>              <chr>   
-#>  1 dbbl     2026 MAIN_ROUND   105     105            Herner TC          HER     
-#>  2 dbbl     2026 MAIN_ROUND   102     102            Eigner Angels Nör… NÖR     
-#>  3 dbbl     2026 MAIN_ROUND   109     109            SYNTAINICS MBC     MBC     
-#>  4 dbbl     2026 MAIN_ROUND   108     108            Saarlouis Royals   SAR     
-#>  5 dbbl     2026 MAIN_ROUND   103     103            Eisvögel USC Frei… FRE     
-#>  6 dbbl     2026 MAIN_ROUND   101     101            BC Marburg         MAR     
-#>  7 dbbl     2026 MAIN_ROUND   110     110            TK Hannover Luchse HAN     
-#>  8 dbbl     2026 MAIN_ROUND   107     107            Rutronik Stars Ke… KEL     
-#>  9 dbbl     2026 MAIN_ROUND   100     100            ALBA BERLIN        ALB     
-#> 10 dbbl     2026 MAIN_ROUND   104     104            GiroLive Panthers… OSN     
-#> # ℹ 52 more variables: season_id <int>, round_code <int>, competition <chr>,
-#> #   aggregation <chr>, seconds_played <int>, points <int>,
-#> #   two_point_shots_made <int>, two_point_shots_attempted <int>,
-#> #   two_point_shot_success_percent <dbl>, three_point_shots_made <int>,
-#> #   three_point_shots_attempted <int>, three_point_shot_success_percent <dbl>,
-#> #   field_goals_made <int>, field_goals_attempted <int>,
-#> #   field_goals_success_percent <dbl>, free_throws_made <int>, …
+#> Error in scb_team_statistics(season = 2026) : 
+#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
 # }
 ```

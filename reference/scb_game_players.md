@@ -157,7 +157,6 @@ Other SCB Functions:
 # \donttest{
   try(scb_game_players(game_id = "2006920"))
 #> Error in scb_game_players(game_id = "2006920") : 
-#>   api-1.dbbl.scb.world/games/2006920/stats answered HTTP 204: no content
-#> for this id.
+#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
 # }
 ```

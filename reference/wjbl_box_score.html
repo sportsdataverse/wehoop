@@ -193,25 +193,9 @@ frame.</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_box_score</span><span class="op">(</span>play_schedule_id <span class="op">=</span> <span class="fl">7987</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Box Score from api.wjbl.01core.app ───────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 22:14:21 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27 × 24</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    play_schedule_id team_side team_id player_id player_name  player_number    gs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">9</span>799 岡本 美優    11                1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>             <span style="text-decoration: underline;">7</span>987 home           13     <span style="text-decoration: underline;">17</span>454 オコンクウォ スーザン… 13                1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">3</span>395 平下 愛佳    14                1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">1</span>389 安間 志織    15                1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">1</span>443 山本 麻衣    23                1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             <span style="text-decoration: underline;">7</span>987 home           13     <span style="text-decoration: underline;">14</span>381 小野寺 佑奈  3                 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">9</span>850 横山 智那美  7                 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">3</span>396 永田 萌絵    20                0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             <span style="text-decoration: underline;">7</span>987 home           13     <span style="text-decoration: underline;">18</span>968 シュック カイリー ア… 24                0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>             <span style="text-decoration: underline;">7</span>987 home           13      <span style="text-decoration: underline;">9</span>794 三浦 舞華    30                0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more variables: pts &lt;int&gt;, p2m &lt;int&gt;, p2a &lt;int&gt;, p3m &lt;int&gt;, p3a &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ftm &lt;int&gt;, fta &lt;int&gt;, f &lt;int&gt;, off &lt;int&gt;, def &lt;int&gt;, tot &lt;int&gt;, ast &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   stl &lt;int&gt;, blk &lt;int&gt;, to &lt;int&gt;, min &lt;chr&gt;, min_seconds &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in wjbl_box_score(play_schedule_id = 7987) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"message":"Service Unavailable"}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

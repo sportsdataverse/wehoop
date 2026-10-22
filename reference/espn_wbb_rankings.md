@@ -130,22 +130,22 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_rankings())
 #> ── ESPN WBB Rankings Information from ESPN.com ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:11:04 UTC
-#> # A tibble: 79 × 38
+#> ℹ Data updated: 2026-10-22 02:34:31 UTC
+#> # A tibble: 86 × 37
 #>       id name   short_name type  headline short_headline current previous points
 #>    <int> <chr>  <chr>      <chr> <chr>    <chr>            <int>    <int>  <dbl>
-#>  1     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        1        2    775
-#>  2     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        2        4    739
-#>  3     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        3        1    704
-#>  4     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        4        3    696
-#>  5     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        5        8    641
-#>  6     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        6       14    582
-#>  7     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        7        9    578
-#>  8     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        8        5    540
-#>  9     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3        9       22    524
-#> 10     1 AP To… AP Poll    ap    2026 NC… 2026 : Week 3       10        6    518
-#> # ℹ 69 more rows
-#> # ℹ 29 more variables: first_place_votes <int>, trend <chr>, date <chr>,
+#>  1     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       1        0    764
+#>  2     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       2        0    746
+#>  3     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       3        0    668
+#>  4     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       4        0    647
+#>  5     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       5        0    644
+#>  6     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       6        0    618
+#>  7     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       7        0    557
+#>  8     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       8        0    536
+#>  9     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…       9        0    512
+#> 10     1 AP To… AP Poll    ap    2027 NC… 2027 : Presea…      10        0    492
+#> # ℹ 76 more rows
+#> # ℹ 28 more variables: first_place_votes <int>, trend <chr>, date <chr>,
 #> #   last_updated <chr>, record_summary <chr>, team_id <int>, team_uid <chr>,
 #> #   team_location <chr>, team_name <chr>, team_nickname <chr>,
 #> #   team_abbreviation <chr>, team_color <chr>, team_logos <list>,

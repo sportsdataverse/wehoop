@@ -172,27 +172,7 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_standings())
-#> ── BBL/DBBL Standings from the SCB API ───────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:13:54 UTC
-#> # A tibble: 10 × 55
-#>    league season standing_id season_team_id team_id team_name           team_tlc
-#>    <chr>   <int> <chr>       <chr>          <chr>   <chr>               <chr>   
-#>  1 dbbl     2027 4000        107            107     Rutronik Stars Kel… KEL     
-#>  2 dbbl     2027 4002        109            109     halfit LIONS        hfL     
-#>  3 dbbl     2027 3994        101            101     BC Marburg          MAR     
-#>  4 dbbl     2027 3996        103            103     Eisvögel USC Freib… FRE     
-#>  5 dbbl     2027 3993        100            100     ALBA BERLIN         ALB     
-#>  6 dbbl     2027 3997        104            104     GiroLive Panthers … OSN     
-#>  7 dbbl     2027 3998        105            105     Herner TC           HER     
-#>  8 dbbl     2027 3995        102            102     Eigner Angels Nörd… NÖR     
-#>  9 dbbl     2027 4001        108            108     Saarlouis Royals    SAR     
-#> 10 dbbl     2027 4003        110            110     TK Hannover Luchse  HAN     
-#> # ℹ 48 more variables: team_name_short <chr>, has_reached_playoffs <lgl>,
-#> #   has_reached_playins <lgl>, is_relegation_certain <lgl>, season_id <int>,
-#> #   competition <chr>, stage <chr>, rank <int>, streak <chr>,
-#> #   streak_count <int>, point_corrections <chr>, home_victories <int>,
-#> #   home_losses <int>, home_victory_percentage <dbl>, away_victories <int>,
-#> #   away_losses <int>, away_victory_percentage <dbl>, table_points <int>,
-#> #   table_points_against <int>, total_victory_percentage <dbl>, …
+#> Error in scb_standings() : 
+#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
 # }
 ```

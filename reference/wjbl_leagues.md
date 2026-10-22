@@ -111,21 +111,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_leagues())
-#> ── W League Leagues from api.wjbl.01core.app ─────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:26 UTC
-#> # A tibble: 37 × 3
-#>    league_id league_title               season
-#>        <int> <chr>                       <int>
-#>  1        47 26-27 Wリーグ                2027
-#>  2        46 Wリーグオールスター2025-26     NA
-#>  3        45 25-26 Wリーグ                2026
-#>  4        44 Wリーグオールスター2024-25     NA
-#>  5        43 24-25 Wリーグ                2025
-#>  6        42 Wリーグオールスター2023-24     NA
-#>  7        40 23-24 Wリーグ                2024
-#>  8        41 WリーグSUPERGAMES              NA
-#>  9        39 Wリーグオールスター2022-23     NA
-#> 10        37 22-23 Wリーグ                2023
-#> # ℹ 27 more rows
+#> Error in wjbl_leagues() : 
+#>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service
+#> Unavailable"}
 # }
 ```

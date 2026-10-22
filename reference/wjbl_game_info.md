@@ -164,18 +164,8 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game_info(play_schedule_id = 7987))
-#> ── W League Game Info from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-18 22:14:23 UTC
-#> # A tibble: 1 × 47
-#>   play_schedule_id league_id league_title  season season_id season_title        
-#>              <int>     <int> <chr>          <int>     <int> <chr>               
-#> 1             7987        45 25-26 Wリーグ   2026       176 プレーオフ　ファイナル……
-#> # ℹ 41 more variables: season_full_name <chr>, game_date <chr>, game_day <chr>,
-#> #   game_start_time <chr>, started_at <chr>, opening_time <chr>, venue <chr>,
-#> #   game_icon <int>, venue_address <chr>, venue_others <chr>,
-#> #   allow_shoes_on <int>, allow_shoes_on_others <chr>, ticket_info <chr>,
-#> #   ticket_url <chr>, event_info <chr>, live_link <chr>, vod_link <chr>,
-#> #   bs_url <chr>, cs_url <chr>, ground_url <chr>, other_url <chr>,
-#> #   cancel_flg <int>, delay_flg <int>, game_status <chr>, box_flg <int>, …
+#> Error in wjbl_game_info(play_schedule_id = 7987) : 
+#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
+#> {"message":"Service Unavailable"}
 # }
 ```

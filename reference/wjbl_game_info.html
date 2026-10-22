@@ -193,19 +193,9 @@ frame.</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_game_info</span><span class="op">(</span>play_schedule_id <span class="op">=</span> <span class="fl">7987</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Game Info from api.wjbl.01core.app ───────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-10-18 22:14:23 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 47</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   play_schedule_id league_id league_title  season season_id season_title        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>             <span style="text-decoration: underline;">7</span>987        45 25-26 Wリーグ   <span style="text-decoration: underline;">2</span>026       176 プレーオフ　ファイナル……</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 41 more variables: season_full_name &lt;chr&gt;, game_date &lt;chr&gt;, game_day &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_start_time &lt;chr&gt;, started_at &lt;chr&gt;, opening_time &lt;chr&gt;, venue &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_icon &lt;int&gt;, venue_address &lt;chr&gt;, venue_others &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   allow_shoes_on &lt;int&gt;, allow_shoes_on_others &lt;chr&gt;, ticket_info &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ticket_url &lt;chr&gt;, event_info &lt;chr&gt;, live_link &lt;chr&gt;, vod_link &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   bs_url &lt;chr&gt;, cs_url &lt;chr&gt;, ground_url &lt;chr&gt;, other_url &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cancel_flg &lt;int&gt;, delay_flg &lt;int&gt;, game_status &lt;chr&gt;, box_flg &lt;int&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in wjbl_game_info(play_schedule_id = 7987) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"message":"Service Unavailable"}</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
