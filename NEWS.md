@@ -140,8 +140,44 @@
   files quote one header, `fread()` warns while fixing it, and the warning
   discarded the season. That warning is no longer fatal. (#86)
 
-<!-- batch 1 (CRAN must-fix) and batch 3 (CI) bullets for 3.1.0 go here; see
-     the "Breaking changes" / "Behavior changes" headings as appropriate. -->
+### **Loader seasons and join ids**
+
+* Every `load_wbb_*()`, `load_wnba_*()`, `load_ncaa_wbb_*()` and model loader
+  now checks the requested seasons against what is published. The minimum
+  season is the first season actually released (team and player box scores
+  accept 2004-05, `load_wbb_ratings()` starts at 2009, WBB rosters at 2026,
+  WNBA rosters at 2024, the WNBA draft at 2018), and a season missing from
+  the release is an error that names the published range. (#109)
+* Called with its default season, a loader whose newest season is not
+  published yet (WBB 2027 before the first games) reads the newest published
+  season and says so. An explicit request for an unpublished season still
+  returns an empty table with a warning. (#109)
+* Seasons published only as parquet (some WBB box scores, the WNBA draft
+  2018-2025) are read with arrow when it is installed. (#109)
+* `most_recent_wbb_season()` and `most_recent_wnba_season()` return an
+  integer. (#109)
+* WNBA and WBB `game_id`/`athlete_id` and the crosswalk `wnba_*`/`espn_*` ids
+  are integer at load, so they join with the WNBA Stats and ESPN tables
+  (`wnba_game_id` stays character). (#109)
+* The ESPN WBB/WNBA game helpers return the home team's default logo rather
+  than its dark-mode variant. (#109)
+
+### **Deprecations**
+
+* The eight hustle and video wrappers deprecated in 3.0.0
+  (`wnba_boxscorehustlev2()`, `wnba_hustlestatsboxscore()`,
+  `wnba_leaguehustlestatsplayer()`, `wnba_leaguehustlestatsplayerleaders()`,
+  `wnba_leaguehustlestatsteam()`, `wnba_leaguehustlestatsteamleaders()`,
+  `wnba_videodetails()`, `wnba_videodetailsasset()`) stay exported in 3.1.0.
+  They will be removed in a future release, no earlier than 3.2.0. (#109)
+
+### **Internal**
+
+* Examples that call stats.wnba.com or basketball-reference.com now run only
+  in interactive sessions. (#109)
+* Tests that call live APIs are gated behind their `*_TESTS` toggles and skip
+  on CRAN and CI; CI adds R-devel, urlchecker and test-coverage jobs, and the
+  toggles are read from repository variables. (#107)
 
 ### **New data loaders**
 
@@ -183,11 +219,13 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
   player-crosswalk builders `wnba_player_crosswalk()` and `wbb_player_crosswalk()` now need it; the cached `load_*_crosswalk()` loaders
   do not. magrittr, lubridate and xml2 are no longer dependencies (`%>%` still comes from dplyr; date
   parsing now uses base R with the same results). (#102)
-* `withr` is a new Import (the international families scope their options with it), and
-  `jsonlite` now has a `(>= 1.6)` floor, the release that added `parse_json()`. (#100)
-* The `httr2` floor rises to 1.0.4 for `req_retry(retry_on_failure = )`, and the `testthat`
-  floor (Suggests) rises to 3.1.9: `local_mocked_bindings(.package = )` needs 3.1.7, and
+* `withr` is a new Import (the international families scope their options with it). (#100)
+* `jsonlite` now has a `(>= 1.6)` floor, the release that added `parse_json()`. The `httr2`
+  floor rises to 1.0.4 for `req_retry(retry_on_failure = )`, and the `testthat` floor
+  (Suggests) rises to 3.1.9: `local_mocked_bindings(.package = )` needs 3.1.7, and
   `expect_in()`, already used across the test suite, needs 3.1.9. (#84)
+* `Rcpp` and `RcppParallel` are no longer Imports (wehoop has no compiled code), and
+  `usethis` is no longer in Suggests: the `update_*_db()` messages use cli. (#109)
 
 ### **Documentation**
 
@@ -1025,17 +1063,17 @@ The sweep is idempotent: re-running `augment_all_r_files()` after updating the d
 
 # **wehoop 1.1.0**
 ### **Add schedule loaders**
-- [```wehoop::load_wbb_schedule()```](https://wehoop.sportsdataverse.org/reference/load_wbb_schedule.html) function added
-- [```wehoop::load_wnba_schedule()```](https://wehoop.sportsdataverse.org/reference/load_wnba_schedule.html) function added
+- `wehoop::load_wbb_schedule()` function added
+- `wehoop::load_wnba_schedule()` function added
 
 # **wehoop 1.0.0**
 ### **Add team box score loaders**
-- [```wehoop::load_wbb_team_box()```](https://wehoop.sportsdataverse.org/reference/load_wbb_team_box.html) function added
-- [```wehoop::load_wnba_team_box()```](https://wehoop.sportsdataverse.org/reference/load_wnba_team_box.html) function added
+- `wehoop::load_wbb_team_box()` function added
+- `wehoop::load_wnba_team_box()` function added
 
 ### **Add player box score loaders**
-- [```wehoop::load_wbb_player_box()```](https://wehoop.sportsdataverse.org/reference/load_wbb_player_box.html) function added
-- [```wehoop::load_wnba_player_box()```](https://wehoop.sportsdataverse.org/reference/load_wnba_player_box.html) function added
+- `wehoop::load_wbb_player_box()` function added
+- `wehoop::load_wnba_player_box()` function added
 
 ### **Standings functions**
 - [```wehoop::espn_wnba_standings()```](https://wehoop.sportsdataverse.org/reference/espn_wnba_standings.html)
@@ -1059,8 +1097,8 @@ This update is a non-user facing change to package dependencies to shrink the li
 
 # **wehoop 0.9.0**
 ### **Loading capabilities added to the package**
-- [```wehoop::load_wbb_pbp()```](https://wehoop.sportsdataverse.org/reference/load_wbb_pbp.html) and [```wehoop::update_wbb_db()```](https://wehoop.sportsdataverse.org/reference/update_wbb_db.html) functions added
-- [```wehoop::load_wnba_pbp()```](https://wehoop.sportsdataverse.org/reference/load_wnba_pbp.html) and [```wehoop::update_wnba_db()```](https://wehoop.sportsdataverse.org/reference/update_wnba_db.html) functions added
+- `wehoop::load_wbb_pbp()` and [```wehoop::update_wbb_db()```](https://wehoop.sportsdataverse.org/reference/update_wbb_db.html) functions added
+- `wehoop::load_wnba_pbp()` and [```wehoop::update_wnba_db()```](https://wehoop.sportsdataverse.org/reference/update_wnba_db.html) functions added
 
 # **wehoop 0.3.0**
 ###  **Dependencies**
