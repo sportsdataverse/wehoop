@@ -118,14 +118,14 @@ Other FEB Functions:
 # \donttest{
   try(feb_standings(group = 1, season = 2027))
 #> ── FEB standings from baloncestoenvivo.feb.es ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 19:31:31 UTC
+#> ℹ Data updated: 2026-11-01 23:15:31 UTC
 #> # A tibble: 18 × 17
 #>    group season competition comp_id table position team_id team     played   won
 #>    <int>  <int> <chr>         <int> <chr>    <int>   <int> <chr>     <int> <int>
-#>  1     1   2027 PRIMERA FEB     115 live         1 1008687 HLA ALI…      6     6
-#>  2     1   2027 PRIMERA FEB     115 live         2 1010493 MOVISTA…      5     5
+#>  1     1   2027 PRIMERA FEB     115 live         1 1010493 MOVISTA…      6     6
+#>  2     1   2027 PRIMERA FEB     115 live         2 1008687 HLA ALI…      6     6
 #>  3     1   2027 PRIMERA FEB     115 live         3 1010207 IBEROLE…      6     5
-#>  4     1   2027 PRIMERA FEB     115 live         4 1008797 CAJASIE…      5     4
+#>  4     1   2027 PRIMERA FEB     115 live         4 1008797 CAJASIE…      6     4
 #>  5     1   2027 PRIMERA FEB     115 live         5 1009584 GRUPO A…      6     4
 #>  6     1   2027 PRIMERA FEB     115 live         6 1009713 PALMER …      6     4
 #>  7     1   2027 PRIMERA FEB     115 live         7 1009109 COVIRAN…      6     4

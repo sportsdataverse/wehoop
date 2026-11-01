@@ -117,7 +117,7 @@ Other SCB Functions:
 # \donttest{
   try(scb_season_teams(season = 2026))
 #> ── BBL/DBBL Season Teams from the SCB API ────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 19:33:38 UTC
+#> ℹ Data updated: 2026-11-01 23:17:52 UTC
 #> # A tibble: 10 × 8
 #>    league season season_id team_id season_team_id team_name       tlc   logo_url
 #>    <chr>   <int>     <int> <chr>   <chr>          <chr>           <chr> <chr>   

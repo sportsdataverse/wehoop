@@ -188,7 +188,7 @@ Other SCB Functions:
 # \donttest{
   try(scb_player_statistics(season = 2026))
 #> ── BBL/DBBL Season Player Statistics from the SCB API ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 19:33:36 UTC
+#> ℹ Data updated: 2026-11-01 23:17:49 UTC
 #> # A tibble: 138 × 72
 #>    league season display_type season_player_id real_player_id first_name     
 #>    <chr>   <int> <chr>        <chr>                     <int> <chr>          
