@@ -27,6 +27,8 @@ jobs:
     runs-on: ${{ matrix.config.os }}
     # R-devel is an early warning for the CRAN r-devel flavours, not a merge gate.
     continue-on-error: ${{ matrix.config.r == 'devel' }}
+    # A hung step (e.g. an example stalling on a datacenter-blocked host) must not burn 6 h.
+    timeout-minutes: 60
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 

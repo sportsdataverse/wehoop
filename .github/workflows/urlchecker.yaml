@@ -1,7 +1,9 @@
 # Checks every URL in the package docs (DESCRIPTION, man/, vignettes, README, NEWS)
 # with urlchecker, the same check CRAN runs. Monthly and on demand; it also runs on a
-# PR that edits this file. Some hosts (stats.wnba.com, sports-reference) refuse or
-# stall datacenter IPs, so read failures for those against cran-comments.md.
+# PR that edits this file. URLs on stats.wnba.com, stats.nba.com, stats.ncaa.org and
+# sports-reference are dropped before checking: those hosts block or stall datacenter
+# IPs, and SDV never calls them from cloud runners. Check them by hand from a
+# residential IP before a CRAN submission.
 on:
   workflow_dispatch:
   schedule:
@@ -37,7 +39,12 @@ jobs:
 
       - name: Check URLs
         run: |
-          res <- urlchecker::url_check(".")
+          db <- urlchecker:::build_url_db(normalizePath(".", winslash = "/"))
+          blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]wnba[.]com|stats[.]nba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|basketball-reference[.]com)"
+          skip <- grepl(blocked, db$URL, ignore.case = TRUE)
+          message(sum(skip), " URL(s) on datacenter-blocked hosts not checked:")
+          writeLines(unique(db$URL[skip]))
+          res <- urlchecker::url_check(".", db = db[!skip, ], fail = FALSE)
           print(res)
           if (NROW(res) > 0) stop(NROW(res), " URL problem(s); see the table above")
         shell: Rscript {0}
