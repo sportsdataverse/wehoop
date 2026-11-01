@@ -17,6 +17,7 @@ GitHub Actions, whatever the toggles are set to.
 | `OFFICIAL_NBA_TESTS=1`| `skip_official_nba_test()`| `test-wnba_referee_assignments.R`             |
 | `BREF_TESTS=1`       | `skip_bref_test()`        | `test-bref_wnba.R` (Basketball-Reference)      |
 | `WEHOOP_INTL_LIVE_TESTS=1` | `skip_intl_live()`  | international families (`helper-intl.R`)       |
+| `TORVIK_TESTS=1`     | inline `Sys.getenv()` check | `test-bart_wbb.R` (Bart Torvik T-Rank)    |
 
 ## Load tests
 
@@ -39,6 +40,8 @@ WEHOOP_LOAD_TESTS=1 Rscript -e 'devtools::test(filter = "load_")'
 ```
 
 Even with `WEHOOP_LOAD_TESTS=1` set, `skip_load_test()` calls `skip_on_ci()`,
-so the suite stays a no-op under GitHub Actions. To run live tests in CI you
-would have to change `skip_live_test()` in `helper-skip.R`; weigh the
-bandwidth and flakiness cost on the runners first.
+so the suite stays a no-op under GitHub Actions. Many load-test files also
+call `skip_on_ci()` directly. To run a load test in CI you would have to
+remove the `skip_on_ci()` call from `skip_live_test()` in `helper-skip.R` and
+the direct call in that test file; weigh the bandwidth and flakiness cost on
+the runners first.
