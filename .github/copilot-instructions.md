@@ -17,7 +17,7 @@
 
 ## Project Context
 
-wehoop is an R package (v3.0.0) that wraps the WNBA Stats API, ESPN API (WNBA & WBB), and NCAA women's basketball endpoints. It exports 450+ functions (including 180 ESPN wrappers and 90 `load_*()` release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.
+wehoop is an R package (v3.1.0) that wraps the WNBA Stats API, ESPN API (WNBA & WBB), NCAA women's basketball endpoints, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers. It exports 750 functions (including 180 ESPN wrappers, 289 international wrappers and 98 `load_*()` release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.
 
 When there is any conflict between this file and repository contributor docs, follow `CONTRIBUTING.md` and the current test implementations under `tests/testthat/` as the source of truth.
 
@@ -72,9 +72,14 @@ User-facing messages use `cli`:
 | ESPN WBB         | `espn_wbb_`                 | `espn_wbb_pbp()`, `espn_wbb_teams()`                |
 | NCAA WBB         | `ncaa_wbb_`                 | `ncaa_wbb_teams()`                                   |
 | Data loaders     | `load_wnba_` / `load_wbb_`  | `load_wnba_pbp()`, `load_wbb_team_box()`            |
+| Fox Sports       | `fox_wnba_` / `fox_wbb_`   | `fox_wnba_pbp()`, `fox_wbb_teams()`                 |
+| Basketball-Reference | `bref_wnba_`            | `bref_wnba_player_stats()`                          |
+| Her Hoop Stats   | `hhs_`                      | `hhs_teams()` (subscription)                        |
+| Bart Torvik      | `bart_wbb_`                 | `bart_wbb_ratings()`                                |
 | NCAA WBB loaders | `load_ncaa_wbb_`            | `load_ncaa_wbb_pbp()`, `load_ncaa_wbb_rapm()`       |
+| International    | `fiba_`, `genius_`, `atrium_`, `nbl_`, `scb_`, `feb_`, `tbf_`, `wjbl_` (+ per-competition aliases) | `fiba_gdap_schedule()`, `genius_pbp()`, `wjbl_pbp()` |
 
-**`load_ncaa_wbb_*()` family (3.0.0)**: 12 loaders (`pbp`, `shots`, `lineups`,
+**`load_ncaa_wbb_*()` family (3.0.0)**: 13 loaders (`pbp`, `shots`, `lineups`,
 `matchup_stints`, `possessions`, `rapm_within_team`, `rapm` (league-wide),
 `player_box`, `team_box`, `rosters`, `team_rosters`, `schedule`, `team_ids`)
 reading datasets produced by the sportsdataverse-py NCAA engine over
@@ -151,7 +156,11 @@ Every exported function needs:
 | `WNBA_STATS_TESTS=1` | Enable WNBA Stats API tests  | `skip_wnba_stats_test()`  |
 | `ESPN_TESTS=1`       | Enable ESPN API tests        | `skip_espn_test()`        |
 | `NCAA_WBB_TESTS=1`   | Enable NCAA WBB tests        | `skip_ncaa_wbb_test()`    |
-| `KP_USER` / `KP_PW`  | KenPom credentials (if used) | n/a                       |
+| `FOX_TESTS=1`        | Enable Fox Sports tests      | `skip_fox_test()`         |
+| `OFFICIAL_NBA_TESTS=1` | Enable official.nba.com tests | `skip_official_nba_test()` |
+| `WEHOOP_LOAD_TESTS=1` | Enable `load_*()` release-asset tests | `skip_load_test()` |
+| `WEHOOP_INTL_LIVE_TESTS=1` | Enable international-family live tests | `skip_intl_live()` |
+| `GENIUS_PROXY`       | Proxy the Genius live tests need | `skip_intl_live("GENIUS_PROXY")` |
 
 On CI, most live API tests are additionally guarded with `skip_on_ci()`. Setting env vars alone will not run those tests unless that guard is intentionally relaxed.
 
@@ -186,7 +195,7 @@ Two regeneration steps are part of the commit workflow whenever the relevant sou
 - **DESCRIPTION.** After editing `DESCRIPTION` (deps, versions, `Authors@R`, etc.), run `usethis::use_tidy_description()` to normalize field order, alphabetize `Imports`/`Suggests`, and reflow long lines. Run it even for one-line edits.
 
 - **Release notes triad — `NEWS.md` / `cran-comments.md` / `_pkgdown.yml`.** Whenever you add a `NEWS.md` bullet, check the other two:
-  - `NEWS.md` — all new bullets go under the most recent **unreleased** version heading (currently `# **wehoop 3.0.0.9000 (development version)**`; 3.0.0 shipped to CRAN on 2026-08-24). Do NOT create a new version section ahead of release; extend the existing subsections (`### Bug fixes`, `### Deprecations`, `### Test infrastructure`, ...). After the release ships the rule rolls forward to the next dev version.
+  - `NEWS.md` — all new bullets go under the most recent **unreleased** version heading (currently `# **wehoop 3.1.0**`; 3.0.0 shipped to CRAN on 2026-08-24, 3.1.0 is not yet submitted). Do NOT create a new version section ahead of release; extend the existing subsections (`### Bug fixes`, `### Deprecations`, `### Test infrastructure`, ...). After the release ships the rule rolls forward to the next dev version.
   - `cran-comments.md` — every user-visible / behavioral change in `NEWS.md` should be reflected in `cran-comments.md` before submission. Internal-only changes (refactors, test infra, dev tooling) can be omitted.
   - `_pkgdown.yml` — new exports go in the right `reference:` section. `starts_with()` selectors auto-pick up `wnba_*` / `espn_*` / `ncaa_*` prefixes; explicitly-listed functions need a manual entry. `lifecycle::deprecate_stop()` + `@keywords internal` excludes a function from the rendered index by default.
 

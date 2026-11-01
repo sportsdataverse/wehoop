@@ -1,4 +1,4 @@
-# Shared rules (synced across repos — edit the template in ClaudeCowork, not here)
+# Shared rules (synced across repos — edit the shared template, not here)
 
 These apply in every session, including Claude Code cloud sessions. They sit alongside
 this repo's root `CLAUDE.md`, which holds the repo-specific rules.

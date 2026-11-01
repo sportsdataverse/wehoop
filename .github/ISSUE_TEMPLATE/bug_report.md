@@ -1,38 +1,46 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
+about: Report a bug or unexpected behavior in wehoop
+title: 'bug: '
+labels: 'bug'
 assignees: ''
 
 ---
 
+**Function and parameters**
+Which wehoop function(s) are affected? Include the exact arguments (game ID, season, team, ...).
+```r
+espn_wnba_pbp(game_id = 401244185)
+```
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Reprex (reproducible example)**
+Please include a minimal reproducible example made with `reprex::reprex()`:
+```r
+# Paste reprex output here
+```
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Error message / output**
+```
+# Paste the full error message or unexpected output here
+```
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**wehoop version**
+Paste the output of `packageVersion("wehoop")` (and say whether it came from CRAN or GitHub):
+```r
+# packageVersion("wehoop") output here
+```
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+**Session info**
+Paste the output of `sessionInfo()`:
+```r
+# sessionInfo() output here
+```
 
 **Additional context**
-Add any other context about the problem here.
+Anything else that helps, for example whether you are behind a proxy or on a cloud / datacenter IP (stats.wnba.com often refuses those).
