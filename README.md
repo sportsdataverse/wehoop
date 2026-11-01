@@ -172,9 +172,11 @@ reference](https://wehoop.sportsdataverse.org/reference/index.html).
 The 98 `load_*()` functions read pre-built season files (rds or parquet)
 from the
 [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases)
-releases instead of calling the source APIs. Each takes `seasons` and
-returns a `wehoop_data` tibble; most can also write to a database
-through `dbConnection` and `tablename`.
+releases instead of calling the source APIs. Most take `seasons` and
+return a `wehoop_data` tibble (`load_wnba_draft_manifest()` takes no
+arguments and the `load_*_groups()` lineage tables are not split by
+season); most can also write to a database through `dbConnection` and
+`tablename`.
 
   - **ESPN-backed** (`load_wnba_*`, `load_wbb_*`): play-by-play, player
     and team box scores, schedules, rosters, player and team season

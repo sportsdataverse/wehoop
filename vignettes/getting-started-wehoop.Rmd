@@ -248,7 +248,7 @@ wbb_teams <- wehoop::load_wbb_team_stats(
 )
 ```
 
-The ESPN-backed and WNBA Stats API-backed WNBA loaders cover overlapping ground (rosters, draft, shots, game rosters, officials; WNBA Stats player, team and lineup stats now live in `load_wnba_stats_leaguedash()`), so you can pick whichever joins more cleanly into the rest of your pipeline. WBB has only the ESPN-backed family today.
+The ESPN-backed and WNBA Stats API-backed WNBA loaders cover overlapping ground (rosters, draft, shots, game rosters, officials; WNBA Stats player, team and lineup stats now live in `load_wnba_stats_leaguedash()`), so you can pick whichever joins more cleanly into the rest of your pipeline. WBB has the ESPN-backed family plus the NCAA-sourced `load_ncaa_wbb_*()` family (play-by-play, shots, lineups and more); there is no WNBA Stats-style source for WBB.
 
 ## Live API endpoints
 

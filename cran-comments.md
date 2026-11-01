@@ -20,9 +20,11 @@ full list of changes is in NEWS.md. The main additions:
 * The release loaders accept exactly the seasons the data releases
   publish, fall back to the newest published season when the current one
   is not out yet, and return ESPN and WNBA Stats join ids as integer.
-* Dependencies: Rcpp and RcppParallel (unused; the package has no compiled
-  code) are no longer imported, usethis is no longer suggested (messages go
-  through cli, already imported), and glmnet and Matrix moved to Suggests.
+* Dependencies: jsonlite now requires (>= 1.6) for parse_json(), httr2
+  (>= 1.0.4) for req_retry(retry_on_failure = ), and withr is a new import.
+  Rcpp and RcppParallel (unused; the package has no compiled code) are no
+  longer imported, usethis is no longer suggested (messages go through cli,
+  already imported), and glmnet, Matrix and stringdist moved to Suggests.
 
 ## Deprecations
 

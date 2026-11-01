@@ -601,7 +601,7 @@ espn_wnba_game_propbets(event_id = EID, provider_id = 58)
 
 Five resource families under `events/{eid}/competitions/{cid}/competitors/{team_id}/`,
 each shimmed for WNBA + WBB. Pair `team_id` with `event_id` from
-`espn_wnba_scoreboard()$game_id` or `load_wnba_schedule()$game_id` (or the team_id from any boxscore-style call).
+`espn_wnba_scoreboard(season = "20240831")$game_id` or `load_wnba_schedule()$game_id` (or the team_id from any boxscore-style call).
 
 ```{r}
 EID <- "401736171"; TID <- 17  # team_id of one competitor

@@ -95,7 +95,7 @@ Each family links to its section of the [function reference](https://wehoop.spor
 
 ## **Bulk datasets**
 
-The `r n_exports("load_")` `load_*()` functions read pre-built season files (rds or parquet) from the [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases) releases instead of calling the source APIs. Each takes `seasons` and returns a `wehoop_data` tibble; most can also write to a database through `dbConnection` and `tablename`.
+The `r n_exports("load_")` `load_*()` functions read pre-built season files (rds or parquet) from the [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases) releases instead of calling the source APIs. Most take `seasons` and return a `wehoop_data` tibble (`load_wnba_draft_manifest()` takes no arguments and the `load_*_groups()` lineage tables are not split by season); most can also write to a database through `dbConnection` and `tablename`.
 
 * **ESPN-backed** (`load_wnba_*`, `load_wbb_*`): play-by-play, player and team box scores, schedules, rosters, player and team season stats, standings, shots, game rosters, officials, player cores and the WNBA draft.
 * **WNBA Stats API** (`load_wnba_stats_*`): play-by-play, schedules, rosters, coaches, player game logs, the league dashboard cube (`load_wnba_stats_leaguedash()`), draft, shots, game rosters, officials and possessions (`load_wnba_stats_possessions()`).
