@@ -65,7 +65,13 @@ help you get started.
 | ESPN WNBA | `espn_wnba_` | [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md), [`espn_wnba_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_teams.md) |
 | ESPN WBB | `espn_wbb_` | [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md), [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md) |
 | NCAA WBB | `ncaa_wbb_` | [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md) |
+| Fox Sports | `fox_wnba_` / `fox_wbb_` | [`fox_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md), [`fox_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_standings.md) |
+| Basketball-Reference | `bref_wnba_` | [`bref_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/bref_wnba_player_stats.md) |
+| Her Hoop Stats | `hhs_` | [`hhs_teams()`](https://wehoop.sportsdataverse.org/reference/hhs_teams.md) (subscription) |
+| Bart Torvik | `bart_wbb_` | [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md) |
+| International | `fiba_`, `genius_`, `atrium_`, `nbl_`, `scb_`, `feb_`, `tbf_`, `wjbl_` (+ per-competition aliases) | [`fiba_gdap_schedule()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_schedule.md), [`genius_pbp()`](https://wehoop.sportsdataverse.org/reference/genius_pbp.md), [`wjbl_pbp()`](https://wehoop.sportsdataverse.org/reference/wjbl_pbp.md) |
 | Data loaders | `load_wnba_` / `load_wbb_` | [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md), [`load_wbb_team_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md) |
+| NCAA WBB loaders | `load_ncaa_wbb_` | [`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md), [`load_ncaa_wbb_rapm()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md) |
 
 ### General Naming Rules
 
@@ -193,14 +199,13 @@ committing**:
 
 - **`NEWS.md`** — authoritative changelog for downstream users; rendered
   into the pkgdown changelog. **All new bullets go under the most recent
-  unreleased version heading** (currently
-  `# **wehoop 3.0.0.9000 (development version)**`; 3.0.0 shipped to CRAN
-  on 2026-08-24). Do NOT create a new version section ahead of release.
-  Add to or extend an existing subsection (`### Bug fixes`,
-  `### Deprecations`, `### Test infrastructure`, etc.) instead of
-  starting a new one when the change is incremental. When a version
-  ships to CRAN, the next development version gets its own heading and
-  the rule rolls forward.
+  unreleased version heading** (currently `# **wehoop 3.1.0**`; 3.0.0
+  shipped to CRAN on 2026-08-24, 3.1.0 is not yet submitted). Do NOT
+  create a new version section ahead of release. Add to or extend an
+  existing subsection (`### Bug fixes`, `### Deprecations`,
+  `### Test infrastructure`, etc.) instead of starting a new one when
+  the change is incremental. When a version ships to CRAN, the next
+  development version gets its own heading and the rule rolls forward.
 
 - **`cran-comments.md`** — what gets submitted to CRAN. Every behavioral
   or user-visible change you add to `NEWS.md` should also be reflected
@@ -286,9 +291,33 @@ if (length(x) == 0 || is.null(x[[1]]) || nrow(x[[1]]) == 0) {
 }
 ```
 
-**Note**: All API tests are skipped on CRAN (`skip_on_cran()`) and CI
-(`skip_on_ci()`) by default. They require network access and valid API
-responses.
+### Test environment variables
+
+Live tests are off unless you set the variable for the source you are
+testing (helpers in `tests/testthat/helper-skip.R` and `helper-intl.R`):
+
+| Variable | Enables | Helper |
+|----|----|----|
+| `WNBA_STATS_TESTS=1` | WNBA Stats API tests | `skip_wnba_stats_test()` |
+| `ESPN_TESTS=1` | ESPN API tests | `skip_espn_test()` |
+| `NCAA_WBB_TESTS=1` | NCAA WBB tests | `skip_ncaa_wbb_test()` |
+| `FOX_TESTS=1` | Fox Sports tests | `skip_fox_test()` |
+| `OFFICIAL_NBA_TESTS=1` | official.nba.com tests | `skip_official_nba_test()` |
+| `WEHOOP_LOAD_TESTS=1` | `load_*()` release-asset tests (large downloads) | `skip_load_test()` |
+| `WEHOOP_INTL_LIVE_TESTS=1` | international-family live tests | `skip_intl_live()` |
+| `BREF_TESTS=1` | Basketball-Reference tests | `skip_bref_test()` |
+| `TORVIK_TESTS=1` | Bart Torvik (T-Rank) tests | inline check in `test-bart_wbb.R` |
+| `GENIUS_PROXY` | a proxy URL; the Genius live tests also need it | `skip_intl_live("GENIUS_PROXY")` |
+
+For example:
+`Sys.setenv(ESPN_TESTS = "1"); devtools::test(filter = "espn_wnba_pbp")`.
+
+**Note**: Every live test is skipped on CRAN and on CI whatever the
+toggles say (`tests/testthat/helper-skip.R`), and an unset or empty
+toggle means skip. Run them locally. If your `~/.Renviron` sets any of
+these, unset them in the session
+([`Sys.unsetenv()`](https://rdrr.io/r/base/Sys.setenv.html)) for an
+offline run.
 
 ### Rate Limiting
 
@@ -298,12 +327,12 @@ during test runs.
 
 ## CI / GitHub Actions
 
-The repository uses GitHub Actions for R CMD check and pkgdown site
-deployment. The following secrets should be configured:
-
-| Secret         | Used By       | Description             |
-|----------------|---------------|-------------------------|
-| `GITHUB_TOKEN` | All workflows | Auto-provided by GitHub |
+The repository uses GitHub Actions for R CMD check (release, oldrel and
+a non-blocking R-devel job), test coverage, a URL check, and pkgdown
+site deployment. `GITHUB_TOKEN` is the only secret the workflows need.
+R-CMD-check passes the `WNBA_STATS_TESTS`, `ESPN_TESTS` and
+`NCAA_WBB_TESTS` repository variables through, but live tests skip on CI
+regardless (see above).
 
 ## Reporting Issues
 

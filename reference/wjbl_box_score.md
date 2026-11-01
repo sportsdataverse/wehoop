@@ -141,7 +141,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_box_score(play_schedule_id = 7987))
 #> ── W League Box Score from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 18:18:11 UTC
+#> ℹ Data updated: 2026-11-01 19:34:07 UTC
 #> # A tibble: 27 × 24
 #>    play_schedule_id team_side team_id player_id player_name  player_number    gs
 #>               <int> <chr>       <int>     <int> <chr>        <chr>         <int>

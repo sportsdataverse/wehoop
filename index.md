@@ -5,22 +5,25 @@
   - [**Data status**](#data-status)
   - [**Installation**](#installation)
   - [**Quick Start**](#quick-start)
+  - [**What’s in wehoop**](#whats-in-wehoop)
+  - [**Bulk datasets**](#bulk-datasets)
+  - [**Plotting and related packages**](#plotting-and-related-packages)
   - [**Documentation**](#documentation)
   - [**Breaking Changes**](#breaking-changes)
   - [Follow the SportsDataverse (@SportsDataverse) on X and star this
     repo](#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo)
 - [**Our Authors**](#our-authors)
+  - [**Cheat sheet**](#cheat-sheet)
   - [**Citations**](#citations)
 
-`wehoop` is an R package for working with women’s college and
-professional basketball data. The package has functions to access **live
-play by play and box score** data from ESPN with shot locations when
-available.
-
-A scraping and aggregating interface for ESPN’s women’s college
-basketball and WNBA statistics. It provides users with the capability to
-access the API’s game play-by-plays, box scores, standings and results
-to analyze the data for themselves.
+[**`wehoop`**](https://wehoop.sportsdataverse.org/) is an R package for
+working with women’s college and professional basketball data. It
+exports 750 functions: live wrappers for ESPN, the WNBA Stats API, the
+NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik,
+official.nba.com and eight international data providers, plus 98
+`load_*()` functions that read pre-built season files (play-by-play, box
+scores, rosters, schedules, crosswalks and model outputs) instead of
+calling the sources.
 
 ## **Data status**
 
@@ -49,8 +52,9 @@ You can install the CRAN version of
 install.packages("wehoop")
 ```
 
-This documentation describes **wehoop 3.0.0**. If the CRAN release
-hasn’t caught up yet, install the GitHub development version instead:
+This documentation describes **wehoop 3.1.0**. If the CRAN release
+hasn’t caught up yet, install the development version from
+[GitHub](https://github.com/sportsdataverse/wehoop) instead:
 
 ``` r
 
@@ -63,54 +67,155 @@ pak::pak("sportsdataverse/wehoop")
 
 ## **Quick Start**
 
-### **WNBA full play-by-play seasons (2002-2026) ~ 1-2 minutes**
+### **WNBA play-by-play for a season**
+
+[`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+covers 2002-2026; pass several seasons (or `seasons = TRUE` for all of
+them) to load more at once.
 
 ``` r
 
-tictoc::tic()
-progressr::with_progress({
-  wnba_pbp <- wehoop::load_wnba_pbp()
-})
+wnba_pbp <- wehoop::load_wnba_pbp(seasons = 2026)
 ```
 
 ``` R
-## Warning in readRDS(con): cannot open URL
-## 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds':
-## HTTP status was '404 Not Found'
-
-## Warning: Failed to readRDS from
-## <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_2026.rds>
+## 144409 rows of WNBA play-by-play data from 354 games.
 ```
+
+### **Women’s college basketball play-by-play for a season**
+
+[`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
+covers 2004 onward. A new season’s file is published once its games
+begin.
 
 ``` r
 
-tictoc::toc()
+wbb_pbp <- wehoop::load_wbb_pbp(seasons = 2026)
 ```
 
 ``` R
-## 0.3 sec elapsed
-
-## Warning: Unknown or uninitialised column: `game_id`.
-
-## 0 rows of WNBA play-by-play data from 0 games.
-```
-
-### **Women’s college basketball full play-by-play seasons (2004-2026) ~ 2-3 minutes**
-
-``` r
-
-tictoc::tic()
-progressr::with_progress({
-  wbb_pbp <- wehoop::load_wbb_pbp()
-})
-tictoc::toc()
-```
-
-``` R
-## 10.58 sec elapsed
-
 ## 2824090 rows of women's college basketball play-by-play data from 6011 games.
 ```
+
+## **What’s in wehoop**
+
+Each family links to its section of the [function
+reference](https://wehoop.sportsdataverse.org/reference/index.html).
+
+- **ESPN** ([`espn_wnba_*`,
+  `espn_wbb_*`](https://wehoop.sportsdataverse.org/reference/index.html#espn-data)):
+  180 wrappers (88 women’s college + 92 WNBA) for play-by-play, box
+  scores, schedules, standings, teams, athletes, odds, win probability,
+  the draft and transactions. The [ESPN endpoints
+  article](https://wehoop.sportsdataverse.org/articles/espn-endpoints.html)
+  walks through them.
+- **WNBA Stats API**
+  ([`wnba_*`](https://wehoop.sportsdataverse.org/reference/index.html#wnba-stats-data-functions)):
+  stats.wnba.com box scores, play-by-play, league dashboards, player and
+  team splits, shot charts and lineups.
+- **WNBA officiating**
+  ([`wnba_referee_assignments()`](https://wehoop.sportsdataverse.org/reference/index.html#wnba-officiating-functions)):
+  official.nba.com’s daily referee assignments.
+- **NCAA**
+  ([`ncaa_wbb_*`](https://wehoop.sportsdataverse.org/reference/index.html#ncaa-data)):
+  NCAA team lists and NET rankings.
+- **Fox Sports** ([`fox_wnba_*`,
+  `fox_wbb_*`](https://wehoop.sportsdataverse.org/reference/index.html#fox-sports-data-functions)):
+  play-by-play, box scores, odds, rosters, standings and leaders.
+- **Basketball-Reference**
+  ([`bref_wnba_*`](https://wehoop.sportsdataverse.org/reference/index.html#wnba-basketball-reference-functions)):
+  WNBA player stats, team stats and standings.
+- **Her Hoop Stats**
+  ([`hhs_*`](https://wehoop.sportsdataverse.org/reference/index.html#her-hoop-stats-functions)):
+  NCAA women’s team indexes, team stats and rosters, for subscribers.
+- **Bart Torvik**
+  ([`bart_wbb_*`](https://wehoop.sportsdataverse.org/reference/index.html#wbb-crosswalk-functions)):
+  women’s college team ratings and game schedules.
+- **Crosswalks**
+  ([WNBA](https://wehoop.sportsdataverse.org/reference/index.html#wnba-crosswalk-functions),
+  [WBB](https://wehoop.sportsdataverse.org/reference/index.html#wbb-crosswalk-functions)):
+  team, player and game ids matched across ESPN, WNBA Stats, Fox and
+  Torvik, built live (`wnba_*_crosswalk()`, `wbb_*_crosswalk()`) or
+  loaded pre-built (`load_*_crosswalk()`).
+- **International**
+  ([reference](https://wehoop.sportsdataverse.org/reference/index.html#international-basketball)):
+  FIBA (`fiba_*`), Genius Sports (`genius_*`), Sportradar Atrium
+  (`atrium_*`), NBL / WNBL (`nbl_*`), SCB / DBBL (`scb_*`), FEB
+  (`feb_*`), TBF (`tbf_*`) and the W League (`wjbl_*`), plus
+  per-competition aliases such as `fiba_wwc_*`, `wbbl_*` and `lfb_*`.
+  289 functions in all.
+- **Release loaders**
+  ([WNBA](https://wehoop.sportsdataverse.org/reference/index.html#wnba-data-functions),
+  [WBB](https://wehoop.sportsdataverse.org/reference/index.html#women-s-college-basketball-data-functions),
+  [WNBA
+  Stats](https://wehoop.sportsdataverse.org/reference/index.html#wnba-stats-api-data-loaders),
+  [NCAA
+  engine](https://wehoop.sportsdataverse.org/reference/index.html#ncaa-women-s-college-basketball-play-by-play-engine-data-loaders),
+  [models](https://wehoop.sportsdataverse.org/reference/index.html#model-dataset-loaders),
+  [conference
+  groups](https://wehoop.sportsdataverse.org/reference/index.html#conference-and-division-group-loaders)):
+  see below.
+
+## **Bulk datasets**
+
+The 98 `load_*()` functions read pre-built season files (rds or parquet)
+from the
+[sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases)
+releases instead of calling the source APIs. Most take `seasons` and
+return a `wehoop_data` tibble
+([`load_wnba_draft_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+takes no arguments and the `load_*_groups()` lineage tables are not
+split by season); most can also write to a database through
+`dbConnection` and `tablename`.
+
+- **ESPN-backed** (`load_wnba_*`, `load_wbb_*`): play-by-play, player
+  and team box scores, schedules, rosters, player and team season stats,
+  standings, shots, game rosters, officials, player cores and the WNBA
+  draft.
+- **WNBA Stats API** (`load_wnba_stats_*`): play-by-play, schedules,
+  rosters, coaches, player game logs, the league dashboard cube
+  ([`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md)),
+  draft, shots, game rosters, officials and possessions
+  ([`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)).
+- **NCAA play-by-play engine** (`load_ncaa_wbb_*`, 13 loaders):
+  play-by-play, shots, lineups, matchup stints, possessions, RAPM
+  (within-team and league-wide), box scores, rosters, schedules and team
+  ids, built by [sportsdataverse-py](https://py.sportsdataverse.org/)
+  from stats.ncaa.org.
+- **Crosswalks** (`load_wnba_*_crosswalk()`, `load_wbb_*_crosswalk()`):
+  the pre-built team, player and schedule crosswalks.
+- **Models**:
+  [`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
+  [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  and
+  [`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md).
+- **Conference and division groups**:
+  [`load_wnba_groups()`](https://wehoop.sportsdataverse.org/reference/load_wbb_groups.md),
+  [`load_wbb_groups()`](https://wehoop.sportsdataverse.org/reference/load_wbb_groups.md)
+  and their `_group_seasons()`, `_group_aliases()` and
+  `_team_group_seasons()` companions record membership as it was each
+  season.
+
+## **Plotting and related packages**
+
+- [**`sdvplotR`**](https://sdvplotR.sportsdataverse.org/) (0.3.0,
+  `pak::pak("sportsdataverse/sdvplotR")`) adds team logos and colours to
+  `ggplot2` charts and draws shot charts from the `wehoop` shot loaders;
+  see its
+  [WNBA](https://sdvplotR.sportsdataverse.org/articles/wnba-viz.html),
+  [women’s
+  college](https://sdvplotR.sportsdataverse.org/articles/wbb-viz.html)
+  and [shot
+  chart](https://sdvplotR.sportsdataverse.org/articles/cookbook-surfaces-shot-charts.html)
+  articles.
+- [**`sportyR`**](https://sportyR.sportsdataverse.org/) (2.4.5,
+  `install.packages("sportyR")`) draws WNBA, NCAA and FIBA courts to
+  plot shot locations on.
+- [**`hoopR`**](https://hoopR.sportsdataverse.org/) is the men’s
+  basketball companion (NBA and men’s college basketball).
+- [**`sportsdataverse-py`**](https://py.sportsdataverse.org/) is the
+  Python package; most `wehoop` functions have a Python twin of the same
+  name.
 
 ## **Documentation**
 
@@ -123,31 +228,13 @@ There is also a printable [**`wehoop` cheat sheet
 set covering every SportsDataverse
 package](https://sportsdataverse.org/cheatsheets).
 
-`wehoop` 3.0.0 ships **180 ESPN basketball endpoint wrappers** (88
-`espn_wbb_*` + 92 `espn_wnba_*`) covering reference and catalog data,
-team detail, athlete coverage, event-level enrichments (odds, win
-probability, officials, broadcasts), WNBA-only artifacts (draft, free
-agents, transactions), and league-wide catalogs. See the [ESPN
-basketball endpoints
-vignette](https://wehoop.sportsdataverse.org/articles/espn-endpoints.html)
-for a full walkthrough.
-
-Beyond the live ESPN scrapers, `wehoop` ships **90 `load_*()`
-release-dataset loaders** that pull pre-built season parquet/rds instead
-of hitting the source APIs: `load_wnba_*` / `load_wbb_*` (ESPN-backed
-pbp, box scores, rosters, standings, crosswalks), `load_wnba_stats_*`
-(WNBA Stats API, including
-[`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)),
-and the **`load_ncaa_wbb_*` family** (`pbp`, `shots`, `lineups`,
-`matchup_stints`, `possessions`, `rapm_within_team`, `rapm`
-(league-wide), `player_box`, `team_box`, `rosters`, `team_rosters`,
-`schedule`, `team_ids`; seasons 2010-2026, `shots` 2019-2026, `rapm`
-2011-2026) backed by the sportsdataverse-py NCAA engine. Model-dataset
-loaders round out the surface:
-[`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
-[`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md),
-and
-[`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md).
+The [Getting
+started](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html)
+article is the place to begin; the
+[WNBA](https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html)
+and [women’s
+college](https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html)
+cookbooks have worked recipes.
 
 ## **Breaking Changes**
 
@@ -204,7 +291,6 @@ BibTeX Citation
   journal = {CRAN: Contributed Packages},
   publisher = {The R Foundation},
   author = {Gilani,  Saiem and Hutchinson,  Geoffery},
-  year = {2026},
-  month = nov
+  year = {2026}
 }
 ```

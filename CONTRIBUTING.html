@@ -183,12 +183,40 @@
 </tr><tr><td>NCAA WBB</td>
 <td><code>ncaa_wbb_</code></td>
 <td><code><a href="reference/ncaa_wbb_teams.html">ncaa_wbb_teams()</a></code></td>
+</tr><tr><td>Fox Sports</td>
+<td>
+<code>fox_wnba_</code> / <code>fox_wbb_</code>
+</td>
+<td>
+<code><a href="reference/fox_basketball_boxscore.html">fox_wnba_pbp()</a></code>, <code><a href="reference/fox_basketball_standings.html">fox_wbb_teams()</a></code>
+</td>
+</tr><tr><td>Basketball-Reference</td>
+<td><code>bref_wnba_</code></td>
+<td><code><a href="reference/bref_wnba_player_stats.html">bref_wnba_player_stats()</a></code></td>
+</tr><tr><td>Her Hoop Stats</td>
+<td><code>hhs_</code></td>
+<td>
+<code><a href="reference/hhs_teams.html">hhs_teams()</a></code> (subscription)</td>
+</tr><tr><td>Bart Torvik</td>
+<td><code>bart_wbb_</code></td>
+<td><code><a href="reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code></td>
+</tr><tr><td>International</td>
+<td>
+<code>fiba_</code>, <code>genius_</code>, <code>atrium_</code>, <code>nbl_</code>, <code>scb_</code>, <code>feb_</code>, <code>tbf_</code>, <code>wjbl_</code> (+ per-competition aliases)</td>
+<td>
+<code><a href="reference/fiba_gdap_schedule.html">fiba_gdap_schedule()</a></code>, <code><a href="reference/genius_pbp.html">genius_pbp()</a></code>, <code><a href="reference/wjbl_pbp.html">wjbl_pbp()</a></code>
+</td>
 </tr><tr><td>Data loaders</td>
 <td>
 <code>load_wnba_</code> / <code>load_wbb_</code>
 </td>
 <td>
 <code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code>, <code><a href="reference/load_wbb_game_rosters.html">load_wbb_team_box()</a></code>
+</td>
+</tr><tr><td>NCAA WBB loaders</td>
+<td><code>load_ncaa_wbb_</code></td>
+<td>
+<code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_pbp()</a></code>, <code><a href="reference/load_ncaa_wbb_lineups.html">load_ncaa_wbb_rapm()</a></code>
 </td>
 </tr></tbody></table></div>
 <div class="section level3">
@@ -280,7 +308,7 @@
 <div class="section level3">
 <h3 id="release-notes-triad-newsmd--cran-commentsmd--_pkgdownyml">Release notes triad: NEWS.md / cran-comments.md / _pkgdown.yml<a class="anchor" aria-label="anchor" href="#release-notes-triad-newsmd--cran-commentsmd--_pkgdownyml"></a></h3>
 <p>Three files describe the same release at different audiences. Whenever you add a <code>NEWS.md</code> bullet, <strong>think through all three before committing</strong>:</p>
-<ul><li><p><strong><code>NEWS.md</code></strong> — authoritative changelog for downstream users; rendered into the pkgdown changelog. <strong>All new bullets go under the most recent unreleased version heading</strong> (currently <code># **wehoop 3.0.0.9000 (development version)**</code>; 3.0.0 shipped to CRAN on 2026-08-24). Do NOT create a new version section ahead of release. Add to or extend an existing subsection (<code>### Bug fixes</code>, <code>### Deprecations</code>, <code>### Test infrastructure</code>, etc.) instead of starting a new one when the change is incremental. When a version ships to CRAN, the next development version gets its own heading and the rule rolls forward.</p></li>
+<ul><li><p><strong><code>NEWS.md</code></strong> — authoritative changelog for downstream users; rendered into the pkgdown changelog. <strong>All new bullets go under the most recent unreleased version heading</strong> (currently <code># **wehoop 3.1.0**</code>; 3.0.0 shipped to CRAN on 2026-08-24, 3.1.0 is not yet submitted). Do NOT create a new version section ahead of release. Add to or extend an existing subsection (<code>### Bug fixes</code>, <code>### Deprecations</code>, <code>### Test infrastructure</code>, etc.) instead of starting a new one when the change is incremental. When a version ships to CRAN, the next development version gets its own heading and the rule rolls forward.</p></li>
 <li><p><strong><code>cran-comments.md</code></strong> — what gets submitted to CRAN. Every behavioral or user-visible change you add to <code>NEWS.md</code> should also be reflected in <code>cran-comments.md</code> before submission. The two files are not duplicates: <code>NEWS.md</code> is the long-form changelog, <code>cran-comments.md</code> is the short-form release summary. If a <code>NEWS.md</code> bullet is purely internal (refactor, test infrastructure, dev tooling) it can be omitted from <code>cran-comments.md</code>.</p></li>
 <li><p><strong><code>_pkgdown.yml</code></strong> — the pkgdown reference index. New exported functions need to land in the right <code>reference:</code> section. The existing wehoop config uses <code>starts_with("wnba_")</code> / <code>starts_with("espn_")</code> / <code>starts_with("ncaa_")</code> selectors so new functions matching those prefixes are picked up automatically; explicitly-listed functions need a manual entry. Functions deprecated via <code><a href="https://lifecycle.r-lib.org/reference/deprecate_soft.html" class="external-link">lifecycle::deprecate_stop()</a></code> + <code>@keywords internal</code> are excluded from the rendered index by default — preview with <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site()</a></code> when in doubt.</p></li>
 </ul><p>When the change touches the API surface (new export, deprecation, removal), include a one-line note in your commit message confirming you’ve checked all three files.</p>
@@ -330,7 +358,47 @@ ci: update GitHub Actions workflow versions</code></pre>
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">skip</span><span class="op">(</span><span class="st">"No rows returned from endpoint at test time"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p><strong>Note</strong>: All API tests are skipped on CRAN (<code>skip_on_cran()</code>) and CI (<code>skip_on_ci()</code>) by default. They require network access and valid API responses.</p>
+</div>
+<div class="section level3">
+<h3 id="test-environment-variables">Test environment variables<a class="anchor" aria-label="anchor" href="#test-environment-variables"></a></h3>
+<p>Live tests are off unless you set the variable for the source you are testing (helpers in <code>tests/testthat/helper-skip.R</code> and <code>helper-intl.R</code>):</p>
+<table class="table"><colgroup><col width="33%"><col width="33%"><col width="33%"></colgroup><thead><tr><th>Variable</th>
+<th>Enables</th>
+<th>Helper</th>
+</tr></thead><tbody><tr><td><code>WNBA_STATS_TESTS=1</code></td>
+<td>WNBA Stats API tests</td>
+<td><code>skip_wnba_stats_test()</code></td>
+</tr><tr><td><code>ESPN_TESTS=1</code></td>
+<td>ESPN API tests</td>
+<td><code>skip_espn_test()</code></td>
+</tr><tr><td><code>NCAA_WBB_TESTS=1</code></td>
+<td>NCAA WBB tests</td>
+<td><code>skip_ncaa_wbb_test()</code></td>
+</tr><tr><td><code>FOX_TESTS=1</code></td>
+<td>Fox Sports tests</td>
+<td><code>skip_fox_test()</code></td>
+</tr><tr><td><code>OFFICIAL_NBA_TESTS=1</code></td>
+<td>official.nba.com tests</td>
+<td><code>skip_official_nba_test()</code></td>
+</tr><tr><td><code>WEHOOP_LOAD_TESTS=1</code></td>
+<td>
+<code>load_*()</code> release-asset tests (large downloads)</td>
+<td><code>skip_load_test()</code></td>
+</tr><tr><td><code>WEHOOP_INTL_LIVE_TESTS=1</code></td>
+<td>international-family live tests</td>
+<td><code>skip_intl_live()</code></td>
+</tr><tr><td><code>BREF_TESTS=1</code></td>
+<td>Basketball-Reference tests</td>
+<td><code>skip_bref_test()</code></td>
+</tr><tr><td><code>TORVIK_TESTS=1</code></td>
+<td>Bart Torvik (T-Rank) tests</td>
+<td>inline check in <code>test-bart_wbb.R</code>
+</td>
+</tr><tr><td><code>GENIUS_PROXY</code></td>
+<td>a proxy URL; the Genius live tests also need it</td>
+<td><code>skip_intl_live("GENIUS_PROXY")</code></td>
+</tr></tbody></table><p>For example: <code>Sys.setenv(ESPN_TESTS = "1"); devtools::test(filter = "espn_wnba_pbp")</code>.</p>
+<p><strong>Note</strong>: Every live test is skipped on CRAN and on CI whatever the toggles say (<code>tests/testthat/helper-skip.R</code>), and an unset or empty toggle means skip. Run them locally. If your <code>~/.Renviron</code> sets any of these, unset them in the session (<code><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.unsetenv()</a></code>) for an offline run.</p>
 </div>
 <div class="section level3">
 <h3 id="rate-limiting">Rate Limiting<a class="anchor" aria-label="anchor" href="#rate-limiting"></a></h3>
@@ -339,14 +407,8 @@ ci: update GitHub Actions workflow versions</code></pre>
 </div>
 <div class="section level2">
 <h2 id="ci--github-actions">CI / GitHub Actions<a class="anchor" aria-label="anchor" href="#ci--github-actions"></a></h2>
-<p>The repository uses GitHub Actions for R CMD check and pkgdown site deployment. The following secrets should be configured:</p>
-<table class="table"><thead><tr><th>Secret</th>
-<th>Used By</th>
-<th>Description</th>
-</tr></thead><tbody><tr><td><code>GITHUB_TOKEN</code></td>
-<td>All workflows</td>
-<td>Auto-provided by GitHub</td>
-</tr></tbody></table></div>
+<p>The repository uses GitHub Actions for R CMD check (release, oldrel and a non-blocking R-devel job), test coverage, a URL check, and pkgdown site deployment. <code>GITHUB_TOKEN</code> is the only secret the workflows need. R-CMD-check passes the <code>WNBA_STATS_TESTS</code>, <code>ESPN_TESTS</code> and <code>NCAA_WBB_TESTS</code> repository variables through, but live tests skip on CI regardless (see above).</p>
+</div>
 <div class="section level2">
 <h2 id="reporting-issues">Reporting Issues<a class="anchor" aria-label="anchor" href="#reporting-issues"></a></h2>
 <p>When filing a bug report, please include:</p>

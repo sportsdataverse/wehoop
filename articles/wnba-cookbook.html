@@ -633,10 +633,30 @@ pre-cleaned season files.</p>
 <span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_team_box</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_schedule</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_shots</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span>        <span class="co"># shot locations, ready to chart</span></span></code></pre></div>
+<p>To chart those shots, draw the court with <a href="https://sportyR.sportsdataverse.org/" class="external-link">sportyR</a> and plot the
+transformed <code>coordinate_x</code> / <code>coordinate_y</code> pair
+on it: both are in feet from centre court, the frame
+<code>geom_basketball()</code> uses. (Not run here: sportyR is not a
+wehoop dependency. <a href="https://sdvplotR.sportsdataverse.org/articles/cookbook-surfaces-shot-charts.html" class="external-link">sdvplotR</a>
+wraps the same idea with team colours and logos.)</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="va">shots</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_shots</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="co"># ESPN marks "no location" with a huge negative sentinel; keep on-court rows.</span></span>
+<span><span class="va">shots</span> <span class="op">&lt;-</span> <span class="va">shots</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">shots</span><span class="op">$</span><span class="va">coordinate_x</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">47</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">shots</span><span class="op">$</span><span class="va">coordinate_y</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">25</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="fu">sportyR</span><span class="fu">::</span><span class="fu"><a href="https://sportyR.sportsdataverse.org/reference/geom_basketball.html" class="external-link">geom_basketball</a></span><span class="op">(</span><span class="st">"wnba"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">shots</span>,</span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coordinate_x</span>, y <span class="op">=</span> <span class="va">coordinate_y</span>, colour <span class="op">=</span> <span class="va">scoring_play</span><span class="op">)</span>,</span>
+<span>    alpha <span class="op">=</span> <span class="fl">0.15</span>, size <span class="op">=</span> <span class="fl">0.6</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`TRUE` <span class="op">=</span> <span class="st">"#1b9e77"</span>, `FALSE` <span class="op">=</span> <span class="st">"#d95f02"</span><span class="op">)</span>,</span>
+<span>                      name <span class="op">=</span> <span class="st">"Made"</span><span class="op">)</span></span></code></pre></div>
 <p>There’s also a deeper, WNBA-Stats-API-sourced bulk family under the
 <code>load_wnba_stats_</code> stem – richer play-by-play with on-court
 lineups, possession assignment, and a garbage-time flag:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_player_game_logs</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span>, table <span class="op">=</span> <span class="st">"lineups_master"</span><span class="op">)</span></span></code></pre></div>
@@ -658,7 +678,7 @@ it’s always narrowing something.</p>
 rather query it from disk than hold it in memory.</p>
 <p>Every <code>load_</code> function shares the same optional plumbing –
 learn it once, you’ve learned it everywhere:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dbi.r-dbi.org" class="external-link">DBI</a></span><span class="op">)</span></span>
 <span><span class="va">con</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dbi.r-dbi.org/reference/dbConnect.html" class="external-link">dbConnect</a></span><span class="op">(</span><span class="fu">RSQLite</span><span class="fu">::</span><span class="fu"><a href="https://rsqlite.r-dbi.org/reference/SQLite.html" class="external-link">SQLite</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"wnba.sqlite"</span><span class="op">)</span></span>
 <span></span>
@@ -683,7 +703,7 @@ the names.</p>
 invasive one that works.</p>
 <p><strong>Layer 1 – set it once for the session.</strong> This covers
 everything: ESPN, WNBA Stats, loaders.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plain proxy.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>wehoop.proxy <span class="op">=</span> <span class="st">"http://proxy.company.com:8080"</span><span class="op">)</span></span>
 <span></span>
@@ -701,7 +721,7 @@ everything: ESPN, WNBA Stats, loaders.</p>
 <p><strong>Layer 2 – one call, one proxy.</strong> Every WNBA Stats API
 function (<code>wnba_*</code>) threads <code>...</code> down to the HTTP
 layer, so you can override the proxy for a single call:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/wnba_playbyplayv3.html">wnba_playbyplayv3</a></span><span class="op">(</span></span>
 <span>  game_id <span class="op">=</span> <span class="st">"1022400001"</span>,</span>
 <span>  proxy   <span class="op">=</span> <span class="st">"http://other-proxy.company.com:3128"</span></span>
@@ -717,7 +737,7 @@ the ones wired for per-call overrides.</p>
 <p><strong>Layer 3 – let the environment decide.</strong> If you’d
 rather keep proxies out of your R code entirely, <code>wehoop</code>
 honors the standard environment variables:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span></span>
 <span>  http_proxy  <span class="op">=</span> <span class="st">"http://proxy.company.com:8080"</span>,</span>
 <span>  https_proxy <span class="op">=</span> <span class="st">"http://proxy.company.com:8080"</span>,</span>
@@ -761,12 +781,12 @@ NCAA-sourced functions, and keep cooking. That’s the WBB cookbook.</p>
 <p>To cite the <a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a>
 R package in publications, use:</p>
 <p>BibTeX Citation</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">wehoop</span>,</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>  <span class="dt">author</span> = {Saiem Gilani and Geoffery Hutchinson},</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>  <span class="dt">title</span> = {wehoop: The SportsDataverse},</span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://wehoop.sportsdataverse.org/},</span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">wehoop</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>  <span class="dt">author</span> = {Saiem Gilani and Geoffery Hutchinson},</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>  <span class="dt">title</span> = {wehoop: The SportsDataverse},</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://wehoop.sportsdataverse.org/},</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="related-sportsdataverse-packages">

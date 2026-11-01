@@ -21,9 +21,9 @@ If you already have R, RStudio, and the package installed, jump to
 `wehoop` runs on R 4.1.0 or newer. Most data pulls work fine on a laptop
 – the heaviest single call
 ([`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
-for every season ESPN tracks) returns roughly 7 million rows and uses
-about 1-2 GB of memory. If you’re on something memory-constrained,
-restrict to a few seasons via `seasons = 2023:2027`.
+for every season ESPN tracks) returns about 19 million rows and uses 3-5
+GB of memory. If you’re on something memory-constrained, restrict to a
+few seasons via `seasons = 2023:2027`.
 
 #### Installing R and RStudio
 
@@ -91,17 +91,18 @@ to ESPN’s older, less-tidied API surface and tend to require parameter
 tuning.
 
 The `load_*` functions are the ones you’ll reach for most. They don’t
-hit the live API at all – they download nightly-built parquet files from
-a public release bucket. That’s why they pull millions of rows in
-seconds rather than the hours a per-game scrape would take.
+hit the live API at all – they download pre-built release files (rds or
+parquet) from a public release bucket. That’s why they pull millions of
+rows in seconds rather than the hours a per-game scrape would take.
 
 ### A first-hour tour
 
-Let’s pull every season of WNBA and WBB play-by-play that exists, plus
-the box scores. Each call below should land in well under a minute on a
-typical broadband connection.
+Let’s pull the latest season of WNBA play-by-play, plus the box scores.
+Each loader takes `seasons =`, so pass a vector (or `seasons = TRUE` for
+every published season) to load more. Each call below should land in
+well under a minute on a typical broadband connection.
 
-#### Every WNBA play, 2002 onward
+#### Every WNBA play from the latest season
 
 ``` r
 
@@ -112,11 +113,9 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.845 sec elapsed
+    ## 1.993 sec elapsed
 
 ``` r
-
-## 13.91 sec elapsed
 
 glue::glue(
   "{nrow(wnba_pbp)} rows of WNBA play-by-play data from ",
@@ -127,8 +126,6 @@ glue::glue(
     ## 144409 rows of WNBA play-by-play data from 354 games.
 
 ``` r
-
-## 1782985 rows of WNBA play-by-play data from 4674 games.
 
 dplyr::glimpse(wnba_pbp)
 ```
@@ -255,7 +252,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.377 sec elapsed
+    ## 0.532 sec elapsed
 
 ``` r
 
@@ -343,7 +340,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.407 sec elapsed
+    ## 0.551 sec elapsed
 
 ``` r
 
@@ -410,7 +407,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 19.941 sec elapsed
+    ## 19.7 sec elapsed
 
 ``` r
 
@@ -442,7 +439,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 0.661 sec elapsed
+    ## 0.796 sec elapsed
 
 ``` r
 
@@ -474,7 +471,7 @@ progressr::with_progress({
 tictoc::toc()
 ```
 
-    ## 1.616 sec elapsed
+    ## 1.669 sec elapsed
 
 ``` r
 
@@ -526,9 +523,9 @@ rosters_2025 <- wehoop::load_wnba_rosters(seasons = 2025)
 # Per-event shots derived from PBP — every made/missed shot with court coordinates
 shot_chart <- wehoop::load_wnba_shots(seasons = 2024)
 
-# Same standings dataset, alternate source: WNBA Stats API rather than ESPN.
-# Useful when you need the WNBA's official team_id keying.
-stats_standings <- wehoop::load_wnba_stats_standings(seasons = 2024)
+# Alternate source: the WNBA Stats API league dashboard cube (player, team
+# and lineup measures), keyed on the WNBA's official ids.
+stats_standings <- wehoop::load_wnba_stats_leaguedash(seasons = 2024, table = "standings")
 
 # WBB team-season stats (ESPN) for last two seasons
 wbb_teams <- wehoop::load_wbb_team_stats(
@@ -537,9 +534,13 @@ wbb_teams <- wehoop::load_wbb_team_stats(
 ```
 
 The ESPN-backed and WNBA Stats API-backed WNBA loaders cover overlapping
-ground (rosters, player stats, team stats, standings, draft, shots, game
-rosters, officials), so you can pick whichever joins more cleanly into
-the rest of your pipeline. WBB has only the ESPN-backed family today.
+ground (rosters, draft, shots, game rosters, officials; WNBA Stats
+player, team and lineup stats now live in
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md)),
+so you can pick whichever joins more cleanly into the rest of your
+pipeline. WBB has the ESPN-backed family plus the NCAA-sourced
+`load_ncaa_wbb_*()` family (play-by-play, shots, lineups and more);
+there is no WNBA Stats-style source for WBB.
 
 ### Live API endpoints
 
@@ -572,7 +573,7 @@ leaders <- espn_wnba_leaders(season = 2024, season_type = 2)
 wp <- espn_wnba_game_probabilities(event_id = "401736171", limit = 200)
 ```
 
-The full ESPN surface – 80 wrappers covering rosters, schedules, news,
+The full ESPN surface – 180 wrappers covering rosters, schedules, news,
 injuries, athletes, draft, free agency, transactions, venues, coaches,
 and more – is documented in the [ESPN basketball endpoints
 vignette](https://wehoop.sportsdataverse.org/articles/espn-endpoints.md).
@@ -615,7 +616,7 @@ that takes precedence over the option.
 
 - [**ESPN basketball endpoints
   vignette**](https://wehoop.sportsdataverse.org/articles/espn-endpoints.md)
-  – a guided tour of all 80 ESPN wrappers, grouped by use case.
+  – a guided tour of all 180 ESPN wrappers, grouped by use case.
 - [**Parameter descriptions
   reference**](https://wehoop.sportsdataverse.org/articles/parameter-descriptions.md)
   – searchable table of every WNBA Stats API query parameter.

@@ -172,9 +172,9 @@ up. If you already have R, RStudio, and the package installed, jump to
 </h3>
 <p><code>wehoop</code> runs on R 4.1.0 or newer. Most data pulls work
 fine on a laptop – the heaviest single call (<code><a href="../reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code>
-for every season ESPN tracks) returns roughly 7 million rows and uses
-about 1-2 GB of memory. If you’re on something memory-constrained,
-restrict to a few seasons via <code>seasons = 2023:2027</code>.</p>
+for every season ESPN tracks) returns about 19 million rows and uses 3-5
+GB of memory. If you’re on something memory-constrained, restrict to a
+few seasons via <code>seasons = 2023:2027</code>.</p>
 <div class="section level4">
 <h4 id="installing-r-and-rstudio">Installing R and RStudio<a class="anchor" aria-label="anchor" href="#installing-r-and-rstudio"></a>
 </h4>
@@ -280,18 +280,21 @@ can usually guess the function. <code>espn_wbb_pbp(game_id)</code> and
 <code>wnba_*</code> functions are deeper but are tied to ESPN’s older,
 less-tidied API surface and tend to require parameter tuning.</p>
 <p>The <code>load_*</code> functions are the ones you’ll reach for most.
-They don’t hit the live API at all – they download nightly-built parquet
-files from a public release bucket. That’s why they pull millions of
-rows in seconds rather than the hours a per-game scrape would take.</p>
+They don’t hit the live API at all – they download pre-built release
+files (rds or parquet) from a public release bucket. That’s why they
+pull millions of rows in seconds rather than the hours a per-game scrape
+would take.</p>
 </div>
 <div class="section level3">
 <h3 id="a-first-hour-tour">A first-hour tour<a class="anchor" aria-label="anchor" href="#a-first-hour-tour"></a>
 </h3>
-<p>Let’s pull every season of WNBA and WBB play-by-play that exists,
-plus the box scores. Each call below should land in well under a minute
-on a typical broadband connection.</p>
+<p>Let’s pull the latest season of WNBA play-by-play, plus the box
+scores. Each loader takes <code>seasons =</code>, so pass a vector (or
+<code>seasons = TRUE</code> for every published season) to load more.
+Each call below should land in well under a minute on a typical
+broadband connection.</p>
 <div class="section level4">
-<h4 id="every-wnba-play-2002-onward">Every WNBA play, 2002 onward<a class="anchor" aria-label="anchor" href="#every-wnba-play-2002-onward"></a>
+<h4 id="every-wnba-play-from-the-latest-season">Every WNBA play from the latest season<a class="anchor" aria-label="anchor" href="#every-wnba-play-from-the-latest-season"></a>
 </h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">tic</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -299,19 +302,15 @@ on a typical broadband connection.</p>
 <span>  <span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_pbp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 1.845 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 1.993 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## 13.91 sec elapsed</span></span>
-<span></span>
-<span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span></span>
 <span>  <span class="st">"{nrow(wnba_pbp)} rows of WNBA play-by-play data from "</span>,</span>
 <span>  <span class="st">"{length(unique(wnba_pbp$game_id))} games."</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## 144409 rows of WNBA play-by-play data from 354 games.</span></span></code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## 1782985 rows of WNBA play-by-play data from 4674 games.</span></span>
-<span></span>
-<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">wnba_pbp</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Rows: 144,409</span></span>
 <span><span class="co">## Columns: 68</span></span>
 <span><span class="co">## $ game_play_number                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>3<span style="color: #949494;">, </span>4<span style="color: #949494;">, </span>5<span style="color: #949494;">, </span>6<span style="color: #949494;">, </span>7<span style="color: #949494;">, </span>8<span style="color: #949494;">, </span>9<span style="color: #949494;">, </span>10<span style="color: #949494;">, </span>11<span style="color: #949494;">, </span>12<span style="color: #949494;">,</span>…</span></span>
@@ -423,7 +422,7 @@ player), respectively.</p>
 <span>  <span class="va">wnba_team_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_team_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.377 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.532 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span></span>
 <span>  <span class="st">"{nrow(wnba_team_box)} rows of WNBA team boxscore data from "</span>,</span>
@@ -499,7 +498,7 @@ player), respectively.</p>
 <span>  <span class="va">wnba_player_box</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_player_box</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.407 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.551 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wnba_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 354</span></span></code></pre>
@@ -547,7 +546,7 @@ season).</p>
 <span><span class="co">## 2026 instead.</span></span></code></pre>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 19.941 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 19.7 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_pbp</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 6011</span></span></code></pre>
@@ -563,7 +562,7 @@ season).</p>
 <span><span class="co">##   instead.</span></span></code></pre>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 0.661 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 0.796 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_team_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 6029</span></span></code></pre>
@@ -579,7 +578,7 @@ season).</p>
 <span><span class="co">##   instead.</span></span></code></pre>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tictoc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html" class="external-link">toc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 1.616 sec elapsed</span></span></code></pre>
+<pre><code><span><span class="co">## 1.669 sec elapsed</span></span></code></pre>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">wbb_player_box</span><span class="op">$</span><span class="va">game_id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 6029</span></span></code></pre>
@@ -618,19 +617,22 @@ source:</p>
 <span><span class="co"># Per-event shots derived from PBP — every made/missed shot with court coordinates</span></span>
 <span><span class="va">shot_chart</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_draft.html">load_wnba_shots</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Same standings dataset, alternate source: WNBA Stats API rather than ESPN.</span></span>
-<span><span class="co"># Useful when you need the WNBA's official team_id keying.</span></span>
-<span><span class="va">stats_standings</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_standings</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="co"># Alternate source: the WNBA Stats API league dashboard cube (player, team</span></span>
+<span><span class="co"># and lineup measures), keyed on the WNBA's official ids.</span></span>
+<span><span class="va">stats_standings</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2024</span>, table <span class="op">=</span> <span class="st">"standings"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># WBB team-season stats (ESPN) for last two seasons</span></span>
 <span><span class="va">wbb_teams</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/load_wbb_game_rosters.html">load_wbb_team_stats</a></span><span class="op">(</span></span>
 <span>  seasons <span class="op">=</span> <span class="op">(</span><span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">:</span><span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="../reference/most_recent_wbb_season.html">most_recent_wbb_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>The ESPN-backed and WNBA Stats API-backed WNBA loaders cover
-overlapping ground (rosters, player stats, team stats, standings, draft,
-shots, game rosters, officials), so you can pick whichever joins more
-cleanly into the rest of your pipeline. WBB has only the ESPN-backed
-family today.</p>
+overlapping ground (rosters, draft, shots, game rosters, officials; WNBA
+Stats player, team and lineup stats now live in
+<code><a href="../reference/load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>), so you can pick whichever
+joins more cleanly into the rest of your pipeline. WBB has the
+ESPN-backed family plus the NCAA-sourced <code>load_ncaa_wbb_*()</code>
+family (play-by-play, shots, lineups and more); there is no WNBA
+Stats-style source for WBB.</p>
 </div>
 <div class="section level3">
 <h3 id="live-api-endpoints">Live API endpoints<a class="anchor" aria-label="anchor" href="#live-api-endpoints"></a>
@@ -660,7 +662,7 @@ run them.)</p>
 <span></span>
 <span><span class="co"># Win probability per play for a single game (handy for charting momentum)</span></span>
 <span><span class="va">wp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/espn_wnba_game_probabilities.html">espn_wnba_game_probabilities</a></span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401736171"</span>, limit <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
-<p>The full ESPN surface – 80 wrappers covering rosters, schedules,
+<p>The full ESPN surface – 180 wrappers covering rosters, schedules,
 news, injuries, athletes, draft, free agency, transactions, venues,
 coaches, and more – is documented in the <a href="espn-endpoints.html">ESPN basketball endpoints vignette</a>.</p>
 <p>For deeper WNBA stats (hustle, lineups, shot charts, draft combine),
@@ -698,7 +700,7 @@ wehoop call will route through it:</p>
 <ul>
 <li>
 <a href="espn-endpoints.html"><strong>ESPN basketball endpoints
-vignette</strong></a> – a guided tour of all 80 ESPN wrappers, grouped
+vignette</strong></a> – a guided tour of all 180 ESPN wrappers, grouped
 by use case.</li>
 <li>
 <a href="parameter-descriptions.html"><strong>Parameter descriptions

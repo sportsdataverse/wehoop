@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 19:35:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/167?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 19:35:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "2"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 19:35:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 19:35:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 19:35:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 19:35:26"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -561,11 +561,11 @@ wnba_s2025 <- espn_wnba_season_info(season = 2025)
 
 ### Core-v2 deep expansion
 
-The post-3.0.0 release adds another ~62 ESPN core-v2 wrappers to
-`espn_wnba_*` + `espn_wbb_*`, bringing the total ESPN basketball surface
-in `wehoop` to **180 functions**. Everything here is shimmed over an
-internal `.espn_basketball_*` helper so WNBA and WBB share parsing logic
-and bug fixes propagate to both leagues at once.
+wehoop 3.0.0 also added about 100 ESPN core-v2 wrappers to
+`espn_wnba_*` + `espn_wbb_*`, for **180 functions** in all (88 WBB + 92
+WNBA). Everything here is shimmed over an internal `.espn_basketball_*`
+helper so WNBA and WBB share parsing logic and bug fixes propagate to
+both leagues at once.
 
 #### Function overview
 
@@ -974,7 +974,9 @@ espn_wnba_game_propbets(event_id = EID, provider_id = 58)
 Five resource families under
 `events/{eid}/competitions/{cid}/competitors/{team_id}/`, each shimmed
 for WNBA + WBB. Pair `team_id` with `event_id` from
-`espn_wnba_schedule()$id` (or the team_id from any boxscore-style call).
+`espn_wnba_scoreboard(season = "20240831")$game_id` or
+`load_wnba_schedule()$game_id` (or the team_id from any boxscore-style
+call).
 
 ``` r
 

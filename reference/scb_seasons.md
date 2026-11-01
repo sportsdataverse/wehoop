@@ -108,7 +108,7 @@ Other SCB Functions:
 # \donttest{
   try(scb_seasons())
 #> ── BBL/DBBL Seasons from the SCB API ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 18:17:43 UTC
+#> ℹ Data updated: 2026-11-01 19:33:39 UTC
 #> # A tibble: 3 × 4
 #>   league season season_id is_active
 #>   <chr>   <int>     <int> <lgl>    
