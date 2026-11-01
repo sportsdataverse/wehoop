@@ -49,9 +49,10 @@ Help future team members understand the full picture:
 <!--
 List ALL changes in detail. Be specific - assume the reader has no prior context.
 Example format:
-- Modified `R/pipeline_x.R`: Added retry logic to handle API timeouts
-- Updated `R/query_sales.R`: Changed join from LEFT to INNER to exclude null records
-- Created `R/validation.R`: New module for data quality checks
+- Modified `R/wnba_stats_pbp.R`: `wnba_live_pbp()` now sends the WNBA CDN browser headers
+- Updated `R/load_wbb.R`: `load_wbb_team_box()` accepts seasons from 2004
+- Added `tests/testthat/test-wnba_live_pbp.R`: offline test on a captured cdn.wnba.com payload
+- Ran `devtools::document()`: regenerated `man/` and `NAMESPACE`
 -->
 
 | File/Resource | Change Description |

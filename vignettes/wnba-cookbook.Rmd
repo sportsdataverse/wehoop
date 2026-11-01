@@ -260,6 +260,29 @@ load_wnba_schedule(seasons = 2024)
 load_wnba_shots(seasons = 2024)        # shot locations, ready to chart
 ```
 
+To chart those shots, draw the court with
+[sportyR](https://sportyR.sportsdataverse.org/) and plot the transformed
+`coordinate_x` / `coordinate_y` pair on it: both are in feet from centre
+court, the frame `geom_basketball()` uses. (Not run here: sportyR is not a
+wehoop dependency. [sdvplotR](https://sdvplotR.sportsdataverse.org/articles/cookbook-surfaces-shot-charts.html)
+wraps the same idea with team colours and logos.)
+
+```{r eval = FALSE}
+library(ggplot2)
+shots <- load_wnba_shots(seasons = 2024)
+# ESPN marks "no location" with a huge negative sentinel; keep on-court rows.
+shots <- shots[abs(shots$coordinate_x) <= 47 & abs(shots$coordinate_y) <= 25, ]
+
+sportyR::geom_basketball("wnba") +
+  geom_point(
+    data = shots,
+    aes(x = coordinate_x, y = coordinate_y, colour = scoring_play),
+    alpha = 0.15, size = 0.6
+  ) +
+  scale_colour_manual(values = c(`TRUE` = "#1b9e77", `FALSE` = "#d95f02"),
+                      name = "Made")
+```
+
 There's also a deeper, WNBA-Stats-API-sourced bulk family under the
 `load_wnba_stats_` stem -- richer play-by-play with on-court lineups,
 possession assignment, and a garbage-time flag:
