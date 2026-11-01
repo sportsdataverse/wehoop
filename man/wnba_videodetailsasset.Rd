@@ -229,11 +229,10 @@ Return a list of tibbles: videoUrls, playlist
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
-\strong{Get WNBA Stats API Video Details}
-
-\strong{Get WNBA Stats API Video Details}
-
-\strong{Get WNBA Stats API Video Details}
+\code{wnba_videodetails()} and \code{wnba_videodetailsasset()} are defunct since wehoop 3.0.0: the
+WNBA Stats endpoint no longer returns data, so they raise an error.
+They stay exported for now and will be removed in a future release
+(no earlier than 3.2.0).
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_videodetailsasset(player_id = '1627668', team_id = '1611661328')
