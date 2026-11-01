@@ -15,9 +15,12 @@
 #'   the `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_pbp`
 #'   release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
+#'   college basketball (e.g. `2024` for the 2023-24 season), or `TRUE` for every
+#'   published season: 2010 onward for every loader except `load_ncaa_wbb_rapm()`
+#'   (2011 onward) and `load_ncaa_wbb_shots()` (2019 onward), with no gaps. The
+#'   upper bound is [most_recent_wbb_season()]. When the upper-bound season is requested on its own (the default) but its
+#'   file is not published yet, the loader reads the newest published season
+#'   instead, with a message.
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -132,16 +135,14 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_pbp/ncaa_wbb_pbp_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_pbp", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -170,10 +171,6 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
 #'   WBB datasets start at 2010. Produced by the sportsdataverse-py `ncaa_wbb` engine;
 #'   backed by the `ncaa-wbb-hoops-data` pipeline, published to the
 #'   `ncaa_wbb_shots` release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2019 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2019)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -220,16 +217,14 @@ load_ncaa_wbb_shots <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2019:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2019),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_shots/ncaa_wbb_shots_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2019, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_shots", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -260,10 +255,6 @@ NULL
 #'   by the sportsdataverse-py `ncaa_wbb` engine's lineup reconstructor; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_lineups`
 #'   release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -368,16 +359,14 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_lineups/ncaa_wbb_lineups_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_lineups", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -405,10 +394,6 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
 #'   rosters. Produced by the sportsdataverse-py `ncaa_wbb` engine's lineup reconstructor;
 #'   backed by the `ncaa-wbb-hoops-data` pipeline, published to the
 #'   `ncaa_wbb_matchup_stints` release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -469,16 +454,14 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_matchup_stints/ncaa_wbb_matchup_stints_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_matchup_stints", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -506,10 +489,6 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
 #'   sportsdataverse-py `ncaa_wbb` engine's possession detector; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_possessions`
 #'   release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -593,16 +572,14 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_possessions/ncaa_wbb_possessions_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_possessions", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -631,10 +608,6 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
 #'   lineup/possession data; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_rapm_within_team` release tag as
 #'   csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -673,16 +646,14 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_rapm_within_team/ncaa_wbb_rapm_within_team_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_rapm_within_team", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -715,10 +686,6 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
 #'   fit over all Division I stints per season, distinct from
 #'   [load_ncaa_wbb_rapm_within_team()]'s within-team fit. Published
 #'   coverage runs seasons 2011 through 2026.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2011 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2011)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -757,16 +724,14 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2011:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2011),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_rapm/ncaa_wbb_rapm_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2011, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_rapm", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -796,10 +761,6 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
 #'   alongside the advanced splits). Produced by the sportsdataverse-py `ncaa_wbb` engine;
 #'   backed by the `ncaa-wbb-hoops-data` pipeline, published to the
 #'   `ncaa_wbb_player_box` release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -952,16 +913,14 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_player_box/ncaa_wbb_player_box_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_player_box", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -989,10 +948,6 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
 #'   splits. Produced by the sportsdataverse-py `ncaa_wbb` engine; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_team_box`
 #'   release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -1101,16 +1056,14 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_team_box/ncaa_wbb_team_box_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_team_box", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -1137,10 +1090,6 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
 #'   school), use [load_ncaa_wbb_team_rosters()]. Produced by the sportsdataverse-py
 #'   `ncaa_wbb` engine; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_rosters` release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -1170,16 +1119,14 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_rosters/ncaa_wbb_rosters_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_rosters", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -1206,10 +1153,6 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
 #'   Produced by the sportsdataverse-py `ncaa_wbb` engine; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_team_rosters`
 #'   release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -1253,16 +1196,14 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_team_rosters/ncaa_wbb_team_rosters_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_team_rosters", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -1288,10 +1229,6 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
 #'   Produced by the sportsdataverse-py `ncaa_wbb` engine; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_schedule`
 #'   release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -1324,16 +1261,14 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_schedule/ncaa_wbb_schedule_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_schedule", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -1360,10 +1295,6 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
 #'   datasets back to a team name and conference. Produced by the sportsdataverse-py
 #'   `ncaa_wbb` engine; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_team_ids` release tag as csv.gz/parquet/rds.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball (e.g. `2024` for the 2023-24 season). Published
-#'   coverage runs 2010 through the most recent season, with no gaps. Pass
-#'   `seasons = TRUE` for every published season. (Min: 2010)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -1393,16 +1324,14 @@ load_ncaa_wbb_team_ids <- function(seasons = most_recent_wbb_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2010:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2010),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "ncaa_wbb_team_ids/ncaa_wbb_team_ids_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
+                             fn = "load_ncaa_wbb_team_ids", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)

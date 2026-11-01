@@ -132,8 +132,27 @@ load_wnba_player_core(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given WNBA seasons.
-(Min: 2003)}
+\item{seasons}{A vector of 4-digit years associated with given WNBA seasons, or
+\code{TRUE} for every published season. Each loader accepts only the seasons its
+release tag publishes (any other season is an error):
+\itemize{
+\item \code{load_wnba_pbp()}, \code{load_wnba_player_box()}, \code{load_wnba_standings()},
+\code{load_wnba_shots()}, \code{load_wnba_game_rosters()}: 2002 onward.
+\item \code{load_wnba_team_box()}, \code{load_wnba_officials()}, \code{load_wnba_player_core()}: 2003 onward.
+\item \code{load_wnba_schedule()}: 1997, 1999 and 2001 onward.
+\item \code{load_wnba_player_stats()}, \code{load_wnba_team_stats()}: 2002-2021 and 2023
+onward (2022 was never published).
+\item \code{load_wnba_draft()}: 2018 onward (2018-2025 are published as \code{.parquet}
+only and need the \pkg{arrow} package).
+\item \code{load_wnba_rosters()}: 2024 onward.
+}
+
+The upper bound is \code{\link[=most_recent_wnba_season]{most_recent_wnba_season()}}. When the upper-bound season is requested on its own (the default) but its
+file is not published yet, the loader reads the newest published season
+instead, with a message.
+ESPN join ids are integer: \code{game_id} in \code{load_wnba_game_rosters()} and
+\code{load_wnba_officials()}, \code{athlete_id} in \code{load_wnba_rosters()} (the release
+publishes them as character).}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}

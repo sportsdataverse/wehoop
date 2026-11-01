@@ -28,10 +28,14 @@ load_wbb_ratings(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit season-ending years for NCAA women's
-college basketball. Published coverage runs 2008 through the most recent
-season, with no gaps. Pass \code{seasons = TRUE} for every published season.
-(Min: 2008)}
+\item{seasons}{A vector of 4-digit seasons, or \code{TRUE} for every published
+season: 1997 onward for \code{load_wnba_player_impact()} (WNBA seasons), 2014
+onward for \code{load_wbb_player_value()} and 2009 onward for \code{load_wbb_ratings()}
+(NCAA women's season-ending years, e.g. \code{2024} for 2023-24), with no gaps.
+The upper bound is \code{\link[=most_recent_wnba_stats_season]{most_recent_wnba_stats_season()}} /
+\code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}. When the upper-bound season is requested on its own (the default) but its
+file is not published yet, the loader reads the newest published season
+instead, with a message.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}

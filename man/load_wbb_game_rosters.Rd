@@ -121,8 +121,30 @@ load_wbb_player_core(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given WBB seasons.
-(Min: 2004)}
+\item{seasons}{A vector of 4-digit years associated with given women's college
+basketball seasons, or \code{TRUE} for every published season. Each loader accepts
+only the seasons its release tag publishes (any other season is an error):
+\itemize{
+\item \code{load_wbb_pbp()}, \code{load_wbb_shots()}, \code{load_wbb_game_rosters()}: 2004 onward.
+\item \code{load_wbb_team_box()}, \code{load_wbb_player_box()}: 2004 onward.
+\item \code{load_wbb_player_core()}: 2004 and 2006 onward (2005 was never published).
+\item \code{load_wbb_schedule()}: 2001 onward.
+\item \code{load_wbb_standings()}: 2003-2023 and 2026 onward.
+\item \code{load_wbb_player_stats()}: 2006-2023 and 2026 onward.
+\item \code{load_wbb_team_stats()}: 2010-2023 and 2026 onward.
+\item \code{load_wbb_officials()}: 2014-2023 and 2026 onward.
+\item \code{load_wbb_rosters()}: 2026 onward.
+}
+
+2024 and 2025 were never published for the season stats, standings and
+officials. A few seasons are published as \code{.parquet} only (2005 box scores,
+2023 season stats, standings and officials, 2023-2025 game rosters); those
+need the \pkg{arrow} package. The upper bound is \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
+When the upper-bound season is requested on its own (the default) but its
+file is not published yet, the loader reads the newest published season
+instead, with a message.
+ESPN join ids are integer: \code{game_id} in \code{load_wbb_game_rosters()} and
+\code{load_wbb_officials()}, \code{athlete_id} in \code{load_wbb_rosters()}.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}

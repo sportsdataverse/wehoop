@@ -15,10 +15,14 @@
 #'   replacement (WAR), and a DARKO-style skill/projection pair. Produced by
 #'   the sportsdataverse-py NBA/WNBA possession-engine model program; published to the
 #'   `wnba_player_impact` release tag as csv/parquet/rds.
-#' @param seasons A vector of 4-digit years associated with given WNBA
-#'   seasons. Published coverage runs 1997 through the most recent season,
-#'   with no gaps. Pass `seasons = TRUE` for every published season. (Min:
-#'   1997)
+#' @param seasons A vector of 4-digit seasons, or `TRUE` for every published
+#'   season: 1997 onward for `load_wnba_player_impact()` (WNBA seasons), 2014
+#'   onward for `load_wbb_player_value()` and 2009 onward for `load_wbb_ratings()`
+#'   (NCAA women's season-ending years, e.g. `2024` for 2023-24), with no gaps.
+#'   The upper bound is [most_recent_wnba_stats_season()] /
+#'   [most_recent_wbb_season()]. When the upper-bound season is requested on its own (the default) but its
+#'   file is not published yet, the loader reads the newest published season
+#'   instead, with a message.
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -74,16 +78,14 @@ load_wnba_player_impact <- function(seasons = most_recent_wnba_stats_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 1997),
-            all(seasons <= most_recent_wnba_stats_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_player_impact/wnba_player_impact_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 1997, most_recent_wnba_stats_season(),
+                             fn = "load_wnba_player_impact", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -114,10 +116,6 @@ NULL
 #'   sufficient quality for the model); this tag is parquet-only, with no
 #'   csv/rds sibling assets. Produced by the sportsdataverse-py NCAA WBB model program;
 #'   published to the `wbb_player_value` release tag.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball. Published coverage runs 2014 through the most recent
-#'   season, with no gaps. Pass `seasons = TRUE` for every published season.
-#'   (Min: 2014)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -153,16 +151,14 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
   loader <- parquet_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2014:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2014),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wbb_player_value/wbb_player_value_", seasons, ".parquet"
   )
+  seasons <- .loader_seasons(seasons, 2014, most_recent_wbb_season(),
+                             fn = "load_wbb_player_value", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -190,10 +186,6 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
 #'   adjusted-efficiency-margin rating. This tag is parquet-only, with no
 #'   csv/rds sibling assets. Produced by the sportsdataverse-py NCAA WBB model program;
 #'   published to the `wbb_ratings` release tag.
-#' @param seasons A vector of 4-digit season-ending years for NCAA women's
-#'   college basketball. Published coverage runs 2008 through the most recent
-#'   season, with no gaps. Pass `seasons = TRUE` for every published season.
-#'   (Min: 2008)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -232,16 +224,14 @@ load_wbb_ratings <- function(seasons = most_recent_wbb_season(),
   loader <- parquet_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2008:most_recent_wbb_season()
-
-  stopifnot(is.numeric(seasons),
-            all(seasons >= 2008),
-            all(seasons <= most_recent_wbb_season()))
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wbb_ratings/wbb_ratings_", seasons, ".parquet"
   )
+  seasons <- .loader_seasons(seasons, 2009, most_recent_wbb_season(),
+                             fn = "load_wbb_ratings", url_for = url_for)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)

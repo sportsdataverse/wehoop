@@ -22,8 +22,18 @@ load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season())
 load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given WBB seasons.
-(Min: 2014)}
+\item{seasons}{A vector of 4-digit seasons, or \code{TRUE} for every published
+season. Each loader accepts the seasons its release publishes: 2002
+onward for the three WNBA crosswalks; for WBB, \code{load_wbb_team_crosswalk()}
+2002-2003 and 2014 onward, \code{load_wbb_schedule_crosswalk()} 2021 onward and
+\code{load_wbb_player_crosswalk()} 2014-2022 and 2025 onward. The upper bound is
+\code{\link[=most_recent_wnba_season]{most_recent_wnba_season()}} / \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}; when that season
+is requested but not published yet, the loader reads the newest published
+season instead. The WNBA Stats ids (\code{wnba_player_id}, \code{wnba_team_id},
+\code{wnba_home_team_id}, \code{wnba_away_team_id}) and the ESPN ids (\code{espn_game_id},
+\code{espn_athlete_id}, \code{espn_team_id}) are returned as integer, matching the
+\verb{wnba_*()} WNBA Stats tables and the ESPN loaders; \code{wnba_game_id} stays
+character.}
 }
 \value{
 A \code{wehoop_data} tibble of cached team-crosswalk rows.

@@ -87,6 +87,86 @@ parquet_from_url <- function(url) {
   return(load)
 }
 
+# Read a release `.rds` asset, or its `.parquet` sibling when the season was
+# published as parquet only (a few WBB and WNBA seasons; needs arrow).
+rds_or_parquet_from_url <- function(url) {
+  out <- suppressWarnings(rds_from_url(url))
+  if (ncol(out) == 0 && is_installed("arrow")) {
+    out <- suppressWarnings(parquet_from_url(sub("\\.rds$", ".parquet", url)))
+  }
+  if (ncol(out) == 0) {
+    warning(paste0("Failed to read <", url, "> (or its .parquet sibling",
+                   if (!is_installed("arrow")) ", which needs the arrow package", ")"),
+            call. = FALSE)
+  }
+  out
+}
+
+# ESPN ids are integer in the box score and schedule releases, but a few assets
+# publish some as character (WNBA game_rosters / officials game_id, rosters
+# athlete_id, the WNBA crosswalk wnba_* ids). Cast them back so joins line up.
+.ids_as_integer <- function(df, cols) {
+  for (k in intersect(cols, names(df))) {
+    if (!is.integer(df[[k]])) {
+      data.table::set(df, j = k, value = suppressWarnings(as.integer(df[[k]])))
+    }
+  }
+  df
+}
+
+# TRUE unless the release asset answers 404 (a network failure counts as TRUE,
+# so the loader goes on and reports the failed read as before).
+.release_asset_exists <- function(url) {
+  status <- tryCatch(
+    httr2::request(url) |>
+      httr2::req_method("HEAD") |>
+      httr2::req_timeout(15) |>
+      httr2::req_error(is_error = function(resp) FALSE) |>
+      httr2::req_perform() |>
+      httr2::resp_status(),
+    error = function(e) NA_integer_
+  )
+  !identical(as.integer(status), 404L)
+}
+
+# Validate `seasons` for a release loader against the seasons its release tag
+# publishes (`first`..`last` minus `gaps`, read off the release assets);
+# `seasons = TRUE` expands to every published season. The newest season's file
+# appears only once its first games are published (WBB: October to November),
+# so when the request is that one season and `url_for(season)` answers 404, the
+# loader falls back to the newest published season with a message.
+.loader_seasons <- function(seasons, first, last, gaps = NULL, fn, url_for = NULL) {
+  last <- as.integer(last)
+  avail <- setdiff(first:last, gaps)
+  newest_missing <- function() !is.null(url_for) && !.release_asset_exists(url_for(last))
+  if (isTRUE(seasons)) {
+    if (newest_missing()) avail <- setdiff(avail, last)
+    return(avail)
+  }
+  if (!is.numeric(seasons) || length(seasons) == 0 || anyNA(seasons) || !all(seasons %in% avail)) {
+    brk <- c(0, which(diff(avail) != 1), length(avail))
+    ranges <- vapply(seq_len(length(brk) - 1), function(i) {
+      a <- avail[brk[i] + 1]
+      b <- avail[brk[i + 1]]
+      if (a == b) as.character(a) else paste0(a, "-", b)
+    }, character(1))
+    cli::cli_abort(c(
+      "{.fn {fn}}: {.arg seasons} must be seasons published to the release.",
+      "i" = "Published seasons: {paste(ranges, collapse = ', ')}.",
+      "x" = "You requested: {paste(seasons, collapse = ', ')}."
+    ))
+  }
+  if (length(seasons) == 1 && seasons == last && newest_missing()) {
+    prev <- avail[avail < last]
+    if (length(prev) > 0) {
+      prev <- max(prev)
+      cli::cli_inform(c("i" = "{.fn {fn}}: season {last} is not published yet; loading {prev} instead."))
+      seasons <- prev
+    }
+  }
+  seasons
+}
+
 # The function `message_completed` to create the green "...completed" message
 # only exists to hide the option `in_builder` in dots
 message_completed <- function(x, in_builder = FALSE) {
@@ -146,11 +226,8 @@ custom_mode <- function(x, na.rm = TRUE) {
 #' most_recent_wbb_season()
 #' @export
 most_recent_wbb_season <- function() {
-  ifelse(
-    as.double(substr(Sys.Date(), 6, 7)) >= 10,
-    as.double(substr(Sys.Date(), 1, 4)) + 1,
-    as.double(substr(Sys.Date(), 1, 4))
-  )
+  today <- as.POSIXlt(Sys.Date())
+  as.integer(today$year + 1900L + (today$mon >= 9L))
 }
 
 #' Most Recent WNBA Season
@@ -165,11 +242,8 @@ most_recent_wbb_season <- function() {
 #' most_recent_wnba_season()
 #' @export
 most_recent_wnba_season <- function() {
-  ifelse(
-    as.double(substr(Sys.Date(), 6, 7)) >= 5,
-    as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)) - 1
-  )
+  today <- as.POSIXlt(Sys.Date())
+  as.integer(today$year + 1900L - (today$mon < 4L))
 }
 
 #' Most Recent WNBA Stats API Season

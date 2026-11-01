@@ -109,9 +109,12 @@ load_ncaa_wbb_team_ids(
 }
 \arguments{
 \item{seasons}{A vector of 4-digit season-ending years for NCAA women's
-college basketball (e.g. \code{2024} for the 2023-24 season). Published
-coverage runs 2010 through the most recent season, with no gaps. Pass
-\code{seasons = TRUE} for every published season. (Min: 2010)}
+college basketball (e.g. \code{2024} for the 2023-24 season), or \code{TRUE} for every
+published season: 2010 onward for every loader except \code{load_ncaa_wbb_rapm()}
+(2011 onward) and \code{load_ncaa_wbb_shots()} (2019 onward), with no gaps. The
+upper bound is \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}. When the upper-bound season is requested on its own (the default) but its
+file is not published yet, the loader reads the newest published season
+instead, with a message.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}

@@ -45,7 +45,7 @@ Logical TRUE/FALSE
 }
 \description{
 update_wbb_db() updates or creates a database with \code{wehoop}
-play by play data of all completed and available games since 2002.
+play by play data of all completed and available games since 2004.
 }
 \details{
 This function creates and updates a data table with the name \code{tblname}
