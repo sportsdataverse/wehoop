@@ -157,11 +157,11 @@ reference](https://wehoop.sportsdataverse.org/reference/index.html).
     289 functions in all.
   - **Release loaders**
     ([WNBA](https://wehoop.sportsdataverse.org/reference/index.html#wnba-data-functions),
-    [WBB](https://wehoop.sportsdataverse.org/reference/index.html#womens-college-basketball-data-functions),
+    [WBB](https://wehoop.sportsdataverse.org/reference/index.html#women-s-college-basketball-data-functions),
     [WNBA
     Stats](https://wehoop.sportsdataverse.org/reference/index.html#wnba-stats-api-data-loaders),
     [NCAA
-    engine](https://wehoop.sportsdataverse.org/reference/index.html#ncaa-womens-college-basketball-play-by-play-engine-data-loaders),
+    engine](https://wehoop.sportsdataverse.org/reference/index.html#ncaa-women-s-college-basketball-play-by-play-engine-data-loaders),
     [models](https://wehoop.sportsdataverse.org/reference/index.html#model-dataset-loaders),
     [conference
     groups](https://wehoop.sportsdataverse.org/reference/index.html#conference-and-division-group-loaders)):
