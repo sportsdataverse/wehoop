@@ -20,8 +20,8 @@ fiba_gdap_federation_ranking(
 
 - category:
 
-  (character, default `"women"` in wehoop; sdv-py and hoopR default
-  `"men"`) Ranking category: men or women (the site also knows
+  (character, default `"women"` in wehoop; sportsdataverse-py and hoopR
+  default `"men"`) Ranking category: men or women (the site also knows
   boys/girls)
 
 - zone_id:
@@ -66,10 +66,8 @@ FIBA's terms restrict this source. The GDAP developer-portal terms limit
 API use to 'Authorized Users' (federations, organisers, FIBA partners)
 and say any broader use 'is not authorised'; the fiba.basketball terms
 say no portion of the site may be duplicated, redistributed or
-manipulated. The package owner reviewed both clauses on 2026-10-12,
-accepted them and approved the full intake, published data releases
-included. Users who are not themselves authorised by FIBA should check
-the terms before using the wrappers.
+manipulated. Users who are not themselves authorised by FIBA should
+check the terms before using the wrappers.
 
 The GDAP subscription key is public (fiba.basketball ships it in every
 page); the runtime reads it from the live page at run time and never

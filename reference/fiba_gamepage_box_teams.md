@@ -103,10 +103,8 @@ FIBA's terms restrict this source. The GDAP developer-portal terms limit
 API use to 'Authorized Users' (federations, organisers, FIBA partners)
 and say any broader use 'is not authorised'; the fiba.basketball terms
 say no portion of the site may be duplicated, redistributed or
-manipulated. The package owner reviewed both clauses on 2026-10-12,
-accepted them and approved the full intake, published data releases
-included. Users who are not themselves authorised by FIBA should check
-the terms before using the wrappers.
+manipulated. Users who are not themselves authorised by FIBA should
+check the terms before using the wrappers.
 
 The GDAP subscription key is public (fiba.basketball ships it in every
 page); the runtime reads it from the live page at run time and never
@@ -130,7 +128,7 @@ not-found shell, and the Champions League host last).
 Box scores start about 2006; play-by-play with shot x/y about 2012 (OVR
 events) and 2017-18 (FLS club competitions). A game with no box score
 raises `wehoop_no_data`; a game still live raises `wehoop_asset_fetch`.
-The page request sends a browser User-Agent (sdv-py answers
+The page request sends a browser User-Agent (sportsdataverse-py answers
 fiba.basketball's HTTP 403 to plain clients with Chrome TLS; libcurl
 with a browser User-Agent was served on 2026-10-18). Shot x/y are image
 pixels with an unverified scale.
@@ -195,7 +193,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gamepage_box_teams(game_id = 100720, comp = 208182))
 #> ── FIBA gamepage_box_teams from fiba.basketball ──────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:35:32 UTC
+#> ℹ Data updated: 2026-11-01 18:15:46 UTC
 #> # A tibble: 2 × 57
 #>   game_id competition_id statistic_system team_side organisation_id score points
 #>     <int>          <int> <chr>            <chr>               <int> <int>  <int>

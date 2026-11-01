@@ -31,7 +31,8 @@ tbf_teams(season, competition = "kbsl")
 
 A `wehoop_data` tibble. One row per team registration. Every column
 below is always present (a zero-row tibble keeps them and their types);
-an answer with nothing in it raises `wehoop_no_data`, as in sdv-py.
+an answer with nothing in it raises `wehoop_no_data`, as in
+sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -121,7 +122,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_teams(competition = "bsl", season = 2027))
 #> ── TBF Teams ─────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:51 UTC
+#> ℹ Data updated: 2026-11-01 18:18:03 UTC
 #> # A tibble: 16 × 9
 #>    season competition team_process_id club_id team_name    city  code  season_id
 #>     <int> <chr>                 <int>   <int> <chr>        <chr> <chr>     <int>

@@ -76,8 +76,8 @@ A `wehoop_data` tibble (one row per player line):
 | team_name | character | Name of the team as Rosetta spells it, e.g. Perth Wildcats. |
 | sc | integer | NBL SuperCoach fantasy score for the game. |
 
-Columns the body adds beyond these follow, in body order (sdv-py keeps
-them too).
+Columns the body adds beyond these follow, in body order
+(sportsdataverse-py keeps them too).
 
 ## Details
 
@@ -152,7 +152,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_match_player_box(match_id = "b217a699-4bef-11f0-bc08-933162362355"))
 #> ── NBL Rosetta match_player_box from prod.rosetta.nbl.com.au ─── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:37:04 UTC
+#> ℹ Data updated: 2026-11-01 18:17:16 UTC
 #> # A tibble: 24 × 49
 #>    match_id        match_status stat_line_id rosetta_stat_line_id assists blocks
 #>    <chr>           <chr>        <chr>        <chr>                  <int>  <int>

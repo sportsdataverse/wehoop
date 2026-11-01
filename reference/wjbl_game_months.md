@@ -22,7 +22,7 @@ wjbl_game_months(season)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_game_months`):
+these, in this order (sportsdataverse-py `wjbl_game_months`):
 
 |  |  |  |
 |----|----|----|
@@ -39,16 +39,15 @@ these, in this order (sdv-py `wjbl_game_months`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -120,8 +119,19 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game_months(season = 2026))
-#> Error in wjbl_game_months(season = 2026) : 
-#>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service
-#> Unavailable"}
+#> ── W League Game Months from api.wjbl.01core.app ─────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:15 UTC
+#> # A tibble: 9 × 4
+#>   league_id season game_month game_month_jpn
+#>       <int>  <int> <chr>      <chr>         
+#> 1        45   2026 2026-04    2026年4月     
+#> 2        45   2026 2026-03    2026年3月     
+#> 3        45   2026 2026-02    2026年2月     
+#> 4        45   2026 2026-01    2026年1月     
+#> 5        45   2026 2025-12    2025年12月    
+#> 6        45   2026 2025-11    2025年11月    
+#> 7        45   2026 2025-10    2025年10月    
+#> 8        45   2026 2025-09    2025年9月     
+#> 9        45   2026 2025-07    2025年7月     
 # }
 ```

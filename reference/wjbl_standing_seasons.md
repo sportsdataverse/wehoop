@@ -14,7 +14,7 @@ wjbl_standing_seasons()
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_standing_seasons`):
+these, in this order (sportsdataverse-py `wjbl_standing_seasons`):
 
 |  |  |  |
 |----|----|----|
@@ -34,16 +34,15 @@ these, in this order (sdv-py `wjbl_standing_seasons`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -115,8 +114,23 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_standing_seasons())
-#> Error in wjbl_standing_seasons() : 
-#>   api.wjbl.01core.app/api/seasons/standings answered HTTP 503:
-#> {"message":"Service Unavailable"}
+#> ── W League Standing Seasons from api.wjbl.01core.app ────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:24 UTC
+#> # A tibble: 118 × 7
+#>    season_id season_full_name       season season_league_name team_standings_flg
+#>        <int> <chr>                   <int> <chr>                           <int>
+#>  1       179 26-27 Wリーグ レギュラーシーズン……   2027 "プレミア"                          0
+#>  2       180 26-27 Wリーグ レギュラーシーズン……   2027 "フューチャー"                      0
+#>  3       181 26-27 Wリーグ 大樹生命 Wリーグ …   2027 "グループステージ"                  0
+#>  4       178 Wリーグオールスター2025-26 in …     NA ""                                  0
+#>  5       169 25-26 Wリーグ レギュラーシーズン……   2026 "プレミア"                          1
+#>  6       170 25-26 Wリーグ レギュラーシーズン……   2026 "フューチャー"                      1
+#>  7       175 25-26 Wリーグ プレーオフ セミファ…   2026 ""                                  0
+#>  8       176 25-26 Wリーグ プレーオフ　ファイナ…   2026 ""                                  0
+#>  9       174 25-26 Wリーグ 入替戦     2026 ""                                  0
+#> 10       172 25-26 Wリーグ 大樹生命 Wリーグ …   2026 "グループステージ"                  0
+#> # ℹ 108 more rows
+#> # ℹ 2 more variables: season_tournament_text_flg <int>,
+#> #   season_tournament_text <chr>
 # }
 ```

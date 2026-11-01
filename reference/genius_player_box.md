@@ -32,7 +32,7 @@ genius_player_box(match_id, return_parsed = TRUE)
 
   Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body
   or page record (a list): `data.json` as served plus `_request` (the
-  ids asked for), or the sdv-internal-refs capture shape of a page.
+  ids asked for), or the record extracted from an HTML page.
 
 ## Value
 
@@ -154,7 +154,7 @@ Other Genius Functions:
 # \donttest{
   try(genius_player_box(match_id = 2902690))
 #> ── Genius LiveStats player box score ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:36:16 UTC
+#> ℹ Data updated: 2026-11-01 18:16:16 UTC
 #> # A tibble: 24 × 51
 #>    match_id   tno   pno name       first_name family_name international_first_…¹
 #>       <int> <int> <int> <chr>      <chr>      <chr>       <chr>                 

@@ -37,7 +37,7 @@ genius_match_competition(org, match_id, return_parsed = TRUE)
 
   Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body
   or page record (a list): `data.json` as served plus `_request` (the
-  ids asked for), or the sdv-internal-refs capture shape of a page.
+  ids asked for), or the record extracted from an HTML page.
 
 ## Value
 

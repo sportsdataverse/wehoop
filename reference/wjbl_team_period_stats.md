@@ -23,7 +23,7 @@ wjbl_team_period_stats(play_schedule_id)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_team_period_stats`):
+these, in this order (sportsdataverse-py `wjbl_team_period_stats`):
 
 |  |  |  |
 |----|----|----|
@@ -63,16 +63,15 @@ these, in this order (sdv-py `wjbl_team_period_stats`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every

@@ -63,10 +63,8 @@ FIBA's terms restrict this source. The GDAP developer-portal terms limit
 API use to 'Authorized Users' (federations, organisers, FIBA partners)
 and say any broader use 'is not authorised'; the fiba.basketball terms
 say no portion of the site may be duplicated, redistributed or
-manipulated. The package owner reviewed both clauses on 2026-10-12,
-accepted them and approved the full intake, published data releases
-included. Users who are not themselves authorised by FIBA should check
-the terms before using the wrappers.
+manipulated. Users who are not themselves authorised by FIBA should
+check the terms before using the wrappers.
 
 The GDAP subscription key is public (fiba.basketball ships it in every
 page); the runtime reads it from the live page at run time and never
@@ -138,7 +136,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_round_standings(comp = 208182))
 #> ── FIBA gdap_round_standings from fiba.basketball ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:35:44 UTC
+#> ℹ Data updated: 2026-11-01 18:15:58 UTC
 #> # A tibble: 88 × 23
 #>    round_id round_name  round_code group_name group_status_code  rank
 #>       <int> <chr>       <chr>      <chr>      <chr>             <int>

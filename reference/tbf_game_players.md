@@ -26,7 +26,8 @@ tbf_game_players(match_id)
 A `wehoop_data` tibble. One row per rostered player. The header carries
 no usable player id; join on name + shirt number + side. Every column
 below is always present (a zero-row tibble keeps them and their types);
-an answer with nothing in it raises `wehoop_no_data`, as in sdv-py.
+an answer with nothing in it raises `wehoop_no_data`, as in
+sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

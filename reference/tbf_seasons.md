@@ -18,7 +18,7 @@ A `wehoop_data` tibble. One row per season, newest first. `season` is
 the END year of the label (2026-2027 -\> 2027); `international` marks
 the odd `UA-` seasons. Every column below is always present (a zero-row
 tibble keeps them and their types); an answer with nothing in it raises
-`wehoop_no_data`, as in sdv-py.
+`wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -105,7 +105,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_seasons())
 #> ── TBF Seasons ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:45 UTC
+#> ℹ Data updated: 2026-11-01 18:17:57 UTC
 #> # A tibble: 20 × 6
 #>    season_id season_label season start_date end_date   international
 #>        <int> <chr>         <int> <date>     <date>     <lgl>        

@@ -13,8 +13,10 @@ proxy that egresses from a non-blocked address — pass `proxy =` directly
 via `...` (forwarded to
 [`.retry_request()`](https://wehoop.sportsdataverse.org/reference/dot-retry_request.md)),
 or set it once with
-`options(wehoop.proxy = list(url=, port=, username=, password=))`. See
-the wehoop CLAUDE.md / pkgdown docs for the full proxy resolution order.
+`options(wehoop.proxy = list(url=, port=, username=, password=))`. Proxy
+resolution order: the `proxy` argument, then
+`getOption("wehoop.proxy")`, then the `http_proxy` / `https_proxy`
+environment variables.
 
 ## Usage
 

@@ -21,7 +21,9 @@ espn_wbb_coaches(season = most_recent_wbb_season(), ...)
 
   Additional arguments; currently unused but retained for forward
   compatibility. Proxy configuration should use
-  `options(wehoop.proxy = ...)` – see `?wehoop` for details.
+  `options(wehoop.proxy = ...)` – see
+  [`?wehoop`](https://wehoop.sportsdataverse.org/reference/wehoop-package.md)
+  for details.
 
 ## Value
 
@@ -114,7 +116,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_coaches(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Coaches from ESPN.com ──────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:16 UTC
+#> ℹ Data updated: 2026-11-01 18:14:34 UTC
 #> # A tibble: 375 × 6
 #>    coach_id first_name last_name full_name experience team_id
 #>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  

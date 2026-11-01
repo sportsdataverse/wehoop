@@ -23,7 +23,7 @@ wjbl_box_score(play_schedule_id)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_box_score`):
+these, in this order (sportsdataverse-py `wjbl_box_score`):
 
 |  |  |  |
 |----|----|----|
@@ -60,16 +60,15 @@ these, in this order (sdv-py `wjbl_box_score`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -141,8 +140,24 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_box_score(play_schedule_id = 7987))
-#> Error in wjbl_box_score(play_schedule_id = 7987) : 
-#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
-#> {"message":"Service Unavailable"}
+#> ── W League Box Score from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:11 UTC
+#> # A tibble: 27 × 24
+#>    play_schedule_id team_side team_id player_id player_name  player_number    gs
+#>               <int> <chr>       <int>     <int> <chr>        <chr>         <int>
+#>  1             7987 home           13      9799 岡本 美優    11                1
+#>  2             7987 home           13     17454 オコンクウォ スーザン… 13                1
+#>  3             7987 home           13      3395 平下 愛佳    14                1
+#>  4             7987 home           13      1389 安間 志織    15                1
+#>  5             7987 home           13      1443 山本 麻衣    23                1
+#>  6             7987 home           13     14381 小野寺 佑奈  3                 0
+#>  7             7987 home           13      9850 横山 智那美  7                 0
+#>  8             7987 home           13      3396 永田 萌絵    20                0
+#>  9             7987 home           13     18968 シュック カイリー ア… 24                0
+#> 10             7987 home           13      9794 三浦 舞華    30                0
+#> # ℹ 17 more rows
+#> # ℹ 17 more variables: pts <int>, p2m <int>, p2a <int>, p3m <int>, p3a <int>,
+#> #   ftm <int>, fta <int>, f <int>, off <int>, def <int>, tot <int>, ast <int>,
+#> #   stl <int>, blk <int>, to <int>, min <chr>, min_seconds <int>
 # }
 ```

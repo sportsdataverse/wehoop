@@ -39,8 +39,8 @@ A `wehoop_data` tibble (one row: the season in progress):
 | next_match_start_datetime | character | Tip-off of the season's next match, UTC; null when none. |
 | season_end_year | integer | sdv season key: the END year of the season (2026 = 2025-26), derived from season_year (a START year for the NBL and WNBL from 1998-99, a calendar year for NBL1 and the 1979-1997 winter seasons; year 1998 is split on the start date). Where the body carries no year it is the season asked for. |
 
-Columns the body adds beyond these follow, in body order (sdv-py keeps
-them too).
+Columns the body adds beyond these follow, in body order
+(sportsdataverse-py keeps them too).
 
 ## Details
 
@@ -115,7 +115,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_seasons_current(org = "nbl"))
 #> ── NBL Rosetta seasons_current from prod.rosetta.nbl.com.au ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:37:12 UTC
+#> ℹ Data updated: 2026-11-01 18:17:26 UTC
 #> # A tibble: 1 × 12
 #>   org   season_id     rosetta_season_id name  season_year season_type start_date
 #>   <chr> <chr>         <chr>             <chr>       <int> <chr>       <chr>     

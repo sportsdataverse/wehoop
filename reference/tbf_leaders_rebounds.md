@@ -32,7 +32,7 @@ tbf_leaders_rebounds(season, competition = "kbsl")
 A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and
 `average`), best first. Every column below is always present (a zero-row
 tibble keeps them and their types); an answer with nothing in it raises
-`wehoop_no_data`, as in sdv-py.
+`wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

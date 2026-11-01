@@ -21,7 +21,9 @@ espn_wnba_coaches(season = most_recent_wnba_season(), ...)
 
   Additional arguments; currently unused but retained for forward
   compatibility. Proxy configuration should use
-  `options(wehoop.proxy = ...)` – see `?wehoop` for details.
+  `options(wehoop.proxy = ...)` – see
+  [`?wehoop`](https://wehoop.sportsdataverse.org/reference/wehoop-package.md)
+  for details.
 
 ## Value
 
@@ -115,7 +117,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_coaches(season = 2025)
 #> ── ESPN WNBA Coaches from ESPN.com ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:51 UTC
+#> ℹ Data updated: 2026-11-01 18:15:06 UTC
 #> # A tibble: 13 × 6
 #>    coach_id first_name last_name full_name experience team_id
 #>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  

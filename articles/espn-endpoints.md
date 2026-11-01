@@ -173,12 +173,12 @@ head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
 #>   headline                                                             published
 #>   <chr>                                                                <chr>    
-#> 1 Ex-Iowa State star Crooks left for Oklahoma State after 'honest con… 2026-10-…
-#> 2 How top 2027 women's basketball commits fit at their schools         2026-10-…
-#> 3 Early top-5 women's basketball recruiting class rankings             2026-10-…
-#> 4 Zaniya Johnson, No. 18 in 2027 SC Next 100, commits to South Caroli… 2026-10-…
-#> 5 Breaking down the women's college basketball national player of the… 2026-10-…
-#> 6 Big 12 commish mulls new event if conference title games end         2026-10-…
+#> 1 No. 16 Washington Huskies start season at home against the UCSD Tri… 2026-11-…
+#> 2 UNLV squares off against No. 3 USC in Las Vegas, Nevada              2026-11-…
+#> 3 Eastern Michigan hosts Appalachian State in season opener            2026-11-…
+#> 4 No. 7 Louisville hosts Bellarmine to tip off season                  2026-11-…
+#> 5 Georgia Lady Bulldogs open season at home against the West Georgia … 2026-11-…
+#> 6 George Mason hosts Temple to start season                            2026-11-…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-22 03:41:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/167?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-22 03:41:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "2"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-22 03:41:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-22 03:41:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-22 03:41:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-10-22 03:41:39"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-01 18:19:24"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -673,7 +673,7 @@ espn_wnba_player_seasons(athlete_id = 3149391)
 
 # Franchise records are stable across relocations and rebrands.
 espn_wnba_franchises()
-#> # A tibble: 17 × 3
+#> # A tibble: 15 × 3
 #>    franchise_id ref                                                       league
 #>    <chr>        <chr>                                                     <chr> 
 #>  1 3            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
@@ -688,11 +688,9 @@ espn_wnba_franchises()
 #> 10 18           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
 #> 11 19           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
 #> 12 20           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 13 17475        http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 14 17476        http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 15 129689       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 16 131935       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 17 132052       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba
+#> 13 129689       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 14 131935       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 15 132052       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba
 espn_wnba_franchise(franchise_id = 20)   # one franchise
 #> # A tibble: 1 × 16
 #>   id    uid            slug    location name  nickname abbreviation display_name

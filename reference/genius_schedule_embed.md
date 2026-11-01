@@ -37,7 +37,7 @@ genius_schedule_embed(org, comp_id, round_number = -1, return_parsed = TRUE)
 
   Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body
   or page record (a list): `data.json` as served plus `_request` (the
-  ids asked for), or the sdv-internal-refs capture shape of a page.
+  ids asked for), or the record extracted from an HTML page.
 
 ## Value
 

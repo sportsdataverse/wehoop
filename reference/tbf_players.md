@@ -32,7 +32,7 @@ tbf_players(season, competition = "kbsl")
 A `wehoop_data` tibble. One row per registered player. Birth dates are
 not returned. Every column below is always present (a zero-row tibble
 keeps them and their types); an answer with nothing in it raises
-`wehoop_no_data`, as in sdv-py.
+`wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -124,8 +124,8 @@ Other TBF Functions:
 # \donttest{
   try(tbf_players(competition = "bsl", season = 2027))
 #> ── TBF Players ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:44 UTC
-#> # A tibble: 257 × 11
+#> ℹ Data updated: 2026-11-01 18:17:55 UTC
+#> # A tibble: 260 × 11
 #>    season competition person_id player_name nationality nationality_code club_id
 #>     <int> <chr>           <int> <chr>       <chr>       <chr>              <int>
 #>  1   2027 bsl            443749 Ahmet Aldi… TÜRKİYE     TUR               246239
@@ -138,7 +138,7 @@ Other TBF Functions:
 #>  8   2027 bsl            778182 Alex Reese  ABD         USA               246463
 #>  9   2027 bsl            393217 Ali Yiğit … TÜRKİYE     TUR                    3
 #> 10   2027 bsl            222914 Alican Gün… TÜRKİYE     TUR                47153
-#> # ℹ 247 more rows
+#> # ℹ 250 more rows
 #> # ℹ 4 more variables: team_name <chr>, jersey_number <chr>, prefix <chr>,
 #> #   season_id <int>
 # }

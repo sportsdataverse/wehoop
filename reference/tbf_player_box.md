@@ -27,7 +27,7 @@ A `wehoop_data` tibble. One row per player who is on the sheet;
 `is_starter` marks the starting five (none flagged in 2006-07). Every
 column below is always present (a zero-row tibble keeps them and their
 types); an answer with nothing in it raises `wehoop_no_data`, as in
-sdv-py.
+sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -141,7 +141,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_player_box(match_id = 346279))
 #> ── TBF Player Box Score ──────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:42 UTC
+#> ℹ Data updated: 2026-11-01 18:17:54 UTC
 #> # A tibble: 24 × 33
 #>    match_id side  team_process_id player_id player_name jersey_number is_starter
 #>       <int> <chr>           <int>     <int> <chr>       <chr>         <lgl>     

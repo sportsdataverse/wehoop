@@ -66,8 +66,8 @@ A `wehoop_data` tibble (one row per player and period):
 | two_points_percentage | double | Two-point field goals made / attempted, a 0-1 FRACTION. |
 | jersey_number | character | Jersey number, a STRING. |
 
-Columns the body adds beyond these follow, in body order (sdv-py keeps
-them too).
+Columns the body adds beyond these follow, in body order
+(sportsdataverse-py keeps them too).
 
 ## Details
 

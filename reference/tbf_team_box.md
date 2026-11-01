@@ -26,7 +26,7 @@ tbf_team_box(match_id)
 A `wehoop_data` tibble. Two rows: home, then away. Minutes are the
 players' summed seconds. Every column below is always present (a
 zero-row tibble keeps them and their types); an answer with nothing in
-it raises `wehoop_no_data`, as in sdv-py.
+it raises `wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -140,7 +140,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_team_box(match_id = 346279))
 #> ── TBF Team Box Score ────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:48 UTC
+#> ℹ Data updated: 2026-11-01 18:18:00 UTC
 #> # A tibble: 2 × 33
 #>   match_id side  team_process_id seconds_played points fg_made fg_attempted
 #>      <int> <chr>           <int>          <int>  <int>   <int>        <int>

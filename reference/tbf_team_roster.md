@@ -41,7 +41,7 @@ tbf_team_roster(season, team_process_id, competition = "kbsl")
 A `wehoop_data` tibble. One row per rostered person. Birth dates are not
 returned. Every column below is always present (a zero-row tibble keeps
 them and their types); an answer with nothing in it raises
-`wehoop_no_data`, as in sdv-py.
+`wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

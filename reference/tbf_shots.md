@@ -26,7 +26,7 @@ tbf_shots(match_id)
 A `wehoop_data` tibble. One row per attempt. `x` and `y` are percentages
 of a horizontal full court. Every column below is always present (a
 zero-row tibble keeps them and their types); an answer with nothing in
-it raises `wehoop_no_data`, as in sdv-py.
+it raises `wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -117,7 +117,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_shots(match_id = 346279))
 #> ── TBF Shots ─────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:46 UTC
+#> ℹ Data updated: 2026-11-01 18:17:58 UTC
 #> # A tibble: 123 × 10
 #>    match_id period period_type side  shot_player_id player_name    jersey_number
 #>       <int>  <int>       <int> <chr>          <int> <chr>          <chr>        

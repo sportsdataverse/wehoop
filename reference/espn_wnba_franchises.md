@@ -108,8 +108,8 @@ Saiem Gilani
 # \donttest{
   espn_wnba_franchises()
 #> ── ESPN WNBA Franchises Index ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:53 UTC
-#> # A tibble: 17 × 3
+#> ℹ Data updated: 2026-11-01 18:15:08 UTC
+#> # A tibble: 15 × 3
 #>    franchise_id ref                                                       league
 #>    <chr>        <chr>                                                     <chr> 
 #>  1 3            http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
@@ -124,10 +124,8 @@ Saiem Gilani
 #> 10 18           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
 #> 11 19           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
 #> 12 20           http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 13 17475        http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 14 17476        http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 15 129689       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 16 131935       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
-#> 17 132052       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 13 129689       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 14 131935       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
+#> 15 132052       http://sports.core.api.espn.com/v2/sports/basketball/lea… wnba  
 # }
 ```

@@ -25,7 +25,7 @@ tbf_league_seasons(competition = "kbsl")
 A `wehoop_data` tibble. One row per season of the league, newest first.
 Every column below is always present (a zero-row tibble keeps them and
 their types); an answer with nothing in it raises `wehoop_no_data`, as
-in sdv-py.
+in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -113,7 +113,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_league_seasons(competition = "bsl"))
 #> ── TBF League Seasons ────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:38 UTC
+#> ℹ Data updated: 2026-11-01 18:17:50 UTC
 #> # A tibble: 61 × 7
 #>    activity_id activity_name     url   season_id season_label season competition
 #>          <int> <chr>             <chr>     <int> <chr>         <int> <chr>      

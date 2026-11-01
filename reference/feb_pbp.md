@@ -67,10 +67,10 @@ A `wehoop_data` tibble with these columns:
 
 The Spanish Basketball Federation (FEB) wrappers cover Primera FEB,
 Segunda FEB and Liga Femenina Endesa (plus the federation's other groups
-on the same routes). They mirror sdv-py's
+on the same routes). They mirror sportsdataverse-py's
 `sportsdataverse.basketball.feb` wrappers of the same names: same
-arguments, the same snake_case columns and types, one row per sdv-py
-row.
+arguments, the same snake_case columns and types, one row per
+sportsdataverse-py row.
 
 **Legal notice.** The FEB's aviso legal (legal notice) asserts
 intellectual-property rights over the site's content and its databases
@@ -125,7 +125,7 @@ Other FEB Functions:
 # \donttest{
   try(feb_pbp(game_id = 2535725))
 #> ── FEB pbp from intrafeb.feb.es ──────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:35:24 UTC
+#> ℹ Data updated: 2026-11-01 18:15:37 UTC
 #> # A tibble: 570 × 27
 #>    game_id play_num period clock clock_seconds team_side team_id player_id
 #>      <int>    <int>  <int> <chr>         <int> <chr>       <int>     <int>

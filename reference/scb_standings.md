@@ -38,7 +38,7 @@ scb_standings(league = "dbbl", season = NULL, competition = NULL)
 A `wehoop_data` tibble: League table of a season: record, home / away
 split, streaks and tie-break detail (2005-06 on). An empty valid answer
 raises `wehoop_no_data`; the columns are always these, in this order
-(sdv-py `scb_standings`):
+(sportsdataverse-py `scb_standings`):
 
 |  |  |  |
 |----|----|----|
@@ -109,11 +109,9 @@ raises `wehoop_no_data`; the columns are always these, in this order
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first
@@ -172,7 +170,27 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_standings())
-#> Error in scb_standings() : 
-#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
+#> ── BBL/DBBL Standings from the SCB API ───────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:17:44 UTC
+#> # A tibble: 10 × 55
+#>    league season standing_id season_team_id team_id team_name           team_tlc
+#>    <chr>   <int> <chr>       <chr>          <chr>   <chr>               <chr>   
+#>  1 dbbl     2027 4000        107            107     Rutronik Stars Kel… KEL     
+#>  2 dbbl     2027 3993        100            100     ALBA BERLIN         ALB     
+#>  3 dbbl     2027 4002        109            109     halfit LIONS        hfL     
+#>  4 dbbl     2027 3994        101            101     BC Marburg          MAR     
+#>  5 dbbl     2027 4001        108            108     Saarlouis Royals    SAR     
+#>  6 dbbl     2027 3996        103            103     Eisvögel USC Freib… FRE     
+#>  7 dbbl     2027 3997        104            104     GiroLive Panthers … OSN     
+#>  8 dbbl     2027 3998        105            105     Herner TC           HER     
+#>  9 dbbl     2027 3995        102            102     Eigner Angels Nörd… NÖR     
+#> 10 dbbl     2027 4003        110            110     TK Hannover Luchse  HAN     
+#> # ℹ 48 more variables: team_name_short <chr>, has_reached_playoffs <lgl>,
+#> #   has_reached_playins <lgl>, is_relegation_certain <lgl>, season_id <int>,
+#> #   competition <chr>, stage <chr>, rank <int>, streak <chr>,
+#> #   streak_count <int>, point_corrections <chr>, home_victories <int>,
+#> #   home_losses <int>, home_victory_percentage <dbl>, away_victories <int>,
+#> #   away_losses <int>, away_victory_percentage <dbl>, table_points <int>,
+#> #   table_points_against <int>, total_victory_percentage <dbl>, …
 # }
 ```

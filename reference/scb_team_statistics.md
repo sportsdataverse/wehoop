@@ -37,8 +37,8 @@ scb_team_statistics(season, league = "dbbl", display_type = "MAIN_ROUND")
 
 A `wehoop_data` tibble: Season team stat table: totals and per-game
 values, one row per team and stat block. An empty valid answer raises
-`wehoop_no_data`; the columns are always these, in this order (sdv-py
-`scb_team_statistics`):
+`wehoop_no_data`; the columns are always these, in this order
+(sportsdataverse-py `scb_team_statistics`):
 
 |  |  |  |
 |----|----|----|
@@ -113,11 +113,9 @@ values, one row per team and stat block. An empty valid answer raises
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first
@@ -176,7 +174,27 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_team_statistics(season = 2026))
-#> Error in scb_team_statistics(season = 2026) : 
-#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
+#> ── BBL/DBBL Season Team Statistics from the SCB API ──────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:17:45 UTC
+#> # A tibble: 10 × 59
+#>    league season display_type team_id season_team_id team_name          team_tlc
+#>    <chr>   <int> <chr>        <chr>   <chr>          <chr>              <chr>   
+#>  1 dbbl     2026 MAIN_ROUND   105     105            Herner TC          HER     
+#>  2 dbbl     2026 MAIN_ROUND   102     102            Eigner Angels Nör… NÖR     
+#>  3 dbbl     2026 MAIN_ROUND   109     109            SYNTAINICS MBC     MBC     
+#>  4 dbbl     2026 MAIN_ROUND   108     108            Saarlouis Royals   SAR     
+#>  5 dbbl     2026 MAIN_ROUND   103     103            Eisvögel USC Frei… FRE     
+#>  6 dbbl     2026 MAIN_ROUND   101     101            BC Marburg         MAR     
+#>  7 dbbl     2026 MAIN_ROUND   110     110            TK Hannover Luchse HAN     
+#>  8 dbbl     2026 MAIN_ROUND   107     107            Rutronik Stars Ke… KEL     
+#>  9 dbbl     2026 MAIN_ROUND   100     100            ALBA BERLIN        ALB     
+#> 10 dbbl     2026 MAIN_ROUND   104     104            GiroLive Panthers… OSN     
+#> # ℹ 52 more variables: season_id <int>, round_code <int>, competition <chr>,
+#> #   aggregation <chr>, seconds_played <int>, points <int>,
+#> #   two_point_shots_made <int>, two_point_shots_attempted <int>,
+#> #   two_point_shot_success_percent <dbl>, three_point_shots_made <int>,
+#> #   three_point_shots_attempted <int>, three_point_shot_success_percent <dbl>,
+#> #   field_goals_made <int>, field_goals_attempted <int>,
+#> #   field_goals_success_percent <dbl>, free_throws_made <int>, …
 # }
 ```

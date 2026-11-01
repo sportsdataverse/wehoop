@@ -94,8 +94,8 @@ A `wehoop_data` tibble (one row: the next match):
 | season_competition_division | character | Always an empty array in samples; element shape and meaning unverified. |
 | season_end_year | integer | sdv season key: the END year of the season (2026 = 2025-26), derived from season_year (a START year for the NBL and WNBL from 1998-99, a calendar year for NBL1 and the 1979-1997 winter seasons; year 1998 is split on the start date). Where the body carries no year it is the season asked for. |
 
-Columns the body adds beyond these follow, in body order (sdv-py keeps
-them too).
+Columns the body adds beyond these follow, in body order
+(sportsdataverse-py keeps them too).
 
 ## Details
 

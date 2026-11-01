@@ -34,7 +34,7 @@ genius_pbp(match_id, return_parsed = TRUE)
 
   Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body
   or page record (a list): `data.json` as served plus `_request` (the
-  ids asked for), or the sdv-internal-refs capture shape of a page.
+  ids asked for), or the record extracted from an HTML page.
 
 ## Value
 
@@ -130,7 +130,7 @@ Other Genius Functions:
 # \donttest{
   try(genius_pbp(match_id = 2902690))
 #> ── Genius LiveStats play-by-play ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:36:16 UTC
+#> ℹ Data updated: 2026-11-01 18:16:15 UTC
 #> # A tibble: 663 × 25
 #>    match_id row_index action_number previous_action period period_type gt   
 #>       <int>     <int>         <int>           <int>  <int> <chr>       <chr>

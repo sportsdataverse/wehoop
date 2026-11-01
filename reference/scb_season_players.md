@@ -31,7 +31,7 @@ scb_season_players(season, league = "dbbl")
 A `wehoop_data` tibble: Every player registered in a season: the id
 crosswalk (season_player_id, real_player_id, season_team_id). An empty
 valid answer raises `wehoop_no_data`; the columns are always these, in
-this order (sdv-py `scb_season_players`):
+this order (sportsdataverse-py `scb_season_players`):
 
 |  |  |  |
 |----|----|----|
@@ -55,11 +55,9 @@ this order (sdv-py `scb_season_players`):
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first
@@ -118,7 +116,22 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_season_players(season = 2026))
-#> Error in scb_season_players(season = 2026) : 
-#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
+#> ── BBL/DBBL Season Players from the SCB API ──────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:17:41 UTC
+#> # A tibble: 124 × 8
+#>    league season season_id season_player_id real_player_id season_team_id
+#>    <chr>   <int>     <int> <chr>                     <int> <chr>         
+#>  1 dbbl     2026      2025 20565                     10527 102           
+#>  2 dbbl     2026      2025 20633                     10403 109           
+#>  3 dbbl     2026      2025 20347                     10336 100           
+#>  4 dbbl     2026      2025 20348                     10337 100           
+#>  5 dbbl     2026      2025 20349                     10338 100           
+#>  6 dbbl     2026      2025 20353                     10342 100           
+#>  7 dbbl     2026      2025 20354                     10343 100           
+#>  8 dbbl     2026      2025 20357                     10346 100           
+#>  9 dbbl     2026      2025 20358                     10347 100           
+#> 10 dbbl     2026      2025 20360                     10349 100           
+#> # ℹ 114 more rows
+#> # ℹ 2 more variables: first_name <chr>, last_name <chr>
 # }
 ```

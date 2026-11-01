@@ -80,8 +80,8 @@ A `wehoop_data` tibble (one row per roster entry):
 | season_competition_division | character | NBL1 divisions (conference x gender); empty for NBL and WNBL. |
 | season_end_year | integer | sdv season key: the END year of the season (2026 = 2025-26), derived from season_year (a START year for the NBL and WNBL from 1998-99, a calendar year for NBL1 and the 1979-1997 winter seasons; year 1998 is split on the start date). Where the body carries no year it is the season asked for. |
 
-Columns the body adds beyond these follow, in body order (sdv-py keeps
-them too).
+Columns the body adds beyond these follow, in body order
+(sportsdataverse-py keeps them too).
 
 ## Details
 
@@ -156,7 +156,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_players(org = "nbl", season = 2026))
 #> ── NBL Rosetta players from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:37:11 UTC
+#> ℹ Data updated: 2026-11-01 18:17:24 UTC
 #> # A tibble: 195 × 33
 #>    org   jersey_number playing_position player_id              rosetta_player_id
 #>    <chr> <chr>         <chr>            <chr>                  <chr>            

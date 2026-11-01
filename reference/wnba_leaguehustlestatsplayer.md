@@ -1,14 +1,11 @@
 # **Get WNBA Stats API League Hustle Stats Player**
 
-**Get WNBA Stats API League Hustle Stats Player**
-
-**Get WNBA Stats API League Hustle Stats Player**
-
-**Get WNBA Stats API League Hustle Stats Player Leaders**
-
-**Get WNBA Stats API League Hustle Stats Team**
-
-**Get WNBA Stats API League Hustle Stats Team Leaders**
+`wnba_leaguehustlestatsplayer()`,
+`wnba_leaguehustlestatsplayerleaders()`, `wnba_leaguehustlestatsteam()`
+and `wnba_leaguehustlestatsteamleaders()` are defunct since wehoop
+3.0.0: the WNBA Stats endpoint no longer returns data, so they raise an
+error. They stay exported for now and will be removed in a future
+release (no earlier than 3.2.0).
 
 ## Usage
 

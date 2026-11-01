@@ -30,8 +30,8 @@ scb_season_teams(season, league = "dbbl")
 
 A `wehoop_data` tibble: Every team of a season: club id, season-team id,
 name and three-letter code. An empty valid answer raises
-`wehoop_no_data`; the columns are always these, in this order (sdv-py
-`scb_season_teams`):
+`wehoop_no_data`; the columns are always these, in this order
+(sportsdataverse-py `scb_season_teams`):
 
 |  |  |  |
 |----|----|----|
@@ -55,11 +55,9 @@ name and three-letter code. An empty valid answer raises
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first
@@ -118,7 +116,20 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_season_teams(season = 2026))
-#> Error in scb_season_teams(season = 2026) : 
-#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
+#> ── BBL/DBBL Season Teams from the SCB API ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:17:42 UTC
+#> # A tibble: 10 × 8
+#>    league season season_id team_id season_team_id team_name       tlc   logo_url
+#>    <chr>   <int>     <int> <chr>   <chr>          <chr>           <chr> <chr>   
+#>  1 dbbl     2026      2025 100     100            ALBA BERLIN     ALB   https:/…
+#>  2 dbbl     2026      2025 109     109            SYNTAINICS MBC  MBC   https:/…
+#>  3 dbbl     2026      2025 105     105            Herner TC       HER   https:/…
+#>  4 dbbl     2026      2025 102     102            Eigner Angels … NÖR   https:/…
+#>  5 dbbl     2026      2025 108     108            Saarlouis Roya… SAR   https:/…
+#>  6 dbbl     2026      2025 104     104            GiroLive Panth… OSN   https:/…
+#>  7 dbbl     2026      2025 101     101            BC Marburg      MAR   https:/…
+#>  8 dbbl     2026      2025 110     110            TK Hannover Lu… HAN   https:/…
+#>  9 dbbl     2026      2025 107     107            Rutronik Stars… KEL   https:/…
+#> 10 dbbl     2026      2025 103     103            Eisvögel USC F… FRE   https:/…
 # }
 ```

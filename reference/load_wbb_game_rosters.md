@@ -214,8 +214,42 @@ load_wbb_player_core(
 
 - seasons:
 
-  A vector of 4-digit years associated with given WBB seasons. (Min:
-  2004)
+  A vector of 4-digit years associated with given women's college
+  basketball seasons, or `TRUE` for every published season. Each loader
+  accepts only the seasons its release tag publishes (any other season
+  is an error):
+
+  - `load_wbb_pbp()`, `load_wbb_shots()`, `load_wbb_game_rosters()`:
+    2004 onward.
+
+  - `load_wbb_team_box()`, `load_wbb_player_box()`: 2004 onward.
+
+  - `load_wbb_player_core()`: 2004 and 2006 onward (2005 was never
+    published).
+
+  - `load_wbb_schedule()`: 2001 onward.
+
+  - `load_wbb_standings()`: 2003-2023 and 2026 onward.
+
+  - `load_wbb_player_stats()`: 2006-2023 and 2026 onward.
+
+  - `load_wbb_team_stats()`: 2010-2023 and 2026 onward.
+
+  - `load_wbb_officials()`: 2014-2023 and 2026 onward.
+
+  - `load_wbb_rosters()`: 2026 onward.
+
+  2024 and 2025 were never published for the season stats, standings and
+  officials. A few seasons are published as `.parquet` only (2005 box
+  scores, 2023 season stats, standings and officials, 2023-2025 game
+  rosters); those need the arrow package. The upper bound is
+  [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md).
+  When `seasons` is left at its default and that season's file is not
+  published yet, the loader reads the newest published season instead,
+  with a message. An explicit request for an unpublished season is kept
+  as asked: the read warns and returns an empty frame. ESPN join ids are
+  integer: `game_id` in `load_wbb_game_rosters()` and
+  `load_wbb_officials()`, `athlete_id` in `load_wbb_rosters()`.
 
 - ...:
 
@@ -344,53 +378,109 @@ Returns a `wehoop_data` tibble of athlete core records.
 ``` r
 # \donttest{
   try(load_wbb_pbp())
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_pbp/play_by_play_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_pbp/play_by_play_2027.rds>
+#> ℹ `load_wbb_pbp()`: season 2027 is not published yet; loading 2026 instead.
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 2,824,090 × 71
+#>    game_play_number      id sequence_number type_id type_text   text  away_score
+#>               <int>   <dbl>           <int>   <int> <chr>       <chr>      <int>
+#>  1                1 4.02e17       115103884     615 Jumpball    Star…          0
+#>  2                2 4.02e17       115103886     615 Jumpball    Jump…          0
+#>  3                3 4.02e17       115103888     615 Jumpball    Jump…          0
+#>  4                4 4.02e17       115103895     558 JumpShot    Tana…          0
+#>  5                5 4.02e17       115103896     587 Defensive … Amar…          0
+#>  6                6 4.02e17       115103913     598 Lost Ball … Hale…          0
+#>  7                7 4.02e17       115103914     607 Steal       Iman…          0
+#>  8                8 4.02e17       115103922     558 JumpShot    Iman…          0
+#>  9                9 4.02e17       115103924     587 Defensive … Mica…          0
+#> 10               10 4.02e17       115103936     558 JumpShot    Mica…          3
+#> # ℹ 2,824,080 more rows
+#> # ℹ 64 more variables: home_score <int>, period_number <int>,
+#> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
+#> #   score_value <int>, wallclock <chr>, shooting_play <lgl>,
+#> #   coordinate_x_raw <dbl>, coordinate_y_raw <dbl>, points_attempted <int>,
+#> #   short_description <chr>, team_id <int>, athlete_id_1 <int>,
+#> #   athlete_id_2 <int>, game_id <int>, season <int>, season_type <int>, …
 # }
 # \donttest{
   try(load_wbb_team_box())
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_boxscores/team_box_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_boxscores/team_box_2027.rds>
+#> ℹ `load_wbb_team_box()`: season 2027 is not published yet; loading 2026
+#>   instead.
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 12,058 × 58
+#>      game_id season season_type game_date  game_date_time      team_id team_uid 
+#>        <int>  <int>       <int> <date>     <dttm>                <int> <chr>    
+#>  1 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    2579 s:40~l:5…
+#>  2 401856590   2026           3 2026-04-05 2026-04-05 15:30:00      26 s:40~l:5…
+#>  3 401865139   2026           3 2026-04-04 2026-04-04 15:00:00    2287 s:40~l:5…
+#>  4 401865139   2026           3 2026-04-04 2026-04-04 15:00:00     276 s:40~l:5…
+#>  5 401856588   2026           3 2026-04-03 2026-04-03 19:00:00    2579 s:40~l:5…
+#>  6 401856588   2026           3 2026-04-03 2026-04-03 19:00:00      41 s:40~l:5…
+#>  7 401856589   2026           3 2026-04-03 2026-04-03 21:40:00     251 s:40~l:5…
+#>  8 401856589   2026           3 2026-04-03 2026-04-03 21:40:00      26 s:40~l:5…
+#>  9 401858323   2026           3 2026-04-01 2026-04-01 19:00:00     171 s:40~l:5…
+#> 10 401858323   2026           3 2026-04-01 2026-04-01 19:00:00     252 s:40~l:5…
+#> # ℹ 12,048 more rows
+#> # ℹ 51 more variables: team_slug <chr>, team_location <chr>, team_name <chr>,
+#> #   team_abbreviation <chr>, team_display_name <chr>,
+#> #   team_short_display_name <chr>, team_color <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, team_home_away <chr>,
+#> #   team_score <int>, team_winner <lgl>, assists <int>, blocks <int>,
+#> #   defensive_rebounds <int>, fast_break_points <chr>, field_goal_pct <dbl>, …
 # }
 # \donttest{
   try(load_wbb_player_box())
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_boxscores/player_box_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_boxscores/player_box_2027.rds>
+#> ℹ `load_wbb_player_box()`: season 2027 is not published yet; loading 2026
+#>   instead.
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 168,228 × 55
+#>      game_id season season_type game_date  game_date_time      athlete_id
+#>        <int>  <int>       <int> <date>     <dttm>                   <int>
+#>  1 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5239100
+#>  2 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5108587
+#>  3 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5174284
+#>  4 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    4609797
+#>  5 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    4433797
+#>  6 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5329673
+#>  7 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    4434019
+#>  8 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5311577
+#>  9 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5311576
+#> 10 401856590   2026           3 2026-04-05 2026-04-05 15:30:00    5239099
+#> # ℹ 168,218 more rows
+#> # ℹ 49 more variables: athlete_display_name <chr>, team_id <int>,
+#> #   team_name <chr>, team_location <chr>, team_short_display_name <chr>,
+#> #   minutes <dbl>, field_goals_made <int>, field_goals_attempted <int>,
+#> #   three_point_field_goals_made <int>,
+#> #   three_point_field_goals_attempted <int>, free_throws_made <int>,
+#> #   free_throws_attempted <int>, offensive_rebounds <int>, …
 # }
 # \donttest{
   try(load_wbb_schedule())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 2,283 × 93
-#>         id uid   date  attendance time_valid neutral_site conference_competition
+#> # A tibble: 5,814 × 98
+#>         id uid   date  attendance time_valid neutral_site play_by_play_available
 #>      <int> <chr> <chr>      <dbl> <lgl>      <lgl>        <lgl>                 
-#>  1  4.02e8 s:40… 2027…          0 TRUE       FALSE        TRUE                  
-#>  2  4.02e8 s:40… 2027…          0 TRUE       FALSE        TRUE                  
-#>  3  4.02e8 s:40… 2027…          0 TRUE       FALSE        TRUE                  
-#>  4  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#>  5  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#>  6  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#>  7  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#>  8  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#>  9  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#> 10  4.02e8 s:40… 2027…          0 FALSE      FALSE        TRUE                  
-#> # ℹ 2,273 more rows
-#> # ℹ 86 more variables: play_by_play_available <lgl>, recent <lgl>,
-#> #   start_date <chr>, broadcast <chr>, highlights <chr>, notes_type <chr>,
-#> #   notes_headline <chr>, broadcast_market <chr>, broadcast_name <chr>,
-#> #   type_id <int>, type_abbreviation <chr>, venue_id <int>,
-#> #   venue_full_name <chr>, venue_address_city <chr>, venue_address_state <chr>,
-#> #   venue_indoor <lgl>, status_clock <dbl>, status_display_clock <chr>, …
+#>  1  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  2  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  3  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  4  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  5  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  6  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  7  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  8  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#>  9  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#> 10  4.02e8 s:40… 2027…          0 TRUE       FALSE        FALSE                 
+#> # ℹ 5,804 more rows
+#> # ℹ 91 more variables: recent <lgl>, start_date <chr>, broadcast <chr>,
+#> #   notes_type <chr>, notes_headline <chr>, broadcast_market <chr>,
+#> #   broadcast_name <chr>, type_id <int>, type_abbreviation <chr>,
+#> #   venue_id <int>, venue_full_name <chr>, venue_address_city <chr>,
+#> #   venue_address_state <chr>, venue_indoor <lgl>, status_clock <dbl>,
+#> #   status_display_clock <chr>, status_period <dbl>, status_type_id <int>, …
 # }
 # \donttest{
   try(load_wbb_rosters(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 5,616 × 36
+#> # A tibble: 9,680 × 36
 #>    season team_id team_slug team_abbreviation team_display_name         
 #>     <int>   <int> <chr>     <chr>             <chr>                     
 #>  1   2027       1 NA        UAA               Alaska Anchorage Seawolves
@@ -403,7 +493,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027       1 NA        UAA               Alaska Anchorage Seawolves
 #>  9   2027       1 NA        UAA               Alaska Anchorage Seawolves
 #> 10   2027       1 NA        UAA               Alaska Anchorage Seawolves
-#> # ℹ 5,606 more rows
+#> # ℹ 9,670 more rows
 #> # ℹ 31 more variables: team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <int>, uid <chr>,
 #> #   guid <chr>, full_name <chr>, display_name <chr>, short_name <chr>,
@@ -413,24 +503,39 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_player_stats(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_season_stats/player_season_stats_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_season_stats/player_season_stats_2027.rds>
+#> Warning: Failed to read <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_season_stats/player_season_stats_2027.rds> (or its .parquet sibling)
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_team_stats(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_season_stats/team_season_stats_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_season_stats/team_season_stats_2027.rds>
+#> Warning: Failed to read <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_season_stats/team_season_stats_2027.rds> (or its .parquet sibling)
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_standings(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_standings/standings_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_standings/standings_2027.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 30,492 × 24
+#>    season group_id group_name        group_abbreviation group_short_name team_id
+#>     <int>    <int> <chr>             <chr>              <chr>              <int>
+#>  1   2027        1 America East Con… aeast              Am. East            2066
+#>  2   2027        1 America East Con… aeast              Am. East            2066
+#>  3   2027        1 America East Con… aeast              Am. East            2066
+#>  4   2027        1 America East Con… aeast              Am. East            2066
+#>  5   2027        1 America East Con… aeast              Am. East            2066
+#>  6   2027        1 America East Con… aeast              Am. East            2066
+#>  7   2027        1 America East Con… aeast              Am. East            2066
+#>  8   2027        1 America East Con… aeast              Am. East            2066
+#>  9   2027        1 America East Con… aeast              Am. East            2066
+#> 10   2027        1 America East Con… aeast              Am. East            2066
+#> # ℹ 30,482 more rows
+#> # ℹ 18 more variables: team_uid <chr>, team_slug <chr>, team_location <chr>,
+#> #   team_name <chr>, team_abbreviation <chr>, team_display_name <chr>,
+#> #   team_short_display_name <chr>, team_color <chr>,
+#> #   team_alternate_color <chr>, team_logo <chr>, stat_name <chr>,
+#> #   stat_display_name <chr>, stat_short_display_name <chr>,
+#> #   stat_description <chr>, stat_abbreviation <chr>, stat_type <chr>, …
 # }
 # \donttest{
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
@@ -441,15 +546,13 @@ Returns a `wehoop_data` tibble of athlete core records.
 # }
 # \donttest{
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_game_rosters/game_rosters_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_game_rosters/game_rosters_2027.rds>
+#> Warning: Failed to read <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_game_rosters/game_rosters_2027.rds> (or its .parquet sibling)
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
 # \donttest{
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2027.rds>
+#> Warning: Failed to read <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_officials/officials_2027.rds> (or its .parquet sibling)
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }

@@ -23,7 +23,7 @@ wjbl_team_standings(season_ids)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_team_standings`):
+these, in this order (sportsdataverse-py `wjbl_team_standings`):
 
 |  |  |  |
 |----|----|----|
@@ -51,16 +51,15 @@ these, in this order (sdv-py `wjbl_team_standings`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -132,8 +131,22 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_team_standings(season_ids = "169"))
-#> Error in wjbl_team_standings(season_ids = "169") : 
-#>   api.wjbl.01core.app/api/team-standings answered HTTP 503:
-#> {"message":"Service Unavailable"}
+#> ── W League Team Standings from api.wjbl.01core.app ──────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:27 UTC
+#> # A tibble: 8 × 15
+#>   season_id season_title       league_name season_league_name season_league_flg
+#>       <int> <chr>              <chr>       <chr>                          <int>
+#> 1       169 レギュラーシーズン プレミア    プレミア                           1
+#> 2       169 レギュラーシーズン プレミア    プレミア                           1
+#> 3       169 レギュラーシーズン プレミア    プレミア                           1
+#> 4       169 レギュラーシーズン プレミア    プレミア                           1
+#> 5       169 レギュラーシーズン プレミア    プレミア                           1
+#> 6       169 レギュラーシーズン プレミア    プレミア                           1
+#> 7       169 レギュラーシーズン プレミア    プレミア                           1
+#> 8       169 レギュラーシーズン プレミア    プレミア                           1
+#> # ℹ 10 more variables: update_date <chr>, team_id <int>,
+#> #   season_team_name <chr>, season_team_short_name <chr>, team_entry_flg <int>,
+#> #   position <int>, season_team_area <chr>, win_lost <chr>, wins <int>,
+#> #   losses <int>
 # }
 ```

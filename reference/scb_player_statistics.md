@@ -37,8 +37,8 @@ scb_player_statistics(season, league = "dbbl", display_type = "MAIN_ROUND")
 
 A `wehoop_data` tibble: Season player stat table: totals and per-game
 values, one row per player and stat block. An empty valid answer raises
-`wehoop_no_data`; the columns are always these, in this order (sdv-py
-`scb_player_statistics`):
+`wehoop_no_data`; the columns are always these, in this order
+(sportsdataverse-py `scb_player_statistics`):
 
 |  |  |  |
 |----|----|----|
@@ -126,11 +126,9 @@ values, one row per player and stat block. An empty valid answer raises
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first
@@ -189,7 +187,27 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_player_statistics(season = 2026))
-#> Error in scb_player_statistics(season = 2026) : 
-#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
+#> ── BBL/DBBL Season Player Statistics from the SCB API ────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:17:40 UTC
+#> # A tibble: 138 × 72
+#>    league season display_type season_player_id real_player_id first_name     
+#>    <chr>   <int> <chr>        <chr>                     <int> <chr>          
+#>  1 dbbl     2026 MAIN_ROUND   20832                     10730 Lashae         
+#>  2 dbbl     2026 MAIN_ROUND   20463                     10412 Martha Ann     
+#>  3 dbbl     2026 MAIN_ROUND   20834                     10732 Alyssa         
+#>  4 dbbl     2026 MAIN_ROUND   20654                     10578 Samantha       
+#>  5 dbbl     2026 MAIN_ROUND   20450                     10411 Alexandra      
+#>  6 dbbl     2026 MAIN_ROUND   20887                     10795 Katelyn        
+#>  7 dbbl     2026 MAIN_ROUND   20512                     10482 Alexandria     
+#>  8 dbbl     2026 MAIN_ROUND   20746                     10647 Sara           
+#>  9 dbbl     2026 MAIN_ROUND   20362                     10351 Deeshyra       
+#> 10 dbbl     2026 MAIN_ROUND   20565                     10527 Nicole Margaret
+#> # ℹ 128 more rows
+#> # ℹ 66 more variables: last_name <chr>, shirt_number <chr>, position <chr>,
+#> #   team_id <chr>, season_team_id <chr>, team_name <chr>, team_tlc <chr>,
+#> #   season_id <int>, round_code <int>, competition <chr>, seconds_played <int>,
+#> #   points <int>, two_point_shots_made <int>, two_point_shots_attempted <int>,
+#> #   two_point_shot_success_percent <dbl>, three_point_shots_made <int>,
+#> #   three_point_shots_attempted <int>, …
 # }
 ```

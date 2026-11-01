@@ -1,8 +1,9 @@
 # **Get WNBA Stats API Boxscore Hustle V2**
 
-**Get WNBA Stats API Boxscore Hustle V2**
-
-**Get WNBA Stats API Boxscore Hustle V2**
+`wnba_boxscorehustlev2()` is defunct since wehoop 3.0.0: the WNBA Stats
+endpoint no longer returns data, so it raises an error. It stays
+exported for now and will be removed in a future release (no earlier
+than 3.2.0).
 
 ## Usage
 

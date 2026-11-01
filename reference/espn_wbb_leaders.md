@@ -26,7 +26,9 @@ espn_wbb_leaders(season = most_recent_wbb_season(), season_type = 2, ...)
 
   Additional arguments; currently unused but retained for forward
   compatibility. Proxy configuration should use
-  `options(wehoop.proxy = ...)` – see `?wehoop` for details.
+  `options(wehoop.proxy = ...)` – see
+  [`?wehoop`](https://wehoop.sportsdataverse.org/reference/wehoop-package.md)
+  for details.
 
 ## Value
 
@@ -113,7 +115,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_leaders(season = 2025, season_type = 2)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Leaders from ESPN.com ──────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:25 UTC
+#> ℹ Data updated: 2026-11-01 18:14:42 UTC
 #> # A tibble: 350 × 11
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  

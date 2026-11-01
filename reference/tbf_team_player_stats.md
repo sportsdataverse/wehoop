@@ -40,7 +40,7 @@ tbf_team_player_stats(season, team_process_id, competition = "kbsl")
 
 A `wehoop_data` tibble. One row per player. Every column below is always
 present (a zero-row tibble keeps them and their types); an answer with
-nothing in it raises `wehoop_no_data`, as in sdv-py.
+nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

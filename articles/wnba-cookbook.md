@@ -351,7 +351,7 @@ espn_wnba_team_roster(team_id = team_id, season = season)
 #> 10 3099736    Stephani… 7      F               Forward       "6' 2… 192 l… 32   
 #> 11 3142086    Brianna … 21     F               Forward       "6' 3… 175 l… 30   
 #> 12 3149391    A'ja Wil… 22     C               Center        "6' 4… 195 l… 30   
-#> 13 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 26   
+#> 13 5220104    Mai Yama… 18     G               Guard         "5' 5… 128 l… 27   
 #> 14 4065870    Jackie Y… 0      G               Guard         "6' 0… 165 l… 29   
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>

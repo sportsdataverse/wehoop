@@ -23,7 +23,7 @@ wjbl_game(play_schedule_id)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_game`):
+these, in this order (sportsdataverse-py `wjbl_game`):
 
 |  |  |  |
 |----|----|----|
@@ -72,16 +72,15 @@ these, in this order (sdv-py `wjbl_game`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -153,8 +152,18 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game(play_schedule_id = 7987))
-#> Error in wjbl_game(play_schedule_id = 7987) : 
-#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
-#> {"message":"Service Unavailable"}
+#> ── W League Game from api.wjbl.01core.app ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:12 UTC
+#> # A tibble: 1 × 36
+#>   play_schedule_id game_status home_team_id home_season_team_name      
+#>              <int> <chr>              <int> <chr>                      
+#> 1             7987 fixed                 13 トヨタ自動車 アンテロープス
+#> # ℹ 32 more variables: home_season_team_short_name <chr>,
+#> #   home_team_logo_image <chr>, home_team_entry_flg <int>,
+#> #   home_season_team_area <chr>, home_free_text <chr>, home_winner_flg <int>,
+#> #   home_score <int>, home_score_p1 <int>, home_score_p2 <int>,
+#> #   home_score_p3 <int>, home_score_p4 <int>, home_score_ot1 <int>,
+#> #   home_score_ot2 <int>, home_score_ot3 <int>, home_score_ot4 <int>,
+#> #   away_team_id <int>, away_season_team_name <chr>, …
 # }
 ```

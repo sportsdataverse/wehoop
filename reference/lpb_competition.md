@@ -5,7 +5,7 @@ Liga Profesional de Baloncesto (Panama) (`website_id = 22`; men's and
 women's).**
 
 Thin bindings of the parameterised `atrium_*()` wrappers to this site,
-minted from the competition registry (sdv-py
+minted from the competition registry (sportsdataverse-py
 `tools/codegen/basketball_competitions.yaml`); the full surface stays on
 the `atrium_*()` wrappers.
 

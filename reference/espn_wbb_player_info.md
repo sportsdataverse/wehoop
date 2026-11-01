@@ -20,7 +20,9 @@ espn_wbb_player_info(athlete_id, ...)
 
   Additional arguments; currently unused but retained for forward
   compatibility. Proxy configuration should use
-  `options(wehoop.proxy = ...)` – see `?wehoop` for details.
+  `options(wehoop.proxy = ...)` – see
+  [`?wehoop`](https://wehoop.sportsdataverse.org/reference/wehoop-package.md)
+  for details.
 
 ## Value
 
@@ -156,7 +158,7 @@ Saiem Gilani
   espn_wbb_player_info(athlete_id = "4433404")
 #> $Bio
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:28 UTC
+#> ℹ Data updated: 2026-11-01 18:14:44 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -168,7 +170,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com ─── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:28 UTC
+#> ℹ Data updated: 2026-11-01 18:14:44 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -176,7 +178,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com ───────────────
-#> ℹ Data updated: 2026-10-22 02:34:28 UTC
+#> ℹ Data updated: 2026-11-01 18:14:44 UTC
 #> # A tibble: 1 × 5
 #>   id    name    display_name abbreviation leaf 
 #>   <chr> <chr>   <chr>        <chr>        <lgl>
@@ -184,7 +186,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-10-22 02:34:28 UTC
+#> ℹ Data updated: 2026-11-01 18:14:44 UTC
 #> # A tibble: 1 × 4
 #>   id    name     type     abbreviation
 #>   <chr> <chr>    <chr>    <chr>       
@@ -192,7 +194,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com ────────────────
-#> ℹ Data updated: 2026-10-22 02:34:28 UTC
+#> ℹ Data updated: 2026-11-01 18:14:44 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                           
 #>   <chr>                                                           
@@ -200,7 +202,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com ── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:34:28 UTC
+#> ℹ Data updated: 2026-11-01 18:14:44 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

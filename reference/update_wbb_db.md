@@ -1,7 +1,7 @@
 # **Build/update wehoop WBB play-by-play database**
 
 update_wbb_db() updates or creates a database with `wehoop` play by play
-data of all completed and available games since 2002.
+data of all completed and available games since 2004.
 
 ## Usage
 

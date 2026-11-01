@@ -31,7 +31,7 @@ scb_games_recent(league = "dbbl", slot_size = NULL)
 A `wehoop_data` tibble: Recent, live and upcoming games, one row per
 game with its past / present / future bucket. An empty valid answer
 raises `wehoop_no_data`; the columns are always these, in this order
-(sdv-py `scb_games_recent`):
+(sportsdataverse-py `scb_games_recent`):
 
 |  |  |  |
 |----|----|----|
@@ -138,11 +138,9 @@ raises `wehoop_no_data`; the columns are always these, in this order
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first
@@ -201,7 +199,27 @@ Other SCB Functions:
 ``` r
 # \donttest{
   try(scb_games_recent())
-#> Error in scb_games_recent() : 
-#>   www.easycredit-bbl.de/ answered HTTP 503: the API key could not be read.
+#> ── BBL/DBBL Recent Games from the SCB API ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:17:39 UTC
+#> # A tibble: 27 × 92
+#>    league season season_id game_id competition stage status bucket game_progress
+#>    <chr>   <int>     <int> <chr>   <chr>       <chr> <chr>  <chr>  <chr>        
+#>  1 dbbl     2027      2026 11213   DBBL        MAIN… OFFIC… past   E            
+#>  2 dbbl     2027      2026 11214   DBBL        MAIN… OFFIC… past   E            
+#>  3 dbbl     2027      2026 11212   DBBL        MAIN… OFFIC… past   E            
+#>  4 dbbl     2027      2026 11216   DBBL        MAIN… OFFIC… past   E            
+#>  5 dbbl     2027      2026 11217   DBBL        MAIN… OFFIC… past   E            
+#>  6 dbbl     2027      2026 11218   DBBL        MAIN… OFFIC… past   E            
+#>  7 dbbl     2027      2026 11219   DBBL        MAIN… OFFIC… past   E            
+#>  8 dbbl     2027      2026 11220   DBBL        MAIN… OFFIC… past   E            
+#>  9 dbbl     2027      2026 11222   DBBL        MAIN… OFFIC… past   E            
+#> 10 dbbl     2027      2026 11224   DBBL        MAIN… OFFIC… prese… E            
+#> # ℹ 17 more rows
+#> # ℹ 83 more variables: scheduled_time <chr>, match_day <int>, is_tbd <lgl>,
+#> #   is_hidden <lgl>, home_team_id <chr>, home_season_team_id <chr>,
+#> #   home_team_name <chr>, home_tlc <chr>, home_is_foreign <lgl>,
+#> #   home_rank <int>, home_streak <chr>, home_streak_count <int>,
+#> #   home_last10_victories <int>, home_last10_losses <int>,
+#> #   home_total_games <int>, guest_team_id <chr>, guest_season_team_id <chr>, …
 # }
 ```

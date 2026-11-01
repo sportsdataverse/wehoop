@@ -23,7 +23,7 @@ wjbl_game_info(play_schedule_id)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_game_info`):
+these, in this order (sportsdataverse-py `wjbl_game_info`):
 
 |  |  |  |
 |----|----|----|
@@ -83,16 +83,15 @@ these, in this order (sdv-py `wjbl_game_info`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -164,8 +163,18 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_game_info(play_schedule_id = 7987))
-#> Error in wjbl_game_info(play_schedule_id = 7987) : 
-#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
-#> {"message":"Service Unavailable"}
+#> ── W League Game Info from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:13 UTC
+#> # A tibble: 1 × 47
+#>   play_schedule_id league_id league_title  season season_id season_title        
+#>              <int>     <int> <chr>          <int>     <int> <chr>               
+#> 1             7987        45 25-26 Wリーグ   2026       176 プレーオフ　ファイナル……
+#> # ℹ 41 more variables: season_full_name <chr>, game_date <chr>, game_day <chr>,
+#> #   game_start_time <chr>, started_at <chr>, opening_time <chr>, venue <chr>,
+#> #   game_icon <int>, venue_address <chr>, venue_others <chr>,
+#> #   allow_shoes_on <int>, allow_shoes_on_others <chr>, ticket_info <chr>,
+#> #   ticket_url <chr>, event_info <chr>, live_link <chr>, vod_link <chr>,
+#> #   bs_url <chr>, cs_url <chr>, ground_url <chr>, other_url <chr>,
+#> #   cancel_flg <int>, delay_flg <int>, game_status <chr>, box_flg <int>, …
 # }
 ```

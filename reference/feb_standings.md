@@ -60,10 +60,10 @@ A `wehoop_data` tibble with these columns:
 
 The Spanish Basketball Federation (FEB) wrappers cover Primera FEB,
 Segunda FEB and Liga Femenina Endesa (plus the federation's other groups
-on the same routes). They mirror sdv-py's
+on the same routes). They mirror sportsdataverse-py's
 `sportsdataverse.basketball.feb` wrappers of the same names: same
-arguments, the same snake_case columns and types, one row per sdv-py
-row.
+arguments, the same snake_case columns and types, one row per
+sportsdataverse-py row.
 
 **Legal notice.** The FEB's aviso legal (legal notice) asserts
 intellectual-property rights over the site's content and its databases
@@ -118,28 +118,28 @@ Other FEB Functions:
 # \donttest{
   try(feb_standings(group = 1, season = 2027))
 #> ── FEB standings from baloncestoenvivo.feb.es ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:35:28 UTC
+#> ℹ Data updated: 2026-11-01 18:15:41 UTC
 #> # A tibble: 18 × 17
 #>    group season competition comp_id table position team_id team     played   won
 #>    <int>  <int> <chr>         <int> <chr>    <int>   <int> <chr>     <int> <int>
-#>  1     1   2027 PRIMERA FEB     115 live         1 1010493 MOVISTA…      4     4
-#>  2     1   2027 PRIMERA FEB     115 live         2 1008687 HLA ALI…      4     4
-#>  3     1   2027 PRIMERA FEB     115 live         3 1009584 GRUPO A…      4     4
-#>  4     1   2027 PRIMERA FEB     115 live         4 1008797 CAJASIE…      4     3
-#>  5     1   2027 PRIMERA FEB     115 live         5 1010207 IBEROLE…      4     3
-#>  6     1   2027 PRIMERA FEB     115 live         6 1009713 PALMER …      4     3
-#>  7     1   2027 PRIMERA FEB     115 live         7 1009095 CLUB OU…      4     2
-#>  8     1   2027 PRIMERA FEB     115 live         8 1009110 CAJASOL…      4     2
-#>  9     1   2027 PRIMERA FEB     115 live         9 1009109 COVIRAN…      4     2
-#> 10     1   2027 PRIMERA FEB     115 live        10 1010324 INSOLAC…      4     2
-#> 11     1   2027 PRIMERA FEB     115 live        11 1009716 BUENO A…      4     2
-#> 12     1   2027 PRIMERA FEB     115 live        12 1009837 ALIMERK…      4     2
-#> 13     1   2027 PRIMERA FEB     115 live        13 1009072 FIBWI M…      4     1
-#> 14     1   2027 PRIMERA FEB     115 live        14 1008900 CAJA RU…      4     1
-#> 15     1   2027 PRIMERA FEB     115 live        15 1008378 INVEREA…      4     1
-#> 16     1   2027 PRIMERA FEB     115 live        16 1010494 PARTIZÁ…      4     0
-#> 17     1   2027 PRIMERA FEB     115 live        17 1008400 GRUPO U…      4     0
-#> 18     1   2027 PRIMERA FEB     115 live        18 1009929 BÀSQUET…      4     0
+#>  1     1   2027 PRIMERA FEB     115 live         1 1008687 HLA ALI…      6     6
+#>  2     1   2027 PRIMERA FEB     115 live         2 1010493 MOVISTA…      5     5
+#>  3     1   2027 PRIMERA FEB     115 live         3 1010207 IBEROLE…      6     5
+#>  4     1   2027 PRIMERA FEB     115 live         4 1008797 CAJASIE…      5     4
+#>  5     1   2027 PRIMERA FEB     115 live         5 1009584 GRUPO A…      6     4
+#>  6     1   2027 PRIMERA FEB     115 live         6 1009109 COVIRAN…      6     4
+#>  7     1   2027 PRIMERA FEB     115 live         7 1009713 PALMER …      5     3
+#>  8     1   2027 PRIMERA FEB     115 live         8 1009837 ALIMERK…      5     3
+#>  9     1   2027 PRIMERA FEB     115 live         9 1009095 CLUB OU…      6     3
+#> 10     1   2027 PRIMERA FEB     115 live        10 1010324 INSOLAC…      6     3
+#> 11     1   2027 PRIMERA FEB     115 live        11 1009716 BUENO A…      6     3
+#> 12     1   2027 PRIMERA FEB     115 live        12 1009110 CAJASOL…      5     2
+#> 13     1   2027 PRIMERA FEB     115 live        13 1008900 CAJA RU…      6     2
+#> 14     1   2027 PRIMERA FEB     115 live        14 1008378 INVEREA…      5     1
+#> 15     1   2027 PRIMERA FEB     115 live        15 1010494 PARTIZÁ…      6     1
+#> 16     1   2027 PRIMERA FEB     115 live        16 1008400 GRUPO U…      6     1
+#> 17     1   2027 PRIMERA FEB     115 live        17 1009072 FIBWI M…      6     1
+#> 18     1   2027 PRIMERA FEB     115 live        18 1009929 BÀSQUET…      6     0
 #> # ℹ 7 more variables: lost <int>, points_for <int>, points_against <int>,
 #> #   point_diff <int>, win_pct <dbl>, streak <int>, streak_text <chr>
 # }

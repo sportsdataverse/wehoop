@@ -26,7 +26,7 @@ tbf_leagues(season)
 A `wehoop_data` tibble. One row per league: BSL, TBL, KBSL, TKBL, TB2L
 and the youth leagues with their `activity_id`. Every column below is
 always present (a zero-row tibble keeps them and their types); an answer
-with nothing in it raises `wehoop_no_data`, as in sdv-py.
+with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -116,7 +116,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_leagues(season = 2027))
 #> ── TBF Leagues ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:39 UTC
+#> ℹ Data updated: 2026-11-01 18:17:51 UTC
 #> # A tibble: 8 × 9
 #>   activity_id name        display_name competition gender season_id season_label
 #>         <int> <chr>       <chr>        <chr>       <chr>      <int> <chr>       

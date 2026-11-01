@@ -1,10 +1,9 @@
 # **Get WNBA Stats API Video Details**
 
-**Get WNBA Stats API Video Details**
-
-**Get WNBA Stats API Video Details**
-
-**Get WNBA Stats API Video Details**
+`wnba_videodetails()` and `wnba_videodetailsasset()` are defunct since
+wehoop 3.0.0: the WNBA Stats endpoint no longer returns data, so they
+raise an error. They stay exported for now and will be removed in a
+future release (no earlier than 3.2.0).
 
 ## Usage
 

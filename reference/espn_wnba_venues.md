@@ -16,7 +16,9 @@ espn_wnba_venues(...)
 
   Additional arguments; currently unused but retained for forward
   compatibility. Proxy configuration should use
-  `options(wehoop.proxy = ...)` – see `?wehoop` for details.
+  `options(wehoop.proxy = ...)` – see
+  [`?wehoop`](https://wehoop.sportsdataverse.org/reference/wehoop-package.md)
+  for details.
 
 ## Value
 
@@ -104,7 +106,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_venues()
 #> ── ESPN WNBA Venues from ESPN.com ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:35:21 UTC
+#> ℹ Data updated: 2026-11-01 18:15:34 UTC
 #> # A tibble: 227 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor grass
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl>  <lgl>

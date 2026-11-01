@@ -14,7 +14,7 @@ wjbl_leagues()
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_leagues`):
+these, in this order (sportsdataverse-py `wjbl_leagues`):
 
 |  |  |  |
 |----|----|----|
@@ -30,16 +30,15 @@ these, in this order (sdv-py `wjbl_leagues`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -111,8 +110,21 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_leagues())
-#> Error in wjbl_leagues() : 
-#>   api.wjbl.01core.app/api/leagues answered HTTP 503: {"message":"Service
-#> Unavailable"}
+#> ── W League Leagues from api.wjbl.01core.app ─────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:16 UTC
+#> # A tibble: 37 × 3
+#>    league_id league_title               season
+#>        <int> <chr>                       <int>
+#>  1        47 26-27 Wリーグ                2027
+#>  2        46 Wリーグオールスター2025-26     NA
+#>  3        45 25-26 Wリーグ                2026
+#>  4        44 Wリーグオールスター2024-25     NA
+#>  5        43 24-25 Wリーグ                2025
+#>  6        42 Wリーグオールスター2023-24     NA
+#>  7        40 23-24 Wリーグ                2024
+#>  8        41 WリーグSUPERGAMES              NA
+#>  9        39 Wリーグオールスター2022-23     NA
+#> 10        37 22-23 Wリーグ                2023
+#> # ℹ 27 more rows
 # }
 ```

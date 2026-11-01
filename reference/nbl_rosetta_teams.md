@@ -55,8 +55,8 @@ A `wehoop_data` tibble (one row per team record):
 | conference_name | character | Name of the NBL1 conference the team plays in (e.g. North, South); null outside NBL1. |
 | division_name | character | Division name (NBL1 conference + gender) |
 
-Columns the body adds beyond these follow, in body order (sdv-py keeps
-them too).
+Columns the body adds beyond these follow, in body order
+(sportsdataverse-py keeps them too).
 
 ## Details
 
@@ -131,7 +131,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_teams(org = "nbl"))
 #> ── NBL Rosetta teams from prod.rosetta.nbl.com.au ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 02:37:16 UTC
+#> ℹ Data updated: 2026-11-01 18:17:29 UTC
 #> # A tibble: 86 × 22
 #>    org   team_id          rosetta_team_id name  team_code established head_coach
 #>    <chr> <chr>            <chr>           <chr> <chr>     <chr>       <chr>     

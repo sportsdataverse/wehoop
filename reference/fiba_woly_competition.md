@@ -1,8 +1,8 @@
 # **FIBA competition: Women's Olympic Basketball Tournament**
 
 Per-competition aliases of the FIBA wrappers for Women's Olympic
-Basketball Tournament (GDAP competition family 352), named as in sdv-py.
-Season rule: event year (Paris 2024 = 2024).
+Basketball Tournament (GDAP competition family 352), named as in
+sportsdataverse-py. Season rule: event year (Paris 2024 = 2024).
 
 ## Usage
 
@@ -381,7 +381,7 @@ The columns of
 | order | integer | Sort key within the period (OVR: 1, 2, ...; FLS: 1000, 2000, ...); null on some period events. |
 | clock | character | Game clock: time REMAINING in the period, 'm:ss', counting down from 10:00 (5:00 in overtime). |
 | clock_seconds | integer | Seconds remaining in the period, derived from clock. |
-| wall_time_ms | double | Wall-clock time of the action, Unix epoch milliseconds. (Int64 in sdv-py; numeric here, the values exceed R's 32-bit integer range) |
+| wall_time_ms | double | Wall-clock time of the action, Unix epoch milliseconds. (Int64 in sportsdataverse-py; numeric here, the values exceed R's 32-bit integer range) |
 | score_a | integer | Team A score after the action. |
 | score_b | integer | Team B score after the action. |
 | action_code | character | Action code: P2 two-point shot, P3 three-point shot, FT free throw, REB rebound, TREB team rebound, ASS assist, ST steal, BS block, TO turnover, TTO team turnover, FOUL foul, RFOUL foul drawn, SUBST substitution, TIMO timeout, plus period events (STARTG, STARTP, ENDP, ENDG). |
@@ -431,11 +431,9 @@ The columns of
 
 FIBA's terms restrict this source: the GDAP developer-portal terms limit
 API use to 'Authorized Users' and the fiba.basketball terms say no
-portion of the site may be duplicated, redistributed or manipulated. The
-package owner reviewed both clauses on 2026-10-12, accepted them and
-approved the full intake, published data releases included. Users who
-are not themselves authorised by FIBA should check the terms before
-using the wrappers. See
+portion of the site may be duplicated, redistributed or manipulated.
+Users who are not themselves authorised by FIBA should check the terms
+before using the wrappers. See
 [`fiba_gdap_awards()`](https://wehoop.sportsdataverse.org/reference/fiba_gdap_awards.md)
 for the shared notes.
 

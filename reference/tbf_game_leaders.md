@@ -25,7 +25,7 @@ tbf_game_leaders(match_id)
 A `wehoop_data` tibble. One row per leader, best first within a
 category. Every column below is always present (a zero-row tibble keeps
 them and their types); an answer with nothing in it raises
-`wehoop_no_data`, as in sdv-py.
+`wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

@@ -26,7 +26,7 @@ tbf_period_scores(match_id)
 A `wehoop_data` tibble. One row per side and period (home first). Every
 column below is always present (a zero-row tibble keeps them and their
 types); an answer with nothing in it raises `wehoop_no_data`, as in
-sdv-py.
+sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|
@@ -112,7 +112,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_period_scores(match_id = 346279))
 #> ── TBF Period Scores ─────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-10-22 03:25:41 UTC
+#> ℹ Data updated: 2026-11-01 18:17:53 UTC
 #> # A tibble: 8 × 5
 #>   match_id side  period period_type points
 #>      <int> <chr>  <int>       <int>  <int>

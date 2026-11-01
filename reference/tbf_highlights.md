@@ -26,7 +26,7 @@ tbf_highlights(match_id)
 A `wehoop_data` tibble. One row per statistic with the home and away
 value. Every column below is always present (a zero-row tibble keeps
 them and their types); an answer with nothing in it raises
-`wehoop_no_data`, as in sdv-py.
+`wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

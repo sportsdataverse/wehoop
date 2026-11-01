@@ -30,8 +30,8 @@ scb_team_seasons(team_id, league = "dbbl")
 
 A `wehoop_data` tibble: Every season a club played: its name that season
 and its championship and cup titles. An empty valid answer raises
-`wehoop_no_data`; the columns are always these, in this order (sdv-py
-`scb_team_seasons`):
+`wehoop_no_data`; the columns are always these, in this order
+(sportsdataverse-py `scb_team_seasons`):
 
 |  |  |  |
 |----|----|----|
@@ -55,11 +55,9 @@ and its championship and cup titles. An empty valid answer raises
 - Legal notice: the BBL Impressum forbids storing BBL content
   (`Inhalte`) in an information system without BBL's written permission.
   That is a copyright term, not a robots rule (the API host has no
-  robots.txt). The owner reviewed it and accepted the intake (2026-10-12
-  ruling); keep requests slow (the runtime waits at least 1 s per host)
-  and raise any published data release with the owner. The DBBL host is
-  the same operator and API; its site notice was not separately
-  reviewed.
+  robots.txt). Keep requests slow (the runtime waits at least 1 s per
+  host) and check the notice before you republish the data. The DBBL
+  host is the same operator and API; check its own site notice as well.
 
 - Both hosts need two headers: a constant `x-api-key` and an
   `x-api-secret` that rotates. The runtime derives the secret on first

@@ -25,7 +25,7 @@ tbf_player_career(player_id)
 A `wehoop_data` tibble. One row per career season and competition.
 Totals and averages rows are not included. Every column below is always
 present (a zero-row tibble keeps them and their types); an answer with
-nothing in it raises `wehoop_no_data`, as in sdv-py.
+nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
 
 |  |  |  |
 |----|----|----|

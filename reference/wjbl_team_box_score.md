@@ -23,7 +23,7 @@ wjbl_team_box_score(play_schedule_id)
 ## Value
 
 A `wehoop_data` tibble, one row per record; the columns are always
-these, in this order (sdv-py `wjbl_team_box_score`):
+these, in this order (sportsdataverse-py `wjbl_team_box_score`):
 
 |  |  |  |
 |----|----|----|
@@ -61,16 +61,15 @@ these, in this order (sdv-py `wjbl_team_box_score`):
   JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
   reproducing, republishing or otherwise using site content without
   permission: a copyright clause, not an anti-scraping one. The wrappers
-  fetch on the user's behalf; a published data release or a hosted
-  mirror needs the owner's decision first. The site has no robots.txt
-  (404, checked 2026-10-12), so no Crawl-delay is published; the runtime
-  waits at least 1 s before every request, retries included. Payloads
-  are not redistributed as release assets.
+  fetch on the user's behalf; check the terms before you republish the
+  data or host a mirror. The site has no robots.txt (404, checked
+  2026-10-12), so no Crawl-delay is published; the runtime waits at
+  least 1 s before every request, retries included. Payloads are not
+  redistributed as release assets.
 
-- Women's league: the W League is Japan's top women's basketball league
-  (the SportsDataverse R counterpart is wehoop). All text is Japanese
-  (team names, phases, play-by-play actions); the column descriptions
-  translate the vocabulary.
+- Women's league: the W League is Japan's top women's basketball league.
+  All text is Japanese (team names, phases, play-by-play actions); the
+  column descriptions translate the vocabulary.
 
 - Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys
   a season edition by an opaque league_id (45 = '25-26 W League'; every
@@ -142,8 +141,17 @@ Other WJBL Functions:
 ``` r
 # \donttest{
   try(wjbl_team_box_score(play_schedule_id = 7987))
-#> Error in wjbl_team_box_score(play_schedule_id = 7987) : 
-#>   api.wjbl.01core.app/api/play-schedule/detail answered HTTP 503:
-#> {"message":"Service Unavailable"}
+#> ── W League Team Box Score from api.wjbl.01core.app ──────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-01 18:18:25 UTC
+#> # A tibble: 4 × 25
+#>   play_schedule_id team_side team_id row_type   pts   p2m   p2a   p3m   p3a
+#>              <int> <chr>       <int> <chr>    <int> <int> <int> <int> <int>
+#> 1             7987 home           13 team         0     0     0     0     0
+#> 2             7987 home           13 total       66    15    38     9    23
+#> 3             7987 away           12 team         0     0     0     0     0
+#> 4             7987 away           12 total       75    25    43     3    12
+#> # ℹ 16 more variables: ftm <int>, fta <int>, f <int>, off <int>, def <int>,
+#> #   tot <int>, ast <int>, stl <int>, blk <int>, to <int>, min <chr>,
+#> #   min_seconds <int>, p2p <dbl>, p3p <dbl>, ftp <dbl>, fgp <dbl>
 # }
 ```
