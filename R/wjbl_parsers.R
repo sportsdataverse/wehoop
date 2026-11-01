@@ -140,7 +140,7 @@
   "player_coach_record", "player_appeal", "player_championships", "player_nickname", "player_home_town"
 )
 
-#' sdv-py `_PHONE`: a Japanese phone number, ASCII or full-width digits, with or without separators.
+#' sportsdataverse-py `_PHONE`: a Japanese phone number, ASCII or full-width digits, with or without separators.
 #' @noRd
 .WJBL_PHONE <- paste0(
   "(?<![0-9\uff10-\uff19])[(\uff08]?[0\uff10][0-9\uff10-\uff19]{1,4}[)\uff09]?",
@@ -148,7 +148,7 @@
   "[-\uff0d\u2010\u30fc\u2212\u2015 \u3000]?[0-9\uff10-\uff19]{3,4}(?![0-9\uff10-\uff19])"
 )
 
-#' sdv-py `_EMAIL` (Python's `\w` is Unicode, hence UCP).
+#' sportsdataverse-py `_EMAIL` (Python's `\w` is Unicode, hence UCP).
 #' @noRd
 .WJBL_EMAIL <- "(*UCP)[\\w.+-]+@[\\w-]+\\.[\\w.]+"
 

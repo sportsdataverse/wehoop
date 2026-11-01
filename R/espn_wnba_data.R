@@ -1832,7 +1832,7 @@ helper_espn_wnba_pbp <- function(resp){
       homeTeamAbbrev = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['abbreviation']] %>%
         purrr::pluck(2, .default = NA_character_)
       homeTeamLogo = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']] %>%
-        purrr::pluck(2, .default = NA_character_)
+        purrr::pluck(1, .default = NA_character_)
       homeTeamLogoDark = game_json[['header']][['competitions']][['competitors']][[1]][['team']][['logos']][[2]][['href']] %>%
         purrr::pluck(2, .default = NA_character_)
       homeTeamFullName = game_json[['header']][['competitions']][['competitors']][[1]][['team']][["displayName"]] %>%

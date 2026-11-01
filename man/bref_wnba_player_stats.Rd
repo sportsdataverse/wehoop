@@ -35,9 +35,11 @@ Basketball-Reference rate-limits aggressive scraping (~20 requests/minute) --
 space repeated calls with \code{Sys.sleep()}.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(bref_wnba_player_stats(season = 2024, table = "per_game"))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other WNBA Basketball-Reference Functions:

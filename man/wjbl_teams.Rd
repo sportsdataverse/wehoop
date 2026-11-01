@@ -8,7 +8,7 @@ wjbl_teams()
 }
 \value{
 A \code{wehoop_data} tibble, one row per record; the columns are always these, in this order
-(sdv-py \code{wjbl_teams}):\tabular{lll}{
+(sportsdataverse-py \code{wjbl_teams}):\tabular{lll}{
    col_name \tab type \tab description \cr
    team_id \tab integer \tab Franchise id team_id (key space: W League franchises, STABLE across seasons and sponsor renames: 13 = Toyota Antelopes, 12 = Denso Iris, 8 = ENEOS Sunflowers; all-star sides have their own ids, e.g. 591). The team_id of /team/roster and of the site's /team/roster/?team_id=. Not season_team_id. \cr
    team_name \tab character \tab Franchise name, Japanese or English (Fujitsu Red Wave; all-star side Team Sirius). \cr
@@ -24,13 +24,12 @@ Endpoint: \verb{GET https://api.wjbl.01core.app/api/teams/base}
 \item Unofficial and unsupported: these wrappers read the JSON backend of www.wjbl.org (api.wjbl.01core.app),
 keyless, found in the site's own JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
 reproducing, republishing or otherwise using site content without permission: a copyright clause, not an
-anti-scraping one. The wrappers fetch on the user's behalf; a published data release or a hosted mirror needs
-the owner's decision first. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is
+anti-scraping one. The wrappers fetch on the user's behalf; check the terms before you republish the data
+or host a mirror. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is
 published; the runtime waits at least 1 s before every request, retries included. Payloads are not
 redistributed as release assets.
-\item Women's league: the W League is Japan's top women's basketball league (the SportsDataverse R counterpart is
-wehoop). All text is Japanese (team names, phases, play-by-play actions); the column descriptions translate
-the vocabulary.
+\item Women's league: the W League is Japan's top women's basketball league. All text is Japanese (team names,
+phases, play-by-play actions); the column descriptions translate the vocabulary.
 \item Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys a season edition by an opaque league_id
 (45 = '25-26 W League'; every all-star game, cup and camp has one too) and the wrappers map the END year with
 the live league list (one extra, cached request; END = 2000 + the second YY of league_title). Phases inside an

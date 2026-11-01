@@ -6,8 +6,7 @@
 .fiba_gdap_awards_details <- c(
   "FIBA's terms restrict this source. The GDAP developer-portal terms limit API use to 'Authorized Users'",
   "(federations, organisers, FIBA partners) and say any broader use 'is not authorised'; the fiba.basketball",
-  "terms say no portion of the site may be duplicated, redistributed or manipulated. The package owner reviewed",
-  "both clauses on 2026-10-12, accepted them and approved the full intake, published data releases included.",
+  "terms say no portion of the site may be duplicated, redistributed or manipulated.",
   "Users who are not themselves authorised by FIBA should check the terms before using the wrappers.",
   "",
   "The GDAP subscription key is public (fiba.basketball ships it in every page); the runtime reads it from the",
@@ -308,7 +307,7 @@ fiba_gdap_federation_games <- function(federation_id, return_parsed = TRUE) {
 #' FIBA world ranking of national teams.
 #'
 #' Endpoint: `GET https://digital-api.fiba.basketball/hapi/getgdapfederationsranking`
-#' @param category (character, default `"women"` in wehoop; sdv-py and hoopR default `"men"`) Ranking category: men or women (the site also knows boys/girls)
+#' @param category (character, default `"women"` in wehoop; sportsdataverse-py and hoopR default `"men"`) Ranking category: men or women (the site also knows boys/girls)
 #' @param zone_id (integer, default `1L`) Ranking zone id from getgdaprankingzones (1 = World, 2 = Africa, 3 =
 #'   Americas, 4 = Asia, 5 = Europe)
 #' @param as_of_date (character, optional) Ranking as of this date, ISO 8601: the latest ranking published on or
@@ -673,7 +672,7 @@ fiba_gdap_gateway_competition_ids <- function(start_date, end_date, return_parse
 #' FIBA world ranking from the server-side gateway (same items as fiba_gdap_federation_ranking).
 #'
 #' Endpoint: `GET https://digital-api.fiba.basketball/hapi/getcustomgateway`
-#' @param gender (character, default `"women"` in wehoop; sdv-py and hoopR default `"men"`) federationRanking: men or women (= gdapCategory)
+#' @param gender (character, default `"women"` in wehoop; sportsdataverse-py and hoopR default `"men"`) federationRanking: men or women (= gdapCategory)
 #' @param zone_id (integer, default `1L`) federationRanking: ranking zone id (= zoneRankingId)
 #' @param as_of_date (character, optional) Ranking as of this date, ISO 8601: the latest ranking published on or
 #'   before it (2026-03-10 answers the 2026-03-03 ranking). Omitted = the latest ranking

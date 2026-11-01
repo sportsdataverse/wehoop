@@ -12,7 +12,7 @@ fiba_gdap_gateway_federation_ranking(
 )
 }
 \arguments{
-\item{gender}{(character, default \code{"women"} in wehoop; sdv-py and hoopR default \code{"men"}) federationRanking: men or women (= gdapCategory)}
+\item{gender}{(character, default \code{"women"} in wehoop; sportsdataverse-py and hoopR default \code{"men"}) federationRanking: men or women (= gdapCategory)}
 
 \item{zone_id}{(integer, default \code{1L}) federationRanking: ranking zone id (= zoneRankingId)}
 
@@ -47,8 +47,7 @@ Endpoint: \verb{GET https://digital-api.fiba.basketball/hapi/getcustomgateway}
 \details{
 FIBA's terms restrict this source. The GDAP developer-portal terms limit API use to 'Authorized Users'
 (federations, organisers, FIBA partners) and say any broader use 'is not authorised'; the fiba.basketball
-terms say no portion of the site may be duplicated, redistributed or manipulated. The package owner reviewed
-both clauses on 2026-10-12, accepted them and approved the full intake, published data releases included.
+terms say no portion of the site may be duplicated, redistributed or manipulated.
 Users who are not themselves authorised by FIBA should check the terms before using the wrappers.
 
 The GDAP subscription key is public (fiba.basketball ships it in every page); the runtime reads it from the

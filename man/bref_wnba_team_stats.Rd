@@ -31,9 +31,11 @@ A \code{wehoop_data} tibble with one row per team, carrying \code{season} and
 One row per team for a season. No account or API key is required.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(bref_wnba_team_stats(season = 2024, table = "per_game"))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other WNBA Basketball-Reference Functions:

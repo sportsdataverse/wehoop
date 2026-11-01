@@ -28,10 +28,16 @@ load_wbb_ratings(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit season-ending years for NCAA women's
-college basketball. Published coverage runs 2008 through the most recent
-season, with no gaps. Pass \code{seasons = TRUE} for every published season.
-(Min: 2008)}
+\item{seasons}{A vector of 4-digit seasons, or \code{TRUE} for every published
+season: 1997 onward for \code{load_wnba_player_impact()} (WNBA seasons), 2014
+onward for \code{load_wbb_player_value()} and 2009 onward for \code{load_wbb_ratings()}
+(NCAA women's season-ending years, e.g. \code{2024} for 2023-24), with no gaps.
+The upper bound is \code{\link[=most_recent_wnba_stats_season]{most_recent_wnba_stats_season()}} /
+\code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
+When \code{seasons} is left at its default and that season's
+file is not published yet, the loader reads the newest published season
+instead, with a message. An explicit request for an unpublished season
+is kept as asked: the read warns and returns an empty frame.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -114,7 +120,7 @@ Loads season-level WNBA player-impact ratings -- one row per
 player-team-season, combining regularized adjusted plus-minus (RAPM),
 statistical plus-minus (SPM), box plus-minus (BPM), wins above
 replacement (WAR), and a DARKO-style skill/projection pair. Produced by
-the sdv-py NBA/WNBA possession-engine model program; published to the
+the sportsdataverse-py NBA/WNBA possession-engine model program; published to the
 \code{wnba_player_impact} release tag as csv/parquet/rds.
 
 Loads season-level NCAA women's college basketball
@@ -122,7 +128,7 @@ player-value ratings -- one row per player-team-season, with a
 box-score-derived offensive/defensive/net box plus-minus (BPM). Coverage
 starts at 2014 (the earliest season with published box-score inputs of
 sufficient quality for the model); this tag is parquet-only, with no
-csv/rds sibling assets. Produced by the sdv-py NCAA WBB model program;
+csv/rds sibling assets. Produced by the sportsdataverse-py NCAA WBB model program;
 published to the \code{wbb_player_value} release tag.
 
 Loads season-level NCAA women's college basketball team
@@ -130,7 +136,7 @@ ratings -- one row per team-season, with adjusted
 (opponent-strength-normalized) offensive/defensive efficiency, adjusted
 tempo, raw efficiency, and a national rank. A KenPom-style
 adjusted-efficiency-margin rating. This tag is parquet-only, with no
-csv/rds sibling assets. Produced by the sdv-py NCAA WBB model program;
+csv/rds sibling assets. Produced by the sportsdataverse-py NCAA WBB model program;
 published to the \code{wbb_ratings} release tag.
 }
 \examples{

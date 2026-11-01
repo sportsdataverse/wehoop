@@ -1119,6 +1119,13 @@ wnba_boxscoreplayertrackv2 <- function(
 
 #' @title
 #' **Get WNBA Stats API Hustle Stats Boxscore**
+#' @description
+#' **Get WNBA Stats API Boxscore Summary V2 and Boxscore Player Tracking V2**
+#'
+#' `wnba_hustlestatsboxscore()` is defunct since wehoop 3.0.0: the
+#' WNBA Stats endpoint no longer returns data, so it raises an error.
+#' It stays exported for now and will be removed in a future release
+#' (no earlier than 3.2.0).
 #' @rdname wnba_boxscoreplayertrackv2
 #' @author Saiem Gilani
 #' @param game_id Game ID
@@ -1216,7 +1223,7 @@ wnba_hustlestatsboxscore <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_hustlestatsboxscore()",
-    details = "The `hustlestatsboxscore` endpoint no longer returns data."
+    details = "The `hustlestatsboxscore` endpoint no longer returns data. It will be removed in a future release (no earlier than 3.2.0)."
   )
 }
 

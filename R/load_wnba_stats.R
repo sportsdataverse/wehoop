@@ -1332,7 +1332,7 @@ update_wnba_stats_db <- function(dbdir = ".",
 
   if (!is_installed("DBI") |
       (!is_installed("RSQLite") & is.null(db_connection))) {
-    usethis::ui_stop("{my_time()} | Packages {usethis::ui_value('DBI')} and {usethis::ui_value('RSQLite')} required for database communication. Please install them.")
+    cli::cli_abort("{my_time()} | Packages {.val DBI} and {.val RSQLite} required for database communication. Please install them.")
   }
 
   valid <- c("schedule", "player_game_logs", "pbp",
@@ -1354,7 +1354,7 @@ update_wnba_stats_db <- function(dbdir = ".",
   }
 
   if (!dir.exists(dbdir) & is.null(db_connection)) {
-    usethis::ui_oops("{my_time()} | Directory {usethis::ui_path(dbdir)} doesn't exist yet. Try creating...")
+    cli::cli_alert_danger("{my_time()} | Directory {.file {dbdir}} doesn't exist yet. Try creating...")
     dir.create(dbdir)
   }
 
@@ -1395,7 +1395,7 @@ update_wnba_stats_db <- function(dbdir = ".",
   }
 
   message_completed("Database update completed", in_builder = TRUE)
-  usethis::ui_info("{my_time()} | Path to your db: {usethis::ui_path(DBI::dbGetInfo(connection)$dbname)}")
+  cli::cli_alert_info("{my_time()} | Path to your db: {.file {DBI::dbGetInfo(connection)$dbname}}")
   if (is.null(db_connection)) DBI::dbDisconnect(connection)
   invisible(TRUE)
 }

@@ -2,8 +2,10 @@
 
 Tests live in this directory and are organized by data source. Each
 external-data domain is gated behind a source-specific env var so routine
-local runs (and CI) don't hit upstream APIs or download large release assets
-unless the contributor opts in.
+local runs don't hit upstream APIs or download large release assets unless
+the contributor opts in. Every helper also calls `skip_on_cran()` and
+`skip_on_ci()` (see `helper-skip.R`), so live tests never run on CRAN or in
+GitHub Actions, whatever the toggles are set to.
 
 | Variable             | Helper                    | What it gates                                  |
 |----------------------|---------------------------|------------------------------------------------|
@@ -11,6 +13,11 @@ unless the contributor opts in.
 | `ESPN_TESTS=1`       | `skip_espn_test()`        | `test-espn_wbb_*.R`, `test-espn_wnba_*.R`      |
 | `NCAA_WBB_TESTS=1`   | `skip_ncaa_wbb_test()`    | `test-ncaa_wbb_*.R`                            |
 | `WEHOOP_LOAD_TESTS=1`| `skip_load_test()`        | `test-load_*.R` (data-repo release downloads)  |
+| `FOX_TESTS=1`        | `skip_fox_test()`         | `test-fox_*.R`                                 |
+| `OFFICIAL_NBA_TESTS=1`| `skip_official_nba_test()`| `test-wnba_referee_assignments.R`             |
+| `BREF_TESTS=1`       | `skip_bref_test()`        | `test-bref_wnba.R` (Basketball-Reference)      |
+| `WEHOOP_INTL_LIVE_TESTS=1` | `skip_intl_live()`  | international families (`helper-intl.R`)       |
+| `TORVIK_TESTS=1`     | inline `Sys.getenv()` check | `test-bart_wbb.R` (Bart Torvik T-Rank)    |
 
 ## Load tests
 
@@ -32,14 +39,9 @@ To run only the load tests locally:
 WEHOOP_LOAD_TESTS=1 Rscript -e 'devtools::test(filter = "load_")'
 ```
 
-Even with `WEHOOP_LOAD_TESTS=1` set, every load test also calls
-`skip_on_ci()`, so the suite stays a no-op under GitHub Actions by default.
-This matches the pattern called out in `CLAUDE.md`:
-
-> Note: in CI, many live API tests still include `skip_on_ci()` guards. Env
-> vars alone do not override those guards unless tests are intentionally
-> changed.
-
-If you want a specific load test to run in CI as well, remove the
-`skip_on_ci()` line from that individual test file (and weigh the bandwidth
-cost on the runner before doing so).
+Even with `WEHOOP_LOAD_TESTS=1` set, `skip_load_test()` calls `skip_on_ci()`,
+so the suite stays a no-op under GitHub Actions. Many load-test files also
+call `skip_on_ci()` directly. To run a load test in CI you would have to
+remove the `skip_on_ci()` call from `skip_live_test()` in `helper-skip.R` and
+the direct call in that test file; weigh the bandwidth and flakiness cost on
+the runners first.

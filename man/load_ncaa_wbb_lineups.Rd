@@ -109,9 +109,14 @@ load_ncaa_wbb_team_ids(
 }
 \arguments{
 \item{seasons}{A vector of 4-digit season-ending years for NCAA women's
-college basketball (e.g. \code{2024} for the 2023-24 season). Published
-coverage runs 2010 through the most recent season, with no gaps. Pass
-\code{seasons = TRUE} for every published season. (Min: 2010)}
+college basketball (e.g. \code{2024} for the 2023-24 season), or \code{TRUE} for every
+published season: 2010 onward for every loader except \code{load_ncaa_wbb_rapm()}
+(2011 onward) and \code{load_ncaa_wbb_shots()} (2019 onward), with no gaps. The
+upper bound is \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
+When \code{seasons} is left at its default and that season's
+file is not published yet, the loader reads the newest published season
+instead, with a message. An explicit request for an unpublished season
+is kept as asked: the read warns and returns an empty frame.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -738,7 +743,7 @@ Returns a \code{wehoop_data} tibble with one row per team-season.\tabular{lll}{
 Loads season-level NCAA women's college basketball
 play-by-play. One row per event, with reconstructed 5-man lineups,
 possession numbering, shot context (transition/paint/second-chance), and
-an ESPN game-id crosswalk. Produced by the sdv-py \code{ncaa_wbb} engine
+an ESPN game-id crosswalk. Produced by the sportsdataverse-py \code{ncaa_wbb} engine
 (stats.ncaa.org play-by-play parsed, cleaned, and enriched); backed by
 the \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_pbp}
 release tag as csv.gz/parquet/rds.
@@ -748,7 +753,7 @@ one row per field goal attempt, with court coordinates, distance, shot
 zone, and made/missed result. Coordinates are only available from the
 2019 season onward (stats.ncaa.org did not publish shot-location data
 before then), so \code{seasons} has a 2019 floor even though most sibling NCAA
-WBB datasets start at 2010. Produced by the sdv-py \code{ncaa_wbb} engine;
+WBB datasets start at 2010. Produced by the sportsdataverse-py \code{ncaa_wbb} engine;
 backed by the \code{ncaa-wbb-hoops-data} pipeline, published to the
 \code{ncaa_wbb_shots} release tag as csv.gz/parquet/rds.
 
@@ -756,7 +761,7 @@ Loads reconstructed 5-man lineup stints for NCAA women's
 college basketball -- one row per contiguous stretch a specific 5-player
 lineup was on court for a team, with on/off scoring, shooting, and
 rebounding splits plus the matching opponent (\verb{opp_*}) splits. Produced
-by the sdv-py \code{ncaa_wbb} engine's lineup reconstructor; backed by the
+by the sportsdataverse-py \code{ncaa_wbb} engine's lineup reconstructor; backed by the
 \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_lineups}
 release tag as csv.gz/parquet/rds.
 
@@ -764,7 +769,7 @@ Loads reconstructed 10-man matchup stints (the home 5-man
 lineup crossed with the away 5-man lineup) for NCAA women's college
 basketball -- one row per contiguous stretch both lineups were on court
 together, with the score at stint start/end and both team's lineup
-rosters. Produced by the sdv-py \code{ncaa_wbb} engine's lineup reconstructor;
+rosters. Produced by the sportsdataverse-py \code{ncaa_wbb} engine's lineup reconstructor;
 backed by the \code{ncaa-wbb-hoops-data} pipeline, published to the
 \code{ncaa_wbb_matchup_stints} release tag as csv.gz/parquet/rds.
 
@@ -772,7 +777,7 @@ Loads possession-level data for NCAA women's college
 basketball -- one row per offensive possession, with the on-court 5-man
 lineups for both teams, points scored, assist/transition/garbage-time
 flags, and the possession's first and last event types. Produced by the
-sdv-py \code{ncaa_wbb} engine's possession detector; backed by the
+sportsdataverse-py \code{ncaa_wbb} engine's possession detector; backed by the
 \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_possessions}
 release tag as csv.gz/parquet/rds.
 
@@ -780,7 +785,7 @@ Loads within-team regularized adjusted plus-minus (RAPM)
 ratings for NCAA women's college basketball -- one row per
 player-team-season, fit against teammate lineup variation within that
 team's own possessions (not a cross-team national RAPM). Produced by the
-sdv-py \code{ncaa_wbb} engine's RAPM model on top of the reconstructed
+sportsdataverse-py \code{ncaa_wbb} engine's RAPM model on top of the reconstructed
 lineup/possession data; backed by the \code{ncaa-wbb-hoops-data} pipeline,
 published to the \code{ncaa_wbb_rapm_within_team} release tag as
 csv.gz/parquet/rds.
@@ -789,7 +794,7 @@ Loads league-wide regularized adjusted plus-minus (RAPM)
 ratings for NCAA women's college basketball -- one row per
 player-season, fit against lineup variation across all Division I
 stints for that season (not a within-team RAPM). Produced by the
-sdv-py \code{ncaa_wbb} engine's league-wide stint-ridge RAPM solver
+sportsdataverse-py \code{ncaa_wbb} engine's league-wide stint-ridge RAPM solver
 (Torvik-gated to Division I teams) on top of the reconstructed
 lineup/possession data; backed by the \code{ncaa-wbb-hoops-data} pipeline,
 published to the \code{ncaa_wbb_rapm} release tag as csv.gz/parquet/rds.
@@ -800,7 +805,7 @@ splits by zone (rim/mid/3), transition and half-court splits,
 assisted-vs-unassisted splits, and shot-zone efficiency rates. A superset
 of the traditional box score
 (points/rebounds/assists/steals/blocks/turnovers/fouls are included
-alongside the advanced splits). Produced by the sdv-py \code{ncaa_wbb} engine;
+alongside the advanced splits). Produced by the sportsdataverse-py \code{ncaa_wbb} engine;
 backed by the \code{ncaa-wbb-hoops-data} pipeline, published to the
 \code{ncaa_wbb_player_box} release tag as csv.gz/parquet/rds.
 
@@ -808,34 +813,34 @@ Loads advanced per-team, per-game box scores for NCAA women's
 college basketball -- one row per team-game, with offensive/defensive
 ratings, shot-zone rates and efficiency (rim/mid/3),
 rebounding/assist/turnover rates, and the matching opponent (\verb{d_*})
-splits. Produced by the sdv-py \code{ncaa_wbb} engine; backed by the
+splits. Produced by the sportsdataverse-py \code{ncaa_wbb} engine; backed by the
 \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_team_box}
 release tag as csv.gz/parquet/rds.
 
 Loads a lightweight season roster for NCAA women's college
 basketball -- one row per player-team-season with a games-played count.
 For the fuller roster (jersey, class, position, height, hometown, high
-school), use \code{\link[=load_ncaa_wbb_team_rosters]{load_ncaa_wbb_team_rosters()}}. Produced by the sdv-py
+school), use \code{\link[=load_ncaa_wbb_team_rosters]{load_ncaa_wbb_team_rosters()}}. Produced by the sportsdataverse-py
 \code{ncaa_wbb} engine; backed by the \code{ncaa-wbb-hoops-data} pipeline,
 published to the \code{ncaa_wbb_rosters} release tag as csv.gz/parquet/rds.
 
 Loads the full season roster for NCAA women's college
 basketball -- one row per player-team-season with jersey number, class
 year, position, height, hometown, high school, and games played/started.
-Produced by the sdv-py \code{ncaa_wbb} engine; backed by the
+Produced by the sportsdataverse-py \code{ncaa_wbb} engine; backed by the
 \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_team_rosters}
 release tag as csv.gz/parquet/rds.
 
 Loads season schedules/results for NCAA women's college
 basketball -- one row per game with home/away teams and final scores.
-Produced by the sdv-py \code{ncaa_wbb} engine; backed by the
+Produced by the sportsdataverse-py \code{ncaa_wbb} engine; backed by the
 \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_schedule}
 release tag as csv.gz/parquet/rds.
 
 Loads the season-level stats.ncaa.org team-id / conference
 crosswalk for NCAA women's college basketball -- one row per team-season.
 Useful for joining \code{ncaa_team_id} columns on the other \verb{ncaa_wbb_*}
-datasets back to a team name and conference. Produced by the sdv-py
+datasets back to a team name and conference. Produced by the sportsdataverse-py
 \code{ncaa_wbb} engine; backed by the \code{ncaa-wbb-hoops-data} pipeline,
 published to the \code{ncaa_wbb_team_ids} release tag as csv.gz/parquet/rds.
 }

@@ -3,7 +3,27 @@
 #' @rdname load_wnba_draft
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)
+#' @param seasons A vector of 4-digit years associated with given WNBA seasons, or
+#'   `TRUE` for every published season. Each loader accepts only the seasons its
+#'   release tag publishes (any other season is an error):
+#'   * `load_wnba_pbp()`, `load_wnba_player_box()`, `load_wnba_standings()`,
+#'     `load_wnba_shots()`, `load_wnba_game_rosters()`: 2002 onward.
+#'   * `load_wnba_team_box()`, `load_wnba_officials()`, `load_wnba_player_core()`: 2003 onward.
+#'   * `load_wnba_schedule()`: 1997, 1999 and 2001 onward.
+#'   * `load_wnba_player_stats()`, `load_wnba_team_stats()`: 2002-2021 and 2023
+#'     onward (2022 was never published).
+#'   * `load_wnba_draft()`: 2018 onward (2018-2025 are published as `.parquet`
+#'     only and need the \pkg{arrow} package).
+#'   * `load_wnba_rosters()`: 2024 onward.
+#'
+#'   The upper bound is [most_recent_wnba_season()].
+#'   When `seasons` is left at its default and that season's
+#'   file is not published yet, the loader reads the newest published season
+#'   instead, with a message. An explicit request for an unpublished season
+#'   is kept as asked: the read warns and returns an empty frame.
+#'   ESPN join ids are integer: `game_id` in `load_wnba_game_rosters()` and
+#'   `load_wnba_officials()`, `athlete_id` in `load_wnba_rosters()` (the release
+#'   publishes them as character).
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -73,13 +93,12 @@ load_wnba_pbp <- function(seasons = most_recent_wnba_season(), ...,
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-  
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-  
-  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_", seasons, ".rds")
+  url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_", seasons, ".rds")
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
+                             fn = "load_wnba_pbp", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -100,7 +119,6 @@ load_wnba_pbp <- function(seasons = most_recent_wnba_season(), ...,
 #' @rdname load_wnba_draft
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2003)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -120,13 +138,12 @@ load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if (isTRUE(seasons)) seasons <- 2003:most_recent_wnba_season()
-  
-  stopifnot(is.numeric(seasons),
-            seasons >= 2003,
-            seasons <= most_recent_wnba_season())
-  
-  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_team_boxscores/team_box_", seasons, ".rds")
+  url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_team_boxscores/team_box_", seasons, ".rds")
+  seasons <- .loader_seasons(seasons, 2003, most_recent_wnba_season(),
+                             fn = "load_wnba_team_box", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -150,7 +167,6 @@ load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
 #' @rdname load_wnba_draft
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -169,13 +185,12 @@ load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-  
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-  
-  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_boxscores/player_box_", seasons, ".rds")
+  url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_boxscores/player_box_", seasons, ".rds")
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
+                             fn = "load_wnba_player_box", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -196,7 +211,6 @@ load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
 #' @rdname load_wnba_draft
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_wnba_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -216,13 +230,12 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-  
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-  
-  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_schedule_", seasons, ".rds")
+  url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_schedule_", seasons, ".rds")
+  seasons <- .loader_seasons(seasons, 1997, most_recent_wnba_season(), gaps = c(1998, 2000),
+                             fn = "load_wnba_schedule", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -372,8 +385,6 @@ load_wnba_officials_manifest <- function() {
 #'   per athlete-team-season triple. Backed by the `wehoop-wnba-data` pipeline
 #'   that reads raw JSONs from `wehoop-wnba-raw` and publishes parquet/rds
 #'   artifacts to the `espn_wnba_rosters` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -391,19 +402,18 @@ load_wnba_rosters <- function(seasons = most_recent_wnba_season(), ...,
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
+  loader <- function(url) .ids_as_integer(rds_from_url(url), c("athlete_id"))
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_rosters/rosters_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2024, most_recent_wnba_season(),
+                             fn = "load_wnba_rosters", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -428,8 +438,6 @@ load_wnba_rosters <- function(seasons = most_recent_wnba_season(), ...,
 #'   `wehoop-wnba-data` pipeline that reads raw JSONs from `wehoop-wnba-raw`
 #'   and publishes parquet/rds artifacts to the
 #'   `espn_wnba_player_season_stats` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -450,16 +458,15 @@ load_wnba_player_stats <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_player_season_stats/player_season_stats_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(), gaps = 2022,
+                             fn = "load_wnba_player_stats", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -483,8 +490,6 @@ load_wnba_player_stats <- function(seasons = most_recent_wnba_season(), ...,
 #'   `wehoop-wnba-data` pipeline that reads raw JSONs from `wehoop-wnba-raw`
 #'   and publishes parquet/rds artifacts to the
 #'   `espn_wnba_team_season_stats` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -508,16 +513,15 @@ load_wnba_team_stats <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_team_season_stats/team_season_stats_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(), gaps = 2022,
+                             fn = "load_wnba_team_stats", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -541,8 +545,6 @@ load_wnba_team_stats <- function(seasons = most_recent_wnba_season(), ...,
 #'   per team-season. Backed by the `wehoop-wnba-data` pipeline that reads
 #'   raw JSONs from `wehoop-wnba-raw` and publishes parquet/rds artifacts to
 #'   the `espn_wnba_standings` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -566,16 +568,15 @@ load_wnba_standings <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_standings/standings_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
+                             fn = "load_wnba_standings", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -602,8 +603,6 @@ NULL
 #'   row per pick. Backed by the `wehoop-wnba-data` pipeline that reads raw
 #'   JSONs from `wehoop-wnba-raw` and publishes parquet/rds artifacts to the
 #'   `espn_wnba_draft` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA draft
-#'   seasons. (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -638,19 +637,18 @@ load_wnba_draft <- function(seasons = most_recent_wnba_season(), ...,
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
+  loader <- rds_or_parquet_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_draft/draft_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2018, most_recent_wnba_season(),
+                             fn = "load_wnba_draft", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -675,8 +673,6 @@ load_wnba_draft <- function(seasons = most_recent_wnba_season(), ...,
 #'   shot metadata. Backed by the `wehoop-wnba-data` pipeline that reads raw
 #'   JSONs from `wehoop-wnba-raw` and publishes parquet/rds artifacts to the
 #'   `espn_wnba_shots` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -700,16 +696,15 @@ load_wnba_shots <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_shots/shots_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
+                             fn = "load_wnba_shots", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -734,8 +729,6 @@ load_wnba_shots <- function(seasons = most_recent_wnba_season(), ...,
 #'   position, starter flag, and DNP status. Backed by the `wehoop-wnba-data`
 #'   pipeline that reads raw JSONs from `wehoop-wnba-raw` and publishes
 #'   parquet/rds artifacts to the `espn_wnba_game_rosters` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -756,19 +749,18 @@ load_wnba_game_rosters <- function(seasons = most_recent_wnba_season(), ...,
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
+  loader <- function(url) .ids_as_integer(rds_from_url(url), c("game_id"))
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_game_rosters/game_rosters_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
+                             fn = "load_wnba_game_rosters", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -792,8 +784,6 @@ load_wnba_game_rosters <- function(seasons = most_recent_wnba_season(), ...,
 #'   feeds. One row per official-game pair. Backed by the `wehoop-wnba-data`
 #'   pipeline that reads raw JSONs from `wehoop-wnba-raw` and publishes
 #'   parquet/rds artifacts to the `espn_wnba_officials` release tag.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2002)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -814,19 +804,18 @@ load_wnba_officials <- function(seasons = most_recent_wnba_season(), ...,
   on.exit(options(old))
   dots <- rlang::dots_list(...)
 
-  loader <- rds_from_url
+  loader <- function(url) .ids_as_integer(rds_from_url(url), c("game_id"))
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2002:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_officials/officials_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2003, most_recent_wnba_season(),
+                             fn = "load_wnba_officials", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -915,19 +904,19 @@ update_wnba_db <- function(dbdir = ".",
   
   if (!is_installed("DBI") | !is_installed("purrr") |
       (!is_installed("RSQLite") & is.null(db_connection))) {
-    usethis::ui_stop("{my_time()} | Packages {usethis::ui_value('DBI')}, {usethis::ui_value('RSQLite')} and {usethis::ui_value('purrr')} required for database communication. Please install them.")
+    cli::cli_abort("{my_time()} | Packages {.val DBI}, {.val RSQLite} and {.val purrr} required for database communication. Please install them.")
   }
   
   if (any(force_rebuild == "NEW")) {
-    usethis::ui_stop("{my_time()} | The argument {usethis::ui_value('force_rebuild = NEW')} is only for internal usage!")
+    cli::cli_abort("{my_time()} | The argument {.val force_rebuild = NEW} is only for internal usage!")
   }
   
   if (!(is.logical(force_rebuild) | is.numeric(force_rebuild))) {
-    usethis::ui_stop("{my_time()} | The argument {usethis::ui_value('force_rebuild')} has to be either logical or numeric!")
+    cli::cli_abort("{my_time()} | The argument {.val force_rebuild} has to be either logical or numeric!")
   }
   
   if (!dir.exists(dbdir) & is.null(db_connection)) {
-    usethis::ui_oops("{my_time()} | Directory {usethis::ui_path(dbdir)} doesn't exist yet. Try creating...")
+    cli::cli_alert_danger("{my_time()} | Directory {.file {dbdir}} doesn't exist yet. Try creating...")
     dir.create(dbdir)
   }
   
@@ -976,7 +965,7 @@ update_wnba_db <- function(dbdir = ".",
       )
     }
     message_completed("Database update completed", in_builder = TRUE)
-    usethis::ui_info("{my_time()} | Path to your db: {usethis::ui_path(DBI::dbGetInfo(connection)$dbname)}")
+    cli::cli_alert_info("{my_time()} | Path to your db: {.file {DBI::dbGetInfo(connection)$dbname}}")
     if (is.null(db_connection)) DBI::dbDisconnect(connection)
     return(invisible(TRUE))
   }
@@ -1017,7 +1006,7 @@ update_wnba_db <- function(dbdir = ".",
   # }
   
   message_completed("Database update completed", in_builder = TRUE)
-  usethis::ui_info("{my_time()} | Path to your db: {usethis::ui_path(DBI::dbGetInfo(connection)$dbname)}")
+  cli::cli_alert_info("{my_time()} | Path to your db: {.file {DBI::dbGetInfo(connection)$dbname}}")
   if (is.null(db_connection)) DBI::dbDisconnect(connection)
   # rule_footer("DONE")
 }
@@ -1034,13 +1023,13 @@ build_wnba_db <- function(tblname = "wehoop_wnba_pbp", db_conn, rebuild = FALSE,
     dplyr::ungroup()
   
   if (all(rebuild == TRUE)) {
-    usethis::ui_todo("{my_time()} | Purging the complete data table {usethis::ui_value(tblname)} in your connected database...")
+    cli::cli_ul("{my_time()} | Purging the complete data table {.val {tblname}} in your connected database...")
     DBI::dbRemoveTable(db_conn, tblname)
     seasons <- valid_seasons %>% dplyr::pull("season")
-    usethis::ui_todo("{my_time()} | Starting download of {length(seasons)} seasons between {min(seasons)} and {max(seasons)}...")
+    cli::cli_ul("{my_time()} | Starting download of {length(seasons)} seasons between {min(seasons)} and {max(seasons)}...")
   } else if (is.numeric(rebuild) & all(rebuild %in% valid_seasons$season)) {
     string <- paste0(rebuild, collapse = ", ")
-    if (show_message) {usethis::ui_todo("{my_time()} | Purging {string} season(s) from the data table {usethis::ui_value(tblname)} in your connected database...")}
+    if (show_message) {cli::cli_ul("{my_time()} | Purging {string} season(s) from the data table {.val {tblname}} in your connected database...")}
     DBI::dbExecute(
       db_conn,
       paste0(
@@ -1052,14 +1041,14 @@ build_wnba_db <- function(tblname = "wehoop_wnba_pbp", db_conn, rebuild = FALSE,
       params = as.list(rebuild)
     )
     seasons <- valid_seasons %>% dplyr::filter(.data$season %in% rebuild) %>% dplyr::pull("season")
-    usethis::ui_todo("{my_time()} | Starting download of the {string} season(s)...")
+    cli::cli_ul("{my_time()} | Starting download of the {string} season(s)...")
   } else if (all(rebuild == "NEW")) {
-    usethis::ui_info("{my_time()} | Can't find the data table {usethis::ui_value(tblname)} in your database. Will load the play by play data from scratch.")
+    cli::cli_alert_info("{my_time()} | Can't find the data table {.val {tblname}} in your database. Will load the play by play data from scratch.")
     seasons <- valid_seasons %>% dplyr::pull("season")
-    usethis::ui_todo("{my_time()} | Starting download of {length(seasons)} seasons between {min(seasons)} and {max(seasons)}...")
+    cli::cli_ul("{my_time()} | Starting download of {length(seasons)} seasons between {min(seasons)} and {max(seasons)}...")
   } else {
     seasons <- NULL
-    usethis::ui_oops("{my_time()} | At least one invalid value passed to argument {usethis::ui_code('force_rebuild')}. Please try again with valid input.")
+    cli::cli_alert_danger("{my_time()} | At least one invalid value passed to argument {.code force_rebuild}. Please try again with valid input.")
   }
   
   if (!is.null(seasons)) {
@@ -1079,7 +1068,7 @@ get_missing_wnba_games <- function(completed_games, dbConnection, tablename) {
   
   need_scrape <- completed_games[!completed_games %in% db_ids]
   
-  usethis::ui_info("{my_time()} | You have {length(db_ids)} games and are missing {length(need_scrape)}.")
+  cli::cli_alert_info("{my_time()} | You have {length(db_ids)} games and are missing {length(need_scrape)}.")
   return(need_scrape)
 }
 
@@ -1106,8 +1095,6 @@ get_missing_wnba_games <- function(completed_games, dbConnection, tablename) {
 #'   }
 #'   Field coverage is era-dependent by nature -- headshots exist only for
 #'   modern players, while college and date of birth thin out the other way.
-#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
-#'   (Min: 2003)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -1128,16 +1115,15 @@ load_wnba_player_core <- function(seasons = most_recent_wnba_season(), ...,
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 2003:most_recent_wnba_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2003,
-            seasons <= most_recent_wnba_season())
-
-  urls <- paste0(
+  url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_player_core/player_core_", seasons, ".rds"
   )
+  seasons <- .loader_seasons(seasons, 2003, most_recent_wnba_season(),
+                             fn = "load_wnba_player_core", url_for = url_for,
+                             default = missing(seasons))
+
+  urls <- url_for(seasons)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)

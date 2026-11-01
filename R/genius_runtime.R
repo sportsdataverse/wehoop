@@ -548,7 +548,7 @@
   list(matches = rows)
 }
 
-#' Reduce a fetched page to its record (the sdv-internal-refs capture shape).
+#' Reduce a fetched page to its record (the record the parsers read).
 #'
 #' Raises a `genius_not_parsed` condition (field `empty`: TRUE for a legitimate
 #' "nothing here") for an empty, cut-off or wrong-kind page.
@@ -701,7 +701,7 @@
   .abort_asset_fetch("{msg}", call = call)
 }
 
-#' Type-strict equality (sdv-py `_same`): an integer id equals an integer only.
+#' Type-strict equality (sportsdataverse-py `_same`): an integer id equals an integer only.
 #' @noRd
 .genius_same <- function(got, want) .genius_scalar(got) && is.integer(got) && identical(got, want)
 

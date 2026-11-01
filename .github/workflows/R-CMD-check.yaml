@@ -25,6 +25,10 @@ concurrency:
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
+    # R-devel is an early warning for the CRAN r-devel flavours, not a merge gate.
+    continue-on-error: ${{ matrix.config.r == 'devel' }}
+    # A hung step (e.g. an example stalling on a datacenter-blocked host) must not burn 6 h.
+    timeout-minutes: 60
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
@@ -34,20 +38,22 @@ jobs:
         config:
           - { os: macos-latest, r: "release" }
           - { os: windows-latest, r: "release" }
-          # - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+          - { os: ubuntu-latest, r: "devel", http-user-agent: "release" }
           - { os: ubuntu-latest, r: "release" }
           - { os: ubuntu-latest, r: "oldrel-1" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      # Optional live API toggles for CI (tests still short-circuit on skip_on_ci() unless changed):
-      WNBA_STATS_TESTS: ${{ secrets.WNBA_STATS_TESTS }}
-      ESPN_TESTS: ${{ secrets.ESPN_TESTS }}
-      NCAA_WBB_TESTS: ${{ secrets.NCAA_WBB_TESTS }}
+      # Live API toggles. Repository variables, not secrets: secret values are masked in
+      # every log line, and these are single digits. They do not make CI hit live APIs:
+      # tests/testthat/helper-skip.R calls skip_on_ci() before reading them.
+      WNBA_STATS_TESTS: ${{ vars.WNBA_STATS_TESTS }}
+      ESPN_TESTS: ${{ vars.ESPN_TESTS }}
+      NCAA_WBB_TESTS: ${{ vars.NCAA_WBB_TESTS }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - uses: r-lib/actions/setup-pandoc@v2
 
