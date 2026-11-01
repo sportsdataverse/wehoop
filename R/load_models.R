@@ -20,9 +20,11 @@
 #'   onward for `load_wbb_player_value()` and 2009 onward for `load_wbb_ratings()`
 #'   (NCAA women's season-ending years, e.g. `2024` for 2023-24), with no gaps.
 #'   The upper bound is [most_recent_wnba_stats_season()] /
-#'   [most_recent_wbb_season()]. When the upper-bound season is requested on its own (the default) but its
+#'   [most_recent_wbb_season()].
+#'   When `seasons` is left at its default and that season's
 #'   file is not published yet, the loader reads the newest published season
-#'   instead, with a message.
+#'   instead, with a message. An explicit request for an unpublished season
+#'   is kept as asked: the read warns and returns an empty frame.
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -83,7 +85,8 @@ load_wnba_player_impact <- function(seasons = most_recent_wnba_stats_season(),
     "wnba_player_impact/wnba_player_impact_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 1997, most_recent_wnba_stats_season(),
-                             fn = "load_wnba_player_impact", url_for = url_for)
+                             fn = "load_wnba_player_impact", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -156,7 +159,8 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
     "wbb_player_value/wbb_player_value_", seasons, ".parquet"
   )
   seasons <- .loader_seasons(seasons, 2014, most_recent_wbb_season(),
-                             fn = "load_wbb_player_value", url_for = url_for)
+                             fn = "load_wbb_player_value", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -229,7 +233,8 @@ load_wbb_ratings <- function(seasons = most_recent_wbb_season(),
     "wbb_ratings/wbb_ratings_", seasons, ".parquet"
   )
   seasons <- .loader_seasons(seasons, 2009, most_recent_wbb_season(),
-                             fn = "load_wbb_ratings", url_for = url_for)
+                             fn = "load_wbb_ratings", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 

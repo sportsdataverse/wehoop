@@ -18,9 +18,11 @@
 #'   college basketball (e.g. `2024` for the 2023-24 season), or `TRUE` for every
 #'   published season: 2010 onward for every loader except `load_ncaa_wbb_rapm()`
 #'   (2011 onward) and `load_ncaa_wbb_shots()` (2019 onward), with no gaps. The
-#'   upper bound is [most_recent_wbb_season()]. When the upper-bound season is requested on its own (the default) but its
+#'   upper bound is [most_recent_wbb_season()].
+#'   When `seasons` is left at its default and that season's
 #'   file is not published yet, the loader reads the newest published season
-#'   instead, with a message.
+#'   instead, with a message. An explicit request for an unpublished season
+#'   is kept as asked: the read warns and returns an empty frame.
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
@@ -140,7 +142,8 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_pbp/ncaa_wbb_pbp_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_pbp", url_for = url_for)
+                             fn = "load_ncaa_wbb_pbp", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -222,7 +225,8 @@ load_ncaa_wbb_shots <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_shots/ncaa_wbb_shots_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2019, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_shots", url_for = url_for)
+                             fn = "load_ncaa_wbb_shots", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -364,7 +368,8 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_lineups/ncaa_wbb_lineups_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_lineups", url_for = url_for)
+                             fn = "load_ncaa_wbb_lineups", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -459,7 +464,8 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_matchup_stints/ncaa_wbb_matchup_stints_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_matchup_stints", url_for = url_for)
+                             fn = "load_ncaa_wbb_matchup_stints", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -577,7 +583,8 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_possessions/ncaa_wbb_possessions_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_possessions", url_for = url_for)
+                             fn = "load_ncaa_wbb_possessions", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -651,7 +658,8 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_rapm_within_team/ncaa_wbb_rapm_within_team_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_rapm_within_team", url_for = url_for)
+                             fn = "load_ncaa_wbb_rapm_within_team", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -729,7 +737,8 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_rapm/ncaa_wbb_rapm_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2011, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_rapm", url_for = url_for)
+                             fn = "load_ncaa_wbb_rapm", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -918,7 +927,8 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_player_box/ncaa_wbb_player_box_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_player_box", url_for = url_for)
+                             fn = "load_ncaa_wbb_player_box", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -1061,7 +1071,8 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_team_box/ncaa_wbb_team_box_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_team_box", url_for = url_for)
+                             fn = "load_ncaa_wbb_team_box", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -1124,7 +1135,8 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_rosters/ncaa_wbb_rosters_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_rosters", url_for = url_for)
+                             fn = "load_ncaa_wbb_rosters", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -1201,7 +1213,8 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_team_rosters/ncaa_wbb_team_rosters_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_team_rosters", url_for = url_for)
+                             fn = "load_ncaa_wbb_team_rosters", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -1266,7 +1279,8 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_schedule/ncaa_wbb_schedule_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_schedule", url_for = url_for)
+                             fn = "load_ncaa_wbb_schedule", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -1329,7 +1343,8 @@ load_ncaa_wbb_team_ids <- function(seasons = most_recent_wbb_season(),
     "ncaa_wbb_team_ids/ncaa_wbb_team_ids_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
-                             fn = "load_ncaa_wbb_team_ids", url_for = url_for)
+                             fn = "load_ncaa_wbb_team_ids", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 

@@ -33,9 +33,11 @@ season: 1997 onward for \code{load_wnba_player_impact()} (WNBA seasons), 2014
 onward for \code{load_wbb_player_value()} and 2009 onward for \code{load_wbb_ratings()}
 (NCAA women's season-ending years, e.g. \code{2024} for 2023-24), with no gaps.
 The upper bound is \code{\link[=most_recent_wnba_stats_season]{most_recent_wnba_stats_season()}} /
-\code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}. When the upper-bound season is requested on its own (the default) but its
+\code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
+When \code{seasons} is left at its default and that season's
 file is not published yet, the loader reads the newest published season
-instead, with a message.}
+instead, with a message. An explicit request for an unpublished season
+is kept as asked: the read warns and returns an empty frame.}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}

@@ -147,9 +147,11 @@ only and need the \pkg{arrow} package).
 \item \code{load_wnba_rosters()}: 2024 onward.
 }
 
-The upper bound is \code{\link[=most_recent_wnba_season]{most_recent_wnba_season()}}. When the upper-bound season is requested on its own (the default) but its
+The upper bound is \code{\link[=most_recent_wnba_season]{most_recent_wnba_season()}}.
+When \code{seasons} is left at its default and that season's
 file is not published yet, the loader reads the newest published season
-instead, with a message.
+instead, with a message. An explicit request for an unpublished season
+is kept as asked: the read warns and returns an empty frame.
 ESPN join ids are integer: \code{game_id} in \code{load_wnba_game_rosters()} and
 \code{load_wnba_officials()}, \code{athlete_id} in \code{load_wnba_rosters()} (the release
 publishes them as character).}

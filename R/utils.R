@@ -105,11 +105,20 @@ rds_or_parquet_from_url <- function(url) {
 # ESPN ids are integer in the box score and schedule releases, but a few assets
 # publish some as character (WNBA game_rosters / officials game_id, rosters
 # athlete_id, the WNBA crosswalk wnba_* ids). Cast them back so joins line up.
+# A value that is not a whole number (anything but NA or "") warns.
 .ids_as_integer <- function(df, cols) {
   for (k in intersect(cols, names(df))) {
-    if (!is.integer(df[[k]])) {
-      data.table::set(df, j = k, value = suppressWarnings(as.integer(df[[k]])))
+    x <- df[[k]]
+    if (is.integer(x)) next
+    out <- suppressWarnings(as.integer(x))
+    lost <- is.na(out) & !is.na(x) & !(as.character(x) %in% "")
+    if (any(lost)) {
+      cli::cli_warn(c(
+        "Column {.field {k}}: {sum(lost)} value{?s} could not be read as an integer id and became {.val NA}.",
+        "i" = "First: {.val {utils::head(unique(as.character(x[lost])), 3)}}."
+      ))
     }
+    data.table::set(df, j = k, value = out)
   }
   df
 }
@@ -131,23 +140,40 @@ rds_or_parquet_from_url <- function(url) {
 
 # Validate `seasons` for a release loader against the seasons its release tag
 # publishes (`first`..`last` minus `gaps`, read off the release assets);
-# `seasons = TRUE` expands to every published season. The newest season's file
-# appears only once its first games are published (WBB: October to November),
-# so when the request is that one season and `url_for(season)` answers 404, the
-# loader falls back to the newest published season with a message.
-.loader_seasons <- function(seasons, first, last, gaps = NULL, fn, url_for = NULL) {
+# `seasons = TRUE` expands to every published season.
+#
+# The newest season's file appears only once its first games are published
+# (WBB: October to November). When the loader was called with its default
+# season (`default = missing(seasons)`) and `url_for(last)` answers 404 (and,
+# with `parquet = TRUE`, so does its `.parquet` sibling), the loader falls back
+# to the newest published season with a message. An explicit request for that
+# season is kept as asked, so the read warns and returns an empty frame.
+.loader_seasons <- function(seasons, first, last, gaps = NULL, fn, url_for = NULL,
+                            default = FALSE, parquet = FALSE) {
+  force(default)
   last <- as.integer(last)
   avail <- setdiff(first:last, gaps)
-  newest_missing <- function() !is.null(url_for) && !.release_asset_exists(url_for(last))
+  newest_missing <- local({
+    ans <- NULL
+    function() {
+      if (is.null(ans)) {
+        ans <<- !is.null(url_for) && last %in% avail &&
+          !.release_asset_exists(url_for(last)) &&
+          !(parquet && .release_asset_exists(sub("\\.rds$", ".parquet", url_for(last))))
+      }
+      ans
+    }
+  })
   if (isTRUE(seasons)) {
     if (newest_missing()) avail <- setdiff(avail, last)
     return(avail)
   }
   if (!is.numeric(seasons) || length(seasons) == 0 || anyNA(seasons) || !all(seasons %in% avail)) {
-    brk <- c(0, which(diff(avail) != 1), length(avail))
+    shown <- if (newest_missing()) setdiff(avail, last) else avail
+    brk <- c(0, which(diff(shown) != 1), length(shown))
     ranges <- vapply(seq_len(length(brk) - 1), function(i) {
-      a <- avail[brk[i] + 1]
-      b <- avail[brk[i + 1]]
+      a <- shown[brk[i] + 1]
+      b <- shown[brk[i + 1]]
       if (a == b) as.character(a) else paste0(a, "-", b)
     }, character(1))
     cli::cli_abort(c(
@@ -156,7 +182,7 @@ rds_or_parquet_from_url <- function(url) {
       "x" = "You requested: {paste(seasons, collapse = ', ')}."
     ))
   }
-  if (length(seasons) == 1 && seasons == last && newest_missing()) {
+  if (isTRUE(default) && length(seasons) == 1 && seasons == last && newest_missing()) {
     prev <- avail[avail < last]
     if (length(prev) > 0) {
       prev <- max(prev)

@@ -20,9 +20,10 @@
 #'   officials. A few seasons are published as `.parquet` only (2005 box scores,
 #'   2023 season stats, standings and officials, 2023-2025 game rosters); those
 #'   need the \pkg{arrow} package. The upper bound is [most_recent_wbb_season()].
-#'   When the upper-bound season is requested on its own (the default) but its
+#'   When `seasons` is left at its default and that season's
 #'   file is not published yet, the loader reads the newest published season
-#'   instead, with a message.
+#'   instead, with a message. An explicit request for an unpublished season
+#'   is kept as asked: the read warns and returns an empty frame.
 #'   ESPN join ids are integer: `game_id` in `load_wbb_game_rosters()` and
 #'   `load_wbb_officials()`, `athlete_id` in `load_wbb_rosters()`.
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -109,7 +110,8 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
   
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_pbp/play_by_play_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2004, most_recent_wbb_season(),
-                             fn = "load_wbb_pbp", url_for = url_for)
+                             fn = "load_wbb_pbp", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
   
@@ -152,7 +154,8 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_team_boxscores/team_box_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2004, most_recent_wbb_season(),
-                             fn = "load_wbb_team_box", url_for = url_for)
+                             fn = "load_wbb_team_box", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
   
@@ -195,7 +198,8 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_player_boxscores/player_box_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2004, most_recent_wbb_season(),
-                             fn = "load_wbb_player_box", url_for = url_for)
+                             fn = "load_wbb_player_box", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
   
@@ -240,7 +244,8 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_schedules/wbb_schedule_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2001, most_recent_wbb_season(),
-                             fn = "load_wbb_schedule", url_for = url_for)
+                             fn = "load_wbb_schedule", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
   
@@ -410,7 +415,8 @@ load_wbb_rosters <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_rosters/rosters_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2026, most_recent_wbb_season(),
-                             fn = "load_wbb_rosters", url_for = url_for)
+                             fn = "load_wbb_rosters", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -463,7 +469,8 @@ load_wbb_player_stats <- function(seasons = most_recent_wbb_season(), ...,
     seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2006, most_recent_wbb_season(), gaps = 2024:2025,
-                             fn = "load_wbb_player_stats", url_for = url_for)
+                             fn = "load_wbb_player_stats", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
 
@@ -519,7 +526,8 @@ load_wbb_team_stats <- function(seasons = most_recent_wbb_season(), ...,
     seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(), gaps = 2024:2025,
-                             fn = "load_wbb_team_stats", url_for = url_for)
+                             fn = "load_wbb_team_stats", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
 
@@ -574,7 +582,8 @@ load_wbb_standings <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_standings/standings_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2003, most_recent_wbb_season(), gaps = 2024:2025,
-                             fn = "load_wbb_standings", url_for = url_for)
+                             fn = "load_wbb_standings", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
 
@@ -629,7 +638,8 @@ load_wbb_shots <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_shots/shots_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2004, most_recent_wbb_season(),
-                             fn = "load_wbb_shots", url_for = url_for)
+                             fn = "load_wbb_shots", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -688,7 +698,8 @@ load_wbb_game_rosters <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_game_rosters/game_rosters_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2004, most_recent_wbb_season(),
-                             fn = "load_wbb_game_rosters", url_for = url_for)
+                             fn = "load_wbb_game_rosters", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
 
@@ -743,7 +754,8 @@ load_wbb_officials <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_officials/officials_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2014, most_recent_wbb_season(), gaps = 2024:2025,
-                             fn = "load_wbb_officials", url_for = url_for)
+                             fn = "load_wbb_officials", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
 
@@ -1048,7 +1060,8 @@ load_wbb_player_core <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_player_core/player_core_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2004, most_recent_wbb_season(), gaps = 2005,
-                             fn = "load_wbb_player_core", url_for = url_for)
+                             fn = "load_wbb_player_core", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 

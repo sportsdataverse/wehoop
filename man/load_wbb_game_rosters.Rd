@@ -140,9 +140,10 @@ only the seasons its release tag publishes (any other season is an error):
 officials. A few seasons are published as \code{.parquet} only (2005 box scores,
 2023 season stats, standings and officials, 2023-2025 game rosters); those
 need the \pkg{arrow} package. The upper bound is \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
-When the upper-bound season is requested on its own (the default) but its
+When \code{seasons} is left at its default and that season's
 file is not published yet, the loader reads the newest published season
-instead, with a message.
+instead, with a message. An explicit request for an unpublished season
+is kept as asked: the read warns and returns an empty frame.
 ESPN join ids are integer: \code{game_id} in \code{load_wbb_game_rosters()} and
 \code{load_wbb_officials()}, \code{athlete_id} in \code{load_wbb_rosters()}.}
 

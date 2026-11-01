@@ -4,7 +4,7 @@
 
 # Generic helper parameterised on release tag + file prefix + the seasons the
 # tag publishes (see .loader_seasons() in R/utils.R).
-.load_wehoop_crosswalk <- function(seasons, tag, prefix, first, last, gaps = NULL) {
+.load_wehoop_crosswalk <- function(seasons, tag, prefix, first, last, gaps = NULL, default = FALSE) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
@@ -24,7 +24,8 @@
     tag, "/", prefix, "_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, first, last, gaps = gaps,
-                             fn = paste0("load_", prefix), url_for = url_for)
+                             fn = paste0("load_", prefix), url_for = url_for,
+                             default = default)
   urls <- url_for(seasons)
 
   p <- NULL
@@ -51,9 +52,10 @@
 #'   onward for the three WNBA crosswalks; for WBB, `load_wbb_team_crosswalk()`
 #'   2002-2003 and 2014 onward, `load_wbb_schedule_crosswalk()` 2021 onward and
 #'   `load_wbb_player_crosswalk()` 2014-2022 and 2025 onward. The upper bound is
-#'   [most_recent_wnba_season()] / [most_recent_wbb_season()]; when that season
-#'   is requested but not published yet, the loader reads the newest published
-#'   season instead. The WNBA Stats ids (`wnba_player_id`, `wnba_team_id`,
+#'   [most_recent_wnba_season()] / [most_recent_wbb_season()]. When `seasons`
+#'   is left at its default and that season is not published yet, the loader
+#'   reads the newest published season instead, with a message; an explicit
+#'   request for it warns and returns an empty frame. The WNBA Stats ids (`wnba_player_id`, `wnba_team_id`,
 #'   `wnba_home_team_id`, `wnba_away_team_id`) and the ESPN ids (`espn_game_id`,
 #'   `espn_athlete_id`, `espn_team_id`) are returned as integer, matching the
 #'   `wnba_*()` WNBA Stats tables and the ESPN loaders; `wnba_game_id` stays
@@ -66,7 +68,8 @@
 #'   try(load_wnba_team_crosswalk(seasons = most_recent_wnba_season()))
 #' }
 load_wnba_team_crosswalk <- function(seasons = most_recent_wnba_season()) {
-  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_team_crosswalk", 2002, most_recent_wnba_season())
+  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_team_crosswalk", 2002, most_recent_wnba_season(),
+                         default = missing(seasons))
 }
 
 
@@ -84,7 +87,8 @@ load_wnba_team_crosswalk <- function(seasons = most_recent_wnba_season()) {
 #'   try(load_wnba_schedule_crosswalk(seasons = most_recent_wnba_season()))
 #' }
 load_wnba_schedule_crosswalk <- function(seasons = most_recent_wnba_season()) {
-  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_schedule_crosswalk", 2002, most_recent_wnba_season())
+  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_schedule_crosswalk", 2002, most_recent_wnba_season(),
+                         default = missing(seasons))
 }
 
 
@@ -103,7 +107,8 @@ load_wnba_schedule_crosswalk <- function(seasons = most_recent_wnba_season()) {
 #'   try(load_wnba_player_crosswalk(seasons = most_recent_wnba_season()))
 #' }
 load_wnba_player_crosswalk <- function(seasons = most_recent_wnba_season()) {
-  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_player_crosswalk", 2002, most_recent_wnba_season())
+  .load_wehoop_crosswalk(seasons, "wnba_crosswalk", "wnba_player_crosswalk", 2002, most_recent_wnba_season(),
+                         default = missing(seasons))
 }
 
 # ---------------------------------------------------------------------------
@@ -125,7 +130,8 @@ load_wnba_player_crosswalk <- function(seasons = most_recent_wnba_season()) {
 #'   try(load_wbb_team_crosswalk(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
-  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_team_crosswalk", 2002, most_recent_wbb_season(), gaps = 2004:2013)
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_team_crosswalk", 2002, most_recent_wbb_season(), gaps = 2004:2013,
+                         default = missing(seasons))
 }
 
 
@@ -144,7 +150,8 @@ load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
 #'   try(load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_schedule_crosswalk <- function(seasons = most_recent_wbb_season()) {
-  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_schedule_crosswalk", 2021, most_recent_wbb_season())
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_schedule_crosswalk", 2021, most_recent_wbb_season(),
+                         default = missing(seasons))
 }
 
 
@@ -166,5 +173,6 @@ NULL
 #'   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_player_crosswalk <- function(seasons = most_recent_wbb_season()) {
-  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_player_crosswalk", 2014, most_recent_wbb_season(), gaps = 2023:2024)
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_player_crosswalk", 2014, most_recent_wbb_season(), gaps = 2023:2024,
+                         default = missing(seasons))
 }

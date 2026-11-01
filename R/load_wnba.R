@@ -16,9 +16,11 @@
 #'     only and need the \pkg{arrow} package).
 #'   * `load_wnba_rosters()`: 2024 onward.
 #'
-#'   The upper bound is [most_recent_wnba_season()]. When the upper-bound season is requested on its own (the default) but its
+#'   The upper bound is [most_recent_wnba_season()].
+#'   When `seasons` is left at its default and that season's
 #'   file is not published yet, the loader reads the newest published season
-#'   instead, with a message.
+#'   instead, with a message. An explicit request for an unpublished season
+#'   is kept as asked: the read warns and returns an empty frame.
 #'   ESPN join ids are integer: `game_id` in `load_wnba_game_rosters()` and
 #'   `load_wnba_officials()`, `athlete_id` in `load_wnba_rosters()` (the release
 #'   publishes them as character).
@@ -93,7 +95,8 @@ load_wnba_pbp <- function(seasons = most_recent_wnba_season(), ...,
   
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_pbp/play_by_play_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
-                             fn = "load_wnba_pbp", url_for = url_for)
+                             fn = "load_wnba_pbp", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
   
@@ -137,7 +140,8 @@ load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
   
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_team_boxscores/team_box_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2003, most_recent_wnba_season(),
-                             fn = "load_wnba_team_box", url_for = url_for)
+                             fn = "load_wnba_team_box", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
   
@@ -183,7 +187,8 @@ load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
   
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_player_boxscores/player_box_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
-                             fn = "load_wnba_player_box", url_for = url_for)
+                             fn = "load_wnba_player_box", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
   
@@ -227,7 +232,8 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
   
   url_for <- function(seasons) paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_schedule_", seasons, ".rds")
   seasons <- .loader_seasons(seasons, 1997, most_recent_wnba_season(), gaps = c(1998, 2000),
-                             fn = "load_wnba_schedule", url_for = url_for)
+                             fn = "load_wnba_schedule", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
   
@@ -404,7 +410,8 @@ load_wnba_rosters <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_rosters/rosters_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2024, most_recent_wnba_season(),
-                             fn = "load_wnba_rosters", url_for = url_for)
+                             fn = "load_wnba_rosters", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -456,7 +463,8 @@ load_wnba_player_stats <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_player_season_stats/player_season_stats_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(), gaps = 2022,
-                             fn = "load_wnba_player_stats", url_for = url_for)
+                             fn = "load_wnba_player_stats", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -510,7 +518,8 @@ load_wnba_team_stats <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_team_season_stats/team_season_stats_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(), gaps = 2022,
-                             fn = "load_wnba_team_stats", url_for = url_for)
+                             fn = "load_wnba_team_stats", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -564,7 +573,8 @@ load_wnba_standings <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_standings/standings_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
-                             fn = "load_wnba_standings", url_for = url_for)
+                             fn = "load_wnba_standings", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -635,7 +645,8 @@ load_wnba_draft <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_draft/draft_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2018, most_recent_wnba_season(),
-                             fn = "load_wnba_draft", url_for = url_for)
+                             fn = "load_wnba_draft", url_for = url_for,
+                             default = missing(seasons), parquet = TRUE)
 
   urls <- url_for(seasons)
 
@@ -690,7 +701,8 @@ load_wnba_shots <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_shots/shots_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
-                             fn = "load_wnba_shots", url_for = url_for)
+                             fn = "load_wnba_shots", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -745,7 +757,8 @@ load_wnba_game_rosters <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_game_rosters/game_rosters_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
-                             fn = "load_wnba_game_rosters", url_for = url_for)
+                             fn = "load_wnba_game_rosters", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -799,7 +812,8 @@ load_wnba_officials <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_officials/officials_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2003, most_recent_wnba_season(),
-                             fn = "load_wnba_officials", url_for = url_for)
+                             fn = "load_wnba_officials", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
@@ -1106,7 +1120,8 @@ load_wnba_player_core <- function(seasons = most_recent_wnba_season(), ...,
     "espn_wnba_player_core/player_core_", seasons, ".rds"
   )
   seasons <- .loader_seasons(seasons, 2003, most_recent_wnba_season(),
-                             fn = "load_wnba_player_core", url_for = url_for)
+                             fn = "load_wnba_player_core", url_for = url_for,
+                             default = missing(seasons))
 
   urls <- url_for(seasons)
 
