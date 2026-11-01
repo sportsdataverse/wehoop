@@ -80,9 +80,11 @@ committed fixtures and mock the HTTP layer.
   4.2 MB). The PDF and HTML manuals build. The examples with
   `--run-donttest` pass in 10 minutes and the tests in 2.5 minutes.
 
-* GitHub Actions (R release on Ubuntu, macOS and Windows): see the PR checks.
-* win-builder: TODO
-* R-hub: TODO
+* GitHub Actions R-CMD-check (R release on Ubuntu, macOS and Windows; R oldrel-1 and
+  R-devel on Ubuntu): OK.
+* R-hub v2 (R-devel; linux, windows, macos, macos-arm64), 2026-11-01: linux, windows and
+  macos Status OK; macos-arm64 completed successfully.
+* win-builder: to be run before submission.
 
 ## revdepcheck results
 
