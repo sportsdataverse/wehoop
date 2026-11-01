@@ -29,7 +29,7 @@ A \code{wehoop_data} tibble (the raw JSON list when \code{return_parsed = FALSE}
    order \tab integer \tab Sort key within the period (OVR: 1, 2, ...; FLS: 1000, 2000, ...); null on some period events. \cr
    clock \tab character \tab Game clock: time REMAINING in the period, 'm:ss', counting down from 10:00 (5:00 in overtime). \cr
    clock_seconds \tab integer \tab Seconds remaining in the period, derived from clock. \cr
-   wall_time_ms \tab double \tab Wall-clock time of the action, Unix epoch milliseconds. (Int64 in sdv-py; numeric here, the values exceed R's 32-bit integer range) \cr
+   wall_time_ms \tab double \tab Wall-clock time of the action, Unix epoch milliseconds. (Int64 in sportsdataverse-py; numeric here, the values exceed R's 32-bit integer range) \cr
    score_a \tab integer \tab Team A score after the action. \cr
    score_b \tab integer \tab Team B score after the action. \cr
    action_code \tab character \tab Action code: P2 two-point shot, P3 three-point shot, FT free throw, REB rebound, TREB team rebound, ASS assist, ST steal, BS block, TO turnover, TTO team turnover, FOUL foul, RFOUL foul drawn, SUBST substitution, TIMO timeout, plus period events (STARTG, STARTP, ENDP, ENDG). \cr
@@ -56,8 +56,7 @@ Endpoint: \verb{GET https://www.fiba.basketball/en/games/\{game_id\}}
 \details{
 FIBA's terms restrict this source. The GDAP developer-portal terms limit API use to 'Authorized Users'
 (federations, organisers, FIBA partners) and say any broader use 'is not authorised'; the fiba.basketball
-terms say no portion of the site may be duplicated, redistributed or manipulated. The package owner reviewed
-both clauses on 2026-10-12, accepted them and approved the full intake, published data releases included.
+terms say no portion of the site may be duplicated, redistributed or manipulated.
 Users who are not themselves authorised by FIBA should check the terms before using the wrappers.
 
 The GDAP subscription key is public (fiba.basketball ships it in every page); the runtime reads it from the
@@ -76,7 +75,7 @@ Champions League host last).
 
 Box scores start about 2006; play-by-play with shot x/y about 2012 (OVR events) and 2017-18 (FLS club
 competitions). A game with no box score raises \code{wehoop_no_data}; a game still live raises \code{wehoop_asset_fetch}.
-The page request sends a browser User-Agent (sdv-py answers fiba.basketball's HTTP 403 to plain clients with
+The page request sends a browser User-Agent (sportsdataverse-py answers fiba.basketball's HTTP 403 to plain clients with
 Chrome TLS; libcurl with a browser User-Agent was served on 2026-10-18).
 Shot x/y are image pixels with an unverified scale.
 

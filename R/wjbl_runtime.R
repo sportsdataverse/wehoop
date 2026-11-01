@@ -44,7 +44,7 @@
 # Session cache: the league table and every FINAL game header (sdv-py `_CACHE`).
 .wjbl_cache <- new.env(parent = emptyenv())
 
-#' Forget the cached league table and game headers (sdv-py `clear_cache`).
+#' Forget the cached league table and game headers (sportsdataverse-py `clear_cache`).
 #' @noRd
 .wjbl_clear_cache <- function() {
   rm(list = ls(.wjbl_cache, all.names = TRUE), envir = .wjbl_cache)
@@ -73,7 +73,7 @@
 #' @noRd
 .wjbl_scalar <- function(x) !is.null(x) && is.atomic(x) && length(x) == 1L && !is.na(x)
 
-#' Type-strict equality with an integer id or a string (sdv-py `_same`: `True` is not 1, 7987.0 is not 7987).
+#' Type-strict equality with an integer id or a string (sportsdataverse-py `_same`: `True` is not 1, 7987.0 is not 7987).
 #' @noRd
 .wjbl_same <- function(got, want) {
   if (!.wjbl_scalar(got)) return(FALSE)
@@ -141,7 +141,7 @@
 #' The sdv END year of a league edition title, or `NA` for an all-star game, cup or camp.
 #'
 #' `"25-26 W League"` (in Japanese) is 2026 and `"99-00 ..."` is 2000: END = 2000 + the second YY, when the
-#' two YY are consecutive (sdv-py `season_of_title`).
+#' two YY are consecutive (sportsdataverse-py `season_of_title`).
 #' @noRd
 .wjbl_season_of_title <- function(title) {
   if (!is.character(title) || length(title) != 1L || is.na(title)) return(NA_integer_)
@@ -186,7 +186,7 @@
   .wjbl_cache$leagues
 }
 
-#' The opaque `league_id` of the edition whose END year is `season` (sdv-py `league_id`).
+#' The opaque `league_id` of the edition whose END year is `season` (sportsdataverse-py `league_id`).
 #' @noRd
 .wjbl_league_id <- function(season, call = rlang::caller_env()) {
   ok <- length(season) == 1L && !is.logical(season) && !is.na(season) && (

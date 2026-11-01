@@ -93,7 +93,7 @@
 
 #' The API's `seasonId` (START year) for an END-year `season`; `NULL` stays `NULL`.
 #'
-#' sdv-py `scb_runtime.season_id()`: `season - 1` (2026 -> 2025, the 2025-26 season).
+#' sportsdataverse-py `scb_runtime.season_id()`: `season - 1` (2026 -> 2025, the 2025-26 season).
 #' @param season END year: a whole positive number or a digit string.
 #' @return Integer, or `NULL`.
 #' @noRd

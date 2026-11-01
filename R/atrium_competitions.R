@@ -124,7 +124,7 @@
            "`; ", gender, ").**"),
     "",
     paste0("Thin bindings of the parameterised `atrium_*()` wrappers to this site, minted from the competition ",
-           "registry (sdv-py `tools/codegen/basketball_competitions.yaml`); the full surface stays on the ",
+           "registry (sportsdataverse-py `tools/codegen/basketball_competitions.yaml`); the full surface stays on the ",
            "`atrium_*()` wrappers."),
     paste0("@usage ", usage[[1]]), usage[-1],
     "@param season (*integer* optional): Season END year (season rule below). Omit `season` and `season_id` for the site's current season.",

@@ -60,7 +60,7 @@
 #' @noRd
 .fiba_is_int <- function(x) is.integer(x) && length(x) == 1L && !is.na(x)
 
-#' Equality that also requires equal types (sdv-py `_strict`: TRUE != 1, "5" != 5).
+#' Equality that also requires equal types (sportsdataverse-py `_strict`: TRUE != 1, "5" != 5).
 #' @noRd
 .fiba_strict <- function(a, b) {
   !is.null(a) && !is.null(b) && length(a) == 1L && length(b) == 1L && identical(typeof(a), typeof(b)) &&
@@ -79,7 +79,7 @@
 
 #' An id as integer: an integer, a whole number or a digit string; `NULL` passes through.
 #'
-#' sdv-py `_int_id` refuses every float (`123.0` is never an id); in R a typed `208182` is a
+#' sportsdataverse-py `_int_id` refuses every float (`123.0` is never an id); in R a typed `208182` is a
 #' double, so a whole double is accepted and anything fractional, logical or non-numeric is
 #' `wehoop_bad_request`.
 #' @noRd
@@ -141,7 +141,7 @@
 .FIBA_STAFF_CONTAINERS <- c("coaches", "nominations", "officials", "Officials", "staff")
 .FIBA_STAFF_KEYS <- c("dateOfBirth", "birthDate")
 
-#' `obj` without contact details and without coaches' / officials' dates of birth (sdv-py `_scrub`).
+#' `obj` without contact details and without coaches' / officials' dates of birth (sportsdataverse-py `_scrub`).
 #'
 #' Contact keys go wherever they sit; `dateOfBirth` / `birthDate` go under a `coaches`,
 #' `nominations`, `officials` or `staff` container, and on every top-level row when `root_staff`.
@@ -212,7 +212,7 @@
   )
 )
 
-#' Why `body` is not about what was asked, or `NULL` (sdv-py `_scope_error`).
+#' Why `body` is not about what was asked, or `NULL` (sportsdataverse-py `_scope_error`).
 #' @noRd
 .fiba_scope_error <- function(method, body, params) {
   rows <- if (.fiba_is_arr(body)) body else list(body)
@@ -315,7 +315,7 @@
 
 .FIBA_RATE_RE <- "(per_game|percentage|average|_pct$|^pct_)"
 
-#' The dtype code of a column no fixture carries, from its name (sdv-py `_code_for`).
+#' The dtype code of a column no fixture carries, from its name (sportsdataverse-py `_code_for`).
 #' @noRd
 .fiba_code_for <- function(col) {
   if (grepl(.FIBA_RATE_RE, col, perl = TRUE)) return("f")
@@ -324,7 +324,7 @@
   "s"
 }
 
-#' JSON text of a list cell (sdv-py `json.dumps(..., ensure_ascii=False, separators=(",", ":"))`).
+#' JSON text of a list cell (sportsdataverse-py `json.dumps(..., ensure_ascii=False, separators=(",", ":"))`).
 #' @noRd
 .fiba_json_cell <- function(x) {
   as.character(jsonlite::toJSON(x, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
@@ -356,7 +356,7 @@
   a
 }
 
-#' One snake_case row: `head` values first, then `obj` flattened (sdv-py `_row` + `_snake`).
+#' One snake_case row: `head` values first, then `obj` flattened (sportsdataverse-py `_row` + `_snake`).
 #' A later key that snake-cases to an earlier one never overwrites it.
 #' @noRd
 .fiba_row <- function(obj, head = list()) {
@@ -391,7 +391,7 @@
   out
 }
 
-#' Columns from row lists (sdv-py `_frame`): the union of keys in first-seen order; empty rows dropped.
+#' Columns from row lists (sportsdataverse-py `_frame`): the union of keys in first-seen order; empty rows dropped.
 #' @noRd
 .fiba_frame <- function(rows) {
   rows <- Filter(function(r) length(r) > 0L, rows)
@@ -420,7 +420,7 @@
       as.numeric(x)
     } else x
     if (any(num[ok] != round(num[ok]))) return(NULL) # a fractional number is not an id
-    # ponytail: an Int64 beyond R's 32-bit range stays double (only wall_time_ms, pinned "f")
+    # Note: an Int64 beyond R's 32-bit range stays double (only wall_time_ms, pinned "f")
     if (any(abs(num[ok]) > .Machine$integer.max)) return(as.double(num))
     return(as.integer(num))
   }
@@ -442,7 +442,7 @@
   as.character(x)
 }
 
-#' Apply the route's pinned dtypes and documented columns (sdv-py `_finish`); a tibble.
+#' Apply the route's pinned dtypes and documented columns (sportsdataverse-py `_finish`); a tibble.
 #' @noRd
 .fiba_finish <- function(cols, route) {
   pinned <- .FIBA_DTYPES[[route]]

@@ -355,7 +355,7 @@ The columns of \code{\link[=fiba_gamepage_pbp]{fiba_gamepage_pbp()}}:\tabular{ll
    order \tab integer \tab Sort key within the period (OVR: 1, 2, ...; FLS: 1000, 2000, ...); null on some period events. \cr
    clock \tab character \tab Game clock: time REMAINING in the period, 'm:ss', counting down from 10:00 (5:00 in overtime). \cr
    clock_seconds \tab integer \tab Seconds remaining in the period, derived from clock. \cr
-   wall_time_ms \tab double \tab Wall-clock time of the action, Unix epoch milliseconds. (Int64 in sdv-py; numeric here, the values exceed R's 32-bit integer range) \cr
+   wall_time_ms \tab double \tab Wall-clock time of the action, Unix epoch milliseconds. (Int64 in sportsdataverse-py; numeric here, the values exceed R's 32-bit integer range) \cr
    score_a \tab integer \tab Team A score after the action. \cr
    score_b \tab integer \tab Team B score after the action. \cr
    action_code \tab character \tab Action code: P2 two-point shot, P3 three-point shot, FT free throw, REB rebound, TREB team rebound, ASS assist, ST steal, BS block, TO turnover, TTO team turnover, FOUL foul, RFOUL foul drawn, SUBST substitution, TIMO timeout, plus period events (STARTG, STARTP, ENDP, ENDG). \cr
@@ -404,10 +404,10 @@ The columns of \code{\link[=fiba_gamepage_shots]{fiba_gamepage_shots()}}:\tabula
 }
 }
 \description{
-Per-competition aliases of the FIBA wrappers for FIBA Women's AmeriCup (GDAP competition family 303), named as in sdv-py. Season rule: event year (2025 = 2025).
+Per-competition aliases of the FIBA wrappers for FIBA Women's AmeriCup (GDAP competition family 303), named as in sportsdataverse-py. Season rule: event year (2025 = 2025).
 }
 \details{
-FIBA's terms restrict this source: the GDAP developer-portal terms limit API use to 'Authorized Users' and the fiba.basketball terms say no portion of the site may be duplicated, redistributed or manipulated. The package owner reviewed both clauses on 2026-10-12, accepted them and approved the full intake, published data releases included. Users who are not themselves authorised by FIBA should check the terms before using the wrappers. See \code{\link[=fiba_gdap_awards]{fiba_gdap_awards()}} for the shared notes.
+FIBA's terms restrict this source: the GDAP developer-portal terms limit API use to 'Authorized Users' and the fiba.basketball terms say no portion of the site may be duplicated, redistributed or manipulated. Users who are not themselves authorised by FIBA should check the terms before using the wrappers. See \code{\link[=fiba_gdap_awards]{fiba_gdap_awards()}} for the shared notes.
 
 A \code{comp} of another competition family, or one GDAP gives no family, is \code{wehoop_asset_fetch}; a season with no edition is \code{wehoop_no_data}; a season listing several editions, or a game function called with neither \code{season} nor \code{comp}, is \code{wehoop_bad_request}.
 

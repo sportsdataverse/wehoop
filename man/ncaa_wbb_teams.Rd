@@ -47,8 +47,9 @@ cloud IP ranges regardless of headers. If you hit that block, supply a
 proxy that egresses from a non-blocked address — pass \verb{proxy =}
 directly via \code{...} (forwarded to \code{.retry_request()}), or set it once
 with \code{options(wehoop.proxy = list(url=, port=, username=, password=))}.
-See the wehoop CLAUDE.md / pkgdown docs for the full proxy resolution
-order.
+Proxy resolution order: the \code{proxy} argument, then
+\code{getOption("wehoop.proxy")}, then the \code{http_proxy} / \code{https_proxy}
+environment variables.
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_wbb_teams(year = 2025, division = 1)

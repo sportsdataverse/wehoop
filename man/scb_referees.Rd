@@ -12,7 +12,7 @@ that needs more pages is refused.}
 }
 \value{
 A \code{wehoop_data} tibble: Current referees and commissioners (BBL only). An empty valid answer raises
-\code{wehoop_no_data}; the columns are always these, in this order (sdv-py \code{scb_referees}):\tabular{lll}{
+\code{wehoop_no_data}; the columns are always these, in this order (sportsdataverse-py \code{scb_referees}):\tabular{lll}{
    col_name \tab type \tab description \cr
    league \tab character \tab League the row belongs to: \code{bbl} (men) or \code{dbbl} (women); BBL and DBBL game ids overlap, so a game is (league, game_id). \cr
    referee_id \tab character \tab Official id (\code{refId}, equal to the API's \code{id}); joins \code{referee1_id} .. \code{commissioner_id} of \code{scb_games}. \cr
@@ -34,9 +34,8 @@ Endpoint: \verb{GET https://api.basketball-bundesliga.de/referees}
 (easycredit-bbl.de, toyota-dbbl.de), run by SCB; payloads are not redistributed as release assets.
 \item Legal notice: the BBL Impressum forbids storing BBL content (\code{Inhalte}) in an information system without
 BBL's written permission. That is a copyright term, not a robots rule (the API host has no robots.txt).
-The owner reviewed it and accepted the intake (2026-10-12 ruling); keep requests slow (the runtime waits
-at least 1 s per host) and raise any published data release with the owner. The DBBL host is the same
-operator and API; its site notice was not separately reviewed.
+Keep requests slow (the runtime waits at least 1 s per host) and check the notice before you republish
+the data. The DBBL host is the same operator and API; check its own site notice as well.
 \item Both hosts need two headers: a constant \code{x-api-key} and an \code{x-api-secret} that rotates. The runtime
 derives the secret on first use from the key embedded in an easycredit-bbl.de page (reversed, \code{:} turned
 into \code{-}) and never logs or returns it. The derivation was reverse-engineered from observed requests and

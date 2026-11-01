@@ -1,8 +1,7 @@
 # NCAA WBB release-dataset loaders -- thin wrappers around rds_from_url()
 # mirroring the wnba_stats_* loader shape in load_wnba_stats.R. Backed by
 # the sdv-py `ncaa_wbb` engine's published output on the `ncaa_wbb_*`
-# sportsdataverse-data release tags (see CLAUDE.md's ncaa-hoops-engine-extraction
-# note for the engine's origin).
+# sportsdataverse-data release tags.
 
 #' @title
 #' **Load cleaned NCAA women's college basketball play-by-play from the data repo**
@@ -11,7 +10,7 @@
 #' @description Loads season-level NCAA women's college basketball
 #'   play-by-play. One row per event, with reconstructed 5-man lineups,
 #'   possession numbering, shot context (transition/paint/second-chance), and
-#'   an ESPN game-id crosswalk. Produced by the sdv-py `ncaa_wbb` engine
+#'   an ESPN game-id crosswalk. Produced by the sportsdataverse-py `ncaa_wbb` engine
 #'   (stats.ncaa.org play-by-play parsed, cleaned, and enriched); backed by
 #'   the `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_pbp`
 #'   release tag as csv.gz/parquet/rds.
@@ -168,7 +167,7 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
 #'   zone, and made/missed result. Coordinates are only available from the
 #'   2019 season onward (stats.ncaa.org did not publish shot-location data
 #'   before then), so `seasons` has a 2019 floor even though most sibling NCAA
-#'   WBB datasets start at 2010. Produced by the sdv-py `ncaa_wbb` engine;
+#'   WBB datasets start at 2010. Produced by the sportsdataverse-py `ncaa_wbb` engine;
 #'   backed by the `ncaa-wbb-hoops-data` pipeline, published to the
 #'   `ncaa_wbb_shots` release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -258,7 +257,7 @@ NULL
 #'   college basketball -- one row per contiguous stretch a specific 5-player
 #'   lineup was on court for a team, with on/off scoring, shooting, and
 #'   rebounding splits plus the matching opponent (`opp_*`) splits. Produced
-#'   by the sdv-py `ncaa_wbb` engine's lineup reconstructor; backed by the
+#'   by the sportsdataverse-py `ncaa_wbb` engine's lineup reconstructor; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_lineups`
 #'   release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -403,7 +402,7 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
 #'   lineup crossed with the away 5-man lineup) for NCAA women's college
 #'   basketball -- one row per contiguous stretch both lineups were on court
 #'   together, with the score at stint start/end and both team's lineup
-#'   rosters. Produced by the sdv-py `ncaa_wbb` engine's lineup reconstructor;
+#'   rosters. Produced by the sportsdataverse-py `ncaa_wbb` engine's lineup reconstructor;
 #'   backed by the `ncaa-wbb-hoops-data` pipeline, published to the
 #'   `ncaa_wbb_matchup_stints` release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -504,7 +503,7 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
 #'   basketball -- one row per offensive possession, with the on-court 5-man
 #'   lineups for both teams, points scored, assist/transition/garbage-time
 #'   flags, and the possession's first and last event types. Produced by the
-#'   sdv-py `ncaa_wbb` engine's possession detector; backed by the
+#'   sportsdataverse-py `ncaa_wbb` engine's possession detector; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_possessions`
 #'   release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -628,7 +627,7 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
 #'   ratings for NCAA women's college basketball -- one row per
 #'   player-team-season, fit against teammate lineup variation within that
 #'   team's own possessions (not a cross-team national RAPM). Produced by the
-#'   sdv-py `ncaa_wbb` engine's RAPM model on top of the reconstructed
+#'   sportsdataverse-py `ncaa_wbb` engine's RAPM model on top of the reconstructed
 #'   lineup/possession data; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_rapm_within_team` release tag as
 #'   csv.gz/parquet/rds.
@@ -708,7 +707,7 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
 #'   ratings for NCAA women's college basketball -- one row per
 #'   player-season, fit against lineup variation across all Division I
 #'   stints for that season (not a within-team RAPM). Produced by the
-#'   sdv-py `ncaa_wbb` engine's league-wide stint-ridge RAPM solver
+#'   sportsdataverse-py `ncaa_wbb` engine's league-wide stint-ridge RAPM solver
 #'   (Torvik-gated to Division I teams) on top of the reconstructed
 #'   lineup/possession data; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_rapm` release tag as csv.gz/parquet/rds.
@@ -794,7 +793,7 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
 #'   assisted-vs-unassisted splits, and shot-zone efficiency rates. A superset
 #'   of the traditional box score
 #'   (points/rebounds/assists/steals/blocks/turnovers/fouls are included
-#'   alongside the advanced splits). Produced by the sdv-py `ncaa_wbb` engine;
+#'   alongside the advanced splits). Produced by the sportsdataverse-py `ncaa_wbb` engine;
 #'   backed by the `ncaa-wbb-hoops-data` pipeline, published to the
 #'   `ncaa_wbb_player_box` release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -987,7 +986,7 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
 #'   college basketball -- one row per team-game, with offensive/defensive
 #'   ratings, shot-zone rates and efficiency (rim/mid/3),
 #'   rebounding/assist/turnover rates, and the matching opponent (`d_*`)
-#'   splits. Produced by the sdv-py `ncaa_wbb` engine; backed by the
+#'   splits. Produced by the sportsdataverse-py `ncaa_wbb` engine; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_team_box`
 #'   release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -1135,7 +1134,7 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
 #' @description Loads a lightweight season roster for NCAA women's college
 #'   basketball -- one row per player-team-season with a games-played count.
 #'   For the fuller roster (jersey, class, position, height, hometown, high
-#'   school), use [load_ncaa_wbb_team_rosters()]. Produced by the sdv-py
+#'   school), use [load_ncaa_wbb_team_rosters()]. Produced by the sportsdataverse-py
 #'   `ncaa_wbb` engine; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_rosters` release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -1204,7 +1203,7 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
 #' @description Loads the full season roster for NCAA women's college
 #'   basketball -- one row per player-team-season with jersey number, class
 #'   year, position, height, hometown, high school, and games played/started.
-#'   Produced by the sdv-py `ncaa_wbb` engine; backed by the
+#'   Produced by the sportsdataverse-py `ncaa_wbb` engine; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_team_rosters`
 #'   release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -1286,7 +1285,7 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
 #' @author Saiem Gilani
 #' @description Loads season schedules/results for NCAA women's college
 #'   basketball -- one row per game with home/away teams and final scores.
-#'   Produced by the sdv-py `ncaa_wbb` engine; backed by the
+#'   Produced by the sportsdataverse-py `ncaa_wbb` engine; backed by the
 #'   `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_schedule`
 #'   release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's
@@ -1358,7 +1357,7 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
 #' @description Loads the season-level stats.ncaa.org team-id / conference
 #'   crosswalk for NCAA women's college basketball -- one row per team-season.
 #'   Useful for joining `ncaa_team_id` columns on the other `ncaa_wbb_*`
-#'   datasets back to a team name and conference. Produced by the sdv-py
+#'   datasets back to a team name and conference. Produced by the sportsdataverse-py
 #'   `ncaa_wbb` engine; backed by the `ncaa-wbb-hoops-data` pipeline,
 #'   published to the `ncaa_wbb_team_ids` release tag as csv.gz/parquet/rds.
 #' @param seasons A vector of 4-digit season-ending years for NCAA women's

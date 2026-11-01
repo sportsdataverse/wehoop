@@ -129,7 +129,7 @@
 
 #' A list of strings as "a,b"; a string as it is. A list of objects (the `tvChannel` objects of
 #' /games/recent and /games/{gameId}) joins their `name`s. A null entry (or a null `name`) is skipped;
-#' nothing left is NULL (sdv-py `_join`, 38a22f936d onward).
+#' nothing left is NULL (sportsdataverse-py `_join`, 38a22f936d onward).
 #' @noRd
 .scb_join <- function(v) {
   if (.scb_is_array(v)) {
