@@ -1,0 +1,73 @@
+# Test coverage with covr. The repo has no CODECOV_TOKEN, so instead of uploading to
+# Codecov this writes the total to the job summary and keeps coverage.xml (Cobertura)
+# as an artifact. To switch to Codecov, add the token and a codecov/codecov-action step.
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+name: test-coverage
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-coverage-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-coverage:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      NOT_CRAN: true
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::covr, any::xml2
+          needs: coverage
+
+      - name: Test coverage
+        run: |
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+          )
+          pct <- sprintf("Total coverage: %.1f%%", covr::percent_coverage(cov))
+          message(pct)
+          cat("### ", pct, "\n", file = Sys.getenv("GITHUB_STEP_SUMMARY"), append = TRUE)
+          covr::to_cobertura(cov, filename = "coverage.xml")
+        shell: Rscript {0}
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-report
+          path: coverage.xml
+
+      - name: Show testthat output
+        if: always()
+        run: |
+          find "${RUNNER_TEMP}/package" -name 'testthat.Rout*' -exec cat '{}' \; || true
+        shell: bash
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-test-failures
+          path: ${{ runner.temp }}/package
