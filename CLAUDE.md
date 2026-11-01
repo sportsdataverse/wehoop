@@ -398,6 +398,8 @@ Tests are gated by source-specific env-var helpers in `tests/testthat/helper-ski
 | `OFFICIAL_NBA_TESTS=1` | Enable official.nba.com tests    | `skip_official_nba_test()` |
 | `WEHOOP_LOAD_TESTS=1` | Enable `load_*()` release-asset tests | (gated in `helper-skip.R`) |
 | `WEHOOP_INTL_LIVE_TESTS=1` | Enable international-family live tests | `skip_intl_live()` (`helper-intl.R`) |
+| `BREF_TESTS=1`        | Enable Basketball-Reference tests | `skip_bref_test()`        |
+| `TORVIK_TESTS=1`      | Enable Bart Torvik (T-Rank) tests | inline in `test-bart_wbb.R` |
 | `GENIUS_PROXY` | Proxy URL the Genius live tests need (datacenter IPs are refused) | `skip_intl_live("GENIUS_PROXY")` |
 
 `WEHOOP_LOAD_TESTS` is kept separate from the API gates because `load_*()`

@@ -229,11 +229,13 @@ Live tests are off unless you set the variable for the source you are testing (h
 | `OFFICIAL_NBA_TESTS=1` | official.nba.com tests | `skip_official_nba_test()` |
 | `WEHOOP_LOAD_TESTS=1` | `load_*()` release-asset tests (large downloads) | `skip_load_test()` |
 | `WEHOOP_INTL_LIVE_TESTS=1` | international-family live tests | `skip_intl_live()` |
+| `BREF_TESTS=1` | Basketball-Reference tests | `skip_bref_test()` |
+| `TORVIK_TESTS=1` | Bart Torvik (T-Rank) tests | inline check in `test-bart_wbb.R` |
 | `GENIUS_PROXY` | a proxy URL; the Genius live tests also need it | `skip_intl_live("GENIUS_PROXY")` |
 
 For example: `Sys.setenv(ESPN_TESTS = "1"); devtools::test(filter = "espn_wnba_pbp")`.
 
-**Note**: All API tests are skipped on CRAN (`skip_on_cran()`) and CI (`skip_on_ci()`) by default. They require network access and valid API responses.
+**Note**: Every live test is skipped on CRAN and on CI whatever the toggles say (`tests/testthat/helper-skip.R`), and an unset or empty toggle means skip. Run them locally. If your `~/.Renviron` sets any of these, unset them in the session (`Sys.unsetenv()`) for an offline run.
 
 ### Rate Limiting
 
@@ -241,14 +243,7 @@ The WNBA Stats API has rate limits similar to the NBA Stats API. Always add `Sys
 
 ## CI / GitHub Actions
 
-The repository uses GitHub Actions for R CMD check and pkgdown site deployment. The following secrets should be configured:
-
-| Secret | Used By | Description |
-|---|---|---|
-| `GITHUB_TOKEN` | All workflows | Auto-provided by GitHub |
-| `WNBA_STATS_TESTS` | R-CMD-check | Set to `1` to run the WNBA Stats API tests |
-| `ESPN_TESTS` | R-CMD-check | Set to `1` to run the ESPN tests |
-| `NCAA_WBB_TESTS` | R-CMD-check | Set to `1` to run the NCAA WBB tests |
+The repository uses GitHub Actions for R CMD check (release, oldrel and a non-blocking R-devel job), test coverage, a URL check, and pkgdown site deployment. `GITHUB_TOKEN` is the only secret the workflows need. R-CMD-check passes the `WNBA_STATS_TESTS`, `ESPN_TESTS` and `NCAA_WBB_TESTS` repository variables through, but live tests skip on CI regardless (see above).
 
 ## Reporting Issues
 
