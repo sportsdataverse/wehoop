@@ -470,9 +470,6 @@ year_to_season <- function(year) {
 utils::globalVariables(c("where"))
 
 
-#' @keywords internal
-"_PACKAGE"
-
 `%c%` <- function(x,y){
   ifelse(!is.na(x),x,y)
 }
