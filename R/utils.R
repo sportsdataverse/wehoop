@@ -91,20 +91,20 @@ parquet_from_url <- function(url) {
 # only exists to hide the option `in_builder` in dots
 message_completed <- function(x, in_builder = FALSE) {
   if (!in_builder) {
-    usethis::ui_done("{usethis::ui_field(x)}")
+    cli::cli_alert_success("{.field {x}}")
   } else if (in_builder) {
-    usethis::ui_done(x)
+    cli::cli_alert_success("{x}")
   }
 }
 user_message <- function(x, type) {
   if (type == "done") {
-    usethis::ui_done("{my_time()} | {x}")
+    cli::cli_alert_success("{my_time()} | {x}")
   } else if (type == "todo") {
-    usethis::ui_todo("{my_time()} | {x}")
+    cli::cli_ul("{my_time()} | {x}")
   } else if (type == "info") {
-    usethis::ui_info("{my_time()} | {x}")
+    cli::cli_alert_info("{my_time()} | {x}")
   } else if (type == "oops") {
-    usethis::ui_oops("{my_time()} | {x}")
+    cli::cli_alert_danger("{my_time()} | {x}")
   }
 }
 
@@ -472,10 +472,6 @@ utils::globalVariables(c("where"))
 
 #' @keywords internal
 "_PACKAGE"
-
-#' @importFrom Rcpp getRcppVersion
-#' @importFrom RcppParallel defaultNumThreads
-NULL
 
 `%c%` <- function(x,y){
   ifelse(!is.na(x),x,y)

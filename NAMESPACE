@@ -754,8 +754,6 @@ export(year_to_season)
 import(dplyr)
 import(rvest)
 import(utils)
-importFrom(Rcpp,getRcppVersion)
-importFrom(RcppParallel,defaultNumThreads)
 importFrom(data.table,
   data.table,
   fread,

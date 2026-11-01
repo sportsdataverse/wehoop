@@ -8,10 +8,18 @@ Authors@R: c(
   )
 Description: A utility for working with women's basketball data. A
     scraping and aggregating interface for the WNBA Stats API
-    <https://stats.wnba.com/> and ESPN's women's
-    college basketball and WNBA statistics. It provides users with the
-    capability to access the game play-by-plays, box scores, standings and
-    results to analyze the data for themselves.
+    <https://stats.wnba.com/>, ESPN's women's college basketball and WNBA
+    statistics, NCAA women's basketball statistics, Fox Sports,
+    Basketball-Reference, Her Hoop Stats, Barttorvik and the WNBA referee
+    assignments published by the NBA officiating site. It also reads
+    international women's basketball: FIBA competitions, Spain's FEB
+    leagues, Germany's DBBL, Japan's W League, Australia's WNBL, the
+    Turkish Basketball Federation leagues and leagues served by Genius
+    Sports and Sportradar Atrium. Loaders read pre-scraped play-by-play,
+    box score, schedule and model datasets from the 'SportsDataverse' data
+    releases. It provides users with the capability to access the game
+    play-by-plays, box scores, standings and results to analyze the data
+    for themselves.
 License: MIT + file LICENSE
 URL: https://wehoop.sportsdataverse.org,
     https://github.com/sportsdataverse/wehoop
@@ -28,8 +36,6 @@ Imports:
     lifecycle,
     progressr (>= 0.6.0),
     purrr (>= 1.0.0),
-    Rcpp (>= 1.0.7),
-    RcppParallel (>= 5.1.4),
     rlang (>= 1.0.0),
     rvest (>= 1.0.0),
     stringi (>= 1.7.0),
@@ -58,8 +64,7 @@ Suggests:
     stringdist (>= 0.9.0),
     testthat (>= 3.1.9),
     tibble (>= 3.0),
-    tictoc,
-    usethis (>= 1.6.0)
+    tictoc
 Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
