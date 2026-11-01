@@ -262,13 +262,12 @@ Returns a named list of data frames: HustleStatsAvailable, PlayerStats, TeamStat
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
 }
 \description{
-\strong{Get WNBA Stats API Boxscore Summary V2}
+\strong{Get WNBA Stats API Boxscore Summary V2 and Boxscore Player Tracking V2}
 
-\strong{Get WNBA Stats API Boxscore Player Tracking V2}
-
-\strong{Get WNBA Stats API Boxscore Player Tracking V2}
-
-\strong{Get WNBA Stats API Hustle Stats Boxscore}
+\code{wnba_hustlestatsboxscore()} is defunct since wehoop 3.0.0: the
+WNBA Stats endpoint no longer returns data, so it raises an error.
+It stays exported for now and will be removed in a future release
+(no earlier than 3.2.0).
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_boxscoresummaryv2(game_id = "1022200034")

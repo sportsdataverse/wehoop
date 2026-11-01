@@ -45,7 +45,7 @@
 #'   [genius_competition_games()]), e.g. 2902690.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -129,7 +129,7 @@ genius_game <- function(match_id, return_parsed = TRUE) {
 #'   [genius_competition_games()]), e.g. 2902690.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -249,7 +249,7 @@ genius_team_box <- function(match_id, return_parsed = TRUE) {
 #'   [genius_competition_games()]), e.g. 2902690.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -359,7 +359,7 @@ genius_player_box <- function(match_id, return_parsed = TRUE) {
 #'   [genius_competition_games()]), e.g. 2902690.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -447,7 +447,7 @@ genius_pbp <- function(match_id, return_parsed = TRUE) {
 #'   [genius_competition_games()]), e.g. 2902690.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -515,7 +515,7 @@ genius_shots <- function(match_id, return_parsed = TRUE) {
 #'   [genius_competitions()]), e.g. 49915.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -599,7 +599,7 @@ genius_competition_games <- function(comp_id, return_parsed = TRUE) {
 #'   [genius_competition_games()]), e.g. 2902690.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -659,7 +659,7 @@ genius_match_competition <- function(org, match_id, return_parsed = TRUE) {
 #' @param org Genius ORG code of the league (ESAKE, CEBL, BNXT, SLB, ...); see [genius_competitions()].
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -728,7 +728,7 @@ genius_competitions <- function(org, return_parsed = TRUE) {
 #' @param round_number Round to list; -1 (default) lists every round of the competition.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -809,7 +809,7 @@ genius_schedule <- function(org, comp_id, round_number = -1, return_parsed = TRU
 #' @param round_number Round to list; -1 (default) lists every round of the competition.
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -884,7 +884,7 @@ genius_schedule_embed <- function(org, comp_id, round_number = -1, return_parsed
 #'   `widget.wh.geniussports.com/widget/`), e.g. `"RFJIN037I07QV520B7WEXKV1GYNA31"` (ESAKE).
 #' @param return_parsed Parse into a tibble (default `TRUE`); `FALSE` returns the parsed body or
 #'   page record (a list): `data.json` as served plus `_request` (the ids asked for), or the
-#'   sdv-internal-refs capture shape of a page.
+#'   record extracted from an HTML page.
 #' @return A `wehoop_data` tibble (a zero-row tibble with these columns when Genius answers
 #'   an empty valid page), or the raw list when `return_parsed = FALSE`:
 #'
@@ -1008,7 +1008,7 @@ genius_team_crosswalk <- function(df, source) {
   sportality_players = c("info_team_uuid", "info_team_id")
 )
 
-#' Distinct non-NA `(left, right)` pairs; types asserted; one-to-one both ways (sdv-py `_pairs`).
+#' Distinct non-NA `(left, right)` pairs; types asserted; one-to-one both ways (sportsdataverse-py `_pairs`).
 #' @noRd
 .genius_pairs <- function(df, left, right, types, label, call = rlang::caller_env()) {
   if (!is.data.frame(df)) {

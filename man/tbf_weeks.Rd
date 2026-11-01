@@ -17,7 +17,7 @@ The top flight was named TBL until 2007-08 and is listed under bsl. Default \cod
 \value{
 A \code{wehoop_data} tibble. One row per week in play order; \code{week} is the value the schedule and standings take.
 Every column below is always present (a zero-row tibble keeps them and their types); an answer
-with nothing in it raises \code{wehoop_no_data}, as in sdv-py.\tabular{lll}{
+with nothing in it raises \code{wehoop_no_data}, as in sportsdataverse-py.\tabular{lll}{
    col_name \tab type \tab description \cr
    activity_id \tab integer \tab Activity id of the request's league-season (key space: TBF league-seasons). \cr
    season \tab integer \tab Season END year of the request (2027 = 2026-2027). \cr

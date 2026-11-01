@@ -4,8 +4,7 @@
 # Fox's layout JSON (sections -> tables -> rows -> cells) into tidy wehoop
 # tibbles. Basketball play-by-play is period-based (QUARTER/HALF -> plays).
 # WNBA uses the `wnba` slug; women's college basketball (WBB) uses the `wcbk`
-# slug. Reverse-engineering notes + an OpenAPI spec live in the
-# sdv-internal-refs repo.
+# slug.
 
 # Fox's public Bifrost apikey. Resolvable from `getOption("wehoop.fox_data_key")`
 # or the `WEHOOP_FOX_DATA_KEY` env var, with the literal as the final fallback.

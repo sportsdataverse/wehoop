@@ -8,13 +8,12 @@
   "* Unofficial and unsupported: these wrappers read the JSON backend of www.wjbl.org (api.wjbl.01core.app),",
   "  keyless, found in the site's own JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid",
   "  reproducing, republishing or otherwise using site content without permission: a copyright clause, not an",
-  "  anti-scraping one. The wrappers fetch on the user's behalf; a published data release or a hosted mirror needs",
-  "  the owner's decision first. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is",
+  "  anti-scraping one. The wrappers fetch on the user's behalf; check the terms before you republish the data",
+  "  or host a mirror. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is",
   "  published; the runtime waits at least 1 s before every request, retries included. Payloads are not",
   "  redistributed as release assets.",
-  "* Women's league: the W League is Japan's top women's basketball league (the SportsDataverse R counterpart is",
-  "  wehoop). All text is Japanese (team names, phases, play-by-play actions); the column descriptions translate",
-  "  the vocabulary.",
+  "* Women's league: the W League is Japan's top women's basketball league. All text is Japanese (team names,",
+  "  phases, play-by-play actions); the column descriptions translate the vocabulary.",
   "* Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys a season edition by an opaque league_id",
   "  (45 = '25-26 W League'; every all-star game, cup and camp has one too) and the wrappers map the END year with",
   "  the live league list (one extra, cached request; END = 2000 + the second YY of league_title). Phases inside an",
@@ -50,7 +49,7 @@
 #' Endpoint: `GET https://api.wjbl.01core.app/api/leagues`
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_leagues`):
+#'   (sportsdataverse-py `wjbl_leagues`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -80,7 +79,7 @@ wjbl_leagues <- function() {
 #'   (league_id) with the live league list (wjbl_leagues, one extra cached request).
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_game_months`):
+#'   (sportsdataverse-py `wjbl_game_months`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -115,7 +114,7 @@ wjbl_game_months <- function(season) {
 #'   Antelopes). Narrows the month to that team's games.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_schedule`):
+#'   (sportsdataverse-py `wjbl_schedule`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -183,7 +182,7 @@ wjbl_schedule <- function(season, game_month = NULL, team_id = NULL) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_game`):
+#'   (sportsdataverse-py `wjbl_game`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -247,7 +246,7 @@ wjbl_game <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_period_scores`):
+#'   (sportsdataverse-py `wjbl_period_scores`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -277,7 +276,7 @@ wjbl_period_scores <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_game_info`):
+#'   (sportsdataverse-py `wjbl_game_info`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -352,7 +351,7 @@ wjbl_game_info <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_box_score`):
+#'   (sportsdataverse-py `wjbl_box_score`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -404,7 +403,7 @@ wjbl_box_score <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_team_box_score`):
+#'   (sportsdataverse-py `wjbl_team_box_score`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -457,7 +456,7 @@ wjbl_team_box_score <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_pbp`):
+#'   (sportsdataverse-py `wjbl_pbp`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -510,7 +509,7 @@ wjbl_pbp <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_team_period_stats`):
+#'   (sportsdataverse-py `wjbl_team_period_stats`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -561,7 +560,7 @@ wjbl_team_period_stats <- function(play_schedule_id) {
 #'   only). The game must be final.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_player_period_leaders`):
+#'   (sportsdataverse-py `wjbl_player_period_leaders`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -599,7 +598,7 @@ wjbl_player_period_leaders <- function(play_schedule_id) {
 #' Endpoint: `GET https://api.wjbl.01core.app/api/seasons/standings`
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_standing_seasons`):
+#'   (sportsdataverse-py `wjbl_standing_seasons`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -634,7 +633,7 @@ wjbl_standing_seasons <- function() {
 #'   divisions).
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_team_standings`):
+#'   (sportsdataverse-py `wjbl_team_standings`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -677,7 +676,7 @@ wjbl_team_standings <- function(season_ids) {
 #'   divisions).
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_head_to_head`):
+#'   (sportsdataverse-py `wjbl_head_to_head`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -708,7 +707,7 @@ wjbl_head_to_head <- function(season_ids) {
 #'   divisions).
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_team_ranking`):
+#'   (sportsdataverse-py `wjbl_team_ranking`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -762,7 +761,7 @@ wjbl_team_ranking <- function(season_ids) {
 #' Endpoint: `GET https://api.wjbl.01core.app/api/teams/base`
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_teams`):
+#'   (sportsdataverse-py `wjbl_teams`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -789,7 +788,7 @@ wjbl_teams <- function() {
 #'   division).
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_roster`):
+#'   (sportsdataverse-py `wjbl_roster`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -836,7 +835,7 @@ wjbl_roster <- function(team_id, season_id = NULL) {
 #'   division).
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_staff`):
+#'   (sportsdataverse-py `wjbl_staff`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|
@@ -869,7 +868,7 @@ wjbl_staff <- function(team_id, season_id = NULL) {
 #'   9799.
 #' @return
 #' A `wehoop_data` tibble, one row per record; the columns are always these, in this order
-#'   (sdv-py `wjbl_player`):
+#'   (sportsdataverse-py `wjbl_player`):
 #'
 #' | col_name | type | description |
 #' |:---|:---|:---|

@@ -87,24 +87,130 @@ parquet_from_url <- function(url) {
   return(load)
 }
 
+# Read a release `.rds` asset, or its `.parquet` sibling when the season was
+# published as parquet only (a few WBB and WNBA seasons; needs arrow).
+rds_or_parquet_from_url <- function(url) {
+  out <- suppressWarnings(rds_from_url(url))
+  if (ncol(out) == 0 && is_installed("arrow")) {
+    out <- suppressWarnings(parquet_from_url(sub("\\.rds$", ".parquet", url)))
+  }
+  if (ncol(out) == 0) {
+    warning(paste0("Failed to read <", url, "> (or its .parquet sibling",
+                   if (!is_installed("arrow")) ", which needs the arrow package", ")"),
+            call. = FALSE)
+  }
+  out
+}
+
+# ESPN ids are integer in the box score and schedule releases, but a few assets
+# publish some as character (WNBA game_rosters / officials game_id, rosters
+# athlete_id, the WNBA crosswalk wnba_* ids). Cast them back so joins line up.
+# A value that is not a whole number (anything but NA or "") warns.
+.ids_as_integer <- function(df, cols) {
+  for (k in intersect(cols, names(df))) {
+    x <- df[[k]]
+    if (is.integer(x)) next
+    out <- suppressWarnings(as.integer(x))
+    lost <- is.na(out) & !is.na(x) & !(as.character(x) %in% "")
+    if (any(lost)) {
+      cli::cli_warn(c(
+        "Column {.field {k}}: {sum(lost)} value{?s} could not be read as an integer id and became {.val NA}.",
+        "i" = "First: {.val {utils::head(unique(as.character(x[lost])), 3)}}."
+      ))
+    }
+    data.table::set(df, j = k, value = out)
+  }
+  df
+}
+
+# TRUE unless the release asset answers 404 (a network failure counts as TRUE,
+# so the loader goes on and reports the failed read as before).
+.release_asset_exists <- function(url) {
+  status <- tryCatch(
+    httr2::request(url) |>
+      httr2::req_method("HEAD") |>
+      httr2::req_timeout(15) |>
+      httr2::req_error(is_error = function(resp) FALSE) |>
+      httr2::req_perform() |>
+      httr2::resp_status(),
+    error = function(e) NA_integer_
+  )
+  !identical(as.integer(status), 404L)
+}
+
+# Validate `seasons` for a release loader against the seasons its release tag
+# publishes (`first`..`last` minus `gaps`, read off the release assets);
+# `seasons = TRUE` expands to every published season.
+#
+# The newest season's file appears only once its first games are published
+# (WBB: October to November). When the loader was called with its default
+# season (`default = missing(seasons)`) and `url_for(last)` answers 404 (and,
+# with `parquet = TRUE`, so does its `.parquet` sibling), the loader falls back
+# to the newest published season with a message. An explicit request for that
+# season is kept as asked, so the read warns and returns an empty frame.
+.loader_seasons <- function(seasons, first, last, gaps = NULL, fn, url_for = NULL,
+                            default = FALSE, parquet = FALSE) {
+  force(default)
+  last <- as.integer(last)
+  avail <- setdiff(first:last, gaps)
+  newest_missing <- local({
+    ans <- NULL
+    function() {
+      if (is.null(ans)) {
+        ans <<- !is.null(url_for) && last %in% avail &&
+          !.release_asset_exists(url_for(last)) &&
+          !(parquet && .release_asset_exists(sub("\\.rds$", ".parquet", url_for(last))))
+      }
+      ans
+    }
+  })
+  if (isTRUE(seasons)) {
+    if (newest_missing()) avail <- setdiff(avail, last)
+    return(avail)
+  }
+  if (!is.numeric(seasons) || length(seasons) == 0 || anyNA(seasons) || !all(seasons %in% avail)) {
+    shown <- if (newest_missing()) setdiff(avail, last) else avail
+    brk <- c(0, which(diff(shown) != 1), length(shown))
+    ranges <- vapply(seq_len(length(brk) - 1), function(i) {
+      a <- shown[brk[i] + 1]
+      b <- shown[brk[i + 1]]
+      if (a == b) as.character(a) else paste0(a, "-", b)
+    }, character(1))
+    cli::cli_abort(c(
+      "{.fn {fn}}: {.arg seasons} must be seasons published to the release.",
+      "i" = "Published seasons: {paste(ranges, collapse = ', ')}.",
+      "x" = "You requested: {paste(seasons, collapse = ', ')}."
+    ))
+  }
+  if (isTRUE(default) && length(seasons) == 1 && seasons == last && newest_missing()) {
+    prev <- avail[avail < last]
+    if (length(prev) > 0) {
+      prev <- max(prev)
+      cli::cli_inform(c("i" = "{.fn {fn}}: season {last} is not published yet; loading {prev} instead."))
+      seasons <- prev
+    }
+  }
+  seasons
+}
+
 # The function `message_completed` to create the green "...completed" message
 # only exists to hide the option `in_builder` in dots
 message_completed <- function(x, in_builder = FALSE) {
   if (!in_builder) {
-    usethis::ui_done("{usethis::ui_field(x)}")
+    cli::cli_alert_success("{.field {x}}")
   } else if (in_builder) {
-    usethis::ui_done(x)
+    cli::cli_alert_success("{x}")
   }
 }
 user_message <- function(x, type) {
   if (type == "done") {
-    usethis::ui_done("{my_time()} | {x}")
+    cli::cli_alert_success("{my_time()} | {x}")
   } else if (type == "todo") {
-    usethis::ui_todo("{my_time()} | {x}")
+    cli::cli_ul("{my_time()} | {x}")
   } else if (type == "info") {
-    usethis::ui_info("{my_time()} | {x}")
+    cli::cli_alert_info("{my_time()} | {x}")
   } else if (type == "oops") {
-    usethis::ui_oops("{my_time()} | {x}")
+    cli::cli_alert_danger("{my_time()} | {x}")
   }
 }
 
@@ -146,11 +252,8 @@ custom_mode <- function(x, na.rm = TRUE) {
 #' most_recent_wbb_season()
 #' @export
 most_recent_wbb_season <- function() {
-  ifelse(
-    as.double(substr(Sys.Date(), 6, 7)) >= 10,
-    as.double(substr(Sys.Date(), 1, 4)) + 1,
-    as.double(substr(Sys.Date(), 1, 4))
-  )
+  today <- as.POSIXlt(Sys.Date())
+  as.integer(today$year + 1900L + (today$mon >= 9L))
 }
 
 #' Most Recent WNBA Season
@@ -165,11 +268,8 @@ most_recent_wbb_season <- function() {
 #' most_recent_wnba_season()
 #' @export
 most_recent_wnba_season <- function() {
-  ifelse(
-    as.double(substr(Sys.Date(), 6, 7)) >= 5,
-    as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)) - 1
-  )
+  today <- as.POSIXlt(Sys.Date())
+  as.integer(today$year + 1900L - (today$mon < 4L))
 }
 
 #' Most Recent WNBA Stats API Season
@@ -469,13 +569,6 @@ year_to_season <- function(year) {
 #' @import utils
 utils::globalVariables(c("where"))
 
-
-#' @keywords internal
-"_PACKAGE"
-
-#' @importFrom Rcpp getRcppVersion
-#' @importFrom RcppParallel defaultNumThreads
-NULL
 
 `%c%` <- function(x,y){
   ifelse(!is.na(x),x,y)

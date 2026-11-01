@@ -3,6 +3,11 @@
 NULL
 #' @title
 #' **Get WNBA Stats API Video Details**
+#' @description
+#' `wnba_videodetails()` and `wnba_videodetailsasset()` are defunct since wehoop 3.0.0: the
+#' WNBA Stats endpoint no longer returns data, so they raise an error.
+#' They stay exported for now and will be removed in a future release
+#' (no earlier than 3.2.0).
 #' @rdname wnba_videodetailsasset
 #' @author Saiem Gilani
 #' @param ahead_behind ahead_behind
@@ -132,7 +137,8 @@ wnba_videodetailsasset <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_videodetailsasset()",
-    with = "wnba_videoevents()"
+    with = "wnba_videoevents()",
+    details = "It will be removed in a future release (no earlier than 3.2.0)."
   )
 }
 
@@ -267,7 +273,8 @@ wnba_videodetails <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_videodetails()",
-    with = "wnba_videoevents()"
+    with = "wnba_videoevents()",
+    details = "It will be removed in a future release (no earlier than 3.2.0)."
   )
 }
 

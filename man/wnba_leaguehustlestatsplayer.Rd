@@ -393,15 +393,11 @@ TeamLooseBallLeaders, TeamScreenAssistLeaders
 Same columns as the \strong{Table5} table above.
 }
 \description{
-\strong{Get WNBA Stats API League Hustle Stats Player}
-
-\strong{Get WNBA Stats API League Hustle Stats Player}
-
-\strong{Get WNBA Stats API League Hustle Stats Player Leaders}
-
-\strong{Get WNBA Stats API League Hustle Stats Team}
-
-\strong{Get WNBA Stats API League Hustle Stats Team Leaders}
+\code{wnba_leaguehustlestatsplayer()}, \code{wnba_leaguehustlestatsplayerleaders()},
+\code{wnba_leaguehustlestatsteam()} and \code{wnba_leaguehustlestatsteamleaders()} are defunct since wehoop 3.0.0: the
+WNBA Stats endpoint no longer returns data, so they raise an error.
+They stay exported for now and will be removed in a future release
+(no earlier than 3.2.0).
 }
 \details{
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_leaguehustlestatsplayer(league_id = '10')

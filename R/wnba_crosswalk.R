@@ -366,7 +366,7 @@ NULL
 #' @importFrom purrr map list_rbind
 #' @export
 #' @family WNBA Crosswalk Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(wnba_player_crosswalk(season = 2024))
 #' }

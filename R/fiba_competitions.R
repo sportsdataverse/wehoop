@@ -33,7 +33,7 @@
   list(suffix = "shots", base = "fiba_gamepage_shots", kind = "game", what = "Shot chart of one game of")
 )
 
-#' The GDAP competition id of one edition (sdv-py `_fiba_comp`): `comp` as given (checked to be an
+#' The GDAP competition id of one edition (sportsdataverse-py `_fiba_comp`): `comp` as given (checked to be an
 #' edition of `family_id`), else the family's edition of `season` (the newest started one if NULL).
 #' @noRd
 .fiba_comp <- function(family_id, season, comp, label, game = FALSE, call = rlang::caller_env()) {
@@ -147,7 +147,7 @@
     paste0("@name ", prefix, "_competition"),
     paste0("@title **FIBA competition: ", e[["label"]], "**"),
     paste0("@description Per-competition aliases of the FIBA wrappers for ", e[["label"]],
-           " (GDAP competition family ", e[["ids"]][["family_id"]], "), named as in sdv-py. Season rule: ",
+           " (GDAP competition family ", e[["ids"]][["family_id"]], "), named as in sportsdataverse-py. Season rule: ",
            e[["season_rule"]], "."),
     paste0("@aliases ", paste(fns, collapse = " ")),
     paste0("@usage ", paste(usage, collapse = "\n\n")),
@@ -163,8 +163,7 @@
     "@details",
     paste0("FIBA's terms restrict this source: the GDAP developer-portal terms limit API use to 'Authorized ",
            "Users' and the fiba.basketball terms say no portion of the site may be duplicated, redistributed or ",
-           "manipulated. The package owner reviewed both clauses on 2026-10-12, accepted them and approved the ",
-           "full intake, published data releases included. Users who are not themselves authorised by FIBA ",
+           "manipulated. Users who are not themselves authorised by FIBA ",
            "should check the terms before using the wrappers. See [fiba_gdap_awards()] for the shared notes."),
     "",
     paste0("A `comp` of another competition family, or one GDAP gives no family, is `wehoop_asset_fetch`; a ",

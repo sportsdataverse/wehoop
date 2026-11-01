@@ -200,7 +200,7 @@
   )
 )
 
-#' Documented columns per endpoint, in order (sdv-py `_PARSER_COLUMNS`).
+#' Documented columns per endpoint, in order (sportsdataverse-py `_PARSER_COLUMNS`).
 #' @noRd
 .NBL_ROSETTA_COLUMNS <- list(
   seasons = c(

@@ -75,8 +75,9 @@ ncaa_wbb_NET_rankings <- function(){
 #' proxy that egresses from a non-blocked address — pass `proxy =`
 #' directly via `...` (forwarded to `.retry_request()`), or set it once
 #' with `options(wehoop.proxy = list(url=, port=, username=, password=))`.
-#' See the wehoop CLAUDE.md / pkgdown docs for the full proxy resolution
-#' order.
+#' Proxy resolution order: the `proxy` argument, then
+#' `getOption("wehoop.proxy")`, then the `http_proxy` / `https_proxy`
+#' environment variables.
 #'
 #' @param year The season for which data should be returned, in the form
 #'   of "YYYY". Years currently available: 2002 onward.

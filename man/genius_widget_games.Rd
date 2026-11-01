@@ -12,7 +12,7 @@ genius_widget_games(widget_key, return_parsed = TRUE)
 
 \item{return_parsed}{Parse into a tibble (default \code{TRUE}); \code{FALSE} returns the parsed body or
 page record (a list): \code{data.json} as served plus \verb{_request} (the ids asked for), or the
-sdv-internal-refs capture shape of a page.}
+record extracted from an HTML page.}
 }
 \value{
 A \code{wehoop_data} tibble (a zero-row tibble with these columns when Genius answers

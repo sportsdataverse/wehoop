@@ -1,74 +1,36 @@
 ## Release summary
 
-This is a major release (2.1.0 -> 3.0.0) that:
+This is a minor release (3.1.0) on top of 3.0.0 (CRAN, 2026-08-24). The
+full list of changes is in NEWS.md. The main additions:
 
-### New / restored functionality
+* International women's basketball: 8 new league families (FIBA, Genius
+  Sports, Sportradar Atrium, NBL / WNBL, the German DBBL, the Spanish FEB,
+  the Turkish Basketball Federation and Japan's W League) plus
+  per-competition shortcuts. Each family waits at least 1 s between
+  requests to a host and raises classed conditions (`wehoop_no_data`,
+  `wehoop_asset_fetch`, `wehoop_bad_request`) instead of returning an empty
+  result.
+* WNBA referee assignments from official.nba.com
+  (`wnba_referee_assignments()`), new conference and division membership
+  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends) and Fox
+  Sports, Basketball-Reference and crosswalk improvements.
+* Fixes for ESPN play-by-play running scores, past-season ESPN rosters,
+  `wnba_todays_scoreboard()` and the cdn.nba.com / cdn.wnba.com headers,
+  `wbb_team_crosswalk()` and `bart_wbb_ratings()`.
+* The release loaders accept exactly the seasons the data releases
+  publish, fall back to the newest published season when the current one
+  is not out yet, and return ESPN and WNBA Stats join ids as integer.
+* Dependencies: Rcpp and RcppParallel (unused; the package has no compiled
+  code) are no longer imported, usethis is no longer suggested (messages go
+  through cli, already imported), and glmnet and Matrix moved to Suggests.
 
-* Adds an `hhs_*()` family for Her Hoop Stats (herhoopstats.com), a *subscription*
-  women's-basketball statistics service. Mirrors the established credential-gated
-  scraper pattern (KenPom `kp_*` in hoopR): credentials are read from arguments /
-  options / env vars (`HERHOOPSTATS_EMAIL`/`HERHOOPSTATS_PW`) and never bundled.
-  Examples are `\dontrun{}` and tests skip unless credentials are present, so
-  `R CMD check` never performs a login. No new dependencies.
-* Adds a `bref_wnba_*()` family scraping WNBA data from basketball-reference.com/wnba
-  (`bref_wnba_player_stats()`, `bref_wnba_team_stats()`, `bref_wnba_standings()`) --
-  a deep historical source not previously covered. The two Sports-Reference scraping
-  quirks (comment-hidden tables; `data-stat`-keyed columns) are handled internally;
-  no new dependencies (`rvest`/`data.table`/`janitor` already in Imports).
-  `\donttest{}` examples, network-gated tests.
-* Adds V3 WNBA Stats API wrappers: `wnba_playbyplayv3()`, `wnba_boxscoresummaryv3()`, `wnba_boxscoreusagev3()`, plus a V3 → V2 compatibility pipeline used by `wnba_pbp()` that retains V2-compatible columns while adding V3-only columns (`x_legacy`, `y_legacy`, `shot_distance`, `shot_result`, `is_field_goal`, `points_total`, `shot_value`).
-* Adds 28 new bulk-data loaders backed by new `sportsdataverse-data` release tags, all following the existing `load_wnba_pbp()` shape (`(seasons, ..., dbConnection = NULL, tablename = NULL)`, `progressively()` decorator, optional DB write, `wehoop_data` class on the in-memory result):
-    * Rosters / per-player stats (8): `load_wbb_rosters()`, `load_wbb_player_stats()`, `load_wnba_rosters()`, `load_wnba_player_stats()`, `load_wnba_stats_rosters()`, `load_wnba_stats_coaches()`, `load_wnba_stats_player_stats()`, `load_wnba_stats_lineups()`.
-    * Team summaries / standings / draft (8): `load_wbb_team_stats()`, `load_wbb_standings()`, `load_wnba_team_stats()`, `load_wnba_standings()`, `load_wnba_draft()`, `load_wnba_stats_team_stats()`, `load_wnba_stats_standings()`, `load_wnba_stats_draft()`.
-    * Shot events / per-game rosters / game officials (9): `load_wbb_shots()`, `load_wbb_game_rosters()`, `load_wbb_officials()`, `load_wnba_shots()`, `load_wnba_game_rosters()`, `load_wnba_officials()`, `load_wnba_stats_shots()`, `load_wnba_stats_game_rosters()`, `load_wnba_stats_officials()`.
-    * WNBA Stats schedules + player game logs + play-by-play (3): `load_wnba_stats_schedule()`, `load_wnba_stats_player_game_logs()`, `load_wnba_stats_pbp()`, reading from the `wnba_stats_schedules`, `wnba_stats_player_game_logs` (new tag) and `wnba_stats_pbp` release tags populated by the rewritten `wehoop-wnba-stats-data/R/wnba_stats_01_pbp.R` pipeline (V3 PBP with on-court lineups supplied directly by `wnba_pbp()`, plus possession assignment, FT-to-foul attribution, garbage-time flag, and a master schedule build). All three are also wired into `update_wnba_stats_db()`.
-    * New `most_recent_wnba_stats_season()` helper (a thin wrapper around `most_recent_wnba_season()` for naming symmetry with the `wnba_stats_*` family).
-* Adds 17 further bulk-data loaders late in the release cycle, following the
-  same loader shape: a 13-function NCAA women's-basketball family
-  (`load_ncaa_wbb_pbp()`, `_shots()`, `_lineups()`, `_matchup_stints()`,
-  `_possessions()`, `_rapm()`, `_rapm_within_team()`, `_player_box()`,
-  `_team_box()`, `_rosters()`, `_team_rosters()`, `_schedule()`,
-  `_team_ids()`) reading stats.ncaa.org-derived datasets produced by the
-  companion `sportsdataverse-py` engine (wehoop ships loaders only — no new
-  scraping surface or dependencies), plus `load_wnba_stats_possessions()`,
-  `load_wnba_player_impact()`, `load_wbb_player_value()`, and
-  `load_wbb_ratings()`. All were verified live against the published release
-  assets, with returns documentation derived from the real files.
-* Rewrites `wnba_draftboard()` against the new upstream endpoint `https://content-api-prod.nba.com/public/1/leagues/wnba/draft/{season}/board` (the former `wnba.com/wp-json/api/v1/get_draft_board` endpoint no longer serves data). Returns a named list of two tibbles — `board` and `picks`.
+## Deprecations
 
-### Bug fixes
-
-* Migrates `wnba_schedule()` off the retired `stats.wnba.com/stats/scheduleleaguev2` endpoint to the public CDN at `cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json` (same payload schema; no authentication required). Historical seasons (CDN only serves the current season) emit a `cli::cli_alert_info` directing users at `load_wnba_schedule(seasons = ...)`.
-* `wnba_leaguegamelog()` default `league_id` switched from `'00'` (NBA) to `'10'` (WNBA), matching the rest of the package; the wrapper had been silently returning NBA data on every call without an explicit `league_id` argument. The outgoing query-string parameter order was also rearranged to put `LeagueID` first, because the WNBA Stats API as of 2026 returns a Cloudflare HTML error page for the alphabetical ordering but a populated `LeagueGameLog` for `LeagueID`-first.
-* Restores four wrappers (`wnba_playerprofilev2()`, `wnba_teaminfocommon()`, `wnba_teamyearbyyearstats()`, `wnba_leaguelineupviz()`) from `lifecycle::deprecate_stop()` to active. Their upstream endpoints had been returning empty result sets when the deprecation shims were added, but mid-season 2026 re-probing confirms the endpoints now return populated data (player profile: 15 result sets totalling 80+ rows for A'ja Wilson; team info: W/L + ranks + 76-season list; team year-by-year: 30 seasons; lineups: 458–4,169 5-player combinations with off/def/net ratings).
-* Corrects `.players_on_court()` quarter-length math to use 10-minute WNBA quarters (600 seconds per quarter, 2400 seconds of regulation) rather than the NBA 12-minute constants.
-* Fixes `espn_wbb_conferences()` against ESPN's dropped `subGroups` column by using `dplyr::select(-dplyr::any_of("subGroups"))`.
-* Fixes `ncaa_wbb_NET_rankings()` against NCAA.com's renamed `Conf`/`Prev` columns via `dplyr::rename(dplyr::any_of(c("conference" = "conf", "previous" = "prev")))`.
-* Initializes the return variable before `tryCatch` across ~124 WNBA and ESPN wrappers so an upstream API error now falls through to a `cli::cli_alert_danger` + empty list/data.frame instead of `object '<var>' not found`.
-* `.retry_request()` now uses `runif(1, 0.5, 1.5) * 2^i` backoff (same 3-try envelope) instead of fixed 2-second cadence, so concurrent users sharing the same rate-limited endpoint don't synchronize into a thundering-herd burst.
-* `wnba_pbp()` (V3) no longer degrades to all-`NA` on-court player columns
-  when the flaky upstream `gamerotation` endpoint fails mid-batch: it falls
-  back to substitution-event inference (the pre-V3 method) and warns with the
-  affected game id.
-* `espn_wbb_standings()` now requests ESPN's conference-grouped standings:
-  the flat league-level list silently omitted the six 2022-23 Division-I
-  newcomer programs (356 of 362 teams); the grouped view returns all 362 and
-  the result gains a `conference` column.
-* `espn_wnba_pbp()` / `espn_wbb_pbp()` no longer error on games whose plays
-  carry fewer (or more) participants than the previously hardcoded column
-  count; participant columns are named dynamically and padded to the
-  documented schema.
-* `...` is now genuinely forwarded to `DBI::dbWriteTable()` in every
-  `load_*()` loader that documents it (35 call sites), and three loaders that
-  documented an optional database write without performing it
-  (`load_wbb_player_core()`, `load_wnba_team_box()`, `load_wnba_player_core()`)
-  now perform it.
-* The internal ESPN season group-children fetch paginates instead of
-  truncating at the first 200 results.
-
-### Deprecations
-
-The following wrappers target WNBA Stats API endpoints that no longer return data. They use `lifecycle::deprecate_stop()`, and they are slated for removal in `wehoop 3.1.0`:
+The 3.0.0 cran-comments said the following defunct wrappers (they call
+`lifecycle::deprecate_stop()` because their WNBA Stats endpoints no longer
+return data) would be removed in 3.1.0. They stay exported in 3.1.0 to give
+users more notice; their error messages and help pages now say they will
+be removed in a future release, no earlier than 3.2.0:
 
 * `wnba_boxscorehustlev2()`
 * `wnba_hustlestatsboxscore()`
@@ -79,105 +41,48 @@ The following wrappers target WNBA Stats API endpoints that no longer return dat
 * `wnba_videodetails()`
 * `wnba_videodetailsasset()`
 
-Additionally, five wrappers whose endpoints were probe-confirmed dead in
-August 2026 (HTTP 200 with permanently empty result sets) now emit
-`lifecycle::deprecate_warn()` (introduced in this release, so `when = "3.0.0"`)
-while remaining callable: `wnba_videoevents()` and the four
-`wnba_draftcombine*()` wrappers (the WNBA has no draft-combine data upstream).
+## Examples
 
-### Test suite hardening
+* Examples that call stats.wnba.com or basketball-reference.com run only
+  in interactive sessions (`@examplesIf interactive()`): those hosts stall
+  or refuse requests from data-centre machines. This covers
+  `wnba_player_crosswalk()`, `wnba_shot_zones()` and the three
+  `bref_wnba_*()` functions.
+* The Her Hoop Stats examples are in `\dontrun{}`: the functions need a
+  paid subscription.
+* All other networked examples are in `\donttest{}` and wrapped in `try()`,
+  so they fail gracefully without network access. Many WNBA Stats wrappers
+  show their usage as a code block in `@details` instead of `@examples`.
 
-* Flipped 394 strict column assertions in 115 test files to the subset direction (`expect_in(expected_cols, actual_cols)`) so upstream column additions no longer fail the test suite.
-* Injected skip-if-empty guards in 114 test files so transient API failures degrade to `skip("No rows returned from endpoint at test time")` instead of cascading into assertion failures.
+## Tests
 
-### ESPN endpoint expansion
-
-* Adds 58 new ESPN basketball endpoint wrappers (27 `espn_wbb_*`,
-  31 `espn_wnba_*`) covering reference and catalog data, team detail,
-  athlete coverage, event-level enrichments (odds, win probability,
-  officials, broadcasts), WNBA-only artifacts (draft, free agents,
-  transactions), and league-wide catalogs (leaders, venues, coaches,
-  athletes index, season metadata). Internal helpers in
-  `R/espn_basketball_*_helpers.R` keep WBB and WNBA implementations
-  DRY. New vignette `vignettes/espn-endpoints.Rmd` documents the
-  full surface; the pkgdown reference index has been split into
-  per-domain subsections so the rendered nav scales for the new
-  surface (80 ESPN wrappers total, up from 22).
-
-### ESPN core-v2 deep expansion (post-initial batch)
-
-* Additional ESPN core-v2 wrappers brought the total to **180 ESPN
-  basketball exports** across `espn_wnba_*` + `espn_wbb_*`. Coverage
-  added under tier batches (full breakdown in `NEWS.md`):
-    * **Tier 1 / 2A** — athlete career, franchise, futures, tournament,
-      season-meta (types/leaders/rankings/weeks/groups), team deep
-      (record / season_profile / season_roster / odds_records),
-      coach-in-season, powerindex, draft completion.
-    * **Tier 2B.1 / 2B.2 / 2B.3** — `athlete_eventlog_v2`, draft
-      rounds/athletes/status, event meta (situation, predictor,
-      powerindex, propbets), and event competitor sub-resources
-      (linescores, leaders, roster, statistics, records).
-    * **Tier 2D** — league position dictionary (`positions`, `position`).
-    * **Tier 2E.1** — per-game player box score (`event_player_box`),
-      roster entry with starter / DNP / ejection flags, single-play
-      detail, on-court personnel.
-    * **Tier 2E.2** — full team-season stat sheet (`team_season_statistics`
-      with `rank` + `rank_display_value` per stat), event competitor
-      score, draft year top-level metadata.
-    * **Tier 2F** — typed-detail companions to the existing index
-      endpoints: `event_official_detail` (note: URL segment is crew
-      `order`, not the ESPN stable `official_id`), `team_record_detail`,
-      `coach_record`, `tournament_season`, `draft_athlete_detail`.
-* All new wrappers ship with skip-gated tests
-  (`skip_on_cran()` + `skip_on_ci()` + `skip_espn_test()`); 86 new
-  test files added. `R CMD check --run-donttest` ran every new
-  `\donttest{}` example against live ESPN core-v2 and they all passed.
+Every test that needs the network is skipped on CRAN (`skip_on_cran()` plus
+an opt-in environment variable per source). The tests that run on CRAN read
+committed fixtures and mock the HTTP layer.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note
 
-On some local Windows runs, R CMD check emits the transient
+* Local Windows 10, R 4.6.1, `R CMD check --as-cran` on the built tarball
+  (2026-11-01; NOT_CRAN unset, so every networked test skips): 0 errors,
+  0 warnings, 1 note. The note is
 
-    N  checking for future file timestamps
-       unable to verify current time
+      checking for non-standard things in the check directory ... NOTE
+      Found the following files/directories:
+        ''NULL''
 
-NOTE. This is caused by R's clock-skew check failing to reach
-`worldtimeapi.org` from the dev environment, not by anything in the
-package; it does not appear on win-builder / CRAN. Setting
-`_R_CHECK_SYSTEM_CLOCK_=0` suppresses it locally.
+  That `'NULL'` folder is left in the check directory by this machine's R
+  startup profile, not by the package; it does not appear on other machines.
+  The tarball is 2.2 MB; the installed size is 6.6 MB (R 2.0 MB, help
+  4.2 MB). The PDF and HTML manuals build. The examples with
+  `--run-donttest` pass in 10 minutes and the tests in 2.5 minutes.
 
-## Documentation conventions
-
-Per the project's long-standing convention, executable code samples for
-many wrappers appear inside the `@details` section as fenced markdown
-code blocks. The 58 net-new ESPN wrappers added in this release also
-carry standard `@examples \donttest{...}` blocks; the live-API examples
-are marked `\donttest{}` because every wrapper requires network access
-to ESPN, the WNBA Stats API, or NCAA.com, and the responses depend on
-the current season state. The 141 pre-existing wrappers retain the
-historical `@details`-only example pattern accepted in `wehoop` 2.x;
-no functional change to those is included in this release.
-
-## URL check note
-
-`urlchecker::url_check()` reports HTTP 403 ("Forbidden") for several
-`https://x.com/<user>` profile links in `README.md`. These pages render
-correctly in browsers; X (Twitter) blocks anonymous bot traffic with a
-403 response, so the URLs are reachable for end users but appear broken
-to automated checkers. They have been left unchanged.
-
-`R CMD check --as-cran` may emit a "CRAN incoming feasibility" NOTE
-listing 2-3 `https://www.nba.com/stats/...` or `https://www.wnba.com/standings/...`
-URLs as "(possibly) invalid" with `libcurl error code 92: HTTP/2 stream
-... was not closed cleanly: INTERNAL_ERROR`. These URLs are reachable in
-browsers and from CRAN's win-builder; the failure is a transient HTTP/2
-stream error caused by NBA / WNBA edge servers terminating libcurl
-streams in some dev environments. The URLs have been retained as-is.
+* GitHub Actions (R release on Ubuntu, macOS and Windows): see the PR checks.
+* win-builder: TODO
+* R-hub: TODO
 
 ## revdepcheck results
 
-We checked 0 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
-
- * We saw 0 new problems
- * We failed to check 0 packages
+There are no reverse dependencies on CRAN
+(`tools::package_dependencies("wehoop", reverse = TRUE)` is empty).

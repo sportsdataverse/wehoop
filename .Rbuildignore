@@ -24,7 +24,6 @@
 ^CLAUDE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
-^CRAN-RELEASE$
 ^CRAN-SUBMISSION$
 ^\.omc$
 ^\.remember$
@@ -38,3 +37,5 @@
 ^nul$
 ^.*\.log$
 ^data-raw$
+^\.worktrees$
+^\.wt-

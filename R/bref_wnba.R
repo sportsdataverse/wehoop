@@ -28,7 +28,7 @@
 #' @importFrom dplyr as_tibble rename any_of
 #' @export
 #' @family WNBA Basketball-Reference Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(bref_wnba_player_stats(season = 2024, table = "per_game"))
 #' }
@@ -90,7 +90,7 @@ bref_wnba_player_stats <- function(season = most_recent_wnba_season(), table = "
 #' @importFrom dplyr as_tibble rename any_of
 #' @export
 #' @family WNBA Basketball-Reference Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(bref_wnba_team_stats(season = 2024, table = "per_game"))
 #' }
@@ -151,7 +151,7 @@ bref_wnba_team_stats <- function(season = most_recent_wnba_season(), table = "pe
 #' @importFrom dplyr as_tibble bind_rows rename any_of
 #' @export
 #' @family WNBA Basketball-Reference Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(bref_wnba_standings(season = 2024))
 #' }

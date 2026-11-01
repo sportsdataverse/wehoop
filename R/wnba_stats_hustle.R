@@ -3,6 +3,12 @@
 NULL
 #' @title
 #' **Get WNBA Stats API League Hustle Stats Player**
+#' @description
+#' `wnba_leaguehustlestatsplayer()`, `wnba_leaguehustlestatsplayerleaders()`,
+#' `wnba_leaguehustlestatsteam()` and `wnba_leaguehustlestatsteamleaders()` are defunct since wehoop 3.0.0: the
+#' WNBA Stats endpoint no longer returns data, so they raise an error.
+#' They stay exported for now and will be removed in a future release
+#' (no earlier than 3.2.0).
 #' @rdname wnba_leaguehustlestatsplayer
 #' @author Saiem Gilani
 #' @param college college
@@ -115,7 +121,7 @@ wnba_leaguehustlestatsplayer <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_leaguehustlestatsplayer()",
-    details = "The `leaguehustlestatsplayer` endpoint no longer returns data."
+    details = "The `leaguehustlestatsplayer` endpoint no longer returns data. It will be removed in a future release (no earlier than 3.2.0)."
   )
 }
 
@@ -276,7 +282,7 @@ wnba_leaguehustlestatsplayerleaders <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_leaguehustlestatsplayerleaders()",
-    details = "The `leaguehustlestatsplayerleaders` endpoint no longer returns data."
+    details = "The `leaguehustlestatsplayerleaders` endpoint no longer returns data. It will be removed in a future release (no earlier than 3.2.0)."
   )
 }
 
@@ -385,7 +391,7 @@ wnba_leaguehustlestatsteam <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_leaguehustlestatsteam()",
-    details = "The `leaguehustlestatsteam` endpoint no longer returns data."
+    details = "The `leaguehustlestatsteam` endpoint no longer returns data. It will be removed in a future release (no earlier than 3.2.0)."
   )
 }
 
@@ -539,6 +545,6 @@ wnba_leaguehustlestatsteamleaders <- function(
   lifecycle::deprecate_stop(
     when = "3.0.0",
     what = "wnba_leaguehustlestatsteamleaders()",
-    details = "The `leaguehustlestatsteamleaders` endpoint no longer returns data."
+    details = "The `leaguehustlestatsteamleaders` endpoint no longer returns data. It will be removed in a future release (no earlier than 3.2.0)."
   )
 }

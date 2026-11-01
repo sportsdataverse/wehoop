@@ -1,8 +1,6 @@
-## Citation year is PINNED to the first-release year (CRAN 2021-11-03).
-## DESCRIPTION has no Date field, so deriving it from meta$Date yielded an
-## empty year, and a current-date fallback made the same package version
-## cite as a different year every calendar year. Keep this in sync with the
-## bibtex block in README.md.
+## The citation year is the year of the current release; update it with each
+## CRAN release (DESCRIPTION has no Date field to derive it from). Keep this in
+## sync with the bibtex block in README.Rmd.
 year <- 2026
 note <- sprintf("R package version %s", meta$Version)
 

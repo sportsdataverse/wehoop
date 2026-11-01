@@ -17,7 +17,7 @@ The top flight was named TBL until 2007-08 and is listed under bsl. Default \cod
 \value{
 A \code{wehoop_data} tibble. One row per registered player. Birth dates are not returned.
 Every column below is always present (a zero-row tibble keeps them and their types); an answer
-with nothing in it raises \code{wehoop_no_data}, as in sdv-py.\tabular{lll}{
+with nothing in it raises \code{wehoop_no_data}, as in sportsdataverse-py.\tabular{lll}{
    col_name \tab type \tab description \cr
    season \tab integer \tab Season END year of the request. \cr
    competition \tab character \tab League prefix the row reports (bsl, tbl or kbsl); equals the request's competition. \cr

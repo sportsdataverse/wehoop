@@ -62,7 +62,7 @@
   )
 }
 
-#' sdv-py feb_runtime._check_status: only 200 passes.
+#' sportsdataverse-py feb_runtime._check_status: only 200 passes.
 #' @noRd
 .feb_check_status <- function(resp, where, call) {
   status <- httr2::resp_status(resp)
@@ -91,7 +91,7 @@
   list(resp = resp, text = text)
 }
 
-#' The bearer JWT in a site page's `#contentToken > input` and its expiry (sdv-py `token_from_page`).
+#' The bearer JWT in a site page's `#contentToken > input` and its expiry (sportsdataverse-py `token_from_page`).
 #' @return `list(token, exp)`.
 #' @noRd
 .feb_token_from_page <- function(html, now = as.numeric(Sys.time()), call = rlang::caller_env()) {
@@ -130,7 +130,7 @@
   .feb_tok$value
 }
 
-#' sdv-py `_int_arg`: a non-negative whole number or digit string, else `wehoop_bad_request`.
+#' sportsdataverse-py `_int_arg`: a non-negative whole number or digit string, else `wehoop_bad_request`.
 #' @noRd
 .feb_int_arg <- function(value, what, call = rlang::caller_env()) {
   ok <- length(value) == 1L && !is.logical(value) && !is.na(value) &&
@@ -155,7 +155,7 @@
     (is.na(x) || isFALSE(x) || identical(x, "") || (is.numeric(x) && x == 0)))
 }
 
-#' Refuse everything that is not this route's envelope (sdv-py `_validate`).
+#' Refuse everything that is not this route's envelope (sportsdataverse-py `_validate`).
 #' @noRd
 .feb_validate <- function(route, body, game_id, where, call) {
   spec <- .feb_routes[[route]]

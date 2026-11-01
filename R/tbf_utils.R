@@ -891,7 +891,7 @@
 # (column, source path, type[, converter]); Turkish text as \u escapes.
 # ---------------------------------------------------------------------------
 
-#' Turkish play-by-play action -> English gloss (sdv-py tbf_parsers.ACTIONS).
+#' Turkish play-by-play action -> English gloss (sportsdataverse-py tbf_parsers.ACTIONS).
 #' @noRd
 .TBF_ACTIONS <- local({
   # (action, gloss) pairs, named with setNames(): a non-ASCII name written in source is translated

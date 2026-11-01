@@ -29,9 +29,11 @@ One row per team with record and win percentage, labelled by a \code{conference}
 column (\code{Eastern} / \code{Western}). No account or API key is required.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(bref_wnba_standings(season = 2024))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other WNBA Basketball-Reference Functions:
