@@ -56,6 +56,16 @@ NULL
 #'   estimates. Results from a single game (~120–200 possessions) are highly
 #'   unstable and are provided here for pipeline illustration only.
 #'
+#'   Values are relative to average: an unpenalized intercept absorbs the mean
+#'   points per possession, and every player's coefficient gets the same ridge
+#'   penalty (glmnet `standardize = FALSE`), so `o_rapm` and `d_rapm` each sum
+#'   to 0 across players. Possession-weighted means are usually near 0 but are
+#'   not guaranteed to be. Every possession has five offensive and five
+#'   defensive players, so the data do not pin down the absolute level of
+#'   `o_rapm`, `d_rapm` or `rapm`; that level is a convention of the ridge
+#'   fit. What the data identify are differences between players, to the
+#'   extent the lineups separate them.
+#'
 #'   Results are **deterministic**: the cross-validation uses fixed,
 #'   construction-based folds (not random), so repeated calls on the same
 #'   possessions return identical output with no need to set a seed.
@@ -83,7 +93,15 @@ wnba_rapm <- function(possessions, ...) {
   off_poss <- as.integer(cs[seq_len(P)])
   def_poss <- as.integer(cs[seq(P + 1L, 2L * P)])
 
-  # Ridge regression: alpha = 0, no intercept, CV selects lambda.min.
+  # Ridge regression: alpha = 0, CV selects lambda.min.
+  #   * The unpenalized intercept absorbs league-average points per
+  #     possession; without it the ridge pushes that mean into the player
+  #     coefficients (O shifted up, D down).
+  #   * standardize = FALSE puts the same penalty on every player's raw
+  #     coefficient (Sill 2010; Evolving-Hockey's glmnet RAPM). glmnet's
+  #     default standardizes each 0/1 column, which scales a player's raw
+  #     penalty by p(1 - p) of their playing-time share p, so rarely used
+  #     players are penalized least.
   # Deterministic CV folds (no RNG dependence): assign every k-th possession
   # to a different fold so consecutive possessions are spread across folds.
   # This makes wnba_rapm() reproducible by construction — identical output on
@@ -91,18 +109,31 @@ wnba_rapm <- function(possessions, ...) {
   n  <- nrow(X)
   nf <- min(10L, n)                           # 10-fold, or fewer if tiny n
 
-  # Guard: cv.glmnet requires at least 3 rows (one per fold minimum).
-  # Fall back to plain glmnet with a fixed lambda for degenerate inputs.
-  if (n < 3L) {
-    fit0 <- glmnet::glmnet(X, y, alpha = 0, intercept = FALSE, lambda = 0.1)
-    cf   <- as.numeric(stats::coef(fit0))
-    coef <- cf[-1L]
+  # No player column correlates with the centred points (this includes
+  # constant points): every ridge solution is exactly 0, and glmnet errors
+  # here (NaN lambda path, or "y is constant"), so return 0 directly.
+  foldid <- ((seq_len(n) - 1L) %% nf) + 1L
+  # cv.glmnet also errors if any training fold has no signal (e.g. one
+  # scoring possession, or the only distinct lineup held out), even when
+  # the full input has signal.
+  no_signal_fold <- vapply(seq_len(nf), function(k) {
+    tr <- foldid != k
+    !any(tr) || .rapm_no_signal(X[tr, , drop = FALSE], y[tr])
+  }, logical(1))
+
+  if (.rapm_no_signal(X, y)) {
+    coef <- numeric(2L * P)
+  } else if (n < 3L || any(no_signal_fold)) {
+    # cv.glmnet requires at least 3 rows (one per fold minimum) and
+    # training folds with signal; use a fixed lambda instead.
+    fit0 <- glmnet::glmnet(X, y, alpha = 0, standardize = FALSE, lambda = 0.1)
+    coef <- as.numeric(stats::coef(fit0))[-1L]
   } else {
-    foldid <- ((seq_len(n) - 1L) %% nf) + 1L
-    fit    <- glmnet::cv.glmnet(X, y, alpha = 0, intercept = FALSE, foldid = foldid)
+    fit    <- glmnet::cv.glmnet(X, y, alpha = 0, standardize = FALSE,
+                                foldid = foldid)
 
     # Extract coefficient vector at lambda.min (length 1 + 2P from glmnet;
-    # position 1 is the intercept placeholder even with intercept=FALSE).
+    # position 1 is the intercept).
     # Use stats::coef S3 dispatch — glmnet registers coef.cv.glmnet internally.
     cf   <- as.numeric(stats::coef(fit, s = "lambda.min"))
     coef <- cf[-1L]  # drop intercept slot → length 2P
@@ -132,6 +163,16 @@ wnba_rapm <- function(possessions, ...) {
     make_wehoop_data("WNBA RAPM", Sys.time())
 }
 
+# TRUE when no column of X correlates with the centred points (this includes
+# constant points): every ridge solution is then exactly 0. The tolerance
+# scales with the centred points, so adding a constant to every possession
+# cannot turn real signal into zeros.
+.rapm_no_signal <- function(X, y) {
+  yc <- y - mean(y)
+  max(abs(Matrix::crossprod(X, yc))) <=
+    sqrt(.Machine$double.eps) * max(1, sum(abs(yc)))
+}
+
 # Column name vectors (mirrors Python _OFF / _DEF)
 .RAPM_OFF_COLS <- paste0("off_player_", 1:5)
 .RAPM_DEF_COLS <- paste0("def_player_", 1:5)
@@ -144,8 +185,9 @@ wnba_rapm <- function(possessions, ...) {
 #'   * cols 1..P   — offense indicator: 1 when player_ids\[i\] was on offense.
 #'   * cols P+1..2P — defense indicator: 1 when player_ids\[i\] was on defense.
 #'
-#' Possessions with any NA in the 10 lineup cells are silently dropped
-#' (never-raise; a partial lineup is unreliable for RAPM).
+#' Possessions with any NA in the 10 lineup cells, or with missing or
+#' non-finite points, are silently dropped (never-raise; a partial lineup is
+#' unreliable for RAPM, and glmnet cannot fit a missing response).
 #'
 #' @param possessions data.frame with columns off_player_1..5,
 #'   def_player_1..5 (integer player ids) and points (numeric).
@@ -168,7 +210,8 @@ wnba_rapm <- function(possessions, ...) {
   # Drop possessions with any NA in the 10 lineup cells (never inject a
   # phantom id — mirrors Python possessions.drop_nulls(subset=_OFF + _DEF))
   lineup_mat <- as.matrix(possessions[, .RAPM_LINEUP_COLS])
-  complete   <- rowSums(is.na(lineup_mat)) == 0L
+  complete   <- rowSums(is.na(lineup_mat)) == 0L &
+    is.finite(as.numeric(possessions[["points"]]))
   possessions <- possessions[complete, , drop = FALSE]
 
   if (nrow(possessions) == 0L) {

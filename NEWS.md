@@ -45,6 +45,21 @@
 
 ### **Behavior changes and bug fixes**
 
+* `wnba_rapm()` now fits an unpenalized intercept. In 3.0.0 it fit without one, so the ridge
+  pushed the average points per possession into the player coefficients: O-RAPM came out about
+  +9 and D-RAPM about -9 per 100 possessions on a single game. The `o_rapm` and `d_rapm` values
+  change: both are now relative to average, and each sums to 0 across players. The absolute
+  O, D and total levels are a convention of the ridge fit; the data identify differences
+  between players.
+  It also fits with `standardize = FALSE`, so every player's coefficient gets the same ridge
+  penalty, as in Sill (2010) and other glmnet RAPM code. glmnet's default standardized each 0/1
+  column, which penalized rarely used players least. In a simulation with uneven playing time
+  this halved the error against the true player effects, so individual ratings and rankings
+  change too, not only the level. Inputs that made glmnet error now return a result: when no
+  player column correlates with the points (including constant points) every rating is 0, a
+  cross-validation fold with constant points uses a fixed-lambda fit, and possessions with
+  missing or non-finite points are dropped.
+
 * `wnba_live_pbp()` and `wnba_live_boxscore()` got cdn.wnba.com's "Access Denied" page on every
   call in 3.0.0 because they sent no browser headers; they now send the WNBA CDN header set.
   `wnba_homepagewidget()` also failed on every call in 3.0.0: it assigned 19 hardcoded names to a
@@ -234,6 +249,9 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
 * The README has a data status table for the release-data producers (#88), a companion-package
   section, and one line per function family. The README, vignettes and contributor guides give the
   current counts (180 ESPN wrappers, 750 exports).
+* `load_ncaa_wbb_rapm_within_team()` documented `rapm_net` as `rapm_off + rapm_def`. The data
+  has `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a points-allowed scale (lower
+  is better). The docs now say so.
 
 # **wehoop 3.0.0**
 

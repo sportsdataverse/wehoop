@@ -572,6 +572,100 @@ test_that("wnba_rapm runs end-to-end on a real WNBA game (offline smoke)", {
   )
 })
 
+test_that("wnba_rapm O/D are centred on average (intercept absorbs mean pts/poss)", {
+  skip_if_not_installed("glmnet")
+  skip_on_cran()
+  fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
+  skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
+  pbp  <- readRDS(fx)
+  poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
+  out  <- wnba_rapm(poss)
+
+  # Invariant: with an intercept and an equal raw penalty, each block's
+  # coefficients sum to 0 (here ~5e-4, glmnet's convergence). Fails without
+  # the intercept, and with standardize = TRUE (sum O-RAPM -7.3 on this game).
+  expect_lt(abs(sum(out$o_rapm)), 0.01)
+  expect_lt(abs(sum(out$d_rapm)), 0.01)
+
+  # Fixture check, not an invariant: without the intercept this game gives
+  # weighted means +9.3 / -8.8; now +0.54 / +0.05.
+  expect_lt(abs(stats::weighted.mean(out$o_rapm, out$off_poss)), 1)
+  expect_lt(abs(stats::weighted.mean(out$d_rapm, out$def_poss)), 1)
+
+  # Adding a constant to every possession's points changes only the
+  # intercept, never a player's rating. Fails without an intercept.
+  poss_shift <- poss
+  poss_shift$points <- poss_shift$points + 3
+  out_shift <- wnba_rapm(poss_shift)
+  expect_equal(out_shift$o_rapm, out$o_rapm, tolerance = 1e-8)
+  expect_equal(out_shift$d_rapm, out$d_rapm, tolerance = 1e-8)
+
+  # A huge shift must not make the zero-signal guard swallow real ratings.
+  poss_big <- poss
+  poss_big$points <- poss_big$points + 1e7
+  expect_gt(max(abs(wnba_rapm(poss_big)$o_rapm)), 1)
+})
+
+test_that("wnba_rapm drops possessions with missing or non-finite points", {
+  skip_if_not_installed("glmnet")
+  skip_on_cran()
+  fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
+  skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
+  pbp  <- readRDS(fx)
+  poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
+  poss$points[c(5L, 9L)] <- c(NA, Inf)
+
+  out <- wnba_rapm(poss)
+  expect_gt(nrow(out), 0L)
+  expect_true(all(is.finite(out$rapm)))
+  expect_equal(nrow(.build_rapm_design(poss)$X), nrow(poss) - 2L)
+})
+
+test_that("wnba_rapm returns zero ratings when points are constant (never-raise)", {
+  skip_if_not_installed("glmnet")
+  skip_on_cran()
+  fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
+  skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
+  pbp  <- readRDS(fx)
+  poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
+  poss$points <- 2
+
+  # glmnet errors on a constant response once it fits an intercept.
+  out <- wnba_rapm(poss)
+  expect_gt(nrow(out), 0L)
+  expect_true(all(out$o_rapm == 0 & out$d_rapm == 0 & out$rapm == 0))
+  expect_true(all(out$off_poss + out$def_poss > 0L))
+
+  # Fixed-lambda fit, used whenever cross-validation cannot run.
+  fixed_oracle <- function(p) {
+    des <- .build_rapm_design(p)
+    cf  <- as.numeric(stats::coef(glmnet::glmnet(
+      des$X, des$y, alpha = 0, standardize = FALSE, lambda = 0.1
+    )))[-1L]
+    P <- length(des$player_ids)
+    cf[seq_len(P)][order(des$player_ids)] * 100
+  }
+
+  # Only one scoring possession: the full y varies, but the CV training fold
+  # that holds it out is all zeros, which glmnet also rejects.
+  poss$points <- 0
+  poss$points[1L] <- 3
+  out1 <- wnba_rapm(poss)
+  expect_gt(max(abs(out1$o_rapm)), 0)
+  expect_equal(out1$o_rapm, fixed_oracle(poss), tolerance = 1e-10)
+
+  # Two real possessions with the same lineup plus one different one, points
+  # 0/1/2: holding out the odd one leaves a training fold with no signal
+  # (glmnet: "need at least two non-NA values to interpolate").
+  key <- do.call(paste, poss[, .RAPM_LINEUP_COLS])
+  j   <- which(key != key[1L])[1L]
+  tiny <- poss[c(1L, 1L, j), ]
+  tiny$points <- c(0, 1, 2)
+  out3 <- wnba_rapm(tiny)
+  expect_gt(max(abs(out3$o_rapm)), 0)
+  expect_equal(out3$o_rapm, fixed_oracle(tiny), tolerance = 1e-10)
+})
+
 # ===========================================================================
 # wnba_possession_lineups + wnba_rapm -- gated live test
 # Requires WNBA_STATS_TESTS=1 (live network access to stats.wnba.com).
