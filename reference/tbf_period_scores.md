@@ -112,7 +112,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_period_scores(match_id = 346279))
 #> ── TBF Period Scores ─────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:18:01 UTC
+#> ℹ Data updated: 2026-11-02 06:24:17 UTC
 #> # A tibble: 8 × 5
 #>   match_id side  period period_type points
 #>      <int> <chr>  <int>       <int>  <int>

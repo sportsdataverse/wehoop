@@ -26,11 +26,24 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span>  Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--articles"><li><a class="dropdown-item" href="../articles/index.html">All Vignettes</a></li>
     <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting Started with wehoop</a></li>
+    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting Started: WNBA and Women's College Basketball Data in R</a></li>
     <li><a class="dropdown-item" href="../articles/espn-endpoints.html">ESPN Endpoints</a></li>
     <li><a class="dropdown-item" href="../articles/parameter-descriptions.html">Parameter Descriptions</a></li>
     <li><a class="dropdown-item" href="../articles/wbb-cookbook.html">WBB Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/wnba-cookbook.html">WNBA Cookbook</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
+    <li><a class="dropdown-item" href="../articles/wnba-womens-college-basketball-shot-charts.html">WNBA and Women's College Basketball Shot Charts</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-basketball-advanced-metrics.html">Women's Basketball Advanced Metrics</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-international-basketball-leagues.html">Women's International Basketball Leagues</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown--models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span>  Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--models"><li><a class="dropdown-item" href="../articles/wnba-player-impact-model.html">WNBA Player Impact (RAPM, SPM, BPM, WAR)</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-rapm-model.html">Women's College Basketball RAPM</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-team-ratings-model.html">Women's College Basketball Team Ratings</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-player-value-model.html">Women's College Basketball Player Value (BPM)</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-win-probability-model.html">Women's College Basketball Win Probability</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span> News</a></li>
 <li class="nav-item dropdown">
@@ -1347,7 +1360,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.1" id="wehoop-111"><strong>wehoop 1.1.1</strong><a class="anchor" aria-label="anchor" href="#wehoop-111"></a></h2>
-<ul><li>Change functions from <code>furrr::future_map_dfr()</code> functions to <code><a href="https://rdrr.io/pkg/data.table/man/rbindlist.html" class="external-link">data.table::rbindlist()</a></code> functions for loaders.</li>
+<ul><li>Change functions from <code><a href="https://furrr.futureverse.org/reference/future_map.html" class="external-link">furrr::future_map_dfr()</a></code> functions to <code><a href="https://rdrr.io/pkg/data.table/man/rbindlist.html" class="external-link">data.table::rbindlist()</a></code> functions for loaders.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.0" id="wehoop-110"><strong>wehoop 1.1.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-110"></a></h2>
@@ -1489,7 +1502,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer></div>

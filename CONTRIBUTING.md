@@ -338,7 +338,8 @@ regardless (see above).
 
 When filing a bug report, please include:
 
-1.  A minimal **reprex** (reproducible example) using `reprex::reprex()`
+1.  A minimal **reprex** (reproducible example) using
+    [`reprex::reprex()`](https://reprex.tidyverse.org/reference/reprex.html)
 2.  The **game ID** or parameters used
 3.  Your [`sessionInfo()`](https://rdrr.io/r/utils/sessionInfo.html)
     output

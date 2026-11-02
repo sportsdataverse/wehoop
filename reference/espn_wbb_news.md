@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:14:33 UTC
+#> ℹ Data updated: 2026-11-02 06:20:47 UTC
 #> # A tibble: 5 × 8
 #>         id type        headline description published premium link_web league_id
 #>      <int> <chr>       <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    

@@ -128,7 +128,7 @@ Other Genius Functions:
 # \donttest{
   try(genius_schedule(org = "CEBL", comp_id = 47852))
 #> ── Genius LiveStats schedule ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-01 23:16:19 UTC
+#> ℹ Data updated: 2026-11-02 06:22:32 UTC
 #> # A tibble: 130 × 16
 #>    match_id link_match_id comp_id org   status     date_time venue_id venue_name
 #>       <int>         <int>   <int> <chr> <chr>      <chr>        <int> <chr>     

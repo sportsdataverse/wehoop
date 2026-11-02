@@ -38,11 +38,24 @@ division) for one (WNBA season x season-type)."><meta property="og:image" conten
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-book-reader"></span>  Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--articles"><li><a class="dropdown-item" href="../articles/index.html">All Vignettes</a></li>
     <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting Started with wehoop</a></li>
+    <li><a class="dropdown-item" href="../articles/getting-started-wehoop.html">Getting Started: WNBA and Women's College Basketball Data in R</a></li>
     <li><a class="dropdown-item" href="../articles/espn-endpoints.html">ESPN Endpoints</a></li>
     <li><a class="dropdown-item" href="../articles/parameter-descriptions.html">Parameter Descriptions</a></li>
     <li><a class="dropdown-item" href="../articles/wbb-cookbook.html">WBB Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/wnba-cookbook.html">WNBA Cookbook</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
+    <li><a class="dropdown-item" href="../articles/wnba-womens-college-basketball-shot-charts.html">WNBA and Women's College Basketball Shot Charts</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-basketball-advanced-metrics.html">Women's Basketball Advanced Metrics</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-international-basketball-leagues.html">Women's International Basketball Leagues</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown--models" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-chart-line"></span>  Models</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown--models"><li><a class="dropdown-item" href="../articles/wnba-player-impact-model.html">WNBA Player Impact (RAPM, SPM, BPM, WAR)</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-rapm-model.html">Women's College Basketball RAPM</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-team-ratings-model.html">Women's College Basketball Team Ratings</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-player-value-model.html">Women's College Basketball Player Value (BPM)</a></li>
+    <li><a class="dropdown-item" href="../articles/womens-college-basketball-win-probability-model.html">Women's College Basketball Win Probability</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html"><span class="fa fas fa-newspaper"></span> News</a></li>
 <li class="nav-item dropdown">
@@ -256,7 +269,7 @@ division) for one (WNBA season x season-type).</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_season_group</span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">5</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Season Group Detail ─────────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 23:15:13 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:21:33 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league season season_type group_id uid           name  abbreviation short_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -267,7 +280,7 @@ division) for one (WNBA season x season-type).</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_season_group_children</span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">5</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Season Group Children Index ─────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 23:15:13 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:21:34 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 variables: league &lt;chr&gt;, season &lt;int&gt;, season_type &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   parent_group_id &lt;chr&gt;, child_group_id &lt;chr&gt;, ref &lt;chr&gt;</span></span>
@@ -275,7 +288,7 @@ division) for one (WNBA season x season-type).</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_season_group_teams</span><span class="op">(</span>group_id <span class="op">=</span> <span class="fl">5</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Season Group Teams Index ────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-01 23:15:13 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-02 06:21:34 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league season season_type group_id team_id ref                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              </span>
@@ -292,7 +305,7 @@ division) for one (WNBA season x season-type).</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer></div>

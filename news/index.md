@@ -1564,7 +1564,9 @@ CRAN release: 2021-11-03
 
 ## **wehoop 1.1.1**
 
-- Change functions from `furrr::future_map_dfr()` functions to
+- Change functions from
+  [`furrr::future_map_dfr()`](https://furrr.futureverse.org/reference/future_map.html)
+  functions to
   [`data.table::rbindlist()`](https://rdrr.io/pkg/data.table/man/rbindlist.html)
   functions for loaders.
 
