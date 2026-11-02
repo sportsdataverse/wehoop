@@ -70,7 +70,7 @@ home:
     
 navbar:
   structure:
-    left:  [home, reference, articles, news, network, data, status]
+    left:  [home, reference, articles, models, news, network, data, status]
     right: [search, twitter, github, lightswitch]
   title: "wehoop"
   components:
@@ -88,7 +88,7 @@ navbar:
       - text: All Vignettes
         href: articles/index.html
       - text: --------------------------------
-      - text: "Getting Started with wehoop"
+      - text: "Getting Started: WNBA and Women's College Basketball Data in R"
         href: articles/getting-started-wehoop.html
       - text: "ESPN Endpoints"
         href: articles/espn-endpoints.html
@@ -98,6 +98,28 @@ navbar:
         href: articles/wbb-cookbook.html
       - text: "WNBA Cookbook"
         href: articles/wnba-cookbook.html
+      - text: --------------------------------
+      - text: "Guides"
+      - text: "WNBA and Women's College Basketball Shot Charts"
+        href: articles/wnba-womens-college-basketball-shot-charts.html
+      - text: "Women's Basketball Advanced Metrics"
+        href: articles/womens-basketball-advanced-metrics.html
+      - text: "Women's International Basketball Leagues"
+        href: articles/womens-international-basketball-leagues.html
+    models:
+      icon: "fas fa-chart-line"
+      text: " Models"
+      menu:
+      - text: "WNBA Player Impact (RAPM, SPM, BPM, WAR)"
+        href: articles/wnba-player-impact-model.html
+      - text: "Women's College Basketball RAPM"
+        href: articles/womens-college-basketball-rapm-model.html
+      - text: "Women's College Basketball Team Ratings"
+        href: articles/womens-college-basketball-team-ratings-model.html
+      - text: "Women's College Basketball Player Value (BPM)"
+        href: articles/womens-college-basketball-player-value-model.html
+      - text: "Women's College Basketball Win Probability"
+        href: articles/womens-college-basketball-win-probability-model.html
     news:
       icon: "fas fa-newspaper"
       text: "News"

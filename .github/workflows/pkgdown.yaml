@@ -46,6 +46,7 @@ jobs:
             any::animation
             any::fastRhockey
             any::ggimage
+            any::hexbin
             any::hoopR
             any::knitr
             any::oddsapiR
@@ -57,6 +58,7 @@ jobs:
             any::sportyR
             any::tictoc
             any::zoo
+            github::sportsdataverse/sdvplotR
             local::.
           needs: website
       - name: Build site
