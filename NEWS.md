@@ -49,6 +49,12 @@
   pushed the average points per possession into the player coefficients: O-RAPM came out about
   +9 and D-RAPM about -9 per 100 possessions on a single game. The `o_rapm` and `d_rapm` values
   change: both are now relative to average, with possession-weighted means close to 0.
+  It also fits with `standardize = FALSE`, so every player's coefficient gets the same ridge
+  penalty, as in standard RAPM. glmnet's default standardized each 0/1 column by its sd, which
+  shrank low-minute players the least. In a simulation with uneven playing time this halved the
+  error against the true player effects, so individual ratings and rankings change too, not
+  only the level. When no player column correlates with the points (including constant points),
+  every ridge solution is 0, and `wnba_rapm()` now returns zeros instead of erroring.
 
 * `wnba_live_pbp()` and `wnba_live_boxscore()` got cdn.wnba.com's "Access Denied" page on every
   call in 3.0.0 because they sent no browser headers; they now send the WNBA CDN header set.

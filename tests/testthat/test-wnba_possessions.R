@@ -581,9 +581,33 @@ test_that("wnba_rapm O/D are centred on average (intercept absorbs mean pts/poss
   poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
   out  <- wnba_rapm(poss)
 
-  # Without the intercept this fixture gives +9.3 / -8.8; with it ~0.2 / ~0.0.
+  # Without the intercept this fixture gives +9.3 / -8.8; with it +0.54 / +0.05.
   expect_lt(abs(stats::weighted.mean(out$o_rapm, out$off_poss)), 1)
   expect_lt(abs(stats::weighted.mean(out$d_rapm, out$def_poss)), 1)
+
+  # Adding a constant to every possession's points changes only the
+  # intercept, never a player's rating. Fails without an intercept.
+  poss_shift <- poss
+  poss_shift$points <- poss_shift$points + 3
+  out_shift <- wnba_rapm(poss_shift)
+  expect_equal(out_shift$o_rapm, out$o_rapm, tolerance = 1e-8)
+  expect_equal(out_shift$d_rapm, out$d_rapm, tolerance = 1e-8)
+})
+
+test_that("wnba_rapm returns zero ratings when points are constant (never-raise)", {
+  skip_if_not_installed("glmnet")
+  skip_on_cran()
+  fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
+  skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
+  pbp  <- readRDS(fx)
+  poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
+  poss$points <- 2
+
+  # glmnet errors on a constant response once it fits an intercept.
+  out <- wnba_rapm(poss)
+  expect_gt(nrow(out), 0L)
+  expect_true(all(out$o_rapm == 0 & out$d_rapm == 0 & out$rapm == 0))
+  expect_true(all(out$off_poss + out$def_poss > 0L))
 })
 
 # ===========================================================================

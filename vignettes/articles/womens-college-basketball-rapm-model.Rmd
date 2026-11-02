@@ -252,8 +252,9 @@ possession table with `off_player_1` to `off_player_5`, `def_player_1` to
 
 - builds a sparse design with one offensive and one defensive indicator column
   per player, dropping possessions with an incomplete lineup;
-- fits a ridge regression with `glmnet` and an unpenalized intercept (so the
-  ratings are relative to average), choosing the penalty by
+- fits a ridge regression with `glmnet`, an unpenalized intercept (so the
+  ratings are relative to average) and the same penalty on every player's
+  coefficient (`standardize = FALSE`), choosing the penalty by
   10-fold cross-validation with fixed, deterministic folds, so repeated calls
   give identical results without setting a seed;
 - multiplies by 100 and flips the sign of the defensive coefficient so that good
