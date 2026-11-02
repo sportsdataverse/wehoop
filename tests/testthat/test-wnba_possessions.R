@@ -572,6 +572,20 @@ test_that("wnba_rapm runs end-to-end on a real WNBA game (offline smoke)", {
   )
 })
 
+test_that("wnba_rapm O/D are centred on average (intercept absorbs mean pts/poss)", {
+  skip_if_not_installed("glmnet")
+  skip_on_cran()
+  fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
+  skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
+  pbp  <- readRDS(fx)
+  poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
+  out  <- wnba_rapm(poss)
+
+  # Without the intercept this fixture gives +9.3 / -8.8; with it ~0.2 / ~0.0.
+  expect_lt(abs(stats::weighted.mean(out$o_rapm, out$off_poss)), 1)
+  expect_lt(abs(stats::weighted.mean(out$d_rapm, out$def_poss)), 1)
+})
+
 # ===========================================================================
 # wnba_possession_lineups + wnba_rapm -- gated live test
 # Requires WNBA_STATS_TESTS=1 (live network access to stats.wnba.com).
