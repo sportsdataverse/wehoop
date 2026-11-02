@@ -581,7 +581,14 @@ test_that("wnba_rapm O/D are centred on average (intercept absorbs mean pts/poss
   poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
   out  <- wnba_rapm(poss)
 
-  # Without the intercept this fixture gives +9.3 / -8.8; with it +0.54 / +0.05.
+  # Invariant: with an intercept and an equal raw penalty, each block's
+  # coefficients sum to 0 (here ~5e-4, glmnet's convergence). Fails without
+  # the intercept, and with standardize = TRUE (sum O-RAPM -7.3 on this game).
+  expect_lt(abs(sum(out$o_rapm)), 0.01)
+  expect_lt(abs(sum(out$d_rapm)), 0.01)
+
+  # Fixture check, not an invariant: without the intercept this game gives
+  # weighted means +9.3 / -8.8; now +0.54 / +0.05.
   expect_lt(abs(stats::weighted.mean(out$o_rapm, out$off_poss)), 1)
   expect_lt(abs(stats::weighted.mean(out$d_rapm, out$def_poss)), 1)
 
@@ -592,6 +599,26 @@ test_that("wnba_rapm O/D are centred on average (intercept absorbs mean pts/poss
   out_shift <- wnba_rapm(poss_shift)
   expect_equal(out_shift$o_rapm, out$o_rapm, tolerance = 1e-8)
   expect_equal(out_shift$d_rapm, out$d_rapm, tolerance = 1e-8)
+
+  # A huge shift must not make the zero-signal guard swallow real ratings.
+  poss_big <- poss
+  poss_big$points <- poss_big$points + 1e7
+  expect_gt(max(abs(wnba_rapm(poss_big)$o_rapm)), 1)
+})
+
+test_that("wnba_rapm drops possessions with missing or non-finite points", {
+  skip_if_not_installed("glmnet")
+  skip_on_cran()
+  fx <- test_path("fixtures", "wnba_engine", "pbp_1022400003.rds")
+  skip_if(!file.exists(fx), "fixture pbp_1022400003.rds not present")
+  pbp  <- readRDS(fx)
+  poss <- .attach_possession_lineups(.build_possessions(pbp), pbp)
+  poss$points[c(5L, 9L)] <- c(NA, Inf)
+
+  out <- wnba_rapm(poss)
+  expect_gt(nrow(out), 0L)
+  expect_true(all(is.finite(out$rapm)))
+  expect_equal(nrow(.build_rapm_design(poss)$X), nrow(poss) - 2L)
 })
 
 test_that("wnba_rapm returns zero ratings when points are constant (never-raise)", {
@@ -608,6 +635,14 @@ test_that("wnba_rapm returns zero ratings when points are constant (never-raise)
   expect_gt(nrow(out), 0L)
   expect_true(all(out$o_rapm == 0 & out$d_rapm == 0 & out$rapm == 0))
   expect_true(all(out$off_poss + out$def_poss > 0L))
+
+  # Only one scoring possession: the full y varies, but the CV training fold
+  # that holds it out is all zeros, which glmnet also rejects.
+  poss$points <- 0
+  poss$points[1L] <- 3
+  out1 <- wnba_rapm(poss)
+  expect_gt(nrow(out1), 0L)
+  expect_true(all(is.finite(out1$rapm)))
 })
 
 # ===========================================================================

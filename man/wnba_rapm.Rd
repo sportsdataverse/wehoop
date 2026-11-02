@@ -36,13 +36,14 @@ estimates. Results from a single game (~120–200 possessions) are highly
 unstable and are provided here for pipeline illustration only.
 
 Values are relative to average: an unpenalized intercept absorbs the mean
-points per possession, so possession-weighted mean O-RAPM and D-RAPM are
-both close to 0. Every possession has five offensive and five defensive
-players, so the data pin down only the combined level, not how it splits
-between offense and defense; the near-zero O and D levels are a
-convention of the ridge fit. Differences between players, and \code{rapm},
-are what the data identify. Every player's coefficient gets the same
-ridge penalty (glmnet \code{standardize = FALSE}).
+points per possession, and every player's coefficient gets the same ridge
+penalty (glmnet \code{standardize = FALSE}), so \code{o_rapm} and \code{d_rapm} each sum
+to 0 across players. Possession-weighted means are usually near 0 but are
+not guaranteed to be. Every possession has five offensive and five
+defensive players, so the data do not pin down the absolute level of
+\code{o_rapm}, \code{d_rapm} or \code{rapm}; that level is a convention of the ridge
+fit. What the data identify are differences between players, to the
+extent the lineups separate them.
 
 Results are \strong{deterministic}: the cross-validation uses fixed,
 construction-based folds (not random), so repeated calls on the same
