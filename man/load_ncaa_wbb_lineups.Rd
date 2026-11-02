@@ -440,10 +440,10 @@ Returns a \code{wehoop_data} tibble with one row per player-team-season.
       team \tab character \tab Team name. \cr
       player_code \tab character \tab Player display name as 'Last, First' used as the RAPM join key. \cr
       rapm_off \tab numeric \tab Within-team offensive regularized adjusted plus-minus. \cr
-      rapm_def \tab numeric \tab Within-team defensive regularized adjusted plus-minus. \cr
+      rapm_def \tab numeric \tab Within-team defensive regularized adjusted plus-minus, on a points-allowed scale (lower is better). \cr
       team_off_poss \tab numeric \tab Team offensive possessions used in the RAPM fit. \cr
       num_players \tab integer \tab Number of teammates included in the within-team RAPM fit. \cr
-      rapm_net \tab numeric \tab Within-team net regularized adjusted plus-minus (rapm_off + rapm_def). \cr
+      rapm_net \tab numeric \tab Within-team net regularized adjusted plus-minus (rapm_off - rapm_def). \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
       player_id \tab character \tab stats.ncaa.org player identifier. \cr
       team_id \tab character \tab Unique team identifier. \cr
