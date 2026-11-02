@@ -636,13 +636,34 @@ test_that("wnba_rapm returns zero ratings when points are constant (never-raise)
   expect_true(all(out$o_rapm == 0 & out$d_rapm == 0 & out$rapm == 0))
   expect_true(all(out$off_poss + out$def_poss > 0L))
 
+  # Fixed-lambda fit, used whenever cross-validation cannot run.
+  fixed_oracle <- function(p) {
+    des <- .build_rapm_design(p)
+    cf  <- as.numeric(stats::coef(glmnet::glmnet(
+      des$X, des$y, alpha = 0, standardize = FALSE, lambda = 0.1
+    )))[-1L]
+    P <- length(des$player_ids)
+    cf[seq_len(P)][order(des$player_ids)] * 100
+  }
+
   # Only one scoring possession: the full y varies, but the CV training fold
   # that holds it out is all zeros, which glmnet also rejects.
   poss$points <- 0
   poss$points[1L] <- 3
   out1 <- wnba_rapm(poss)
-  expect_gt(nrow(out1), 0L)
-  expect_true(all(is.finite(out1$rapm)))
+  expect_gt(max(abs(out1$o_rapm)), 0)
+  expect_equal(out1$o_rapm, fixed_oracle(poss), tolerance = 1e-10)
+
+  # Two real possessions with the same lineup plus one different one, points
+  # 0/1/2: holding out the odd one leaves a training fold with no signal
+  # (glmnet: "need at least two non-NA values to interpolate").
+  key <- do.call(paste, poss[, .RAPM_LINEUP_COLS])
+  j   <- which(key != key[1L])[1L]
+  tiny <- poss[c(1L, 1L, j), ]
+  tiny$points <- c(0, 1, 2)
+  out3 <- wnba_rapm(tiny)
+  expect_gt(max(abs(out3$o_rapm)), 0)
+  expect_equal(out3$o_rapm, fixed_oracle(tiny), tolerance = 1e-10)
 })
 
 # ===========================================================================

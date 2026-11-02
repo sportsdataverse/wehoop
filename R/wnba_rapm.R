@@ -112,23 +112,20 @@ wnba_rapm <- function(possessions, ...) {
   # No player column correlates with the centred points (this includes
   # constant points): every ridge solution is exactly 0, and glmnet errors
   # here (NaN lambda path, or "y is constant"), so return 0 directly.
-  # The tolerance scales with the centred points, so adding a constant to
-  # every possession cannot turn real signal into zeros.
-  yc    <- y - mean(y)
-  score <- Matrix::crossprod(X, yc)
   foldid <- ((seq_len(n) - 1L) %% nf) + 1L
-  # cv.glmnet also errors if any training fold has constant points, even
-  # when the full y does not (e.g. one scoring possession in a tiny input).
-  const_fold <- vapply(seq_len(nf), function(k) {
-    yk <- y[foldid != k]
-    all(yk == yk[1L])
+  # cv.glmnet also errors if any training fold has no signal (e.g. one
+  # scoring possession, or the only distinct lineup held out), even when
+  # the full input has signal.
+  no_signal_fold <- vapply(seq_len(nf), function(k) {
+    tr <- foldid != k
+    !any(tr) || .rapm_no_signal(X[tr, , drop = FALSE], y[tr])
   }, logical(1))
 
-  if (max(abs(score)) <= sqrt(.Machine$double.eps) * max(1, sum(abs(yc)))) {
+  if (.rapm_no_signal(X, y)) {
     coef <- numeric(2L * P)
-  } else if (n < 3L || any(const_fold)) {
+  } else if (n < 3L || any(no_signal_fold)) {
     # cv.glmnet requires at least 3 rows (one per fold minimum) and
-    # non-constant training folds; use a fixed lambda instead.
+    # training folds with signal; use a fixed lambda instead.
     fit0 <- glmnet::glmnet(X, y, alpha = 0, standardize = FALSE, lambda = 0.1)
     coef <- as.numeric(stats::coef(fit0))[-1L]
   } else {
@@ -164,6 +161,16 @@ wnba_rapm <- function(possessions, ...) {
     dplyr::as_tibble() |>
     janitor::clean_names() |>
     make_wehoop_data("WNBA RAPM", Sys.time())
+}
+
+# TRUE when no column of X correlates with the centred points (this includes
+# constant points): every ridge solution is then exactly 0. The tolerance
+# scales with the centred points, so adding a constant to every possession
+# cannot turn real signal into zeros.
+.rapm_no_signal <- function(X, y) {
+  yc <- y - mean(y)
+  max(abs(Matrix::crossprod(X, yc))) <=
+    sqrt(.Machine$double.eps) * max(1, sum(abs(yc)))
 }
 
 # Column name vectors (mirrors Python _OFF / _DEF)
