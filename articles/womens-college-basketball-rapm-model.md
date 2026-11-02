@@ -312,9 +312,11 @@ one row per player with `o_rapm`, `d_rapm`, `rapm`, `off_poss` and
 
 - builds a sparse design with one offensive and one defensive indicator
   column per player, dropping possessions with an incomplete lineup;
-- fits a ridge regression with `glmnet` (no intercept), choosing the
-  penalty by 10-fold cross-validation with fixed, deterministic folds,
-  so repeated calls give identical results without setting a seed;
+- fits a ridge regression with `glmnet`, an unpenalized intercept (so
+  the ratings are relative to average) and the same penalty on every
+  player’s coefficient (`standardize = FALSE`), choosing the penalty by
+  10-fold cross-validation with fixed, deterministic folds, so repeated
+  calls give identical results without setting a seed;
 - multiplies by 100 and flips the sign of the defensive coefficient so
   that good defense is positive.
 
@@ -368,7 +370,7 @@ compare |>
 #> # A tibble: 1 × 6
 #>   players r_offense r_defense r_total sd_wnba_rapm sd_published
 #>     <int>     <dbl>     <dbl>   <dbl>        <dbl>        <dbl>
-#> 1     102     0.949     0.951   0.946         3.83         2.31
+#> 1     102     0.998     0.998   0.998         2.06         2.31
 ```
 
 ``` r

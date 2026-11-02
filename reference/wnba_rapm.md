@@ -47,6 +47,16 @@ meaningful estimates. Results from a single game (~120–200 possessions)
 are highly unstable and are provided here for pipeline illustration
 only.
 
+Values are relative to average: an unpenalized intercept absorbs the
+mean points per possession, and every player's coefficient gets the same
+ridge penalty (glmnet `standardize = FALSE`), so `o_rapm` and `d_rapm`
+each sum to 0 across players. Possession-weighted means are usually near
+0 but are not guaranteed to be. Every possession has five offensive and
+five defensive players, so the data do not pin down the absolute level
+of `o_rapm`, `d_rapm` or `rapm`; that level is a convention of the ridge
+fit. What the data identify are differences between players, to the
+extent the lineups separate them.
+
 Results are **deterministic**: the cross-validation uses fixed,
 construction-based folds (not random), so repeated calls on the same
 possessions return identical output with no need to set a seed.

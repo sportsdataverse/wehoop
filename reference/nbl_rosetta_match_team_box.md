@@ -139,7 +139,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_match_team_box(match_id = "b217a699-4bef-11f0-bc08-933162362355"))
 #> ── NBL Rosetta match_team_box from prod.rosetta.nbl.com.au ───── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:23:42 UTC
+#> ℹ Data updated: 2026-11-02 13:51:03 UTC
 #> # A tibble: 10 × 36
 #>    match_id        match_status stat_line_id rosetta_stat_line_id assists blocks
 #>    <chr>           <chr>        <chr>        <chr>                  <int>  <int>

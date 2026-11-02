@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:23 UTC
+#> ℹ Data updated: 2026-11-02 13:50:07 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:23 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 13 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -126,7 +126,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
@@ -151,26 +151,13 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
-#> # A tibble: 29 × 6
-#>    team_id category     stat                      stat_abbreviation player value
-#>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
-#>  1 11      PLAYER STATS Points Per Game           PPG               Sarah… 18.5 
-#>  2 11      PLAYER STATS Three Point Field Goals … 3FGM/G            Azzi … 3.1  
-#>  3 11      PLAYER STATS Free Throws Made Per Game FTM/G             Sarah… 1.9  
-#>  4 11      PLAYER STATS High Game Points          HIGH              Allie… 34   
-#>  5 11      PLAYER STATS Rebounds Per Game         RPG               Sarah… 7.6  
-#>  6 11      PLAYER STATS True Shooting Percentage  TS%               Gandy… 100.0
-#>  7 11      PLAYER STATS Assists Per Game          APG               KK Ar… 4.8  
-#>  8 11      PLAYER STATS Turnovers Per Game        TPG               Blanc… 2.0  
-#>  9 11      PLAYER STATS Steals Per Game           SPG               Sarah… 3.4  
-#> 10 11      PLAYER STATS Blocks Per Game           BPG               Sarah… 1.6  
-#> # ℹ 19 more rows
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -189,26 +176,13 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
-#> # A tibble: 110 × 8
-#>    team_id season_type category game_id game_date opponent stat         value
-#>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 11      POSTSEASON  scoring  389046  4/3       SCAR     fgm          19   
-#>  2 11      POSTSEASON  scoring  389046  4/3       SCAR     fga          61   
-#>  3 11      POSTSEASON  scoring  389046  4/3       SCAR     fg_percent   31.1 
-#>  4 11      POSTSEASON  scoring  389046  4/3       SCAR     ftm          4    
-#>  5 11      POSTSEASON  scoring  389046  4/3       SCAR     fta          6    
-#>  6 11      POSTSEASON  scoring  389046  4/3       SCAR     ft_percent   66.7 
-#>  7 11      POSTSEASON  scoring  389046  4/3       SCAR     x3fgm        6    
-#>  8 11      POSTSEASON  scoring  389046  4/3       SCAR     x3fga        21   
-#>  9 11      POSTSEASON  scoring  389046  4/3       SCAR     x3fg_percent 28.6 
-#> 10 11      POSTSEASON  scoring  389046  4/3       SCAR     pts          48   
-#> # ℹ 100 more rows
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
+#> # A tibble: 0 × 0
 # }
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -228,7 +202,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
@@ -248,7 +222,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -271,7 +245,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:22:24 UTC
+#> ℹ Data updated: 2026-11-02 13:50:08 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      

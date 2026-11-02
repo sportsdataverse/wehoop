@@ -540,10 +540,10 @@ Returns a `wehoop_data` tibble with one row per player-team-season.
 | team | character | Team name. |
 | player_code | character | Player display name as 'Last, First' used as the RAPM join key. |
 | rapm_off | numeric | Within-team offensive regularized adjusted plus-minus. |
-| rapm_def | numeric | Within-team defensive regularized adjusted plus-minus. |
+| rapm_def | numeric | Within-team defensive regularized adjusted plus-minus, on a points-allowed scale (lower is better). |
 | team_off_poss | numeric | Team offensive possessions used in the RAPM fit. |
 | num_players | integer | Number of teammates included in the within-team RAPM fit. |
-| rapm_net | numeric | Within-team net regularized adjusted plus-minus (rapm_off + rapm_def). |
+| rapm_net | numeric | Within-team net regularized adjusted plus-minus (rapm_off - rapm_def). |
 | season | integer | Season identifier (4-digit season-ending year). |
 | player_id | character | stats.ncaa.org player identifier. |
 | team_id | character | Unique team identifier. |
@@ -939,9 +939,20 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_ncaa_wbb_team_ids(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_ids/ncaa_wbb_team_ids_2027.rds': HTTP status was '404 Not Found'
-#> Warning: Failed to readRDS from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_wbb_team_ids/ncaa_wbb_team_ids_2027.rds>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 363 × 4
+#>    team               conference id     season
+#>    <chr>              <chr>      <chr>   <int>
+#>  1 A&M-Corpus Christi Southland  628770   2027
+#>  2 Abilene Christian  WAC        628820   2027
+#>  3 Air Force          MWC        628725   2027
+#>  4 Akron              MAC        628821   2027
+#>  5 Alabama            SEC        628824   2027
+#>  6 Alabama A&M        SWAC       628822   2027
+#>  7 Alabama St.        SWAC       628823   2027
+#>  8 Alcorn             SWAC       628763   2027
+#>  9 American           Patriot    628764   2027
+#> 10 App State          Sun Belt   628765   2027
+#> # ℹ 353 more rows
 # }
 ```

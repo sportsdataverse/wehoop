@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_franchises()
 #> ── ESPN WNBA Franchises Index ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 06:21:16 UTC
+#> ℹ Data updated: 2026-11-02 13:49:02 UTC
 #> # A tibble: 15 × 3
 #>    franchise_id ref                                                       league
 #>    <chr>        <chr>                                                     <chr> 
