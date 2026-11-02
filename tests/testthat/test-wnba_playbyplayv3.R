@@ -28,6 +28,7 @@ test_that("WNBA PlayByPlay V3", {
 test_that("WNBA PBP V3 via wnba_pbp()", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
 
   x <- wnba_pbp(game_id = "1022200034", version = "v3", on_court = FALSE)
 
@@ -86,6 +87,7 @@ test_that("WNBA PBP V3 via wnba_pbp()", {
 test_that("WNBA PBP V3 with on-court players", {
   skip_on_cran()
   skip_on_ci()
+  skip_wnba_stats_test()
 
   x <- wnba_pbp(game_id = "1022200034", version = "v3", on_court = TRUE)
 
