@@ -9,7 +9,7 @@ Columns shared verbatim across: espn_wbb_news, espn_wbb_team_news, espn_wnba_new
 \details{
 \if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    type \tab character \tab Record type / category. \cr
    headline \tab character \tab News headline. \cr
    description \tab character \tab Long-form description text. \cr

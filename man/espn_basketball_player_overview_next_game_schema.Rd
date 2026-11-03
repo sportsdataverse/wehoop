@@ -9,7 +9,7 @@ Columns shared verbatim across: espn_wbb_player_overview, espn_wbb_team, espn_wn
 \details{
 \tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    date \tab character \tab Date in YYYY-MM-DD format. \cr
    name \tab character \tab Display name. \cr
    short_name \tab character \tab Short display name. \cr

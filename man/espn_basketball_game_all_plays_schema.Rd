@@ -9,7 +9,7 @@ Columns shared verbatim across: espn_wnba_game_all, espn_wnba_pbp.
 \details{
 \if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    sequence_number \tab character \tab Sequence number representing a shot-possession (V3 PBP). \cr
    text \tab character \tab Text description of the play / record. \cr
    away_score \tab integer \tab Away team score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn'). \cr

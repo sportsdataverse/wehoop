@@ -150,7 +150,7 @@ NULL
 #' **Get WNBA Stats API Scoreboard**
 #' @rdname wnba_scoreboard
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param game_date Game Date, format: 2022/05/17
 #' @param day_offset Day Offset (integer 0,-1)
 #' @param ... Additional arguments passed to an underlying function like httr.
@@ -286,7 +286,7 @@ NULL
 #' **Get WNBA Stats API Scoreboard V2**
 #' @rdname wnba_scoreboardv2
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param game_date Game Date, format: 2022/05/17
 #' @param day_offset Day Offset (integer 0,-1)
 #' @param ... Additional arguments passed to an underlying function like httr.

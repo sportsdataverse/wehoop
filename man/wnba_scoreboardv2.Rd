@@ -12,7 +12,7 @@ wnba_scoreboardv2(
 )
 }
 \arguments{
-\item{league_id}{League - default: '00'. Other options include '10': WWNBA, '20': G-League}
+\item{league_id}{League - default: '00'. Other options include '10': WNBA, '20': G-League}
 
 \item{game_date}{Game Date, format: 2022/05/17}
 

@@ -29,7 +29,7 @@ NULL
 #'
 #'    |col_name     |types     |description                      |
 #'    |:------------|:---------|:--------------------------------|
-#'    |id           |character |Unique play identifcation number |
+#'    |id           |character |Unique play identification number |
 #'    |abbreviation |character |Short abbreviation.              |
 #'    |display_name |character |Display name.                    |
 #'
@@ -37,7 +37,7 @@ NULL
 #'
 #'    |col_name     |types     |description                      |
 #'    |:------------|:---------|:--------------------------------|
-#'    |id           |character |Unique play identifcation number |
+#'    |id           |character |Unique play identification number |
 #'    |name         |character |Display name.                    |
 #'    |abbreviation |character |Short abbreviation.              |
 #'
@@ -45,7 +45,7 @@ NULL
 #'
 #'    |col_name |types     |description                      |
 #'    |:--------|:---------|:--------------------------------|
-#'    |id       |character |Unique play identifcation number |
+#'    |id       |character |Unique play identification number |
 #'    |name     |character |Display name.                    |
 #'    |type     |character |Record type / category.          |
 #'
@@ -53,7 +53,7 @@ NULL
 #'
 #'    |col_name |types     |description                      |
 #'    |:--------|:---------|:--------------------------------|
-#'    |id       |character |Unique play identifcation number |
+#'    |id       |character |Unique play identification number |
 #'    |name     |character |Display name.                    |
 #'    |mascot   |character |Team mascot.                     |
 #'

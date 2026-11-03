@@ -43,7 +43,7 @@ wnba_playercompare(
 
 \item{last_n_games}{last_n_games}
 
-\item{league_id}{League - default: '00'. Other options include '10': WWNBA, '20': G-League}
+\item{league_id}{League - default: '00'. Other options include '10': WNBA, '20': G-League}
 
 \item{location}{location}
 

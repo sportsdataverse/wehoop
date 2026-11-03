@@ -741,7 +741,7 @@ espn_wbb_conferences <- function() {
 #' Get ESPN women's college basketball team names and ids
 #' @author Saiem Gilani
 #' @param year Either numeric or character (YYYY)
-#' @return Returns a teams infomation data frame
+#' @return Returns a teams information data frame
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -1401,7 +1401,7 @@ utils::globalVariables(c("where"))
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
-#'       id \tab integer \tab Unique play identifcation number \cr
+#'       id \tab integer \tab Unique play identification number \cr
 #'       name \tab character \tab Display name. \cr
 #'       short_name \tab character \tab Short display name. \cr
 #'       type \tab character \tab Record type / category. \cr

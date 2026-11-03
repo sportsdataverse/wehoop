@@ -35,7 +35,7 @@ wnba_playerindex(
 
 \item{historical}{Whether to include only current players (0) or all historical (1).}
 
-\item{league_id}{League - default: '00'. Other options include '10': WWNBA, '20': G-League}
+\item{league_id}{League - default: '00'. Other options include '10': WNBA, '20': G-League}
 
 \item{season}{Season - format 2020-21}
 

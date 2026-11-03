@@ -50,7 +50,7 @@ Columns as documented in the shared \link{espn_basketball_player_overview_next_g
 
 \strong{Coaches}\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    first_name \tab character \tab Player's first name. \cr
    last_name \tab character \tab Player's last name. \cr
    experience \tab integer \tab Years of professional experience. \cr

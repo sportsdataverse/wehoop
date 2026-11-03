@@ -173,15 +173,15 @@ A dataframe with the columns documented below:
    period_display_value \tab Long form of period (1st quarter, 2nd Quarter, OT, etc.) \cr
    period_number \tab The numeric period of play in the game \cr
    home_score \tab Home score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') \cr
-   coordinate_x \tab The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncracy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. \cr
+   coordinate_x \tab The entire scale is a rectangle of size 25x47, intended as a half-court representation of the basketball court (i.e. on the side of the offense), with each coordinate unit representing a foot. It appears that the basket is roughly represented as the (25, 0) point. This is a nonsensical definition when considering that the basket overhangs the court, with the backboard aligned 48 inches from the baseline, then the center of the hoop being roughly 11 inches from there. This is an idiosyncrasy of either sensor placement or software and data entry. Use your best judgement in making your charts, I think you will find that making some translations will be helpful. \cr
    coordinate_y \tab  \cr
    scoring_play \tab Logical value (TRUE/FALSE) indicating whether the play was a play on which the offense scored \cr
    clock_display_value \tab Time left within the period \cr
    team_id \tab Unique team identification number for the offensive team \cr
-   type_id \tab Unique play type identifcation number \cr
+   type_id \tab Unique play type identification number \cr
    type_text \tab Play type text description, passed through verbatim from ESPN. Note: ESPN labels the free-throw play TYPE "MadeFreeThrow" for made AND missed free throws; filter makes vs. misses with \code{scoring_play} (TRUE = made), not \code{type_text} \cr
    away_score \tab Away score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn') \cr
-   id \tab Unique play identifcation number \cr
+   id \tab Unique play identification number \cr
    text \tab Text description of the play \cr
    score_value \tab The points value of the shot taken (1 / 2 / 3). Set to the attempt's value even on misses (a missed free throw still carries 1); use \code{scoring_play} to identify points actually scored \cr
    participants_0_athlete_id \tab Unique player identification number \cr

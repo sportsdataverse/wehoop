@@ -23,7 +23,7 @@ Columns as documented in the shared \link{espn_basketball_player_info_bio_schema
 
 \strong{Team}\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    abbreviation \tab character \tab Short abbreviation. \cr
    display_name \tab character \tab Display name. \cr
 }
@@ -31,7 +31,7 @@ Columns as documented in the shared \link{espn_basketball_player_info_bio_schema
 
 \strong{Position}\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    name \tab character \tab Display name. \cr
    abbreviation \tab character \tab Short abbreviation. \cr
 }
@@ -39,7 +39,7 @@ Columns as documented in the shared \link{espn_basketball_player_info_bio_schema
 
 \strong{Status}\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    name \tab character \tab Display name. \cr
    type \tab character \tab Record type / category. \cr
 }
@@ -47,7 +47,7 @@ Columns as documented in the shared \link{espn_basketball_player_info_bio_schema
 
 \strong{College}\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    name \tab character \tab Display name. \cr
    mascot \tab character \tab Team mascot. \cr
 }

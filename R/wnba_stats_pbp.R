@@ -1319,7 +1319,7 @@ NULL
 #'       team_tricode \tab character \tab Three-letter team code (e.g. 'LAS' / 'NYL'). \cr
 #'       descriptor \tab character \tab Descriptor. \cr
 #'       jump_ball_recovered_name \tab character \tab Jump ball recovered name. \cr
-#'       jump_ball_recoverd_person_id \tab integer \tab Unique identifier for jump ball recoverd person. \cr
+#'       jump_ball_recoverd_person_id \tab integer \tab Unique identifier for jump ball recovered person. \cr
 #'       player_name \tab character \tab Player name. \cr
 #'       player_name_i \tab character \tab Player name i. \cr
 #'       jump_ball_won_player_name \tab character \tab Jump ball won player name. \cr

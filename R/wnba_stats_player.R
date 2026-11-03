@@ -13,7 +13,7 @@ NULL
 #' @param draft_year Draft Year
 #' @param height Player Height
 #' @param historical Whether to include only current players (0) or all historical (1).
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param team_id Team ID. Default: 0 (all teams).
@@ -259,7 +259,7 @@ NULL
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param per_mode Per Mode - PerGame, Totals
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: PlayerCareerByCollege
 #'
@@ -366,7 +366,7 @@ NULL
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param per_mode Per Mode - PerGame, Totals
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: East, Midwest, South, West
 #'
@@ -479,7 +479,7 @@ NULL
 #' @author Saiem Gilani
 #' @param player_id Player ID
 #' @param per_mode Per Mode - PerGame, Totals
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: CareerTotalsAllStarSeason,
 #' CareerTotalsCollegeSeason, CareerTotalsPostSeason,
@@ -712,7 +712,7 @@ NULL
 #' **Get WNBA Stats API Player Fantasy Profile**
 #' @rdname wnba_playerfantasyprofile
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param measure_type measure_type
 #' @param player_id Player ID
 #' @param per_mode Per Mode - PerGame, Totals
@@ -927,7 +927,7 @@ NULL
 #' **Get WNBA Stats API Player Fantasy Profile Bar Graph**
 #' @rdname wnba_playerfantasyprofilebargraph
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param player_id Player ID
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
@@ -1025,7 +1025,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Return a named list of data frames: PlayerEstimatedMetrics
 #'
@@ -1139,7 +1139,7 @@ NULL
 #' @author Saiem Gilani
 #' @param date_from date_from
 #' @param date_to date_to
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param player_id Player ID
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
@@ -1248,7 +1248,7 @@ NULL
 #' @param date_to date_to
 #' @param game_segment game_segment
 #' @param last_n_games last_n_games
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param location location
 #' @param measure_type measure_type
 #' @param month month
@@ -1777,7 +1777,7 @@ NULL
 #' **Get WNBA Stats API Player Next N Games**
 #' @rdname wnba_playernextngames
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param number_of_games N in number of games
 #' @param player_id Player ID
 #' @param season Season - format 2020-21
@@ -1870,7 +1870,7 @@ NULL
 #' **Get WNBA Stats API Player Profile V2**
 #' @rdname wnba_playerprofilev2
 #' @author Saiem Gilani
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param player_id Player ID
 #' @param per_mode Season - format 2020-21
 #' @param ... Additional arguments passed to an underlying function like httr.
@@ -2063,7 +2063,7 @@ NULL
 #' @param date_to date_to
 #' @param game_segment game_segment
 #' @param last_n_games last_n_games
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param location location
 #' @param measure_type measure_type
 #' @param month month
@@ -2341,7 +2341,7 @@ NULL
 #' @param date_to date_to
 #' @param game_segment game_segment
 #' @param last_n_games last_n_games
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param location location
 #' @param measure_type measure_type
 #' @param month month

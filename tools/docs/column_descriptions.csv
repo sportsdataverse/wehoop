@@ -583,7 +583,7 @@ href,Link / page URL.,curated,FALSE
 icon,Icon image URL.,curated,FALSE
 icon_text,Icon descriptive text.,curated,FALSE
 icon_url,Icon image URL.,curated,FALSE
-id,Unique play identifcation number,describe:load_wbb.R,FALSE
+id,Unique play identification number,describe:load_wbb.R,FALSE
 if_necessary,If necessary.,heuristic,TRUE
 images,JSON array of image objects (serialized).,curated,FALSE
 images_url,URL for images.,heuristic,TRUE
@@ -719,7 +719,7 @@ offensive_avg48field_goals_attempted,The average number of fieldgoals attempted 
 offensive_avg48field_goals_made,The average number of fieldgoals made per 48 minutes.,espn_api,FALSE
 offensive_avg48free_throws_attempted,The average number of free throws attempted per 48 minutes.,espn_api,FALSE
 offensive_avg48free_throws_made,The average number of Free Throws made per 48 minutes.,espn_api,FALSE
-offensive_avg48offensive_rebounds,The average number of offenseive rebounds per 48 minutes.,espn_api,FALSE
+offensive_avg48offensive_rebounds,The average number of offensive rebounds per 48 minutes.,espn_api,FALSE
 offensive_avg48points,The average number of points scored per 48 minutes.,espn_api,FALSE
 offensive_avg48three_point_field_goals_attempted,The average number of 3-pointers attempted per 48 minutes.,espn_api,FALSE
 offensive_avg48three_point_field_goals_made,The average per number of 3-Pointers made per 48 minutes.,espn_api,FALSE

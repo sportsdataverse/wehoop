@@ -48,7 +48,7 @@ NULL
 #'
 #'    |col_name   |types     |description                       |
 #'    |:----------|:---------|:---------------------------------|
-#'    |id         |character |Unique play identifcation number  |
+#'    |id         |character |Unique play identification number  |
 #'    |first_name |character |Player's first name.              |
 #'    |last_name  |character |Player's last name.               |
 #'    |experience |integer   |Years of professional experience. |

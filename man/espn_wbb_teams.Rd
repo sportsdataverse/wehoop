@@ -10,7 +10,7 @@ espn_wbb_teams(year = most_recent_wbb_season())
 \item{year}{Either numeric or character (YYYY)}
 }
 \value{
-Returns a teams infomation data frame
+Returns a teams information data frame
 
 \if{html}{\tabular{lll}{
       col_name \tab types \tab description \cr

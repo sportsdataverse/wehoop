@@ -9,7 +9,7 @@ Columns shared verbatim across: espn_wbb_player_info, espn_wnba_player_info.
 \details{
 \tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    full_name \tab character \tab Player's full name. \cr
    display_name \tab character \tab Display name. \cr
    jersey \tab character \tab Jersey number worn by the player. \cr

@@ -131,7 +131,7 @@ Returns a tibble with the team stats data
       offensive_avg48free_throws_made \tab numeric \tab The average number of Free Throws made per 48 minutes. \cr
       offensive_avg48free_throws_attempted \tab numeric \tab The average number of free throws attempted per 48 minutes. \cr
       offensive_avg48points \tab numeric \tab The average number of points scored per 48 minutes. \cr
-      offensive_avg48offensive_rebounds \tab numeric \tab The average number of offenseive rebounds per 48 minutes. \cr
+      offensive_avg48offensive_rebounds \tab numeric \tab The average number of offensive rebounds per 48 minutes. \cr
       offensive_avg48assists \tab numeric \tab The average number of assists per 48 minutes. \cr
       offensive_avg48turnovers \tab numeric \tab The average number of turnovers per 48 minutes. \cr
    }}

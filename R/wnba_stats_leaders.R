@@ -7,7 +7,7 @@ NULL
 #' @author Saiem Gilani
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param per_mode Per Mode - PerGame, Totals
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param top_x Top X
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: ASTLeaders, BLKLeaders, DREBLeaders,
@@ -289,7 +289,7 @@ NULL
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param per_mode Per Mode - PerGame, Totals
 #' @param player_or_team Player or Team
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: AssistLeaders
 #' 
@@ -374,7 +374,7 @@ NULL
 #' @param season Season - format 2020-21
 #' @param season_type Season Type - Regular Season, Playoffs, All-Star
 #' @param per_mode Per Mode - PerGame, Totals
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: AssistTracker
 #'  
@@ -447,7 +447,7 @@ NULL
 #' @param season_type Season Type - Regular Season, Playoffs
 #' @param player_or_team Player or Team
 #' @param player_scope Player Scope - All Players, Rookies
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param stat_category Stat Category: Points, Rebounds, Assists, Defense, Clutch, Playmaking, Efficiency, Fast Break, Scoring Breakdown
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: HomePageLeaders, LeagueAverage, LeagueMax
@@ -570,7 +570,7 @@ NULL
 #' @param season_type Season Type - Regular Season, Playoffs
 #' @param player_or_team Player or Team
 #' @param player_scope Player Scope - All Players, Rookies
-#' @param league_id League - default: '00'. Other options include '10': WWNBA, '20': G-League
+#' @param league_id League - default: '00'. Other options include '10': WNBA, '20': G-League
 #' @param stat_type Stat Type - Traditional, Advanced, Tracking
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a named list of data frames: HomePageStat1, HomePageStat2, HomePageStat3,

@@ -9,7 +9,7 @@ Columns shared verbatim across: espn_wbb_team, espn_wnba_team.
 \details{
 \if{html}{\tabular{lll}{
    col_name \tab types \tab description \cr
-   id \tab character \tab Unique play identifcation number \cr
+   id \tab character \tab Unique play identification number \cr
    uid \tab character \tab ESPN UID string (universal identifier). \cr
    slug \tab character \tab URL-safe identifier. \cr
    abbreviation \tab character \tab Short abbreviation. \cr

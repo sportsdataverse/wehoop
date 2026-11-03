@@ -369,7 +369,7 @@ NULL
 #'
 #' \if{html}{\tabular{lll}{
 #'    col_name \tab types \tab description \cr
-#'    id \tab character \tab Unique play identifcation number \cr
+#'    id \tab character \tab Unique play identification number \cr
 #'    sequence_number \tab character \tab Sequence number representing a shot-possession (V3 PBP). \cr
 #'    text \tab character \tab Text description of the play / record. \cr
 #'    away_score \tab integer \tab Away team score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn'). \cr
@@ -434,7 +434,7 @@ NULL
 #'
 #' \if{html}{\tabular{lll}{
 #'    col_name \tab types \tab description \cr
-#'    id \tab character \tab Unique play identifcation number \cr
+#'    id \tab character \tab Unique play identification number \cr
 #'    sequence_number \tab character \tab Sequence number representing a shot-possession (V3 PBP). \cr
 #'    text \tab character \tab Text description of the play / record. \cr
 #'    away_score \tab integer \tab Away team score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn'). \cr
@@ -641,7 +641,7 @@ NULL
 #'
 #' \if{html}{\tabular{lll}{
 #'    col_name \tab types \tab description \cr
-#'    id \tab character \tab Unique play identifcation number \cr
+#'    id \tab character \tab Unique play identification number \cr
 #'    type \tab character \tab Record type / category. \cr
 #'    headline \tab character \tab News headline. \cr
 #'    description \tab character \tab Long-form description text. \cr
@@ -710,7 +710,7 @@ NULL
 #'
 #' |col_name |types |description |
 #' |:-------------|:---------|:---------------------------------|
-#' |id |character |Unique play identifcation number |
+#' |id |character |Unique play identification number |
 #' |full_name |character |Player's full name. |
 #' |display_name |character |Display name. |
 #' |jersey |character |Jersey number worn by the player. |
@@ -728,7 +728,7 @@ NULL
 #'
 #' |col_name |types |description |
 #' |:----------|:---------|:--------------------------------|
-#' |id |character |Unique play identifcation number |
+#' |id |character |Unique play identification number |
 #' |date |character |Date in YYYY-MM-DD format. |
 #' |name |character |Display name. |
 #' |short_name |character |Short display name. |
@@ -997,7 +997,7 @@ NULL
 #'
 #' \if{html}{\tabular{lll}{
 #'    col_name \tab types \tab description \cr
-#'    id \tab character \tab Unique play identifcation number \cr
+#'    id \tab character \tab Unique play identification number \cr
 #'    uid \tab character \tab ESPN UID string (universal identifier). \cr
 #'    slug \tab character \tab URL-safe identifier. \cr
 #'    abbreviation \tab character \tab Short abbreviation. \cr

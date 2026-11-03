@@ -11,7 +11,7 @@ Returns a tibble
 
 \if{html}{\tabular{lll}{
       col_name \tab types \tab description \cr
-      id \tab integer \tab Unique play identifcation number \cr
+      id \tab integer \tab Unique play identification number \cr
       name \tab character \tab Display name. \cr
       short_name \tab character \tab Short display name. \cr
       type \tab character \tab Record type / category. \cr

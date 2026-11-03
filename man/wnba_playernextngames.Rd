@@ -14,7 +14,7 @@ wnba_playernextngames(
 )
 }
 \arguments{
-\item{league_id}{League - default: '00'. Other options include '10': WWNBA, '20': G-League}
+\item{league_id}{League - default: '00'. Other options include '10': WNBA, '20': G-League}
 
 \item{number_of_games}{N in number of games}
 
