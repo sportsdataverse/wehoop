@@ -156,7 +156,7 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -239,7 +239,7 @@ load_ncaa_wbb_shots <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -382,7 +382,7 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -478,7 +478,7 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -597,7 +597,7 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -672,7 +672,7 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -751,7 +751,7 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -941,7 +941,7 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -1085,7 +1085,7 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -1149,7 +1149,7 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -1227,7 +1227,7 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -1293,7 +1293,7 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -1357,7 +1357,7 @@ load_ncaa_wbb_team_ids <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }

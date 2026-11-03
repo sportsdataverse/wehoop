@@ -57,7 +57,7 @@ load_wbb_groups <- function(..., dbConnection = NULL, tablename = NULL) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -81,7 +81,7 @@ load_wnba_groups <- function(..., dbConnection = NULL, tablename = NULL) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -135,7 +135,7 @@ load_wbb_group_seasons <- function(..., dbConnection = NULL, tablename = NULL) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -159,7 +159,7 @@ load_wnba_group_seasons <- function(..., dbConnection = NULL, tablename = NULL) 
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -212,7 +212,7 @@ load_wbb_group_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -236,7 +236,7 @@ load_wnba_group_aliases <- function(..., dbConnection = NULL, tablename = NULL) 
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -318,7 +318,7 @@ load_wbb_team_group_seasons <- function(seasons = most_recent_wbb_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -362,7 +362,7 @@ load_wnba_team_group_seasons <- function(seasons = most_recent_wnba_season(),
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -425,7 +425,7 @@ load_wbb_team_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -449,7 +449,7 @@ load_wnba_team_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -512,7 +512,7 @@ load_wbb_player_aliases <- function(..., dbConnection = NULL, tablename = NULL) 
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -536,7 +536,7 @@ load_wnba_player_aliases <- function(..., dbConnection = NULL, tablename = NULL)
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }

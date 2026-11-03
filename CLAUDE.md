@@ -243,7 +243,7 @@ raw_data %>%
   make_wehoop_data("Description from WNBA.com", Sys.time())
 ```
 
-`make_wehoop_data()` sets the class to `c("wehoop_data", "tbl_df", "tbl", "data.table", "data.frame")` and attaches `wehoop_timestamp` and `wehoop_type` attributes.
+`make_wehoop_data()` sets the class to `c("wehoop_data", "tbl_df", "tbl", "data.frame")` and attaches `wehoop_timestamp` and `wehoop_type` attributes.
 
 ### V2 vs V3 API Differences
 
