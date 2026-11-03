@@ -386,7 +386,8 @@ NULL
 #'   See [load_wbb_player_aliases()] for player ids and
 #'   [load_wbb_group_aliases()] for conference and division aliases.
 #' @inheritParams load_wbb_groups
-#' @return Returns a `wehoop_data` tibble with one row per team alias.
+#' @return Returns a `wehoop_data` tibble with one row per team alias, or `NULL` after
+#'   appending the rows to `tablename` when `dbConnection` and `tablename` are both given.
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -472,7 +473,8 @@ NULL
 #'
 #'   See [load_wbb_team_aliases()] for team ids and names.
 #' @inheritParams load_wbb_groups
-#' @return Returns a `wehoop_data` tibble with one row per player alias.
+#' @return Returns a `wehoop_data` tibble with one row per player alias, or `NULL` after
+#'   appending the rows to `tablename` when `dbConnection` and `tablename` are both given.
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
