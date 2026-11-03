@@ -79,27 +79,33 @@ committed fixtures and mock the HTTP layer.
 
 ### Expected NOTE: installed package size
 
-On Windows the installed size is reported as INFO; on CRAN's other
-platforms we expect it as a NOTE:
+Every platform we checked reports the installed size as INFO, but we
+expect CRAN's machines to raise it as a NOTE. Locally (R 4.6.0):
 
-    checking installed package size ... NOTE
+    checking installed package size ... INFO
       installed size is  6.7Mb
       sub-directories of 1Mb or more:
         R      2.0Mb
         help   4.3Mb
 
+On R-hub (R-devel) it is 8.0 to 9.6 Mb: help 4.2 to 5.1 Mb and R 3.4 to
+4.1 Mb.
+
 The size is mostly help pages. wehoop is a set of thin wrappers over many
-data APIs: it exports 750 functions (up from 452 in 3.0.0; 289 of the new
-ones are the international league families) documented in 551 Rd files,
-and each wrapper's help page carries a table of the columns it returns.
-The R code is 2.0 Mb, the package has no compiled code and ships no large
-data, and the source tarball is 2.2 MB.
+data APIs: it exports 750 functions (up from 452 in 3.0.0; 289 of them
+belong to the new international league families) documented in 551 Rd
+files, and each wrapper's help page carries a table of the columns it
+returns. The package has no compiled code and ships no large data (the
+`data/` directory is 6 KB), and the source tarball is 2.2 MB.
 
 ## Other platforms
 
-* GitHub Actions R-CMD-check (R release on Ubuntu, macOS and Windows;
-  R oldrel-1 and R-devel on Ubuntu): see the run on the submitted commit.
-* R-hub v2: to be recorded for the submitted commit.
+All on commit 6cf02acd (2026-11-03):
+
+* GitHub Actions R-CMD-check: R release on Ubuntu, macOS and Windows,
+  R oldrel-1 and R-devel on Ubuntu: all passed.
+* R-hub v2 (R-devel): linux, windows, macos and macos-arm64 Status OK;
+  nosuggests (no Suggests installed) Status OK.
 
 ## revdepcheck results
 
