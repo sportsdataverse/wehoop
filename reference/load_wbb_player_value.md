@@ -179,16 +179,37 @@ Saiem Gilani
 # }
 # \donttest{
   try(load_wbb_player_value(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_player_value/wbb_player_value_2027.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_player_value/wbb_player_value_2027.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 19 × 9
+#>    player_id player     season team_id   min box_obpm box_dbpm box_bpm qualified
+#>    <chr>     <chr>       <int> <chr>   <dbl>    <dbl>    <dbl>   <dbl> <lgl>    
+#>  1 5312310   Leah Macy    2027 87         35   23.8    -7.26     16.6  FALSE    
+#>  2 5238296   Simone Pe…   2027 222        18    3.26    7.36     10.6  FALSE    
+#>  3 5174674   Hannah Hi…   2027 87         37   19.8   -11.4       8.35 FALSE    
+#>  4 5457125   Isabella …   2027 87          1   -0.468   8.20      7.73 FALSE    
+#>  5 5457127   Jenica Le…   2027 87         32    6.01   -0.616     5.39 FALSE    
+#>  6 5312736   Brooke Be…   2027 222         8    8.41   -3.10      5.31 FALSE    
+#>  7 5312735   Elise Ben…   2027 222        24    7.85   -3.30      4.54 FALSE    
+#>  8 5240246   Dani Cese…   2027 222        22    5.93   -1.49      4.44 FALSE    
+#>  9 4610162   Madison S…   2027 87         37    7.51   -3.17      4.34 FALSE    
+#> 10 5178121   Anna Foley   2027 222        12    5.45   -1.29      4.16 FALSE    
+#> 11 5240245   Jasmine B…   2027 222        38   14.3   -12.0       2.28 FALSE    
+#> 12 5312737   Kennedy H…   2027 222        32   -1.54   -0.0763   -1.62 FALSE    
+#> 13 5457123   Jacy Abii    2027 87         24   -1.92   -0.611    -2.53 FALSE    
+#> 14 5109222   Kelly Rat…   2027 87          2   -2.82   -0.321    -3.14 FALSE    
+#> 15 5457124   Bella Rag…   2027 87          1   -2.82   -0.321    -3.14 FALSE    
+#> 16 5457746   Alexis Eb…   2027 222        26   -5.36    1.50     -3.86 FALSE    
+#> 17 5238291   Anaya Har…   2027 87         21   -6.76    0.794    -5.97 FALSE    
+#> 18 5175489   Kelsey Jo…   2027 222        20  -12.1     5.16     -6.91 FALSE    
+#> 19 5457128   Amari Byl…   2027 87         10  -13.3     1.53    -11.8  FALSE    
 # }
 # \donttest{
   try(load_wbb_ratings(seasons = most_recent_wbb_season()))
-#> Warning: cannot open URL 'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_ratings/wbb_ratings_2027.parquet': HTTP status was '404 Not Found'
-#> Warning: Failed to download parquet from <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_ratings/wbb_ratings_2027.parquet>
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 2 × 11
+#>   season team_id adj_o adj_d adj_em adj_tempo raw_o raw_d games  rank adj_em_z
+#>    <int> <chr>   <dbl> <dbl>  <dbl>     <dbl> <dbl> <dbl> <int> <int>    <dbl>
+#> 1   2027 87       134.  102.   32.5      73.8  134.  102.     1     1    0.707
+#> 2   2027 222      102.  134.  -32.5      73.8  102.  134.     1     2   -0.707
 # }
 ```

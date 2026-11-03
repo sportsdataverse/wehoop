@@ -143,7 +143,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_teams(comp = 208182))
 #> ── FIBA gdap_teams from fiba.basketball ──────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:50:01 UTC
+#> ℹ Data updated: 2026-11-03 09:44:03 UTC
 #> # A tibble: 32 × 29
 #>    team_id team_code short_name    profile_team_id profile_organisation_id
 #>      <int> <chr>     <chr>                   <int>                   <int>

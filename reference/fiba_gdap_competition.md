@@ -143,7 +143,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_competition(comp = 208182))
 #> ── FIBA gdap_competition from fiba.basketball ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:47 UTC
+#> ℹ Data updated: 2026-11-03 09:43:49 UTC
 #> # A tibble: 1 × 29
 #>   hosts  competition_id competition_code season official_name start end   status
 #>   <chr>           <int> <chr>             <int> <chr>         <chr> <chr> <chr> 

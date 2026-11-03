@@ -108,14 +108,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:48:31 UTC
+#> ℹ Data updated: 2026-11-03 09:42:36 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  5.04e7 Story USC's J… In March 2… 2026-11-… FALSE   Kendr… https:/… 54       
-#> 2  5.04e7 Prev… Michiga… Valparaiso… 2026-11-… FALSE   NA     http://… 54       
-#> 3  5.04e7 Prev… Northwe… Milwaukee … 2026-11-… FALSE   NA     http://… 54       
-#> 4  5.04e7 Prev… Kansas … Omaha Mave… 2026-11-… FALSE   NA     http://… 54       
-#> 5  5.04e7 Prev… Wiscons… Bradley Br… 2026-11-… FALSE   NA     http://… 54       
+#> 1  4.25e7 Story Who are… UConn's Ge… 2026-11-… FALSE   Keith… https:/… 54       
+#> 2  5.04e7 Media Washing… Washington… 2026-11-… FALSE   NA     https:/… 54       
+#> 3  5.04e7 Media Pepperd… Pepperdine… 2026-11-… FALSE   NA     https:/… 54       
+#> 4  5.04e7 Media San Die… San Diego … 2026-11-… FALSE   NA     https:/… 54       
+#> 5  5.04e7 Media San Die… San Diego … 2026-11-… FALSE   NA     https:/… 54       
 # }
 ```

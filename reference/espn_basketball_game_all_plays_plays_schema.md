@@ -7,7 +7,7 @@ Columns shared verbatim across: espn_wbb_game_all, espn_wbb_pbp.
 |  |  |  |
 |----|----|----|
 | col_name | types | description |
-| id | character | Unique play identifcation number |
+| id | character | Unique play identification number |
 | sequence_number | character | Sequence number representing a shot-possession (V3 PBP). |
 | text | character | Text description of the play / record. |
 | away_score | integer | Away team score after the play. Rebuilt from the scoring plays in feed order when that reaches the official final (score_source 'rebuilt'), otherwise ESPN's per-play value (score_source 'espn'). |

@@ -7,7 +7,7 @@ Columns shared verbatim across: espn_wbb_team, espn_wnba_team.
 |                    |           |                                            |
 |--------------------|-----------|--------------------------------------------|
 | col_name           | types     | description                                |
-| id                 | character | Unique play identifcation number           |
+| id                 | character | Unique play identification number          |
 | uid                | character | ESPN UID string (universal identifier).    |
 | slug               | character | URL-safe identifier.                       |
 | abbreviation       | character | Short abbreviation.                        |

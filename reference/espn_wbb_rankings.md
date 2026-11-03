@@ -15,7 +15,7 @@ Returns a tibble
 |  |  |  |
 |----|----|----|
 | col_name | types | description |
-| id | integer | Unique play identifcation number |
+| id | integer | Unique play identification number |
 | name | character | Display name. |
 | short_name | character | Short display name. |
 | type | character | Record type / category. |
@@ -130,7 +130,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_rankings())
 #> ── ESPN WBB Rankings Information from ESPN.com ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:48:36 UTC
+#> ℹ Data updated: 2026-11-03 09:42:41 UTC
 #> # A tibble: 86 × 37
 #>       id name   short_name type  headline short_headline current previous points
 #>    <int> <chr>  <chr>      <chr> <chr>    <chr>            <int>    <int>  <dbl>

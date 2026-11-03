@@ -54,7 +54,7 @@ wnba_playervsplayer(
 
 - league_id:
 
-  League - default: '00'. Other options include '10': WWNBA, '20':
+  League - default: '00'. Other options include '10': WNBA, '20':
   G-League
 
 - location:

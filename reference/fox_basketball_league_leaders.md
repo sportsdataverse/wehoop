@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:50:07 UTC
+#> ℹ Data updated: 2026-11-03 09:44:07 UTC
 #> # A tibble: 75 × 6
 #>    players v2          gp    entity_id min   mpg  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr>
@@ -62,20 +62,20 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:50:07 UTC
-#> # A tibble: 76 × 8
-#>    players v2           gp    entity_id gs    mpg   ppg   pts  
-#>    <chr>   <chr>        <chr> <chr>     <chr> <chr> <chr> <chr>
-#>  1 1       K. Ratigan   1     14556     NA    NA    NA    NA   
-#>  2 2       M. St. Rose  1     15648     NA    NA    NA    NA   
-#>  3 3       H. Hidalgo   1     16273     NA    NA    NA    NA   
-#>  4 4       K. Joens     1     16301     NA    NA    NA    NA   
-#>  5 5       A. Foley     1     16876     NA    NA    NA    NA   
-#>  6 6       L. Macy      1     21459     NA    NA    NA    NA   
-#>  7 7       S. Pelish    1     21597     NA    NA    NA    NA   
-#>  8 8       A. Hardy     1     21607     NA    NA    NA    NA   
-#>  9 9       J. Bascoe    1     21647     NA    NA    NA    NA   
-#> 10 10      D. Ceseretti 1     21649     NA    NA    NA    NA   
-#> # ℹ 66 more rows
+#> ℹ Data updated: 2026-11-03 09:44:07 UTC
+#> # A tibble: 100 × 8
+#>    players v2          gp    entity_id gs    mpg   ppg   pts  
+#>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>
+#>  1 1       A. Corcoran 1     10348     NA    NA    NA    NA   
+#>  2 2       K. Poole    1     12049     NA    NA    NA    NA   
+#>  3 3       D. Hunter   1     12698     NA    NA    NA    NA   
+#>  4 4       A. Weidner  1     13067     NA    NA    NA    NA   
+#>  5 5       M. Moore    1     13283     NA    NA    NA    NA   
+#>  6 6       K. Godfrey  1     13286     NA    NA    NA    NA   
+#>  7 7       T. Moore    1     13378     NA    NA    NA    NA   
+#>  8 8       R. Hurst    1     13483     NA    NA    NA    NA   
+#>  9 9       K. Hunter   1     13700     NA    NA    NA    NA   
+#> 10 10      A. Moore    1     13703     NA    NA    NA    NA   
+#> # ℹ 90 more rows
 # }
 ```

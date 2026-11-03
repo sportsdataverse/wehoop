@@ -53,7 +53,7 @@ Returns a data frame: PlayByPlay
 | team_tricode | character | Three-letter team code (e.g. 'LAS' / 'NYL'). |
 | descriptor | character | Descriptor. |
 | jump_ball_recovered_name | character | Jump ball recovered name. |
-| jump_ball_recoverd_person_id | integer | Unique identifier for jump ball recoverd person. |
+| jump_ball_recoverd_person_id | integer | Unique identifier for jump ball recovered person. |
 | player_name | character | Player name. |
 | player_name_i | character | Player name i. |
 | jump_ball_won_player_name | character | Jump ball won player name. |

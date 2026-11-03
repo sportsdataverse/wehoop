@@ -144,7 +144,7 @@ Returns a tibble with the team stats data
 | offensive_avg48free_throws_made | numeric | The average number of Free Throws made per 48 minutes. |
 | offensive_avg48free_throws_attempted | numeric | The average number of free throws attempted per 48 minutes. |
 | offensive_avg48points | numeric | The average number of points scored per 48 minutes. |
-| offensive_avg48offensive_rebounds | numeric | The average number of offenseive rebounds per 48 minutes. |
+| offensive_avg48offensive_rebounds | numeric | The average number of offensive rebounds per 48 minutes. |
 | offensive_avg48assists | numeric | The average number of assists per 48 minutes. |
 | offensive_avg48turnovers | numeric | The average number of turnovers per 48 minutes. |
 
@@ -226,7 +226,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_team_stats(team_id = 17, year = 2020))
 #> ── ESPN WNBA Team Season Stats from ESPN.com ─────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:30 UTC
+#> ℹ Data updated: 2026-11-03 09:43:31 UTC
 #> # A tibble: 1 × 198
 #>   team_id team_guid          team_uid team_sdr team_slug team_location team_name
 #>     <int> <chr>              <chr>       <int> <chr>     <chr>         <chr>    

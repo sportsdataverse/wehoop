@@ -8,7 +8,7 @@ espn_wnba_news, espn_wnba_team_news.
 |             |           |                                   |
 |-------------|-----------|-----------------------------------|
 | col_name    | types     | description                       |
-| id          | character | Unique play identifcation number  |
+| id          | character | Unique play identification number |
 | type        | character | Record type / category.           |
 | headline    | character | News headline.                    |
 | description | character | Long-form description text.       |

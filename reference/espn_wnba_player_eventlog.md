@@ -215,12 +215,12 @@ Saiem Gilani
   espn_wnba_player_overview(athlete_id = "3149391", season = 2024)
 #> $Statistics
 #> ── ESPN WNBA Athlete Overview Statistics from ESPN.com ───────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:16 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN WNBA Athlete Overview NextGame from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:16 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -228,32 +228,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN WNBA Athlete Overview Last5Games from ESPN.com ───────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:16 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN WNBA Athlete Overview Headlines from ESPN.com ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:16 UTC
 #> # A tibble: 13 × 5
 #>    headline                                   description published byline type 
 #>    <chr>                                      <chr>       <chr>     <chr>  <chr>
-#>  1 A'ja Wilson, Breanna Stewart headline you… A'ja Wilso… 2026-10-… Karee… Head…
-#>  2 Ranking the greatest players in WNBA hist… Before the… 2026-10-… ESPN   Story
-#>  3 Inside the abrupt ending to A'ja Wilson's… The WNBA F… 2026-10-… Katie… Story
-#>  4 WNBA playoffs 2026: Takeaways, analysis f… After two … 2026-10-… ESPN   Story
-#>  5 Las Vegas Aces vs. Golden State Valkyries… Watch the … 2026-10-… NA     Media
-#>  6 A'ja Wilson finishes over the defender fo… A'ja Wilso… 2026-10-… NA     Media
-#>  7 Who has won WNBA MVP? Wilson, Stewart, Pa… The annual… 2026-10-… Keith… Story
-#>  8 A'ja Wilson reflects on earning her fifth… A'ja Wilso… 2026-10-… NA     Media
-#>  9 A'ja Wilson is a five-time MVP! How does … As Wilson … 2026-10-… Neil … Story
-#> 10 Aces' A'ja Wilson wins 5th WNBA MVP, says… Las Vegas … 2026-10-… Micha… Head…
-#> 11 2026 WNBA playoffs: How the Valkyries and… Atlanta ne… 2026-10-… ESPN   Story
-#> 12 Golden State Valkyries vs. Las Vegas Aces… Watch the … 2026-10-… NA     Media
-#> 13 A'ja Wilson fights through contact for an… A'ja Wilso… 2026-10-… NA     Media
+#>  1 Where do 2026 champion Valkyries rank amo… Las Vegas'… 2026-11-… Micha… Story
+#>  2 A'ja Wilson, Breanna Stewart headline you… A'ja Wilso… 2026-10-… Karee… Head…
+#>  3 Ranking the greatest players in WNBA hist… Before the… 2026-10-… ESPN   Story
+#>  4 Inside the abrupt ending to A'ja Wilson's… The WNBA F… 2026-10-… Katie… Story
+#>  5 WNBA playoffs 2026: Takeaways, analysis f… After two … 2026-10-… ESPN   Story
+#>  6 Las Vegas Aces vs. Golden State Valkyries… Watch the … 2026-10-… NA     Media
+#>  7 A'ja Wilson finishes over the defender fo… A'ja Wilso… 2026-10-… NA     Media
+#>  8 Who has won WNBA MVP? Wilson, Stewart, Pa… The annual… 2026-10-… Keith… Story
+#>  9 A'ja Wilson reflects on earning her fifth… A'ja Wilso… 2026-10-… NA     Media
+#> 10 A'ja Wilson is a five-time MVP! How does … As Wilson … 2026-10-… Neil … Story
+#> 11 Aces' A'ja Wilson wins 5th WNBA MVP, says… Las Vegas … 2026-10-… Micha… Head…
+#> 12 2026 WNBA playoffs: How the Valkyries and… Atlanta ne… 2026-10-… ESPN   Story
+#> 13 Golden State Valkyries vs. Las Vegas Aces… Watch the … 2026-10-… NA     Media
 #> 
 #> $FantasyOutlook
 #> ── ESPN WNBA Athlete Overview FantasyOutlook from ESPN.com ───── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:16 UTC
 #> # A tibble: 1 × 1
 #>   outlook
 #>   <chr>  
@@ -263,7 +263,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_stats_v3(athlete_id = "4068159", season = 2024)
 #> ── ESPN WNBA Athlete Stats from ESPN.com ─────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:17 UTC
 #> # A tibble: 9 × 47
 #>   athlete_id season team_id team_slug         avg_games_played avg_games_started
 #>   <chr>       <int> <chr>   <chr>                        <dbl>             <dbl>
@@ -287,7 +287,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_gamelog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Gamelog from ESPN.com ───────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:14 UTC
+#> ℹ Data updated: 2026-11-03 09:43:17 UTC
 #> # A tibble: 46 × 27
 #>    athlete_id season id        at_vs game_date   score home_team_id away_team_id
 #>    <chr>       <dbl> <chr>     <chr> <chr>       <chr> <chr>        <chr>       
@@ -312,7 +312,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_splits(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Splits from ESPN.com ────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:15 UTC
+#> ℹ Data updated: 2026-11-03 09:43:17 UTC
 #> # A tibble: 7 × 5
 #>   athlete_id season name       display_name splits       
 #>   <chr>       <dbl> <chr>      <chr>        <list>       
@@ -327,7 +327,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_eventlog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Eventlog from ESPN.com ──────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:15 UTC
+#> ℹ Data updated: 2026-11-03 09:43:17 UTC
 #> # A tibble: 25 × 8
 #>    athlete_id season event_ref   competition_ref team_ref statistics_ref team_id
 #>    <chr>       <dbl> <chr>       <chr>           <chr>    <chr>          <chr>  
@@ -347,7 +347,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_player_statisticslog(athlete_id = "3149391", season = 2024)
 #> ── ESPN WNBA Athlete Statisticslog from ESPN.com ─────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:15 UTC
+#> ℹ Data updated: 2026-11-03 09:43:17 UTC
 #> # A tibble: 9 × 3
 #>   athlete_id season$`$ref`                                            statistics
 #>   <chr>      <chr>                                                    <list>    

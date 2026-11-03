@@ -5,10 +5,10 @@ espn_wnba_player_overview, espn_wnba_team.
 
 ## Details
 
-|            |           |                                  |
-|------------|-----------|----------------------------------|
-| col_name   | types     | description                      |
-| id         | character | Unique play identifcation number |
-| date       | character | Date in YYYY-MM-DD format.       |
-| name       | character | Display name.                    |
-| short_name | character | Short display name.              |
+|            |           |                                   |
+|------------|-----------|-----------------------------------|
+| col_name   | types     | description                       |
+| id         | character | Unique play identification number |
+| date       | character | Date in YYYY-MM-DD format.        |
+| name       | character | Display name.                     |
+| short_name | character | Short display name.               |

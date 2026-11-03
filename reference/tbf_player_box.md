@@ -141,7 +141,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_player_box(match_id = 346279))
 #> ── TBF Player Box Score ──────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:51:44 UTC
+#> ℹ Data updated: 2026-11-03 09:45:57 UTC
 #> # A tibble: 24 × 33
 #>    match_id side  team_process_id player_id player_name jersey_number is_starter
 #>       <int> <chr>           <int>     <int> <chr>       <chr>         <lgl>     

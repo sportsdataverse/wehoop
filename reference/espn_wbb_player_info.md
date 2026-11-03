@@ -37,39 +37,39 @@ table.
 
 **Team**
 
-|              |           |                                  |
-|--------------|-----------|----------------------------------|
-| col_name     | types     | description                      |
-| id           | character | Unique play identifcation number |
-| abbreviation | character | Short abbreviation.              |
-| display_name | character | Display name.                    |
+|              |           |                                   |
+|--------------|-----------|-----------------------------------|
+| col_name     | types     | description                       |
+| id           | character | Unique play identification number |
+| abbreviation | character | Short abbreviation.               |
+| display_name | character | Display name.                     |
 
 **Position**
 
-|              |           |                                  |
-|--------------|-----------|----------------------------------|
-| col_name     | types     | description                      |
-| id           | character | Unique play identifcation number |
-| name         | character | Display name.                    |
-| abbreviation | character | Short abbreviation.              |
+|              |           |                                   |
+|--------------|-----------|-----------------------------------|
+| col_name     | types     | description                       |
+| id           | character | Unique play identification number |
+| name         | character | Display name.                     |
+| abbreviation | character | Short abbreviation.               |
 
 **Status**
 
-|          |           |                                  |
-|----------|-----------|----------------------------------|
-| col_name | types     | description                      |
-| id       | character | Unique play identifcation number |
-| name     | character | Display name.                    |
-| type     | character | Record type / category.          |
+|          |           |                                   |
+|----------|-----------|-----------------------------------|
+| col_name | types     | description                       |
+| id       | character | Unique play identification number |
+| name     | character | Display name.                     |
+| type     | character | Record type / category.           |
 
 **College**
 
-|          |           |                                  |
-|----------|-----------|----------------------------------|
-| col_name | types     | description                      |
-| id       | character | Unique play identifcation number |
-| name     | character | Display name.                    |
-| mascot   | character | Team mascot.                     |
+|          |           |                                   |
+|----------|-----------|-----------------------------------|
+| col_name | types     | description                       |
+| id       | character | Unique play identification number |
+| name     | character | Display name.                     |
+| mascot   | character | Team mascot.                      |
 
 **Draft**
 
@@ -158,7 +158,7 @@ Saiem Gilani
   espn_wbb_player_info(athlete_id = "4433404")
 #> $Bio
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:48:33 UTC
+#> ℹ Data updated: 2026-11-03 09:42:38 UTC
 #> # A tibble: 1 × 20
 #>   id      uid       guid  first_name last_name full_name display_name short_name
 #>   <chr>   <chr>     <chr> <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -170,7 +170,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com ─── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:48:33 UTC
+#> ℹ Data updated: 2026-11-03 09:42:38 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                         
 #>   <chr>                                                                         
@@ -178,7 +178,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com ───────────────
-#> ℹ Data updated: 2026-11-02 13:48:33 UTC
+#> ℹ Data updated: 2026-11-03 09:42:38 UTC
 #> # A tibble: 1 × 5
 #>   id    name    display_name abbreviation leaf 
 #>   <chr> <chr>   <chr>        <chr>        <lgl>
@@ -186,7 +186,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-11-02 13:48:33 UTC
+#> ℹ Data updated: 2026-11-03 09:42:38 UTC
 #> # A tibble: 1 × 4
 #>   id    name     type     abbreviation
 #>   <chr> <chr>    <chr>    <chr>       
@@ -194,7 +194,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com ────────────────
-#> ℹ Data updated: 2026-11-02 13:48:33 UTC
+#> ℹ Data updated: 2026-11-03 09:42:38 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                           
 #>   <chr>                                                           
@@ -202,7 +202,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com ── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:48:33 UTC
+#> ℹ Data updated: 2026-11-03 09:42:38 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

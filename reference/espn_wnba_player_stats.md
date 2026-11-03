@@ -163,7 +163,7 @@ Returns a tibble with the player stats data
 | offensive_avg48free_throws_made | numeric | The average number of Free Throws made per 48 minutes. |
 | offensive_avg48free_throws_attempted | numeric | The average number of free throws attempted per 48 minutes. |
 | offensive_avg48points | numeric | The average number of points scored per 48 minutes. |
-| offensive_avg48offensive_rebounds | numeric | The average number of offenseive rebounds per 48 minutes. |
+| offensive_avg48offensive_rebounds | numeric | The average number of offensive rebounds per 48 minutes. |
 | offensive_avg48assists | numeric | The average number of assists per 48 minutes. |
 | offensive_avg48turnovers | numeric | The average number of turnovers per 48 minutes. |
 | team_id | integer | Unique team identifier. |
@@ -261,17 +261,17 @@ Saiem Gilani
 # \donttest{
   try(espn_wnba_player_stats(athlete_id = 2529130, year = 2022))
 #> ── ESPN WNBA Player Season Stats from ESPN.com ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-02 13:49:16 UTC
-#> # A tibble: 1 × 233
-#>   x_ref_8     athlete_id athlete_uid athlete_guid athlete_type    sdr first_name
-#>   <chr>            <int> <chr>       <chr>        <chr>         <int> <chr>     
-#> 1 http://spo…    2529130 s:40~l:59~… 2e32f80f-85… basketball   2.53e6 Natasha   
-#> # ℹ 226 more variables: last_name <chr>, full_name <chr>, display_name <chr>,
-#> #   short_name <chr>, weight <dbl>, display_weight <chr>, height <dbl>,
-#> #   display_height <chr>, age <int>, date_of_birth <chr>, slug <chr>,
-#> #   headshot_href <chr>, headshot_alt <chr>, jersey <chr>, hand_type <chr>,
-#> #   hand_abbreviation <chr>, hand_display_value <chr>, position_id <int>,
-#> #   position_name <chr>, position_display_name <chr>,
-#> #   position_abbreviation <chr>, position_leaf <lgl>, linked <lgl>, …
+#> ℹ Data updated: 2026-11-03 09:43:19 UTC
+#> # A tibble: 1 × 232
+#>   athlete_id athlete_uid   athlete_guid athlete_type    sdr first_name last_name
+#>        <int> <chr>         <chr>        <chr>         <int> <chr>      <chr>    
+#> 1    2529130 s:40~l:59~a:… 2e32f80f-85… basketball   2.53e6 Natasha    Howard   
+#> # ℹ 225 more variables: full_name <chr>, display_name <chr>, short_name <chr>,
+#> #   weight <dbl>, display_weight <chr>, height <dbl>, display_height <chr>,
+#> #   age <int>, date_of_birth <chr>, slug <chr>, headshot_href <chr>,
+#> #   headshot_alt <chr>, jersey <chr>, hand_type <chr>, hand_abbreviation <chr>,
+#> #   hand_display_value <chr>, position_id <int>, position_name <chr>,
+#> #   position_display_name <chr>, position_abbreviation <chr>,
+#> #   position_leaf <lgl>, linked <lgl>, years <int>, active <lgl>, …
 # }
 ```

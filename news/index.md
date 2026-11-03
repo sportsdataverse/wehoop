@@ -1230,7 +1230,7 @@ rather than appending a fourth column.
 ##### *Test infrastructure*
 
 - **Empty / NULL responses now FAIL the test instead of silently
-  SKIPping.** The earlier
+  skipping.** The earlier
   `skip("No rows returned from endpoint at test time")` guard was hiding
   regressions: when an upstream endpoint starts returning HTML (404 /
   maintenance) or breaks in some other silent way, the test should flag

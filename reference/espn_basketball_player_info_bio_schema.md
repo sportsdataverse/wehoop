@@ -8,7 +8,7 @@ espn_wnba_player_info.
 |               |           |                                   |
 |---------------|-----------|-----------------------------------|
 | col_name      | types     | description                       |
-| id            | character | Unique play identifcation number  |
+| id            | character | Unique play identification number |
 | full_name     | character | Player's full name.               |
 | display_name  | character | Display name.                     |
 | jersey        | character | Jersey number worn by the player. |

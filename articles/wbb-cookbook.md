@@ -65,7 +65,7 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> # A tibble: 1 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
-#> 1 Overall Record <df [30 × 2]> 0-0     total
+#> 1 Overall Record <df [30 × 2]> 1-0     total
 #> 
 #> $NextEvent
 #> # A tibble: 1 × 4
@@ -178,7 +178,7 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Draft
 #> # A tibble: 0 × 0
 espn_wbb_player_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
-#> # A tibble: 0 × 0
+#> data frame with 0 columns and 0 rows
 espn_wbb_player_career_stats(athlete_id = athlete_id)    # career rollup, long format
 #> # A tibble: 87 × 17
 #>    league   athlete_id stat_type_id split_id split_name split_type category_name
@@ -442,16 +442,16 @@ espn_wbb_standings(year = season)
 #> # A tibble: 363 × 87
 #>    team_id team             conference avgpointsagainst avgpointsfor gamesbehind
 #>      <int> <chr>            <chr>                 <dbl>        <dbl>       <dbl>
-#>  1    2066 Binghamton Bear… America E…                0            0           0
-#>  2    2803 Bryant Bulldogs  America E…                0            0           0
-#>  3     311 Maine Black Bea… America E…                0            0           0
-#>  4     160 New Hampshire W… America E…                0            0           0
-#>  5    2885 NJIT Highlanders America E…                0            0           0
-#>  6     399 UAlbany Great D… America E…                0            0           0
-#>  7    2349 UMass Lowell Ri… America E…                0            0           0
-#>  8    2378 UMBC Retrievers  America E…                0            0           0
-#>  9     261 Vermont Catamou… America E…                0            0           0
-#> 10    2429 Charlotte 49ers  American …                0            0           0
+#>  1    2803 Bryant Bulldogs  America E…               25           75         0  
+#>  2    2885 NJIT Highlanders America E…               45           50         0  
+#>  3     160 New Hampshire W… America E…               41           87         0  
+#>  4     399 UAlbany Great D… America E…               61           65         0  
+#>  5    2378 UMBC Retrievers  America E…               29           92         0  
+#>  6    2349 UMass Lowell Ri… America E…               53           77         0  
+#>  7     261 Vermont Catamou… America E…               37           96         0  
+#>  8     311 Maine Black Bea… America E…                0            0         0.5
+#>  9    2066 Binghamton Bear… America E…               63           40         1  
+#> 10     235 Memphis Tigers   American …               42           78         0  
 #> # ℹ 353 more rows
 #> # ℹ 81 more variables: leaguewinpercent <dbl>, losses <dbl>, playoffseed <dbl>,
 #> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,
