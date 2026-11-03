@@ -52,6 +52,8 @@ and \code{load_wnba_group_aliases()} the \code{wnba_groups} tag.
 Other Conference and Division Group loader functions:
 \code{\link[=load_wbb_group_seasons]{load_wbb_group_seasons()}},
 \code{\link[=load_wbb_groups]{load_wbb_groups()}},
+\code{\link[=load_wbb_player_aliases]{load_wbb_player_aliases()}},
+\code{\link[=load_wbb_team_aliases]{load_wbb_team_aliases()}},
 \code{\link[=load_wbb_team_group_seasons]{load_wbb_team_group_seasons()}}
 }
 \author{

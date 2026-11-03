@@ -17,7 +17,7 @@
 
 ## Project Context
 
-wehoop is an R package (v3.1.0) that wraps the WNBA Stats API, ESPN API (WNBA & WBB), NCAA women's basketball endpoints, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers. It exports 750 functions (including 180 ESPN wrappers, 289 international wrappers and 98 `load_*()` release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.
+wehoop is an R package (v3.1.0) that wraps the WNBA Stats API, ESPN API (WNBA & WBB), NCAA women's basketball endpoints, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers. It exports 754 functions (including 180 ESPN wrappers, 289 international wrappers and 102 `load_*()` release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.
 
 When there is any conflict between this file and repository contributor docs, follow `CONTRIBUTING.md` and the current test implementations under `tests/testthat/` as the source of truth.
 

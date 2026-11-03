@@ -366,3 +366,175 @@ load_wnba_team_group_seasons <- function(seasons = most_recent_wnba_season(),
   }
   out
 }
+
+
+#' **Load provider team id and name aliases (WBB / WNBA) from the data repo**
+#' @name load_wbb_team_aliases
+NULL
+#' @title
+#' **Load provider team id and name aliases (WBB / WNBA) from the data repo**
+#' @rdname load_wbb_team_aliases
+#' @author Saiem Gilani
+#' @description Loads every team id and name another source uses for an
+#'   ESPN team, with the seasons the source shows it on that team. Use it to
+#'   map a Fox, Yahoo, 247Sports, On3, Torvik, NCAA or WNBA Stats
+#'   team id or name onto the ESPN `team_id`. A source id means something
+#'   only within its source (Fox 25 is not ESPN 25), so always join on
+#'   `source` as well. `load_wbb_team_aliases()` reads the `wbb_groups`
+#'   release tag and `load_wnba_team_aliases()` the `wnba_groups` tag.
+#'
+#'   See [load_wbb_player_aliases()] for player ids and
+#'   [load_wbb_group_aliases()] for conference and division aliases.
+#' @inheritParams load_wbb_groups
+#' @return Returns a `wehoop_data` tibble with one row per team alias.
+#'
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       league \tab character \tab League key: \code{wbb} or \code{wnba}. \cr
+#'       team_id \tab character \tab ESPN team id. \cr
+#'       team_id_source \tab character \tab Id system of \code{team_id}: \code{espn}. \cr
+#'       source \tab character \tab Source that uses the alias: \code{fox}, \code{yahoo}, \code{torvik}, \code{ncaa}, \code{sports247} (247Sports) or \code{on3} (WBB); \code{fox}, \code{yahoo} or \code{wnba_stats} (WNBA). \cr
+#'       source_id \tab character \tab The source's own team id (e.g. \code{25}, \code{wnba.t.6}; Yahoo's WNBA number is not the ESPN id); \code{NA} for a name-only source (Torvik). \cr
+#'       id_kind \tab character \tab \code{team} (the source's id for this sport's team) or \code{school} (one id for every sport of a school: the stats.ncaa.org org id, 247Sports \code{institutionKey}, On3 \code{orgKey}). \cr
+#'       name_kind \tab character \tab \code{name} or \code{abbreviation} when the source gives its own spelling, else \code{NA}. An id with a name and an abbreviation is two rows. \cr
+#'       value \tab character \tab The source's own spelling of the name or abbreviation; \code{NA} when \code{name_kind} is \code{NA}. \cr
+#'       valid_from \tab integer \tab First season (WBB: ending year; WNBA: calendar year) the source shows this id or name on the team, inclusive. \cr
+#'       valid_to \tab integer \tab Last season (WBB: ending year; WNBA: calendar year) the source shows this id or name on the team, inclusive; a gap in the source splits the window into two rows. \cr
+#'       match_method \tab character \tab How the row was matched: \code{deterministic} (a formula or shared key), \code{crosswalk} (carried from a published crosswalk), \code{curated} (a cited hand-made map); for a captured team directory, \code{alias}, \code{exact_name} (normalized name) or \code{dict} (curated name dictionary). \cr
+#'       evidence \tab character \tab The asset or file the row came from. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
+#'
+#' @export
+#' @family Conference and Division Group loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wbb_team_aliases())
+#' }
+load_wbb_team_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old), add = TRUE)
+
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  out <- parquet_from_url(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_groups/wbb_team_aliases.parquet"
+  )
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+#' @rdname load_wbb_team_aliases
+#' @export
+#' @examples
+#' \donttest{
+#'   try(load_wnba_team_aliases())
+#' }
+load_wnba_team_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old), add = TRUE)
+
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  out <- parquet_from_url(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_groups/wnba_team_aliases.parquet"
+  )
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+
+#' **Load provider player id aliases (WBB / WNBA) from the data repo**
+#' @name load_wbb_player_aliases
+NULL
+#' @title
+#' **Load provider player id aliases (WBB / WNBA) from the data repo**
+#' @rdname load_wbb_player_aliases
+#' @author Saiem Gilani
+#' @description Loads every player id another source uses for an ESPN
+#'   athlete, with the ESPN team the athlete was on and the seasons the id
+#'   held. Use it to map an NCAA (stats.ncaa.org), Fox, Yahoo or WNBA
+#'   Stats player id onto the ESPN `athlete_id`. stats.ncaa.org roster ids
+#'   are new every season, so an NCAA player has one row per season.
+#'   Unmatched provider ids are not included. `load_wbb_player_aliases()`
+#'   reads the `wbb_groups` release tag and `load_wnba_player_aliases()` the
+#'   `wnba_groups` tag.
+#'
+#'   See [load_wbb_team_aliases()] for team ids and names.
+#' @inheritParams load_wbb_groups
+#' @return Returns a `wehoop_data` tibble with one row per player alias.
+#'
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       league \tab character \tab League key: \code{wbb} or \code{wnba}. \cr
+#'       athlete_id \tab character \tab ESPN athlete id. \cr
+#'       athlete_id_source \tab character \tab Id system of \code{athlete_id}: \code{espn}. \cr
+#'       source \tab character \tab Source of the player id: \code{ncaa}, \code{fox} or \code{yahoo} (WBB); \code{wnba_stats}, \code{fox} or \code{yahoo} (WNBA). \cr
+#'       source_player_id \tab character \tab The source's own player id (e.g. \code{202270}, \code{76284}). \cr
+#'       team_id \tab character \tab ESPN team id of the team the athlete was on when matched. \cr
+#'       source_team_id \tab character \tab The source's own team id when it gives one (the season's stats.ncaa.org team id), else \code{NA}. \cr
+#'       valid_from \tab integer \tab First season (WBB: ending year; WNBA: calendar year) the id is on that team, inclusive. \cr
+#'       valid_to \tab integer \tab Last season (WBB: ending year; WNBA: calendar year) the id is on that team, inclusive; a gap or a change of match method splits the window into two rows. \cr
+#'       match_method \tab character \tab How the id was matched: the source leg's own method (\code{exact_name}, \code{fuzzy_jw}; NCAA \code{name_jersey}, \code{name}, \code{last_jersey}, \code{jaro_winkler}), \code{crosswalk} (a leg that names none), \code{propagated} (carried from the same id's match in another season) or \code{override} (a hand-verified fix). \cr
+#'       match_confidence \tab numeric \tab The leg's own confidence where it gives one (the lowest in the window; NCAA tiers score 1, 0.95, 0.9 and 0.85), else \code{NA}. \cr
+#'       evidence \tab character \tab The asset or file the row came from. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
+#'
+#' @export
+#' @family Conference and Division Group loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wbb_player_aliases())
+#' }
+load_wbb_player_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old), add = TRUE)
+
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  out <- parquet_from_url(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_groups/wbb_player_aliases.parquet"
+  )
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
+
+#' @rdname load_wbb_player_aliases
+#' @export
+#' @examples
+#' \donttest{
+#'   try(load_wnba_player_aliases())
+#' }
+load_wnba_player_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old), add = TRUE)
+
+  if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
+
+  out <- parquet_from_url(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wnba_groups/wnba_player_aliases.parquet"
+  )
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  }
+  out
+}
