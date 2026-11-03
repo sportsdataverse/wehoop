@@ -315,6 +315,19 @@ team membership published to sportsdataverse-data
   **Load team conference membership by season (WBB / WNBA) from the data
   repo**
 
+- [`load_wbb_team_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_aliases.md)
+  [`load_wnba_team_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_aliases.md)
+  :
+
+  **Load provider team id and name aliases (WBB / WNBA) from the data
+  repo**
+
+- [`load_wbb_player_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_aliases.md)
+  [`load_wnba_player_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_aliases.md)
+  :
+
+  **Load provider player id aliases (WBB / WNBA) from the data repo**
+
 ## ESPN Data
 
 ### ESPN Family Overview

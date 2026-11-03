@@ -111,7 +111,7 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_leagues())
 #> ── W League Leagues from api.wjbl.01core.app ─────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:40:15 UTC
+#> ℹ Data updated: 2026-11-03 18:19:33 UTC
 #> # A tibble: 37 × 3
 #>    league_id league_title               season
 #>        <int> <chr>                       <int>

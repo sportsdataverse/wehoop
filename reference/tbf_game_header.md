@@ -133,7 +133,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_game_header(match_id = 346279))
 #> ── TBF Game Header ───────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 10:39:47 UTC
+#> ℹ Data updated: 2026-11-03 18:19:04 UTC
 #> # A tibble: 1 × 27
 #>   match_id match_code genius_id activity_id activity_name season_id season_label
 #>      <int> <chr>          <int>       <int> <chr>             <int> <chr>       

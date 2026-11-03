@@ -120,7 +120,22 @@ espn_wbb_team_roster(team_id = team_id, season = season)      # the players
 #> # ℹ 7 more variables: birth_date <chr>, birth_place <chr>, headshot <chr>,
 #> #   link_web <chr>, status <chr>, team_id <chr>, season <int>
 espn_wbb_team_season_statistics(team_id = team_id, season = season)
-#> NULL
+#> # A tibble: 77 × 13
+#>    league    season season_type team_id category_name category_display stat_name
+#>    <chr>      <int>       <int> <chr>   <chr>         <chr>            <chr>    
+#>  1 womens-c…   2027           2 2509    defensive     Defensive        blocks   
+#>  2 womens-c…   2027           2 2509    defensive     Defensive        defensiv…
+#>  3 womens-c…   2027           2 2509    defensive     Defensive        steals   
+#>  4 womens-c…   2027           2 2509    defensive     Defensive        turnover…
+#>  5 womens-c…   2027           2 2509    defensive     Defensive        avgDefen…
+#>  6 womens-c…   2027           2 2509    defensive     Defensive        avgBlocks
+#>  7 womens-c…   2027           2 2509    defensive     Defensive        avgSteals
+#>  8 womens-c…   2027           2 2509    general       General          disquali…
+#>  9 womens-c…   2027           2 2509    general       General          flagrant…
+#> 10 womens-c…   2027           2 2509    general       General          fouls    
+#> # ℹ 67 more rows
+#> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>, rank_display_value <chr>
 ```
 
 Margin note:
@@ -178,7 +193,17 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Draft
 #> # A tibble: 0 × 0
 espn_wbb_player_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
-#> data frame with 0 columns and 0 rows
+#> # A tibble: 1 × 27
+#>   athlete_id season id     week  at_vs game_date score home_team_id away_team_id
+#>   <chr>       <int> <chr>  <chr> <chr> <chr>     <chr> <chr>        <chr>       
+#> 1 5239976      2027 40192… 1     vs    2026-11-… 81-73 2509         85          
+#> # ℹ 18 more variables: home_team_score <chr>, away_team_score <chr>,
+#> #   game_result <chr>, league_name <chr>, league_abbreviation <chr>,
+#> #   league_short_name <chr>, team_id <chr>, team_uid <chr>,
+#> #   team_abbreviation <chr>, team_logo <chr>, team_is_all_star <chr>,
+#> #   opponent_id <chr>, opponent_uid <chr>, opponent_display_name <chr>,
+#> #   opponent_abbreviation <chr>, opponent_logo <chr>, opponent_logo_dark <chr>,
+#> #   event_id <chr>
 espn_wbb_player_career_stats(athlete_id = athlete_id)    # career rollup, long format
 #> # A tibble: 87 × 17
 #>    league   athlete_id stat_type_id split_id split_name split_type category_name

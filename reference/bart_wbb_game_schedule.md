@@ -34,7 +34,7 @@ Other Bart Torvik Functions:
 ``` r
 # \donttest{
   try(bart_wbb_game_schedule(year = 2024))
-#> ✖ 2026-11-03 10:36:37.525544: No women's schedule available for 2024!
+#> ✖ 2026-11-03 18:15:34.362631: No women's schedule available for 2024!
 #> ✖ Args: year = 2024
 #> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
 #> data frame with 0 columns and 0 rows

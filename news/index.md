@@ -292,6 +292,18 @@
   team per season. The loaders read parquet, not the tags’ csv copies,
   so `team_id` stays character.
   ([\#85](https://github.com/sportsdataverse/wehoop/issues/85))
+- Four more loaders read the provider alias tables in the same releases:
+  [`load_wbb_team_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_aliases.md)
+  /
+  [`load_wnba_team_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_aliases.md)
+  map a Fox, Yahoo, 247Sports, On3, Torvik, NCAA or WNBA Stats team id
+  or name to the ESPN `team_id`, and
+  [`load_wbb_player_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_aliases.md)
+  /
+  [`load_wnba_player_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_aliases.md)
+  map an NCAA, Fox, Yahoo or WNBA Stats player id to the ESPN
+  `athlete_id`. Each row carries the seasons it holds (`valid_from` /
+  `valid_to`), how it was matched and where it came from.
 
 #### **WNBA referee assignments (`wnba_referee_assignments()`)**
 

@@ -73,7 +73,9 @@ Returns a `wehoop_data` tibble with one row per team-season.
 Other Conference and Division Group loader functions:
 [`load_wbb_group_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_group_aliases.md),
 [`load_wbb_group_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_group_seasons.md),
-[`load_wbb_groups()`](https://wehoop.sportsdataverse.org/reference/load_wbb_groups.md)
+[`load_wbb_groups()`](https://wehoop.sportsdataverse.org/reference/load_wbb_groups.md),
+[`load_wbb_player_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_aliases.md),
+[`load_wbb_team_aliases()`](https://wehoop.sportsdataverse.org/reference/load_wbb_team_aliases.md)
 
 ## Author
 
