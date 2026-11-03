@@ -124,7 +124,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_players(competition = "bsl", season = 2027))
 #> ── TBF Players ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 09:45:58 UTC
+#> ℹ Data updated: 2026-11-03 10:39:55 UTC
 #> # A tibble: 260 × 11
 #>    season competition person_id player_name nationality nationality_code club_id
 #>     <int> <chr>           <int> <chr>       <chr>       <chr>              <int>

@@ -202,7 +202,7 @@ Other Atrium Functions:
 # \donttest{
   try(atrium_fixtures(website_id = 14))
 #> ── Atrium fixtures from embed-api.eui.connect.sportradar.com ─── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 09:42:00 UTC
+#> ℹ Data updated: 2026-11-03 10:36:17 UTC
 #> # A tibble: 2 × 40
 #>   website_id season_id           competition_id competition_name season_end_year
 #>        <int> <chr>               <chr>          <chr>                      <int>

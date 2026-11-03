@@ -115,7 +115,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_rankings(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Rankings Index ──────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 09:42:47 UTC
+#> ℹ Data updated: 2026-11-03 10:37:15 UTC
 #> # A tibble: 2 × 4
 #>   league                    season ranking_id ref                               
 #>   <chr>                      <int> <chr>      <chr>                             

@@ -119,7 +119,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_schedule(team_id = "2509", season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team Schedule from ESPN.com ── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 09:42:55 UTC
+#> ℹ Data updated: 2026-11-03 10:37:22 UTC
 #> # A tibble: 29 × 21
 #>    event_id  season season_type  week date          name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr>         <chr> <chr>      <chr>      

@@ -179,7 +179,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gamepage_box_players(game_id = 100720, comp = 208182))
 #> ── FIBA gamepage_box_players from fiba.basketball ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 09:43:45 UTC
+#> ℹ Data updated: 2026-11-03 10:38:09 UTC
 #> # A tibble: 24 × 43
 #>    game_id competition_id team_side organisation_id player_id first_name
 #>      <int>          <int> <chr>               <int>     <int> <chr>     
