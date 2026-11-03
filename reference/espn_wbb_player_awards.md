@@ -106,7 +106,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_player_awards(athlete_id = "4433404")
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Athlete Awards from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-11-03 18:16:01 UTC
+#> ℹ Data updated: 2026-11-03 23:21:11 UTC
 #> # A tibble: 2 × 7
 #>   season award_id name  description date  type  ref_url                         
 #>   <chr>  <chr>    <chr> <chr>       <chr> <chr> <chr>                           

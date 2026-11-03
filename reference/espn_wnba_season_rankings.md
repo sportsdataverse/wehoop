@@ -116,7 +116,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_rankings(season = 2025)
 #> ── ESPN WNBA Season Rankings Index ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:16:53 UTC
+#> ℹ Data updated: 2026-11-03 23:21:53 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, season <int>, ranking_id <chr>, ref <chr>
 # }

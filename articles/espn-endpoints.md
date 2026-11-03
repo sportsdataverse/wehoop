@@ -173,12 +173,12 @@ head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
 #>   headline                                                             published
 #>   <chr>                                                                <chr>    
-#> 1 Pauldo leads Rutgers against La Salle after 21-point outing          2026-11-…
-#> 2 Swain leads Stanford against Saint Mary's (CA) after 21-point game   2026-11-…
-#> 3 Western Kentucky hosts Chattanooga for cross-conference contest      2026-11-…
-#> 4 New Orleans Privateers visit the Alabama Crimson Tide                2026-11-…
-#> 5 Grand Canyon Antelopes welcome the Jackson State Lady Tigers on Wed… 2026-11-…
-#> 6 Colorado and Morgan State square off in non-conference matchup       2026-11-…
+#> 1 Northwestern State's Chloe Donnell ties NCAA mark with 14 3's        2026-11-…
+#> 2 Pauldo leads Rutgers against La Salle after 21-point outing          2026-11-…
+#> 3 Swain leads Stanford against Saint Mary's (CA) after 21-point game   2026-11-…
+#> 4 Western Kentucky hosts Chattanooga for cross-conference contest      2026-11-…
+#> 5 New Orleans Privateers visit the Alabama Crimson Tide                2026-11-…
+#> 6 Grand Canyon Antelopes welcome the Jackson State Lady Tigers on Wed… 2026-11-…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -294,7 +294,7 @@ message("Selected: ", athlete_name, " (", athlete_id, ")")
 bio <- espn_wbb_player_info(athlete_id = athlete_id)
 glimpse(bio)
 #> List of 6
-#>  $ Bio     : wehop_dt [1 × 16] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  $ Bio     : wehop_dt [1 × 16] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id            : chr "4565530"
 #>   ..$ uid           : chr "s:40~l:54~a:4565530"
 #>   ..$ guid          : chr "594f7378-c053-3931-8d25-2111361ddad7"
@@ -311,34 +311,34 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 18:20:42"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 23:25:56"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
-#>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/167?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 18:20:42"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 23:25:56"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
-#>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "2"
 #>   ..$ name        : chr "Forward"
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 18:20:42"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 23:25:56"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
-#>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 18:20:42"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 23:25:56"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
-#>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 18:20:42"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 23:25:56"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
-#>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.table/data.frame)
+#>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 18:20:42"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-03 23:25:56"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -914,11 +914,11 @@ espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 #> # A tibble: 5 × 12
 #>   league          coach_id record_type_id record_name record_type record_summary
 #>   <chr>           <chr>             <int> <chr>       <chr>       <chr>         
-#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
-#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
-#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
-#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
-#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
 #> # ℹ 6 more variables: record_display <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, stat_display_value <chr>
 ```

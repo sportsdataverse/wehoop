@@ -120,7 +120,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_weeks(competition = "bsl", season = 2027))
 #> ── TBF Weeks ─────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:19:21 UTC
+#> ℹ Data updated: 2026-11-03 23:24:38 UTC
 #> # A tibble: 30 × 8
 #>    activity_id season competition week  phase phase_name label    is_current
 #>          <int>  <int> <chr>       <chr> <int> <chr>      <chr>    <lgl>     

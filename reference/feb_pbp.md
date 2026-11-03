@@ -125,7 +125,7 @@ Other FEB Functions:
 # \donttest{
   try(feb_pbp(game_id = 2535725))
 #> ── FEB pbp from intrafeb.feb.es ──────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:17:05 UTC
+#> ℹ Data updated: 2026-11-03 23:22:04 UTC
 #> # A tibble: 570 × 27
 #>    game_id play_num period clock clock_seconds team_side team_id player_id
 #>      <int>    <int>  <int> <chr>         <int> <chr>       <int>     <int>

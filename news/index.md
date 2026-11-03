@@ -244,6 +244,14 @@
 - The ESPN WBB/WNBA game helpers return the home team’s default logo
   rather than its dark-mode variant.
   ([\#109](https://github.com/sportsdataverse/wehoop/issues/109))
+- [`tail()`](https://rdrr.io/r/utils/head.html) works on the result of
+  every loader and every function that returns a `wehoop_data` tibble.
+  The class vector they set, in the loaders and in `make_wehoop_data()`,
+  still listed `data.table`, so
+  [`tail()`](https://rdrr.io/r/utils/head.html) failed with “Can’t
+  subset columns past the end” (the bug fixed in hoopR as
+  [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The
+  class is now `wehoop_data` / `tbl_df` / `tbl` / `data.frame`.
 
 #### **Deprecations**
 

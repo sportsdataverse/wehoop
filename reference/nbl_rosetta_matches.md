@@ -195,7 +195,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_matches(org = "nbl", season = 2026, season_type = "regular"))
 #> ── NBL Rosetta matches from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:18:36 UTC
+#> ℹ Data updated: 2026-11-03 23:23:57 UTC
 #> # A tibble: 179 × 59
 #>    org   match_id  external_media_id date_updated start_time start_time_datetime
 #>    <chr> <chr>     <chr>             <chr>        <chr>      <chr>              

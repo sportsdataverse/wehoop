@@ -116,7 +116,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_leagues(season = 2027))
 #> ── TBF Leagues ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:19:08 UTC
+#> ℹ Data updated: 2026-11-03 23:24:25 UTC
 #> # A tibble: 8 × 9
 #>   activity_id name        display_name competition gender season_id season_label
 #>         <int> <chr>       <chr>        <chr>       <chr>      <int> <chr>       

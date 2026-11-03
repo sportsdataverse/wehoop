@@ -115,7 +115,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_seasons_current(org = "nbl"))
 #> ── NBL Rosetta seasons_current from prod.rosetta.nbl.com.au ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:18:42 UTC
+#> ℹ Data updated: 2026-11-03 23:24:01 UTC
 #> # A tibble: 1 × 12
 #>   org   season_id     rosetta_season_id name  season_year season_type start_date
 #>   <chr> <chr>         <chr>             <chr>       <int> <chr>       <chr>     

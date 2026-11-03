@@ -117,7 +117,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_shots(match_id = 346279))
 #> ── TBF Shots ─────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 18:19:15 UTC
+#> ℹ Data updated: 2026-11-03 23:24:32 UTC
 #> # A tibble: 123 × 10
 #>    match_id period period_type side  shot_player_id player_name    jersey_number
 #>       <int>  <int>       <int> <chr>          <int> <chr>          <chr>        

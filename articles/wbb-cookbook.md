@@ -476,7 +476,7 @@ espn_wbb_standings(year = season)
 #>  7     261 Vermont Catamou… America E…               37           96         0  
 #>  8     311 Maine Black Bea… America E…                0            0         0.5
 #>  9    2066 Binghamton Bear… America E…               63           40         1  
-#> 10     235 Memphis Tigers   American …               42           78         0  
+#> 10     151 East Carolina P… American …               45           61         0  
 #> # ℹ 353 more rows
 #> # ℹ 81 more variables: leaguewinpercent <dbl>, losses <dbl>, playoffseed <dbl>,
 #> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,

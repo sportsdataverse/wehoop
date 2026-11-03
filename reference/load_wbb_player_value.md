@@ -180,36 +180,37 @@ Saiem Gilani
 # \donttest{
   try(load_wbb_player_value(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 19 × 9
+#> # A tibble: 3,624 × 9
 #>    player_id player     season team_id   min box_obpm box_dbpm box_bpm qualified
 #>    <chr>     <chr>       <int> <chr>   <dbl>    <dbl>    <dbl>   <dbl> <lgl>    
-#>  1 5312310   Leah Macy    2027 87         35   23.8    -7.26     16.6  FALSE    
-#>  2 5238296   Simone Pe…   2027 222        18    3.26    7.36     10.6  FALSE    
-#>  3 5174674   Hannah Hi…   2027 87         37   19.8   -11.4       8.35 FALSE    
-#>  4 5457125   Isabella …   2027 87          1   -0.468   8.20      7.73 FALSE    
-#>  5 5457127   Jenica Le…   2027 87         32    6.01   -0.616     5.39 FALSE    
-#>  6 5312736   Brooke Be…   2027 222         8    8.41   -3.10      5.31 FALSE    
-#>  7 5312735   Elise Ben…   2027 222        24    7.85   -3.30      4.54 FALSE    
-#>  8 5240246   Dani Cese…   2027 222        22    5.93   -1.49      4.44 FALSE    
-#>  9 4610162   Madison S…   2027 87         37    7.51   -3.17      4.34 FALSE    
-#> 10 5178121   Anna Foley   2027 222        12    5.45   -1.29      4.16 FALSE    
-#> 11 5240245   Jasmine B…   2027 222        38   14.3   -12.0       2.28 FALSE    
-#> 12 5312737   Kennedy H…   2027 222        32   -1.54   -0.0763   -1.62 FALSE    
-#> 13 5457123   Jacy Abii    2027 87         24   -1.92   -0.611    -2.53 FALSE    
-#> 14 5109222   Kelly Rat…   2027 87          2   -2.82   -0.321    -3.14 FALSE    
-#> 15 5457124   Bella Rag…   2027 87          1   -2.82   -0.321    -3.14 FALSE    
-#> 16 5457746   Alexis Eb…   2027 222        26   -5.36    1.50     -3.86 FALSE    
-#> 17 5238291   Anaya Har…   2027 87         21   -6.76    0.794    -5.97 FALSE    
-#> 18 5175489   Kelsey Jo…   2027 222        20  -12.1     5.16     -6.91 FALSE    
-#> 19 5457128   Amari Byl…   2027 87         10  -13.3     1.53    -11.8  FALSE    
+#>  1 5174737   Jade Till…   2027 145        22     21.8   -0.704    21.1 FALSE    
+#>  2 5175546   Meredith …   2027 2000       13     16.0    5.05     21.1 FALSE    
+#>  3 5241154   Sophia Gr…   2027 2335       21     27.6   -6.64     20.9 FALSE    
+#>  4 5315005   Jada Kenn…   2027 2501       12     28.8   -8.38     20.4 FALSE    
+#>  5 5243487   Gianna Co…   2027 2390       24     11.9    7.95     19.9 FALSE    
+#>  6 5318415   Nandinkhu…   2027 2634       17     23.9   -4.20     19.7 FALSE    
+#>  7 5240801   Tyla Faut…   2027 2031       14     18.5    0.669    19.1 FALSE    
+#>  8 5315658   Brianne B…   2027 147        21     26.8   -7.67     19.1 FALSE    
+#>  9 5312942   Audrey Ho…   2027 2623        8     29.9  -11.3      18.6 FALSE    
+#> 10 5239982   Fanta Kone   2027 2534       23     25.1   -6.81     18.3 FALSE    
+#> # ℹ 3,614 more rows
 # }
 # \donttest{
   try(load_wbb_ratings(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 2 × 11
-#>   season team_id adj_o adj_d adj_em adj_tempo raw_o raw_d games  rank adj_em_z
-#>    <int> <chr>   <dbl> <dbl>  <dbl>     <dbl> <dbl> <dbl> <int> <int>    <dbl>
-#> 1   2027 87       134.  102.   32.5      73.8  134.  102.     1     1    0.707
-#> 2   2027 222      102.  134.  -32.5      73.8  102.  134.     1     2   -0.707
+#> # A tibble: 328 × 11
+#>    season team_id adj_o adj_d adj_em adj_tempo raw_o raw_d games  rank adj_em_z
+#>     <int> <chr>   <dbl> <dbl>  <dbl>     <dbl> <dbl> <dbl> <int> <int>    <dbl>
+#>  1   2027 2031     157.  17.5  140.       68.7  157.  17.5     1     1     2.68
+#>  2   2027 99       165.  44.7  120.       78.2  165.  44.7     1     2     2.31
+#>  3   2027 2501     148.  40.0  108.       72.5  148.  40.0     1     3     2.06
+#>  4   2027 2000     151.  44.8  106.       71.5  151.  44.8     1     4     2.04
+#>  5   2027 2466     149.  49.8   99.6      80.3  149.  49.8     1     5     1.91
+#>  6   2027 2473     138.  42.5   95.6      75.3  138.  42.5     1     6     1.84
+#>  7   2027 45       130.  35.5   94.0      64.9  130.  35.5     1     7     1.81
+#>  8   2027 2754     127.  33.3   93.5      78.0  127.  33.3     1     8     1.80
+#>  9   2027 292      157.  64.8   92.4      72.5  157.  64.8     1     9     1.77
+#> 10   2027 2065     129.  37.9   91.0      79.1  129.  37.9     1    10     1.75
+#> # ℹ 318 more rows
 # }
 ```
