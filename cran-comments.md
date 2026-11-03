@@ -52,9 +52,13 @@ be removed in a future release, no earlier than 3.2.0:
   `bref_wnba_*()` functions.
 * The Her Hoop Stats examples are in `\dontrun{}`: the functions need a
   paid subscription.
-* All other networked examples are in `\donttest{}` and wrapped in `try()`,
-  so they fail gracefully without network access. Many WNBA Stats wrappers
-  show their usage as a code block in `@details` instead of `@examples`.
+* The other networked examples are in `\donttest{}`. They fail gracefully
+  without network access: the ESPN, WNBA Stats and NCAA wrappers catch HTTP
+  and parsing errors internally (`tryCatch()`), print a message and return
+  an empty result, and the international-family wrappers, which raise
+  classed errors instead, have their examples wrapped in `try()`. Many WNBA
+  Stats wrappers show their usage as a code block in `@details` instead of
+  `@examples`.
 
 ## Tests
 
@@ -64,27 +68,38 @@ committed fixtures and mock the HTTP layer.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* Local Windows 10, R 4.6.1, `R CMD check --as-cran` on the built tarball
-  (2026-11-01; NOT_CRAN unset, so every networked test skips): 0 errors,
-  0 warnings, 1 note. The note is
+* Local Windows 10, R 4.6.0 (ucrt), `R CMD check --as-cran` on the built
+  tarball (2026-11-03; NOT_CRAN unset and an empty user `.Renviron`, so
+  every networked test skips): Status OK, 0 errors, 0 warnings, 0 notes.
+  The CRAN incoming feasibility check (including the remote URL check)
+  passed. The examples with `--run-donttest` take 465 s and the tests
+  102 s. The PDF and HTML manuals build.
 
-      checking for non-standard things in the check directory ... NOTE
-      Found the following files/directories:
-        ''NULL''
+### Expected NOTE: installed package size
 
-  That `'NULL'` folder is left in the check directory by this machine's R
-  startup profile, not by the package; it does not appear on other machines.
-  The tarball is 2.2 MB; the installed size is 6.6 MB (R 2.0 MB, help
-  4.2 MB). The PDF and HTML manuals build. The examples with
-  `--run-donttest` pass in 10 minutes and the tests in 2.5 minutes.
+On Windows the installed size is reported as INFO; on CRAN's other
+platforms we expect it as a NOTE:
 
-* GitHub Actions R-CMD-check (R release on Ubuntu, macOS and Windows; R oldrel-1 and
-  R-devel on Ubuntu): OK.
-* R-hub v2 (R-devel; linux, windows, macos, macos-arm64), 2026-11-01: linux, windows and
-  macos Status OK; macos-arm64 completed successfully.
-* win-builder: to be run before submission.
+    checking installed package size ... NOTE
+      installed size is  6.7Mb
+      sub-directories of 1Mb or more:
+        R      2.0Mb
+        help   4.3Mb
+
+The size is mostly help pages. wehoop is a set of thin wrappers over many
+data APIs: it exports 750 functions (up from 452 in 3.0.0; 289 of the new
+ones are the international league families) documented in 551 Rd files,
+and each wrapper's help page carries a table of the columns it returns.
+The R code is 2.0 Mb, the package has no compiled code and ships no large
+data, and the source tarball is 2.2 MB.
+
+## Other platforms
+
+* GitHub Actions R-CMD-check (R release on Ubuntu, macOS and Windows;
+  R oldrel-1 and R-devel on Ubuntu): see the run on the submitted commit.
+* R-hub v2: to be recorded for the submitted commit.
 
 ## revdepcheck results
 
