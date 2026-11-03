@@ -33,7 +33,7 @@
 
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
-  class(out) <- c("wehoop_data", "tbl_df", "tbl", "data.table", "data.frame")
+  class(out) <- c("wehoop_data", "tbl_df", "tbl", "data.frame")
   out
 }
 

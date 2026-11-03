@@ -109,7 +109,7 @@ load_wnba_pbp <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
     
   }
   out
@@ -154,7 +154,7 @@ load_wnba_team_box <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -201,7 +201,7 @@ load_wnba_player_box <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -246,7 +246,7 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -424,7 +424,7 @@ load_wnba_rosters <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -477,7 +477,7 @@ load_wnba_player_stats <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -532,7 +532,7 @@ load_wnba_team_stats <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -587,7 +587,7 @@ load_wnba_standings <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -659,7 +659,7 @@ load_wnba_draft <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -715,7 +715,7 @@ load_wnba_shots <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -771,7 +771,7 @@ load_wnba_game_rosters <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -826,7 +826,7 @@ load_wnba_officials <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }
@@ -1134,7 +1134,7 @@ load_wnba_player_core <- function(seasons = most_recent_wnba_season(), ...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
-    class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   }
   out
 }

@@ -582,7 +582,7 @@ make_wehoop_data <- function(df, type, timestamp){
   out <- df %>%
     tidyr::as_tibble()
 
-  class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   attr(out,"wehoop_timestamp") <- timestamp
   attr(out,"wehoop_type") <- type
   return(out)
@@ -637,6 +637,6 @@ rbindlist_with_attrs <- function(dflist){
   out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
   attr(out,"wehoop_timestamp") <- wehoop_timestamp
   attr(out,"wehoop_type") <- wehoop_type
-  class(out) <- c("wehoop_data","tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
   out
 }
