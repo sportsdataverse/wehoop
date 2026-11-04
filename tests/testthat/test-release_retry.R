@@ -90,10 +90,10 @@ test_that("parquet_from_url retries a download that does not parse", {
   expect_equal(calls, 2L)
 })
 
-test_that("rds_or_parquet_from_url warns once, with the failure reason", {
+test_that("rds_or_parquet_from_url warns once, with every failure reason", {
   local_mocked_bindings(
     .read_rds_url = function(url) stop("Timeout of 150 seconds was reached"),
-    .download_url = function(url, dest) stop("Timeout of 150 seconds was reached")
+    .download_url = function(url, dest) stop("HTTP status was '404 Not Found'")
   )
   msgs <- character()
   out <- withCallingHandlers(
@@ -107,6 +107,7 @@ test_that("rds_or_parquet_from_url warns once, with the failure reason", {
   expect_length(msgs, 1L)
   expect_match(msgs, "wbb_2024.rds", fixed = TRUE)
   expect_match(msgs, "Timeout of 150 seconds", fixed = TRUE)
+  if (is_installed("arrow")) expect_match(msgs, "404 Not Found", fixed = TRUE)
 })
 
 test_that("the low-level readers read a local file and reject an empty one", {
