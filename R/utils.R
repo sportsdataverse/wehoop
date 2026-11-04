@@ -43,14 +43,8 @@ csv_from_url <- function(...){
 #' @importFrom data.table data.table setDT
 #' @import rvest
 rds_from_url <- function(url) {
-  con <- url(url)
-  on.exit(close(con))
-  load <- try(readRDS(con), silent = TRUE)
-
-  if (inherits(load, "try-error")) {
-    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
-    return(data.table::data.table())
-  }
+  load <- .read_release_asset(url, .read_rds_url)
+  if (inherits(load, "try-error")) return(data.table::data.table())
 
   data.table::setDT(load)
   return(load)
@@ -70,12 +64,8 @@ rds_from_url <- function(url) {
 parquet_from_url <- function(url) {
   tmp <- tempfile(fileext = ".parquet")
   on.exit(unlink(tmp), add = TRUE)
-  dl <- try(utils::download.file(url, tmp, mode = "wb", quiet = TRUE), silent = TRUE)
-
-  if (inherits(dl, "try-error") || !file.exists(tmp) || file.size(tmp) == 0) {
-    warning(paste0("Failed to download parquet from <", url, ">"), call. = FALSE)
-    return(data.table::data.table())
-  }
+  dl <- .read_release_asset(url, function(u) .download_url(u, tmp))
+  if (inherits(dl, "try-error")) return(data.table::data.table())
 
   load <- try(arrow::read_parquet(tmp), silent = TRUE)
   if (inherits(load, "try-error")) {
@@ -87,6 +77,56 @@ parquet_from_url <- function(url) {
   return(load)
 }
 
+# Read one release asset with `read(url)`, retrying a failed read.
+#
+# A slow asset used to hit R's default 60 s `timeout`, and the loader dropped
+# that season from a multi-season load with a vague warning. The timeout is
+# raised to at least 150 s for the read (a larger user setting is kept), and a
+# failed read is tried again after 1 s and 2 s. A 404 is not retried. Warnings
+# from a read that then succeeds are passed on. When every try fails, it warns
+# that the file is missing from the result and returns the `try-error`.
+.read_release_asset <- function(url, read, tries = 3L) {
+  old <- options(timeout = max(150, getOption("timeout", 60)))
+  on.exit(options(old), add = TRUE)
+  for (i in seq_len(tries)) {
+    warns <- list()
+    out <- withCallingHandlers(
+      try(read(url), silent = TRUE),
+      warning = function(w) {
+        warns[[length(warns) + 1L]] <<- w
+        invokeRestart("muffleWarning")
+      }
+    )
+    if (!inherits(out, "try-error")) {
+      for (w in warns) warning(w)
+      return(out)
+    }
+    why <- unique(c(conditionMessage(attr(out, "condition")),
+                    vapply(warns, conditionMessage, character(1))))
+    if (i == tries || any(grepl("HTTP status was '404", why, fixed = TRUE))) break
+    Sys.sleep(i)
+  }
+  why <- paste(why, collapse = "; ")
+  cli::cli_warn(c(
+    "Failed to read {.url {url}} after {i} attempt{?s}.",
+    "!" = "The result is incomplete: it is missing this file.",
+    "x" = "{why}"
+  ))
+  out
+}
+
+.read_rds_url <- function(url) {
+  con <- url(url)
+  on.exit(close(con))
+  readRDS(con)
+}
+
+.download_url <- function(url, dest) {
+  utils::download.file(url, dest, mode = "wb", quiet = TRUE)
+  if (!file.exists(dest) || file.size(dest) == 0) stop("Downloaded an empty file.", call. = FALSE)
+  invisible(dest)
+}
+
 # Read a release `.rds` asset, or its `.parquet` sibling when the season was
 # published as parquet only (a few WBB and WNBA seasons; needs arrow).
 rds_or_parquet_from_url <- function(url) {
@@ -95,9 +135,11 @@ rds_or_parquet_from_url <- function(url) {
     out <- suppressWarnings(parquet_from_url(sub("\\.rds$", ".parquet", url)))
   }
   if (ncol(out) == 0) {
-    warning(paste0("Failed to read <", url, "> (or its .parquet sibling",
-                   if (!is_installed("arrow")) ", which needs the arrow package", ")"),
-            call. = FALSE)
+    cli::cli_warn(c(
+      paste0("Failed to read {.url {url}} (or its .parquet sibling",
+             if (!is_installed("arrow")) ", which needs the arrow package", ")."),
+      "!" = "The result is incomplete: it is missing this file."
+    ))
   }
   out
 }
