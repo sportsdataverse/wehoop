@@ -271,7 +271,7 @@ load_wnba_rosters_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_rosters/wnba_rosters_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -286,7 +286,7 @@ load_wnba_player_stats_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_player_season_stats/wnba_player_season_stats_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -301,7 +301,7 @@ load_wnba_team_stats_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_team_season_stats/wnba_team_season_stats_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -316,7 +316,7 @@ load_wnba_standings_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_standings/wnba_standings_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -330,7 +330,7 @@ load_wnba_draft_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_draft/wnba_draft_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -344,7 +344,7 @@ load_wnba_shots_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_shots/wnba_shots_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -359,7 +359,7 @@ load_wnba_game_rosters_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_game_rosters/wnba_game_rosters_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -374,7 +374,7 @@ load_wnba_officials_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_officials/wnba_officials_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 

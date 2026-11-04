@@ -266,7 +266,7 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
 # load games file
 load_wbb_games <- function(){
   .url <- "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_schedules/wbb_games_in_data_repo.csv"
-  dat <- csv_from_url(.url)
+  dat <- .release_csv_from_url(.url)
   # close(con)
   return(dat)
 }
@@ -284,7 +284,7 @@ load_wbb_rosters_manifest <- function() {
     "espn_womens_college_basketball_rosters/",
     "wbb_rosters_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -300,7 +300,7 @@ load_wbb_player_stats_manifest <- function() {
     "espn_womens_college_basketball_player_season_stats/",
     "wbb_player_season_stats_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -316,7 +316,7 @@ load_wbb_team_stats_manifest <- function() {
     "espn_womens_college_basketball_team_season_stats/",
     "wbb_team_season_stats_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -332,7 +332,7 @@ load_wbb_standings_manifest <- function() {
     "espn_womens_college_basketball_standings/",
     "wbb_standings_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -347,7 +347,7 @@ load_wbb_shots_manifest <- function() {
     "espn_womens_college_basketball_shots/",
     "wbb_shots_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -363,7 +363,7 @@ load_wbb_game_rosters_manifest <- function() {
     "espn_womens_college_basketball_game_rosters/",
     "wbb_game_rosters_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
@@ -379,7 +379,7 @@ load_wbb_officials_manifest <- function() {
     "espn_womens_college_basketball_officials/",
     "wbb_officials_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
