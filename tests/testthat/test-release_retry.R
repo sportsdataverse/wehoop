@@ -175,6 +175,18 @@ test_that("a release csv that keeps failing warns with the url, then raises", {
   expect_equal(calls, 3L)
 })
 
+test_that("the WNBA games index is read through the retrying release reader", {
+  calls <- 0L
+  local_mocked_bindings(csv_from_url = function(file, ...) {
+    calls <<- calls + 1L
+    if (calls == 1L) stop("Timeout of 60 seconds was reached")
+    data.table::data.table(url = file)
+  })
+  expect_no_warning(out <- load_wnba_games())
+  expect_equal(calls, 2L)
+  expect_match(out$url, "espn_wnba_schedules/wnba_games_in_data_repo.csv", fixed = TRUE)
+})
+
 test_that("a release csv is read from a local file", {
   withr::local_options(download.file.method = "auto")
   src <- withr::local_tempfile(fileext = ".csv")

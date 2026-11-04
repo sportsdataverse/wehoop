@@ -254,10 +254,7 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
 # load games file
 load_wnba_games <- function(){
   .url <- "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_games_in_data_repo.csv"
-  con <- url(.url)
-  dat <- utils::read.csv(con)
-  # close(con)
-  return(dat)
+  .release_csv_from_url(.url)
 }
 
 
