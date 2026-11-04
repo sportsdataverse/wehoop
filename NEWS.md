@@ -183,7 +183,7 @@
   [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The class is
   now `wehoop_data` / `tbl_df` / `tbl` / `data.frame`.
 * A slow release download no longer drops a season from a multi-season load.
-  The `.rds` and `.parquet` readers behind every `load_*()` loader raise the
+  The `.rds` and `.parquet` readers behind every release-backed `load_*()` loader raise the
   download timeout to at least 150 seconds (a larger `options(timeout)` is
   kept, and the option is restored afterwards) and retry a failed download
   twice. A 404 is not retried. If a file still fails, the warning names its
