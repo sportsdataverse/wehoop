@@ -259,6 +259,11 @@
   afterwards) and retry a failed download twice. A 404 is not retried.
   If a file still fails, the warning names its URL and says the result
   is incomplete; the seasons that loaded are still returned.
+- The release `.csv` files get the same raised timeout and retries: the
+  28 `*_manifest()` loaders and the games index behind
+  [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md).
+  A manifest that still fails warns with its URL and then raises the
+  error, as before.
 
 #### **Deprecations**
 

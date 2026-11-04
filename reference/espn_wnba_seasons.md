@@ -111,7 +111,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_seasons()
 #> ── ESPN WNBA Seasons from ESPN.com ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 04:09:01 UTC
+#> ℹ Data updated: 2026-11-04 06:47:48 UTC
 #> # A tibble: 1 × 5
 #>   season start_date end_date display_name season_type_count
 #>    <int> <chr>      <chr>    <chr>                    <int>
