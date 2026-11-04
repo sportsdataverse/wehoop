@@ -108,14 +108,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:21:11 UTC
+#> ℹ Data updated: 2026-11-04 04:08:23 UTC
 #> # A tibble: 5 × 8
-#>         id type        headline description published premium link_web league_id
-#>      <int> <chr>       <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 50370401 HeadlineNe… Northwe… Northweste… 2026-11-… FALSE   https:/… 54       
-#> 2 50367226 Preview     Pauldo … La Salle E… 2026-11-… FALSE   http://… 54       
-#> 3 50367220 Preview     Swain l… Saint Mary… 2026-11-… FALSE   http://… 54       
-#> 4 50367217 Preview     Western… Chattanoog… 2026-11-… FALSE   http://… 54       
-#> 5 50367215 Preview     New Orl… New Orlean… 2026-11-… FALSE   http://… 54       
+#>         id type  headline       description published premium link_web league_id
+#>      <int> <chr> <chr>          <chr>       <chr>     <lgl>   <chr>    <chr>    
+#> 1 50375110 Media Sam Purcell's… Purcell di… 2026-11-… FALSE   https:/… 54       
+#> 2 50375097 Recap No. 15 TCU wo… — Laura So… 2026-11-… FALSE   http://… 54       
+#> 3 50374729 Recap No. 24 West V… — Gia Cook… 2026-11-… FALSE   http://… 54       
+#> 4 50374540 Recap Roberson, Nel… — Arianna … 2026-11-… FALSE   http://… 54       
+#> 5 50374490 Media Green Bay Pho… Green Bay … 2026-11-… FALSE   https:/… 54       
 # }
 ```

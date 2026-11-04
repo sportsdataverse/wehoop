@@ -182,7 +182,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gdap_player_stats(player_id = 211501, comp = 208182))
 #> ── FIBA gdap_player_stats from fiba.basketball ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:24 UTC
+#> ℹ Data updated: 2026-11-04 04:09:29 UTC
 #> # A tibble: 1 × 64
 #>   player_id competition_id points_per_game rebounds_per_game
 #>       <int>          <int>           <dbl>             <dbl>

@@ -115,11 +115,11 @@ Other WJBL Functions:
 # \donttest{
   try(wjbl_standing_seasons())
 #> ── W League Standing Seasons from api.wjbl.01core.app ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:25:02 UTC
+#> ℹ Data updated: 2026-11-04 04:11:50 UTC
 #> # A tibble: 118 × 7
 #>    season_id season_full_name       season season_league_name team_standings_flg
 #>        <int> <chr>                   <int> <chr>                           <int>
-#>  1       179 26-27 Wリーグ レギュラーシーズン……   2027 "プレミア"                          0
+#>  1       179 26-27 Wリーグ レギュラーシーズン……   2027 "プレミア"                          1
 #>  2       180 26-27 Wリーグ レギュラーシーズン……   2027 "フューチャー"                      0
 #>  3       181 26-27 Wリーグ 大樹生命 Wリーグ …   2027 "グループステージ"                  0
 #>  4       178 Wリーグオールスター2025-26 in …     NA ""                                  0

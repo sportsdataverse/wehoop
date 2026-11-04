@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:38 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:38 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 13 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -126,7 +126,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:38 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
@@ -151,7 +151,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:38 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 28 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
@@ -170,7 +170,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:39 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -189,7 +189,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:39 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 22 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -208,7 +208,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:39 UTC
+#> ℹ Data updated: 2026-11-04 04:09:39 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -228,7 +228,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:39 UTC
+#> ℹ Data updated: 2026-11-04 04:09:40 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
@@ -238,17 +238,17 @@ Other Fox Sports Functions:
 #>  4 11      CONFERENCE 4        St. J… 0-0   1-0   0-0    1-0   0-0   95    37   
 #>  5 11      CONFERENCE 5        UConn  0-0   1-0   0-0    1-0   0-0   100   35   
 #>  6 11      CONFERENCE 6        Xavier 0-0   1-0   0-0    0-0   1-0   75    63   
-#>  7 11      CONFERENCE 7        DePaul -     0-0   -      -     -     0     0    
-#>  8 11      CONFERENCE 8        Villa… 0-0   0-1   0-1    0-0   0-0   75    99   
-#>  9 11      CONFERENCE 9        Marqu… -     0-0   -      -     -     0     0    
-#> 10 11      CONFERENCE 10       Provi… -     0-0   -      -     -     0     0    
-#> 11 11      CONFERENCE 11       Seton… -     0-0   -      -     -     0     0    
+#>  7 11      CONFERENCE 7        DePaul 0-0   1-0   0-0    1-0   0-0   90    65   
+#>  8 11      CONFERENCE 8        Marqu… 0-0   1-0   0-0    1-0   0-0   80    42   
+#>  9 11      CONFERENCE 9        Provi… 0-0   1-0   0-0    1-0   0-0   79    65   
+#> 10 11      CONFERENCE 10       Seton… 0-0   1-0   0-0    1-0   0-0   63    37   
+#> 11 11      CONFERENCE 11       Villa… 0-0   0-1   0-1    0-0   0-0   75    99   
 #> # ℹ 2 more variables: strk <chr>, entity_id <chr>
 # }
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:40 UTC
+#> ℹ Data updated: 2026-11-04 04:09:40 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -271,7 +271,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-03 23:22:40 UTC
+#> ℹ Data updated: 2026-11-04 04:09:40 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      
@@ -282,9 +282,9 @@ Other Fox Sports Functions:
 #>  5 11          Uconn Huskies           Big East   
 #>  6 78          Xavier Musketeers       Big East   
 #>  7 71          Depaul Blue Demons      Big East   
-#>  8 77          Villanova Wildcats      Big East   
-#>  9 73          Marquette Golden Eagles Big East   
-#> 10 74          Providence Friars       Big East   
-#> 11 75          Seton Hall Pirates      Big East   
+#>  8 73          Marquette Golden Eagles Big East   
+#>  9 74          Providence Friars       Big East   
+#> 10 75          Seton Hall Pirates      Big East   
+#> 11 77          Villanova Wildcats      Big East   
 # }
 ```

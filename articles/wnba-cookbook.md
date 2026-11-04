@@ -235,7 +235,22 @@ espn_wnba_game_player_box(
   team_id    = 17,
   athlete_id = 2590093
 )
-#> NULL
+#> # A tibble: 97 × 12
+#>    league event_id  team_id athlete_id stat_type category_name category_display
+#>    <chr>  <chr>     <chr>   <chr>          <int> <chr>         <chr>           
+#>  1 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  2 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  3 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  4 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  5 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  6 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  7 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  8 wnba   401736171 17      2590093            0 defensive     Defensive       
+#>  9 wnba   401736171 17      2590093            0 defensive     Defensive       
+#> 10 wnba   401736171 17      2590093            0 general       General         
+#> # ℹ 87 more rows
+#> # ℹ 5 more variables: stat_name <chr>, stat_abbrev <chr>, stat_display <chr>,
+#> #   value <dbl>, display_value <chr>
 ```
 
 Margin note on *why three IDs*: a function’s argument list is a hint
@@ -344,15 +359,34 @@ espn_wnba_team_roster(team_id = team_id, season = season)
 # The full team-season stat sheet (with league rank per stat) vs. just
 # the W-L record.
 espn_wnba_team_season_statistics(team_id = team_id, season = season)
-#> NULL
+#> # A tibble: 98 × 13
+#>    league season season_type team_id category_name category_display stat_name   
+#>    <chr>   <int>       <int> <chr>   <chr>         <chr>            <chr>       
+#>  1 wnba     2026           2 17      defensive     Defensive        blocks      
+#>  2 wnba     2026           2 17      defensive     Defensive        defensiveRe…
+#>  3 wnba     2026           2 17      defensive     Defensive        steals      
+#>  4 wnba     2026           2 17      defensive     Defensive        avgDefensiv…
+#>  5 wnba     2026           2 17      defensive     Defensive        avgBlocks   
+#>  6 wnba     2026           2 17      defensive     Defensive        avgSteals   
+#>  7 wnba     2026           2 17      defensive     Defensive        avg48Defens…
+#>  8 wnba     2026           2 17      defensive     Defensive        avg48Blocks 
+#>  9 wnba     2026           2 17      defensive     Defensive        avg48Steals 
+#> 10 wnba     2026           2 17      general       General          disqualific…
+#> # ℹ 88 more rows
+#> # ℹ 6 more variables: stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>, rank_display_value <chr>
 espn_wnba_team_record(team_id = team_id, season = season)
-#> # A tibble: 4 × 14
+#> # A tibble: 8 × 14
 #>   league team_id season season_type record_id name     abbreviation display_name
 #>   <chr>  <chr>    <int>       <int> <chr>     <chr>    <chr>        <chr>       
 #> 1 wnba   17        2026           2 0         overall  Total        Overall     
 #> 2 wnba   17        2026           2 33        Home     NA           Home        
 #> 3 wnba   17        2026           2 34        Road     NA           Road        
 #> 4 wnba   17        2026           2 901       Last Te… Last Ten     Last Ten Ga…
+#> 5 wnba   17        2026           3 0         overall  Total        Overall     
+#> 6 wnba   17        2026           3 33        Home     NA           Home        
+#> 7 wnba   17        2026           3 34        Road     NA           Road        
+#> 8 wnba   17        2026           3 901       Last Te… Last Ten     Last Ten Ga…
 #> # ℹ 6 more variables: short_display_name <chr>, description <chr>, type <chr>,
 #> #   summary <chr>, display_value <chr>, value <dbl>
 ```

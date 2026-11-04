@@ -404,7 +404,22 @@ from a single game, long and tidy – not the whole
 <span>  team_id    <span class="op">=</span> <span class="fl">17</span>,</span>
 <span>  athlete_id <span class="op">=</span> <span class="fl">2590093</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; NULL</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 97 × 12</span></span></span>
+<span><span class="co">#&gt;    league event_id  team_id athlete_id stat_type category_name category_display</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> wnba   401736171 17      2590093            0 defensive     Defensive       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> wnba   401736171 17      2590093            0 general       General         </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 87 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: stat_name &lt;chr&gt;, stat_abbrev &lt;chr&gt;, stat_display &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   value &lt;dbl&gt;, display_value &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Margin note on <em>why three IDs</em>: a function’s argument list is
 a hint about its grain. One ID (<code>game_id</code>) -&gt; a whole
 game. Three IDs (<code>event</code> + <code>team</code> +
@@ -508,15 +523,34 @@ menu:</p>
 <span><span class="co"># The full team-season stat sheet (with league rank per stat) vs. just</span></span>
 <span><span class="co"># the W-L record.</span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_team_season_statistics.html">espn_wnba_team_season_statistics</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
-<span><span class="co">#&gt; NULL</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 98 × 13</span></span></span>
+<span><span class="co">#&gt;    league season season_type team_id category_name category_display stat_name   </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        blocks      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        defensiveRe…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        steals      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        avgDefensiv…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        avgBlocks   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        avgSteals   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        avg48Defens…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        avg48Blocks </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      defensive     Defensive        avg48Steals </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> wnba     <span style="text-decoration: underline;">2</span>026           2 17      general       General          disqualific…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 88 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: stat_abbrev &lt;chr&gt;, stat_display &lt;chr&gt;, value &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   display_value &lt;chr&gt;, rank &lt;int&gt;, rank_display_value &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="../reference/espn_wnba_team_record.html">espn_wnba_team_record</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, season <span class="op">=</span> <span class="va">season</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 14</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8 × 14</span></span></span>
 <span><span class="co">#&gt;   league team_id season season_type record_id name     abbreviation display_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> wnba   17        <span style="text-decoration: underline;">2</span>026           2 0         overall  Total        Overall     </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> wnba   17        <span style="text-decoration: underline;">2</span>026           2 33        Home     <span style="color: #BB0000;">NA</span>           Home        </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> wnba   17        <span style="text-decoration: underline;">2</span>026           2 34        Road     <span style="color: #BB0000;">NA</span>           Road        </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> wnba   17        <span style="text-decoration: underline;">2</span>026           2 901       Last Te… Last Ten     Last Ten Ga…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 0         overall  Total        Overall     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 33        Home     <span style="color: #BB0000;">NA</span>           Home        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 34        Road     <span style="color: #BB0000;">NA</span>           Road        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">8</span> wnba   17        <span style="text-decoration: underline;">2</span>026           3 901       Last Te… Last Ten     Last Ten Ga…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: short_display_name &lt;chr&gt;, description &lt;chr&gt;, type &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   summary &lt;chr&gt;, display_value &lt;chr&gt;, value &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>Notice the family: <code>team_season_profile</code>,
