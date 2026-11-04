@@ -89,3 +89,22 @@ test_that("parquet_from_url retries a download that does not parse", {
   expect_equal(out$x, 1:2)
   expect_equal(calls, 2L)
 })
+
+test_that("rds_or_parquet_from_url warns once, with the failure reason", {
+  local_mocked_bindings(
+    .read_rds_url = function(url) stop("Timeout of 150 seconds was reached"),
+    .download_url = function(url, dest) stop("Timeout of 150 seconds was reached")
+  )
+  msgs <- character()
+  out <- withCallingHandlers(
+    rds_or_parquet_from_url("https://x/wbb_2024.rds"),
+    warning = function(w) {
+      msgs <<- c(msgs, conditionMessage(w))
+      invokeRestart("muffleWarning")
+    }
+  )
+  expect_equal(nrow(out), 0L)
+  expect_length(msgs, 1L)
+  expect_match(msgs, "wbb_2024.rds", fixed = TRUE)
+  expect_match(msgs, "Timeout of 150 seconds", fixed = TRUE)
+})

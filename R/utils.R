@@ -109,7 +109,7 @@ parquet_from_url <- function(url) {
     "Failed to read {.url {url}} after {i} attempt{?s}.",
     "!" = "The result is incomplete: it is missing this file.",
     "x" = "{why}"
-  ))
+  ), class = "wehoop_read_failed", reason = why)
   out
 }
 
@@ -129,15 +129,22 @@ parquet_from_url <- function(url) {
 # Read a release `.rds` asset, or its `.parquet` sibling when the season was
 # published as parquet only (a few WBB and WNBA seasons; needs arrow).
 rds_or_parquet_from_url <- function(url) {
-  out <- suppressWarnings(rds_from_url(url))
+  # One warning per failed season, carrying the last read's failure reason.
+  why <- NULL
+  quietly <- function(expr) withCallingHandlers(expr, warning = function(w) {
+    if (inherits(w, "wehoop_read_failed")) why <<- w$reason
+    invokeRestart("muffleWarning")
+  })
+  out <- quietly(rds_from_url(url))
   if (ncol(out) == 0 && is_installed("arrow")) {
-    out <- suppressWarnings(parquet_from_url(sub("\\.rds$", ".parquet", url)))
+    out <- quietly(parquet_from_url(sub("\\.rds$", ".parquet", url)))
   }
   if (ncol(out) == 0) {
     cli::cli_warn(c(
       paste0("Failed to read {.url {url}} (or its .parquet sibling",
              if (!is_installed("arrow")) ", which needs the arrow package", ")."),
-      "!" = "The result is incomplete: it is missing this file."
+      "!" = "The result is incomplete: it is missing this file.",
+      "x" = if (!is.null(why)) "{why}"
     ))
   }
   out
