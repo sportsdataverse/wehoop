@@ -1100,7 +1100,7 @@ load_wnba_stats_leaguedash <- function(seasons = most_recent_wnba_stats_season()
 
 
 # -----------------------------------------------------------------------------
-# Manifest loaders -- thin wrappers around csv_from_url() that return the
+# Manifest loaders -- thin wrappers around .release_csv_from_url() that return the
 # per-season manifest CSV (columns: season, row_count, generated_at_utc,
 # source_endpoint) attached to each release tag, without downloading the
 # full per-season RDS payloads. Useful for discovering which seasons are
@@ -1118,7 +1118,7 @@ load_wnba_stats_rosters_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_rosters/wnba_stats_rosters_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1132,7 +1132,7 @@ load_wnba_stats_coaches_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_coaches/wnba_stats_coaches_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1147,7 +1147,7 @@ load_wnba_stats_player_stats_manifest <- function() {
     "wnba_stats_player_season_stats/",
     "wnba_stats_player_season_stats_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1161,7 +1161,7 @@ load_wnba_stats_lineups_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_lineups/wnba_stats_lineups_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1176,7 +1176,7 @@ load_wnba_stats_team_stats_manifest <- function() {
     "wnba_stats_team_season_stats/",
     "wnba_stats_team_season_stats_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1190,7 +1190,7 @@ load_wnba_stats_standings_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_standings/wnba_stats_standings_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1204,7 +1204,7 @@ load_wnba_stats_draft_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_draft/wnba_stats_draft_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1218,7 +1218,7 @@ load_wnba_stats_shots_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_shots/wnba_stats_shots_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1232,7 +1232,7 @@ load_wnba_stats_game_rosters_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_game_rosters/wnba_stats_game_rosters_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1246,7 +1246,7 @@ load_wnba_stats_officials_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_officials/wnba_stats_officials_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1260,7 +1260,7 @@ load_wnba_stats_player_game_logs_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_player_game_logs/wnba_stats_player_game_logs_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1274,7 +1274,7 @@ load_wnba_stats_schedule_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_schedules/wnba_stats_schedules_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 #' @rdname load_wnba_stats_coaches
@@ -1288,7 +1288,7 @@ load_wnba_stats_pbp_manifest <- function() {
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_pbp/wnba_stats_pbp_in_data_repo.csv"
   )
-  csv_from_url(url)
+  .release_csv_from_url(url)
 }
 
 
