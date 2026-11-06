@@ -154,6 +154,10 @@
 * `bart_wbb_ratings()` returned an empty tibble for 2021 and 2022: those
   files quote one header, `fread()` warns while fixing it, and the warning
   discarded the season. That warning is no longer fatal. (#86)
+* `update_wbb_db()`, `update_wnba_db()` and `update_wnba_stats_db()` no longer write to the
+  working directory by default. `dbdir` now defaults to the per-user data directory
+  `tools::R_user_dir("wehoop", "data")` (created on first use, with a message naming it).
+  To keep using a database in the working directory, pass `dbdir = "."`.
 
 ### **Loader seasons and join ids**
 

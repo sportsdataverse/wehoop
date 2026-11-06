@@ -5,7 +5,7 @@
 \title{\strong{Build/update wehoop WNBA play-by-play database}}
 \usage{
 update_wnba_db(
-  dbdir = ".",
+  dbdir = tools::R_user_dir("wehoop", "data"),
   dbname = "wehoop_db",
   tblname = "wehoop_wnba_pbp",
   force_rebuild = FALSE,
@@ -15,7 +15,9 @@ update_wnba_db(
 )
 }
 \arguments{
-\item{dbdir}{Directory in which the database is or shall be located}
+\item{dbdir}{Directory in which the database is or shall be located. Defaults to
+the per-user data directory \code{tools::R_user_dir("wehoop", "data")}, so nothing is
+written to the working directory unless you ask for it (\code{dbdir = "."}).}
 
 \item{dbname}{File name of an existing or desired SQLite database within \code{dbdir}}
 

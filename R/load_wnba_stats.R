@@ -1312,7 +1312,9 @@ NULL
 #' `"player_stats"`, `"lineups"`, `"team_stats"`, `"standings"`,
 #' `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`, `"possessions"`.
 #'
-#' @param dbdir Directory in which the database is or shall be located.
+#' @param dbdir Directory in which the database is or shall be located. Defaults to
+#'   the per-user data directory `tools::R_user_dir("wehoop", "data")`, so nothing is
+#'   written to the working directory unless you ask for it (`dbdir = "."`).
 #' @param dbname File name of an existing or desired SQLite database within
 #'   `dbdir`.
 #' @param datasets Character vector of dataset shortnames (see Details).
@@ -1322,7 +1324,7 @@ NULL
 #'   `dbname` are ignored.
 #' @return Invisibly returns `TRUE` on success.
 #' @export
-update_wnba_stats_db <- function(dbdir = ".",
+update_wnba_stats_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
                                  dbname = "wehoop_db",
                                  datasets = NULL,
                                  seasons = TRUE,
@@ -1354,8 +1356,8 @@ update_wnba_stats_db <- function(dbdir = ".",
   }
 
   if (!dir.exists(dbdir) & is.null(db_connection)) {
-    cli::cli_alert_danger("{my_time()} | Directory {.file {dbdir}} doesn't exist yet. Try creating...")
-    dir.create(dbdir)
+    cli::cli_alert_info("{my_time()} | Creating database directory {.file {dbdir}}")
+    dir.create(dbdir, recursive = TRUE)
   }
 
   if (is.null(db_connection)) {
