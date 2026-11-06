@@ -88,6 +88,10 @@ default `dbdir` to the working directory. They now default to
 
 The help pages name Basketball-Reference without linking to it: the site
 answers automated requests (such as the incoming URL check) with HTTP 503.
+They give stats.wnba.com deep pages as plain text for the same reason: that
+host stalls requests from data-centre machines. The local URL check above
+ran from a residential connection; the DESCRIPTION link to
+<https://stats.wnba.com/> is unchanged since 3.0.0.
 
 ### Expected NOTE: installed package size
 
