@@ -47,9 +47,11 @@ placeholders. Torvik and the WNBA Stats API have no per-player tables for
 WBB, so neither source is joined.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(wbb_player_crosswalk(season = 2025))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other WBB Crosswalk Functions:

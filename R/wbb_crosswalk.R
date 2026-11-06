@@ -423,7 +423,7 @@ NULL
 #' @importFrom dplyr transmute bind_rows
 #' @export
 #' @family WBB Crosswalk Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(wbb_schedule_crosswalk(season = 2025))
 #' }
@@ -645,7 +645,7 @@ NULL
 #' @importFrom purrr map list_rbind
 #' @export
 #' @family WBB Crosswalk Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
 #'   try(wbb_player_crosswalk(season = 2025))
 #' }
