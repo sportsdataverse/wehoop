@@ -927,7 +927,7 @@ Columns as documented in the shared \link{wnba_team_dashboard_schema} table.
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
 
-\href{https://stats.wnba.com/team/1611661328/shooting/}{Team Dashboard by Shooting Splits}
+Team Dashboard by Shooting Splits page on stats.wnba.com: \code{stats.wnba.com/team/1611661328/shooting/}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 }\if{html}{\out{</div>}}
