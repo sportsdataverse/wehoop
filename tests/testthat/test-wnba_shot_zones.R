@@ -92,6 +92,7 @@ test_that(".add_shot_zones handles negative x_legacy (left corner) correctly", {
 
 test_that(".add_shot_zones partitions all FG rows to exactly one zone (WNBA fixture)", {
   skip_on_cran()
+  skip_if_no_fixtures("wnba_engine")
   pbp <- readRDS(test_path("fixtures", "wnba_engine", "pbp_1022400003.rds"))
 
   result <- .add_shot_zones(pbp)
@@ -133,6 +134,7 @@ test_that(".add_shot_zones partitions all FG rows to exactly one zone (WNBA fixt
 
 test_that(".add_shot_zones never-raises on 0-row input", {
   skip_on_cran()
+  skip_if_no_fixtures("wnba_engine")
   pbp   <- readRDS(test_path("fixtures", "wnba_engine", "pbp_1022400003.rds"))
   empty <- head(pbp, 0)
 

@@ -20,7 +20,7 @@
 #'
 #' NCAA endpoints occasionally drop columns. The wrappers use
 #' `dplyr::any_of()` / `dplyr::rename(any_of(c(new = "old")))` so
-#' schema drift doesn't crash the parser — see
+#' schema drift doesn't crash the parser -- see
 #' `ncaa_wbb_NET_rankings()` for the reference implementation.
 #'
 #' @keywords NCAA WBB

@@ -32,8 +32,8 @@ order:
 \item The actual error message (\code{conditionMessage(e)}).
 }
 
-Functions opt in by capturing their formals once near the top —
-\code{.args <- mget(setdiff(names(formals()), "..."))} — and then calling
+Functions opt in by capturing their formals once near the top --
+\code{.args <- mget(setdiff(names(formals()), "..."))} -- and then calling
 \code{.report_api_error(e, hint = "...", args = .args)} from the error handler.
 }
 \keyword{internal}

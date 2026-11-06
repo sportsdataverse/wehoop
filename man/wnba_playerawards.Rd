@@ -41,7 +41,7 @@ Return a named list of data frames: PlayerAwards
 \strong{Get WNBA Stats API Player Awards}
 }
 \details{
-\href{https://stats.wnba.com/player/1628932/career/}{Player Awards}
+Player Awards page on stats.wnba.com: \code{stats.wnba.com/player/1628932/career/}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_playerawards(player_id = '1628932')
 }\if{html}{\out{</div>}}

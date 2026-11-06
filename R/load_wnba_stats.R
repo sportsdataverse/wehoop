@@ -396,7 +396,7 @@ load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season()
 #'   standings (`leaguestandingsv3`-style outputs). One row per team-season.
 #'   **Deprecated**: the `wnba_stats_standings` release tag (R-scraped) is
 #'   superseded by the `wnba_stats_leaguedash` tag's `standings` asset
-#'   (same underlying endpoint/params, Python-scraped) — this is close to a
+#'   (same underlying endpoint/params, Python-scraped) -- this is close to a
 #'   pure passthrough.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   Published coverage runs 1997 through the most recent season, with no
@@ -1312,7 +1312,9 @@ NULL
 #' `"player_stats"`, `"lineups"`, `"team_stats"`, `"standings"`,
 #' `"draft"`, `"shots"`, `"game_rosters"`, `"officials"`, `"possessions"`.
 #'
-#' @param dbdir Directory in which the database is or shall be located.
+#' @param dbdir Directory in which the database is or shall be located. Defaults to
+#'   the per-user data directory `tools::R_user_dir("wehoop", "data")`, so nothing is
+#'   written to the working directory unless you ask for it (`dbdir = "."`).
 #' @param dbname File name of an existing or desired SQLite database within
 #'   `dbdir`.
 #' @param datasets Character vector of dataset shortnames (see Details).
@@ -1322,7 +1324,7 @@ NULL
 #'   `dbname` are ignored.
 #' @return Invisibly returns `TRUE` on success.
 #' @export
-update_wnba_stats_db <- function(dbdir = ".",
+update_wnba_stats_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
                                  dbname = "wehoop_db",
                                  datasets = NULL,
                                  seasons = TRUE,
@@ -1354,8 +1356,8 @@ update_wnba_stats_db <- function(dbdir = ".",
   }
 
   if (!dir.exists(dbdir) & is.null(db_connection)) {
-    cli::cli_alert_danger("{my_time()} | Directory {.file {dbdir}} doesn't exist yet. Try creating...")
-    dir.create(dbdir)
+    cli::cli_alert_info("{my_time()} | Creating database directory {.file {dbdir}}")
+    dir.create(dbdir, recursive = TRUE)
   }
 
   if (is.null(db_connection)) {

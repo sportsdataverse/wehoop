@@ -41,9 +41,11 @@ Games where either Torvik team name cannot be resolved to an ESPN id via
 \code{wbb_team_crosswalk()} are kept as \code{bart_only} rows.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   try(wbb_schedule_crosswalk(season = 2025))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other WBB Crosswalk Functions:

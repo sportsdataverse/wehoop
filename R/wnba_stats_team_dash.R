@@ -1205,7 +1205,7 @@ wnba_teamdashboardbyopponent <- function(
 #' @family WNBA Team Functions
 #' @family WNBA Shooting Functions
 #' @details
-#' [Team Dashboard by Shooting Splits](https://stats.wnba.com/team/1611661328/shooting/)
+#' Team Dashboard by Shooting Splits page on stats.wnba.com: \code{stats.wnba.com/team/1611661328/shooting/}
 #' ```r
 #'   wnba_teamdashboardbyshootingsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
 #' ```

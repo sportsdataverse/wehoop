@@ -427,7 +427,7 @@ contract for compatibility; call the cube's \verb{team_stats_*} /
 standings (\code{leaguestandingsv3}-style outputs). One row per team-season.
 \strong{Deprecated}: the \code{wnba_stats_standings} release tag (R-scraped) is
 superseded by the \code{wnba_stats_leaguedash} tag's \code{standings} asset
-(same underlying endpoint/params, Python-scraped) — this is close to a
+(same underlying endpoint/params, Python-scraped) -- this is close to a
 pure passthrough.
 
 Loads season-level WNBA draft picks scraped from the WNBA

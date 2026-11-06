@@ -65,7 +65,7 @@ Returns a named list of data frames: FranchisePlayers
 \strong{Get WNBA Stats API Franchise Players}
 }
 \details{
-\href{https://stats.wnba.com/team/1611661319/franchise-leaders/}{Franchise Players}
+Franchise Players page on stats.wnba.com: \code{stats.wnba.com/team/1611661319/franchise-leaders/}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_franchiseplayers(league_id = '10', team_id = '1611661319')
  wnba_franchiseplayers(league_id = '10', season_type = 'Playoffs', team_id = '1611661319')

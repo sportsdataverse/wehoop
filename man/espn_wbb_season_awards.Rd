@@ -23,7 +23,7 @@ A tibble with one row per award.\tabular{lll}{
 \description{
 Returns the list of award IDs given out in a WBB season from
 \code{sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/{season}/awards}.
-The index only contains IDs and \verb{$ref} URLs — pass an ID to
+The index only contains IDs and \verb{$ref} URLs -- pass an ID to
 \code{\link[=espn_wbb_award]{espn_wbb_award()}} for the award name, description, and winners.
 }
 \examples{

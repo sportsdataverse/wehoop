@@ -1,4 +1,6 @@
 skip_on_cran()
+skip_if_no_fixtures("score_repair")
+skip_if_no_fixtures("espn_pbp_coordinates")
 
 # Shot coordinates in helper_espn_wnba_pbp() / helper_espn_wbb_pbp() on both
 # payload shapes the data repos feed them:

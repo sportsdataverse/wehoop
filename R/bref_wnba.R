@@ -2,7 +2,7 @@
 #' **Basketball-Reference WNBA Player Season Stats**
 #' @description
 #' **Get WNBA league-wide player season statistics from
-#' [Basketball-Reference](https://www.basketball-reference.com/wnba/).**
+#' Basketball-Reference.**
 #'
 #' One row per player for a season. No account or API key is required.
 #' Basketball-Reference rate-limits aggressive scraping (~20 requests/minute) --
@@ -68,7 +68,7 @@ bref_wnba_player_stats <- function(season = most_recent_wnba_season(), table = "
 #' **Basketball-Reference WNBA Team Season Stats**
 #' @description
 #' **Get WNBA team season statistics from
-#' [Basketball-Reference](https://www.basketball-reference.com/wnba/).**
+#' Basketball-Reference.**
 #'
 #' One row per team for a season. No account or API key is required.
 #' @param season Season, 4-digit year format (e.g. `2024`). Defaults to
@@ -130,7 +130,7 @@ bref_wnba_team_stats <- function(season = most_recent_wnba_season(), table = "pe
 #' **Basketball-Reference WNBA Standings**
 #' @description
 #' **Get WNBA standings (both conferences) from
-#' [Basketball-Reference](https://www.basketball-reference.com/wnba/).**
+#' Basketball-Reference.**
 #'
 #' One row per team with record and win percentage, labelled by a `conference`
 #' column (`Eastern` / `Western`). No account or API key is required.

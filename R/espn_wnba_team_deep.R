@@ -59,7 +59,7 @@ espn_wnba_team_season_roster <- function(team_id,
 #' @description
 #' Per-season coach detail (name, birth info, `$ref`s to team/college/
 #' person). ESPN's coverage of this endpoint is sparse; many
-#' (coach × season) combinations return 404.
+#' (coach x season) combinations return 404.
 #'
 #' @param coach_id ESPN coach identifier.
 #' @param season Season year. Defaults to most recent WNBA season.

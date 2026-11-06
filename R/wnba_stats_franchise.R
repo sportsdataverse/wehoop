@@ -40,7 +40,7 @@ NULL
 #' @export
 #' @family WNBA Franchise Functions
 #' @details
-#' [Franchise Leaders](https://stats.wnba.com/team/1611661324/franchise-leaders)
+#' Franchise Leaders page on stats.wnba.com: \code{stats.wnba.com/team/1611661324/franchise-leaders}
 #' ```r
 #'   wnba_franchiseleaders(league_id = '10', team_id = '1611661324')
 #' ```
@@ -156,7 +156,7 @@ NULL
 #' @export
 #' @family WNBA Franchise Functions
 #' @details
-#' [Franchise Leaders](https://stats.wnba.com/team/1611661324/franchise-leaders)
+#' Franchise Leaders page on stats.wnba.com: \code{stats.wnba.com/team/1611661324/franchise-leaders}
 #' ```r
 #'  wnba_franchiseleaderswrank(league_id = '10', team_id = '1611661324')
 #' ```
@@ -257,7 +257,7 @@ NULL
 #' @export
 #' @family WNBA Franchise Functions
 #' @details
-#' [Franchise Players](https://stats.wnba.com/team/1611661319/franchise-leaders/)
+#' Franchise Players page on stats.wnba.com: \code{stats.wnba.com/team/1611661319/franchise-leaders/}
 #' ```r
 #'  wnba_franchiseplayers(league_id = '10', team_id = '1611661319')
 #'  wnba_franchiseplayers(league_id = '10', season_type = 'Playoffs', team_id = '1611661319')
@@ -351,7 +351,7 @@ NULL
 #' @export
 #' @family WNBA Franchise Functions
 #' @details
-#' [Franchise History](https://stats.wnba.com/history/)
+#' Franchise History page on stats.wnba.com: \code{stats.wnba.com/history/}
 #' ```r
 #'   wnba_franchisehistory(league_id = '10')
 #' ```

@@ -17,7 +17,7 @@ Pass a vector like \code{c(0L, 1L, 2L)} to bind multiple types via a
 \item{...}{Additional arguments; currently unused.}
 }
 \value{
-A long tibble (one row per stat_type × split × category × stat).
+A long tibble (one row per stat_type x split x category x stat).
 
 Columns as documented in the shared \link{espn_basketball_player_career_stats_schema} table.
 }
@@ -28,14 +28,14 @@ view. Pass a vector like \code{c(0L, 1L, 2L)} to attempt multiple types
 and bind them via a \code{stat_type_id} column; variants that 404 for that
 athlete are silently skipped. Stat types: 0 = regular season (default
 endpoint), 1 = postseason, 2 = career aggregate. Coverage of types 1
-and 2 is sparse — many athletes only have type 0 populated.
+and 2 is sparse -- many athletes only have type 0 populated.
 }
 \details{
 \strong{Get ESPN WNBA Athlete Career Stats (Long Format)}
 }
 \examples{
 \donttest{
-  # LeBron James — regular + postseason combined
+  # LeBron James -- regular + postseason combined
   espn_wnba_player_career_stats(athlete_id = 3149391)
   # Just career aggregate
   espn_wnba_player_career_stats(athlete_id = 3149391, stat_type = 2L)

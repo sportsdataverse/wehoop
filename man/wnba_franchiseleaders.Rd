@@ -45,7 +45,7 @@ Returns a named list of data frames: FranchiseLeaders
 \strong{Get WNBA Stats API Franchise Leaders}
 }
 \details{
-\href{https://stats.wnba.com/team/1611661324/franchise-leaders}{Franchise Leaders}
+Franchise Leaders page on stats.wnba.com: \code{stats.wnba.com/team/1611661324/franchise-leaders}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  wnba_franchiseleaders(league_id = '10', team_id = '1611661324')
 }\if{html}{\out{</div>}}

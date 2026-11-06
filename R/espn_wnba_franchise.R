@@ -15,7 +15,7 @@ NULL
 #' @description
 #' Returns the full WNBA franchises index from
 #' `sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/franchises`.
-#' Each row is one franchise with its ID and the canonical `$ref` URL —
+#' Each row is one franchise with its ID and the canonical `$ref` URL --
 #' pass an ID to [espn_wnba_franchise()] for full franchise detail.
 #'
 #' @param ... Additional arguments; currently unused.

@@ -154,6 +154,11 @@
 * `bart_wbb_ratings()` returned an empty tibble for 2021 and 2022: those
   files quote one header, `fread()` warns while fixing it, and the warning
   discarded the season. That warning is no longer fatal. (#86)
+* `update_wbb_db()`, `update_wnba_db()` and `update_wnba_stats_db()` no
+  longer write to the working directory by default. `dbdir` now defaults to
+  the per-user data directory `tools::R_user_dir("wehoop", "data")` (created
+  on first use, with a message naming it). To keep using a database in the
+  working directory, pass `dbdir = "."`.
 
 ### **Loader seasons and join ids**
 
@@ -351,9 +356,8 @@ need adjustment if the site changes.
 
 ### **WNBA Basketball-Reference (`bref_wnba_*`)**
 
-New `bref_wnba_*()` family scraping WNBA data from
-[Basketball-Reference](https://www.basketball-reference.com/wnba/) — a deep
-historical source (back to 1997) wehoop did not previously cover, complementing
+New `bref_wnba_*()` family scraping WNBA data from Basketball-Reference — a
+deep historical source (back to 1997) wehoop did not previously cover, complementing
 the WNBA Stats API and ESPN wrappers. No account or API key is required:
 
 - **`bref_wnba_player_stats(season, table)`** — league-wide player season stats

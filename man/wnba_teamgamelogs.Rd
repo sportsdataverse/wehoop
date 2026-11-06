@@ -143,7 +143,7 @@ Return a named list of data frames: TeamGameLogs
 \strong{Get WNBA Stats API Team Game Logs}
 }
 \details{
-\href{https://stats.wnba.com/team/1611661328/boxscores/}{Teams Game Log}
+Teams Game Log page on stats.wnba.com: \code{stats.wnba.com/team/1611661328/boxscores/}
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ wnba_teamgamelogs(team_id = '1611661328')
 }\if{html}{\out{</div>}}

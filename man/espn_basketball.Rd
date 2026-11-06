@@ -9,8 +9,8 @@
 Wrappers around ESPN's basketball endpoints. Two parallel families
 share a common set of internal helpers in \code{R/espn_basketball_*.R}:
 \itemize{
-\item \verb{espn_wnba_*()} — ESPN WNBA wrappers
-\item \verb{espn_wbb_*()} — ESPN women's college basketball wrappers
+\item \verb{espn_wnba_*()} -- ESPN WNBA wrappers
+\item \verb{espn_wbb_*()} -- ESPN women's college basketball wrappers
 }
 
 Each public wrapper is a thin shim over an internal helper that
@@ -18,7 +18,7 @@ takes a \code{league} argument (\code{"wnba"} or
 \code{"womens-college-basketball"}); the helper does the actual HTTP
 call + parsing. Error reporting flows through ESPN-side reporters
 \code{.report_api_error()} / \code{.report_api_warning()} in \code{R/utils.R}
-(do \strong{not} use raw \code{cli::cli_alert_danger()} here — that is the
+(do \strong{not} use raw \code{cli::cli_alert_danger()} here -- that is the
 WNBA Stats convention).
 }
 \details{

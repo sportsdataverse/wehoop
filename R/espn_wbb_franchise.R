@@ -15,7 +15,7 @@ NULL
 #' @description
 #' Returns the full WBB franchises index from
 #' `sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/franchises`.
-#' Each row is one franchise with its ID and the canonical `$ref` URL —
+#' Each row is one franchise with its ID and the canonical `$ref` URL --
 #' pass an ID to [espn_wbb_franchise()] for full franchise detail.
 #'
 #' @param ... Additional arguments; currently unused.

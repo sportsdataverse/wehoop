@@ -520,8 +520,8 @@ check_status <- function(res) {
 #' 2. A dump of the function call's arguments,
 #' 3. The actual error message (`conditionMessage(e)`).
 #'
-#' Functions opt in by capturing their formals once near the top —
-#' `.args <- mget(setdiff(names(formals()), "..."))` — and then calling
+#' Functions opt in by capturing their formals once near the top --
+#' `.args <- mget(setdiff(names(formals()), "..."))` -- and then calling
 #' `.report_api_error(e, hint = "...", args = .args)` from the error handler.
 #'
 #' @param e error condition (the `e` from `function(e)` in `tryCatch`).

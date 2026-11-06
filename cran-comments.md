@@ -50,6 +50,9 @@ be removed in a future release, no earlier than 3.2.0:
   or refuse requests from data-centre machines. This covers
   `wnba_player_crosswalk()`, `wnba_shot_zones()` and the three
   `bref_wnba_*()` functions.
+* `wbb_schedule_crosswalk()` and `wbb_player_crosswalk()` also run only
+  interactively. Each builds a whole season from several sources and took
+  195 s and 111 s under `--run-donttest`.
 * The Her Hoop Stats examples are in `\dontrun{}`: the functions need a
   paid subscription.
 * The other networked examples are in `\donttest{}`. They fail gracefully
@@ -66,16 +69,29 @@ Every test that needs the network is skipped on CRAN (`skip_on_cran()` plus
 an opt-in environment variable per source). The tests that run on CRAN read
 committed fixtures and mock the HTTP layer.
 
+## Writing files
+
+`update_wbb_db()`, `update_wnba_db()` and `update_wnba_stats_db()` used to
+default `dbdir` to the working directory. They now default to
+`tools::R_user_dir("wehoop", "data")`; no example or test calls them.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
 
-* Local Windows 10, R 4.6.0 (ucrt), `R CMD check --as-cran` on the built
-  tarball (2026-11-03; NOT_CRAN unset and an empty user `.Renviron`, so
-  every networked test skips): Status OK, 0 errors, 0 warnings, 0 notes.
-  The CRAN incoming feasibility check (including the remote URL check)
-  passed. The examples with `--run-donttest` take 465 s and the tests
-  102 s. The PDF and HTML manuals build.
+* Local Windows 10, R 4.6.0 (ucrt), `R CMD check --as-cran --timings` on
+  the built tarball (2026-11-06; NOT_CRAN unset and an empty user
+  `.Renviron`, so every networked test skips; `\donttest` examples not
+  run): Status: OK. Tests: 0 failures, 8,760 passes. The PDF and HTML
+  manuals build.
+* win-builder (devel and release): to be run before submission.
+
+The help pages name Basketball-Reference without linking to it: the site
+answers automated requests (such as the incoming URL check) with HTTP 503.
+They give stats.wnba.com deep pages as plain text for the same reason: that
+host stalls requests from data-centre machines. The local URL check above
+ran from a residential connection; the DESCRIPTION link to
+<https://stats.wnba.com/> is unchanged since 3.0.0.
 
 ### Expected NOTE: installed package size
 
@@ -88,24 +104,17 @@ expect CRAN's machines to raise it as a NOTE. Locally (R 4.6.0):
         R      2.0Mb
         help   4.3Mb
 
-On R-hub (R-devel) it is 8.0 to 9.6 Mb: help 4.2 to 5.1 Mb and R 3.4 to
-4.1 Mb.
-
 The size is mostly help pages. wehoop is a set of thin wrappers over many
-data APIs: it exports 750 functions (up from 452 in 3.0.0; 289 of them
-belong to the new international league families) documented in 551 Rd
+data APIs: it exports 754 functions (up from 452 in 3.0.0; 289 of them
+belong to the new international league families) documented in 553 Rd
 files, and each wrapper's help page carries a table of the columns it
 returns. The package has no compiled code and ships no large data (the
-`data/` directory is 6 KB), and the source tarball is 2.2 MB.
+`data/` directory is 4 KB), and the source tarball is 1.9 MB.
 
 ## Other platforms
 
-All on commit 6cf02acd (2026-11-03):
-
 * GitHub Actions R-CMD-check: R release on Ubuntu, macOS and Windows,
-  R oldrel-1 and R-devel on Ubuntu: all passed.
-* R-hub v2 (R-devel): linux, windows, macos and macos-arm64 Status OK;
-  nosuggests (no Suggests installed) Status OK.
+  R oldrel-1 and R-devel on Ubuntu, run on every pull request.
 
 ## revdepcheck results
 

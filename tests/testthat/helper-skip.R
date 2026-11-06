@@ -39,3 +39,10 @@ skip_load_test <- function() skip_live_test("WEHOOP_LOAD_TESTS", "wehoop load_*"
 
 # Basketball-Reference (sports-reference.com) rate-limits hard and bans IPs.
 skip_bref_test <- function() skip_live_test("BREF_TESTS", "Basketball-Reference")
+
+# The fixture dirs listed in .Rbuildignore are left out of the built tarball to keep it small.
+# Tests that read them skip when the dir is absent and run in full from a git checkout.
+skip_if_no_fixtures <- function(dir) {
+  testthat::skip_if_not(dir.exists(testthat::test_path("fixtures", dir)),
+                        paste0("tests/testthat/fixtures/", dir, " is not in the built tarball (.Rbuildignore)"))
+}

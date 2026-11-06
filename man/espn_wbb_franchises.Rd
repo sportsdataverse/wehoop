@@ -20,7 +20,7 @@ A tibble with one row per franchise.\tabular{lll}{
 \description{
 Returns the full WBB franchises index from
 \code{sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/franchises}.
-Each row is one franchise with its ID and the canonical \verb{$ref} URL —
+Each row is one franchise with its ID and the canonical \verb{$ref} URL --
 pass an ID to \code{\link[=espn_wbb_franchise]{espn_wbb_franchise()}} for full franchise detail.
 }
 \examples{
