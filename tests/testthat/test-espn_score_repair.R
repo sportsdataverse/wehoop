@@ -1,4 +1,5 @@
 skip_on_cran()
+skip_if_no_fixtures("score_repair")
 
 # Running-score rebuild in helper_espn_wnba_pbp() / helper_espn_wbb_pbp(), the R
 # mirror of sportsdataverse-py's _repair_running_score. Every payload is a real

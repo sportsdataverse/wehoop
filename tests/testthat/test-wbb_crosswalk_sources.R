@@ -14,6 +14,7 @@
 #     ncaaw/2021_team_results.csv (captured 2026-09-27).
 
 .xw_fixture <- function(name) testthat::test_path("fixtures", "crosswalk_basketball", name)
+skip_if_no_fixtures("crosswalk_basketball")
 
 .xw_json <- function(name) {
   jsonlite::fromJSON(.xw_fixture(name), simplifyVector = FALSE,

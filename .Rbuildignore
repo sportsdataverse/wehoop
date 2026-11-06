@@ -39,3 +39,4 @@
 ^data-raw$
 ^\.worktrees$
 ^\.wt-
+^tests/testthat/fixtures/(score_repair|crosswalk_basketball|espn_pbp_coordinates|wnba_engine|player_core)$

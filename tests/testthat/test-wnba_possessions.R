@@ -157,6 +157,7 @@ test_that(".OFFENSE_SEEDING_EVENT_TYPES contains only shot/turnover event_type c
 
 test_that("possession points reconcile to the boxscore (independent oracle)", {
   skip_on_cran()
+  skip_if_no_fixtures("wnba_engine")
   for (gid in c("1022400001", "1022400003")) {
     pbp <- readRDS(test_path("fixtures", "wnba_engine", paste0("pbp_", gid, ".rds")))
     box <- readRDS(test_path("fixtures", "wnba_engine", paste0("box_", gid, ".rds")))
@@ -198,6 +199,7 @@ test_that("possession points reconcile to the boxscore (independent oracle)", {
 
 test_that(".build_possessions emits a logical second_chance flag", {
   skip_on_cran()
+  skip_if_no_fixtures("wnba_engine")
   for (gid in c("1022400001", "1022400003")) {
     pbp  <- readRDS(test_path("fixtures", "wnba_engine", paste0("pbp_", gid, ".rds")))
     poss <- .build_possessions(pbp)
@@ -228,6 +230,7 @@ test_that(".build_possessions emits a logical second_chance flag", {
 
 test_that("possession on-court ids are all in the boxscore roster (independent oracle)", {
   skip_on_cran()
+  skip_if_no_fixtures("wnba_engine")
   off_cols <- paste0("off_player_", 1:5)
   def_cols <- paste0("def_player_", 1:5)
 
@@ -297,6 +300,7 @@ test_that("possession on-court ids are all in the boxscore roster (independent o
 
 test_that("possession engine is never-raise on empty PBP", {
   skip_on_cran()
+  skip_if_no_fixtures("wnba_engine")
   pbp <- readRDS(test_path("fixtures", "wnba_engine", "pbp_1022400003.rds"))
   empty <- head(pbp, 0)
   poss0 <- .build_possessions(empty)

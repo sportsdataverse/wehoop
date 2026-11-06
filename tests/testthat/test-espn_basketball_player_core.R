@@ -1,5 +1,6 @@
 test_that("espn_basketball_player_core() reproduces the sdv-py oracle", {
   skip_on_cran()
+  skip_if_no_fixtures("player_core")
   # Golden-master parity. The Python implementation
   # (sportsdataverse.{wnba,wbb}.helper_*_player_core, sdv-py 0.0.75) currently
   # produces the released player_core dataset; this R function is a port and
@@ -97,6 +98,7 @@ test_that("espn_basketball_player_core() reproduces the sdv-py oracle", {
 
 test_that("espn_basketball_player_core() covers the branches the fixtures encode", {
   skip_on_cran()
+  skip_if_no_fixtures("player_core")
   fx <- testthat::test_path("fixtures", "player_core")
   .read_one <- function(file, aid) {
     espn_basketball_player_core(
@@ -201,6 +203,7 @@ test_that("espn_basketball_player_core() keeps athlete_id an integer join key", 
 
 test_that("espn_basketball_player_core() finalizes both paths as wehoop_data", {
   skip_on_cran()
+  skip_if_no_fixtures("player_core")
   # Without these assertions the suite passes even if make_wehoop_data() is deleted: the
   # golden-master test compares values and column names, and neither changes
   # when the class and attributes are dropped. The finalized contract was added
