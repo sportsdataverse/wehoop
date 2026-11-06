@@ -856,7 +856,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_pbp(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 108,385 × 87
+#> # A tibble: 130,383 × 87
 #>    game_date  home         away   period clock game_time game_seconds home_score
 #>    <chr>      <chr>        <chr>   <int> <chr> <chr>            <int>      <int>
 #>  1 11/02/2026 Colorado St. Linde…      1 09:58 00:02                2          0
@@ -869,7 +869,7 @@ Saiem Gilani
 #>  8 11/02/2026 Colorado St. Linde…      1 08:51 01:09               69          2
 #>  9 11/02/2026 Colorado St. Linde…      1 08:35 01:25               85          4
 #> 10 11/02/2026 Colorado St. Linde…      1 08:06 01:54              114          4
-#> # ℹ 108,375 more rows
+#> # ℹ 130,373 more rows
 #> # ℹ 79 more variables: away_score <int>, event_team <chr>,
 #> #   event_description <chr>, player_1 <chr>, player_2 <chr>, event_type <chr>,
 #> #   event_result <chr>, shot_value <int>, event_length <int>, poss_num <int>,
@@ -880,7 +880,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_shots(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 24,478 × 19
+#> # A tibble: 29,461 × 19
 #>    season team_id     shooter_id shot_x shot_y dist_ft shot_zone shot_type made 
 #>     <int> <chr>       <chr>       <dbl>  <dbl>   <dbl> <chr>     <chr>     <lgl>
 #>  1   2027 Colorado S… SoSene        3.5   0.64    3.56 rim       unknown   TRUE 
@@ -893,7 +893,7 @@ Saiem Gilani
 #>  8   2027 Lindenwood  CaDykstra     4.5   1.58    4.77 paint     unknown   FALSE
 #>  9   2027 Lindenwood  BrRucker      4    25.1    25.4  abovebre… unknown   TRUE 
 #> 10   2027 Colorado S… CaRunner     -3    10.0    10.5  paint     unknown   FALSE
-#> # ℹ 24,468 more rows
+#> # ℹ 29,451 more rows
 #> # ℹ 10 more variables: point_value <int>, period <int>, sec_left <dbl>,
 #> #   source <chr>, contest_id <chr>, ncaa_team_id <chr>, espn_team_id <chr>,
 #> #   shooter_player_id <chr>, shooter_clean_name <chr>, espn_game_id <???>
@@ -901,7 +901,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_lineups(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 10,248 × 77
+#> # A tibble: 12,210 × 77
 #>    lineup_key   date  location_type team  team_year opponent lineup_id start_min
 #>    <chr>        <chr> <chr>         <chr>     <int> <chr>    <chr>         <dbl>
 #>  1 7728faec663… 2026… Home          Colo…      2026 Lindenw… BrBowman…      0   
@@ -914,7 +914,7 @@ Saiem Gilani
 #>  8 79928848d36… 2026… Home          Colo…      2026 Lindenw… AlRoden_…     29.9 
 #>  9 fe63496880e… 2026… Home          Colo…      2026 Lindenw… CaKramer…     30   
 #> 10 b0eb5d91195… 2026… Home          Colo…      2026 Lindenw… AlRoden_…     32.4 
-#> # ℹ 10,238 more rows
+#> # ℹ 12,200 more rows
 #> # ℹ 69 more variables: end_min <dbl>, duration_mins <dbl>, player_1 <chr>,
 #> #   player_2 <chr>, player_3 <chr>, player_4 <chr>, player_5 <chr>,
 #> #   players_in <chr>, players_out <chr>, start_scored <int>,
@@ -925,7 +925,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_matchup_stints(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 7,513 × 33
+#> # A tibble: 8,984 × 33
 #>    contest_id season game_date  home   away  game_stint_num period start_seconds
 #>    <chr>       <int> <chr>      <chr>  <chr>          <int>  <int>         <int>
 #>  1 6607281      2027 11/02/2026 Color… Lind…              1      1             2
@@ -938,7 +938,7 @@ Saiem Gilani
 #>  8 6607281      2027 11/02/2026 Color… Lind…              8      1           475
 #>  9 6607281      2027 11/02/2026 Color… Lind…              9      1           534
 #> 10 6607281      2027 11/02/2026 Color… Lind…             10      1           599
-#> # ℹ 7,503 more rows
+#> # ℹ 8,974 more rows
 #> # ℹ 25 more variables: end_seconds <int>, duration_seconds <int>,
 #> #   matchup_key <chr>, home_lineup_key <chr>, away_lineup_key <chr>,
 #> #   home_lineup <chr>, away_lineup <chr>, end_home_score <int>,
@@ -949,7 +949,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_possessions(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 30,342 × 56
+#> # A tibble: 36,584 × 56
 #>    game_date  home   away  period poss_num poss_team home_1 home_2 home_3 home_4
 #>    <chr>      <chr>  <chr>  <int>    <int> <chr>     <chr>  <chr>  <chr>  <chr> 
 #>  1 11/02/2026 Color… Lind…      1        1 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
@@ -962,7 +962,7 @@ Saiem Gilani
 #>  8 11/02/2026 Color… Lind…      1        8 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
 #>  9 11/02/2026 Color… Lind…      1        9 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
 #> 10 11/02/2026 Color… Lind…      1       10 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
-#> # ℹ 30,332 more rows
+#> # ℹ 36,574 more rows
 #> # ℹ 46 more variables: home_5 <chr>, away_1 <chr>, away_2 <chr>, away_3 <chr>,
 #> #   away_4 <chr>, away_5 <chr>, home_score <int>, away_score <int>, pts <int>,
 #> #   is_assisted <int>, is_transition <int>, is_garbage_time <int>,
@@ -1001,7 +1001,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_player_box(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,453 × 125
+#> # A tibble: 5,379 × 125
 #>    game_date home  away  team  player  mins o_poss   pts   orb   drb   ast   stl
 #>    <chr>     <chr> <chr> <chr> <chr>  <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 #>  1 11/02/20… Colo… Lind… Colo… ALLIE…  6        10     0     0     0     0     0
@@ -1014,7 +1014,7 @@ Saiem Gilani
 #>  8 11/02/20… Colo… Lind… Colo… MCKEN… 33.1      52    12     0     2     0     2
 #>  9 11/02/20… Colo… Lind… Colo… OLIVI…  1.57      2     0     0     0     0     0
 #> 10 11/02/20… Colo… Lind… Colo… SOPHI… 16.6      26     4     5     1     0     2
-#> # ℹ 4,443 more rows
+#> # ℹ 5,369 more rows
 #> # ℹ 113 more variables: blk <dbl>, tov <dbl>, pf <dbl>, ts_pct <dbl>,
 #> #   efg_pct <dbl>, fgm <dbl>, fga <dbl>, fg_pct <dbl>, tpm <dbl>, tpa <dbl>,
 #> #   tp_pct <dbl>, ftm <dbl>, fta <dbl>, ft_pct <dbl>, rimm <dbl>, rima <dbl>,
@@ -1025,20 +1025,20 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_team_box(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 400 × 81
+#> # A tibble: 482 × 81
 #>    home   away  team   mins o_mins d_mins o_poss d_poss  ortg  drtg netrtg   pts
 #>    <chr>  <chr> <chr> <dbl>  <dbl>  <dbl>  <dbl>  <dbl> <dbl> <dbl>  <dbl> <dbl>
 #>  1 Color… Lind… Colo…  39.8   17.8   21.9     65     68  96.9  67.6  29.3     63
 #>  2 Color… Lind… Lind…  39.8   21.9   17.8     68     65  67.6  96.9 -29.3     46
-#>  3 NIU    Indi… Indi…  39.6   19.6   20.0     82     79  86.6  96.2  -9.62    71
-#>  4 NIU    Indi… NIU    39.6   20.0   19.6     79     82  96.2  86.6   9.62    76
-#>  5 Provi… Ston… Prov…  38.6   21.5   17.1     75     72 105.   90.3  15.1     79
-#>  6 Provi… Ston… Ston…  38.6   17.1   21.5     72     75  90.3 105.  -15.1     65
-#>  7 UMBC   Stev… Stev…  38.5   20.1   18.4     77     76  37.7 121.  -83.4     29
-#>  8 UMBC   Stev… UMBC   38.5   18.4   20.1     76     77 121.   37.7  83.4     92
-#>  9 Coppi… Chey… Chey…  39.3   20.8   18.5     79     78  87.3 103.  -15.2     69
-#> 10 Coppi… Chey… Copp…  39.3   18.5   20.8     78     79 103.   87.3  15.2     80
-#> # ℹ 390 more rows
+#>  3 Denver Lind… Denv…  38.7   20.6   18.2     66     68 100    76.5  23.5     66
+#>  4 Denver Lind… Lind…  38.7   18.2   20.6     68     66  76.5 100   -23.5     52
+#>  5 Orego… Cali… Cali…  39.9   19.0   20.9     79     79 100    97.5   2.53    79
+#>  6 Orego… Cali… Oreg…  39.9   20.9   19.0     79     79  97.5 100    -2.53    77
+#>  7 NIU    Indi… Indi…  39.6   19.6   20.0     82     79  86.6  96.2  -9.62    71
+#>  8 NIU    Indi… NIU    39.6   20.0   19.6     79     82  96.2  86.6   9.62    76
+#>  9 Provi… Ston… Prov…  38.6   21.5   17.1     75     72 105.   90.3  15.1     79
+#> 10 Provi… Ston… Ston…  38.6   17.1   21.5     72     75  90.3 105.  -15.1     65
+#> # ℹ 472 more rows
 #> # ℹ 69 more variables: d_pts <dbl>, fga <dbl>, d_fga <dbl>, fgm <dbl>,
 #> #   d_fgm <dbl>, tpa <dbl>, d_tpa <dbl>, tpm <dbl>, d_tpm <dbl>, fta <dbl>,
 #> #   d_fta <dbl>, ftm <dbl>, d_ftm <dbl>, rima <dbl>, d_rima <dbl>, rimm <dbl>,
@@ -1049,20 +1049,20 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_rosters(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,443 × 4
-#>    season team              player          games
-#>     <int> <chr>             <chr>           <int>
-#>  1   2027 Abilene Christian AIMEE.FLIPPEN       1
-#>  2   2027 Abilene Christian EMMA.TROXELL        1
-#>  3   2027 Abilene Christian ERIN.WOODSON        1
-#>  4   2027 Abilene Christian MEREDITH.MAYES      1
-#>  5   2027 Abilene Christian MOLLY.DAUGHERTY     1
-#>  6   2027 Abilene Christian NATALIA.CHAVEZ      1
-#>  7   2027 Abilene Christian PAYTON.HULL         1
-#>  8   2027 Abilene Christian RAIMI.MCCRARY       1
-#>  9   2027 Abilene Christian RILEY.GROHMAN       1
-#> 10   2027 Abilene Christian SALENA.CARRASCO     1
-#> # ℹ 4,433 more rows
+#> # A tibble: 4,988 × 4
+#>    season team               player               games
+#>     <int> <chr>              <chr>                <int>
+#>  1   2027 A&M-Corpus Christi ANDJELA.MAROJEVIC        1
+#>  2   2027 A&M-Corpus Christi ANDREA.CHIQUEMBA         1
+#>  3   2027 A&M-Corpus Christi ASHA.WALKER              1
+#>  4   2027 A&M-Corpus Christi CAITLIN.LORD             1
+#>  5   2027 A&M-Corpus Christi CARMEN.SÁNCHEZRAMOS      1
+#>  6   2027 A&M-Corpus Christi CHELSY.SINGLETON         1
+#>  7   2027 A&M-Corpus Christi LAURA.FRANCES.WILLIS     1
+#>  8   2027 A&M-Corpus Christi LORI.ZLATOPER            1
+#>  9   2027 A&M-Corpus Christi NAIYA.CARNEY             1
+#> 10   2027 A&M-Corpus Christi RAYNA.WILLIAMS           1
+#> # ℹ 4,978 more rows
 # }
 # \donttest{
   try(load_ncaa_wbb_team_rosters(seasons = most_recent_wbb_season()))
@@ -1087,20 +1087,20 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_schedule(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 200 × 7
+#> # A tibble: 241 × 7
 #>    contest_id game_date  home         away          home_score away_score season
 #>    <chr>      <chr>      <chr>        <chr>              <int>      <int>  <int>
 #>  1 6607281    11/02/2026 Colorado St. Lindenwood            63         46   2027
-#>  2 6608915    11/02/2026 NIU          Indiana St.           76         71   2027
-#>  3 6611489    11/03/2026 Providence   Stonehill             79         65   2027
-#>  4 6612820    11/02/2026 UMBC         Stevenson             92         29   2027
-#>  5 6613653    11/02/2026 Coppin St.   Cheyney               80         69   2027
-#>  6 6614396    11/02/2026 New Haven    Mitchell             103         44   2027
-#>  7 6616868    11/03/2026 Northwestern Milwaukee             64         60   2027
-#>  8 6617975    11/03/2026 Louisiana    Xavier (LA)           77         72   2027
-#>  9 6619801    11/02/2026 Kent St.     Troy                  78         89   2027
-#> 10 6619925    11/02/2026 Liberty      Frostburg St.         73         30   2027
-#> # ℹ 190 more rows
+#>  2 6607283    11/04/2026 Denver       Lindenwood            66         52   2027
+#>  3 6607906    11/04/2026 Oregon St.   California B…         77         79   2027
+#>  4 6608915    11/02/2026 NIU          Indiana St.           76         71   2027
+#>  5 6611489    11/03/2026 Providence   Stonehill             79         65   2027
+#>  6 6612820    11/02/2026 UMBC         Stevenson             92         29   2027
+#>  7 6613653    11/02/2026 Coppin St.   Cheyney               80         69   2027
+#>  8 6614396    11/02/2026 New Haven    Mitchell             103         44   2027
+#>  9 6616868    11/03/2026 Northwestern Milwaukee             64         60   2027
+#> 10 6617975    11/03/2026 Louisiana    Xavier (LA)           77         72   2027
+#> # ℹ 231 more rows
 # }
 # \donttest{
   try(load_ncaa_wbb_team_ids(seasons = most_recent_wbb_season()))

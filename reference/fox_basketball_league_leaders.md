@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:48:30 UTC
+#> ℹ Data updated: 2026-11-06 10:15:47 UTC
 #> # A tibble: 75 × 6
 #>    players v2          gp    entity_id min   mpg  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr>
@@ -62,20 +62,20 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:48:30 UTC
+#> ℹ Data updated: 2026-11-06 10:15:48 UTC
 #> # A tibble: 100 × 8
 #>    players v2          gp    entity_id gs    mpg   ppg   pts  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr> <chr> <chr>
-#>  1 1       A. Corcoran 1     10348     NA    NA    NA    NA   
-#>  2 2       K. Poole    1     12049     NA    NA    NA    NA   
-#>  3 3       D. Hunter   1     12698     NA    NA    NA    NA   
-#>  4 4       A. Weidner  1     13067     NA    NA    NA    NA   
-#>  5 5       M. Moore    1     13283     NA    NA    NA    NA   
-#>  6 6       K. Godfrey  1     13286     NA    NA    NA    NA   
-#>  7 7       T. Moore    1     13378     NA    NA    NA    NA   
-#>  8 8       R. Hurst    1     13483     NA    NA    NA    NA   
-#>  9 9       K. Hunter   1     13700     NA    NA    NA    NA   
-#> 10 10      A. Moore    1     13703     NA    NA    NA    NA   
+#>  1 1       A. Roberson 3     15265     NA    NA    NA    NA   
+#>  2 2       N. Jones    3     16049     NA    NA    NA    NA   
+#>  3 3       C. Staley   3     16142     NA    NA    NA    NA   
+#>  4 4       B. Coffey   3     16731     NA    NA    NA    NA   
+#>  5 5       L. Brooks   3     21512     NA    NA    NA    NA   
+#>  6 6       A. West     3     21682     NA    NA    NA    NA   
+#>  7 7       M. Richards 3     22378     NA    NA    NA    NA   
+#>  8 8       A. Austin   3     26011     NA    NA    NA    NA   
+#>  9 9       T. Chambers 3     26012     NA    NA    NA    NA   
+#> 10 10      K. Torrence 3     26027     NA    NA    NA    NA   
 #> # ℹ 90 more rows
 # }
 ```

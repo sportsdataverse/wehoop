@@ -119,7 +119,7 @@ Other Genius Functions:
 # \donttest{
   try(genius_competition_games(comp_id = 49915))
 #> ── Genius LiveStats competition games ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:48:35 UTC
+#> ℹ Data updated: 2026-11-06 10:16:01 UTC
 #> # A tibble: 1 × 20
 #>   league_id competition_id match_id match_status match_time match_time_utc  live
 #>       <int>          <int>    <int> <chr>        <chr>      <chr>          <int>

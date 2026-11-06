@@ -1,7 +1,7 @@
 # **Basketball-Reference WNBA Player Season Stats**
 
 **Get WNBA league-wide player season statistics from
-[Basketball-Reference](https://www.basketball-reference.com/wnba/).**
+Basketball-Reference.**
 
 One row per player for a season. No account or API key is required.
 Basketball-Reference rate-limits aggressive scraping (~20

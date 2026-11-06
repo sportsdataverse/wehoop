@@ -2,7 +2,7 @@
 
 Returns the list of award IDs given out in a WNBA season from
 `sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{season}/awards`.
-The index only contains IDs and `$ref` URLs — pass an ID to
+The index only contains IDs and `$ref` URLs – pass an ID to
 [`espn_wnba_award()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_award.md)
 for the award name, description, and winners.
 
@@ -112,13 +112,13 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_awards(season = 2024)
 #> ── ESPN WNBA Season Awards Index ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:42 UTC
+#> ℹ Data updated: 2026-11-06 10:14:56 UTC
 #> # A tibble: 14 × 4
 #>    season award_id ref                                                    league
 #>     <int> <chr>    <chr>                                                  <chr> 
 #>  1   2024 241      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#>  2   2024 246      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#>  3   2024 244      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#>  2   2024 244      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#>  3   2024 246      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  4   2024 243      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  5   2024 242      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  6   2024 245      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  

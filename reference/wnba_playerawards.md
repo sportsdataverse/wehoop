@@ -46,7 +46,8 @@ Return a named list of data frames: PlayerAwards
 
 ## Details
 
-[Player Awards](https://stats.wnba.com/player/1628932/career/)
+Player Awards page on stats.wnba.com:
+`stats.wnba.com/player/1628932/career/`
 
      wnba_playerawards(player_id = '1628932')
 

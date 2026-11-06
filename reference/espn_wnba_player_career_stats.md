@@ -6,7 +6,7 @@ view. Pass a vector like `c(0L, 1L, 2L)` to attempt multiple types and
 bind them via a `stat_type_id` column; variants that 404 for that
 athlete are silently skipped. Stat types: 0 = regular season (default
 endpoint), 1 = postseason, 2 = career aggregate. Coverage of types 1 and
-2 is sparse — many athletes only have type 0 populated.
+2 is sparse – many athletes only have type 0 populated.
 
 ## Usage
 
@@ -33,7 +33,7 @@ espn_wnba_player_career_stats(athlete_id, stat_type = 0L, ...)
 
 ## Value
 
-A long tibble (one row per stat_type × split × category × stat).
+A long tibble (one row per stat_type x split x category x stat).
 
 Columns as documented in the shared
 [espn_basketball_player_career_stats_schema](https://wehoop.sportsdataverse.org/reference/espn_basketball_player_career_stats_schema.md)
@@ -119,10 +119,10 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  # LeBron James — regular + postseason combined
+  # LeBron James -- regular + postseason combined
   espn_wnba_player_career_stats(athlete_id = 3149391)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:38 UTC
+#> ℹ Data updated: 2026-11-06 10:14:52 UTC
 #> # A tibble: 112 × 17
 #>    league athlete_id stat_type_id split_id split_name split_type category_name
 #>    <chr>  <chr>      <chr>        <chr>    <chr>      <chr>      <chr>        
@@ -144,7 +144,7 @@ Saiem Gilani
   # Just career aggregate
   espn_wnba_player_career_stats(athlete_id = 3149391, stat_type = 2L)
 #> ── ESPN WNBA Athlete Career Stats ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:38 UTC
+#> ℹ Data updated: 2026-11-06 10:14:52 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>, category_name <chr>,

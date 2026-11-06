@@ -1,7 +1,7 @@
 # **Get ESPN WBB Positions Index**
 
 Returns the WBB position dictionary index. One row per position with its
-id and the canonical `$ref` URL — pass an id to
+id and the canonical `$ref` URL – pass an id to
 [`espn_wbb_position()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_position.md)
 for full details (display name, abbreviation, leaf flag, parent link).
 
@@ -98,7 +98,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_positions()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Positions Index ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:04 UTC
+#> ℹ Data updated: 2026-11-06 10:14:14 UTC
 #> # A tibble: 14 × 3
 #>    position_id ref                                                        league
 #>    <chr>       <chr>                                                      <chr> 

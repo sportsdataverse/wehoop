@@ -51,7 +51,7 @@ Same columns as the **FranchiseHistory** table above.
 
 ## Details
 
-[Franchise History](https://stats.wnba.com/history/)
+Franchise History page on stats.wnba.com: `stats.wnba.com/history/`
 
       wnba_franchisehistory(league_id = '10')
 

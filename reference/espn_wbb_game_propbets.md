@@ -1,7 +1,7 @@
 # **Get ESPN WBB Event Prop Bets (Long Format)**
 
 Returns prop-bet markets for one WBB event + provider in long format:
-one row per (athlete × prop type). Each row has american / decimal /
+one row per (athlete x prop type). Each row has american / decimal /
 fraction odds plus the current target (e.g. over/under line). Hits the
 core-v2 `competitions/{id}/odds/{provider_id}/propBets` endpoint and
 auto-paginates.
@@ -30,7 +30,7 @@ espn_wbb_game_propbets(event_id, provider_id, ...)
 
 ## Value
 
-A long tibble with one row per (athlete × prop type).
+A long tibble with one row per (athlete x prop type).
 
 ## Details
 
@@ -113,7 +113,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_propbets(event_id = 401276115, provider_id = 58)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Prop Bets ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:46:59 UTC
+#> ℹ Data updated: 2026-11-06 10:14:08 UTC
 #> # A tibble: 0 × 13
 #> # ℹ 13 variables: league <chr>, event_id <chr>, provider_id <chr>,
 #> #   athlete_id <chr>, prop_type_id <chr>, prop_type_name <chr>, american <chr>,

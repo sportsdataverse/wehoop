@@ -1,7 +1,7 @@
 # **Get ESPN WNBA Event Prop Bets (Long Format)**
 
 Returns prop-bet markets for one WNBA event + provider in long format:
-one row per (athlete × prop type). Each row has american / decimal /
+one row per (athlete x prop type). Each row has american / decimal /
 fraction odds plus the current target (e.g. over/under line). Hits the
 core-v2 `competitions/{id}/odds/{provider_id}/propBets` endpoint and
 auto-paginates.
@@ -30,7 +30,7 @@ espn_wnba_game_propbets(event_id, provider_id, ...)
 
 ## Value
 
-A long tibble with one row per (athlete × prop type).
+A long tibble with one row per (athlete x prop type).
 
 ## Details
 
@@ -113,7 +113,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_game_propbets(event_id = 401736171, provider_id = 58)
-#> ✖ 2026-11-04 06:47:36.314398: Failed to retrieve ESPN wnba event prop bets for event_id=401736171, provider_id=58
+#> ✖ 2026-11-06 10:14:49.598945: Failed to retrieve ESPN wnba event prop bets for event_id=401736171, provider_id=58
 #> ✖ Args: league = "wnba", event_id = 401736171, provider_id = 58
 #> ✖ Error: arguments imply differing number of rows: 1, 2, 0
 #> NULL

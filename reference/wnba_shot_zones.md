@@ -16,7 +16,7 @@ wnba_shot_zones(game_id, ...)
 
 - game_id:
 
-  A length-1 character string — the ten-character WNBA Stats game
+  A length-1 character string – the ten-character WNBA Stats game
   identifier (e.g. `"1022400003"` for a 2024 WNBA game).
 
 - ...:
@@ -45,17 +45,17 @@ are also present. Returns a 0-row frame when the game cannot be fetched
 
 **Shot zone definitions (pbpstats-core aligned):**
 
-- `"corner_3"` — three-point attempt with `abs(x_legacy) >= 220` and
+- `"corner_3"` – three-point attempt with `abs(x_legacy) >= 220` and
   `y_legacy <= 87.5` (baseline corner area).
 
-- `"above_the_break_3"` — all other three-point attempts.
+- `"above_the_break_3"` – all other three-point attempts.
 
-- `"restricted_area"` — two-point attempt within 4 ft of the basket.
+- `"restricted_area"` – two-point attempt within 4 ft of the basket.
 
-- `"in_the_paint_non_ra"` — two-point attempt 4–8 ft from the basket and
+- `"in_the_paint_non_ra"` – two-point attempt 4-8 ft from the basket and
   within 80 legacy units of the paint center (`abs(x_legacy) <= 80`).
 
-- `"mid_range"` — all remaining two-point attempts.
+- `"mid_range"` – all remaining two-point attempts.
 
 ## Details
 

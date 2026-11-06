@@ -21,6 +21,6 @@ HTTP layer as the rest of the package.
 NCAA endpoints occasionally drop columns. The wrappers use
 [`dplyr::any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)
 / `dplyr::rename(any_of(c(new = "old")))` so schema drift doesn't crash
-the parser — see
+the parser – see
 [`ncaa_wbb_NET_rankings()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_NET_rankings.md)
 for the reference implementation.

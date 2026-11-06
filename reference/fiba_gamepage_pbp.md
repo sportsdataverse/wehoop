@@ -163,7 +163,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gamepage_pbp(game_id = 100720, comp = 208182))
 #> ── FIBA gamepage_pbp from fiba.basketball ────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:48:08 UTC
+#> ℹ Data updated: 2026-11-06 10:15:24 UTC
 #> # A tibble: 497 × 26
 #>    game_id competition_id statistic_system period period_number action_id order
 #>      <int>          <int> <chr>            <chr>          <int> <chr>     <int>

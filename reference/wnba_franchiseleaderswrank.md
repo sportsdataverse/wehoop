@@ -97,8 +97,8 @@ Returns a named list of data frames: FranchiseLeaderswRank
 
 ## Details
 
-[Franchise
-Leaders](https://stats.wnba.com/team/1611661324/franchise-leaders)
+Franchise Leaders page on stats.wnba.com:
+`stats.wnba.com/team/1611661324/franchise-leaders`
 
      wnba_franchiseleaderswrank(league_id = '10', team_id = '1611661324')
 

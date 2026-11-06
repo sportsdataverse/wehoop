@@ -159,8 +159,8 @@ failed".</p></dd>
 <ol><li><p>A timestamped friendly hint (brace-interpolated against the caller env),</p></li>
 <li><p>A dump of the function call's arguments,</p></li>
 <li><p>The actual error message (<code>conditionMessage(e)</code>).</p></li>
-</ol><p>Functions opt in by capturing their formals once near the top —
-<code>.args &lt;- mget(setdiff(names(formals()), "..."))</code> — and then calling
+</ol><p>Functions opt in by capturing their formals once near the top –
+<code>.args &lt;- mget(setdiff(names(formals()), "..."))</code> – and then calling
 <code>.report_api_error(e, hint = "...", args = .args)</code> from the error handler.</p>
     </div>
 

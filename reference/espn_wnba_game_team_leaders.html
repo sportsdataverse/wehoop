@@ -6,7 +6,7 @@ Returns the per-team statistical leaders for one WNBA event in long
 format: one row per (category x athlete rank). Categories typically
 include points, rebounds, assists, and rating.
 Returns the game-day roster index for one team in one WNBA event.
-Each row carries the athlete id and the core-v2 $ref URL — use
+Each row carries the athlete id and the core-v2 $ref URL – use
 the ref to dereference athlete-game splits or biographical data.
 Returns full team-game statistics for one team in one WNBA event in
 long format: one row per (category x stat). Covers offensive,
@@ -17,7 +17,7 @@ away, conference, and division breakdowns where available. One row
 per record type.
 Returns a one-row tibble with one team's final score for one WNBA event:
 numeric value, display string, winner flag, and source metadata.
-Quick-lookup wrapper — use espn_wnba_game_team_linescores() for
+Quick-lookup wrapper – use espn_wnba_game_team_linescores() for
 per-period detail."><meta property="og:description" content="Returns the per-quarter scoring breakdown for one team in one NBA
 event. One row per period (regulation quarters + any overtime
 periods).
@@ -25,7 +25,7 @@ Returns the per-team statistical leaders for one WNBA event in long
 format: one row per (category x athlete rank). Categories typically
 include points, rebounds, assists, and rating.
 Returns the game-day roster index for one team in one WNBA event.
-Each row carries the athlete id and the core-v2 $ref URL — use
+Each row carries the athlete id and the core-v2 $ref URL – use
 the ref to dereference athlete-game splits or biographical data.
 Returns full team-game statistics for one team in one WNBA event in
 long format: one row per (category x stat). Covers offensive,
@@ -36,7 +36,7 @@ away, conference, and division breakdowns where available. One row
 per record type.
 Returns a one-row tibble with one team's final score for one WNBA event:
 numeric value, display string, winner flag, and source metadata.
-Quick-lookup wrapper — use espn_wnba_game_team_linescores() for
+Quick-lookup wrapper – use espn_wnba_game_team_linescores() for
 per-period detail."><meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/themes/wehoop_gh.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@saiemgilani"><meta name="twitter:site" content="@sportsdataverse"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-WSdGcGupN6agTk6mJqQL4.js"></script><script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
@@ -160,7 +160,7 @@ periods).</p>
 format: one row per (category x athlete rank). Categories typically
 include points, rebounds, assists, and rating.</p>
 <p>Returns the game-day roster index for one team in one WNBA event.
-Each row carries the athlete id and the core-v2 <code>$ref</code> URL — use
+Each row carries the athlete id and the core-v2 <code>$ref</code> URL – use
 the ref to dereference athlete-game splits or biographical data.</p>
 <p>Returns full team-game statistics for one team in one WNBA event in
 long format: one row per (category x stat). Covers offensive,
@@ -171,7 +171,7 @@ away, conference, and division breakdowns where available. One row
 per record type.</p>
 <p>Returns a one-row tibble with one team's final score for one WNBA event:
 numeric <code>value</code>, display string, <code>winner</code> flag, and source metadata.
-Quick-lookup wrapper — use <code>espn_wnba_game_team_linescores()</code> for
+Quick-lookup wrapper – use <code>espn_wnba_game_team_linescores()</code> for
 per-period detail.</p>
     </div>
 
@@ -293,7 +293,7 @@ per-period detail.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_team_linescores</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Competitor Linescores ───────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 06:47:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:14:49 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league event_id  team_id period value display_value source      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
@@ -309,7 +309,7 @@ per-period detail.</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_team_leaders</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Competitor Leaders ──────────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 06:47:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:14:49 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league event_id  team_id category_name category_display category_abbrev  rank</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -330,7 +330,7 @@ per-period detail.</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_team_roster</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Competitor Roster ───────────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 06:47:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:14:50 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 variables: league &lt;chr&gt;, event_id &lt;chr&gt;, team_id &lt;chr&gt;, athlete_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ref &lt;chr&gt;</span></span>
@@ -338,7 +338,7 @@ per-period detail.</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_team_statistics</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Competitor Statistics ───────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 06:47:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:14:50 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 99 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league event_id  team_id category_name category_display stat_name stat_abbrev</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
@@ -358,7 +358,7 @@ per-period detail.</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_team_records</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Competitor Records ──────────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 06:47:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:14:50 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league event_id  team_id record_id name    abbreviation display_name       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
@@ -371,7 +371,7 @@ per-period detail.</p>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_wnba_game_team_score</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401736171</span>, team_id <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Event Competitor Score ──────────────────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-04 06:47:36 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:14:50 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league event_id  team_id value display_value winner source_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>

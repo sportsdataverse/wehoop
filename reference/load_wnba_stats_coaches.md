@@ -50,7 +50,7 @@ for the full surface.
 (`leaguestandingsv3`-style outputs). One row per team-season.
 **Deprecated**: the `wnba_stats_standings` release tag (R-scraped) is
 superseded by the `wnba_stats_leaguedash` tag's `standings` asset (same
-underlying endpoint/params, Python-scraped) — this is close to a pure
+underlying endpoint/params, Python-scraped) – this is close to a pure
 passthrough.
 
 Loads season-level WNBA draft picks scraped from the WNBA Stats API

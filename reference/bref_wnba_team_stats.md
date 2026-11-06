@@ -1,7 +1,6 @@
 # **Basketball-Reference WNBA Team Season Stats**
 
-**Get WNBA team season statistics from
-[Basketball-Reference](https://www.basketball-reference.com/wnba/).**
+**Get WNBA team season statistics from Basketball-Reference.**
 
 One row per team for a season. No account or API key is required.
 

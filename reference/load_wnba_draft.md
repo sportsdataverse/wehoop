@@ -508,7 +508,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 10,396 × 16
+#> # A tibble: 10,267 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
 #>  1   2026       1054 Tiffany Hayes        Tiffany            Hayes            
@@ -521,7 +521,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #>  9   2026       1054 Tiffany Hayes        Tiffany            Hayes            
 #> 10   2026       1054 Tiffany Hayes        Tiffany            Hayes            
-#> # ℹ 10,386 more rows
+#> # ℹ 10,257 more rows
 #> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
 #> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
 #> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,

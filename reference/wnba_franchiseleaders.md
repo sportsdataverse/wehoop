@@ -52,8 +52,8 @@ Returns a named list of data frames: FranchiseLeaders
 
 ## Details
 
-[Franchise
-Leaders](https://stats.wnba.com/team/1611661324/franchise-leaders)
+Franchise Leaders page on stats.wnba.com:
+`stats.wnba.com/team/1611661324/franchise-leaders`
 
       wnba_franchiseleaders(league_id = '10', team_id = '1611661324')
 

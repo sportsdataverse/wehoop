@@ -2,7 +2,7 @@
 
 Returns the full WNBA franchises index from
 `sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/franchises`.
-Each row is one franchise with its ID and the canonical `$ref` URL —
+Each row is one franchise with its ID and the canonical `$ref` URL –
 pass an ID to
 [`espn_wnba_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_franchise.md)
 for full franchise detail.
@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_franchises()
 #> ── ESPN WNBA Franchises Index ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:27 UTC
+#> ℹ Data updated: 2026-11-06 10:14:40 UTC
 #> # A tibble: 15 × 3
 #>    franchise_id ref                                                       league
 #>    <chr>        <chr>                                                     <chr> 

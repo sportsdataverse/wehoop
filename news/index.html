@@ -138,6 +138,7 @@
 <li>Any failed source (ESPN, Fox, Torvik, or the conference reference) now raises instead of being reported and returned as an empty tibble.</li>
 </ul></li>
 <li><p><code><a href="../reference/bart_wbb_ratings.html">bart_wbb_ratings()</a></code> returned an empty tibble for 2021 and 2022: those files quote one header, <code>fread()</code> warns while fixing it, and the warning discarded the season. That warning is no longer fatal. (<a href="https://github.com/sportsdataverse/wehoop/issues/86" class="external-link">#86</a>)</p></li>
+<li><p><code><a href="../reference/update_wbb_db.html">update_wbb_db()</a></code>, <code><a href="../reference/update_wnba_db.html">update_wnba_db()</a></code> and <code><a href="../reference/update_wnba_stats_db.html">update_wnba_stats_db()</a></code> no longer write to the working directory by default. <code>dbdir</code> now defaults to the per-user data directory <code>tools::R_user_dir("wehoop", "data")</code> (created on first use, with a message naming it). To keep using a database in the working directory, pass <code>dbdir = "."</code>.</p></li>
 </ul></div>
 <div class="section level4">
 <h4 id="loader-seasons-and-join-ids-3-1-0"><strong>Loader seasons and join ids</strong><a class="anchor" aria-label="anchor" href="#loader-seasons-and-join-ids-3-1-0"></a></h4>
@@ -151,7 +152,7 @@
 <li>
 <code><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail()</a></code> works on the result of every loader and every function that returns a <code>wehoop_data</code> tibble. The class vector they set, in the loaders and in <code>make_wehoop_data()</code>, still listed <code>data.table</code>, so <code><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail()</a></code> failed with “Can’t subset columns past the end” (the bug fixed in hoopR as <a href="https://github.com/sportsdataverse/hoopR/issues/88" class="external-link">hoopR#88</a>). The class is now <code>wehoop_data</code> / <code>tbl_df</code> / <code>tbl</code> / <code>data.frame</code>.</li>
 <li>A slow release download no longer drops a season from a multi-season load. The <code>.rds</code> and <code>.parquet</code> readers behind every release-backed <code>load_*()</code> loader raise the download timeout to at least 150 seconds (a larger <code>options(timeout)</code> is kept, and the option is restored afterwards) and retry a failed download twice. A 404 is not retried. If a file still fails, the warning names its URL and says the result is incomplete; the seasons that loaded are still returned.</li>
-<li>The release <code>.csv</code> files get the same raised timeout and retries: the 28 <code>*_manifest()</code> loaders and the games index behind <code><a href="../reference/update_wbb_db.html">update_wbb_db()</a></code>. A manifest that still fails warns with its URL and then raises the error, as before.</li>
+<li>The release <code>.csv</code> files get the same raised timeout and retries: the 28 <code>*_manifest()</code> loaders and the games indexes behind <code><a href="../reference/update_wbb_db.html">update_wbb_db()</a></code> and <code><a href="../reference/update_wnba_db.html">update_wnba_db()</a></code>. A manifest that still fails warns with its URL and then raises the error, as before.</li>
 </ul></div>
 <div class="section level4">
 <h4 id="deprecations-3-1-0"><strong>Deprecations</strong><a class="anchor" aria-label="anchor" href="#deprecations-3-1-0"></a></h4>
@@ -218,7 +219,7 @@
 </div>
 <div class="section level4">
 <h4 id="wnba-basketball-reference-bref_wnba_-3-0-0"><strong>WNBA Basketball-Reference (<code>bref_wnba_*</code>)</strong><a class="anchor" aria-label="anchor" href="#wnba-basketball-reference-bref_wnba_-3-0-0"></a></h4>
-<p>New <code>bref_wnba_*()</code> family scraping WNBA data from <a href="https://www.basketball-reference.com/wnba/" class="external-link">Basketball-Reference</a> — a deep historical source (back to 1997) wehoop did not previously cover, complementing the WNBA Stats API and ESPN wrappers. No account or API key is required:</p>
+<p>New <code>bref_wnba_*()</code> family scraping WNBA data from Basketball-Reference — a deep historical source (back to 1997) wehoop did not previously cover, complementing the WNBA Stats API and ESPN wrappers. No account or API key is required:</p>
 <ul><li>
 <strong><code>bref_wnba_player_stats(season, table)</code></strong> — league-wide player season stats (<code>table = "per_game"</code> / <code>"totals"</code> / <code>"advanced"</code>).</li>
 <li>

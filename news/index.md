@@ -213,6 +213,16 @@
   season. That warning is no longer fatal.
   ([\#86](https://github.com/sportsdataverse/wehoop/issues/86))
 
+- [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md),
+  [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
+  and
+  [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md)
+  no longer write to the working directory by default. `dbdir` now
+  defaults to the per-user data directory
+  `tools::R_user_dir("wehoop", "data")` (created on first use, with a
+  message naming it). To keep using a database in the working directory,
+  pass `dbdir = "."`.
+
 #### **Loader seasons and join ids**
 
 - Every `load_wbb_*()`, `load_wnba_*()`, `load_ncaa_wbb_*()` and model
@@ -260,8 +270,10 @@
   If a file still fails, the warning names its URL and says the result
   is incomplete; the seasons that loaded are still returned.
 - The release `.csv` files get the same raised timeout and retries: the
-  28 `*_manifest()` loaders and the games index behind
-  [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md).
+  28 `*_manifest()` loaders and the games indexes behind
+  [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md)
+  and
+  [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md).
   A manifest that still fails warns with its URL and then raises the
   error, as before.
 
@@ -487,11 +499,10 @@ as a starting point and may need adjustment if the site changes.
 
 #### **WNBA Basketball-Reference (`bref_wnba_*`)**
 
-New `bref_wnba_*()` family scraping WNBA data from
-[Basketball-Reference](https://www.basketball-reference.com/wnba/) — a
-deep historical source (back to 1997) wehoop did not previously cover,
-complementing the WNBA Stats API and ESPN wrappers. No account or API
-key is required:
+New `bref_wnba_*()` family scraping WNBA data from Basketball-Reference
+— a deep historical source (back to 1997) wehoop did not previously
+cover, complementing the WNBA Stats API and ESPN wrappers. No account or
+API key is required:
 
 - **`bref_wnba_player_stats(season, table)`** — league-wide player
   season stats (`table = "per_game"` / `"totals"` / `"advanced"`).

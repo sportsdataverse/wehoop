@@ -3,9 +3,9 @@
 Wrappers around ESPN's basketball endpoints. Two parallel families share
 a common set of internal helpers in `R/espn_basketball_*.R`:
 
-- `espn_wnba_*()` — ESPN WNBA wrappers
+- `espn_wnba_*()` – ESPN WNBA wrappers
 
-- `espn_wbb_*()` — ESPN women's college basketball wrappers
+- `espn_wbb_*()` – ESPN women's college basketball wrappers
 
 Each public wrapper is a thin shim over an internal helper that takes a
 `league` argument (`"wnba"` or `"womens-college-basketball"`); the
@@ -16,7 +16,7 @@ through ESPN-side reporters
 [`.report_api_warning()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_warning.md)
 in `R/utils.R` (do **not** use raw
 [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
-here — that is the WNBA Stats convention).
+here – that is the WNBA Stats convention).
 
 ## Details
 

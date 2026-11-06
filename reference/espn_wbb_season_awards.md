@@ -2,7 +2,7 @@
 
 Returns the list of award IDs given out in a WBB season from
 `sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/{season}/awards`.
-The index only contains IDs and `$ref` URLs — pass an ID to
+The index only contains IDs and `$ref` URLs – pass an ID to
 [`espn_wbb_award()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_award.md)
 for the award name, description, and winners.
 
@@ -111,7 +111,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_awards(season = 2024)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Awards Index ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:08 UTC
+#> ℹ Data updated: 2026-11-06 10:14:18 UTC
 #> # A tibble: 11 × 4
 #>    season award_id ref                                                    league
 #>     <int> <chr>    <chr>                                                  <chr> 

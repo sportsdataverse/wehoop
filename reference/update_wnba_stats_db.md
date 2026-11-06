@@ -9,7 +9,7 @@ table, named `wnba_stats_<dataset>`.
 
 ``` r
 update_wnba_stats_db(
-  dbdir = ".",
+  dbdir = tools::R_user_dir("wehoop", "data"),
   dbname = "wehoop_db",
   datasets = NULL,
   seasons = TRUE,
@@ -21,7 +21,10 @@ update_wnba_stats_db(
 
 - dbdir:
 
-  Directory in which the database is or shall be located.
+  Directory in which the database is or shall be located. Defaults to
+  the per-user data directory `tools::R_user_dir("wehoop", "data")`, so
+  nothing is written to the working directory unless you ask for it
+  (`dbdir = "."`).
 
 - dbname:
 

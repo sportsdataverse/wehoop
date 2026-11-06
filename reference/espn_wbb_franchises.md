@@ -2,7 +2,7 @@
 
 Returns the full WBB franchises index from
 `sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/franchises`.
-Each row is one franchise with its ID and the canonical `$ref` URL —
+Each row is one franchise with its ID and the canonical `$ref` URL –
 pass an ID to
 [`espn_wbb_franchise()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_franchise.md)
 for full franchise detail.
@@ -107,7 +107,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_franchises()
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchises Index ───────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:46:53 UTC
+#> ℹ Data updated: 2026-11-06 10:14:01 UTC
 #> # A tibble: 200 × 3
 #>    franchise_id ref                                                       league
 #>    <chr>        <chr>                                                     <chr> 

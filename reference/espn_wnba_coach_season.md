@@ -1,7 +1,7 @@
 # **Get ESPN WNBA Coach-in-Season Detail**
 
 Per-season coach detail (name, birth info, `$ref`s to team/college/
-person). ESPN's coverage of this endpoint is sparse; many (coach ×
+person). ESPN's coverage of this endpoint is sparse; many (coach x
 season) combinations return 404.
 
 ## Usage
@@ -114,7 +114,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_coach_season(coach_id = 52063, season = 2025)
 #> ── ESPN WNBA Coach-in-Season Detail ──────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:25 UTC
+#> ℹ Data updated: 2026-11-06 10:14:37 UTC
 #> # A tibble: 1 × 13
 #>   league season coach_id uid       first_name last_name date_of_birth birth_city
 #>   <chr>   <int> <chr>    <chr>     <chr>      <chr>     <chr>         <chr>     

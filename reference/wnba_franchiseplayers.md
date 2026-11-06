@@ -76,8 +76,8 @@ Returns a named list of data frames: FranchisePlayers
 
 ## Details
 
-[Franchise
-Players](https://stats.wnba.com/team/1611661319/franchise-leaders/)
+Franchise Players page on stats.wnba.com:
+`stats.wnba.com/team/1611661319/franchise-leaders/`
 
      wnba_franchiseplayers(league_id = '10', team_id = '1611661319')
      wnba_franchiseplayers(league_id = '10', season_type = 'Playoffs', team_id = '1611661319')

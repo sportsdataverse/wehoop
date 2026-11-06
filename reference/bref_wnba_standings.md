@@ -1,7 +1,6 @@
 # **Basketball-Reference WNBA Standings**
 
-**Get WNBA standings (both conferences) from
-[Basketball-Reference](https://www.basketball-reference.com/wnba/).**
+**Get WNBA standings (both conferences) from Basketball-Reference.**
 
 One row per team with record and win percentage, labelled by a
 `conference` column (`Eastern` / `Western`). No account or API key is

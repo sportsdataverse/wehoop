@@ -105,8 +105,8 @@ Return a named list of data frames: LeagueGameLog
 
 ## Details
 
-[Player/Team
-Boxscores](https://stats.wnba.com/players/boxscores-traditional/)
+Player/Team Boxscores page on stats.wnba.com:
+`stats.wnba.com/players/boxscores-traditional/`
 
       wnba_leaguegamelog(league_id = '10', season = most_recent_wnba_season() - 1)
 

@@ -187,7 +187,8 @@ Return a named list of data frames: TeamGameLogs
 
 ## Details
 
-[Teams Game Log](https://stats.wnba.com/team/1611661328/boxscores/)
+Teams Game Log page on stats.wnba.com:
+`stats.wnba.com/team/1611661328/boxscores/`
 
      wnba_teamgamelogs(team_id = '1611661328')
 

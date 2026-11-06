@@ -1,7 +1,7 @@
 # **Get ESPN WNBA Positions Index**
 
 Returns the WNBA position dictionary index. One row per position with
-its id and the canonical `$ref` URL — pass an id to
+its id and the canonical `$ref` URL – pass an id to
 [`espn_wnba_position()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_position.md)
 for full details (display name, abbreviation, leaf flag, parent link).
 
@@ -99,7 +99,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_positions()
 #> ── ESPN WNBA Positions Index ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:41 UTC
+#> ℹ Data updated: 2026-11-06 10:14:55 UTC
 #> # A tibble: 12 × 3
 #>    position_id ref                                                        league
 #>    <chr>       <chr>                                                      <chr> 

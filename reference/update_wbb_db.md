@@ -7,7 +7,7 @@ data of all completed and available games since 2004.
 
 ``` r
 update_wbb_db(
-  dbdir = ".",
+  dbdir = tools::R_user_dir("wehoop", "data"),
   dbname = "wehoop_db",
   tblname = "wehoop_wbb_pbp",
   force_rebuild = FALSE,
@@ -21,7 +21,10 @@ update_wbb_db(
 
 - dbdir:
 
-  Directory in which the database is or shall be located
+  Directory in which the database is or shall be located. Defaults to
+  the per-user data directory `tools::R_user_dir("wehoop", "data")`, so
+  nothing is written to the working directory unless you ask for it
+  (`dbdir = "."`).
 
 - dbname:
 

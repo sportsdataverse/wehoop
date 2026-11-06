@@ -207,16 +207,25 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
-#> Warning: Failed to read
-#> <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2027.rds>
-#> after 1 attempt.
-#> ! The result is incomplete: it is missing this file.
-#> ✖ cannot open the connection to
-#>   'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2027.rds';
-#>   cannot open URL
-#>   'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_player_crosswalk_2027.rds':
-#>   HTTP status was '404 Not Found'
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 4,941 × 17
+#>    season espn_team_id team_abbreviation player_name     espn_athlete_id
+#>     <int>        <int> <chr>             <chr>                     <int>
+#>  1   2027         2000 ACU               salena carrasco         5458291
+#>  2   2027         2000 ACU               natalia chavez          5109756
+#>  3   2027         2000 ACU               emma daugherty          5315740
+#>  4   2027         2000 ACU               molly daugherty         5315739
+#>  5   2027         2000 ACU               aimee flippen           5241475
+#>  6   2027         2000 ACU               riley grohman           5315742
+#>  7   2027         2000 ACU               payton hull             5175545
+#>  8   2027         2000 ACU               meredith mayes          5175546
+#>  9   2027         2000 ACU               raimi mccrary           5177964
+#> 10   2027         2000 ACU               samara morrow           5458292
+#> # ℹ 4,931 more rows
+#> # ℹ 12 more variables: espn_full_name <chr>, espn_jersey <chr>,
+#> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
+#> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,
+#> #   yahoo_player_name <chr>, match_method <chr>, match_confidence <dbl>,
+#> #   match_keys <chr>
 # }
 ```

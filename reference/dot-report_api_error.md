@@ -40,7 +40,7 @@ Invisibly `NULL`. Called for its side effects.
 
 3.  The actual error message (`conditionMessage(e)`).
 
-Functions opt in by capturing their formals once near the top —
-`.args <- mget(setdiff(names(formals()), "..."))` — and then calling
+Functions opt in by capturing their formals once near the top –
+`.args <- mget(setdiff(names(formals()), "..."))` – and then calling
 `.report_api_error(e, hint = "...", args = .args)` from the error
 handler.

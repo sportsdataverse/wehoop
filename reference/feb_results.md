@@ -118,7 +118,7 @@ Other FEB Functions:
 # \donttest{
   try(feb_results(group = 1, season = 2027))
 #> ── FEB results from baloncestoenvivo.feb.es ──────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-04 06:47:58 UTC
+#> ℹ Data updated: 2026-11-06 10:15:14 UTC
 #> # A tibble: 18 × 17
 #>    group season competition comp_id section    round_title  game_id home_team_id
 #>    <int>  <int> <chr>         <int> <chr>      <chr>          <int>        <int>
