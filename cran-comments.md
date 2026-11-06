@@ -77,28 +77,17 @@ default `dbdir` to the working directory. They now default to
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
 * Local Windows 10, R 4.6.0 (ucrt), `R CMD check --as-cran --timings` on
   the built tarball (2026-11-06; NOT_CRAN unset and an empty user
   `.Renviron`, so every networked test skips; `\donttest` examples not
-  run): Status: 1 NOTE. The tests take 136 s. The PDF and HTML manuals
-  build.
+  run): Status: OK. Tests: 0 failures, 8,760 passes. The PDF and HTML
+  manuals build.
 * win-builder (devel and release): to be run before submission.
 
-### NOTE: possibly invalid URL (basketball-reference.com)
-
-    Found the following (possibly) invalid URLs:
-      URL: https://www.basketball-reference.com/wnba/
-        From: man/bref_wnba_player_stats.Rd
-              man/bref_wnba_standings.Rd
-              man/bref_wnba_team_stats.Rd
-              NEWS.md
-        Status: 503
-        Message: Service Unavailable
-
-The URL is correct and opens in a browser. Basketball-Reference rate-limits
-and answers automated requests with 503 at times; the same URL was in 3.0.0.
+The help pages name Basketball-Reference without linking to it: the site
+answers automated requests (such as the incoming URL check) with HTTP 503.
 
 ### Expected NOTE: installed package size
 
