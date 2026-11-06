@@ -44,7 +44,7 @@ with the per-season \code{season_id} and \code{team_id} parsed out of the
 \strong{Network access:} as of v3.0.0 \code{stats.ncaa.org} is fronted by Akamai
 and returns HTTP 403 (\code{Reference #18.<...>}) to many residential and
 cloud IP ranges regardless of headers. If you hit that block, supply a
-proxy that egresses from a non-blocked address — pass \verb{proxy =}
+proxy that egresses from a non-blocked address -- pass \verb{proxy =}
 directly via \code{...} (forwarded to \code{.retry_request()}), or set it once
 with \code{options(wehoop.proxy = list(url=, port=, username=, password=))}.
 Proxy resolution order: the \code{proxy} argument, then

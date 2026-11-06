@@ -396,7 +396,7 @@ load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season()
 #'   standings (`leaguestandingsv3`-style outputs). One row per team-season.
 #'   **Deprecated**: the `wnba_stats_standings` release tag (R-scraped) is
 #'   superseded by the `wnba_stats_leaguedash` tag's `standings` asset
-#'   (same underlying endpoint/params, Python-scraped) — this is close to a
+#'   (same underlying endpoint/params, Python-scraped) -- this is close to a
 #'   pure passthrough.
 #' @param seasons A vector of 4-digit years associated with given WNBA seasons.
 #'   Published coverage runs 1997 through the most recent season, with no

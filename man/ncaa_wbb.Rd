@@ -24,7 +24,7 @@ the package.
 
 NCAA endpoints occasionally drop columns. The wrappers use
 \code{dplyr::any_of()} / \code{dplyr::rename(any_of(c(new = "old")))} so
-schema drift doesn't crash the parser — see
+schema drift doesn't crash the parser -- see
 \code{ncaa_wbb_NET_rankings()} for the reference implementation.
 }
 }

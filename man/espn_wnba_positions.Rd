@@ -14,7 +14,7 @@ A tibble with one row per position.
 }
 \description{
 Returns the WNBA position dictionary index. One row per position with
-its id and the canonical \verb{$ref} URL — pass an id to
+its id and the canonical \verb{$ref} URL -- pass an id to
 \code{\link[=espn_wnba_position]{espn_wnba_position()}} for full details (display name, abbreviation,
 leaf flag, parent link).
 }

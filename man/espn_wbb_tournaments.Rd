@@ -19,7 +19,7 @@ A tibble with one row per tournament.\tabular{lll}{
 }
 \description{
 Returns the index of women's college basketball tournaments tracked
-by ESPN — including the NCAA Tournament, WNIT, conference tournaments,
+by ESPN -- including the NCAA Tournament, WNIT, conference tournaments,
 and other in-season events. Pass an ID to \code{\link[=espn_wbb_tournament]{espn_wbb_tournament()}}
 for the human-readable name and seasons-list ref.
 

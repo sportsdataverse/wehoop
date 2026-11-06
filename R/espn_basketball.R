@@ -5,15 +5,15 @@
 #' Wrappers around ESPN's basketball endpoints. Two parallel families
 #' share a common set of internal helpers in `R/espn_basketball_*.R`:
 #'
-#' - `espn_wnba_*()` — ESPN WNBA wrappers
-#' - `espn_wbb_*()` — ESPN women's college basketball wrappers
+#' - `espn_wnba_*()` -- ESPN WNBA wrappers
+#' - `espn_wbb_*()` -- ESPN women's college basketball wrappers
 #'
 #' Each public wrapper is a thin shim over an internal helper that
 #' takes a `league` argument (`"wnba"` or
 #' `"womens-college-basketball"`); the helper does the actual HTTP
 #' call + parsing. Error reporting flows through ESPN-side reporters
 #' `.report_api_error()` / `.report_api_warning()` in `R/utils.R`
-#' (do **not** use raw `cli::cli_alert_danger()` here — that is the
+#' (do **not** use raw `cli::cli_alert_danger()` here -- that is the
 #' WNBA Stats convention).
 #'
 #' @details

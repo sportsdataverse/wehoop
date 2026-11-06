@@ -72,7 +72,7 @@ ncaa_wbb_NET_rankings <- function(){
 #' **Network access:** as of v3.0.0 `stats.ncaa.org` is fronted by Akamai
 #' and returns HTTP 403 (`Reference #18.<...>`) to many residential and
 #' cloud IP ranges regardless of headers. If you hit that block, supply a
-#' proxy that egresses from a non-blocked address — pass `proxy =`
+#' proxy that egresses from a non-blocked address -- pass `proxy =`
 #' directly via `...` (forwarded to `.retry_request()`), or set it once
 #' with `options(wehoop.proxy = list(url=, port=, username=, password=))`.
 #' Proxy resolution order: the `proxy` argument, then
