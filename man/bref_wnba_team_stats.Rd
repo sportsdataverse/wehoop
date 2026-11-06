@@ -26,7 +26,7 @@ A \code{wehoop_data} tibble with one row per team, carrying \code{season} and
 }
 \description{
 \strong{Get WNBA team season statistics from
-\href{https://www.basketball-reference.com/wnba/}{Basketball-Reference}.}
+Basketball-Reference.}
 
 One row per team for a season. No account or API key is required.
 }

@@ -23,7 +23,7 @@ A \code{wehoop_data} tibble with one row per team:\tabular{ll}{
 }
 \description{
 \strong{Get WNBA standings (both conferences) from
-\href{https://www.basketball-reference.com/wnba/}{Basketball-Reference}.}
+Basketball-Reference.}
 
 One row per team with record and win percentage, labelled by a \code{conference}
 column (\code{Eastern} / \code{Western}). No account or API key is required.

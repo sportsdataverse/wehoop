@@ -28,7 +28,7 @@ A \code{wehoop_data} tibble with one row per player, carrying \code{season} and
 }
 \description{
 \strong{Get WNBA league-wide player season statistics from
-\href{https://www.basketball-reference.com/wnba/}{Basketball-Reference}.}
+Basketball-Reference.}
 
 One row per player for a season. No account or API key is required.
 Basketball-Reference rate-limits aggressive scraping (~20 requests/minute) --

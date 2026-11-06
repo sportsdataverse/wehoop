@@ -356,7 +356,7 @@ need adjustment if the site changes.
 ### **WNBA Basketball-Reference (`bref_wnba_*`)**
 
 New `bref_wnba_*()` family scraping WNBA data from
-[Basketball-Reference](https://www.basketball-reference.com/wnba/) — a deep
+Basketball-Reference — a deep
 historical source (back to 1997) wehoop did not previously cover, complementing
 the WNBA Stats API and ESPN wrappers. No account or API key is required:
 
