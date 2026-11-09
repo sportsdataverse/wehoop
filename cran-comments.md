@@ -33,12 +33,13 @@ full list of changes is in NEWS.md. The main additions:
 * Local Windows 10 x64, R 4.6.0 (ucrt), `R CMD check --as-cran
   --run-donttest --timings` on a tarball built from `git archive` of the
   submitted commit (2026-11-09), with `_R_CHECK_CRAN_INCOMING_REMOTE_=true`,
-  NOT_CRAN unset and an empty user `.Renviron`. Tests: 0 failures, 8,678
-  passes, 491 skips (the networked tests). The PDF and HTML manuals build.
+  NOT_CRAN unset and an empty user `.Renviron`. Tests: 0 failures, 4
+  warnings, 491 skips, 8,678 passes. The PDF and HTML manuals build.
 * GitHub Actions R-CMD-check: R release on macOS, Windows and Ubuntu, R
   oldrel-1 and R-devel on Ubuntu. All five passed on main at 3be435572
-  (2026-11-09); the commits after it change documentation and the
-  compression of one `.rda` file.
+  (2026-11-09). The commits after it reorganise the help pages (with the
+  internal R helpers that build the family index pages, and one test) and
+  recompress one `.rda` file; the local check above covers them.
 * R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel): passed on
   2026-11-06 at 59bac3e3b, an earlier commit than the one submitted.
 * win-builder (devel and release): to be run before submission.
@@ -52,19 +53,20 @@ full list of changes is in NEWS.md. The main additions:
   (`system.time(example(fn, package = "wehoop", run.donttest = TRUE))`),
   they took:
 
-  | example                   | CPU (s) | elapsed (s) |
-  |:--------------------------|--------:|------------:|
-  | load_wnba_stats_coaches   |    0.83 |       14.51 |
-  | wjbl_pbp                  |    0.21 |        9.39 |
-  | load_wnba_draft           |    0.48 |        6.32 |
-  | load_wbb_game_rosters     |    0.68 |        5.87 |
-  | fiba_gamepage_box_players |    0.20 |        5.24 |
-  | nbl_rosetta_matches       |    2.77 |        3.84 |
+  | example                   | in check: CPU / elapsed (s) | alone: CPU / elapsed (s) |
+  |:--------------------------|----------------------------:|-------------------------:|
+  | load_wnba_stats_coaches   |                0.75 / 16.16 |             0.83 / 14.51 |
+  | wjbl_pbp                  |                 0.17 / 7.29 |              0.21 / 9.39 |
+  | load_wnba_draft           |                 0.52 / 7.78 |              0.48 / 6.32 |
+  | load_wbb_game_rosters     |                 0.55 / 6.26 |              0.68 / 5.87 |
+  | fiba_gamepage_box_players |                 0.17 / 5.08 |              0.20 / 5.24 |
+  | nbl_rosetta_matches       |                 2.63 / 5.10 |              2.77 / 3.84 |
 
   All of them are `\donttest{}` examples that download public data: every
   CPU time is under 3 s, and the rest is network wait. The three
-  `load_*` help pages each run about a dozen small release-file downloads
-  from GitHub (one per loader documented on the page), and `wjbl_pbp()`,
+  `load_*` help pages each document a group of loaders and run about a
+  dozen small release-file downloads from GitHub (one per loader whose
+  example is not interactive-only), and `wjbl_pbp()`,
   `fiba_gamepage_box_players()` and `nbl_rosetta_matches()` each make one
   call to a public league API. These examples now run only in interactive
   sessions (`@examplesIf interactive()`):
