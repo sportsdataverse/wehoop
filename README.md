@@ -3,41 +3,40 @@
     <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px" alt="wehoop logo"/></a>](#wehoop-)
       - [**Data status**](#data-status)
       - [**Installation**](#installation)
-      - [**Quick Start**](#quick-start)
-      - [**What’s in wehoop**](#whats-in-wehoop)
+      - [**Quick start**](#quick-start)
+      - [**What's in wehoop**](#whats-in-wehoop)
       - [**Bulk datasets**](#bulk-datasets)
-      - [**Plotting and related
-        packages**](#plotting-and-related-packages)
       - [**Documentation**](#documentation)
       - [**Breaking Changes**](#breaking-changes)
-      - [Follow the SportsDataverse (@SportsDataverse) on X and star
-        this
-        repo](#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo)
-  - [**Our Authors**](#our-authors)
+      - [**Companion packages**](#companion-packages)
+      - [**The SportsDataverse**](#the-sportsdataverse)
+      - [**Follow the SportsDataverse on X and star this repo**](#follow-the-sportsdataverse-on-x-and-star-this-repo)
+      - [**Our Authors**](#our-authors)
       - [**Cheat sheet**](#cheat-sheet)
+      - [**Code of Conduct**](#code-of-conduct)
       - [**Citations**](#citations)
+      - [**License**](#license)
 
-# wehoop <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px" alt="wehoop logo"/></a>
+# **wehoop** <a href='https://wehoop.sportsdataverse.org'><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right"  width="20%" min-width="100px" alt="wehoop logo"/></a>
 
 <!-- badges: start -->
-
-[![CRAN
-status](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
-[![CRAN
-downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
-[![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/wehoop)
+[![CRAN version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
+[![CRAN downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fwehoop)](https://CRAN.R-project.org/package=wehoop)
+[![R-universe](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=r-universe&prefix=v&query=%24.Version&url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2Fwehoop)](https://sportsdataverse.r-universe.dev/wehoop)
+[![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle:stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![X
-Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://x.com/SaiemGilani)
-[![X
-Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
-[![X
-Follow](https://img.shields.io/twitter/follow/sportsdataverse?label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/sportsdataverse)
-
+[![Codecov](https://img.shields.io/codecov/c/github/sportsdataverse/wehoop?logo=codecov&style=for-the-badge)](https://app.codecov.io/gh/sportsdataverse/wehoop)
+[![pkgdown](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/pkgdown.yaml?branch=main&label=pkgdown&logo=github&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/pkgdown.yaml)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md)
+[![Contributors](https://img.shields.io/github/contributors/sportsdataverse/wehoop?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/wehoop?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop/stargazers)
+[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
+[![X Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://x.com/SaiemGilani)
+[![X Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
 <!-- badges: end -->
 
-[**`wehoop`**](https://wehoop.sportsdataverse.org/) is an R package for
+The goal of [**`wehoop`**](https://wehoop.sportsdataverse.org/) is to provide tools for
 working with women’s college and professional basketball data. It
 exports 750 functions: live wrappers for ESPN, the WNBA Stats API, the
 NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik,
@@ -72,19 +71,23 @@ You can install the CRAN version of
 install.packages("wehoop")
 ```
 
+You can install the latest build from [R-universe](https://sportsdataverse.r-universe.dev/wehoop) with:
+
+```r
+install.packages("wehoop", repos = c("https://sportsdataverse.r-universe.dev", getOption("repos")))
+```
+
 This documentation describes **wehoop 3.1.0**. If the CRAN release
 hasn’t caught up yet, install the development version from
 [GitHub](https://github.com/sportsdataverse/wehoop) instead:
 
-``` r
-# You can install using the pak package using the following code:
-if (!requireNamespace('pak', quietly = TRUE)){
-  install.packages('pak')
-}
+```r
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/wehoop")
+# or: remotes::install_github("sportsdataverse/wehoop")
 ```
 
-## **Quick Start**
+## **Quick start**
 
 ### **WNBA play-by-play for a season**
 
@@ -108,7 +111,7 @@ wbb_pbp <- wehoop::load_wbb_pbp(seasons = 2026)
 
     ## 2824090 rows of women's college basketball play-by-play data from 6011 games.
 
-## **What’s in wehoop**
+## **What's in wehoop**
 
 Each family links to its section of the [function
 reference](https://wehoop.sportsdataverse.org/reference/index.html).
@@ -202,7 +205,49 @@ season); most can also write to a database through `dbConnection` and
     and `_team_group_seasons()` companions record membership as it was
     each season.
 
-## **Plotting and related packages**
+## **Documentation**
+
+For more information on the package and function reference, please see
+the [**`wehoop`** documentation
+website](https://wehoop.sportsdataverse.org).
+
+- [Function reference](https://wehoop.sportsdataverse.org/reference/index.html)
+- Vignettes:
+  - [Getting Started with wehoop: WNBA and Women's College Basketball Data in R](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html)
+  - [ESPN basketball endpoints – WBB & WNBA](https://wehoop.sportsdataverse.org/articles/espn-endpoints.html)
+  - [WNBA Stats API Parameter Descriptions](https://wehoop.sportsdataverse.org/articles/parameter-descriptions.html)
+  - [Women's College Basketball Cookbook](https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html)
+  - [WNBA Cookbook](https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html)
+- Articles:
+  - [WNBA Player Impact Model: RAPM, SPM, BPM, WAR and DARKO-Style Projections](https://wehoop.sportsdataverse.org/articles/wnba-player-impact-model.html)
+  - [WNBA and Women's College Basketball Shot Charts in R](https://wehoop.sportsdataverse.org/articles/wnba-womens-college-basketball-shot-charts.html)
+  - [Women's Basketball Advanced Metrics in R: Possessions, Pace, Ratings and the Four Factors](https://wehoop.sportsdataverse.org/articles/womens-basketball-advanced-metrics.html)
+  - [Women's College Basketball Player Value: Box Plus-Minus Model](https://wehoop.sportsdataverse.org/articles/womens-college-basketball-player-value-model.html)
+  - [Women's College Basketball RAPM: League-Wide and Within-Team Player Impact](https://wehoop.sportsdataverse.org/articles/womens-college-basketball-rapm-model.html)
+  - [Women's College Basketball Team Ratings: Opponent-Adjusted Efficiency](https://wehoop.sportsdataverse.org/articles/womens-college-basketball-team-ratings-model.html)
+  - [Women's College Basketball Win Probability Model](https://wehoop.sportsdataverse.org/articles/womens-college-basketball-win-probability-model.html)
+  - [Women's International Basketball Data in R: FIBA, EuroLeague Women, WNBL, W League and More](https://wehoop.sportsdataverse.org/articles/womens-international-basketball-leagues.html)
+- [News and release notes](https://wehoop.sportsdataverse.org/news/index.html)
+
+There is also a printable [**`wehoop` cheat sheet
+(PDF)**](https://sportsdataverse.org/cheatsheets/wehoop.pdf), one of [a
+set covering every SportsDataverse
+package](https://sportsdataverse.org/cheatsheets).
+
+The [Getting
+started](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html)
+article is the place to begin; the
+[WNBA](https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html)
+and [women’s
+college](https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html)
+cookbooks have worked recipes.
+
+## **Breaking Changes**
+
+[**Full News on
+Releases**](https://wehoop.sportsdataverse.org/news/index.html)
+
+## **Companion packages**
 
   - [**`sdvplotR`**](https://sdvplotR.sportsdataverse.org/) (0.3.0,
     `pak::pak("sportsdataverse/sdvplotR")`) adds team logos and colours
@@ -223,31 +268,30 @@ season); most can also write to a database through `dbConnection` and
     Python package; most `wehoop` functions have a Python twin of the
     same name.
 
-## **Documentation**
+## **The SportsDataverse**
 
-For more information on the package and function reference, please see
-the [**`wehoop`** documentation
-website](https://wehoop.sportsdataverse.org).
+[**`wehoop`**](https://wehoop.sportsdataverse.org/) is part of the [SportsDataverse](https://sportsdataverse.org/), a set of
+open-source packages for sports data.
 
-There is also a printable [**`wehoop` cheat sheet
-(PDF)**](https://sportsdataverse.org/cheatsheets/wehoop.pdf), one of [a
-set covering every SportsDataverse
-package](https://sportsdataverse.org/cheatsheets).
+| Package | Sport / Scope |
+|---|---|
+| [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) | College football |
+| [**hoopR**](https://hoopR.sportsdataverse.org/) | Men's basketball (NBA and NCAA) |
+| [**wehoop**](https://wehoop.sportsdataverse.org/) | Women's basketball (WNBA and NCAA) |
+| [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) | Hockey (NHL and PWHL) |
+| [**baseballr**](https://billpetti.github.io/baseballr/) | Baseball (MLB, MiLB, NCAA) |
+| [**softballR**](https://github.com/sportsdataverse/softballR) | College softball |
+| [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) | Sports betting odds |
+| [**recruitR**](https://recruitR.sportsdataverse.org/) | College football recruiting |
+| [**usfootballR**](https://usfootballR.sportsdataverse.org/) | US soccer |
+| [**cfbseedR**](https://cfbseedR.sportsdataverse.org/) · [**cfb4th**](https://cfb4th.sportsdataverse.org/) | CFB playoff simulation · fourth-down decisions |
+| [**cfbplotR**](https://cfbplotR.sportsdataverse.org/) · [**sdvplotR**](https://sdvplotR.sportsdataverse.org/) · [**sportyR**](https://sportyR.sportsdataverse.org/) | Logos, colors, tables · playing surfaces |
+| [**sportsdataverse-R**](https://r.sportsdataverse.org/) | Umbrella R metapackage |
+| [**sportsdataverse-py**](https://py.sportsdataverse.org/) · [**sportsdataverse.js**](https://js.sportsdataverse.org/) | Python and Node.js |
 
-The [Getting
-started](https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html)
-article is the place to begin; the
-[WNBA](https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html)
-and [women’s
-college](https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html)
-cookbooks have worked recipes.
+See the full ecosystem at [sportsdataverse.org](https://sportsdataverse.org/).
 
-## **Breaking Changes**
-
-[**Full News on
-Releases**](https://wehoop.sportsdataverse.org/news/index.html)
-
-## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
+## **Follow the [SportsDataverse](https://x.com/SportsDataverse) on X and star this repo**
 
 [![X
 Follow](https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&logo=x&label=%40SportsDataverse)](https://x.com/SportsDataverse)
@@ -260,7 +304,7 @@ stars](https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&
 <img alt="Star history of sportsdataverse/wehoop" src="https://raw.githubusercontent.com/sportsdataverse/wehoop/star-history/star-history.png" width="600">
 </picture> </a>
 
-# **Our Authors**
+## **Our Authors**
 
   - [Saiem Gilani](https://x.com/saiemgilani)
 
@@ -286,6 +330,11 @@ Free to download, print and hand out; light and dark, US Letter
 landscape. Every SportsDataverse package has one — browse them all at
 **[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
+## **Code of Conduct**
+
+Please note that the wehoop project is released with a [Contributor Code of Conduct](https://wehoop.sportsdataverse.org/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ## **Citations**
 
 To cite the [**`wehoop`**](https://wehoop.sportsdataverse.org) R package
@@ -295,7 +344,7 @@ BibTeX Citation
 
 ``` bibtex
 @misc{hutchinson_gilani_2021_wehoop,
-  title = {wehoop: Access Women’s Basketball Play by Play Data},
+  title = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},
   url = {https://doi.org/10.32614/CRAN.package.wehoop},
   doi = {10.32614/CRAN.package.wehoop},
   journal = {CRAN: Contributed Packages},
@@ -304,3 +353,7 @@ BibTeX Citation
   year = {2026}
 }
 ```
+
+## **License**
+
+[**`wehoop`**](https://wehoop.sportsdataverse.org/) is released under the MIT License (`MIT + file LICENSE`); see [LICENSE.md](https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md).
