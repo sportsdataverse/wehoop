@@ -649,38 +649,7 @@ atrium_standings <- function(website_id, season = NULL, season_id = NULL, compet
 #' The columns are those of [atrium_standings()]; the compact fragment fills only
 #' `wins` / `losses` / `played`.
 #' @inheritParams atrium_fixtures
-#' @return A `wehoop_data` tibble, one row per `(season_id, group, entity_id)`:
-#'
-#' | col_name | type | description |
-#' |---|---|---|
-#' | website_id | integer | Site config id the body came from (12 LNB, 14 LNBP, 3 NBL1, 13 El Salvador, 22 Panama, 236 Austria, 326 Montenegro), read from the body's links.self. |
-#' | season_id | character | Season UUID of the table. |
-#' | season_end_year | integer | Season END year (the sdv key): the site's year + 1 on LNB (site 12), the calendar year on the other registered sites; null when the site is unregistered, lists no seasons or the body has no season list. |
-#' | group | character | Label of the table when the standings hold several groups; null for a single table. |
-#' | position | integer | League table position (1 = first). |
-#' | entity_id | character | Team UUID of the row. |
-#' | team_name | character | Team name as the site prints it. |
-#' | is_current_team | logical | True for the team the page was opened for (team context); false on a plain standings request. |
-#' | logo_url | character | URL of the team logo image. |
-#' | wins | integer | Games won; -1 for two teams in the 2025-26 LNB table (an administrative ranking, unverified), kept as sent (team, this table). |
-#' | losses | integer | Games lost (team, this table). |
-#' | played | integer | Games played (LNBP and the compact standings) (team, this table). |
-#' | standing_points | integer | League table points (LNBP) (team, this table). |
-#' | win_percentage | double | Share of games won as a 0-1 fraction (not 0-100) (team, this table). |
-#' | scored_for | integer | Points scored over the season (team, this table). |
-#' | scored_against | integer | Points conceded over the season (team, this table). |
-#' | point_difference | integer | Point differential over the season (team, this table). |
-#' | result_string_home | character | Home results as a string of result letters in the site's language, one per game (order and letters per locale; unverified) (team, this table). |
-#' | scored_for_home | integer | Points scored in home games (team, this table). |
-#' | scored_against_home | integer | Points conceded in home games (team, this table). |
-#' | point_difference_home | integer | Point differential in home games (team, this table). |
-#' | result_string_away | character | Away results as a string of result letters in the site's language, one per game (order and letters per locale; unverified) (team, this table). |
-#' | scored_for_away | integer | Points scored in away games (team, this table). |
-#' | scored_against_away | integer | Points conceded in away games (team, this table). |
-#' | point_difference_away | integer | Point differential in away games (team, this table). |
-#' | streak | integer | Length of the current run of results (the win / loss sign convention is unverified) (team, this table). |
-#' | streak_home | integer | Length of the current run of home results (sign convention unverified) (team, this table). |
-#' | streak_away | integer | Length of the current run of away results (sign convention unverified) (team, this table). |
+#' @return A `wehoop_data` tibble, one row per `(season_id, group, entity_id)`, with the same columns as [atrium_standings()] (listed there).
 #' @eval .intl_details(.atrium_fixtures_details, c(
 #'   'atrium_standings_summary(website_id = 12, season = 2026,',
 #'   '                         competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404")'
@@ -1171,23 +1140,7 @@ atrium_competition_player_stats <- function(website_id, competition_id, locale =
 #'
 #' Endpoint: `GET https://embed-api.eui.connect.sportradar.com/v1/embed/{website_id}/statistics_competition_entities`
 #' @inheritParams atrium_competition_player_stats
-#' @return A `wehoop_data` tibble, one row per `(table_key, entity_name, stat_key)`:
-#'
-#' | col_name | type | description |
-#' |---|---|---|
-#' | website_id | integer | Site config id the body came from (12 LNB, 14 LNBP, 3 NBL1, 13 El Salvador, 22 Panama, 236 Austria, 326 Montenegro), read from the body's links.self. |
-#' | season_id | character | Season UUID of the table; null for the competition-scoped routes (their bodies carry none). |
-#' | table_key | character | Statistics table the row is from: averages, shootingstatistics, totals, ... (the set is per site). |
-#' | table_label | character | The table's heading in the site's language (e.g. Moyennes). |
-#' | person_id | character | Player UUID decoded from the widget link beside the name (the tables carry names only); null when the link is missing or undecodable, and always null in team and competition bodies. |
-#' | person_name | character | Player name as the site prints it; null in team tables. |
-#' | entity_id | character | Team UUID decoded from the widget link (team tables only; player tables name the team but carry no id). |
-#' | entity_name | character | Team name as the site prints it; for player rows of a stat table it is the player's team. |
-#' | stat_key | character | Statistic key as the API names it (pointsPerGame, fieldGoalsMade, ...), unchanged from header key. |
-#' | stat_name | character | Short column heading the site shows for the statistic (PTS, REB), in the site's language. |
-#' | stat_label | character | Longer statistic label the site shows (code in the API), in the site's language. |
-#' | value | double | Numeric value of the statistic; null when the API sends a duration or text (see value_text). |
-#' | value_text | character | Non-numeric statistic value, e.g. an ISO 8601 duration such as PT12M2S for minutes per game. |
+#' @return A `wehoop_data` tibble, one row per `(table_key, entity_name, stat_key)`, with the same columns as [atrium_team_stats()] (listed there).
 #' @eval .intl_details(.atrium_fixtures_details, c(
 #'   'atrium_competition_team_stats(',
 #'   '  website_id = 12, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"',
