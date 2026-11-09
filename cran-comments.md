@@ -47,7 +47,8 @@ full list of changes is in NEWS.md. The main additions:
   recompress one `.rda` file. The last of them makes a past-season ESPN
   roster warn and return zero rows instead of erroring when its box-score
   file cannot be downloaded. The local checks above cover all of them. The README rework (#119)
-  landed after those checks ran.
+  landed after those checks ran, and so did the example changes listed
+  under "Example timing changes" below (examples only; no R code changed).
 * R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel): passed on
   2026-11-06 at 59bac3e3b, an earlier commit than the one submitted.
 * win-builder (devel and release): to be run before submission.
@@ -56,29 +57,57 @@ full list of changes is in NEWS.md. The main additions:
 
 0 errors | 0 warnings | 1 note
 
-* **Example timings (NOTE).** The local check listed these examples. Re-run
-  one at a time from the installed package
-  (`system.time(example(fn, package = "wehoop", run.donttest = TRUE))`),
-  they took:
+* **Example timing (NOTE).** The final local check (`Status: 1 NOTE`)
+  listed one example:
 
-  | example                   | in check: CPU / elapsed (s) | alone: CPU / elapsed (s) |
-  |:--------------------------|----------------------------:|-------------------------:|
-  | load_wnba_stats_coaches   |                0.83 / 15.83 |             0.83 / 14.51 |
-  | load_wnba_draft           |                 0.45 / 7.73 |              0.48 / 6.32 |
-  | atrium_box_score          |                 0.33 / 6.68 |              0.22 / 0.56 |
-  | load_wbb_game_rosters     |                 0.59 / 6.26 |              0.68 / 5.87 |
-  | fiba_gamepage_box_players |                 0.14 / 6.13 |              0.20 / 5.24 |
-  | atrium_player_stats       |                 0.67 / 5.22 |              0.57 / 3.76 |
-  | wjbl_pbp                  |                 0.17 / 5.17 |              0.21 / 9.39 |
+      Examples with CPU (user + system) or elapsed time > 5s
+                                user system elapsed
+      fiba_gamepage_box_players 0.19   0.01    7.72
 
-  All of them are `\donttest{}` examples that download public data: every
-  CPU time is under 1 s, and the rest is network wait. The three
-  `load_*` help pages each document a group of loaders and run about a
-  dozen small release-file downloads from GitHub (one per loader whose
-  example is not interactive-only), and `wjbl_pbp()`,
-  `fiba_gamepage_box_players()` and the two `atrium_*()` examples call a
-  public league API. These examples now run only in interactive
-  sessions (`@examplesIf interactive()`):
+  It is the first FIBA game-page example to run, so it makes the
+  session's first FIBA requests: it looks up the competition and its
+  schedule, which the other `fiba_gamepage_*` examples then reuse, and
+  fetches the game page.
+  The CPU time is 0.2 s and the rest is network wait. Run on its own in a
+  fresh session it took 2.6 to 3.4 s elapsed (5.1 s once, with a check
+  running alongside). Other checks run on this
+  machine at the same time, which inflates elapsed times, so it is left
+  as is.
+
+* **Example timing changes.** Earlier local checks listed the help pages below
+  as taking more than 5 s. Each page re-run on its own from the installed
+  package (`system.time(example(fn, package = "wehoop", run.donttest = TRUE))`,
+  the slower of two runs), before and after the changes in this
+  submission:
+
+  | help page                 | before: CPU / elapsed (s) | after: CPU / elapsed (s) |
+  |:--------------------------|--------------------------:|-------------------------:|
+  | load_wnba_stats_coaches   |              0.83 / 14.51 |              0.16 / 0.98 |
+  | wjbl_pbp                  |               0.21 / 9.39 |              0.09 / 1.19 |
+  | load_wnba_draft           |               0.48 / 6.32 |              0.22 / 0.83 |
+  | load_wbb_game_rosters     |               0.68 / 5.87 |              0.29 / 1.37 |
+  | espn_wbb_game_all         |              4.55 / 11.26 |              2.71 / 3.63 |
+  | espn_wnba_game_all        |               2.68 / 9.59 |              2.43 / 3.17 |
+  | espn_wbb_teams            |              0.60 / 21.99 |              0.07 / 0.26 |
+  | atrium_player_stats       |               0.64 / 6.72 |              0.25 / 2.03 |
+  | nbl_rosetta_matches       |               3.07 / 5.34 |              0.47 / 1.35 |
+  | fiba_gamepage_box_players |               0.20 / 5.24 |   0.16 / 2.96 (no change) |
+  | atrium_box_score          |               0.22 / 0.56 |   0.34 / 0.85 (no change) |
+
+  The three `load_*` pages each document 12 to 14 loaders; each now runs
+  two of them. `nbl_rosetta_matches()` asks for 10 matches. On the
+  `wjbl_pbp`, `atrium_player_stats` and `espn_wbb_teams` pages a quick
+  call to a related function (`wjbl_game()`, `atrium_players()`,
+  `espn_wbb_conferences()`) runs instead of the slow one. These examples
+  run only in interactive sessions (`@examplesIf interactive()`):
+  * The other loaders on the `load_wnba_stats_coaches`, `load_wnba_draft`
+    and `load_wbb_game_rosters` pages, one release-file download each.
+  * `wjbl_pbp()` (the route takes 5 to 10 s to answer),
+    `atrium_player_stats()` (the server can take 5 s to build a season's
+    tables) and `espn_wbb_teams()` (one request per conference, about 30).
+  * On the `espn_wbb_game_all` and `espn_wnba_game_all` pages: the team
+    and player box examples (`game_all()` returns those tables too) and
+    the game roster example (one request per team).
   * `wnba_schedule_crosswalk()`, `wbb_schedule_crosswalk()` and
     `wbb_player_crosswalk()`: each builds a whole season's crosswalk from
     several sources, one request per game date or team.
@@ -142,7 +171,7 @@ be removed in a future release, no earlier than 3.2.0:
 
 ### Examples
 
-* The interactive-only examples are listed under the timing NOTE above.
+* The interactive-only examples are listed under "Example timing changes" above.
 * The Her Hoop Stats examples are in `\dontrun{}`: the functions need a
   paid subscription.
 * The other networked examples are in `\donttest{}` and read public data.
