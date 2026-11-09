@@ -46,14 +46,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 20:19:13 UTC
+#> ℹ Data updated: 2026-11-09 21:09:42 UTC
 #> # A tibble: 5 × 8
-#>         id type        headline description published premium link_web league_id
-#>      <int> <chr>       <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 50434756 Media       Grace S… After post… 2026-11-… FALSE   https:/… 54       
-#> 2 50434643 Media       Northwe… Northweste… 2026-11-… FALSE   https:/… 54       
-#> 3 50434609 Recap       Liv McG… — Liv McGi… 2026-11-… FALSE   http://… 54       
-#> 4 50434536 Media       Tenness… Tennessee … 2026-11-… FALSE   https:/… 54       
-#> 5 50433816 HeadlineNe… Michiga… After beat… 2026-11-… FALSE   https:/… 54       
+#>         id type  headline       description published premium link_web league_id
+#>      <int> <chr> <chr>          <chr>       <chr>     <lgl>   <chr>    <chr>    
+#> 1 50434896 Media Bless their h… SEC This M… 2026-11-… FALSE   https:/… 23       
+#> 2 50434756 Media Grace Slaught… After post… 2026-11-… FALSE   https:/… 54       
+#> 3 50434643 Media Northwestern … Northweste… 2026-11-… FALSE   https:/… 54       
+#> 4 50434609 Recap Liv McGill sc… — Liv McGi… 2026-11-… FALSE   http://… 54       
+#> 5 50434536 Media Tennessee Tec… Tennessee … 2026-11-… FALSE   https:/… 54       
 # }
 ```

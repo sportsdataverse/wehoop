@@ -50,7 +50,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_news(team_id = "2509", limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team News (team_id=2509) from ESPN.com ───────
-#> ℹ Data updated: 2026-11-09 20:19:26 UTC
+#> ℹ Data updated: 2026-11-09 21:09:59 UTC
 #> # A tibble: 4 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    

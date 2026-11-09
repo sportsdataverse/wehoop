@@ -94,7 +94,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_leagues())
 #> ── W League Leagues from api.wjbl.01core.app ─────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 20:22:18 UTC
+#> ℹ Data updated: 2026-11-09 21:13:12 UTC
 #> # A tibble: 37 × 3
 #>    league_id league_title               season
 #>        <int> <chr>                       <int>
