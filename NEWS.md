@@ -301,6 +301,14 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
 * `load_ncaa_wbb_rapm_within_team()` documented `rapm_net` as `rapm_off + rapm_def`. The data
   has `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a points-allowed scale (lower
   is better). The docs now say so.
+* The installed help is a third smaller (4.4 MB to 3.0 MB). The help pages of the 9 largest
+  function families (ESPN WNBA and WBB, WNBA Player and Team, FIBA, TBF, SCB, NBL Rosetta,
+  WJBL) link to one family index page (`?family_espn_wnba`, `?family_tbf`, ...) in "See also"
+  instead of listing every other member. Each international family's shared notes (source,
+  terms, coverage, error classes) print once, on the family's first topic, and the other
+  topics link there. The per-competition alias pages and six topics whose returns table
+  repeated a sibling's link to that table instead of copying it, and the nine
+  `tbf_leaders_*()` wrappers share one page (`?tbf_leaders`). No export changes.
 
 # **wehoop 3.0.0**
 

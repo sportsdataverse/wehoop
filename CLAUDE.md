@@ -15,6 +15,7 @@
 - [Documentation Maintenance](#documentation-maintenance)
 - [Commit Convention](#commit-convention)
 - [Common Pitfalls](#common-pitfalls)
+- [Cheat sheet](#cheat-sheet)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -212,7 +213,8 @@ NULL
 #' @importFrom dplyr select as_tibble any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_functionname(team_id = "2509", season = 2025)
@@ -568,6 +570,7 @@ Split unrelated work into separate commits for reviewability.
 - WNBA uses 10-minute quarters and 40-minute regulation -- time calculations differ from NBA.
 - Local dev artifacts (e.g., `.vscode`, `.claude`) can surface as `R CMD check` notes.
 - Never hand-edit `NAMESPACE` or files under `man/`; regenerate with `devtools::document()`.
+- The `@family` tag adds a "See also" list of every family member to every member, so it grows as n^2. The 9 large families in `R/families.R` (ESPN WNBA/WBB, WNBA Player/Team, FIBA, TBF, SCB, NBL Rosetta, WJBL) use `#' @concept <Family>` plus `#' @seealso [family_<slug>] lists every function in this family.` instead; their index page is built from the `@concept` tags by `.family_index()` at `devtools::document()` time. A new function in one of those families takes those two lines, not `@family`. Small families keep `@family`. An international family's shared notes print in full on its primary topic only (`.intl_details(.<primary>_details, full = TRUE)`); other topics call `.intl_details(.<primary>_details)`, which links there.
 - **`load_wbb_pbp()` / `load_wnba_pbp()` free-throw semantics**: ESPN labels the play `type_text` `"MadeFreeThrow"` for both made *and* missed free throws, and `score_value` carries the attempt's point value (1) even on a miss. Filter makes vs. misses with `scoring_play`, not `type_text`/`score_value`. `load_wbb_pbp()` also documents the producer-appended `pregame_home_prob` / `home_win_prob` win-probability columns.
 - **Pre-halves-era pbp clock columns**: pre-2006 WNBA and pre-2016 NCAA WBB seasons were originally published with a quarters-era clock model even though those seasons actually played halves; the source datasets have been republished with correct halves-era clock columns. Loaders (`load_wnba_pbp()`, `load_ncaa_wbb_pbp()`) surface whatever the release asset ships, so a re-download picks up the fix.
 - **`espn_wbb_standings()` is conference-grouped** (`level=3`, one row-bind per conference group), not the flat `level=1` list -- the flat list silently omitted newer D-I teams (e.g. 2022-23 additions Queens, Le Moyne, Stonehill). The result carries a `conference` column obtained for free from the grouping.
