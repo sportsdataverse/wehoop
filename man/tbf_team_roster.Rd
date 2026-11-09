@@ -44,27 +44,8 @@ Roster of one team-season with games, minutes and per-game points and efficiency
 Endpoint: \verb{GET https://miniappapi.tbf.org.tr/webapi-service/api/Team/get-team-active-player-list-by-season-and-league}
 }
 \details{
-Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-(nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-
-Coverage: season and competition are parameters (\code{bsl} Basketbol Super Ligi, back to 1966-67 in the league
-list; \code{tbl} second tier; \code{kbsl} women, both from 2015-16). Game wrappers serve FINISHED games only (an
-unfinished game raises \code{wehoop_asset_fetch}). Box scores exist from 2006-07 (no starters flagged that
-season); play-by-play and shots from 2025-26 only, an earlier finished game raises \code{wehoop_no_data}. Every
-game carries a Genius LiveStats id (\code{genius_id}, joins the \code{genius} family) from 2018-19 on some seasons
-and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-and category labels are Turkish; the column descriptions give the English gloss.
-
-Errors: \code{wehoop_no_data} when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-\code{wehoop_bad_request} for an invalid argument or HTTP 400 / 422; \code{wehoop_asset_fetch} when the fetch failed or
-the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-an error envelope, a redirect, a partial page or a changed capped list). All inherit \code{wehoop_error}.
-Timestamps are Turkey local time (\code{Europe/Istanbul}).
+Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+see the notes in \code{\link[=tbf_seasons]{tbf_seasons()}}.
 }
 \examples{
 \donttest{

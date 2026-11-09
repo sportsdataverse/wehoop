@@ -82,27 +82,8 @@ tbf_seasons <- function() {
 #'   | sort | integer | Display order in the app (integer, 1 = first: BSL). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -138,27 +119,8 @@ tbf_leagues <- function(season) {
 #'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -199,27 +161,8 @@ tbf_league_seasons <- function(competition = "kbsl") {
 #'   | is_current | logical | True on the current (or last played) week; exactly one row. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -272,27 +215,8 @@ tbf_weeks <- function(season, competition = "kbsl") {
 #'   | excluded | integer | Exclusion marker (ihrac = expulsion); 0 for teams still in the league. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -352,27 +276,8 @@ tbf_standings <- function(season, competition = "kbsl", week = NULL) {
 #'   | has_overtime | logical | Overtime flag (uzatma = overtime). Reliability unverified: false on every one of 64 BSL 2025-26 games checked. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -435,27 +340,8 @@ tbf_schedule <- function(season, competition = "kbsl", week = NULL) {
 #'   | status | character | Game status text in Turkish: Oynandi = played, Oynanmadi = not played. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -512,27 +398,8 @@ tbf_daily_matches <- function(match_date, season = NULL, competition = NULL) {
 #'   | commissioner | character | Commissioner's (temsilci = representative) name. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -568,27 +435,8 @@ tbf_game_header <- function(match_id) {
 #'   | is_active | logical | True when the player is flagged active in the header (isActive). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_game_players(match_id = 346279)
@@ -650,27 +498,8 @@ tbf_game_players <- function(match_id) {
 #'   | efficiency | integer | Efficiency rating (verimlilik puani, PIR): points + rebounds + assists + steals + blocks + fouls drawn - missed shots - turnovers - fouls. An integer on player rows. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -732,27 +561,8 @@ tbf_player_box <- function(match_id) {
 #'   | team_fouls | integer | Team fouls not credited to a player (bench / coach technicals); 0 in the samples. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -795,27 +605,8 @@ tbf_team_box <- function(match_id) {
 #'   | action_en | character | English gloss of the Turkish action, from the refs action vocabulary; null for an action not in it. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -854,27 +645,8 @@ tbf_pbp <- function(match_id) {
 #'   | made | logical | True when the attempt was made (isSucceed). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -908,27 +680,8 @@ tbf_shots <- function(match_id) {
 #'   | points | integer | Points the side scored IN the period (not cumulative). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -964,27 +717,8 @@ tbf_period_scores <- function(match_id) {
 #'   | away_number | double | Away value as a number; null for a time value such as TimeLeading. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_highlights(match_id = 346279)
@@ -1022,27 +756,8 @@ tbf_highlights <- function(match_id) {
 #'   | value | double | The leader's value in the category (points, rebounds, ...). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_game_leaders(match_id = 346279)
@@ -1085,27 +800,8 @@ tbf_game_leaders <- function(match_id) {
 #'   | season_id | integer | Internal TBF season id (key space: TBF seasons, global across leagues: 174 = 2026-2027, 172 = 2025-2026; the odd ids are international UA- seasons). Never an sdv key: use season (END year). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -1164,27 +860,8 @@ tbf_players <- function(season, competition = "kbsl") {
 #'   | blocks_received | integer | Own shots blocked by an opponent (yenilenBlok). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_player_career(player_id = 196413)
@@ -1225,27 +902,8 @@ tbf_player_career <- function(player_id) {
 #'   | season_label | character | Season label 'YYYY-YYYY' of the league-season. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -1321,27 +979,8 @@ tbf_teams <- function(season, competition = "kbsl") {
 #'   | efficiency_per_game | double | Efficiency rating per game (vpOrtalama). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_team_player_stats(season = 2027, team_process_id = 265995)
@@ -1398,27 +1037,8 @@ tbf_team_player_stats <- function(season, team_process_id, competition = "kbsl")
 #'   | has_overtime | logical | Overtime flag (uzatma = overtime). Reliability unverified: false on every one of 64 BSL 2025-26 games checked. |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_team_games(season = 2027, team_process_id = 265995)
@@ -1467,27 +1087,8 @@ tbf_team_games <- function(season, team_process_id, competition = "kbsl") {
 #'   | efficiency_per_game | double | Efficiency rating per game (verimlilikPuani). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
 #' @export
@@ -1531,27 +1132,8 @@ tbf_team_roster <- function(season, team_process_id, competition = "kbsl") {
 #'   | role_code | integer | Staff sub-role code (subRolesCode). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_team_staff(season = 2027, team_process_id = 265995)
@@ -1566,11 +1148,22 @@ tbf_team_staff <- function(season, team_process_id, competition = "kbsl") {
 }
 
 #' @title
-#' **TBF Leaders: Points**
+#' **TBF Leaders**
+#' @name tbf_leaders
 #' @description
-#' Season leaders in points: the server's top 20 by season total and by per-game average.
+#' Season leaders in one statistic per function: the server's top 20 by season total and by per-game
+#' average. The `category` column names the statistic.
 #'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-point-leaders`
+#' Endpoints (`GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/<route>`):
+#' * `tbf_leaders_points()`: points, `get-point-leaders`
+#' * `tbf_leaders_assists()`: assists, `get-asist-leaders`
+#' * `tbf_leaders_blocks()`: blocks, `get-blok-leaders`
+#' * `tbf_leaders_rebounds()`: rebounds, `get-ribound-leaders`
+#' * `tbf_leaders_steals()`: steals, `get-top-calma-leaders`
+#' * `tbf_leaders_minutes()`: minutes, `get-duration-leaders`
+#' * `tbf_leaders_threes()`: threes, `get-3Point-leaders`
+#' * `tbf_leaders_turnovers()`: turnovers, `get-top-kaybi-leaders`
+#' * `tbf_leaders_efficiency()`: efficiency, `get-mvp-leaders`
 #' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
 #' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
 #' A year the list lacks raises `wehoop_no_data`.
@@ -1595,30 +1188,19 @@ tbf_team_staff <- function(season, team_process_id, competition = "kbsl") {
 #'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
 #'
 #' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
+#' Source, terms of use, request pacing, seasons, coverage and error classes of this family:
+#' see the notes in [tbf_seasons()].
 #'
 #' ```r
 #'  tbf_leaders_points(competition = "bsl", season = 2027)
+#'  tbf_leaders_assists(competition = "bsl", season = 2027)
+#'  tbf_leaders_blocks(competition = "bsl", season = 2027)
+#'  tbf_leaders_rebounds(competition = "bsl", season = 2027)
+#'  tbf_leaders_steals(competition = "bsl", season = 2027)
+#'  tbf_leaders_minutes(competition = "bsl", season = 2027)
+#'  tbf_leaders_threes(competition = "bsl", season = 2027)
+#'  tbf_leaders_turnovers(competition = "bsl", season = 2027)
+#'  tbf_leaders_efficiency(competition = "bsl", season = 2027)
 #' ```
 #' @concept TBF Functions
 #' @seealso [family_tbf] lists every function in this family.
@@ -1629,63 +1211,8 @@ tbf_leaders_points <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Points", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Assists**
-#' @description
-#' Season leaders in assists: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-asist-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_assists(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_assists <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -1693,63 +1220,8 @@ tbf_leaders_assists <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Assists", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Blocks**
-#' @description
-#' Season leaders in blocks: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-blok-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_blocks(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_blocks <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -1757,63 +1229,8 @@ tbf_leaders_blocks <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Blocks", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Rebounds**
-#' @description
-#' Season leaders in rebounds: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-ribound-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_rebounds(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_rebounds <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -1821,63 +1238,8 @@ tbf_leaders_rebounds <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Rebounds", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Steals**
-#' @description
-#' Season leaders in steals: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-top-calma-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_steals(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_steals <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -1885,63 +1247,8 @@ tbf_leaders_steals <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Steals", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Minutes**
-#' @description
-#' Season leaders in minutes played: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-duration-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_minutes(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_minutes <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -1949,64 +1256,8 @@ tbf_leaders_minutes <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Minutes", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Threes**
-#' @description
-#' Season leaders in three-point field goals made: the server's top 20 by season total and by per-game
-#' average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-3Point-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_threes(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_threes <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -2014,63 +1265,8 @@ tbf_leaders_threes <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Threes", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Turnovers**
-#' @description
-#' Season leaders in turnovers: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-top-kaybi-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_turnovers(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_turnovers <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
@@ -2078,63 +1274,8 @@ tbf_leaders_turnovers <- function(season, competition = "kbsl") {
             type = "TBF Leaders: Turnovers", call = rlang::current_env())
 }
 
-#' @title
-#' **TBF Leaders: Efficiency**
-#' @description
-#' Season leaders in efficiency rating: the server's top 20 by season total and by per-game average.
-#'
-#' Endpoint: `GET https://miniappapi.tbf.org.tr/webapi-service/api/Player/get-mvp-leaders`
-#' @param season Required. Season END year (2027 = the 2026-2027 season). TBF keys a league-season by internal
-#' season and activity ids; the runtime reads them from the league's season list by the END year of the label.
-#' A year the list lacks raises `wehoop_no_data`.
-#' @param competition TBF league: bsl (Basketbol Super Ligi), tbl (second tier) or kbsl (women's Super Ligi).
-#' The top flight was named TBL until 2007-08 and is listed under bsl. Default `"kbsl"` (the women's Super Ligi).
-#' @return A `wehoop_data` tibble. Up to 20 rows per `kind` (`total` and `average`), best first.
-#'   Every column below is always present (a zero-row tibble keeps them and their types); an answer
-#'   with nothing in it raises `wehoop_no_data`, as in sportsdataverse-py.
-#'
-#'   | col_name | type | description |
-#'   |---|---|---|
-#'   | season | integer | Season END year (2027 = the 2026-2027 season), read from the 'YYYY-YYYY' label or the request; the sdv season key. Not the internal TBF season id (season_id). |
-#'   | competition | character | TBF league the row belongs to: bsl, tbl or kbsl (the request's competition, or the league prefix the API reports). |
-#'   | category | character | Statistic of the wrapper: points, assists, blocks, rebounds, steals, minutes, threes, turnovers or efficiency. |
-#'   | kind | character | total = the server's top 20 by season TOTAL; average = the top 20 by PER-GAME average. |
-#'   | rank | integer | Rank in the list, 1 = best (the API's order). |
-#'   | person_id | integer | TBF person id (oyuncuKodu, sent as a string; key space: TBF persons). |
-#'   | player_name | character | Player name as TBF prints it for that route (title case, Turkish letters kept). |
-#'   | team_process_id | integer | Team-season id (takimKodu, sent as a string; key space: TBF team registrations; despite the name NOT the club id). |
-#'   | team_name | character | Team name as registered for that season, uppercase with Turkish letters (sponsor name: 'PIZZABULLS BORDO BANDIRMA'). |
-#'   | games | integer | Games played (macSayisi, sent as a string). |
-#'   | value | double | The ranked statistic: the season total for kind total, the per-game average for kind average (the API names the field grup and sends it as a string). |
-#'
-#' @details
-#' Official TBF app API, unofficial for SportsDataverse: the backend of the Turkish Basketball Federation's
-#' mobile app (miniappapi.tbf.org.tr), which serves BSL, TBL, KBSL and the other TBF leagues. It needs no key;
-#' robots.txt answers 404 on the host, and the runtime spaces requests at least 1 s apart. SportsDataverse has
-#' not ruled on TBF's terms, so payloads are not redistributed as release assets. The vendor's origin hosts
-#' (nikayazilim.com) serve the same data without Cloudflare but are deliberately not used, redirects are never
-#' followed, and www.tbf.org.tr's interactive Turnstile is neither used nor automated.
-#'
-#' Coverage: season and competition are parameters (`bsl` Basketbol Super Ligi, back to 1966-67 in the league
-#' list; `tbl` second tier; `kbsl` women, both from 2015-16). Game wrappers serve FINISHED games only (an
-#' unfinished game raises `wehoop_asset_fetch`). Box scores exist from 2006-07 (no starters flagged that
-#' season); play-by-play and shots from 2025-26 only, an earlier finished game raises `wehoop_no_data`. Every
-#' game carries a Genius LiveStats id (`genius_id`, joins the `genius` family) from 2018-19 on some seasons
-#' and on every game of 2025-26 and later. Birth dates, contact details, photos and logos are dropped. Names
-#' and category labels are Turkish; the column descriptions give the English gloss.
-#'
-#' Errors: `wehoop_no_data` when TBF has nothing for the request (HTTP 404, an unknown game or player, a season
-#' the league list lacks, an empty list, a finished game before 2025-26 asked for play-by-play or shots);
-#' `wehoop_bad_request` for an invalid argument or HTTP 400 / 422; `wehoop_asset_fetch` when the fetch failed or
-#' the answer is not the one asked for (an unfinished game, a body for another game, season, league or team,
-#' an error envelope, a redirect, a partial page or a changed capped list). All inherit `wehoop_error`.
-#' Timestamps are Turkey local time (`Europe/Istanbul`).
-#'
-#' ```r
-#'  tbf_leaders_efficiency(competition = "bsl", season = 2027)
-#' ```
+#' @rdname tbf_leaders
 #' @concept TBF Functions
-#' @seealso [family_tbf] lists every function in this family.
 #' @export
 tbf_leaders_efficiency <- function(season, competition = "kbsl") {
   .tbf_check_competition(competition, call = rlang::current_env())
