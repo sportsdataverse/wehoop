@@ -47,7 +47,7 @@ Get ESPN women's college basketball team names and ids
 }
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
-  # Interactive only: it makes one request per conference (about 35), 7 to 20 s.
+  # Interactive only: it makes one request per conference (about 30), 7 to 20 s.
   try(espn_wbb_teams())
 }
 \dontshow{\}) # examplesIf}
