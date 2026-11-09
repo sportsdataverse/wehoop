@@ -133,7 +133,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_match_pbp(match_id = "b217a699-4bef-11f0-bc08-933162362355"))
 #> ── NBL Rosetta match_pbp from prod.rosetta.nbl.com.au ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:17:08 UTC
+#> ℹ Data updated: 2026-11-09 10:04:38 UTC
 #> # A tibble: 982 × 29
 #>    match_id     rosetta_match_id match_status action_id period period_type clock
 #>    <chr>        <chr>            <chr>            <int>  <int> <chr>       <chr>

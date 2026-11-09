@@ -853,123 +853,36 @@ Saiem Gilani
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_pbp(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 130,383 × 87
-#>    game_date  home         away   period clock game_time game_seconds home_score
-#>    <chr>      <chr>        <chr>   <int> <chr> <chr>            <int>      <int>
-#>  1 11/02/2026 Colorado St. Linde…      1 09:58 00:02                2          0
-#>  2 11/02/2026 Colorado St. Linde…      1 09:58 00:02                2          0
-#>  3 11/02/2026 Colorado St. Linde…      1 09:47 00:13               13          0
-#>  4 11/02/2026 Colorado St. Linde…      1 09:26 00:34               34          2
-#>  5 11/02/2026 Colorado St. Linde…      1 09:11 00:49               49          2
-#>  6 11/02/2026 Colorado St. Linde…      1 09:07 00:53               53          2
-#>  7 11/02/2026 Colorado St. Linde…      1 09:04 00:56               56          2
-#>  8 11/02/2026 Colorado St. Linde…      1 08:51 01:09               69          2
-#>  9 11/02/2026 Colorado St. Linde…      1 08:35 01:25               85          4
-#> 10 11/02/2026 Colorado St. Linde…      1 08:06 01:54              114          4
-#> # ℹ 130,373 more rows
-#> # ℹ 79 more variables: away_score <int>, event_team <chr>,
-#> #   event_description <chr>, player_1 <chr>, player_2 <chr>, event_type <chr>,
-#> #   event_result <chr>, shot_value <int>, event_length <int>, poss_num <int>,
-#> #   poss_team <chr>, poss_length <int>, is_transition <lgl>, home_1 <chr>,
-#> #   home_2 <chr>, home_3 <chr>, home_4 <chr>, home_5 <chr>, away_1 <chr>,
-#> #   away_2 <chr>, away_3 <chr>, away_4 <chr>, away_5 <chr>, status <chr>, …
 # }
+}
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_shots(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 29,461 × 19
-#>    season team_id     shooter_id shot_x shot_y dist_ft shot_zone shot_type made 
-#>     <int> <chr>       <chr>       <dbl>  <dbl>   <dbl> <chr>     <chr>     <lgl>
-#>  1   2027 Colorado S… SoSene        3.5   0.64    3.56 rim       unknown   TRUE 
-#>  2   2027 Lindenwood  CaDykstra    19    16.6    25.2  abovebre… unknown   FALSE
-#>  3   2027 Lindenwood  CaDykstra     5     4.4     6.66 paint     unknown   TRUE 
-#>  4   2027 Colorado S… SoSene       -2.5   1.58    2.96 rim       unknown   TRUE 
-#>  5   2027 Lindenwood  CaDykstra     9    24.1    25.8  abovebre… unknown   TRUE 
-#>  6   2027 Colorado S… KlFroebe      6     1.58    6.20 paint     unknown   FALSE
-#>  7   2027 Colorado S… McMurphy    -19.5  13.8    23.9  abovebre… unknown   FALSE
-#>  8   2027 Lindenwood  CaDykstra     4.5   1.58    4.77 paint     unknown   FALSE
-#>  9   2027 Lindenwood  BrRucker      4    25.1    25.4  abovebre… unknown   TRUE 
-#> 10   2027 Colorado S… CaRunner     -3    10.0    10.5  paint     unknown   FALSE
-#> # ℹ 29,451 more rows
-#> # ℹ 10 more variables: point_value <int>, period <int>, sec_left <dbl>,
-#> #   source <chr>, contest_id <chr>, ncaa_team_id <chr>, espn_team_id <chr>,
-#> #   shooter_player_id <chr>, shooter_clean_name <chr>, espn_game_id <???>
 # }
+}
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_lineups(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 12,210 × 77
-#>    lineup_key   date  location_type team  team_year opponent lineup_id start_min
-#>    <chr>        <chr> <chr>         <chr>     <int> <chr>    <chr>         <dbl>
-#>  1 7728faec663… 2026… Home          Colo…      2026 Lindenw… BrBowman…      0   
-#>  2 7728faec663… 2026… Home          Colo…      2026 Lindenw… BrBowman…      4.85
-#>  3 fa27fbe62da… 2026… Home          Colo…      2026 Lindenw… BrBowman…      6.47
-#>  4 00d579aa278… 2026… Home          Colo…      2026 Lindenw… BrBowman…      8.67
-#>  5 702fcced83a… 2026… Home          Colo…      2026 Lindenw… BrBowman…     10   
-#>  6 0a9352e9a26… 2026… Home          Colo…      2026 Lindenw… BrBowman…     12.7 
-#>  7 930989fcf44… 2026… Home          Colo…      2026 Lindenw… BrBowman…     28.9 
-#>  8 79928848d36… 2026… Home          Colo…      2026 Lindenw… AlRoden_…     29.9 
-#>  9 fe63496880e… 2026… Home          Colo…      2026 Lindenw… CaKramer…     30   
-#> 10 b0eb5d91195… 2026… Home          Colo…      2026 Lindenw… AlRoden_…     32.4 
-#> # ℹ 12,200 more rows
-#> # ℹ 69 more variables: end_min <dbl>, duration_mins <dbl>, player_1 <chr>,
-#> #   player_2 <chr>, player_3 <chr>, player_4 <chr>, player_5 <chr>,
-#> #   players_in <chr>, players_out <chr>, start_scored <int>,
-#> #   start_allowed <int>, end_scored <int>, end_allowed <int>, start_diff <int>,
-#> #   end_diff <int>, player_count_error <???>, poss <int>, pts <int>,
-#> #   plus_minus <int>, fga <int>, fgm <int>, rima <int>, rimm <int>, …
 # }
+}
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_matchup_stints(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 8,984 × 33
-#>    contest_id season game_date  home   away  game_stint_num period start_seconds
-#>    <chr>       <int> <chr>      <chr>  <chr>          <int>  <int>         <int>
-#>  1 6607281      2027 11/02/2026 Color… Lind…              1      1             2
-#>  2 6607281      2027 11/02/2026 Color… Lind…              2      1           154
-#>  3 6607281      2027 11/02/2026 Color… Lind…              3      1           204
-#>  4 6607281      2027 11/02/2026 Color… Lind…              4      1           307
-#>  5 6607281      2027 11/02/2026 Color… Lind…              5      1           336
-#>  6 6607281      2027 11/02/2026 Color… Lind…              6      1           421
-#>  7 6607281      2027 11/02/2026 Color… Lind…              7      1           447
-#>  8 6607281      2027 11/02/2026 Color… Lind…              8      1           475
-#>  9 6607281      2027 11/02/2026 Color… Lind…              9      1           534
-#> 10 6607281      2027 11/02/2026 Color… Lind…             10      1           599
-#> # ℹ 8,974 more rows
-#> # ℹ 25 more variables: end_seconds <int>, duration_seconds <int>,
-#> #   matchup_key <chr>, home_lineup_key <chr>, away_lineup_key <chr>,
-#> #   home_lineup <chr>, away_lineup <chr>, end_home_score <int>,
-#> #   end_away_score <int>, n_events <int>, n_possessions <int>,
-#> #   start_home_score <int>, start_away_score <int>, home_pts <int>,
-#> #   away_pts <int>, home_1 <chr>, home_2 <chr>, home_3 <chr>, home_4 <chr>, …
 # }
+}
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_possessions(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 36,584 × 56
-#>    game_date  home   away  period poss_num poss_team home_1 home_2 home_3 home_4
-#>    <chr>      <chr>  <chr>  <int>    <int> <chr>     <chr>  <chr>  <chr>  <chr> 
-#>  1 11/02/2026 Color… Lind…      1        1 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
-#>  2 11/02/2026 Color… Lind…      1        2 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
-#>  3 11/02/2026 Color… Lind…      1        3 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
-#>  4 11/02/2026 Color… Lind…      1        4 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
-#>  5 11/02/2026 Color… Lind…      1        5 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
-#>  6 11/02/2026 Color… Lind…      1        6 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
-#>  7 11/02/2026 Color… Lind…      1        7 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
-#>  8 11/02/2026 Color… Lind…      1        8 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
-#>  9 11/02/2026 Color… Lind…      1        9 Lindenwo… CAITL… CAMRY… KLOE.… MCKEN…
-#> 10 11/02/2026 Color… Lind…      1       10 Colorado… CAITL… CAMRY… KLOE.… MCKEN…
-#> # ℹ 36,574 more rows
-#> # ℹ 46 more variables: home_5 <chr>, away_1 <chr>, away_2 <chr>, away_3 <chr>,
-#> #   away_4 <chr>, away_5 <chr>, home_score <int>, away_score <int>, pts <int>,
-#> #   is_assisted <int>, is_transition <int>, is_garbage_time <int>,
-#> #   start_event_type <chr>, first_shot_time <int>, first_shot_type <chr>,
-#> #   last_event_time <int>, last_event_type <chr>, contest_id <chr>,
-#> #   home_ncaa_team_id <chr>, home_espn_team_id <chr>, …
 # }
+}
 # \donttest{
   try(load_ncaa_wbb_rapm_within_team(seasons = most_recent_wbb_season()))
 #> Warning: Failed to read
@@ -998,47 +911,29 @@ Saiem Gilani
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 0 × 0
 # }
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_player_box(seasons = most_recent_wbb_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 5,379 × 125
-#>    game_date home  away  team  player  mins o_poss   pts   orb   drb   ast   stl
-#>    <chr>     <chr> <chr> <chr> <chr>  <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-#>  1 11/02/20… Colo… Lind… Colo… ALLIE…  6        10     0     0     0     0     0
-#>  2 11/02/20… Colo… Lind… Colo… BREAN…  2.02      3     3     0     0     0     0
-#>  3 11/02/20… Colo… Lind… Colo… CAITL… 38.9      63    14     0    11     3     2
-#>  4 11/02/20… Colo… Lind… Colo… CAMRY… 35.1      58    11     0     2     5     0
-#>  5 11/02/20… Colo… Lind… Colo… GIANN…  7.85     14     0     0     2     1     1
-#>  6 11/02/20… Colo… Lind… Colo… HEIDU… 19.9      35     6     0     6     0     1
-#>  7 11/02/20… Colo… Lind… Colo… KLOE.… 38.8      62    13     1     7     5     1
-#>  8 11/02/20… Colo… Lind… Colo… MCKEN… 33.1      52    12     0     2     0     2
-#>  9 11/02/20… Colo… Lind… Colo… OLIVI…  1.57      2     0     0     0     0     0
-#> 10 11/02/20… Colo… Lind… Colo… SOPHI… 16.6      26     4     5     1     0     2
-#> # ℹ 5,369 more rows
-#> # ℹ 113 more variables: blk <dbl>, tov <dbl>, pf <dbl>, ts_pct <dbl>,
-#> #   efg_pct <dbl>, fgm <dbl>, fga <dbl>, fg_pct <dbl>, tpm <dbl>, tpa <dbl>,
-#> #   tp_pct <dbl>, ftm <dbl>, fta <dbl>, ft_pct <dbl>, rimm <dbl>, rima <dbl>,
-#> #   rim_pct <dbl>, midm <dbl>, mida <dbl>, mid_pct <dbl>, pbackm <dbl>,
-#> #   pbacka <dbl>, pback_pct <dbl>, blk_rim <dbl>, blk_mid <dbl>,
-#> #   blk_three <dbl>, pct_fga_trans <dbl>, pct_tpa_trans <dbl>, …
 # }
+}
 # \donttest{
   try(load_ncaa_wbb_team_box(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 482 × 81
+#> # A tibble: 838 × 81
 #>    home   away  team   mins o_mins d_mins o_poss d_poss  ortg  drtg netrtg   pts
 #>    <chr>  <chr> <chr> <dbl>  <dbl>  <dbl>  <dbl>  <dbl> <dbl> <dbl>  <dbl> <dbl>
 #>  1 Color… Lind… Colo…  39.8   17.8   21.9     65     68  96.9  67.6  29.3     63
 #>  2 Color… Lind… Lind…  39.8   21.9   17.8     68     65  67.6  96.9 -29.3     46
 #>  3 Denver Lind… Denv…  38.7   20.6   18.2     66     68 100    76.5  23.5     66
 #>  4 Denver Lind… Lind…  38.7   18.2   20.6     68     66  76.5 100   -23.5     52
-#>  5 Orego… Cali… Cali…  39.9   19.0   20.9     79     79 100    97.5   2.53    79
-#>  6 Orego… Cali… Oreg…  39.9   20.9   19.0     79     79  97.5 100    -2.53    77
-#>  7 NIU    Indi… Indi…  39.6   19.6   20.0     82     79  86.6  96.2  -9.62    71
-#>  8 NIU    Indi… NIU    39.6   20.0   19.6     79     82  96.2  86.6   9.62    76
-#>  9 Provi… Ston… Prov…  38.6   21.5   17.1     75     72 105.   90.3  15.1     79
-#> 10 Provi… Ston… Ston…  38.6   17.1   21.5     72     75  90.3 105.  -15.1     65
-#> # ℹ 472 more rows
+#>  5 Linde… Evan… Evan…  38.8   18.7   20.1     63     63  77.8  98.4 -20.6     49
+#>  6 Linde… Evan… Lind…  38.8   20.1   18.7     63     63  98.4  77.8  20.6     62
+#>  7 Orego… Cali… Cali…  39.9   19.0   20.9     79     79 100    97.5   2.53    79
+#>  8 Orego… Cali… Oreg…  39.9   20.9   19.0     79     79  97.5 100    -2.53    77
+#>  9 Utah … Cali… Cali…  39.4   15.4   24.0     76     77 114.   77.9  36.6     87
+#> 10 Utah … Cali… Utah…  39.4   24.0   15.4     77     76  77.9 114.  -36.6     60
+#> # ℹ 828 more rows
 #> # ℹ 69 more variables: d_pts <dbl>, fga <dbl>, d_fga <dbl>, fgm <dbl>,
 #> #   d_fgm <dbl>, tpa <dbl>, d_tpa <dbl>, tpm <dbl>, d_tpm <dbl>, fta <dbl>,
 #> #   d_fta <dbl>, ftm <dbl>, d_ftm <dbl>, rima <dbl>, d_rima <dbl>, rimm <dbl>,
@@ -1049,7 +944,7 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_rosters(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,988 × 4
+#> # A tibble: 5,732 × 4
 #>    season team               player               games
 #>     <int> <chr>              <chr>                <int>
 #>  1   2027 A&M-Corpus Christi ANDJELA.MAROJEVIC        1
@@ -1062,7 +957,7 @@ Saiem Gilani
 #>  8   2027 A&M-Corpus Christi LORI.ZLATOPER            1
 #>  9   2027 A&M-Corpus Christi NAIYA.CARNEY             1
 #> 10   2027 A&M-Corpus Christi RAYNA.WILLIAMS           1
-#> # ℹ 4,978 more rows
+#> # ℹ 5,722 more rows
 # }
 # \donttest{
   try(load_ncaa_wbb_team_rosters(seasons = most_recent_wbb_season()))
@@ -1087,20 +982,20 @@ Saiem Gilani
 # \donttest{
   try(load_ncaa_wbb_schedule(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 241 × 7
+#> # A tibble: 419 × 7
 #>    contest_id game_date  home         away          home_score away_score season
 #>    <chr>      <chr>      <chr>        <chr>              <int>      <int>  <int>
 #>  1 6607281    11/02/2026 Colorado St. Lindenwood            63         46   2027
 #>  2 6607283    11/04/2026 Denver       Lindenwood            66         52   2027
-#>  3 6607906    11/04/2026 Oregon St.   California B…         77         79   2027
-#>  4 6608915    11/02/2026 NIU          Indiana St.           76         71   2027
-#>  5 6611489    11/03/2026 Providence   Stonehill             79         65   2027
-#>  6 6612820    11/02/2026 UMBC         Stevenson             92         29   2027
-#>  7 6613653    11/02/2026 Coppin St.   Cheyney               80         69   2027
-#>  8 6614396    11/02/2026 New Haven    Mitchell             103         44   2027
-#>  9 6616868    11/03/2026 Northwestern Milwaukee             64         60   2027
-#> 10 6617975    11/03/2026 Louisiana    Xavier (LA)           77         72   2027
-#> # ℹ 231 more rows
+#>  3 6607284    11/07/2026 Lindenwood   Evansville            62         49   2027
+#>  4 6607906    11/04/2026 Oregon St.   California B…         77         79   2027
+#>  5 6607907    11/06/2026 Utah Tech    California B…         60         87   2027
+#>  6 6608915    11/02/2026 NIU          Indiana St.           76         71   2027
+#>  7 6608916    11/06/2026 Seton Hall   Indiana St.           74         56   2027
+#>  8 6611489    11/03/2026 Providence   Stonehill             79         65   2027
+#>  9 6611490    11/06/2026 Notre Dame   Stonehill            123         40   2027
+#> 10 6612820    11/02/2026 UMBC         Stevenson             92         29   2027
+#> # ℹ 409 more rows
 # }
 # \donttest{
   try(load_ncaa_wbb_team_ids(seasons = most_recent_wbb_season()))

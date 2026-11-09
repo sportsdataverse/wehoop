@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:48 UTC
+#> ℹ Data updated: 2026-11-09 10:03:46 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:48 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 13 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -126,7 +126,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:48 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
@@ -151,26 +151,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:48 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
-#>  1 11      PLAYER STATS Points Per Game           PPG               Sarah… 19.0 
-#>  2 11      PLAYER STATS Three Point Field Goals … 3FGM/G            Marin… 3.0  
-#>  3 11      PLAYER STATS Free Throws Made Per Game FTM/G             Olivi… 4.0  
-#>  4 11      PLAYER STATS High Game Points          HIGH              Sarah… 19   
-#>  5 11      PLAYER STATS Rebounds Per Game         RPG               Olivi… 8.0  
-#>  6 11      PLAYER STATS True Shooting Percentage  TS%               Olivi… 113.6
-#>  7 11      PLAYER STATS Assists Per Game          APG               Sarah… 5.0  
-#>  8 11      PLAYER STATS Turnovers Per Game        TPG               KK Ar… 3.0  
-#>  9 11      PLAYER STATS Steals Per Game           SPG               Sarah… 8.0  
-#> 10 11      PLAYER STATS Blocks Per Game           BPG               Ashly… 1.0  
+#>  1 11      PLAYER STATS Points Per Game           PPG               Sarah… 23.7 
+#>  2 11      PLAYER STATS Three Point Field Goals … 3FGM/G            Sarah… 3.0  
+#>  3 11      PLAYER STATS Free Throws Made Per Game FTM/G             Sarah… 2.0  
+#>  4 11      PLAYER STATS High Game Points          HIGH              Sarah… 39   
+#>  5 11      PLAYER STATS Rebounds Per Game         RPG               Olivi… 7.7  
+#>  6 11      PLAYER STATS True Shooting Percentage  TS%               Kelis… 101.7
+#>  7 11      PLAYER STATS Assists Per Game          APG               KK Ar… 3.7  
+#>  8 11      PLAYER STATS Turnovers Per Game        TPG               Kayle… 3.3  
+#>  9 11      PLAYER STATS Steals Per Game           SPG               Blanc… 3.0  
+#> 10 11      PLAYER STATS Blocks Per Game           BPG               Sarah… 0.7  
 #> # ℹ 19 more rows
 # }
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:49 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -189,26 +189,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:49 UTC
-#> # A tibble: 44 × 8
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
+#> # A tibble: 66 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
-#>  1 11      REGULAR SEASON scoring  389368  11/5      @MICH    fgm          27   
-#>  2 11      REGULAR SEASON scoring  389368  11/5      @MICH    fga          65   
-#>  3 11      REGULAR SEASON scoring  389368  11/5      @MICH    fg_percent   41.5 
-#>  4 11      REGULAR SEASON scoring  389368  11/5      @MICH    ftm          4    
-#>  5 11      REGULAR SEASON scoring  389368  11/5      @MICH    fta          7    
-#>  6 11      REGULAR SEASON scoring  389368  11/5      @MICH    ft_percent   57.1 
-#>  7 11      REGULAR SEASON scoring  389368  11/5      @MICH    x3fgm        8    
-#>  8 11      REGULAR SEASON scoring  389368  11/5      @MICH    x3fga        31   
-#>  9 11      REGULAR SEASON scoring  389368  11/5      @MICH    x3fg_percent 25.8 
-#> 10 11      REGULAR SEASON scoring  389368  11/5      @MICH    pts          66   
-#> # ℹ 34 more rows
+#>  1 11      REGULAR SEASON scoring  389537  11/8      IOWA     fgm          34   
+#>  2 11      REGULAR SEASON scoring  389537  11/8      IOWA     fga          62   
+#>  3 11      REGULAR SEASON scoring  389537  11/8      IOWA     fg_percent   54.8 
+#>  4 11      REGULAR SEASON scoring  389537  11/8      IOWA     ftm          12   
+#>  5 11      REGULAR SEASON scoring  389537  11/8      IOWA     fta          16   
+#>  6 11      REGULAR SEASON scoring  389537  11/8      IOWA     ft_percent   75   
+#>  7 11      REGULAR SEASON scoring  389537  11/8      IOWA     x3fgm        11   
+#>  8 11      REGULAR SEASON scoring  389537  11/8      IOWA     x3fga        21   
+#>  9 11      REGULAR SEASON scoring  389537  11/8      IOWA     x3fg_percent 52.4 
+#> 10 11      REGULAR SEASON scoring  389537  11/8      IOWA     pts          91   
+#> # ℹ 56 more rows
 # }
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:49 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -228,27 +228,27 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:49 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
-#>  1 11      CONFERENCE 1        Butler 0-0   2-0   0-0    2-0   0-0   212   128  
-#>  2 11      CONFERENCE 2        Georg… 0-0   2-0   0-0    2-0   0-0   159   112  
-#>  3 11      CONFERENCE 3        Xavier 0-0   2-0   0-0    0-0   2-0   166   141  
-#>  4 11      CONFERENCE 4        Creig… 0-0   1-0   0-0    0-0   1-0   73    71   
-#>  5 11      CONFERENCE 5        DePaul 0-0   1-0   0-0    1-0   0-0   90    65   
-#>  6 11      CONFERENCE 6        Marqu… 0-0   1-0   0-0    1-0   0-0   80    42   
-#>  7 11      CONFERENCE 7        Provi… 0-0   1-0   0-0    1-0   0-0   79    65   
-#>  8 11      CONFERENCE 8        Seton… 0-0   1-0   0-0    1-0   0-0   63    37   
-#>  9 11      CONFERENCE 9        St. J… 0-0   1-0   0-0    1-0   0-0   95    37   
-#> 10 11      CONFERENCE 10       UConn  0-0   1-1   0-1    1-0   0-1   166   112  
+#>  1 11      CONFERENCE 1        Butler 0-0   3-0   0-0    2-0   1-0   286   170  
+#>  2 11      CONFERENCE 2        DePaul 0-0   3-0   0-0    3-0   0-0   272   190  
+#>  3 11      CONFERENCE 3        Georg… 0-0   3-0   0-0    3-0   0-0   256   149  
+#>  4 11      CONFERENCE 4        Seton… 0-0   2-0   0-0    2-0   0-0   137   93   
+#>  5 11      CONFERENCE 5        St. J… 0-0   2-0   0-0    2-0   0-0   197   70   
+#>  6 11      CONFERENCE 6        Xavier 0-0   2-0   0-0    0-0   2-0   166   141  
+#>  7 11      CONFERENCE 7        Creig… 0-0   1-0   0-0    0-0   1-0   73    71   
+#>  8 11      CONFERENCE 8        UConn  0-0   2-1   1-1    2-0   0-1   257   191  
+#>  9 11      CONFERENCE 9        Marqu… 0-0   1-1   0-1    1-1   0-0   159   129  
+#> 10 11      CONFERENCE 10       Provi… 0-0   1-1   0-0    1-1   0-0   129   125  
 #> 11 11      CONFERENCE 11       Villa… 0-0   0-1   0-1    0-0   0-0   75    99   
 #> # ℹ 2 more variables: strk <chr>, entity_id <chr>
 # }
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:50 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -271,20 +271,20 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:50 UTC
+#> ℹ Data updated: 2026-11-09 10:03:47 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      
 #>  1 69          Butler Bulldogs         Big East   
-#>  2 72          Georgetown Hoyas        Big East   
-#>  3 78          Xavier Musketeers       Big East   
-#>  4 70          Creighton Bluejays      Big East   
-#>  5 71          Depaul Blue Demons      Big East   
-#>  6 73          Marquette Golden Eagles Big East   
-#>  7 74          Providence Friars       Big East   
-#>  8 75          Seton Hall Pirates      Big East   
-#>  9 76          St. John's Red Storm    Big East   
-#> 10 11          Uconn Huskies           Big East   
+#>  2 71          Depaul Blue Demons      Big East   
+#>  3 72          Georgetown Hoyas        Big East   
+#>  4 75          Seton Hall Pirates      Big East   
+#>  5 76          St. John's Red Storm    Big East   
+#>  6 78          Xavier Musketeers       Big East   
+#>  7 70          Creighton Bluejays      Big East   
+#>  8 11          Uconn Huskies           Big East   
+#>  9 73          Marquette Golden Eagles Big East   
+#> 10 74          Providence Friars       Big East   
 #> 11 77          Villanova Wildcats      Big East   
 # }
 ```

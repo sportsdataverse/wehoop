@@ -193,23 +193,23 @@ Other NBL Rosetta Functions:
 
 ``` r
 # \donttest{
-  try(nbl_rosetta_matches(org = "nbl", season = 2026, season_type = "regular"))
+  try(nbl_rosetta_matches(season = 2026, season_type = "regular"))
 #> ── NBL Rosetta matches from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:17:13 UTC
-#> # A tibble: 179 × 59
+#> ℹ Data updated: 2026-11-09 10:04:42 UTC
+#> # A tibble: 99 × 59
 #>    org   match_id  external_media_id date_updated start_time start_time_datetime
 #>    <chr> <chr>     <chr>             <chr>        <chr>      <chr>              
-#>  1 nbl   24d0eebf… 05042026          2026-09-22T… 2026-04-0… 2026-04-05T04:30:00
-#>  2 nbl   bd142077… 70344324          2026-09-22T… 2026-04-0… 2026-04-01T08:30:00
-#>  3 nbl   9c76716d… 70006744          2026-09-22T… 2026-03-2… 2026-03-29T03:30:00
-#>  4 nbl   796d28c2… 70006742          2026-09-22T… 2026-03-2… 2026-03-27T08:30:00
-#>  5 nbl   63d262c8… 70006740          2026-09-22T… 2026-03-2… 2026-03-21T08:00:00
-#>  6 nbl   0d86ffcb… 69901490          2026-09-22T… 2026-03-1… 2026-03-17T08:30:00
-#>  7 nbl   2f781bb9… 69708408          2026-09-22T… 2026-03-1… 2026-03-14T09:00:00
-#>  8 nbl   a657ddb1… 69614230          2026-09-22T… 2026-03-1… 2026-03-14T06:30:00
-#>  9 nbl   07aa3ed0… 69708256          2026-09-22T… 2026-03-1… 2026-03-11T08:30:00
-#> 10 nbl   e63caa04… 69614226          2026-09-22T… 2026-03-1… 2026-03-10T08:30:00
-#> # ℹ 169 more rows
+#>  1 wnbl  1b7bee1e… 69183544          2026-11-02T… 2026-03-0… 2026-03-01T05:00:00
+#>  2 wnbl  ce105a2e… 69183454          2026-10-15T… 2026-02-2… 2026-02-26T08:00:00
+#>  3 wnbl  086bb03d… 69087078          2026-11-02T… 2026-02-2… 2026-02-22T05:00:00
+#>  4 wnbl  e33f7060… 68805030          2026-10-15T… 2026-02-1… 2026-02-18T08:00:00
+#>  5 wnbl  c1d2b138… 68804948          2026-10-15T… 2026-02-1… 2026-02-17T08:00:00
+#>  6 wnbl  9b5d59ab… 68804940          2026-10-15T… 2026-02-1… 2026-02-15T05:00:00
+#>  7 wnbl  c1ea5935… 68804844          2026-10-15T… 2026-02-1… 2026-02-14T05:00:00
+#>  8 wnbl  ba4fba3e… 61388477          2026-10-15T… 2026-02-0… 2026-02-08T07:30:00
+#>  9 wnbl  ba4b6c4d… 61388481          2026-10-15T… 2026-02-0… 2026-02-08T01:30:00
+#> 10 wnbl  ba280ba5… 61388475          2026-10-15T… 2026-02-0… 2026-02-07T08:00:00
+#> # ℹ 89 more rows
 #> # ℹ 53 more variables: round <chr>, match_type <chr>, match_status <chr>,
 #> #   status <chr>, home_score <int>, away_score <int>, attendance <int>,
 #> #   match_slug <chr>, match_title <chr>, venue_id <chr>,

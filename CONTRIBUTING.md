@@ -313,9 +313,10 @@ For example:
 `Sys.setenv(ESPN_TESTS = "1"); devtools::test(filter = "espn_wnba_pbp")`.
 
 **Note**: Every live test is skipped on CRAN and on CI whatever the
-toggles say (`tests/testthat/helper-skip.R`), and an unset or empty
-toggle means skip. Run them locally. If your `~/.Renviron` sets any of
-these, unset them in the session
+toggles say (`skip_live_test()` in `tests/testthat/helper-skip.R`, and
+`skip_intl_live()` in `helper-intl.R`), and an unset or empty toggle
+means skip. Run them locally. If your `~/.Renviron` sets any of these,
+unset them in the session
 ([`Sys.unsetenv()`](https://rdrr.io/r/base/Sys.setenv.html)) for an
 offline run.
 

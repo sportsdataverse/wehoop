@@ -468,16 +468,16 @@ espn_wbb_standings(year = season)
 #> # A tibble: 363 × 87
 #>    team_id team             conference avgpointsagainst avgpointsfor gamesbehind
 #>      <int> <chr>            <chr>                 <dbl>        <dbl>       <dbl>
-#>  1    2803 Bryant Bulldogs  America E…             44           70           0  
-#>  2    2885 NJIT Highlanders America E…             40           53.5         0  
-#>  3     399 UAlbany Great D… America E…             61           63.5         0  
-#>  4    2378 UMBC Retrievers  America E…             41           85.5         0  
-#>  5    2349 UMass Lowell Ri… America E…             53           77.5         0  
-#>  6     261 Vermont Catamou… America E…             51.5         86           0  
-#>  7     311 Maine Black Bea… America E…             68           70           0.5
-#>  8     160 New Hampshire W… America E…             46.5         67.5         1  
-#>  9    2066 Binghamton Bear… America E…             63           40           1.5
-#> 10     151 East Carolina P… American …             45           61           0  
+#>  1    2803 Bryant Bulldogs  America E…             44.7         67.7         0  
+#>  2    2885 NJIT Highlanders America E…             47.7         58           0  
+#>  3     399 UAlbany Great D… America E…             59.7         68           0  
+#>  4    2378 UMBC Retrievers  America E…             49.7         87.3         0  
+#>  5     311 Maine Black Bea… America E…             65           78.5         0.5
+#>  6     160 New Hampshire W… America E…             48.3         68.7         1  
+#>  7    2349 UMass Lowell Ri… America E…             59.7         72           1  
+#>  8     261 Vermont Catamou… America E…             59           74           1  
+#>  9    2066 Binghamton Bear… America E…             75.3         60.7         2  
+#> 10     242 Rice Owls        American …             52.7         71.3         0  
 #> # ℹ 353 more rows
 #> # ℹ 81 more variables: leaguewinpercent <dbl>, losses <dbl>, playoffseed <dbl>,
 #> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,

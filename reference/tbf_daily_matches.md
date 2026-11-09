@@ -147,7 +147,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_daily_matches(match_date = "2026-10-11"))
 #> ── TBF Daily Matches ─────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:17:41 UTC
+#> ℹ Data updated: 2026-11-09 10:05:07 UTC
 #> # A tibble: 11 × 27
 #>    group_name  match_id match_code genius_id activity_id activity_name 
 #>    <chr>          <int> <chr>          <int>       <int> <chr>         

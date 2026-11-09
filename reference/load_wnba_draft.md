@@ -385,30 +385,12 @@ Returns a `wehoop_data` tibble of athlete core records.
 ## Examples
 
 ``` r
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wnba_pbp())
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 144,409 × 68
-#>    game_play_number        id sequence_number type_id type_text text  away_score
-#>               <int>     <dbl>           <int>   <int> <chr>     <chr>      <int>
-#>  1                1   4.02e 9               4     615 Jumpball  Kiah…          0
-#>  2                2   4.02e 9               7     144 Driving … Jord…          0
-#>  3                3   4.02e 9               8     155 Defensiv… Kiah…          0
-#>  4                4   4.02e 9               9     132 Step Bac… Vero…          2
-#>  5                5   4.02e10              10      92 Jump Shot Alli…          2
-#>  6                6   4.02e10              12      45 Personal… Ange…          2
-#>  7                7   4.02e10              14     144 Driving … Rhyn…          2
-#>  8                8   4.02e10              16     155 Defensiv… Rhyn…          2
-#>  9                9   4.02e10              17      92 Jump Shot Naz …          2
-#> 10               10   4.02e10              19     144 Driving … Tiff…          4
-#> # ℹ 144,399 more rows
-#> # ℹ 61 more variables: home_score <int>, period_number <int>,
-#> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
-#> #   score_value <int>, team_id <int>, athlete_id_1 <int>, athlete_id_2 <int>,
-#> #   athlete_id_3 <int>, wallclock <chr>, shooting_play <lgl>,
-#> #   coordinate_x_raw <dbl>, coordinate_y_raw <dbl>, points_attempted <int>,
-#> #   short_description <chr>, game_id <int>, season <int>, season_type <int>, …
 # }
+}
 # \donttest{
   try(load_wnba_team_box())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──

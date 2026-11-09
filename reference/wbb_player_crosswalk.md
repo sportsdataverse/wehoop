@@ -61,6 +61,7 @@ Other WBB Crosswalk Functions:
 ``` r
 if (FALSE) { # interactive()
 # \donttest{
+  # Reads every team roster from ESPN and Fox, so it runs interactively only.
   try(wbb_player_crosswalk(season = 2025))
 # }
 }

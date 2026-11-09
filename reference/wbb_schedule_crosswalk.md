@@ -56,6 +56,7 @@ Other WBB Crosswalk Functions:
 ``` r
 if (FALSE) { # interactive()
 # \donttest{
+  # Reads a full season of ESPN and Torvik games, so it runs interactively only.
   try(wbb_schedule_crosswalk(season = 2025))
 # }
 }

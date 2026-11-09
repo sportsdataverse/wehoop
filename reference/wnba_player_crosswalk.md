@@ -41,6 +41,7 @@ Other WNBA Crosswalk Functions:
 ``` r
 if (FALSE) { # interactive()
 # \donttest{
+  # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
   try(wnba_player_crosswalk(season = 2024))
 # }
 }

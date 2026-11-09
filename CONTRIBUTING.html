@@ -411,7 +411,7 @@ ci: update GitHub Actions workflow versions</code></pre>
 <td>a proxy URL; the Genius live tests also need it</td>
 <td><code>skip_intl_live("GENIUS_PROXY")</code></td>
 </tr></tbody></table><p>For example: <code>Sys.setenv(ESPN_TESTS = "1"); devtools::test(filter = "espn_wnba_pbp")</code>.</p>
-<p><strong>Note</strong>: Every live test is skipped on CRAN and on CI whatever the toggles say (<code>tests/testthat/helper-skip.R</code>), and an unset or empty toggle means skip. Run them locally. If your <code>~/.Renviron</code> sets any of these, unset them in the session (<code><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.unsetenv()</a></code>) for an offline run.</p>
+<p><strong>Note</strong>: Every live test is skipped on CRAN and on CI whatever the toggles say (<code>skip_live_test()</code> in <code>tests/testthat/helper-skip.R</code>, and <code>skip_intl_live()</code> in <code>helper-intl.R</code>), and an unset or empty toggle means skip. Run them locally. If your <code>~/.Renviron</code> sets any of these, unset them in the session (<code><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.unsetenv()</a></code>) for an offline run.</p>
 </div>
 <div class="section level3">
 <h3 id="rate-limiting">Rate Limiting<a class="anchor" aria-label="anchor" href="#rate-limiting"></a></h3>

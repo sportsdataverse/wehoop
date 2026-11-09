@@ -68,7 +68,7 @@ Other Genius Functions:
   slider <- data.frame(game_id = c(1L, 2L), genius_id = c(2902690L, NA))
   genius_game_crosswalk(slider, "sportpress")
 #> ── Genius LiveStats game crosswalk ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:16:03 UTC
+#> ℹ Data updated: 2026-11-09 10:03:49 UTC
 #> # A tibble: 1 × 2
 #>   game_key genius_match_id
 #>      <int>           <int>

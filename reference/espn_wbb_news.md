@@ -108,14 +108,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:14:10 UTC
+#> ℹ Data updated: 2026-11-09 10:02:19 UTC
 #> # A tibble: 5 × 8
 #>         id type  headline       description published premium link_web league_id
 #>      <int> <chr> <chr>          <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 50396884 Media Pacific Tiger… Pacific Ti… 2026-11-… FALSE   https:/… 54       
-#> 2 50396873 Recap Sayvia Seller… — Sayvia S… 2026-11-… FALSE   http://… 54       
-#> 3 50396871 Recap Sienna Betts … — Sienna B… 2026-11-… FALSE   http://… 54       
-#> 4 50396819 Media UC Irvine Ant… UC Irvine … 2026-11-… FALSE   https:/… 54       
-#> 5 50396815 Media Texas Souther… Texas Sout… 2026-11-… FALSE   https:/… 54       
+#> 1 50429917 Media Maryland Terr… Watch the … 2026-11-… FALSE   https:/… 54       
+#> 2 50428995 Media Utah State Ag… Utah State… 2026-11-… FALSE   https:/… 54       
+#> 3 50428964 Recap JuJu Watkins … — JuJu Wat… 2026-11-… FALSE   http://… 54       
+#> 4 50428512 Media East Texas A&… East Texas… 2026-11-… FALSE   https:/… 54       
+#> 5 50427868 Media James Madison… James Madi… 2026-11-… FALSE   https:/… 54       
 # }
 ```

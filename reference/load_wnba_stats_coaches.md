@@ -835,34 +835,16 @@ Saiem Gilani
 #> #   away_team_abbreviation <chr>, away_team_name <chr>, away_pts <int>,
 #> #   away_wl <chr>
 # }
+if (FALSE) { # interactive()
 # \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
-#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 149,921 × 38
-#>    order_index action_number clock       period   team_id team_tricode person_id
-#>          <int>         <int> <chr>        <int>     <int> <chr>            <int>
-#>  1           0             2 PT10M00.00S      1    0      ""              0     
-#>  2           1             4 PT10M00.00S      1    1.61e9 "NYL"           1.63e6
-#>  3           2             7 PT09M44.00S      1    1.61e9 "CON"           1.64e6
-#>  4           3             8 PT09M39.00S      1    1.61e9 "NYL"           1.63e6
-#>  5           4             9 PT09M25.00S      1    1.61e9 "NYL"           1.63e6
-#>  6           5            11 PT09M17.00S      1    1.61e9 "CON"           1.64e6
-#>  7           6            13 PT09M06.00S      1    1.61e9 "NYL"           1.63e6
-#>  8           7            15 PT08M50.00S      1    1.61e9 "CON"           2.03e5
-#>  9           8            16 PT08M50.00S      1    0      ""              1.61e9
-#> 10           9            17 PT08M34.00S      1    1.61e9 "NYL"           1.63e6
-#> # ℹ 149,911 more rows
-#> # ℹ 31 more variables: player_name <chr>, player_name_i <chr>, x_legacy <int>,
-#> #   y_legacy <int>, shot_distance <int>, shot_result <chr>,
-#> #   is_field_goal <int>, score_home <chr>, score_away <chr>,
-#> #   points_total <int>, location <chr>, description <chr>, action_type <chr>,
-#> #   sub_type <chr>, video_available <int>, shot_value <int>, action_id <int>,
-#> #   game_id <chr>, seconds_remaining <dbl>, event_type <chr>, …
 # }
+}
 # \donttest{
   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 56,153 × 34
+#> # A tibble: 56,153 × 37
 #>    game_id    period possession_number offense_team_id defense_team_id
 #>    <chr>       <int>             <int>           <int>           <int>
 #>  1 1022600001      1                 1      1611661323      1611661313
@@ -876,7 +858,7 @@ Saiem Gilani
 #>  9 1022600001      1                 9      1611661323      1611661313
 #> 10 1022600001      1                10      1611661313      1611661323
 #> # ℹ 56,143 more rows
-#> # ℹ 29 more variables: start_order_index <int>, end_order_index <int>,
+#> # ℹ 32 more variables: start_order_index <int>, end_order_index <int>,
 #> #   start_seconds_remaining <dbl>, end_seconds_remaining <dbl>, points <int>,
 #> #   is_second_chance <lgl>, number_in_period <int>,
 #> #   possession_start_type <chr>, count_as_possession <lgl>, fg2a <int>,

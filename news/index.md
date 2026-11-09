@@ -276,6 +276,18 @@
   [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md).
   A manifest that still fails warns with its URL and then raises the
   error, as before.
+- A failed or partial read of the games index no longer empties the play
+  by play table in `update_wbb_db(force_rebuild = TRUE)` and
+  `update_wnba_db(force_rebuild = TRUE)`. The table was dropped and
+  rebuilt only for the seasons in the index, and a truncated index
+  (`fread()` stops at a malformed row with only a warning) dropped the
+  other seasons. The index is now read in full first. Any failure,
+  including a `fread()` warning (not retried: the file is the same on
+  every try) or an index with no rows, stops with an error that names
+  the index URL, and the table is left as it was. Release `.csv` and
+  `.parquet` files are now downloaded with the `"libcurl"` method
+  whatever `options(download.file.method)` says: with `"curl"`, an HTTP
+  503 error page was read as csv and the raised timeout did not apply.
 
 #### **Deprecations**
 
@@ -297,6 +309,26 @@
 - Examples that call stats.wnba.com or basketball-reference.com now run
   only in interactive sessions.
   ([\#109](https://github.com/sportsdataverse/wehoop/issues/109))
+- Long-running examples now run only in interactive sessions:
+  [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)
+  (one ESPN scoreboard per game date) and the multi-MB season loaders
+  ([`load_ncaa_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md),
+  `_shots()`, `_lineups()`, `_matchup_stints()`, `_possessions()`,
+  `_player_box()`;
+  [`load_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
+  [`load_wbb_shots()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
+  [`load_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md),
+  [`load_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md);
+  [`load_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md);
+  [`load_wnba_stats_pbp()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)).
+  The
+  [`fox_wbb_teams_all()`](https://wehoop.sportsdataverse.org/reference/fox_wbb_teams_all.md)
+  and
+  [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
+  examples make fewer calls, and the
+  [`nbl_rosetta_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_matches.md)
+  example reads the smaller WNBL season.
+  ([\#118](https://github.com/sportsdataverse/wehoop/issues/118))
 - Tests that call live APIs are gated behind their `*_TESTS` toggles and
   skip on CRAN and CI; CI adds R-devel, urlchecker and test-coverage
   jobs, and the toggles are read from repository variables.
@@ -1685,7 +1717,7 @@ shrink the list of dependencies.
 #### **Clean names and team returns**
 
 - All functions have now been given the
-  [`janitor::clean_names()`](https://rdrr.io/cran/janitor/man/clean_names.html)
+  [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html)
   treatment
 - [`wehoop::espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.html)
   has updated the returns to be more identity information related only

@@ -205,23 +205,23 @@ another org, season or entity than the one asked for, or any other failed fetch;
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nbl_rosetta_matches</span><span class="op">(</span>org <span class="op">=</span> <span class="st">"nbl"</span>, season <span class="op">=</span> <span class="fl">2026</span>, season_type <span class="op">=</span> <span class="st">"regular"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nbl_rosetta_matches</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, season_type <span class="op">=</span> <span class="st">"regular"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NBL Rosetta matches from prod.rosetta.nbl.com.au ──────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-06 10:17:13 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 179 × 59</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:04:42 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 99 × 59</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    org   match_id  external_media_id date_updated start_time start_time_datetime</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> nbl   24d0eebf… 05042026          2026-09-22T… 2026-04-0… 2026-04-05T04:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> nbl   bd142077… 70344324          2026-09-22T… 2026-04-0… 2026-04-01T08:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> nbl   9c76716d… 70006744          2026-09-22T… 2026-03-2… 2026-03-29T03:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> nbl   796d28c2… 70006742          2026-09-22T… 2026-03-2… 2026-03-27T08:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> nbl   63d262c8… 70006740          2026-09-22T… 2026-03-2… 2026-03-21T08:00:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> nbl   0d86ffcb… 69901490          2026-09-22T… 2026-03-1… 2026-03-17T08:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> nbl   2f781bb9… 69708408          2026-09-22T… 2026-03-1… 2026-03-14T09:00:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> nbl   a657ddb1… 69614230          2026-09-22T… 2026-03-1… 2026-03-14T06:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> nbl   07aa3ed0… 69708256          2026-09-22T… 2026-03-1… 2026-03-11T08:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> nbl   e63caa04… 69614226          2026-09-22T… 2026-03-1… 2026-03-10T08:30:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 169 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> wnbl  1b7bee1e… 69183544          2026-11-02T… 2026-03-0… 2026-03-01T05:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> wnbl  ce105a2e… 69183454          2026-10-15T… 2026-02-2… 2026-02-26T08:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> wnbl  086bb03d… 69087078          2026-11-02T… 2026-02-2… 2026-02-22T05:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> wnbl  e33f7060… 68805030          2026-10-15T… 2026-02-1… 2026-02-18T08:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> wnbl  c1d2b138… 68804948          2026-10-15T… 2026-02-1… 2026-02-17T08:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> wnbl  9b5d59ab… 68804940          2026-10-15T… 2026-02-1… 2026-02-15T05:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> wnbl  c1ea5935… 68804844          2026-10-15T… 2026-02-1… 2026-02-14T05:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> wnbl  ba4fba3e… 61388477          2026-10-15T… 2026-02-0… 2026-02-08T07:30:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> wnbl  ba4b6c4d… 61388481          2026-10-15T… 2026-02-0… 2026-02-08T01:30:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> wnbl  ba280ba5… 61388475          2026-10-15T… 2026-02-0… 2026-02-07T08:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 89 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 53 more variables: round &lt;chr&gt;, match_type &lt;chr&gt;, match_status &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status &lt;chr&gt;, home_score &lt;int&gt;, away_score &lt;int&gt;, attendance &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   match_slug &lt;chr&gt;, match_title &lt;chr&gt;, venue_id &lt;chr&gt;,</span></span>

@@ -144,7 +144,7 @@ Other FIBA Functions:
 # \donttest{
   try(fiba_gamepage_period_scores(game_id = 100720, comp = 208182))
 #> ── FIBA gamepage_period_scores from fiba.basketball ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:15:24 UTC
+#> ℹ Data updated: 2026-11-09 10:03:26 UTC
 #> # A tibble: 8 × 8
 #>   game_id competition_id team_side organisation_id period period_number points
 #>     <int>          <int> <chr>               <int> <chr>          <int>  <int>

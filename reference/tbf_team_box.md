@@ -140,7 +140,7 @@ Other TBF Functions:
 # \donttest{
   try(tbf_team_box(match_id = 346279))
 #> ── TBF Team Box Score ────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-06 10:17:54 UTC
+#> ℹ Data updated: 2026-11-09 10:05:20 UTC
 #> # A tibble: 2 × 33
 #>   match_id side  team_process_id seconds_played points fg_made fg_attempted
 #>      <int> <chr>           <int>          <int>  <int>   <int>        <int>
