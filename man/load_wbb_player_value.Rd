@@ -76,9 +76,9 @@ Returns a \code{wehoop_data} tibble with one row per player-team-season.
       dbpm \tab numeric \tab Defensive box plus-minus. \cr
       bpm \tab numeric \tab Net box plus-minus. \cr
       war \tab numeric \tab Wins above replacement. \cr
-      darko_filtered_skill \tab numeric \tab DARKO-style filtered skill rating. \cr
-      darko_projected_rating \tab numeric \tab DARKO-style forward-looking projected rating. \cr
-      darko_projected_sd \tab numeric \tab Standard deviation of the DARKO-style projected rating. \cr
+      boban_filtered_skill \tab numeric \tab DARKO-style filtered skill rating. \cr
+      boban_projected_rating \tab numeric \tab DARKO-style forward-looking projected rating. \cr
+      boban_projected_sd \tab numeric \tab Standard deviation of the DARKO-style projected rating. \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
 

@@ -46,7 +46,7 @@ average player, split into offense and defense, except WAR, which counts wins.
 | SPM | `ospm`, `dspm`, `spm` | Statistical plus-minus: box score rates weighted by coefficients fitted to regular-season RAPM |
 | BPM | `obpm`, `dbpm`, `bpm` | Box plus-minus (BPM 2.0 design) from box score logs and listed positions |
 | WAR | `war` | Wins above replacement: the RAPM rating times a calibrated points-per-win, with replacement level at -2.0 |
-| DARKO-style | `darko_filtered_skill`, `darko_projected_rating`, `darko_projected_sd` | A Kalman filter over the RAPM history with an aging curve: a filtered skill estimate and a projection for next season, with its standard deviation |
+| DARKO-style | `boban_filtered_skill`, `boban_projected_rating`, `boban_projected_sd` | A Kalman filter over the RAPM history with an aging curve: a filtered skill estimate and a projection for next season, with its standard deviation |
 
 Positive is good for every column, including defense: a positive `d_rapm` means
 the player's teams allowed fewer points with her on the floor.
@@ -144,7 +144,7 @@ rs_2025 <- impact |>
   filter(season == 2025, season_type == "Regular Season", min >= 300)
 
 rs_2025 |>
-  select(rapm, adj_rapm, spm, bpm, darko_filtered_skill, war) |>
+  select(rapm, adj_rapm, spm, bpm, boban_filtered_skill, war) |>
   cor(use = "pairwise.complete.obs") |>
   round(2)
 ```
@@ -152,9 +152,9 @@ rs_2025 |>
 These correlations are for the `r nrow(rs_2025)` players with at least 300
 regular-season minutes in 2025. Two things stand out. The box engines (SPM,
 BPM) form their own cluster, related to RAPM but far from identical. And within
-a single season, `darko_filtered_skill` moves almost in lockstep with that
+a single season, `boban_filtered_skill` moves almost in lockstep with that
 season's `rapm` (r =
-`r round(cor(rs_2025$rapm, rs_2025$darko_filtered_skill, use = "complete.obs"), 3)`
+`r round(cor(rs_2025$rapm, rs_2025$boban_filtered_skill, use = "complete.obs"), 3)`
 here): the filter's value is in what it carries across seasons and in the
 projection, not in re-ranking players within one.
 
@@ -173,7 +173,7 @@ ggplot(rs_2025, aes(rapm, adj_rapm)) +
 
 ### Does the projection predict next season?
 
-`darko_projected_rating` is made with data through season *t* only, so
+`boban_projected_rating` is made with data through season *t* only, so
 comparing it with the RAPM a player actually posts in season *t + 1* is an
 honest out-of-sample test. Here is the 2024 projection against 2025 regular
 season RAPM, alongside the simplest possible baseline: carry 2024 RAPM forward
@@ -182,7 +182,7 @@ unchanged.
 ```{r forward}
 proj_2024 <- impact |>
   filter(season == 2024, season_type == "Regular Season") |>
-  select(player_id, darko_projected_rating, rapm_2024 = rapm)
+  select(player_id, boban_projected_rating, rapm_2024 = rapm)
 
 real_2025 <- impact |>
   filter(season == 2025, season_type == "Regular Season") |>
@@ -195,9 +195,9 @@ forward <- inner_join(proj_2024, real_2025, by = "player_id", relationship = "on
 forward |>
   summarise(
     players = n(),
-    r_projection = cor(darko_projected_rating, rapm_2025),
+    r_projection = cor(boban_projected_rating, rapm_2025),
     r_carry_forward = cor(rapm_2024, rapm_2025),
-    mae_projection = mean(abs(darko_projected_rating - rapm_2025)),
+    mae_projection = mean(abs(boban_projected_rating - rapm_2025)),
     mae_carry_forward = mean(abs(rapm_2024 - rapm_2025))
   ) |>
   mutate(across(-players, ~ round(.x, 3)))
@@ -213,7 +213,7 @@ correlates with anything stable. The card's reading, which the comparison above
 lets you check for one season: carrying RAPM forward ranks players about as well
 as the projection does, and the projection earns its keep on **level**, with a
 lower mean absolute error, because it shrinks toward the aging-curve mean. Treat
-`darko_projected_rating` as a better-calibrated magnitude, not a better
+`boban_projected_rating` as a better-calibrated magnitude, not a better
 ordering.
 
 The card also measures how much of the modest correlation is noise in the target:
