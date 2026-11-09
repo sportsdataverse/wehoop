@@ -173,71 +173,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <p></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>athlete_id</td><td>integer</td><td>Unique athlete identifier (ESPN).</td></tr><tr><td>athlete_uid</td><td>character</td><td>ESPN athlete UID (universal identifier).</td></tr><tr><td>athlete_guid</td><td>character</td><td>ESPN athlete GUID.</td></tr><tr><td>athlete_type</td><td>character</td><td>Athlete type / class.</td></tr><tr><td>sdr</td><td>integer</td><td>Sdr.</td></tr><tr><td>first_name</td><td>character</td><td>Player's first name.</td></tr><tr><td>last_name</td><td>character</td><td>Player's last name.</td></tr><tr><td>full_name</td><td>character</td><td>Player's full name.</td></tr><tr><td>athlete_display_name</td><td>character</td><td>Athlete display name (full).</td></tr><tr><td>short_name</td><td>character</td><td>Short display name.</td></tr><tr><td>weight</td><td>numeric</td><td>Player weight in pounds.</td></tr><tr><td>display_weight</td><td>character</td><td>Player weight in display format (e.g. '180 lbs').</td></tr><tr><td>height</td><td>numeric</td><td>Player height (string e.g. '6-2' or inches).</td></tr><tr><td>display_height</td><td>character</td><td>Player height in display format (e.g. '6-2').</td></tr><tr><td>age</td><td>integer</td><td>Player age (in years).</td></tr><tr><td>date_of_birth</td><td>character</td><td>Date of birth (YYYY-MM-DD).</td></tr><tr><td>slug</td><td>character</td><td>URL-safe identifier.</td></tr><tr><td>headshot_href</td><td>character</td><td>Headshot image URL.</td></tr><tr><td>headshot_alt</td><td>character</td><td>Alternative-text label for the headshot.</td></tr><tr><td>jersey</td><td>character</td><td>Jersey number worn by the player.</td></tr><tr><td>position_id</td><td>integer</td><td>Unique position identifier.</td></tr><tr><td>position_name</td><td>character</td><td>Listed roster position ('Guard', 'Forward', 'Center').</td></tr><tr><td>position_display_name</td><td>character</td><td>Position display name.</td></tr><tr><td>position_abbreviation</td><td>character</td><td>Position abbreviation ('G' / 'F' / 'C').</td></tr><tr><td>position_leaf</td><td>logical</td><td>Position leaf.</td></tr><tr><td>linked</td><td>logical</td><td>TRUE if the record is linked to a related entity.</td></tr><tr><td>years</td><td>integer</td><td>Years.</td></tr><tr><td>active</td><td>logical</td><td>TRUE if the row represents an active record (player / team / season).</td></tr><tr><td>status_id</td><td>integer</td><td>Status identifier.</td></tr><tr><td>status_name</td><td>character</td><td>Status label.</td></tr><tr><td>status_type</td><td>character</td><td>Status type.</td></tr><tr><td>status_abbreviation</td><td>character</td><td>Status abbreviation.</td></tr><tr><td>birth_place_city</td><td>character</td><td>Birth place city.</td></tr><tr><td>birth_place_state</td><td>character</td><td>Birth place state.</td></tr><tr><td>birth_place_country</td><td>character</td><td>Birth place country.</td></tr><tr><td>starter</td><td>logical</td><td>TRUE if the player was in the starting lineup; FALSE otherwise.</td></tr><tr><td>valid</td><td>logical</td><td>Valid.</td></tr><tr><td>did_not_play</td><td>logical</td><td>TRUE if the player did not appear in the game.</td></tr><tr><td>display_name</td><td>character</td><td>Display name.</td></tr><tr><td>reason</td><td>character</td><td>Reason.</td></tr><tr><td>ejected</td><td>logical</td><td>TRUE if the player was ejected from the game.</td></tr><tr><td>team_id</td><td>integer</td><td>Unique team identifier.</td></tr><tr><td>team_guid</td><td>character</td><td>ESPN team GUID.</td></tr><tr><td>team_uid</td><td>character</td><td>ESPN universal team identifier (UID format 's:40~l:...~t:...').</td></tr><tr><td>team_sdr</td><td>integer</td><td>ESPN team SDR identifier.</td></tr><tr><td>team_slug</td><td>character</td><td>URL-safe team identifier (e.g. 'lasvegas-aces' / 'aces').</td></tr><tr><td>team_location</td><td>character</td><td>Team city or location string.</td></tr><tr><td>team_name</td><td>character</td><td>Full team display name (e.g. 'Las Vegas Aces').</td></tr><tr><td>team_abbreviation</td><td>character</td><td>Short team abbreviation (e.g. 'LAS').</td></tr><tr><td>team_display_name</td><td>character</td><td>Full team display name.</td></tr><tr><td>team_short_display_name</td><td>character</td><td>Short team display name (e.g. 'Aces').</td></tr><tr><td>team_color</td><td>character</td><td>Team primary color (hex without leading '#').</td></tr><tr><td>team_alternate_color</td><td>character</td><td>Team alternate color (hex without leading '#').</td></tr><tr><td>team_is_active</td><td>logical</td><td>TRUE if the team is currently active.</td></tr><tr><td>is_all_star</td><td>logical</td><td>Is all star.</td></tr><tr><td>logo_href</td><td>character</td><td>Team or league logo URL.</td></tr><tr><td>logo_dark_href</td><td>character</td><td>Logo URL for dark backgrounds.</td></tr><tr><td>logos_href_2</td><td>character</td><td>Logos href 2.</td></tr><tr><td>logos_href_3</td><td>character</td><td>Logos href 3.</td></tr><tr><td>game_id</td><td>integer</td><td>Unique game identifier.</td></tr><tr><td>order</td><td>integer</td><td>Display order within the result set.</td></tr><tr><td>home_away</td><td>character</td><td>Game venue label ('home' or 'away').</td></tr><tr><td>winner</td><td>logical</td><td>Winner.</td></tr><tr><td>draft_display_text</td><td>character</td><td>Draft display text.</td></tr><tr><td>draft_round</td><td>integer</td><td>Round of the draft selection.</td></tr><tr><td>draft_year</td><td>integer</td><td>Draft year (4-digit).</td></tr><tr><td>draft_selection</td><td>integer</td><td>Draft selection.</td></tr><tr><td>hand_type</td><td>character</td><td>Hand type.</td></tr><tr><td>hand_abbreviation</td><td>character</td><td>Hand abbreviation.</td></tr><tr><td>hand_display_value</td><td>character</td><td>Hand display value.</td></tr><tr><td>citizenship</td><td>character</td><td>Citizenship.</td></tr></table></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other ESPN WNBA Functions:
-<code><a href="espn_wnba_athletes_index.html">espn_wnba_athletes_index()</a></code>,
-<code><a href="espn_wnba_award.html">espn_wnba_award()</a></code>,
-<code><a href="espn_wnba_calendar.html">espn_wnba_calendar()</a></code>,
-<code><a href="espn_wnba_coach_season.html">espn_wnba_coach_season()</a></code>,
-<code><a href="espn_wnba_coaches.html">espn_wnba_coaches()</a></code>,
-<code><a href="espn_wnba_conferences.html">espn_wnba_conferences()</a></code>,
-<code><a href="espn_wnba_draft.html">espn_wnba_draft()</a></code>,
-<code><a href="espn_wnba_draft_athlete_detail.html">espn_wnba_draft_athlete_detail()</a></code>,
-<code><a href="espn_wnba_draft_pick.html">espn_wnba_draft_pick()</a></code>,
-<code><a href="espn_wnba_draft_athletes.html">espn_wnba_draft_rounds()</a></code>,
-<code><a href="espn_wnba_franchise.html">espn_wnba_franchise()</a></code>,
-<code><a href="espn_wnba_franchises.html">espn_wnba_franchises()</a></code>,
-<code><a href="espn_wnba_freeagents.html">espn_wnba_freeagents()</a></code>,
-<code><a href="espn_wnba_futures.html">espn_wnba_futures()</a></code>,
-<code><a href="espn_wnba_game_broadcasts.html">espn_wnba_game_odds()</a></code>,
-<code><a href="espn_wnba_game_official_detail.html">espn_wnba_game_official_detail()</a></code>,
-<code><a href="espn_wnba_game_play.html">espn_wnba_game_play()</a></code>,
-<code><a href="espn_wnba_game_play_personnel.html">espn_wnba_game_play_personnel()</a></code>,
-<code><a href="espn_wnba_game_player_box.html">espn_wnba_game_player_box()</a></code>,
-<code><a href="espn_wnba_game_probabilities.html">espn_wnba_game_probabilities()</a></code>,
-<code><a href="espn_wnba_game_propbets.html">espn_wnba_game_propbets()</a></code>,
-<code><a href="espn_wnba_game_team_leaders.html">espn_wnba_game_team_linescores()</a></code>,
-<code><a href="espn_wnba_game_team_roster_entry.html">espn_wnba_game_team_roster_entry()</a></code>,
-<code><a href="espn_wnba_injuries.html">espn_wnba_injuries()</a></code>,
-<code><a href="espn_wnba_leaders.html">espn_wnba_leaders()</a></code>,
-<code><a href="espn_wnba_news.html">espn_wnba_news()</a></code>,
-<code><a href="espn_wnba_player_awards.html">espn_wnba_player_awards()</a></code>,
-<code><a href="espn_wnba_player_career_stats.html">espn_wnba_player_career_stats()</a></code>,
-<code><a href="espn_wnba_player_eventlog_v2.html">espn_wnba_player_eventlog_v2()</a></code>,
-<code><a href="espn_wnba_player_info.html">espn_wnba_player_info()</a></code>,
-<code><a href="espn_wnba_player_eventlog.html">espn_wnba_player_overview()</a></code>,
-<code><a href="espn_wnba_player_seasons.html">espn_wnba_player_seasons()</a></code>,
-<code><a href="espn_wnba_player_stats.html">espn_wnba_player_stats()</a></code>,
-<code><a href="espn_wnba_position.html">espn_wnba_position()</a></code>,
-<code><a href="espn_wnba_positions.html">espn_wnba_positions()</a></code>,
-<code><a href="espn_wnba_powerindex.html">espn_wnba_powerindex()</a></code>,
-<code><a href="espn_wnba_scoreboard.html">espn_wnba_scoreboard()</a></code>,
-<code><a href="espn_wnba_season_awards.html">espn_wnba_season_awards()</a></code>,
-<code><a href="espn_wnba_season_group.html">espn_wnba_season_group()</a></code>,
-<code><a href="espn_wnba_season_groups.html">espn_wnba_season_groups()</a></code>,
-<code><a href="espn_wnba_season_info.html">espn_wnba_season_info()</a></code>,
-<code><a href="espn_wnba_season_leaders.html">espn_wnba_season_leaders()</a></code>,
-<code><a href="espn_wnba_season_ranking.html">espn_wnba_season_ranking()</a></code>,
-<code><a href="espn_wnba_season_rankings.html">espn_wnba_season_rankings()</a></code>,
-<code><a href="espn_wnba_season_type.html">espn_wnba_season_type()</a></code>,
-<code><a href="espn_wnba_season_types.html">espn_wnba_season_types()</a></code>,
-<code><a href="espn_wnba_season_week.html">espn_wnba_season_week()</a></code>,
-<code><a href="espn_wnba_season_weeks.html">espn_wnba_season_weeks()</a></code>,
-<code><a href="espn_wnba_seasons.html">espn_wnba_seasons()</a></code>,
-<code><a href="espn_wnba_standings.html">espn_wnba_standings()</a></code>,
-<code><a href="espn_wnba_team.html">espn_wnba_team()</a></code>,
-<code><a href="espn_wnba_team_injuries.html">espn_wnba_team_injuries()</a></code>,
-<code><a href="espn_wnba_team_news.html">espn_wnba_team_news()</a></code>,
-<code><a href="espn_wnba_team_record.html">espn_wnba_team_record()</a></code>,
-<code><a href="espn_wnba_team_record_detail.html">espn_wnba_team_record_detail()</a></code>,
-<code><a href="espn_wnba_team_schedule.html">espn_wnba_team_schedule()</a></code>,
-<code><a href="espn_wnba_team_season_roster.html">espn_wnba_team_season_roster()</a></code>,
-<code><a href="espn_wnba_team_season_statistics.html">espn_wnba_team_season_statistics()</a></code>,
-<code><a href="espn_wnba_team_stats.html">espn_wnba_team_stats()</a></code>,
-<code><a href="espn_wnba_teams.html">espn_wnba_teams()</a></code>,
-<code><a href="espn_wnba_transactions.html">espn_wnba_transactions()</a></code>,
-<code><a href="espn_wnba_venues.html">espn_wnba_venues()</a></code>,
-<code><a href="espn_wnba_week_ranking.html">espn_wnba_week_ranking()</a></code>,
-<code><a href="espn_wnba_week_rankings.html">espn_wnba_week_rankings()</a></code></p></div>
+    <div class="dont-index"><p><a href="family_espn_wnba.html">family_espn_wnba</a> lists every function in this family.</p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -250,7 +186,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_game_all</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401244185</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Plays</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:47 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:08 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 388 × 55</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id       sequence_number text  away_score home_score scoring_play score_value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -274,7 +210,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Team</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:47 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:09 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 57</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     game_id season season_type game_date  game_date_time      team_id team_uid  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -290,7 +226,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Player</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Player Box Information from ESPN.com ────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:47 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:09 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 57</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      game_id season season_type game_date  game_date_time      athlete_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -317,7 +253,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_pbp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401455681</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Play-by-Play Information from ESPN.com ──────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:48 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:09 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 343 × 55</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id       sequence_number text  away_score home_score scoring_play score_value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -343,7 +279,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_team_box</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401244185</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Team Box Information from ESPN.com ──────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:48 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:09 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 57</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     game_id season season_type game_date  game_date_time      team_id team_uid  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -360,7 +296,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_player_box</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401244185</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Player Box Information from ESPN.com ────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:49 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:10 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25 × 57</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      game_id season season_type game_date  game_date_time      athlete_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -386,7 +322,7 @@ Get ESPN WNBA game rosters"><meta property="og:image" content="https://raw.githu
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_wnba_game_rosters</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401244185</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN WNBA Game Roster Information from ESPN.com ───────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:02:50 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:37:11 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 156</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    athlete_id athlete_uid  athlete_guid athlete_type    sdr first_name last_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>

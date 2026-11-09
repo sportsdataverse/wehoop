@@ -2966,50 +2966,18 @@ Turkish Basketball Federation app API; defaults to the KBSL.
 
   **TBF Highlights**
 
-- [`tbf_leaders_assists()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_assists.md)
+- [`tbf_leaders_points()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_assists()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_blocks()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_rebounds()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_steals()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_minutes()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_threes()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_turnovers()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
+  [`tbf_leaders_efficiency()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)
   :
 
-  **TBF Leaders: Assists**
-
-- [`tbf_leaders_blocks()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_blocks.md)
-  :
-
-  **TBF Leaders: Blocks**
-
-- [`tbf_leaders_efficiency()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_efficiency.md)
-  :
-
-  **TBF Leaders: Efficiency**
-
-- [`tbf_leaders_minutes()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_minutes.md)
-  :
-
-  **TBF Leaders: Minutes**
-
-- [`tbf_leaders_points()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_points.md)
-  :
-
-  **TBF Leaders: Points**
-
-- [`tbf_leaders_rebounds()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_rebounds.md)
-  :
-
-  **TBF Leaders: Rebounds**
-
-- [`tbf_leaders_steals()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_steals.md)
-  :
-
-  **TBF Leaders: Steals**
-
-- [`tbf_leaders_threes()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_threes.md)
-  :
-
-  **TBF Leaders: Threes**
-
-- [`tbf_leaders_turnovers()`](https://wehoop.sportsdataverse.org/reference/tbf_leaders_turnovers.md)
-  :
-
-  **TBF Leaders: Turnovers**
+  **TBF Leaders**
 
 - [`tbf_league_seasons()`](https://wehoop.sportsdataverse.org/reference/tbf_league_seasons.md)
   :

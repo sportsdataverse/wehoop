@@ -91,28 +91,8 @@ a malformed id, or HTTP 400 / 422.
 
 ## See also
 
-Other NBL Rosetta Functions:
-[`nbl_rosetta_match()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match.md),
-[`nbl_rosetta_match_by_id()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_by_id.md),
-[`nbl_rosetta_match_pbp()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_pbp.md),
-[`nbl_rosetta_match_player_box()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_player_box.md),
-[`nbl_rosetta_match_player_period_box()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_player_period_box.md),
-[`nbl_rosetta_match_team_box()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_match_team_box.md),
-[`nbl_rosetta_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_matches.md),
-[`nbl_rosetta_next_match()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_next_match.md),
-[`nbl_rosetta_next_match_team()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_next_match_team.md),
-[`nbl_rosetta_next_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_next_matches.md),
-[`nbl_rosetta_outcomes()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_outcomes.md),
-[`nbl_rosetta_player_game_log()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_player_game_log.md),
-[`nbl_rosetta_player_stats()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_player_stats.md),
-[`nbl_rosetta_players()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_players.md),
-[`nbl_rosetta_seasons_current()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_seasons_current.md),
-[`nbl_rosetta_standings()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_standings.md),
-[`nbl_rosetta_stats_leaders()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_stats_leaders.md),
-[`nbl_rosetta_team_players()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_team_players.md),
-[`nbl_rosetta_team_stats()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_team_stats.md),
-[`nbl_rosetta_team_stats_leaders()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_team_stats_leaders.md),
-[`nbl_rosetta_teams()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_teams.md)
+[family_nbl_rosetta](https://wehoop.sportsdataverse.org/reference/family_nbl_rosetta.md)
+lists every function in this family.
 
 ## Examples
 
@@ -120,7 +100,7 @@ Other NBL Rosetta Functions:
 # \donttest{
   try(nbl_rosetta_seasons(org = "nbl"))
 #> ── NBL Rosetta seasons from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:04:45 UTC
+#> ℹ Data updated: 2026-11-09 11:38:50 UTC
 #> # A tibble: 75 × 11
 #>    org   season_id    rosetta_season_id name  season_year season_type start_date
 #>    <chr> <chr>        <chr>             <chr>       <int> <chr>       <chr>     

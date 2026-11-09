@@ -78,29 +78,8 @@ back to 1966, DBBL 2024 on). An empty valid answer raises
 
 ## See also
 
-Other SCB Functions:
-[`scb_game()`](https://wehoop.sportsdataverse.org/reference/scb_game.md),
-[`scb_game_actions()`](https://wehoop.sportsdataverse.org/reference/scb_game_actions.md),
-[`scb_game_players()`](https://wehoop.sportsdataverse.org/reference/scb_game_players.md),
-[`scb_game_teams()`](https://wehoop.sportsdataverse.org/reference/scb_game_teams.md),
-[`scb_games()`](https://wehoop.sportsdataverse.org/reference/scb_games.md),
-[`scb_games_recent()`](https://wehoop.sportsdataverse.org/reference/scb_games_recent.md),
-[`scb_player_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_player_statistics.md),
-[`scb_playoff_games()`](https://wehoop.sportsdataverse.org/reference/scb_playoff_games.md),
-[`scb_playoff_series()`](https://wehoop.sportsdataverse.org/reference/scb_playoff_series.md),
-[`scb_records_per_game()`](https://wehoop.sportsdataverse.org/reference/scb_records_per_game.md),
-[`scb_records_season_averages()`](https://wehoop.sportsdataverse.org/reference/scb_records_season_averages.md),
-[`scb_referees()`](https://wehoop.sportsdataverse.org/reference/scb_referees.md),
-[`scb_season_player()`](https://wehoop.sportsdataverse.org/reference/scb_season_player.md),
-[`scb_season_players()`](https://wehoop.sportsdataverse.org/reference/scb_season_players.md),
-[`scb_season_teams()`](https://wehoop.sportsdataverse.org/reference/scb_season_teams.md),
-[`scb_standings()`](https://wehoop.sportsdataverse.org/reference/scb_standings.md),
-[`scb_team()`](https://wehoop.sportsdataverse.org/reference/scb_team.md),
-[`scb_team_rosters()`](https://wehoop.sportsdataverse.org/reference/scb_team_rosters.md),
-[`scb_team_seasons()`](https://wehoop.sportsdataverse.org/reference/scb_team_seasons.md),
-[`scb_team_statistics()`](https://wehoop.sportsdataverse.org/reference/scb_team_statistics.md),
-[`scb_transfers()`](https://wehoop.sportsdataverse.org/reference/scb_transfers.md),
-[`scb_transfers_teams()`](https://wehoop.sportsdataverse.org/reference/scb_transfers_teams.md)
+[family_scb](https://wehoop.sportsdataverse.org/reference/family_scb.md)
+lists every function in this family.
 
 ## Examples
 
@@ -108,7 +87,7 @@ Other SCB Functions:
 # \donttest{
   try(scb_seasons())
 #> ── BBL/DBBL Seasons from the SCB API ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:05:04 UTC
+#> ℹ Data updated: 2026-11-09 11:39:06 UTC
 #> # A tibble: 3 × 4
 #>   league season season_id is_active
 #>   <chr>   <int>     <int> <lgl>    

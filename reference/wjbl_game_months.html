@@ -141,63 +141,11 @@ Endpoint: GET https://api.wjbl.01core.app/api/play-schedule-months"><meta proper
 (sportsdataverse-py <code>wjbl_game_months</code>):</p><table class="table table"><tr><td>col_name</td><td>type</td><td>description</td></tr><tr><td>league_id</td><td>integer</td><td>Competition edition id league_id, cast to an integer (the API echoes a string here and an integer elsewhere).</td></tr><tr><td>season</td><td>integer</td><td>Season END year of the request (2026 = 2025-26); the body itself does not carry it.</td></tr><tr><td>game_month</td><td>character</td><td>Month 'YYYY-MM': the game_month parameter of /play-schedules.</td></tr><tr><td>game_month_jpn</td><td>character</td><td>The month in Japanese, (Japanese text) (April 2026).</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-
-<ul><li><p>Unofficial and unsupported: these wrappers read the JSON backend of www.wjbl.org (api.wjbl.01core.app),
-keyless, found in the site's own JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
-reproducing, republishing or otherwise using site content without permission: a copyright clause, not an
-anti-scraping one. The wrappers fetch on the user's behalf; check the terms before you republish the data
-or host a mirror. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is
-published; the runtime waits at least 1 s before every request, retries included. Payloads are not
-redistributed as release assets.</p></li>
-<li><p>Women's league: the W League is Japan's top women's basketball league. All text is Japanese (team names,
-phases, play-by-play actions); the column descriptions translate the vocabulary.</p></li>
-<li><p>Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys a season edition by an opaque league_id
-(45 = '25-26 W League'; every all-star game, cup and camp has one too) and the wrappers map the END year with
-the live league list (one extra, cached request; END = 2000 + the second YY of league_title). Phases inside an
-edition (season_id: 169 = regular season Premier, 170 = Future, 176 = playoff final; two divisions from
-2024-25) are native ids, passed as given: wjbl_standing_seasons lists them with their END year.</p></li>
-<li><p>The schedule is paged by month: wjbl_schedule answers ONE month (game_month, YYYY-MM; omitted = the season's
-latest month only). List the months with wjbl_game_months and loop. The game routes take only the global
-play_schedule_id and serve final games only: each makes one extra, cached request (the game header) to prove
-the game is final and that the answer is the game and the teams asked for.</p></li>
-<li><p>Errors are HTTP 200: an unknown id answers [] (wehoop_no_data) and a missing or non-numeric parameter
-answers an error envelope (wehoop_asset_fetch). Coverage: schedules from 1999-2000, box scores from 2013-14,
-play-by-play and the period stats from 2018-19 (earlier games answer [] on the /pbp routes: wehoop_no_data).
-No route carries shot coordinates.</p></li>
-<li><p>Personal data: the organiser's contact details (phones, e-mail) and the player's blood type are never output,
-and phone numbers and e-mail addresses inside free text are replaced by [redacted-phone] /
-[redacted-email]. Do not add them back. Player bio fields and referee names are public and stay.</p></li>
-<li><p>Errors are classed conditions, all inheriting <code>wehoop_error</code>: <code>wehoop_no_data</code> (HTTP 404 or the API has
-nothing for the request: an empty list, an id it does not know, a game without play-by-play before 2018-19, a
-season without months or games), <code>wehoop_bad_request</code> (a season that is not the END year of a W League
-edition, an id that is not an integer or a game_month that is not YYYY-MM, raised before the request, or the
-API's HTTP 400 / 422) and <code>wehoop_asset_fetch</code> (any other failure: an error envelope at HTTP 200, any other
-non-2xx, an empty or non-JSON body, a game that is not final, a truncated play-by-play, or a body for another
-game, league edition, month, team, season phase or player than the one asked for; <code>transient</code> is TRUE for 408
-/ 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers raise; they never warn and return an empty
-frame.</p></li>
-</ul></div>
+    <p>Source, terms of use, request pacing, seasons, ids, coverage and error classes of this family: see the notes in <code><a href="wjbl_leagues.html">wjbl_leagues()</a></code>.</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other WJBL Functions:
-<code><a href="wjbl_box_score.html">wjbl_box_score()</a></code>,
-<code><a href="wjbl_game.html">wjbl_game()</a></code>,
-<code><a href="wjbl_game_info.html">wjbl_game_info()</a></code>,
-<code><a href="wjbl_head_to_head.html">wjbl_head_to_head()</a></code>,
-<code><a href="wjbl_leagues.html">wjbl_leagues()</a></code>,
-<code><a href="wjbl_pbp.html">wjbl_pbp()</a></code>,
-<code><a href="wjbl_period_scores.html">wjbl_period_scores()</a></code>,
-<code><a href="wjbl_player.html">wjbl_player()</a></code>,
-<code><a href="wjbl_player_period_leaders.html">wjbl_player_period_leaders()</a></code>,
-<code><a href="wjbl_roster.html">wjbl_roster()</a></code>,
-<code><a href="wjbl_schedule.html">wjbl_schedule()</a></code>,
-<code><a href="wjbl_staff.html">wjbl_staff()</a></code>,
-<code><a href="wjbl_standing_seasons.html">wjbl_standing_seasons()</a></code>,
-<code><a href="wjbl_team_box_score.html">wjbl_team_box_score()</a></code>,
-<code><a href="wjbl_team_period_stats.html">wjbl_team_period_stats()</a></code>,
-<code><a href="wjbl_team_ranking.html">wjbl_team_ranking()</a></code>,
-<code><a href="wjbl_team_standings.html">wjbl_team_standings()</a></code>,
-<code><a href="wjbl_teams.html">wjbl_teams()</a></code></p></div>
+    <div class="dont-index"><p><a href="family_wjbl.html">family_wjbl</a> lists every function in this family.</p></div>
     </div>
 
     <div class="section level2">
@@ -205,7 +153,7 @@ frame.</p></li>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">wjbl_game_months</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── W League Game Months from api.wjbl.01core.app ─────────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 10:05:33 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:39:32 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   league_id season game_month game_month_jpn</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>

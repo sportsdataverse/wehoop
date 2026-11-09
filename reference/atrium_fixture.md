@@ -89,41 +89,9 @@ A `wehoop_data` tibble, one row for the game:
 
 ## Details
 
-**Unofficial.** This is the public endpoint the Sportradar Atrium /
-Synergy "Connect" widget calls from every visitor's browser (keyless;
-the host has no robots.txt). The data is Sportradar's and the leagues'.
-The wrappers read it on the caller's behalf, one request at least 1 s
-after the last to the host, and it is not republished as release assets.
-Keep crawls small and incremental.
-
-**Sites and seasons.** `website_id` picks the league site; one site
-carries many competitions. Seasons are END years (`season = 2026`): the
-site's own year is the START year on LNB and the calendar year
-elsewhere, and a year can hold several competitions, so pair `season`
-with `competition_id` (see
-[`atrium_seasons()`](https://wehoop.sportsdataverse.org/reference/atrium_seasons.md))
-or pass `season_id`.
-[`atrium_end_year()`](https://wehoop.sportsdataverse.org/reference/atrium_end_year.md)
-maps a site's own year to that END year, and
-[`atrium_season_id()`](https://wehoop.sportsdataverse.org/reference/atrium_season_id.md)
-finds the season UUID.
-
-**Columns** are configured per site: a statistic one site omits is `NA`.
-A key the documented columns do not list is appended with an inferred
-type. Player and team ids (UUIDs, character) are shared across sites;
-the player stat tables carry names only, so `person_id` there is decoded
-from the widget link beside each name.
-
-**Errors** (classed conditions, all inheriting `wehoop_error`):
-`wehoop_no_data` when the site has nothing for the request (HTTP 404, no
-such season, an empty fixture list, a game with no play-by-play yet, or
-a fixture id the site does not serve: an unknown id or a game of another
-site, which the API answers alike with an empty fixture);
-`wehoop_bad_request` for HTTP 400 / 422 or an argument that cannot be
-mapped (an ambiguous END year, `season` with `season_id`);
-`wehoop_asset_fetch` for any other failed fetch, an error / stub body,
-or a body that belongs to another site, type, season, game, player or
-team than the one asked for.
+Source, terms of use, request pacing, seasons, ids, coverage and error
+classes of this family: see the notes in
+[`atrium_fixtures()`](https://wehoop.sportsdataverse.org/reference/atrium_fixtures.md).
 
 ## See also
 
@@ -162,7 +130,7 @@ Other Atrium Functions:
 # \donttest{
   try(atrium_fixture(website_id = 14, fixture_id = "0dc631bd-c34c-11f1-8d16-4d5a21afb79d"))
 #> ── Atrium fixture from embed-api.eui.connect.sportradar.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 10:01:44 UTC
+#> ℹ Data updated: 2026-11-09 11:36:05 UTC
 #> # A tibble: 1 × 42
 #>   website_id fixture_id  season_id competition_name name  fixture_type age_group
 #>        <int> <chr>       <chr>     <chr>            <chr> <chr>        <chr>    
