@@ -25,7 +25,7 @@
 [![R-universe](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=r-universe&prefix=v&query=%24.Version&url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2Fwehoop)](https://sportsdataverse.r-universe.dev/wehoop)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&logo=R&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml)
-[![Codecov](https://img.shields.io/codecov/c/github/sportsdataverse/wehoop?logo=codecov&style=for-the-badge)](https://app.codecov.io/gh/sportsdataverse/wehoop)
+[![Codecov](https://img.shields.io/codecov/c/github/sportsdataverse/wehoop/main?logo=codecov&style=for-the-badge)](https://app.codecov.io/gh/sportsdataverse/wehoop/tree/main)
 [![pkgdown](https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/pkgdown.yaml?branch=main&label=pkgdown&logo=github&style=for-the-badge)](https://github.com/sportsdataverse/wehoop/actions/workflows/pkgdown.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md)
