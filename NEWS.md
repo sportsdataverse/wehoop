@@ -237,6 +237,18 @@
   `load_wnba_pbp()`; `load_wnba_stats_pbp()`). The `fox_wbb_teams_all()` and
   `wbb_team_crosswalk()` examples make fewer calls, and the
   `nbl_rosetta_matches()` example reads the smaller WNBL season. (#118)
+* The `load_wnba_stats_coaches()`, `load_wnba_draft()` and
+  `load_wbb_game_rosters()` help pages each document about a dozen loaders.
+  Each page now runs two cheap loader examples, and the others run only in
+  interactive sessions. The `wjbl_pbp()` call runs only in interactive
+  sessions (its route takes 5 to 10 s), and its page runs a `wjbl_game()`
+  call instead. The `atrium_player_stats()` call is interactive-only too,
+  and its page runs `atrium_players()` instead. So is `espn_wbb_teams()`
+  (one request per conference), and its page runs `espn_wbb_conferences()`
+  instead. On the
+  `espn_wbb_game_all()` and `espn_wnba_game_all()` pages, the team box,
+  player box and game roster examples run only in interactive sessions.
+  The `nbl_rosetta_matches()` example asks for 10 matches (`limit = 10`).
 * Tests that call live APIs are gated behind their `*_TESTS` toggles and skip
   on CRAN and CI; CI adds R-devel, urlchecker and test-coverage jobs, and the
   toggles are read from repository variables. (#107)
