@@ -25,17 +25,21 @@ jobs:
   test-coverage:
     runs-on: ubuntu-latest
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       NOT_CRAN: true
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
+      # The token is only for installing GitHub remotes, so only this step gets it.
       - uses: r-lib/actions/setup-r-dependencies@v2
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         with:
           extra-packages: any::covr, any::xml2
           needs: coverage
