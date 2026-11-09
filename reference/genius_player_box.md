@@ -154,7 +154,7 @@ Other Genius Functions:
 # \donttest{
   try(genius_player_box(match_id = 2902690))
 #> ── Genius LiveStats player box score ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:38:02 UTC
+#> ℹ Data updated: 2026-11-09 20:20:32 UTC
 #> # A tibble: 24 × 51
 #>    match_id   tno   pno name       first_name family_name international_first_…¹
 #>       <int> <int> <int> <chr>      <chr>      <chr>       <chr>                 

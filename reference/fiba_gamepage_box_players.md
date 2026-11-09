@@ -144,7 +144,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gamepage_box_players(game_id = 100720, comp = 208182))
 #> ── FIBA gamepage_box_players from fiba.basketball ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:38 UTC
+#> ℹ Data updated: 2026-11-09 20:20:08 UTC
 #> # A tibble: 24 × 43
 #>    game_id competition_id team_side organisation_id player_id first_name
 #>      <int>          <int> <chr>               <int>     <int> <chr>     

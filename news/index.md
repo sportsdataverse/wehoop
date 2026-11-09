@@ -113,15 +113,24 @@
   player box scores
   ([`load_wnba_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
   /
-  [`load_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)),
-  and error when none are published. ESPN’s roster endpoint ignores
-  `?season=`, so a past season used to return today’s roster under the
-  past season’s label, which also fed
+  [`load_wbb_player_box()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)).
+  ESPN’s roster endpoint ignores `?season=`, so a past season used to
+  return today’s roster under the past season’s label, which also fed
   [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
   /
   [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md).
   Mirrors sportsdataverse/sportsdataverse-py#782.
   ([\#93](https://github.com/sportsdataverse/wehoop/issues/93))
+
+- When that season’s player box scores cannot be read (not published, or
+  no network),
+  [`espn_wnba_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team.md)
+  /
+  [`espn_wbb_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_team.md)
+  warn with the release url and return a zero-row roster with the
+  documented columns instead of erroring, like wehoop’s other ESPN
+  wrappers. A failed read is not cached, so the next call tries the
+  download again.
 
 - 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop’s other 54 WNBA Stats
@@ -329,6 +338,34 @@
   [`nbl_rosetta_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_matches.md)
   example reads the smaller WNBL season.
   ([\#118](https://github.com/sportsdataverse/wehoop/issues/118))
+- The
+  [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md),
+  [`load_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+  and
+  [`load_wbb_game_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
+  help pages each document about a dozen loaders. Each page now runs two
+  cheap loader examples, and the others run only in interactive
+  sessions. The
+  [`wjbl_pbp()`](https://wehoop.sportsdataverse.org/reference/wjbl_pbp.md)
+  call runs only in interactive sessions (its route takes 5 to 10 s),
+  and its page runs a
+  [`wjbl_game()`](https://wehoop.sportsdataverse.org/reference/wjbl_game.md)
+  call instead. The
+  [`atrium_player_stats()`](https://wehoop.sportsdataverse.org/reference/atrium_player_stats.md)
+  call is interactive-only too, and its page runs
+  [`atrium_players()`](https://wehoop.sportsdataverse.org/reference/atrium_players.md)
+  instead. So is
+  [`espn_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_teams.md)
+  (one request per conference), and its page runs
+  [`espn_wbb_conferences()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_conferences.md)
+  instead. On the
+  [`espn_wbb_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
+  and
+  [`espn_wnba_game_all()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+  pages, the team box, player box and game roster examples run only in
+  interactive sessions. The
+  [`nbl_rosetta_matches()`](https://wehoop.sportsdataverse.org/reference/nbl_rosetta_matches.md)
+  example asks for 10 matches (`limit = 10`).
 - Tests that call live APIs are gated behind their `*_TESTS` toggles and
   skip on CRAN and CI; CI adds R-devel, urlchecker and test-coverage
   jobs, and the toggles are read from repository variables.

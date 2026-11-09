@@ -30,7 +30,7 @@ counts wins.
 | SPM | `ospm`, `dspm`, `spm` | Statistical plus-minus: box score rates weighted by coefficients fitted to regular-season RAPM |
 | BPM | `obpm`, `dbpm`, `bpm` | Box plus-minus (BPM 2.0 design) from box score logs and listed positions |
 | WAR | `war` | Wins above replacement: the RAPM rating times a calibrated points-per-win, with replacement level at -2.0 |
-| DARKO-style | `darko_filtered_skill`, `darko_projected_rating`, `darko_projected_sd` | A Kalman filter over the RAPM history with an aging curve: a filtered skill estimate and a projection for next season, with its standard deviation |
+| DARKO-style | `boban_filtered_skill`, `boban_projected_rating`, `boban_projected_sd` | A Kalman filter over the RAPM history with an aging curve: a filtered skill estimate and a projection for next season, with its standard deviation |
 
 Positive is good for every column, including defense: a positive
 `d_rapm` means the player’s teams allowed fewer points with her on the
@@ -77,21 +77,21 @@ impact |>
 #> # A tibble: 15 × 9
 #>    player_name    team_abbreviation    gp   min  rapm adj_rapm   spm   bpm   war
 #>    <chr>          <chr>             <int> <dbl> <dbl>    <dbl> <dbl> <dbl> <dbl>
-#>  1 A'ja Wilson    LVA                  40  1247  5.5     11.9   2.2  11.4  10.4 
-#>  2 Alyssa Thomas  PHX                  39  1220  4.3     11.6   3.2  13.1   8.6 
-#>  3 Skylar Diggins SEA                  43  1346  3.69    10.6   1.22  5.86  8.46
-#>  4 Napheesa Coll… MIN                  33  1065  4.85    10.9   1.75 17.6   7.93
-#>  5 Courtney Will… MIN                  44  1262  3.64     7.05  1.48 12.5   7.8 
-#>  6 Naz Hillmon    ATL                  44  1122  4.47     7.33  0.33  9.65  7.8 
-#>  7 Dearica Hamby  LAS                  44  1372  3.02     9.73  1.23  0.47  7.75
-#>  8 Jackie Young   LVA                  44  1336  3.14     5.81  1.46  8.85  7.58
-#>  9 Breanna Stewa… NYL                  31   947  4.99    13.3   1.49  7.38  7.46
-#> 10 Gabby Williams SEA                  44  1390  2.6      7.12  0.73  4.11  7.08
-#> 11 Allisha Gray   ATL                  42  1452  2.43     4.27  0.94 11.4   6.98
-#> 12 Kayla McBride  MIN                  39  1221  2.92     4.78  0.47 11.5   6.54
-#> 13 Veronica Burt… GSV                  44  1291  2.81     9.05  1.82  8.84  6.54
-#> 14 Lexie Hull     IND                  44  1187  2.95     7.23 -0.44  2.2   6.47
-#> 15 Kelsey Mitche… IND                  44  1385  2.12     5.21  0.4   6.06  6.34
+#>  1 A'ja Wilson    LVA                  40  1247  5.54     7.27  2.2   8.53 10.4 
+#>  2 Alyssa Thomas  PHX                  39  1220  4.26     5.48  3.2  10.4   8.54
+#>  3 Skylar Diggins SEA                  43  1346  3.73     4.53  1.22  3.85  8.52
+#>  4 Napheesa Coll… MIN                  33  1065  4.8      6.03  1.74  8.14  7.87
+#>  5 Courtney Will… MIN                  44  1262  3.68     4.07  1.49  3.07  7.86
+#>  6 Naz Hillmon    ATL                  44  1122  4.46     3.74  0.33  2.04  7.78
+#>  7 Dearica Hamby  LAS                  44  1372  2.99     3.79  1.22  2.94  7.71
+#>  8 Jackie Young   LVA                  44  1336  3.17     3.82  1.46  5.96  7.63
+#>  9 Breanna Stewa… NYL                  31   947  5.02     6.35  1.49  3.35  7.49
+#> 10 Gabby Williams SEA                  44  1390  2.64     2.88  0.73  2.1   7.13
+#> 11 Allisha Gray   ATL                  42  1452  2.38     3.16  0.93  3.77  6.89
+#> 12 Lexie Hull     IND                  44  1187  3.03     1.84 -0.44 -1.09  6.58
+#> 13 Veronica Burt… GSV                  44  1291  2.81     3.54  1.82  7.43  6.55
+#> 14 Kayla McBride  MIN                  39  1221  2.84     4.01  0.47  2.07  6.45
+#> 15 Chelsea Gray   LVA                  44  1372  2.25     2.31  1.1   2.89  6.42
 ```
 
 ## Data
@@ -164,23 +164,23 @@ rs_2025 <- impact |>
   filter(season == 2025, season_type == "Regular Season", min >= 300)
 
 rs_2025 |>
-  select(rapm, adj_rapm, spm, bpm, darko_filtered_skill, war) |>
+  select(rapm, adj_rapm, spm, bpm, boban_filtered_skill, war) |>
   cor(use = "pairwise.complete.obs") |>
   round(2)
-#>                      rapm adj_rapm  spm  bpm darko_filtered_skill  war
-#> rapm                 1.00     0.94 0.63 0.59                 1.00 0.92
-#> adj_rapm             0.94     1.00 0.63 0.41                 0.94 0.83
-#> spm                  0.63     0.63 1.00 0.52                 0.62 0.65
-#> bpm                  0.59     0.41 0.52 1.00                 0.58 0.60
-#> darko_filtered_skill 1.00     0.94 0.62 0.58                 1.00 0.91
-#> war                  0.92     0.83 0.65 0.60                 0.91 1.00
+#>                      rapm adj_rapm  spm  bpm boban_filtered_skill  war
+#> rapm                 1.00     0.95 0.63 0.70                 1.00 0.92
+#> adj_rapm             0.95     1.00 0.71 0.72                 0.94 0.90
+#> spm                  0.63     0.71 1.00 0.83                 0.62 0.65
+#> bpm                  0.70     0.72 0.83 1.00                 0.68 0.72
+#> boban_filtered_skill 1.00     0.94 0.62 0.68                 1.00 0.91
+#> war                  0.92     0.90 0.65 0.72                 0.91 1.00
 ```
 
 These correlations are for the 131 players with at least 300
 regular-season minutes in 2025. Two things stand out. The box engines
 (SPM, BPM) form their own cluster, related to RAPM but far from
-identical. And within a single season, `darko_filtered_skill` moves
-almost in lockstep with that season’s `rapm` (r = 0.996 here): the
+identical. And within a single season, `boban_filtered_skill` moves
+almost in lockstep with that season’s `rapm` (r = 0.995 here): the
 filter’s value is in what it carries across seasons and in the
 projection, not in re-ranking players within one.
 
@@ -204,7 +204,7 @@ minutes.](wnba-player-impact-model_files/figure-html/adj-vs-rapm-1.png)
 
 ### Does the projection predict next season?
 
-`darko_projected_rating` is made with data through season *t* only, so
+`boban_projected_rating` is made with data through season *t* only, so
 comparing it with the RAPM a player actually posts in season *t + 1* is
 an honest out-of-sample test. Here is the 2024 projection against 2025
 regular season RAPM, alongside the simplest possible baseline: carry
@@ -214,7 +214,7 @@ regular season RAPM, alongside the simplest possible baseline: carry
 
 proj_2024 <- impact |>
   filter(season == 2024, season_type == "Regular Season") |>
-  select(player_id, darko_projected_rating, rapm_2024 = rapm)
+  select(player_id, boban_projected_rating, rapm_2024 = rapm)
 
 real_2025 <- impact |>
   filter(season == 2025, season_type == "Regular Season") |>
@@ -227,16 +227,16 @@ forward <- inner_join(proj_2024, real_2025, by = "player_id", relationship = "on
 forward |>
   summarise(
     players = n(),
-    r_projection = cor(darko_projected_rating, rapm_2025),
+    r_projection = cor(boban_projected_rating, rapm_2025),
     r_carry_forward = cor(rapm_2024, rapm_2025),
-    mae_projection = mean(abs(darko_projected_rating - rapm_2025)),
+    mae_projection = mean(abs(boban_projected_rating - rapm_2025)),
     mae_carry_forward = mean(abs(rapm_2024 - rapm_2025))
   ) |>
   mutate(across(-players, ~ round(.x, 3)))
 #> # A tibble: 1 × 5
 #>   players r_projection r_carry_forward mae_projection mae_carry_forward
 #>     <int>        <dbl>           <dbl>          <dbl>             <dbl>
-#> 1     120        0.327           0.342           1.88              1.93
+#> 1     120         0.34           0.347           1.88              1.92
 ```
 
 The model card computes the same comparison on its own player
@@ -250,7 +250,7 @@ card’s reading, which the comparison above lets you check for one
 season: carrying RAPM forward ranks players about as well as the
 projection does, and the projection earns its keep on **level**, with a
 lower mean absolute error, because it shrinks toward the aging-curve
-mean. Treat `darko_projected_rating` as a better-calibrated magnitude,
+mean. Treat `boban_projected_rating` as a better-calibrated magnitude,
 not a better ordering.
 
 The card also measures how much of the modest correlation is noise in

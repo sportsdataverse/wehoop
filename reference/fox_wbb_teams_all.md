@@ -40,11 +40,11 @@ Other Fox Sports Functions:
 # \donttest{
   # max_calls = 5 probes five seed team ids (up to five conferences).
   try(fox_wbb_teams_all(max_calls = 5))
-#> ✖ 2026-11-09 11:37:58.778131: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-11-09 20:20:29.105957: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "3", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
 #> ── Fox Sports WBB full team directory ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:58 UTC
+#> ℹ Data updated: 2026-11-09 20:20:29 UTC
 #> # A tibble: 49 × 3
 #>    fox_team_id fox_team_name                    fox_section                 
 #>    <chr>       <chr>                            <chr>                       

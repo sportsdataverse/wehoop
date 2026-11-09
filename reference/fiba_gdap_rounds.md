@@ -69,7 +69,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gdap_rounds(comp = 208182))
 #> ── FIBA gdap_rounds from fiba.basketball ─────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:51 UTC
+#> ℹ Data updated: 2026-11-09 20:20:21 UTC
 #> # A tibble: 10 × 18
 #>    game_system game_system_code parent_round_id round_code round_id round_name  
 #>    <chr>       <chr>                      <int> <chr>         <int> <chr>       

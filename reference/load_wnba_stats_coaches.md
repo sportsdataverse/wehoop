@@ -588,6 +588,7 @@ Saiem Gilani
 #> #   sub_sort_sequence <int>, season_type <chr>
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_player_stats(seasons = most_recent_wnba_stats_season()))
 #> Warning: `load_wnba_stats_player_stats()` was deprecated in wehoop 3.0.0.
 #> ℹ Backing data moved from the wnba_stats_player_season_stats release tag to the
@@ -618,6 +619,7 @@ Saiem Gilani
 #> #   wnba_fantasy_pts <dbl>, fp_high_score <dbl>, gp_rank <int>, w_rank <int>, …
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_lineups(seasons = most_recent_wnba_stats_season()))
 #> Warning: `load_wnba_stats_lineups()` was deprecated in wehoop 3.0.0.
 #> ℹ Backing data moved from the wnba_stats_lineups release tag (5-man
@@ -648,6 +650,7 @@ Saiem Gilani
 #> #   w_pct_rank <int>, min_rank <int>, fgm_rank <int>, fga_rank <int>, …
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_team_stats(seasons = most_recent_wnba_stats_season()))
 #> Warning: `load_wnba_stats_team_stats()` was deprecated in wehoop 3.0.0.
 #> ℹ Backing data moved from the wnba_stats_team_season_stats release tag to the
@@ -678,6 +681,7 @@ Saiem Gilani
 #> #   fg_pct_rank <int>, fg3_m_rank <int>, fg3_a_rank <int>, …
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_standings(seasons = most_recent_wnba_stats_season()))
 #> Warning: `load_wnba_stats_standings()` was deprecated in wehoop 3.0.0.
 #> ℹ Backing data moved from the wnba_stats_standings release tag to the
@@ -711,6 +715,7 @@ Saiem Gilani
 #> #   long_road_streak <int>, str_long_road_streak <chr>, …
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_draft(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 45 × 14
@@ -732,6 +737,7 @@ Saiem Gilani
 #> #   player_profile_flag <int>
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 48,230 × 18
@@ -753,6 +759,7 @@ Saiem Gilani
 #> #   description <chr>, score_home <chr>, score_away <chr>
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 994 × 10
@@ -772,6 +779,7 @@ Saiem Gilani
 #> # ℹ 3 more variables: team_abbreviation <chr>, season <int>, game_id <chr>
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 1,071 × 6
@@ -790,6 +798,7 @@ Saiem Gilani
 #> # ℹ 1,061 more rows
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 4,715 × 35
@@ -814,6 +823,7 @@ Saiem Gilani
 #> #   fantasy_pts <dbl>, measure_type <chr>
 # }
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 352 × 15
@@ -835,13 +845,33 @@ Saiem Gilani
 #> #   away_team_abbreviation <chr>, away_team_name <chr>, away_pts <int>,
 #> #   away_wl <chr>
 # }
-if (FALSE) { # interactive()
 # \donttest{
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
+#> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
+#> # A tibble: 149,921 × 38
+#>    order_index action_number clock       period   team_id team_tricode person_id
+#>          <int>         <int> <chr>        <int>     <int> <chr>            <int>
+#>  1           0             2 PT10M00.00S      1    0      ""              0     
+#>  2           1             4 PT10M00.00S      1    1.61e9 "NYL"           1.63e6
+#>  3           2             7 PT09M44.00S      1    1.61e9 "CON"           1.64e6
+#>  4           3             8 PT09M39.00S      1    1.61e9 "NYL"           1.63e6
+#>  5           4             9 PT09M25.00S      1    1.61e9 "NYL"           1.63e6
+#>  6           5            11 PT09M17.00S      1    1.61e9 "CON"           1.64e6
+#>  7           6            13 PT09M06.00S      1    1.61e9 "NYL"           1.63e6
+#>  8           7            15 PT08M50.00S      1    1.61e9 "CON"           2.03e5
+#>  9           8            16 PT08M50.00S      1    0      ""              1.61e9
+#> 10           9            17 PT08M34.00S      1    1.61e9 "NYL"           1.63e6
+#> # ℹ 149,911 more rows
+#> # ℹ 31 more variables: player_name <chr>, player_name_i <chr>, x_legacy <int>,
+#> #   y_legacy <int>, shot_distance <int>, shot_result <chr>,
+#> #   is_field_goal <int>, score_home <chr>, score_away <chr>,
+#> #   points_total <int>, location <chr>, description <chr>, action_type <chr>,
+#> #   sub_type <chr>, video_available <int>, shot_value <int>, action_id <int>,
+#> #   game_id <chr>, seconds_remaining <dbl>, event_type <chr>, …
 # }
-}
 # \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 56,153 × 37

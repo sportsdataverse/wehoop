@@ -80,7 +80,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_standings(competition = "bsl", season = 2027))
 #> ── TBF Standings ─────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:39:20 UTC
+#> ℹ Data updated: 2026-11-09 20:22:02 UTC
 #> # A tibble: 16 × 18
 #>    season competition group activity_id team_process_id team_name     week  rank
 #>     <int> <chr>       <chr>       <int>           <int> <chr>        <int> <int>
@@ -91,10 +91,10 @@ lists every function in this family.
 #>  5   2027 bsl         NA          22214          266026 GALATASARAY…     7     5
 #>  6   2027 bsl         NA          22214          266048 ALİAĞA PETK…     7     6
 #>  7   2027 bsl         NA          22214          266029 TRABZONSPOR      7     7
-#>  8   2027 bsl         NA          22214          266024 ESENLER ERO…     7     8
-#>  9   2027 bsl         NA          22214          265995 TOFAŞ            7     9
-#> 10   2027 bsl         NA          22214          266027 KARŞIYAKA        7    10
-#> 11   2027 bsl         NA          22214          265992 BEŞİKTAŞ         7    11
+#>  8   2027 bsl         NA          22214          266027 KARŞIYAKA        7     8
+#>  9   2027 bsl         NA          22214          266024 ESENLER ERO…     7     9
+#> 10   2027 bsl         NA          22214          265992 BEŞİKTAŞ         7    10
+#> 11   2027 bsl         NA          22214          265995 TOFAŞ            7    11
 #> 12   2027 bsl         NA          22214          268222 BİOTEKNO KÖ…     7    12
 #> 13   2027 bsl         NA          22214          265993 PİZZABULLS …     7    13
 #> 14   2027 bsl         NA          22214          265994 GLİNT ÇAYIR…     7    14

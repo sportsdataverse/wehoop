@@ -68,9 +68,27 @@ lists every function in this family.
 
 ``` r
 # \donttest{
+  # The game must be final: wjbl_game() refuses one that is not.
+  try(wjbl_game(play_schedule_id = 7987))
+#> ── W League Game from api.wjbl.01core.app ────────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-09 20:22:19 UTC
+#> # A tibble: 1 × 36
+#>   play_schedule_id game_status home_team_id home_season_team_name      
+#>              <int> <chr>              <int> <chr>                      
+#> 1             7987 fixed                 13 トヨタ自動車 アンテロープス
+#> # ℹ 32 more variables: home_season_team_short_name <chr>,
+#> #   home_team_logo_image <chr>, home_team_entry_flg <int>,
+#> #   home_season_team_area <chr>, home_free_text <chr>, home_winner_flg <int>,
+#> #   home_score <int>, home_score_p1 <int>, home_score_p2 <int>,
+#> #   home_score_p3 <int>, home_score_p4 <int>, home_score_ot1 <int>,
+#> #   home_score_ot2 <int>, home_score_ot3 <int>, home_score_ot4 <int>,
+#> #   away_team_id <int>, away_season_team_name <chr>, …
+# }
+# \donttest{
+  # Interactive only: the play-by-play route takes 5 to 10 s (elapsed) to answer.
   try(wjbl_pbp(play_schedule_id = 7987))
 #> ── W League Play-by-Play from api.wjbl.01core.app ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:39:39 UTC
+#> ℹ Data updated: 2026-11-09 20:22:25 UTC
 #> # A tibble: 439 × 24
 #>    play_schedule_id    no period rest_time seconds_remaining team_id team_name  
 #>               <int> <int>  <int> <chr>                 <int>   <int> <chr>      

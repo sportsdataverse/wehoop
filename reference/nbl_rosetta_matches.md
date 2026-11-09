@@ -137,10 +137,11 @@ lists every function in this family.
 
 ``` r
 # \donttest{
-  try(nbl_rosetta_matches(season = 2026, season_type = "regular"))
+  # The first 10 matches: parsing the whole season takes about 3 s of CPU.
+  try(nbl_rosetta_matches(season = 2026, season_type = "regular", limit = 10))
 #> ── NBL Rosetta matches from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:38:45 UTC
-#> # A tibble: 99 × 59
+#> ℹ Data updated: 2026-11-09 20:21:29 UTC
+#> # A tibble: 10 × 59
 #>    org   match_id  external_media_id date_updated start_time start_time_datetime
 #>    <chr> <chr>     <chr>             <chr>        <chr>      <chr>              
 #>  1 wnbl  1b7bee1e… 69183544          2026-11-02T… 2026-03-0… 2026-03-01T05:00:00
@@ -153,12 +154,12 @@ lists every function in this family.
 #>  8 wnbl  ba4fba3e… 61388477          2026-10-15T… 2026-02-0… 2026-02-08T07:30:00
 #>  9 wnbl  ba4b6c4d… 61388481          2026-10-15T… 2026-02-0… 2026-02-08T01:30:00
 #> 10 wnbl  ba280ba5… 61388475          2026-10-15T… 2026-02-0… 2026-02-07T08:00:00
-#> # ℹ 89 more rows
 #> # ℹ 53 more variables: round <chr>, match_type <chr>, match_status <chr>,
 #> #   status <chr>, home_score <int>, away_score <int>, attendance <int>,
 #> #   match_slug <chr>, match_title <chr>, venue_id <chr>,
 #> #   rosetta_venue_id <chr>, venue_name <chr>, venue_address <chr>,
 #> #   venue_suburb <chr>, venue_state <chr>, venue_country <chr>,
-#> #   venue_capacity <int>, venue_timezone <chr>, venue_code <chr>, …
+#> #   venue_capacity <int>, venue_timezone <chr>, venue_code <chr>,
+#> #   venue_latitude <dbl>, venue_longitude <dbl>, home_team_id <chr>, …
 # }
 ```

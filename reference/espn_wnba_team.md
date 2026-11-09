@@ -84,7 +84,8 @@ Columns as documented in the shared
 table. ESPN's roster endpoint ignores the season, so a season before the
 current one is built from that season's published player box scores
 (name, jersey, position and headshot from the athlete's last game; bio
-columns `NA`), and errors when none are published.
+columns `NA`); when none can be read (not published, or offline) it
+warns and returns zero rows with these columns.
 
 A single long-format tibble (one row per category-rank-athlete).
 
@@ -136,7 +137,7 @@ Saiem Gilani
   espn_wnba_team(team_id = "17", season = 2025)
 #> $Info
 #> ── ESPN WNBA Team Info from ESPN.com ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:23 UTC
+#> ℹ Data updated: 2026-11-09 20:19:51 UTC
 #> # A tibble: 1 × 12
 #>   id    uid    slug  abbreviation display_name short_display_name name  location
 #>   <chr> <chr>  <chr> <chr>        <chr>        <chr>              <chr> <chr>   
@@ -146,7 +147,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN WNBA Team Record from ESPN.com ───────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:23 UTC
+#> ℹ Data updated: 2026-11-09 20:19:51 UTC
 #> # A tibble: 3 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
@@ -159,7 +160,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN WNBA Team Standing Summary from ESPN.com ─────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:23 UTC
+#> ℹ Data updated: 2026-11-09 20:19:51 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary                  
 #>   <chr>                             
@@ -172,7 +173,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_roster(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Roster from ESPN.com player box scores ─────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:24 UTC
+#> ℹ Data updated: 2026-11-09 20:19:52 UTC
 #> # A tibble: 15 × 15
 #>    athlete_id full_name jersey position_abbrev position_name height weight age  
 #>    <chr>      <chr>     <chr>  <chr>           <chr>         <chr>  <chr>  <chr>
@@ -201,7 +202,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_season_profile(team_id = "17", season = 2025)
 #> ── ESPN WNBA Team Season Profile from ESPN.com ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:24 UTC
+#> ℹ Data updated: 2026-11-09 20:19:52 UTC
 #> # A tibble: 1 × 35
 #>   id    guid       uid   slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>      <chr> <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

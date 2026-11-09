@@ -370,7 +370,7 @@ compare |>
 #> # A tibble: 1 × 6
 #>   players r_offense r_defense r_total sd_wnba_rapm sd_published
 #>     <int>     <dbl>     <dbl>   <dbl>        <dbl>        <dbl>
-#> 1     102     0.998     0.997   0.998         2.06         2.31
+#> 1     102     0.998     0.998   0.998         2.06         2.31
 ```
 
 ``` r

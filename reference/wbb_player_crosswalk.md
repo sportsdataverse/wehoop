@@ -59,10 +59,12 @@ Other WBB Crosswalk Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   # Reads every team roster from ESPN and Fox, so it runs interactively only.
   try(wbb_player_crosswalk(season = 2025))
+#> ✖ 2026-11-09 20:22:11.098428: Could not build WBB player crosswalk for 2025!
+#> ✖ Args: season = 2025, min_confidence = 0.92
+#> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
+#> data frame with 0 columns and 0 rows
 # }
-}
 ```

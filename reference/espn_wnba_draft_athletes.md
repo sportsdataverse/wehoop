@@ -69,7 +69,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_rounds(season = 2024)
 #> ── ESPN WNBA Draft Rounds ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:07 UTC
+#> ℹ Data updated: 2026-11-09 20:19:33 UTC
 #> # A tibble: 3 × 7
 #>   league season round display_name short_display_name n_picks status   
 #>   <chr>   <int> <int> <chr>        <chr>                <int> <chr>    
@@ -80,7 +80,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_athletes(season = 2024)
 #> ── ESPN WNBA Draft Athletes ──────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:07 UTC
+#> ℹ Data updated: 2026-11-09 20:19:33 UTC
 #> # A tibble: 112 × 4
 #>    league season athlete_id ref                                                 
 #>    <chr>   <int> <chr>      <chr>                                               
@@ -99,7 +99,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_draft_status(season = 2024)
 #> ── ESPN WNBA Draft Status ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:07 UTC
+#> ℹ Data updated: 2026-11-09 20:19:33 UTC
 #> # A tibble: 1 × 7
 #>   league season round type_id type_name type_state description
 #>   <chr>   <int> <int> <chr>   <chr>     <chr>      <chr>      
@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_draft(season = 2024)
 #> ── ESPN WNBA Season Draft (top-level) ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:07 UTC
+#> ℹ Data updated: 2026-11-09 20:19:34 UTC
 #> # A tibble: 1 × 10
 #>   league season  year uid       number_of_rounds display_name short_display_name
 #>   <chr>   <int> <int> <chr>                <int> <chr>        <chr>             

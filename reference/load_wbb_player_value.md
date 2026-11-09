@@ -111,9 +111,9 @@ Returns a `wehoop_data` tibble with one row per player-team-season.
 | dbpm | numeric | Defensive box plus-minus. |
 | bpm | numeric | Net box plus-minus. |
 | war | numeric | Wins above replacement. |
-| darko_filtered_skill | numeric | DARKO-style filtered skill rating. |
-| darko_projected_rating | numeric | DARKO-style forward-looking projected rating. |
-| darko_projected_sd | numeric | Standard deviation of the DARKO-style projected rating. |
+| boban_filtered_skill | numeric | DARKO-style filtered skill rating. |
+| boban_projected_rating | numeric | DARKO-style forward-looking projected rating. |
+| boban_projected_sd | numeric | Standard deviation of the DARKO-style projected rating. |
 
 Returns a `wehoop_data` tibble with one row per player-team-season.
 
@@ -156,7 +156,7 @@ Saiem Gilani
 # \donttest{
   try(load_wnba_player_impact(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 329 × 28
+#> # A tibble: 329 × 76
 #>    player_id player_name        team_id team_abbreviation team_name teams season
 #>        <int> <chr>                <int> <chr>             <chr>     <chr>  <int>
 #>  1    201886 DeWanna Bonner      1.61e9 PHX               Phoenix … PHX     2026
@@ -170,12 +170,12 @@ Saiem Gilani
 #>  9    203405 Kayla Alexander     1.61e9 TOR               Toronto … TOR     2026
 #> 10    203822 Rebekah Gardner     1.61e9 NYL               New York… NYL     2026
 #> # ℹ 319 more rows
-#> # ℹ 21 more variables: season_type <chr>, o_rapm <dbl>, d_rapm <dbl>,
+#> # ℹ 69 more variables: season_type <chr>, o_rapm <dbl>, d_rapm <dbl>,
 #> #   rapm <dbl>, off_poss <int>, def_poss <int>, o_adj_rapm <dbl>,
 #> #   d_adj_rapm <dbl>, adj_rapm <dbl>, ospm <dbl>, dspm <dbl>, spm <dbl>,
 #> #   min <dbl>, gp <int>, obpm <dbl>, dbpm <dbl>, bpm <dbl>, war <dbl>,
-#> #   darko_filtered_skill <dbl>, darko_projected_rating <dbl>,
-#> #   darko_projected_sd <dbl>
+#> #   boban_filtered_skill <dbl>, boban_projected_rating <dbl>,
+#> #   boban_projected_sd <dbl>, o_rapm_n <int>, d_rapm_n <int>, rapm_n <int>, …
 # }
 # \donttest{
   try(load_wbb_player_value(seasons = most_recent_wbb_season()))

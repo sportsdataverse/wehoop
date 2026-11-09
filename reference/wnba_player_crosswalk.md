@@ -39,7 +39,7 @@ Other WNBA Crosswalk Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
+if (FALSE) { # interactive() && !nzchar(Sys.getenv("CI"))
 # \donttest{
   # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
   try(wnba_player_crosswalk(season = 2024))

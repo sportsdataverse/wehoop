@@ -54,10 +54,12 @@ Other WBB Crosswalk Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
 # \donttest{
   # Reads a full season of ESPN and Torvik games, so it runs interactively only.
   try(wbb_schedule_crosswalk(season = 2025))
+#> ✖ 2026-11-09 20:22:11.563089: Could not build WBB schedule crosswalk for 2025!
+#> ✖ Args: season = 2025
+#> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
+#> data frame with 0 columns and 0 rows
 # }
-}
 ```

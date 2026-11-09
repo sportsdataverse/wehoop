@@ -56,7 +56,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_weeks(season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Weeks Index ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:36:56 UTC
+#> ℹ Data updated: 2026-11-09 20:19:23 UTC
 #> # A tibble: 24 × 5
 #>    league                    season season_type  week ref                       
 #>    <chr>                      <int>       <int> <int> <chr>                     

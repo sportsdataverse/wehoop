@@ -60,7 +60,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gdap_final_standings(comp = 208182))
 #> ── FIBA gdap_final_standings from fiba.basketball ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:37:44 UTC
+#> ℹ Data updated: 2026-11-09 20:20:14 UTC
 #> # A tibble: 32 × 9
 #>    competition_id final_rank team_team_id team_team_code team_short_name
 #>             <int>      <int>        <int> <chr>          <chr>          

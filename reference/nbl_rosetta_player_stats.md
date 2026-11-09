@@ -143,7 +143,7 @@ lists every function in this family.
 # \donttest{
   try(nbl_rosetta_player_stats(org = "nbl", player_id = "7619d3ea-410d-11f0-9235-2902fc2f936f"))
 #> ── NBL Rosetta player_stats from prod.rosetta.nbl.com.au ─────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:38:46 UTC
+#> ℹ Data updated: 2026-11-09 20:21:30 UTC
 #> # A tibble: 3 × 91
 #>   org   assists_average blocks_average field_goals_attempted field_goals_made
 #>   <chr>           <dbl>          <dbl>                 <int>            <int>

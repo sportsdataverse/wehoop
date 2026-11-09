@@ -172,10 +172,11 @@ Endpoint: GET https://prod.rosetta.nbl.com.au/get/{org}/matches/in/season/{seaso
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nbl_rosetta_matches</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, season_type <span class="op">=</span> <span class="st">"regular"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="co"># The first 10 matches: parsing the whole season takes about 3 s of CPU.</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">nbl_rosetta_matches</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2026</span>, season_type <span class="op">=</span> <span class="st">"regular"</span>, limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NBL Rosetta matches from prod.rosetta.nbl.com.au ──────────── <span style="font-style: italic;">wehoop 3.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 11:38:45 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 99 × 59</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-09 20:21:29 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 59</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    org   match_id  external_media_id date_updated start_time start_time_datetime</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> wnbl  1b7bee1e… 69183544          2026-11-02T… 2026-03-0… 2026-03-01T05:00:00</span>
@@ -188,13 +189,13 @@ Endpoint: GET https://prod.rosetta.nbl.com.au/get/{org}/matches/in/season/{seaso
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> wnbl  ba4fba3e… 61388477          2026-10-15T… 2026-02-0… 2026-02-08T07:30:00</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> wnbl  ba4b6c4d… 61388481          2026-10-15T… 2026-02-0… 2026-02-08T01:30:00</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> wnbl  ba280ba5… 61388475          2026-10-15T… 2026-02-0… 2026-02-07T08:00:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 89 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 53 more variables: round &lt;chr&gt;, match_type &lt;chr&gt;, match_status &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status &lt;chr&gt;, home_score &lt;int&gt;, away_score &lt;int&gt;, attendance &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   match_slug &lt;chr&gt;, match_title &lt;chr&gt;, venue_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rosetta_venue_id &lt;chr&gt;, venue_name &lt;chr&gt;, venue_address &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_suburb &lt;chr&gt;, venue_state &lt;chr&gt;, venue_country &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_capacity &lt;int&gt;, venue_timezone &lt;chr&gt;, venue_code &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_capacity &lt;int&gt;, venue_timezone &lt;chr&gt;, venue_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_latitude &lt;dbl&gt;, venue_longitude &lt;dbl&gt;, home_team_id &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

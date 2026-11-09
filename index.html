@@ -158,33 +158,32 @@
 <ul>
 <li><a href="#data-status"><strong>Data status</strong></a></li>
 <li><a href="#installation"><strong>Installation</strong></a></li>
-<li><a href="#quick-start"><strong>Quick Start</strong></a></li>
+<li><a href="#quick-start"><strong>Quick start</strong></a></li>
 <li><a href="#whats-in-wehoop"><strong>What’s in wehoop</strong></a></li>
 <li><a href="#bulk-datasets"><strong>Bulk datasets</strong></a></li>
-<li><a href="#plotting-and-related-packages"><strong>Plotting and related packages</strong></a></li>
 <li><a href="#documentation"><strong>Documentation</strong></a></li>
 <li><a href="#breaking-changes"><strong>Breaking Changes</strong></a></li>
-<li><a href="#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo">Follow the SportsDataverse (@SportsDataverse) on X and star this repo</a></li>
-</ul>
-</li>
-<li>
-<a href="#our-authors"><strong>Our Authors</strong></a>
-<ul>
+<li><a href="#companion-packages"><strong>Companion packages</strong></a></li>
+<li><a href="#the-sportsdataverse"><strong>The SportsDataverse</strong></a></li>
+<li><a href="#follow-the-sportsdataverse-on-x-and-star-this-repo"><strong>Follow the SportsDataverse on X and star this repo</strong></a></li>
+<li><a href="#our-authors"><strong>Our Authors</strong></a></li>
 <li><a href="#cheat-sheet"><strong>Cheat sheet</strong></a></li>
+<li><a href="#code-of-conduct"><strong>Code of Conduct</strong></a></li>
 <li><a href="#citations"><strong>Citations</strong></a></li>
+<li><a href="#license"><strong>License</strong></a></li>
 </ul>
 </li>
 </ul>
 <div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="wehoop-">wehoop 
+<img src="logo.png" class="logo" alt=""><h1 id="wehoop-">
+<strong>wehoop</strong> 
 <a class="anchor" aria-label="anchor" href="#wehoop-"></a>
 </h1>
 </div>
 <!-- badges: start -->
 
-<!-- badges: end -->
-<p><a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is an R package for working with women’s college and professional basketball data. It exports 750 functions: live wrappers for ESPN, the WNBA Stats API, the NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers, plus 98 <code>load_*()</code> functions that read pre-built season files (play-by-play, box scores, rosters, schedules, crosswalks and model outputs) instead of calling the sources.</p>
+<p>The goal of <a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is to provide tools for working with women’s college and professional basketball data. It exports 754 functions: live wrappers for ESPN, the WNBA Stats API, the NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers, plus 102 <code>load_*()</code> functions that read pre-built season files (play-by-play, box scores, rosters, schedules, crosswalks and model outputs) instead of calling the sources.</p>
 <div class="section level2">
 <h2 id="data-status">
 <strong>Data status</strong><a class="anchor" aria-label="anchor" href="#data-status"></a>
@@ -257,35 +256,38 @@
 <p>You can install the CRAN version of <a href="https://CRAN.R-project.org/package=wehoop" class="external-link"><strong><code>wehoop</code></strong></a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"wehoop"</span><span class="op">)</span></span></code></pre></div>
-<p>This documentation describes <strong>wehoop 3.1.0</strong>. If the CRAN release hasn’t caught up yet, install the development version from <a href="https://github.com/sportsdataverse/wehoop" class="external-link">GitHub</a> instead:</p>
+<p>You can install the latest build from <a href="https://sportsdataverse.r-universe.dev/wehoop" class="external-link">R-universe</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># You can install using the pak package using the following code:</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pak'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'pak'</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sportsdataverse/wehoop"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"wehoop"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://sportsdataverse.r-universe.dev"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>This documentation describes <strong>wehoop 3.1.0</strong>. If the CRAN release hasn’t caught up yet, install the development version from <a href="https://github.com/sportsdataverse/wehoop" class="external-link">GitHub</a> instead:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"pak"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sportsdataverse/wehoop"</span><span class="op">)</span></span>
+<span><span class="co"># or, with remotes:</span></span>
+<span><span class="co"># if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("sportsdataverse/wehoop")</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-start">
-<strong>Quick Start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
+<strong>Quick start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <div class="section level3">
 <h3 id="wnba-play-by-play-for-a-season">
 <strong>WNBA play-by-play for a season</strong><a class="anchor" aria-label="anchor" href="#wnba-play-by-play-for-a-season"></a>
 </h3>
 <p><code><a href="reference/load_wnba_draft.html">load_wnba_pbp()</a></code> covers 2002-2026; pass several seasons (or <code>seasons = TRUE</code> for all of them) to load more at once.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wnba_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wnba_draft.html">load_wnba_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">## 144409 rows of WNBA play-by-play data from 354 games.</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## 144409 rows of WNBA play-by-play data from 354 games.</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="womens-college-basketball-play-by-play-for-a-season">
 <strong>Women’s college basketball play-by-play for a season</strong><a class="anchor" aria-label="anchor" href="#womens-college-basketball-play-by-play-for-a-season"></a>
 </h3>
 <p><code><a href="reference/load_wbb_game_rosters.html">load_wbb_pbp()</a></code> covers 2004 onward. A new season’s file is published once its games begin.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wbb_pbp</span> <span class="op">&lt;-</span> <span class="fu">wehoop</span><span class="fu">::</span><span class="fu"><a href="reference/load_wbb_game_rosters.html">load_wbb_pbp</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2026</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## 2824090 rows of women's college basketball play-by-play data from 6011 games.</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">## 2824090 rows of women's college basketball play-by-play data from 6011 games.</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -322,7 +324,7 @@
 <h2 id="bulk-datasets">
 <strong>Bulk datasets</strong><a class="anchor" aria-label="anchor" href="#bulk-datasets"></a>
 </h2>
-<p>The 98 <code>load_*()</code> functions read pre-built season files (rds or parquet) from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a> releases instead of calling the source APIs. Most take <code>seasons</code> and return a <code>wehoop_data</code> tibble (<code><a href="reference/load_wnba_draft.html">load_wnba_draft_manifest()</a></code> takes no arguments and the <code>load_*_groups()</code> lineage tables are not split by season); most can also write to a database through <code>dbConnection</code> and <code>tablename</code>.</p>
+<p>The 102 <code>load_*()</code> functions read pre-built season files (rds or parquet) from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a> releases instead of calling the source APIs. Most take <code>seasons</code> and return a <code>wehoop_data</code> tibble (<code><a href="reference/load_wnba_draft.html">load_wnba_draft_manifest()</a></code> takes no arguments and the <code>load_*_groups()</code> lineage tables are not split by season); most can also write to a database through <code>dbConnection</code> and <code>tablename</code>.</p>
 <ul>
 <li>
 <strong>ESPN-backed</strong> (<code>load_wnba_*</code>, <code>load_wbb_*</code>): play-by-play, player and team box scores, schedules, rosters, player and team season stats, standings, shots, game rosters, officials, player cores and the WNBA draft.</li>
@@ -339,8 +341,47 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="plotting-and-related-packages">
-<strong>Plotting and related packages</strong><a class="anchor" aria-label="anchor" href="#plotting-and-related-packages"></a>
+<h2 id="documentation">
+<strong>Documentation</strong><a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<p>For more information on the package and function reference, please see the <a href="https://wehoop.sportsdataverse.org"><strong><code>wehoop</code></strong> documentation website</a>.</p>
+<ul>
+<li><a href="https://wehoop.sportsdataverse.org/reference/index.html">Function reference</a></li>
+<li>Vignettes:
+<ul>
+<li><a href="https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html">Getting Started with wehoop: WNBA and Women’s College Basketball Data in R</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/espn-endpoints.html">ESPN basketball endpoints – WBB &amp; WNBA</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/parameter-descriptions.html">WNBA Stats API Parameter Descriptions</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html">Women’s College Basketball Cookbook</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html">WNBA Cookbook</a></li>
+</ul>
+</li>
+<li>Articles:
+<ul>
+<li><a href="https://wehoop.sportsdataverse.org/articles/wnba-player-impact-model.html">WNBA Player Impact Model: RAPM, SPM, BPM, WAR and DARKO-Style Projections</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/wnba-womens-college-basketball-shot-charts.html">WNBA and Women’s College Basketball Shot Charts in R</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/womens-basketball-advanced-metrics.html">Women’s Basketball Advanced Metrics in R: Possessions, Pace, Ratings and the Four Factors</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/womens-college-basketball-player-value-model.html">Women’s College Basketball Player Value: Box Plus-Minus Model</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/womens-college-basketball-rapm-model.html">Women’s College Basketball RAPM: League-Wide and Within-Team Player Impact</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/womens-college-basketball-team-ratings-model.html">Women’s College Basketball Team Ratings: Opponent-Adjusted Efficiency</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/womens-college-basketball-win-probability-model.html">Women’s College Basketball Win Probability Model</a></li>
+<li><a href="https://wehoop.sportsdataverse.org/articles/womens-international-basketball-leagues.html">Women’s International Basketball Data in R: FIBA, EuroLeague Women, WNBL, W League and More</a></li>
+</ul>
+</li>
+<li><a href="https://wehoop.sportsdataverse.org/news/index.html">News and release notes</a></li>
+</ul>
+<p>There is also a printable <a href="https://sportsdataverse.org/cheatsheets/wehoop.pdf" class="external-link"><strong><code>wehoop</code> cheat sheet (PDF)</strong></a>, one of <a href="https://sportsdataverse.org/cheatsheets" class="external-link">a set covering every SportsDataverse package</a>.</p>
+<p>The <a href="https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html">Getting started</a> article is the place to begin; the <a href="https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html">WNBA</a> and <a href="https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html">women’s college</a> cookbooks have worked recipes.</p>
+</div>
+<div class="section level2">
+<h2 id="breaking-changes">
+<strong>Breaking Changes</strong><a class="anchor" aria-label="anchor" href="#breaking-changes"></a>
+</h2>
+<p><a href="https://wehoop.sportsdataverse.org/news/index.html"><strong>Full News on Releases</strong></a></p>
+</div>
+<div class="section level2">
+<h2 id="companion-packages">
+<strong>Companion packages</strong><a class="anchor" aria-label="anchor" href="#companion-packages"></a>
 </h2>
 <ul>
 <li>
@@ -354,31 +395,94 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="documentation">
-<strong>Documentation</strong><a class="anchor" aria-label="anchor" href="#documentation"></a>
+<h2 id="the-sportsdataverse">
+<strong>The SportsDataverse</strong><a class="anchor" aria-label="anchor" href="#the-sportsdataverse"></a>
 </h2>
-<p>For more information on the package and function reference, please see the <a href="https://wehoop.sportsdataverse.org"><strong><code>wehoop</code></strong> documentation website</a>.</p>
-<p>There is also a printable <a href="https://sportsdataverse.org/cheatsheets/wehoop.pdf" class="external-link"><strong><code>wehoop</code> cheat sheet (PDF)</strong></a>, one of <a href="https://sportsdataverse.org/cheatsheets" class="external-link">a set covering every SportsDataverse package</a>.</p>
-<p>The <a href="https://wehoop.sportsdataverse.org/articles/getting-started-wehoop.html">Getting started</a> article is the place to begin; the <a href="https://wehoop.sportsdataverse.org/articles/wnba-cookbook.html">WNBA</a> and <a href="https://wehoop.sportsdataverse.org/articles/wbb-cookbook.html">women’s college</a> cookbooks have worked recipes.</p>
+<p><a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a>, a set of open-source packages for sports data.</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Package</th>
+<th>Sport / Scope</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><a href="https://cfbfastR.sportsdataverse.org/" class="external-link"><strong>cfbfastR</strong></a></td>
+<td>College football</td>
+</tr>
+<tr>
+<td><a href="https://hoopR.sportsdataverse.org/" class="external-link"><strong>hoopR</strong></a></td>
+<td>Men’s basketball (NBA and NCAA)</td>
+</tr>
+<tr>
+<td><a href="https://wehoop.sportsdataverse.org/"><strong>wehoop</strong></a></td>
+<td>Women’s basketball (WNBA and NCAA)</td>
+</tr>
+<tr>
+<td><a href="https://fastRhockey.sportsdataverse.org/" class="external-link"><strong>fastRhockey</strong></a></td>
+<td>Hockey (NHL and PWHL)</td>
+</tr>
+<tr>
+<td><a href="https://billpetti.github.io/baseballr/" class="external-link"><strong>baseballr</strong></a></td>
+<td>Baseball (MLB, MiLB, NCAA)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sportsdataverse/softballR" class="external-link"><strong>softballR</strong></a></td>
+<td>College softball</td>
+</tr>
+<tr>
+<td><a href="https://oddsapiR.sportsdataverse.org/" class="external-link"><strong>oddsapiR</strong></a></td>
+<td>Sports betting odds</td>
+</tr>
+<tr>
+<td><a href="https://recruitR.sportsdataverse.org/" class="external-link"><strong>recruitR</strong></a></td>
+<td>College football recruiting</td>
+</tr>
+<tr>
+<td><a href="https://usfootballR.sportsdataverse.org/" class="external-link"><strong>usfootballR</strong></a></td>
+<td>US soccer</td>
+</tr>
+<tr>
+<td>
+<a href="https://cfbseedR.sportsdataverse.org/" class="external-link"><strong>cfbseedR</strong></a> · <a href="https://cfb4th.sportsdataverse.org/" class="external-link"><strong>cfb4th</strong></a>
+</td>
+<td>CFB playoff simulation · fourth-down decisions</td>
+</tr>
+<tr>
+<td>
+<a href="https://cfbplotR.sportsdataverse.org/" class="external-link"><strong>cfbplotR</strong></a> · <a href="https://sdvplotR.sportsdataverse.org/" class="external-link"><strong>sdvplotR</strong></a> · <a href="https://sportyR.sportsdataverse.org/" class="external-link"><strong>sportyR</strong></a>
+</td>
+<td>Logos, colors, tables · playing surfaces</td>
+</tr>
+<tr>
+<td><a href="https://r.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-R</strong></a></td>
+<td>Umbrella R metapackage</td>
+</tr>
+<tr>
+<td>
+<a href="https://py.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-py</strong></a> · <a href="https://js.sportsdataverse.org/" class="external-link"><strong>sportsdataverse.js</strong></a>
+</td>
+<td>Python and Node.js</td>
+</tr>
+</tbody>
+</table>
+<p>See the full ecosystem at <a href="https://sportsdataverse.org/" class="external-link">sportsdataverse.org</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="breaking-changes">
-<strong>Breaking Changes</strong><a class="anchor" aria-label="anchor" href="#breaking-changes"></a>
-</h2>
-<p><a href="https://wehoop.sportsdataverse.org/news/index.html"><strong>Full News on Releases</strong></a></p>
-</div>
-<div class="section level2">
-<h2 id="follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo">Follow the SportsDataverse (@SportsDataverse) on X and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo"></a>
+<h2 id="follow-the-sportsdataverse-on-x-and-star-this-repo">
+<strong>Follow the <a href="https://x.com/SportsDataverse" class="external-link">SportsDataverse</a> on X and star this repo</strong><a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-x-and-star-this-repo"></a>
 </h2>
 <p><a href="https://x.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?style=for-the-badge&amp;logo=x&amp;label=%40SportsDataverse" alt="X Follow"></a></p>
 <p><a href="https://github.com/sportsdataverse/wehoop" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/wehoop.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20wehoop&amp;maxAge=2592000" alt="GitHub stars"></a></p>
 <p><a href="https://github.com/sportsdataverse/wehoop" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/wehoop/star-history/star-history-dark.svg"><img alt="Star history of sportsdataverse/wehoop" src="https://raw.githubusercontent.com/sportsdataverse/wehoop/star-history/star-history.png" width="600"></picture></a></p>
 </div>
-</div>
-<div class="section level1">
-<h1 id="our-authors">
+<div class="section level2">
+<h2 id="our-authors">
 <strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
-</h1>
+</h2>
 <ul>
 <li><a href="https://x.com/saiemgilani" class="external-link">Saiem Gilani</a></li>
 </ul>
@@ -388,6 +492,7 @@
 </ul>
 <p><a href="https://x.com/HutchNGo" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/HutchNGo?label=%40hutchngo&amp;logo=x&amp;style=for-the-badge" alt="@HutchNGo"></a> <a href="https://github.com/hutchngo" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/hutchngo?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@hutchngo"></a></p>
 <!-- cheatsheet-section -->
+</div>
 <div class="section level2">
 <h2 id="cheat-sheet">
 <strong>Cheat sheet</strong><a class="anchor" aria-label="anchor" href="#cheat-sheet"></a>
@@ -397,20 +502,32 @@
 <p>Free to download, print and hand out; light and dark, US Letter landscape. Every SportsDataverse package has one — browse them all at <strong><a href="https://sportsdataverse.org/cheatsheets" class="external-link">sportsdataverse.org/cheatsheets</a></strong>.</p>
 </div>
 <div class="section level2">
+<h2 id="code-of-conduct">
+<strong>Code of Conduct</strong><a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
+<p>Please note that the wehoop project is released with a <a href="https://wehoop.sportsdataverse.org/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+<div class="section level2">
 <h2 id="citations">
 <strong>Citations</strong><a class="anchor" aria-label="anchor" href="#citations"></a>
 </h2>
 <p>To cite the <a href="https://wehoop.sportsdataverse.org"><strong><code>wehoop</code></strong></a> R package in publications, use:</p>
 <p>BibTeX Citation</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">hutchinson_gilani_2021_wehoop</span>,</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="dt">title</span> = {wehoop: Access Women’s Basketball Play by Play Data},</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="dt">url</span> = {https://doi.org/10.32614/CRAN.package.wehoop},</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.wehoop},</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="dt">journal</span> = {CRAN: Contributed Packages},</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="dt">publisher</span> = {The R Foundation},</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="dt">author</span> = {Gilani,  Saiem and Hutchinson,  Geoffery},</span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">hutchinson_gilani_2021_wehoop</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="dt">title</span> = {wehoop: The SportsDataverse's R Package for Women's Basketball Data.},</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="dt">url</span> = {https://doi.org/10.32614/CRAN.package.wehoop},</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.wehoop},</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="dt">journal</span> = {CRAN: Contributed Packages},</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  <span class="dt">publisher</span> = {The R Foundation},</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>  <span class="dt">author</span> = {Gilani,  Saiem and Hutchinson,  Geoffery},</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="license">
+<strong>License</strong><a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p><a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is released under the MIT License (<code>MIT + file LICENSE</code>); see <a href="https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md" class="external-link">LICENSE.md</a>.</p>
 </div>
 </div>
 
@@ -460,14 +577,20 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=wehoop" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=CRAN%20version&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fcrandb.r-pkg.org%2Fwehoop" alt="CRAN status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=wehoop" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=CRAN%20version&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fcrandb.r-pkg.org%2Fwehoop" alt="CRAN version"></a></li>
 <li><a href="https://CRAN.R-project.org/package=wehoop" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=Downloads&amp;query=%24%5B0%5D.downloads&amp;url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fwehoop" alt="CRAN downloads"></a></li>
-<li><a href="https://github.com/sportsdataverse/wehoop" class="external-link"><img src="https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&amp;logo=R&amp;style=for-the-badge" alt="Version-Number"></a></li>
+<li><a href="https://sportsdataverse.r-universe.dev/wehoop" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=r-universe&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2Fwehoop" alt="R-universe"></a></li>
+<li><a href="https://github.com/sportsdataverse/wehoop/" class="external-link"><img src="https://img.shields.io/github/r-package/v/sportsdataverse/wehoop?label=wehoop&amp;logo=R&amp;style=for-the-badge" alt="Version-Number"></a></li>
 <li><a href="https://github.com/sportsdataverse/wehoop/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/R-CMD-check.yaml?branch=main&amp;label=R-CMD-Check&amp;logo=R&amp;logoColor=white&amp;style=for-the-badge" alt="R-CMD-check"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&amp;logo=github" alt="Lifecycle:stable"></a></li>
+<li><a href="https://app.codecov.io/gh/sportsdataverse/wehoop" class="external-link"><img src="https://img.shields.io/codecov/c/github/sportsdataverse/wehoop?logo=codecov&amp;style=for-the-badge" alt="Codecov"></a></li>
+<li><a href="https://github.com/sportsdataverse/wehoop/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/sportsdataverse/wehoop/pkgdown.yaml?branch=main&amp;label=pkgdown&amp;logo=github&amp;style=for-the-badge" alt="pkgdown"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&amp;logo=github" alt="Lifecycle: stable"></a></li>
+<li><a href="https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md" class="external-link"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License: MIT"></a></li>
+<li><a href="https://github.com/sportsdataverse/wehoop/graphs/contributors" class="external-link"><img src="https://img.shields.io/github/contributors/sportsdataverse/wehoop?style=for-the-badge" alt="Contributors"></a></li>
+<li><a href="https://github.com/sportsdataverse/wehoop" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/wehoop?style=for-the-badge&amp;logo=github" alt="GitHub stars"></a></li>
+<li><a href="https://x.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
 <li><a href="https://x.com/SaiemGilani" class="external-link"><img src="https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
 <li><a href="https://x.com/hutchngo" class="external-link"><img src="https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
-<li><a href="https://x.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?label=%40SportsDataverse&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
 </ul>
 </div>
 

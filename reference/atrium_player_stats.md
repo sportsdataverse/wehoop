@@ -123,11 +123,37 @@ Other Atrium Functions:
 
 ``` r
 # \donttest{
+  # The players the stats tables cover:
+  try(atrium_players(
+    website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
+  ))
+#> ── Atrium players from embed-api.eui.connect.sportradar.com ──── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-09 20:18:44 UTC
+#> # A tibble: 294 × 15
+#>    website_id season_id  person_id name  bib   entity_id team_name position_code
+#>         <int> <chr>      <chr>     <chr> <chr> <chr>     <chr>     <chr>        
+#>  1         12 df310a05-… 01173036… Isma… 21    f43b1b0f… Paris     C            
+#>  2         12 df310a05-… 03e0ef50… Juha… 23    736b73ae… Monaco    GF           
+#>  3         12 df310a05-… 0602120f… Jare… NA    f43b1b0f… Paris     NA           
+#>  4         12 df310a05-… 06ded7ee… Dayl… 2     c281453b… Cholet    SG           
+#>  5         12 df310a05-… 08ee670c… John… 8     7e9f3d8d… Le Mans   GF           
+#>  6         12 df310a05-… 095e7eb6… Davi… 4     7e9f3d8d… Le Mans   FC           
+#>  7         12 df310a05-… 0a26b3fe… Just… 1     238ad480… Dijon     PG           
+#>  8         12 df310a05-… 0b6849a9… Just… 5     f43b1b0f… Paris     PG           
+#>  9         12 df310a05-… 0c8e19b5… Cat … 1     689d1a0a… Saint-Qu… GF           
+#> 10         12 df310a05-… 16742263… Aaro… 79    c281453b… Cholet    PG           
+#> # ℹ 284 more rows
+#> # ℹ 7 more variables: position_name <chr>, nationality <chr>,
+#> #   date_of_birth <date>, age <int>, height <int>, status <chr>,
+#> #   image_url <chr>
+# }
+# \donttest{
+  # Interactive only: the server can take 5 s to build a season's tables.
   try(atrium_player_stats(
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 #> ── Atrium player stats from embed-api.eui.connect.sportradar.com ───────────────
-#> ℹ Data updated: 2026-11-09 11:36:15 UTC
+#> ℹ Data updated: 2026-11-09 20:18:48 UTC
 #> # A tibble: 10,212 × 13
 #>    website_id season_id    table_key table_label person_id person_name entity_id
 #>         <int> <chr>        <chr>     <chr>       <chr>     <chr>       <chr>    

@@ -83,7 +83,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_player_box(match_id = 346279))
 #> ── TBF Player Box Score ──────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 11:39:15 UTC
+#> ℹ Data updated: 2026-11-09 20:21:57 UTC
 #> # A tibble: 24 × 33
 #>    match_id side  team_process_id player_id player_name jersey_number is_starter
 #>       <int> <chr>           <int>     <int> <chr>       <chr>         <lgl>     

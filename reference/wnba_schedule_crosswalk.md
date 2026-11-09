@@ -37,7 +37,7 @@ Other WNBA Crosswalk Functions:
 ## Examples
 
 ``` r
-if (FALSE) { # interactive()
+if (FALSE) { # interactive() && !nzchar(Sys.getenv("CI"))
 # \donttest{
   # Reads one ESPN scoreboard per game date of the season, so it runs interactively only.
   try(wnba_schedule_crosswalk(season = 2024))
