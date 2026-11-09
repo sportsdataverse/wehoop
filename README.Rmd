@@ -24,7 +24,7 @@ n_exports <- function(prefix) sum(startsWith(wehoop_exports, prefix))
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/wehoop?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/wehoop?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/wehoop?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop)
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 [![X Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://x.com/SaiemGilani)
 [![X Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
@@ -62,7 +62,9 @@ This documentation describes **wehoop `r packageVersion("wehoop")`**. If the CRA
 ```r
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/wehoop")
-# or: remotes::install_github("sportsdataverse/wehoop")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/wehoop")
 ```
 
 

@@ -30,7 +30,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/blob/main/LICENSE.md)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/wehoop?style=for-the-badge)](https://github.com/sportsdataverse/wehoop/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/wehoop?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/wehoop?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/wehoop)
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 [![X Follow](https://img.shields.io/twitter/follow/SaiemGilani?label=%40SaiemGilani&logo=x&style=for-the-badge)](https://x.com/SaiemGilani)
 [![X Follow](https://img.shields.io/twitter/follow/hutchngo?label=%40hutchngo&logo=x&style=for-the-badge)](https://x.com/hutchngo)
@@ -38,9 +38,9 @@
 
 The goal of [**`wehoop`**](https://wehoop.sportsdataverse.org/) is to provide tools for
 working with women’s college and professional basketball data. It
-exports 750 functions: live wrappers for ESPN, the WNBA Stats API, the
+exports 754 functions: live wrappers for ESPN, the WNBA Stats API, the
 NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik,
-official.nba.com and eight international data providers, plus 98
+official.nba.com and eight international data providers, plus 102
 `load_*()` functions that read pre-built season files (play-by-play, box
 scores, rosters, schedules, crosswalks and model outputs) instead of
 calling the sources.
@@ -84,7 +84,9 @@ hasn’t caught up yet, install the development version from
 ```r
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/wehoop")
-# or: remotes::install_github("sportsdataverse/wehoop")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/wehoop")
 ```
 
 ## **Quick start**
@@ -172,7 +174,7 @@ reference](https://wehoop.sportsdataverse.org/reference/index.html).
 
 ## **Bulk datasets**
 
-The 98 `load_*()` functions read pre-built season files (rds or parquet)
+The 102 `load_*()` functions read pre-built season files (rds or parquet)
 from the
 [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases)
 releases instead of calling the source APIs. Most take `seasons` and
