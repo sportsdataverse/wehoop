@@ -33,7 +33,9 @@ jobs:
         with:
           use-public-rspm: true
 
-      # The token is only for installing GitHub remotes, so only this step gets it.
+      # Only the steps that call GitHub get the token: installing remotes, and
+      # url_check(), which sends it with github.com requests (unauthenticated
+      # ones get rate-limited, and urlchecker 2.0.0 ignores a 429).
       - uses: r-lib/actions/setup-r-dependencies@v2
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -41,6 +43,8 @@ jobs:
           packages: any::urlchecker
 
       - name: Check URLs
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           db <- urlchecker:::build_url_db(normalizePath(".", winslash = "/"))
           blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]wnba[.]com|stats[.]nba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|basketball-reference[.]com)"
