@@ -81,7 +81,12 @@ csv_from_url <- function(...){
 # The games index `build_*_db()` trusts as complete before it purges a table.
 # Any failure, including a partial read, aborts here, before the purge.
 .read_games_index_strict <- function(url) {
-  tryCatch(.release_csv_from_url(url, strict = TRUE), error = function(e) {
+  # The error below replaces the "result is incomplete" warning: nothing is returned.
+  read <- function() withCallingHandlers(
+    .release_csv_from_url(url, strict = TRUE),
+    wehoop_read_failed = function(w) invokeRestart("muffleWarning")
+  )
+  tryCatch(read(), error = function(e) {
     cli::cli_abort(c(
       "Could not read the games index {.url {url}}.",
       "i" = "No database table was changed. Try again later."

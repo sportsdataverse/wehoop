@@ -269,10 +269,13 @@ test_that("strict = TRUE turns a fread() warning into an error", {
     suppressWarnings(load_wbb_games(strict = TRUE)),
     "wbb_games_in_data_repo.csv", class = "wehoop_games_index_failed"
   )
+  # the abort replaces the "result is incomplete" warning
+  expect_no_warning(try(load_wbb_games(strict = TRUE), silent = TRUE), class = "wehoop_read_failed")
 })
 
 for (sport in c("wbb", "wnba")) {
   test_that(paste0("build_", sport, "_db(rebuild = TRUE) keeps the table when the index read fails"), {
+    skip_if_not_installed("DBI")
     skip_if_not_installed("RSQLite")
     con <- DBI::dbConnect(RSQLite::SQLite(), withr::local_tempfile(fileext = ".sqlite"))
     on.exit(DBI::dbDisconnect(con), add = TRUE)
