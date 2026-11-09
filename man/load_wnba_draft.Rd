@@ -380,9 +380,12 @@ Field coverage is era-dependent by nature -- headshots exist only for
 modern players, while college and date of birth thin out the other way.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wnba_pbp())
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wnba_team_box())
 }

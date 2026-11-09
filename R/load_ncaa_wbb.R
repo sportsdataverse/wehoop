@@ -123,8 +123,9 @@
 #'
 #' @export
 #' @family NCAA WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_ncaa_wbb_pbp(seasons = most_recent_wbb_season()))
 #' }
 load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
@@ -206,8 +207,9 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
 #'
 #' @export
 #' @family NCAA WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_ncaa_wbb_shots(seasons = most_recent_wbb_season()))
 #' }
 load_ncaa_wbb_shots <- function(seasons = most_recent_wbb_season(),
@@ -349,8 +351,9 @@ NULL
 #'
 #' @export
 #' @family NCAA WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_ncaa_wbb_lineups(seasons = most_recent_wbb_season()))
 #' }
 load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
@@ -445,8 +448,9 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
 #'
 #' @export
 #' @family NCAA WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_ncaa_wbb_matchup_stints(seasons = most_recent_wbb_season()))
 #' }
 load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
@@ -564,8 +568,9 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
 #'
 #' @export
 #' @family NCAA WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_ncaa_wbb_possessions(seasons = most_recent_wbb_season()))
 #' }
 load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
@@ -908,8 +913,9 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
 #'
 #' @export
 #' @family NCAA WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_ncaa_wbb_player_box(seasons = most_recent_wbb_season()))
 #' }
 load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),

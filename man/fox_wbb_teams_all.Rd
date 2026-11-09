@@ -22,7 +22,8 @@ unseen team ids (calling one seed per conference) and unions the results.
 }
 \examples{
 \donttest{
-  try(fox_wbb_teams_all())
+  # max_calls = 5 walks the first few conferences; the default walks them all.
+  try(fox_wbb_teams_all(max_calls = 5))
 }
 }
 \seealso{

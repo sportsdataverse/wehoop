@@ -592,9 +592,12 @@ artifacts to the \code{wnba_stats_possessions} release tag.
 \donttest{
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
 }

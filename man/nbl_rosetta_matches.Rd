@@ -114,7 +114,7 @@ another org, season or entity than the one asked for, or any other failed fetch;
 }
 \examples{
 \donttest{
-  try(nbl_rosetta_matches(org = "nbl", season = 2026, season_type = "regular"))
+  try(nbl_rosetta_matches(org = "wnbl", season = 2026, season_type = "regular"))
 }
 }
 \seealso{

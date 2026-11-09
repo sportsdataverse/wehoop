@@ -225,6 +225,14 @@
 
 * Examples that call stats.wnba.com or basketball-reference.com now run only
   in interactive sessions. (#109)
+* Long-running examples now run only in interactive sessions:
+  `wnba_schedule_crosswalk()` (one ESPN scoreboard per game date) and the
+  multi-MB season loaders (`load_ncaa_wbb_pbp()`, `_shots()`, `_lineups()`,
+  `_matchup_stints()`, `_possessions()`, `_player_box()`; `load_wbb_pbp()`,
+  `load_wbb_shots()`, `load_wbb_game_rosters()`, `load_wbb_player_box()`;
+  `load_wnba_pbp()`; `load_wnba_stats_pbp()`). The `fox_wbb_teams_all()` and
+  `wbb_team_crosswalk()` examples make fewer calls, and the
+  `nbl_rosetta_matches()` example reads the smaller WNBL season. (#118)
 * Tests that call live APIs are gated behind their `*_TESTS` toggles and skip
   on CRAN and CI; CI adds R-devel, urlchecker and test-coverage jobs, and the
   toggles are read from repository variables. (#107)

@@ -96,8 +96,9 @@
 #' \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_pbp())
 #' }
 load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
@@ -185,7 +186,9 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples \donttest{
+#' @examplesIf interactive()
+#' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_player_box())
 #' }
 load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
@@ -620,8 +623,9 @@ load_wbb_standings <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_shots(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_shots <- function(seasons = most_recent_wbb_season(), ...,
@@ -680,8 +684,9 @@ NULL
 #'
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_game_rosters <- function(seasons = most_recent_wbb_season(), ...,

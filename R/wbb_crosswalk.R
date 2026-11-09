@@ -271,7 +271,8 @@ NULL
 #' @family WBB Crosswalk Functions
 #' @examples
 #' \donttest{
-#'   try(wbb_team_crosswalk(season = 2025))
+#'   # fox = data.frame() skips the per-conference Fox calls; drop it to fill the Fox columns.
+#'   try(wbb_team_crosswalk(season = 2025, fox = data.frame()))
 #' }
 wbb_team_crosswalk <- function(season = most_recent_wbb_season(),
                                fox = NULL) {

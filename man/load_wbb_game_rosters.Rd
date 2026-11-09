@@ -363,15 +363,21 @@ Field coverage is era-dependent by nature -- headshots exist only for
 modern players, while college and date of birth thin out the other way.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_pbp())
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wbb_team_box())
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_player_box())
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wbb_schedule())
 }
@@ -387,12 +393,18 @@ modern players, while college and date of birth thin out the other way.
 \donttest{
   try(load_wbb_standings(seasons = most_recent_wbb_season()))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
 }

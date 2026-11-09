@@ -179,7 +179,7 @@ nbl_rosetta_seasons_current <- function(org = "wnbl") {
 #'   Columns the body adds beyond these follow, in body order (sportsdataverse-py keeps them too).
 #' @examples
 #' \donttest{
-#'   try(nbl_rosetta_matches(org = "nbl", season = 2026, season_type = "regular"))
+#'   try(nbl_rosetta_matches(org = "wnbl", season = 2026, season_type = "regular"))
 #' }
 #' @family NBL Rosetta Functions
 #' @export

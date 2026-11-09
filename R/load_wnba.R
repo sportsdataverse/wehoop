@@ -79,8 +79,9 @@
 #' \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wnba_pbp())
 #' }
 load_wnba_pbp <- function(seasons = most_recent_wnba_season(), ...,

@@ -955,8 +955,9 @@ load_wnba_stats_schedule <- function(seasons = most_recent_wnba_stats_season(),
 #' @return Returns a `wehoop_data` tibble of per-event play-by-play rows.
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_pbp <- function(seasons = most_recent_wnba_stats_season(),

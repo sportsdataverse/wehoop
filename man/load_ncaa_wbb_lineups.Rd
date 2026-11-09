@@ -851,30 +851,48 @@ fit over all Division I stints per season, distinct from
 coverage runs seasons 2011 through 2026.
 }
 \examples{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_pbp(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_shots(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_lineups(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_matchup_stints(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_possessions(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_ncaa_wbb_rapm_within_team(seasons = most_recent_wbb_season()))
 }
 \donttest{
   try(load_ncaa_wbb_rapm(seasons = most_recent_wbb_season()))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_ncaa_wbb_player_box(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_ncaa_wbb_team_box(seasons = most_recent_wbb_season()))
 }
