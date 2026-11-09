@@ -172,18 +172,36 @@
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
+      # ESPN returns the game-day roster inline under `entries` (one object
+      # per athlete, keyed by `playerId`); older payloads listed `$ref`s
+      # under `items`. Reading only `items` returned 0 rows for every game.
+      entries <- raw[["entries"]] %||% list()
       items <- raw[["items"]] %||% list()
-      refs <- if (length(items) == 0L) character(0) else
-        vapply(items, function(x) x[["$ref"]] %||% NA_character_,
-               character(1))
-      aids <- if (length(refs) == 0L) character(0) else
-        sub(".*/roster/([0-9]+).*", "\\1", refs)
+      chr <- function(x, k) vapply(x, function(e) as.character(e[[k]] %||% NA_character_), character(1))
+      lgl <- function(x, k) vapply(x, function(e) as.logical(e[[k]] %||% NA), logical(1))
+      base_ref <- sub("\\?.*$", "", url)
+      if (length(entries) > 0L) {
+        aids <- chr(entries, "playerId")
+        refs <- paste0(base_ref, "/", aids, "?lang=en&region=us")
+      } else {
+        refs <- if (length(items) == 0L) character(0) else chr(items, "$ref")
+        aids <- sub(".*/roster/([0-9]+).*", "\\1", refs)
+      }
+      n <- length(refs)
+      inline <- function(f, k, na) if (length(entries) > 0L) f(entries, k) else rep(na, n)
       result <- data.frame(
-        league     = rep(league, length(refs)),
-        event_id   = rep(as.character(event_id), length(refs)),
-        team_id    = rep(as.character(team_id), length(refs)),
-        athlete_id = aids,
-        ref        = refs,
+        league       = rep(league, n),
+        event_id     = rep(as.character(event_id), n),
+        team_id      = rep(as.character(team_id), n),
+        athlete_id   = aids,
+        ref          = refs,
+        display_name = inline(chr, "displayName", NA_character_),
+        jersey       = inline(chr, "jersey", NA_character_),
+        starter      = inline(lgl, "starter", NA),
+        active       = inline(lgl, "active", NA),
+        did_not_play = inline(lgl, "didNotPlay", NA),
+        ejected      = inline(lgl, "ejected", NA),
+        reason       = inline(chr, "reason", NA_character_),
         stringsAsFactors = FALSE
       ) %>% dplyr::as_tibble() %>%
         make_wehoop_data(
