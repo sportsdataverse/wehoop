@@ -369,6 +369,7 @@ NULL
 #' @family WNBA Crosswalk Functions
 #' @examplesIf interactive()
 #' \donttest{
+#'   # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
 #'   try(wnba_player_crosswalk(season = 2024))
 #' }
 wnba_player_crosswalk <- function(season = most_recent_wnba_season(),

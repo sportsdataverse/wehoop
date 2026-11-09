@@ -26,6 +26,7 @@ tiebreakers. Yahoo columns are NA placeholders.
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
   try(wnba_player_crosswalk(season = 2024))
 }
 \dontshow{\}) # examplesIf}

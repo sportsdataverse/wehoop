@@ -508,7 +508,7 @@ fox_wbb_teams <- function(team_id = "11") .fox_bb_resource("wcbk", "teams", team
 #' @family Fox Sports Functions
 #' @examples
 #' \donttest{
-#'   # max_calls = 5 walks the first few conferences; the default walks them all.
+#'   # max_calls = 5 probes five seed team ids (up to five conferences).
 #'   try(fox_wbb_teams_all(max_calls = 5))
 #' }
 fox_wbb_teams_all <- function(max_id = 500, max_calls = 60) {

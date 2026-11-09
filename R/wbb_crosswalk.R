@@ -426,6 +426,7 @@ NULL
 #' @family WBB Crosswalk Functions
 #' @examplesIf interactive()
 #' \donttest{
+#'   # Reads a full season of ESPN and Torvik games, so it runs interactively only.
 #'   try(wbb_schedule_crosswalk(season = 2025))
 #' }
 wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
@@ -648,6 +649,7 @@ NULL
 #' @family WBB Crosswalk Functions
 #' @examplesIf interactive()
 #' \donttest{
+#'   # Reads every team roster from ESPN and Fox, so it runs interactively only.
 #'   try(wbb_player_crosswalk(season = 2025))
 #' }
 wbb_player_crosswalk <- function(season = most_recent_wbb_season(),

@@ -43,6 +43,7 @@ Games where either Torvik team name cannot be resolved to an ESPN id via
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Reads a full season of ESPN and Torvik games, so it runs interactively only.
   try(wbb_schedule_crosswalk(season = 2025))
 }
 \dontshow{\}) # examplesIf}
