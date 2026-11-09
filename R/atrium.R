@@ -1039,6 +1039,14 @@ atrium_leaders <- function(website_id, season = NULL, season_id = NULL, competit
 #' @export
 #' @examples
 #' \donttest{
+#'   # The players the stats tables cover:
+#'   try(atrium_players(
+#'     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
+#'   ))
+#' }
+#' @examplesIf interactive()
+#' \donttest{
+#'   # Interactive only: the server can take 5 s to build a season's tables.
 #'   try(atrium_player_stats(
 #'     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
 #'   ))

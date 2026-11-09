@@ -146,15 +146,24 @@ Get ESPN women's college basketball player box
 \donttest{
   try(espn_wbb_pbp(game_id = 401498717))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: espn_wbb_game_all() returns this table too.
   try(espn_wbb_team_box(game_id = 401276115))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: espn_wbb_game_all() returns this table too.
   try(espn_wbb_player_box(game_id = 401276115))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: it follows the game request with one request per team (about 4 s).
   try(espn_wbb_game_rosters(game_id = 401276115))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \link{family_espn_wbb} lists every function in this family.

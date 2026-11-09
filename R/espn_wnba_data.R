@@ -229,9 +229,9 @@ espn_wnba_pbp <- function(game_id){
 #' @keywords WNBA Team Box
 #' @concept ESPN WNBA Functions
 #' @seealso [family_espn_wnba] lists every function in this family.
-#' @examples
-#' 
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: espn_wnba_game_all() returns this table too.
 #'    try(espn_wnba_team_box(game_id = 401244185))
 #' }
 espn_wnba_team_box <- function(game_id){
@@ -294,8 +294,9 @@ espn_wnba_team_box <- function(game_id){
 #' @keywords WNBA Player Box
 #' @concept ESPN WNBA Functions
 #' @seealso [family_espn_wnba] lists every function in this family.
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: espn_wnba_game_all() returns this table too.
 #'   try(espn_wnba_player_box(game_id = 401244185))
 #' }
 #' 
@@ -432,8 +433,9 @@ espn_wnba_player_box <- function(game_id){
 #' @concept ESPN WNBA Functions
 #' @seealso [family_espn_wnba] lists every function in this family.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: it follows the game request with one request per team (about 4 s).
 #'   try(espn_wnba_game_rosters(game_id = 401244185))
 #' }
 espn_wnba_game_rosters <- function(game_id) {

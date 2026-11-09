@@ -67,10 +67,19 @@ Source, terms of use, request pacing, seasons, ids, coverage and error classes o
 }
 \examples{
 \donttest{
+  # The players the stats tables cover:
+  try(atrium_players(
+    website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
+  ))
+}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\donttest{
+  # Interactive only: the server can take 5 s to build a season's tables.
   try(atrium_player_stats(
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other Atrium Functions:

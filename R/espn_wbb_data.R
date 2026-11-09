@@ -216,8 +216,9 @@ espn_wbb_pbp <- function(game_id) {
 #' @keywords WBB Team Box
 #' @concept ESPN WBB Functions
 #' @seealso [family_espn_wbb] lists every function in this family.
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: espn_wbb_game_all() returns this table too.
 #'   try(espn_wbb_team_box(game_id = 401276115))
 #' }
 espn_wbb_team_box <- function(game_id) {
@@ -279,8 +280,9 @@ espn_wbb_team_box <- function(game_id) {
 #' @keywords WBB Player Box
 #' @concept ESPN WBB Functions
 #' @seealso [family_espn_wbb] lists every function in this family.
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: espn_wbb_game_all() returns this table too.
 #'   try(espn_wbb_player_box(game_id = 401276115))
 #' }
 espn_wbb_player_box <- function(game_id) {
@@ -410,8 +412,9 @@ espn_wbb_player_box <- function(game_id) {
 #' @concept ESPN WBB Functions
 #' @seealso [family_espn_wbb] lists every function in this family.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: it follows the game request with one request per team (about 4 s).
 #'   try(espn_wbb_game_rosters(game_id = 401276115))
 #' }
 espn_wbb_game_rosters <- function(game_id) {

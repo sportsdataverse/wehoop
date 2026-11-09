@@ -151,17 +151,24 @@ Get ESPN's WNBA player box data
 \donttest{
    try(espn_wnba_pbp(game_id = 401455681))
 }
-
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: espn_wnba_game_all() returns this table too.
    try(espn_wnba_team_box(game_id = 401244185))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: espn_wnba_game_all() returns this table too.
   try(espn_wnba_player_box(game_id = 401244185))
 }
-
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: it follows the game request with one request per team (about 4 s).
   try(espn_wnba_game_rosters(game_id = 401244185))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \link{family_espn_wnba} lists every function in this family.
