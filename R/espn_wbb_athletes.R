@@ -69,7 +69,8 @@ NULL
 #' @importFrom dplyr as_tibble select any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_info(athlete_id = "4433404")
@@ -124,7 +125,8 @@ espn_wbb_player_info <- function(athlete_id, ...) {
 #' @importFrom dplyr as_tibble select any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_overview(athlete_id = "4433404", season = 2025)
@@ -172,7 +174,8 @@ espn_wbb_player_overview <- function(athlete_id,
 #' @importFrom dplyr as_tibble select any_of bind_rows bind_cols full_join mutate relocate across arrange tibble
 #' @importFrom janitor clean_names make_clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_stats_v3(athlete_id = "4433985", season = 2025)
@@ -206,7 +209,8 @@ espn_wbb_player_stats_v3 <- function(athlete_id,
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_gamelog(athlete_id = "4433404", season = 2025)
@@ -241,7 +245,8 @@ espn_wbb_player_gamelog <- function(athlete_id,
 #' @importFrom dplyr as_tibble bind_rows select any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_splits(athlete_id = "4433404", season = 2025)
@@ -287,7 +292,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_eventlog(athlete_id = "4433404", season = 2025)
@@ -326,7 +332,8 @@ NULL
 #' @importFrom dplyr as_tibble select any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_awards(athlete_id = "4433404")
@@ -363,7 +370,8 @@ espn_wbb_player_awards <- function(athlete_id, ...) {
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_player_statisticslog(athlete_id = "4433404", season = 2025)

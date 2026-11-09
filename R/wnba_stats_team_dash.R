@@ -96,7 +96,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @family WNBA Clutch Functions
 #' @details
 #' ```r
@@ -245,7 +246,8 @@ wnba_teamdashboardbyclutch <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamdashboardbygamesplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
@@ -747,7 +749,8 @@ wnba_teamdashboardbygamesplits <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamdashboardbygeneralsplits(team_id = '1611661328', season = most_recent_wnba_season() - 1)
@@ -901,7 +904,8 @@ wnba_teamdashboardbygeneralsplits <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamdashboardbylastngames(team_id = '1611661328', season = most_recent_wnba_season() - 1)
@@ -1044,7 +1048,8 @@ wnba_teamdashboardbylastngames <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamdashboardbyopponent(team_id = '1611661328', season = most_recent_wnba_season() - 1)
@@ -1202,7 +1207,8 @@ wnba_teamdashboardbyopponent <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @family WNBA Shooting Functions
 #' @details
 #' Team Dashboard by Shooting Splits page on stats.wnba.com: \code{stats.wnba.com/team/1611661328/shooting/}
@@ -1403,7 +1409,8 @@ wnba_teamdashboardbyshootingsplits <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamdashboardbyteamperformance(team_id = '1611661328', season = most_recent_wnba_season() - 1)
@@ -1534,7 +1541,8 @@ wnba_teamdashboardbyteamperformance <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamdashboardbyyearoveryear(team_id = '1611661328', season = most_recent_wnba_season() - 1)
@@ -1726,7 +1734,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @family WNBA Lineup Functions
 #' @details
 #' ```r

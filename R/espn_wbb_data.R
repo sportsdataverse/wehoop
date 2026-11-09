@@ -25,7 +25,8 @@
 #' @import rvest
 #' @export
 #' @keywords WBB Game
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_game_all(game_id = 401276115))
@@ -150,7 +151,8 @@ espn_wbb_game_all <- function(game_id) {
 #' @import rvest
 #' @export
 #' @keywords WBB PBP
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_pbp(game_id = 401498717))
@@ -212,7 +214,8 @@ espn_wbb_pbp <- function(game_id) {
 #' @import rvest
 #' @export
 #' @keywords WBB Team Box
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_team_box(game_id = 401276115))
@@ -274,7 +277,8 @@ espn_wbb_team_box <- function(game_id) {
 #' @import rvest
 #' @export
 #' @keywords WBB Player Box
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_player_box(game_id = 401276115))
@@ -403,7 +407,8 @@ espn_wbb_player_box <- function(game_id) {
 #' @import rvest
 #' @export
 #' @keywords WBB Game Roster
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #'
 #' @examples
 #' \donttest{
@@ -669,7 +674,8 @@ espn_wbb_game_rosters <- function(game_id) {
 #' @import rvest
 #' @export
 #' @keywords WBB Conferences
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_conferences())
@@ -775,7 +781,8 @@ espn_wbb_conferences <- function() {
 #' @import rvest
 #' @export
 #' @keywords WBB Teams
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #'
 #' @examples
 #' \donttest{
@@ -1357,7 +1364,8 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 #' @import rvest
 #' @export
 #' @keywords WBB Scoreboard
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #'
 #' # Get schedule from date 2022-11-15
@@ -1446,7 +1454,8 @@ utils::globalVariables(c("where"))
 #' @import rvest
 #' @export
 #' @keywords WBB Rankings
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' # Get current AP and Coaches Poll rankings
 #' \donttest{
@@ -1623,7 +1632,8 @@ espn_wbb_rankings <- function() {
 #' @importFrom tidyr pivot_wider
 #' @export
 #' @keywords WBB Standings
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_standings(2021))
@@ -1922,7 +1932,8 @@ espn_wbb_standings <- function(year) {
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
 #' @keywords WBB Team Stats
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wbb_team_stats(team_id = 2509, year = 2020))
@@ -2220,7 +2231,8 @@ espn_wbb_team_stats <- function(
 #'
 #' @export
 #' @keywords WBB Player Stats
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #'
 #' @examples
 #' \donttest{

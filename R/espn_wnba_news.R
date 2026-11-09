@@ -15,7 +15,8 @@ NULL
 #' @importFrom janitor clean_names
 #' @import rvest
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @details
 #' Retrieve ESPN WNBA news. Uses `getOption("wehoop.proxy")` or
 #' `http_proxy`/`https_proxy` environment variables for proxy configuration
@@ -49,7 +50,8 @@ NULL
 #' @importFrom janitor clean_names
 #' @import rvest
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @details
 #' Retrieve ESPN WNBA news for a specific team. Uses
 #' `getOption("wehoop.proxy")` or `http_proxy`/`https_proxy` environment

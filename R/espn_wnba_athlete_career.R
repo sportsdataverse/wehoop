@@ -30,7 +30,8 @@ NULL
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # LeBron James (1966): 23 career seasons
@@ -73,7 +74,8 @@ espn_wnba_player_seasons <- function(athlete_id, ...) {
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   # LeBron James -- regular + postseason combined
@@ -129,7 +131,8 @@ espn_wnba_player_career_stats <- function(athlete_id,
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_draft_pick(season = 2024, round = 1, pick = 1)
@@ -162,7 +165,8 @@ NULL
 #' @return A tibble with one row per event appearance. See package source
 #'   for column schema.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_player_eventlog_v2(athlete_id = 2999102, season = 2025)
@@ -193,7 +197,8 @@ espn_wnba_player_eventlog_v2 <- function(athlete_id,
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per round.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_draft_rounds(season = 2024)
@@ -219,7 +224,8 @@ espn_wnba_draft_rounds <- function(season = most_recent_wnba_season(), ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble of athlete IDs + `$ref` URLs.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_draft_athletes(season = 2024)
@@ -246,7 +252,8 @@ espn_wnba_draft_athletes <- function(season = most_recent_wnba_season(), ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_draft_status(season = 2024)
@@ -273,7 +280,8 @@ espn_wnba_draft_status <- function(season = most_recent_wnba_season(), ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_season_draft(season = 2024)
@@ -304,7 +312,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_draft_athlete_detail(season = 2024, athlete_id = 3149391)

@@ -149,20 +149,7 @@ Teams Game Log page on stats.wnba.com: \code{stats.wnba.com/team/1611661328/boxs
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Team Functions:
-\code{\link[=wnba_leaguedashteamstats]{wnba_leaguedashteamstats()}},
-\code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
-\code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
-\code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
-\code{\link[=wnba_teamgamelog]{wnba_teamgamelog()}},
-\code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
-\code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
-\code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teams]{wnba_teams()}},
-\code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
-\code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}
+\link{family_wnba_team} lists every function in this family.
 }
 \author{
 Saiem Gilani

@@ -21,7 +21,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per position.
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_positions()
@@ -50,7 +51,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_position(position_id = 1)

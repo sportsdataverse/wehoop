@@ -34,24 +34,6 @@ Source, terms of use, request pacing, seasons, ids, coverage and error classes o
 }
 }
 \seealso{
-Other WJBL Functions:
-\code{\link[=wjbl_box_score]{wjbl_box_score()}},
-\code{\link[=wjbl_game]{wjbl_game()}},
-\code{\link[=wjbl_game_info]{wjbl_game_info()}},
-\code{\link[=wjbl_head_to_head]{wjbl_head_to_head()}},
-\code{\link[=wjbl_leagues]{wjbl_leagues()}},
-\code{\link[=wjbl_pbp]{wjbl_pbp()}},
-\code{\link[=wjbl_period_scores]{wjbl_period_scores()}},
-\code{\link[=wjbl_player]{wjbl_player()}},
-\code{\link[=wjbl_player_period_leaders]{wjbl_player_period_leaders()}},
-\code{\link[=wjbl_roster]{wjbl_roster()}},
-\code{\link[=wjbl_schedule]{wjbl_schedule()}},
-\code{\link[=wjbl_staff]{wjbl_staff()}},
-\code{\link[=wjbl_standing_seasons]{wjbl_standing_seasons()}},
-\code{\link[=wjbl_team_box_score]{wjbl_team_box_score()}},
-\code{\link[=wjbl_team_period_stats]{wjbl_team_period_stats()}},
-\code{\link[=wjbl_team_ranking]{wjbl_team_ranking()}},
-\code{\link[=wjbl_team_standings]{wjbl_team_standings()}},
-\code{\link[=wjbl_teams]{wjbl_teams()}}
+\link{family_wjbl} lists every function in this family.
 }
 \concept{WJBL Functions}

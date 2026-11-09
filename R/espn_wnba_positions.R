@@ -21,7 +21,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per position.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_positions()
@@ -50,7 +51,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_position(position_id = 1)

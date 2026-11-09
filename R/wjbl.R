@@ -62,7 +62,8 @@
 #'   try(wjbl_leagues())
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_leagues <- function() {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/leagues", list(target = "play_schedule"), call = rlang::current_env())
@@ -93,7 +94,8 @@ wjbl_leagues <- function() {
 #'   try(wjbl_game_months(season = 2026))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_game_months <- function(season) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/play-schedule-months", list(season = season), call = rlang::current_env())
@@ -164,7 +166,8 @@ wjbl_game_months <- function(season) {
 #'   try(wjbl_schedule(game_month = "2026-04", season = 2026))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_schedule <- function(season, game_month = NULL, team_id = NULL) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/play-schedules", list(season = season, game_month = game_month, team_id = team_id), call = rlang::current_env())
@@ -228,7 +231,8 @@ wjbl_schedule <- function(season, game_month = NULL, team_id = NULL) {
 #'   try(wjbl_game(play_schedule_id = 7987))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_game <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/play-schedule/detail", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -258,7 +262,8 @@ wjbl_game <- function(play_schedule_id) {
 #' | score | integer | Points the side scored in that period (null periods, such as overtimes not played, have no row). |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_period_scores(play_schedule_id = 7987)")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_period_scores <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/play-schedule/detail", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -333,7 +338,8 @@ wjbl_period_scores <- function(play_schedule_id) {
 #'   try(wjbl_game_info(play_schedule_id = 7987))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_game_info <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/play-schedule", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -385,7 +391,8 @@ wjbl_game_info <- function(play_schedule_id) {
 #'   try(wjbl_box_score(play_schedule_id = 7987))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_box_score <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/boxscore", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -438,7 +445,8 @@ wjbl_box_score <- function(play_schedule_id) {
 #'   try(wjbl_team_box_score(play_schedule_id = 7987))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_team_box_score <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/boxscore", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -490,7 +498,8 @@ wjbl_team_box_score <- function(play_schedule_id) {
 #'   try(wjbl_pbp(play_schedule_id = 7987))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_pbp <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/pbp/play-by-play", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -542,7 +551,8 @@ wjbl_pbp <- function(play_schedule_id) {
 #' | tie_count | integer | Times the score was tied in the period, from the wire's counted string (4 times). |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_team_period_stats(play_schedule_id = 7987)")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_team_period_stats <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/pbp/team-stats", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -583,7 +593,8 @@ wjbl_team_period_stats <- function(play_schedule_id) {
 #' | away_rebound_value | character | Their rebounds 'offensive-defensive-total' ('0-3-3'), ', '-joined for ties. |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_player_period_leaders(play_schedule_id = 7987)")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_player_period_leaders <- function(play_schedule_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/pbp/player-stats", list(play_schedule_id = play_schedule_id), call = rlang::current_env())
@@ -615,7 +626,8 @@ wjbl_player_period_leaders <- function(play_schedule_id) {
 #'   try(wjbl_standing_seasons())
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_standing_seasons <- function() {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/seasons/standings", list(), call = rlang::current_env())
@@ -658,7 +670,8 @@ wjbl_standing_seasons <- function() {
 #'   try(wjbl_team_standings(season_ids = "169"))
 #' }
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_team_standings <- function(season_ids) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/team-standings", list(season_ids = season_ids), call = rlang::current_env())
@@ -689,7 +702,8 @@ wjbl_team_standings <- function(season_ids) {
 #' | result | character | 'o 63-56' = row team won, 'x 56-63' = lost (row team's points first); 'o 20-0' is a forfeit win (FIBA forfeit score). |
 #' @eval .intl_details(.wjbl_leagues_details, 'wjbl_head_to_head(season_ids = "169")')
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_head_to_head <- function(season_ids) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/team-standings", list(season_ids = season_ids), call = rlang::current_env())
@@ -746,7 +760,8 @@ wjbl_head_to_head <- function(season_ids) {
 #' | unsatisfied | character | Unobserved: null in every sample, so no type and no meaning is claimed. (By the site's JS: a column shown only when filled; meaning unverified.) |
 #' @eval .intl_details(.wjbl_leagues_details, 'wjbl_team_ranking(season_ids = "169,170")')
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_team_ranking <- function(season_ids) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/team-ranking", list(season_ids = season_ids), call = rlang::current_env())
@@ -769,7 +784,8 @@ wjbl_team_ranking <- function(season_ids) {
 #' | team_name | character | Franchise name, Japanese or English (Fujitsu Red Wave; all-star side Team Sirius). |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_teams()")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_teams <- function() {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/teams/base", list(), call = rlang::current_env())
@@ -816,7 +832,8 @@ wjbl_teams <- function() {
 #' | naturalized_flg | integer | Naturalised player ((Japanese) icon): 1 = yes, 0 = no. |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_roster(season_id = 169, team_id = 13)")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_roster <- function(team_id, season_id = NULL) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/team/roster", list(team_id = team_id, season_id = season_id), call = rlang::current_env())
@@ -851,7 +868,8 @@ wjbl_roster <- function(team_id, season_id = NULL) {
 #' | url | character | Link attached to the staff entry; empty in most rows. |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_staff(season_id = 169, team_id = 13)")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_staff <- function(team_id, season_id = NULL) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/team/roster", list(team_id = team_id, season_id = season_id), call = rlang::current_env())
@@ -910,7 +928,8 @@ wjbl_staff <- function(team_id, season_id = NULL) {
 #' | player_instagram_url | character | Instagram URL; empty string in the sample. |
 #' @eval .intl_details(.wjbl_leagues_details, "wjbl_player(player_id = 9799)")
 #' @export
-#' @family WJBL Functions
+#' @concept WJBL Functions
+#' @seealso [family_wjbl] lists every function in this family.
 wjbl_player <- function(player_id) {
   withr::local_options(list(scipen = 999, stringsAsFactors = FALSE))
   raw <- .wjbl_get("/player", list(player_id = player_id), call = rlang::current_env())

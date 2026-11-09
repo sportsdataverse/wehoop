@@ -30,7 +30,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_leaders(season = 2025, season_type = 2)
@@ -68,7 +69,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_venues()
@@ -111,7 +113,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_coaches(season = 2025)
@@ -154,7 +157,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_athletes_index(season = 2025, limit = 50)
@@ -200,7 +204,8 @@ NULL
 #' @importFrom dplyr as_tibble any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_seasons()
@@ -255,7 +260,8 @@ NULL
 #' @importFrom dplyr as_tibble any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wbb_season_info(season = 2025)

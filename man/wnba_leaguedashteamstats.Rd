@@ -112,6 +112,8 @@ Columns as documented in the shared \link{wnba_leaguedashteamclutch_league_dash_
 }\if{html}{\out{</div>}}
 }
 \seealso{
+\link{family_wnba_team} lists every function in this family.
+
 Other WNBA League Functions:
 \code{\link[=wnba_leaguedashlineups]{wnba_leaguedashlineups()}},
 \code{\link[=wnba_leaguedashplayerbiostats]{wnba_leaguedashplayerbiostats()}},
@@ -127,21 +129,6 @@ Other WNBA League Functions:
 \code{\link[=wnba_leagueseasonmatchups]{wnba_leagueseasonmatchups()}},
 \code{\link[=wnba_leaguestandingsv3]{wnba_leaguestandingsv3()}},
 \code{\link[=wnba_shotchartleaguewide]{wnba_shotchartleaguewide()}}
-
-Other WNBA Team Functions:
-\code{\link[=wnba_teamdashboardbyclutch]{wnba_teamdashboardbyclutch()}},
-\code{\link[=wnba_teamdashlineups]{wnba_teamdashlineups()}},
-\code{\link[=wnba_teamdetails]{wnba_teamdetails()}},
-\code{\link[=wnba_teamestimatedmetrics]{wnba_teamestimatedmetrics()}},
-\code{\link[=wnba_teamgamelog]{wnba_teamgamelog()}},
-\code{\link[=wnba_teamgamelogs]{wnba_teamgamelogs()}},
-\code{\link[=wnba_teamgamestreakfinder]{wnba_teamgamestreakfinder()}},
-\code{\link[=wnba_teamhistoricalleaders]{wnba_teamhistoricalleaders()}},
-\code{\link[=wnba_teaminfocommon]{wnba_teaminfocommon()}},
-\code{\link[=wnba_teamplayeronoffdetails]{wnba_teamplayeronoffdetails()}},
-\code{\link[=wnba_teams]{wnba_teams()}},
-\code{\link[=wnba_teamvsplayer]{wnba_teamvsplayer()}},
-\code{\link[=wnba_teamyearbyyearstats]{wnba_teamyearbyyearstats()}}
 }
 \author{
 Saiem Gilani

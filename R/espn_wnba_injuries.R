@@ -21,7 +21,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows mutate
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_injuries()
@@ -58,7 +59,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_injuries(team_id = "17")

@@ -16,7 +16,8 @@ NULL
 #' @importFrom janitor clean_names
 #' @import rvest
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @details
 #' Retrieve the ESPN women's college basketball schedule calendar for a given
 #' season. The underlying scoreboard response contains a `leagues[[1]]$calendar`

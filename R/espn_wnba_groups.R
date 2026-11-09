@@ -19,7 +19,8 @@ NULL
 #' @import rvest
 #' @export
 #' @keywords WNBA Conferences
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_conferences())

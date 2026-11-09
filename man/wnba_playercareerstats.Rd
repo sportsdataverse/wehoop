@@ -102,30 +102,7 @@ Columns as documented in the shared \link{wnba_playercareerstats_season_rankings
 }\if{html}{\out{</div>}}
 }
 \seealso{
-Other WNBA Player Functions:
-\code{\link[=wnba_infographicfanduelplayer]{wnba_infographicfanduelplayer()}},
-\code{\link[=wnba_leaguedashplayerbiostats]{wnba_leaguedashplayerbiostats()}},
-\code{\link[=wnba_leaguedashplayerclutch]{wnba_leaguedashplayerclutch()}},
-\code{\link[=wnba_leaguedashplayershotlocations]{wnba_leaguedashplayershotlocations()}},
-\code{\link[=wnba_leaguedashplayerstats]{wnba_leaguedashplayerstats()}},
-\code{\link[=wnba_leagueplayerondetails]{wnba_leagueplayerondetails()}},
-\code{\link[=wnba_leagueseasonmatchups]{wnba_leagueseasonmatchups()}},
-\code{\link[=wnba_playerawards]{wnba_playerawards()}},
-\code{\link[=wnba_playercareerbycollege]{wnba_playercareerbycollege()}},
-\code{\link[=wnba_playercareerbycollegerollup]{wnba_playercareerbycollegerollup()}},
-\code{\link[=wnba_playercompare]{wnba_playercompare()}},
-\code{\link[=wnba_playerdashboardbyclutch]{wnba_playerdashboardbyclutch()}},
-\code{\link[=wnba_playerestimatedmetrics]{wnba_playerestimatedmetrics()}},
-\code{\link[=wnba_playerfantasyprofile]{wnba_playerfantasyprofile()}},
-\code{\link[=wnba_playerfantasyprofilebargraph]{wnba_playerfantasyprofilebargraph()}},
-\code{\link[=wnba_playergamelog]{wnba_playergamelog()}},
-\code{\link[=wnba_playergamelogs]{wnba_playergamelogs()}},
-\code{\link[=wnba_playergamestreakfinder]{wnba_playergamestreakfinder()}},
-\code{\link[=wnba_playerheadshot]{wnba_playerheadshot()}},
-\code{\link[=wnba_playerindex]{wnba_playerindex()}},
-\code{\link[=wnba_playernextngames]{wnba_playernextngames()}},
-\code{\link[=wnba_playerprofilev2]{wnba_playerprofilev2()}},
-\code{\link[=wnba_playervsplayer]{wnba_playervsplayer()}}
+\link{family_wnba_player} lists every function in this family.
 }
 \author{
 Saiem Gilani

@@ -551,7 +551,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Player Functions
+#' @concept WNBA Player Functions
+#' @seealso [family_wnba_player] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_leagueplayerondetails(team_id = '1611661313', season = most_recent_wnba_season() - 1)
@@ -694,7 +695,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Player Functions
+#' @concept WNBA Player Functions
+#' @seealso [family_wnba_player] lists every function in this family.
 #' @details
 #' (No Matchups Data for WNBA yet, so defunct)
 #' ```r

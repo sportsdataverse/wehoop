@@ -23,7 +23,8 @@
 #' @importFrom dplyr as_tibble any_of bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_odds(event_id = "401736171")
@@ -59,7 +60,8 @@ NULL
 #' @importFrom dplyr as_tibble any_of bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_probabilities(event_id = "401736171", limit = 50)
@@ -91,7 +93,8 @@ espn_wnba_game_probabilities <- function(event_id, limit = 200, ...) {
 #' @importFrom dplyr as_tibble any_of bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_officials(event_id = "401736171")
@@ -125,7 +128,8 @@ NULL
 #' @importFrom dplyr as_tibble any_of bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_broadcasts(event_id = "401736171")
@@ -156,7 +160,8 @@ espn_wnba_game_broadcasts <- function(event_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble with timeouts + fouls for both teams.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_situation(event_id = 401736171)
@@ -186,7 +191,8 @@ espn_wnba_game_situation <- function(event_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with rows for both home and away teams.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_predictor(event_id = 401736171)
@@ -213,7 +219,8 @@ espn_wnba_game_predictor <- function(event_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per team-game power-index entry.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_powerindex(event_id = 401736171)
@@ -245,7 +252,8 @@ espn_wnba_game_powerindex <- function(event_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per (athlete x prop type).
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_propbets(event_id = 401736171, provider_id = 58)
@@ -274,7 +282,8 @@ espn_wnba_game_propbets <- function(event_id, provider_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per period.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_linescores(event_id = 401736171, team_id = 17)
@@ -306,7 +315,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per (category x rank).
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_leaders(event_id = 401736171, team_id = 17)
@@ -335,7 +345,8 @@ espn_wnba_game_team_leaders <- function(event_id, team_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per active athlete.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_roster(event_id = 401736171, team_id = 17)
@@ -365,7 +376,8 @@ espn_wnba_game_team_roster <- function(event_id, team_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per (category x stat).
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_statistics(event_id = 401736171, team_id = 17)
@@ -394,7 +406,8 @@ espn_wnba_game_team_statistics <- function(event_id, team_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A tibble with one row per record type.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_records(event_id = 401736171, team_id = 17)
@@ -431,7 +444,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per (category x stat).
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_player_box(event_id = 401736171, team_id = 17,
@@ -470,7 +484,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_roster_entry(event_id = 401736171,
@@ -508,7 +523,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_play(event_id = 401736171, play_id = 4017361714)
@@ -541,7 +557,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per on-court athlete.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_play_personnel(event_id = 401736171, play_id = 4017361714)
@@ -571,7 +588,8 @@ espn_wnba_game_play_personnel <- function(event_id, play_id, ...) {
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_team_score(event_id = 401736171, team_id = 17)
@@ -603,7 +621,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A single-row tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_game_official_detail(event_id = 401736171, order = 1)

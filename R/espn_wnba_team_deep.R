@@ -34,7 +34,8 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_season_roster(team_id = 17, season = 2025)
@@ -71,7 +72,8 @@ espn_wnba_team_season_roster <- function(team_id,
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr as_tibble
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_coach_season(coach_id = 52063, season = 2025)
@@ -107,7 +109,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble.
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_record_detail(team_id = 17, season = 2024, record_id = 0)

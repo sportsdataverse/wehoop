@@ -15,7 +15,8 @@ NULL
 #' @importFrom janitor clean_names
 #' @import rvest
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @details
 #' Retrieve ESPN women's college basketball news. Uses
 #' `getOption("wehoop.proxy")` or `http_proxy`/`https_proxy` environment
@@ -49,7 +50,8 @@ NULL
 #' @importFrom janitor clean_names
 #' @import rvest
 #' @export
-#' @family ESPN WBB Functions
+#' @concept ESPN WBB Functions
+#' @seealso [family_espn_wbb] lists every function in this family.
 #' @details
 #' Retrieve ESPN women's college basketball news for a specific team. Uses
 #' `getOption("wehoop.proxy")` or `http_proxy`/`https_proxy` environment

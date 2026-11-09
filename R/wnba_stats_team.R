@@ -38,7 +38,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_teams()
@@ -224,7 +225,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_teamdetails(team_id = '1611661328')
@@ -320,7 +322,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_teamestimatedmetrics()
@@ -433,7 +436,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_teamgamelog(team_id = '1611661328')
@@ -584,7 +588,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' Teams Game Log page on stats.wnba.com: \code{stats.wnba.com/team/1611661328/boxscores/}
 #' ```r
@@ -709,7 +714,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamhistoricalleaders(team_id = '1611661328')
@@ -829,7 +835,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teaminfocommon(team_id = '1611661328')
@@ -933,7 +940,8 @@ wnba_teaminfocommon <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_teamplayeronoffdetails(team_id = '1611661328')
@@ -1084,7 +1092,8 @@ wnba_teamplayeronoffdetails <- function(
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamplayeronoffsummary(team_id = '1611661328')
@@ -1345,7 +1354,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamplayerdashboard(team_id = '1611661328')
@@ -1493,7 +1503,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_teamyearbyyearstats(team_id = '1611661328')
@@ -1776,7 +1787,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_teamvsplayer(team_id = '1611661328', vs_player_id = '1628932')
@@ -2090,7 +2102,8 @@ NULL
 #' @importFrom dplyr filter select rename bind_cols bind_rows as_tibble
 #' @import rvest
 #' @export
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @family WNBA Game Finder Functions
 #' @details
 #' ```r

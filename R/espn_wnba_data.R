@@ -25,7 +25,8 @@
 #' @import rvest
 #' @export
 #' @keywords WNBA Game
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_game_all(game_id = 401244185))
@@ -158,7 +159,8 @@ espn_wnba_game_all <- function(game_id){
 #' @import rvest
 #' @export
 #' @keywords WNBA PBP
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' 
 #' \donttest{
@@ -225,7 +227,8 @@ espn_wnba_pbp <- function(game_id){
 #' @import rvest
 #' @export
 #' @keywords WNBA Team Box
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' 
 #' \donttest{
@@ -289,7 +292,8 @@ espn_wnba_team_box <- function(game_id){
 #' @import rvest
 #' @export
 #' @keywords WNBA Player Box
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_player_box(game_id = 401244185))
@@ -425,7 +429,8 @@ espn_wnba_player_box <- function(game_id){
 #' @import rvest
 #' @export
 #' @keywords WNBA Game Roster
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #'
 #' @examples
 #' \donttest{
@@ -696,7 +701,8 @@ espn_wnba_game_rosters <- function(game_id) {
 #' @import rvest
 #' @export
 #' @keywords WNBA Teams
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   try(espn_wnba_teams())
@@ -780,7 +786,8 @@ espn_wnba_teams <- function(){
 #' @import rvest
 #' @export
 #' @keywords WNBA Scoreboard
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' # Get schedule from date 2022-08-31
 #' \donttest{
@@ -987,7 +994,8 @@ espn_wnba_scoreboard <- function(season){
 #' @importFrom tidyr pivot_wider
 #' @importFrom data.table rbindlist
 #' @keywords WNBA Standings
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @export
 #' @examples
 #' \donttest{
@@ -1219,7 +1227,8 @@ utils::globalVariables(c("where"))
 #' @importFrom tidyr unnest unnest_wider everything
 #' @export
 #' @keywords WNBA Team Stats
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #'
 #' @examples
 #' \donttest{
@@ -1520,7 +1529,8 @@ espn_wnba_team_stats <- function(
 #'    
 #' @export
 #' @keywords WNBA Player Stats
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #'
 #' @examples
 #' \donttest{

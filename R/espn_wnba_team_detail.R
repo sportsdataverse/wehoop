@@ -57,7 +57,8 @@ NULL
 #' @importFrom dplyr as_tibble select any_of bind_rows
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team(team_id = "17", season = 2025)
@@ -96,7 +97,8 @@ espn_wnba_team <- function(team_id,
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_roster(team_id = "17", season = 2025)
@@ -136,7 +138,8 @@ NULL
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_schedule(team_id = "17", season = 2025)
@@ -173,7 +176,8 @@ espn_wnba_team_schedule <- function(team_id,
 #' @importFrom dplyr as_tibble bind_rows any_of
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_leaders(team_id = "17", season = 2025)
@@ -242,7 +246,8 @@ espn_wnba_team_leaders <- function(team_id,
 #' @importFrom dplyr as_tibble
 #' @importFrom janitor clean_names
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_season_profile(team_id = "17", season = 2025)
@@ -283,7 +288,8 @@ NULL
 #' @param ... Additional arguments; currently unused.
 #' @return A long tibble with one row per (category x stat).
 #' @export
-#' @family ESPN WNBA Functions
+#' @concept ESPN WNBA Functions
+#' @seealso [family_espn_wnba] lists every function in this family.
 #' @examples
 #' \donttest{
 #'   espn_wnba_team_season_statistics(team_id = 17, season = 2024)

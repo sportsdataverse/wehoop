@@ -78,7 +78,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Player Functions
+#' @concept WNBA Player Functions
+#' @seealso [family_wnba_player] lists every function in this family.
 #' @details
 #' ```r
 #'   wnba_leaguedashplayerbiostats(league_id = '10', season = most_recent_wnba_season() - 1)
@@ -311,7 +312,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Player Functions
+#' @concept WNBA Player Functions
+#' @seealso [family_wnba_player] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_leaguedashplayerclutch(league_id = '10', season = most_recent_wnba_season() - 1)
@@ -557,7 +559,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Player Functions
+#' @concept WNBA Player Functions
+#' @seealso [family_wnba_player] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_leaguedashplayerstats(league_id = '10', season = most_recent_wnba_season() - 1)
@@ -760,7 +763,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Player Functions
+#' @concept WNBA Player Functions
+#' @seealso [family_wnba_player] lists every function in this family.
 #' @family WNBA Shooting Functions
 #' @details
 #' ```r
@@ -1097,7 +1101,8 @@ NULL
 #' @import rvest
 #' @export
 #' @family WNBA League Functions
-#' @family WNBA Team Functions
+#' @concept WNBA Team Functions
+#' @seealso [family_wnba_team] lists every function in this family.
 #' @details
 #' ```r
 #'  wnba_leaguedashteamstats(league_id = '10', season = most_recent_wnba_season() - 1)
