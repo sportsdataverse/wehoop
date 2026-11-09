@@ -1,0 +1,1342 @@
+{
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?limit=1000&dates=20220831": {
+    "file": "0228.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?limit=1000&dates=20251010": {
+    "file": "0345.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?event=401244185": {
+    "file": "0160.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/summary?event=401455681": {
+    "file": "0161.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams?limit=1000": {
+    "file": "0259.gz",
+    "status": 200,
+    "type": "application/json"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/rankings?lang=en&region=us&groups=50": {
+    "file": "0087.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences?seasontype=2": {
+    "file": "0020.gz",
+    "status": 200,
+    "type": "application/json"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?groups=50&limit=1000&dates=20230225": {
+    "file": "0088.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?groups=50&limit=1000&dates=20250406": {
+    "file": "0344.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/summary?event=401276115": {
+    "file": "0023.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/summary?event=401498717": {
+    "file": "0024.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams?limit=1000": {
+    "file": "0118.gz",
+    "status": 200,
+    "type": "application/json"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/1014?lang=en&region=us": {
+    "file": "0175.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/2529130?lang=en&region=us": {
+    "file": "0168.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/2529205?lang=en&region=us": {
+    "file": "0176.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/2987869?lang=en&region=us": {
+    "file": "0171.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/2998928?lang=en&region=us": {
+    "file": "0169.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/3149391?lang=en&region=us": {
+    "file": "0174.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/872?lang=en&region=us": {
+    "file": "0172.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/91?lang=en&region=us": {
+    "file": "0170.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/924?lang=en&region=us": {
+    "file": "0167.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/athletes/982?lang=en&region=us": {
+    "file": "0173.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/teams/14?lang=en&region=us": {
+    "file": "0163.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/teams/17?lang=en&region=us": {
+    "file": "0164.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2022/teams/9?lang=en&region=us": {
+    "file": "0224.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2020/teams/2509?lang=en&region=us": {
+    "file": "0117.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/2984250?lang=en&region=us": {
+    "file": "0034.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4280885?lang=en&region=us": {
+    "file": "0033.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4281190?lang=en&region=us": {
+    "file": "0039.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4281919?lang=en&region=us": {
+    "file": "0038.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4398582?lang=en&region=us": {
+    "file": "0032.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4398583?lang=en&region=us": {
+    "file": "0030.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4398604?lang=en&region=us": {
+    "file": "0037.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4432862?lang=en&region=us": {
+    "file": "0031.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4433412?lang=en&region=us": {
+    "file": "0036.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/athletes/4433426?lang=en&region=us": {
+    "file": "0035.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/teams/52?lang=en&region=us": {
+    "file": "0026.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2021/teams/97?lang=en&region=us": {
+    "file": "0027.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2022/teams/52?lang=en&region=us": {
+    "file": "0083.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/1/teams?lang=en&region=us": {
+    "file": "0120.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/2/teams?lang=en&region=us": {
+    "file": "0123.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/3/teams?lang=en&region=us": {
+    "file": "0122.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/46/teams?lang=en&region=us": {
+    "file": "0124.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/50/children?limit=1000&lang=en&region=us": {
+    "file": "0119.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/62/teams?lang=en&region=us": {
+    "file": "0121.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/event/388986/data?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0267.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/event/388986/odds?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0341.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/league/stats-con/player/scoring/0?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0271.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/1/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0281.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/11/gamelog?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0277.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/11/roster?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0273.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/11/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0279.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/11/stats?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0275.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/2/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0282.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/3/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0283.gz",
+    "status": 404,
+    "type": "application/problem+json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/5/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0284.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wcbk/team/6/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0285.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/event/2215/data?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0266.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/event/2215/odds?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0340.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/league/stats-con/player/scoring/0?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0270.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/team/1/gamelog?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0276.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/team/1/roster?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0272.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/team/1/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0278.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/team/1/stats?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0274.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/wnba/team/3/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0280.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/injuries": {
+    "file": "0207.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news?limit=5": {
+    "file": "0209.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/news?team=17&limit=5": {
+    "file": "0251.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=2025": {
+    "file": "0145.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams/17/roster": {
+    "file": "0343.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams/17/schedule?season=2025&seasontype=2": {
+    "file": "0255.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams/17?enable=roster,projection,stats&season=2025": {
+    "file": "0247.gz",
+    "status": 200,
+    "type": "application/json"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/transactions?season=2025&limit=10": {
+    "file": "0260.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/news?limit=5": {
+    "file": "0068.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/news?team=2509&limit=5": {
+    "file": "0111.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?dates=2025": {
+    "file": "0012.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams/2509/schedule?season=2025&seasontype=2": {
+    "file": "0113.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams/2509?enable=roster,projection,stats&season=2025": {
+    "file": "0107.gz",
+    "status": 200,
+    "type": "application/json"
+  },
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams/2579/roster": {
+    "file": "0342.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/athletes/3149391/gamelog?season=2024": {
+    "file": "0215.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/athletes/3149391/overview?season=2024": {
+    "file": "0213.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/athletes/3149391/splits?season=2024": {
+    "file": "0216.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/athletes/4068159/stats?season=2024": {
+    "file": "0214.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/womens-college-basketball/athletes/4433404/overview?season=2025": {
+    "file": "0072.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/womens-college-basketball/athletes/4433404/splits?season=2025": {
+    "file": "0075.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/womens-college-basketball/athletes/4433985/stats?season=2025": {
+    "file": "0073.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/common/v3/sports/basketball/womens-college-basketball/athletes/5239592/gamelog?season=2025": {
+    "file": "0330.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/basketball/wnba/standings?region=us&lang=en&contentorigin=espn&type=0&level=1&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&season=2021": {
+    "file": "0320.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/basketball/womens-college-basketball/standings?region=us&lang=en&contentorigin=espn&type=0&level=3&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&season=2021": {
+    "file": "0303.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/athletes/3149391": {
+    "file": "0220.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/athletes/3149391/awards": {
+    "file": "0210.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/athletes/3149391/seasons?limit=200&lang=en&region=us": {
+    "file": "0221.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/athletes/3149391/statistics/0?lang=en&region=us": {
+    "file": "0211.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/athletes/3149391/statisticslog": {
+    "file": "0218.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401244185/competitions/401244185/competitors/": {
+    "file": "0162.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401244185/competitions/401244185/competitors/14/roster": {
+    "file": "0165.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401244185/competitions/401244185/competitors/17/roster": {
+    "file": "0166.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/broadcasts": {
+    "file": "0179.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/leaders?lang=en&region=us": {
+    "file": "0201.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/linescores?lang=en&region=us": {
+    "file": "0200.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/records?lang=en&region=us": {
+    "file": "0204.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/roster/3149391/statistics/0?lang=en&region=us": {
+    "file": "0186.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/roster/3149391?lang=en&region=us": {
+    "file": "0206.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/roster?limit=100&lang=en&region=us": {
+    "file": "0336.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/score?lang=en&region=us": {
+    "file": "0205.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/competitors/17/statistics?lang=en&region=us": {
+    "file": "0203.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/odds": {
+    "file": "0177.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/odds/58/propBets?limit=100&page=1&lang=en&region=us": {
+    "file": "0196.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/odds/58/propBets?limit=100&page=2&lang=en&region=us": {
+    "file": "0197.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/odds/58/propBets?limit=100&page=3&lang=en&region=us": {
+    "file": "0198.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/odds/58/propBets?limit=100&page=4&lang=en&region=us": {
+    "file": "0199.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/officials": {
+    "file": "0178.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/officials/1?lang=en&region=us": {
+    "file": "0183.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/plays/4017361714?lang=en&region=us": {
+    "file": "0184.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/powerindex?limit=200&lang=en&region=us": {
+    "file": "0182.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/predictor?lang=en&region=us": {
+    "file": "0181.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=1": {
+    "file": "0187.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=2": {
+    "file": "0188.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=3": {
+    "file": "0189.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=4": {
+    "file": "0190.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=5": {
+    "file": "0191.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=6": {
+    "file": "0192.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=7": {
+    "file": "0193.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=8": {
+    "file": "0194.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/probabilities?limit=50&page=9": {
+    "file": "0195.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/events/401736171/competitions/401736171/situation?lang=en&region=us": {
+    "file": "0180.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/franchises/17?lang=en&region=us": {
+    "file": "0156.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/franchises?limit=200&lang=en&region=us": {
+    "file": "0157.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/positions/1?lang=en&region=us": {
+    "file": "0225.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/positions?limit=200&lang=en&region=us": {
+    "file": "0226.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2020/types/2/teams/17/statistics/": {
+    "file": "0258.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2022/athletes/2529130": {
+    "file": "0223.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2022/types/2/athletes/2529130/statistics/": {
+    "file": "0222.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/athletes/3149391/eventlog": {
+    "file": "0217.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/athletes/3149391/eventlog?lang=en&region=us": {
+    "file": "0337.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/awards/247?lang=en&region=us": {
+    "file": "0144.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/awards?lang=en&region=us": {
+    "file": "0229.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft/athletes/108565?lang=en&region=us": {
+    "file": "0335.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft/athletes?limit=200&lang=en&region=us": {
+    "file": "0152.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft/rounds": {
+    "file": "0149.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft/rounds/1/picks/1?lang=en&region=us": {
+    "file": "0155.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft/rounds?lang=en&region=us": {
+    "file": "0151.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft/status?lang=en&region=us": {
+    "file": "0153.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/draft?lang=en&region=us": {
+    "file": "0154.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/powerindex?limit=100&page=1&lang=en&region=us": {
+    "file": "0338.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/types/2/leaders": {
+    "file": "0208.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/types/2/teams/17/records/0?lang=en&region=us": {
+    "file": "0254.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2024/types/2/teams/17/statistics?lang=en&region=us": {
+    "file": "0257.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025": {
+    "file": "0235.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/athletes?limit=100&page=1": {
+    "file": "0141.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/athletes?limit=100&page=2": {
+    "file": "0142.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/athletes?limit=100&page=3": {
+    "file": "0143.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/coaches/52063?lang=en&region=us": {
+    "file": "0146.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/coaches?limit=100&page=1": {
+    "file": "0147.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/futures?limit=200&lang=en&region=us": {
+    "file": "0159.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/teams/17/athletes?limit=200&lang=en&region=us": {
+    "file": "0256.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/teams/17?lang=en&region=us": {
+    "file": "0249.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2/groups/5/teams?limit=200&lang=en&region=us": {
+    "file": "0232.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2/groups/5?lang=en&region=us": {
+    "file": "0230.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2/groups?limit=200&lang=en&region=us": {
+    "file": "0233.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2/leaders?lang=en&region=us": {
+    "file": "0236.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2/teams/17/record?lang=en&region=us": {
+    "file": "0252.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2?lang=en&region=us": {
+    "file": "0240.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/3/groups?limit=200&lang=en&region=us": {
+    "file": "0234.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/3/leaders?lang=en&region=us": {
+    "file": "0237.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/3/teams/17/record?lang=en&region=us": {
+    "file": "0253.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types?lang=en&region=us": {
+    "file": "0241.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons?limit=200": {
+    "file": "0245.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/venues?limit=100&page=1": {
+    "file": "0261.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/venues?limit=100&page=2": {
+    "file": "0262.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/venues?limit=100&page=3": {
+    "file": "0263.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/athletes/4433404": {
+    "file": "0079.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/athletes/4433404/awards": {
+    "file": "0069.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/athletes/4433404/statistics/0?lang=en&region=us": {
+    "file": "0070.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/athletes/4433404/statisticslog": {
+    "file": "0077.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/coaches/2167842/record/2?lang=en&region=us": {
+    "file": "0014.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/coaches/2167842?lang=en&region=us": {
+    "file": "0013.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/broadcasts": {
+    "file": "0042.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/": {
+    "file": "0025.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/52/leaders?lang=en&region=us": {
+    "file": "0060.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/52/linescores?lang=en&region=us": {
+    "file": "0059.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/52/records?lang=en&region=us": {
+    "file": "0063.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/52/roster": {
+    "file": "0028.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/52/score?lang=en&region=us": {
+    "file": "0064.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/52/statistics?lang=en&region=us": {
+    "file": "0062.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/competitors/97/roster": {
+    "file": "0029.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/officials": {
+    "file": "0041.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/officials/1?lang=en&region=us": {
+    "file": "0046.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=1": {
+    "file": "0050.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=2": {
+    "file": "0051.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=3": {
+    "file": "0052.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=4": {
+    "file": "0053.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=5": {
+    "file": "0054.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=6": {
+    "file": "0055.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=7": {
+    "file": "0056.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/probabilities?limit=50&page=8": {
+    "file": "0057.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/situation?lang=en&region=us": {
+    "file": "0043.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/competitors/41/roster/5239592/statistics/0?lang=en&region=us": {
+    "file": "0326.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/competitors/41/roster/5239592?lang=en&region=us": {
+    "file": "0328.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/competitors/41/roster?limit=100&lang=en&region=us": {
+    "file": "0327.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/odds": {
+    "file": "0322.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/plays/401746075113521856?lang=en&region=us": {
+    "file": "0325.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/powerindex?limit=200&lang=en&region=us": {
+    "file": "0324.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401746075/competitions/401746075/predictor?lang=en&region=us": {
+    "file": "0323.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/franchises/2509?lang=en&region=us": {
+    "file": "0021.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/franchises?limit=200&lang=en&region=us": {
+    "file": "0022.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/positions/1?lang=en&region=us": {
+    "file": "0084.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/positions?limit=200&lang=en&region=us": {
+    "file": "0085.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2020/types/2/teams/2509/statistics/": {
+    "file": "0116.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2022/athletes/2984250": {
+    "file": "0082.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2022/types/2/athletes/2984250/statistics/": {
+    "file": "0081.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2024/awards/357?lang=en&region=us": {
+    "file": "0321.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2024/awards?lang=en&region=us": {
+    "file": "0089.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2024/types/2/teams/2509/records/0?lang=en&region=us": {
+    "file": "0112.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2024/types/2/teams/2509/statistics?lang=en&region=us": {
+    "file": "0115.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025": {
+    "file": "0095.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes/5239592/eventlog": {
+    "file": "0331.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes/5239592/eventlog?lang=en&region=us": {
+    "file": "0332.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=1": {
+    "file": "0001.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=10": {
+    "file": "0010.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=2": {
+    "file": "0002.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=3": {
+    "file": "0003.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=4": {
+    "file": "0004.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=5": {
+    "file": "0005.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=6": {
+    "file": "0006.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=7": {
+    "file": "0007.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=8": {
+    "file": "0008.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/athletes?limit=100&page=9": {
+    "file": "0009.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/coaches/2167842?lang=en&region=us": {
+    "file": "0015.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/coaches?limit=100&page=1": {
+    "file": "0016.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/coaches?limit=100&page=2": {
+    "file": "0017.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/coaches?limit=100&page=3": {
+    "file": "0018.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/coaches?limit=100&page=4": {
+    "file": "0019.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/powerindex?limit=100&page=1&lang=en&region=us": {
+    "file": "0086.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/rankings/1?lang=en&region=us": {
+    "file": "0098.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/rankings?lang=en&region=us": {
+    "file": "0099.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/teams/2509/athletes?limit=200&lang=en&region=us": {
+    "file": "0114.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/teams/2509?lang=en&region=us": {
+    "file": "0109.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/5/teams?limit=200&lang=en&region=us": {
+    "file": "0092.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/5?lang=en&region=us": {
+    "file": "0090.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups/50/children?limit=200&page=1&lang=en&region=us": {
+    "file": "0334.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/groups?limit=200&lang=en&region=us": {
+    "file": "0093.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/leaders": {
+    "file": "0067.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/leaders?lang=en&region=us": {
+    "file": "0096.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/weeks/5/rankings/1?lang=en&region=us": {
+    "file": "0139.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/weeks/5/rankings?lang=en&region=us": {
+    "file": "0140.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/weeks/5?lang=en&region=us": {
+    "file": "0102.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2/weeks?limit=200&lang=en&region=us": {
+    "file": "0103.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/2?lang=en&region=us": {
+    "file": "0100.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/3/groups?limit=200&lang=en&region=us": {
+    "file": "0094.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/3/leaders?lang=en&region=us": {
+    "file": "0097.gz",
+    "status": 404,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types/3/weeks?limit=200&lang=en&region=us": {
+    "file": "0104.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2025/types?lang=en&region=us": {
+    "file": "0101.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons?limit=200": {
+    "file": "0105.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/tournaments/3/seasons/2024?lang=en&region=us": {
+    "file": "0126.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/tournaments/3/seasons?limit=200&lang=en&region=us": {
+    "file": "0127.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/tournaments/3?lang=en&region=us": {
+    "file": "0125.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/tournaments?limit=200&lang=en&region=us": {
+    "file": "0128.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=1": {
+    "file": "0129.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=10": {
+    "file": "0138.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=2": {
+    "file": "0130.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=3": {
+    "file": "0131.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=4": {
+    "file": "0132.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=5": {
+    "file": "0133.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=6": {
+    "file": "0134.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=7": {
+    "file": "0135.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=8": {
+    "file": "0136.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/venues?limit=100&page=9": {
+    "file": "0137.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  }
+}

@@ -5,6 +5,10 @@
 .Ruserdata
 ..Rcheck/00check.log
 data-raw*
+# ...except the HTTP fixture recorder for the offline tests
+!data-raw/
+data-raw/*
+!data-raw/http_fixtures/
 inst/doc*
 kenpomR.Rcheck*
 wnba_pbp_db*
