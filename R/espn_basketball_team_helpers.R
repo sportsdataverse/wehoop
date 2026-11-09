@@ -354,14 +354,22 @@
     }
     box <- loader(seasons = as.integer(season))
     if (is.null(box) || !nrow(box)) {
-      cli::cli_abort(c(
-        "No {league} player box scores are published for season {season}.",
+      # Offline, or the season is not published: warn and return the empty
+      # roster (not cached, so a later call retries the download).
+      tag <- if (league == "wnba") "espn_wnba" else "espn_womens_college_basketball"
+      url <- paste0(
+        "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+        tag, "_player_boxscores/player_box_", season, ".rds"
+      )
+      cli::cli_warn(c(
+        "No {league} player box scores could be read for season {season} from {.url {url}}; returning an empty roster.",
         "i" = "ESPN's roster endpoint ignores {.code season}, so a past season cannot fall back to today's roster."
       ))
+    } else {
+      .espn_past_roster_cache[[key]] <- box
     }
-    .espn_past_roster_cache[[key]] <- box
   }
-  last <- box %>%
+  last <- if (is.null(box) || !nrow(box)) data.frame() else box %>%
     dplyr::filter(
       !is.na(.data$athlete_id),
       as.character(.data$team_id) == as.character(.env$team_id)

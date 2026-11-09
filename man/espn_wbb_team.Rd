@@ -61,8 +61,8 @@ A single tibble with one row per athlete.
 Columns as documented in the shared \link{espn_basketball_team_roster_schema} table.
 ESPN's roster endpoint ignores the season, so a season before the current
 one is built from that season's published player box scores (name, jersey,
-position and headshot from the athlete's last game; bio columns \code{NA}), and
-errors when none are published.
+position and headshot from the athlete's last game; bio columns \code{NA}); when none can be read
+(not published, or offline) it warns and returns zero rows with these columns.
 
 A single long-format tibble (one row per category-rank-athlete).
 

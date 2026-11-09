@@ -27,12 +27,43 @@ test_that("a past season's roster comes from that season's box scores, not the l
   expect_equal(calls, 1L) # one release read per season, cached across teams
 })
 
-test_that("a past season with no published box scores errors instead of using today's roster", {
+test_that("a past season with no box scores warns and returns an empty roster, not today's", {
   rm(list = ls(wehoop:::.espn_past_roster_cache), envir = wehoop:::.espn_past_roster_cache)
   local_mocked_bindings(
     most_recent_wbb_season = function() 2027,
     load_wbb_player_box = function(...) data.frame(),
     .retry_request = function(...) stop("the live roster endpoint must not be called")
   )
-  expect_error(espn_wbb_team_roster(team_id = 52, season = 2025), "No womens-college-basketball player box scores")
+  expect_warning(
+    x <- espn_wbb_team_roster(team_id = 52, season = 2025),
+    "No womens-college-basketball player box scores"
+  )
+  expect_s3_class(x, "wehoop_data")
+  expect_equal(nrow(x), 0L)
+  expect_in(c("athlete_id", "full_name", "jersey", "position_abbrev", "team_id", "season"), colnames(x))
+  expect_length(ls(wehoop:::.espn_past_roster_cache), 0L) # an empty read is not cached
+})
+
+test_that("offline, a failed release download warns with the url instead of erroring", {
+  rm(list = ls(wehoop:::.espn_past_roster_cache), envir = wehoop:::.espn_past_roster_cache)
+  local_mocked_bindings(
+    most_recent_wnba_season = function() 2026,
+    .release_asset_exists = function(url) TRUE,
+    .read_release_asset = function(url, read, tries = 3L) {
+      warning("Could not resolve host: github.com")
+      structure("offline", class = "try-error")
+    },
+    .retry_request = function(...) stop("the live roster endpoint must not be called")
+  )
+  msgs <- character()
+  x <- withCallingHandlers(
+    espn_wnba_team_roster(team_id = "5", season = 2025),
+    warning = function(w) {
+      msgs <<- c(msgs, conditionMessage(w))
+      invokeRestart("muffleWarning")
+    }
+  )
+  expect_equal(nrow(x), 0L)
+  expect_in(c("athlete_id", "full_name", "team_id", "season"), colnames(x))
+  expect_true(any(grepl("espn_wnba_player_boxscores/player_box_2025.rds", msgs, fixed = TRUE)))
 })

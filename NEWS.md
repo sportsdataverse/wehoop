@@ -93,11 +93,16 @@
 
 * `espn_wnba_team_roster()` / `espn_wbb_team_roster()` for a past season now
   build the roster from that season's published player box scores
-  (`load_wnba_player_box()` / `load_wbb_player_box()`), and error when none are
-  published. ESPN's roster endpoint ignores `?season=`, so a past season used
+  (`load_wnba_player_box()` / `load_wbb_player_box()`). ESPN's roster endpoint ignores `?season=`, so a past season used
   to return today's roster under the past season's label, which also fed
   `wnba_player_crosswalk()` / `wbb_player_crosswalk()`. Mirrors
   sportsdataverse/sportsdataverse-py#782. (#93)
+
+* When that season's player box scores cannot be read (not published, or no
+  network), `espn_wnba_team_roster()` / `espn_wbb_team_roster()` warn with the
+  release url and return a zero-row roster with the documented columns instead
+  of erroring, like wehoop's other ESPN wrappers. A failed read is not cached,
+  so the next call tries the download again.
 
 * 24 WNBA Stats wrappers now default `season` to the previous season,
   `most_recent_wnba_season() - 1`, like wehoop's other 54 WNBA Stats wrappers.
