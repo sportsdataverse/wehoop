@@ -204,7 +204,8 @@
   `update_wnba_db(force_rebuild = TRUE)`. The table was dropped and rebuilt
   only for the seasons in the index, and a truncated index (`fread()` stops at
   a malformed row with only a warning) dropped the other seasons. The index
-  is now read in full first; any failure, a `fread()` warning included,
+  is now read in full first; any failure, a `fread()` warning included (not
+  retried: the file is the same on every try),
   stops with an error that names the index URL, and the table is left as it
   was. Release `.csv` and `.parquet` files are now downloaded with the
   `"libcurl"` method whatever `options(download.file.method)` says: with

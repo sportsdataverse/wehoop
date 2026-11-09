@@ -252,6 +252,19 @@ test_that("strict = TRUE turns a fread() warning into an error", {
     suppressWarnings(.release_csv_from_url("https://x/g.csv", strict = TRUE)),
     "Stopped early"
   )
+  # the partial read is not retried (the file is the same on every try), and
+  # fread() finished its own cleanup, so the next read is clean
+  reads <- 0L
+  local_mocked_bindings(csv_from_url = function(file, ...) {
+    reads <<- reads + 1L
+    partial_fread(file, ...)
+  })
+  expect_error(
+    suppressWarnings(.release_csv_from_url("https://x/g.csv", strict = TRUE)),
+    class = "release_csv_partial"
+  )
+  expect_equal(reads, 1L)
+  expect_no_warning(data.table::fread(text = "a,b\n1,2"))
   expect_error(
     suppressWarnings(load_wbb_games(strict = TRUE)),
     "wbb_games_in_data_repo.csv", class = "wehoop_games_index_failed"

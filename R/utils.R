@@ -54,10 +54,25 @@ csv_from_url <- function(...){
     .download_url(u, tmp)
     # `file =` so fread() never takes a path with spaces for a shell command.
     if (!strict) return(csv_from_url(file = tmp, ...))
-    withCallingHandlers(
+    # Collect the warnings and raise after fread() returns: stopping inside its
+    # handler skips fread()'s cleanup, and the next fread() call warns. The error
+    # is classed so .read_release_asset() does not retry it (the file is the same
+    # on every try).
+    warned <- character()
+    out <- withCallingHandlers(
       csv_from_url(file = tmp, ...),
-      warning = function(w) stop(conditionMessage(w), call. = FALSE)
+      warning = function(w) {
+        warned <<- c(warned, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      }
     )
+    if (length(warned)) {
+      stop(errorCondition(
+        paste0("fread() warned, so the table may be partial: ", paste(warned, collapse = "; ")),
+        class = "release_csv_partial", call = NULL
+      ))
+    }
+    out
   })
   if (inherits(load, "try-error")) stop(attr(load, "condition"))
   load
@@ -119,7 +134,8 @@ parquet_from_url <- function(url) {
 # A slow asset used to hit R's default 60 s `timeout`, and the loader dropped
 # that season from a multi-season load with a vague warning. The timeout is
 # raised to at least 150 s for the read (a larger user setting is kept), and a
-# failed read is tried again after 1 s and 2 s. A 404 is not retried. Warnings
+# failed read is tried again after 1 s and 2 s. A 404 and a partial strict csv
+# read (class `release_csv_partial`) are not retried. Warnings
 # from a read that then succeeds are passed on. When every try fails, it warns
 # that the file is missing from the result and returns the `try-error`.
 .read_release_asset <- function(url, read, tries = 3L) {
@@ -140,7 +156,8 @@ parquet_from_url <- function(url) {
     }
     why <- unique(c(conditionMessage(attr(out, "condition")),
                     vapply(warns, conditionMessage, character(1))))
-    if (i == tries || any(grepl("HTTP status was '404", why, fixed = TRUE))) break
+    if (i == tries || inherits(attr(out, "condition"), "release_csv_partial") ||
+        any(grepl("HTTP status was '404", why, fixed = TRUE))) break
     Sys.sleep(i)
   }
   why <- paste(why, collapse = "; ")
