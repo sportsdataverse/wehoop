@@ -82,10 +82,15 @@ csv_from_url <- function(...){
 # Any failure, including a partial read, aborts here, before the purge.
 .read_games_index_strict <- function(url) {
   # The error below replaces the "result is incomplete" warning: nothing is returned.
-  read <- function() withCallingHandlers(
-    .release_csv_from_url(url, strict = TRUE),
-    wehoop_read_failed = function(w) invokeRestart("muffleWarning")
-  )
+  read <- function() {
+    out <- withCallingHandlers(
+      .release_csv_from_url(url, strict = TRUE),
+      wehoop_read_failed = function(w) invokeRestart("muffleWarning")
+    )
+    # A header-only index reads without a warning, and would purge every season.
+    if (!NROW(out)) stop(errorCondition("the games index has no rows", class = "release_csv_empty", call = NULL))
+    out
+  }
   tryCatch(read(), error = function(e) {
     cli::cli_abort(c(
       "Could not read the games index {.url {url}}.",

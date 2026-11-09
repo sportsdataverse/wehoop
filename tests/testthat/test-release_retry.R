@@ -299,3 +299,23 @@ for (sport in c("wbb", "wnba")) {
     expect_equal(pbp_loads, 0L)
   })
 }
+
+test_that("a header-only games index aborts before build_wbb_db() purges the table", {
+  skip_if_not_installed("DBI")
+  skip_if_not_installed("RSQLite")
+  con <- DBI::dbConnect(RSQLite::SQLite(), withr::local_tempfile(fileext = ".sqlite"))
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+  old <- data.frame(season = 2024L, game_id = 1L)
+  DBI::dbWriteTable(con, "wehoop_wbb_pbp", old)
+  local_mocked_bindings(
+    .download_url = fake_download()$download,
+    # what fread() gives for a file holding only the "season,game_id" header
+    csv_from_url = function(file, ...) data.table::data.table(season = integer(), game_id = integer()),
+    load_wbb_pbp = function(...) stop("must not load")
+  )
+  expect_error(
+    build_wbb_db("wehoop_wbb_pbp", con, rebuild = TRUE),
+    "no rows", class = "wehoop_games_index_failed"
+  )
+  expect_equal(DBI::dbReadTable(con, "wehoop_wbb_pbp"), old)
+})
