@@ -116,7 +116,7 @@ lists every function in this family.
 # \donttest{
   try(scb_standings())
 #> ── BBL/DBBL Standings from the SCB API ───────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:12:41 UTC
+#> ℹ Data updated: 2026-11-09 23:11:39 UTC
 #> # A tibble: 10 × 55
 #>    league season standing_id season_team_id team_id team_name           team_tlc
 #>    <chr>   <int> <chr>       <chr>          <chr>   <chr>               <chr>   

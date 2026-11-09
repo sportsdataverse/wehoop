@@ -83,7 +83,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_linescores(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Linescores ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:10:18 UTC
+#> ℹ Data updated: 2026-11-09 23:09:27 UTC
 #> # A tibble: 8 × 7
 #>   league event_id  team_id period value display_value source      
 #>   <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr>       
@@ -99,7 +99,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_leaders(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Leaders ──────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:10:18 UTC
+#> ℹ Data updated: 2026-11-09 23:09:27 UTC
 #> # A tibble: 28 × 11
 #>    league event_id  team_id category_name category_display category_abbrev  rank
 #>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>           <int>
@@ -120,15 +120,27 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_roster(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Roster ───────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:10:19 UTC
-#> # A tibble: 0 × 5
-#> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
-#> #   ref <chr>
+#> ℹ Data updated: 2026-11-09 23:09:27 UTC
+#> # A tibble: 11 × 12
+#>    league event_id  team_id athlete_id ref    display_name jersey starter active
+#>    <chr>  <chr>     <chr>   <chr>      <chr>  <chr>        <chr>  <lgl>   <lgl> 
+#>  1 wnba   401736171 17      2590093    https… Stokes       41     TRUE    TRUE  
+#>  2 wnba   401736171 17      3149391    https… Wilson       22     TRUE    FALSE 
+#>  3 wnba   401736171 17      2529122    https… Gray         12     TRUE    TRUE  
+#>  4 wnba   401736171 17      2987869    https… Loyd         24     TRUE    TRUE  
+#>  5 wnba   401736171 17      4065870    https… Young        0      TRUE    TRUE  
+#>  6 wnba   401736171 17      4433309    https… Kitley       33     FALSE   FALSE 
+#>  7 wnba   401736171 17      2984741    https… Mitchell     3      FALSE   FALSE 
+#>  8 wnba   401736171 17      4281190    https… Evans        11     FALSE   FALSE 
+#>  9 wnba   401736171 17      4597509    https… Nye          13     FALSE   TRUE  
+#> 10 wnba   401736171 17      4068161    https… Holmes       4      FALSE   FALSE 
+#> 11 wnba   401736171 17      4433633    https… Bell         1      FALSE   FALSE 
+#> # ℹ 3 more variables: did_not_play <lgl>, ejected <lgl>, reason <chr>
 # }
 # \donttest{
   espn_wnba_game_team_statistics(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Statistics ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:10:19 UTC
+#> ℹ Data updated: 2026-11-09 23:09:27 UTC
 #> # A tibble: 99 × 10
 #>    league event_id  team_id category_name category_display stat_name stat_abbrev
 #>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>     <chr>      
@@ -148,7 +160,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_records(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Competitor Records ──────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:10:19 UTC
+#> ℹ Data updated: 2026-11-09 23:09:27 UTC
 #> # A tibble: 3 × 11
 #>   league event_id  team_id record_id name    abbreviation display_name       
 #>   <chr>  <chr>     <chr>   <chr>     <chr>   <chr>        <chr>              
@@ -161,7 +173,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_team_score(event_id = 401736171, team_id = 17)
 #> ── ESPN WNBA Event Competitor Score ──────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:10:19 UTC
+#> ℹ Data updated: 2026-11-09 23:09:27 UTC
 #> # A tibble: 1 × 8
 #>   league event_id  team_id value display_value winner source_id
 #>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    

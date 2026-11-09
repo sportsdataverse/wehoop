@@ -26,6 +26,30 @@
 
 #### **Behavior changes and bug fixes**
 
+- [`espn_wbb_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_leaders.md)
+  and
+  [`espn_wnba_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_leaders.md)
+  returned 0 rows for every game: ESPN serves the game-day roster inline
+  under `entries`, and the parser read only `items`. They now return one
+  row per athlete, with the display name, jersey, starter, active,
+  did-not-play, ejected and reason fields.
+
+- [`fox_wnba_odds()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md)
+  and
+  [`fox_wbb_odds()`](https://wehoop.sportsdataverse.org/reference/fox_basketball_boxscore.md)
+  returned 0 rows: Fox moved the odds six-pack into a “six-pack” module
+  under `sectionList`. Both read it there now.
+
+- [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md)
+  and
+  [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
+  failed on an existing table unless dbplyr was installed: the
+  missing-games check used
+  [`dplyr::tbl()`](https://dplyr.tidyverse.org/reference/tbl.html) on
+  the connection, and wehoop does not declare dbplyr. It now reads the
+  game ids with a plain
+  [`DBI::dbGetQuery()`](https://dbi.r-dbi.org/reference/dbGetQuery.html).
+
 - [`wnba_rapm()`](https://wehoop.sportsdataverse.org/reference/wnba_rapm.md)
   now fits an unpenalized intercept. In 3.0.0 it fit without one, so the
   ridge pushed the average points per possession into the player
@@ -370,6 +394,14 @@
   skip on CRAN and CI; CI adds R-devel, urlchecker and test-coverage
   jobs, and the toggles are read from repository variables.
   ([\#107](https://github.com/sportsdataverse/wehoop/issues/107))
+- The ESPN and Fox wrappers have offline tests:
+  `tests/testthat/test-espn_offline.R` and `test-fox_offline.R` replay
+  HTTP responses recorded once by
+  `data-raw/http_fixtures/record_fixtures.R`, so they run on CI with no
+  network. The fixtures stay out of the built package (`.Rbuildignore`)
+  and the tests skip without them. Offline tests also cover the loaders’
+  database write path and the `update_*_db()` functions, with the
+  release reads mocked.
 
 #### **New data loaders**
 

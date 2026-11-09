@@ -83,7 +83,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_linescores(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Linescores ──────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:09:39 UTC
+#> ℹ Data updated: 2026-11-09 23:08:52 UTC
 #> # A tibble: 8 × 7
 #>   league                    event_id  team_id period value display_value source 
 #>   <chr>                     <chr>     <chr>    <int> <dbl> <chr>         <chr>  
@@ -99,7 +99,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_leaders(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Leaders ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:09:40 UTC
+#> ℹ Data updated: 2026-11-09 23:08:52 UTC
 #> # A tibble: 41 × 11
 #>    league  event_id team_id category_name category_display category_abbrev  rank
 #>    <chr>   <chr>    <chr>   <chr>         <chr>            <chr>           <int>
@@ -120,15 +120,29 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_roster(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Roster ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:09:40 UTC
-#> # A tibble: 0 × 5
-#> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
-#> #   ref <chr>
+#> ℹ Data updated: 2026-11-09 23:08:52 UTC
+#> # A tibble: 13 × 12
+#>    league   event_id team_id athlete_id ref   display_name jersey starter active
+#>    <chr>    <chr>    <chr>   <chr>      <chr> <chr>        <chr>  <lgl>   <lgl> 
+#>  1 womens-… 4012761… 52      4398583    http… V. Myers     32     TRUE    FALSE 
+#>  2 womens-… 4012761… 52      4432862    http… S. Puisis    2      TRUE    FALSE 
+#>  3 womens-… 4012761… 52      4398582    http… K. Weber     10     TRUE    FALSE 
+#>  4 womens-… 4012761… 52      4280885    http… B. Jackson   0      TRUE    FALSE 
+#>  5 womens-… 4012761… 52      2984250    http… M. Jones     24     TRUE    FALSE 
+#>  6 womens-… 4012761… 52      4281175    http… S. Wilkinson 12     FALSE   FALSE 
+#>  7 womens-… 4012761… 52      4433304    http… R. Baldwin   1      FALSE   FALSE 
+#>  8 womens-… 4012761… 52      4281174    http… S. Lassiter  3      FALSE   FALSE 
+#>  9 womens-… 4012761… 52      4068155    http… T. England   23     FALSE   FALSE 
+#> 10 womens-… 4012761… 52      4398609    http… E. Howard    14     FALSE   FALSE 
+#> 11 womens-… 4012761… 52      4595844    http… S. Bejedi    5      FALSE   FALSE 
+#> 12 womens-… 4012761… 52      4398584    http… I. Nicoletti 33     FALSE   FALSE 
+#> 13 womens-… 4012761… 52      4398581    http… A. Brown     4      FALSE   FALSE 
+#> # ℹ 3 more variables: did_not_play <lgl>, ejected <lgl>, reason <chr>
 # }
 # \donttest{
   espn_wbb_game_team_statistics(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Statistics ──────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:09:40 UTC
+#> ℹ Data updated: 2026-11-09 23:08:52 UTC
 #> # A tibble: 71 × 10
 #>    league  event_id team_id category_name category_display stat_name stat_abbrev
 #>    <chr>   <chr>    <chr>   <chr>         <chr>            <chr>     <chr>      
@@ -148,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_records(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Competitor Records ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:09:40 UTC
+#> ℹ Data updated: 2026-11-09 23:08:52 UTC
 #> # A tibble: 4 × 11
 #>   league              event_id team_id record_id name  abbreviation display_name
 #>   <chr>               <chr>    <chr>   <chr>     <chr> <chr>        <chr>       
@@ -162,7 +176,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_game_team_score(event_id = 401276115, team_id = 52)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Event Competitor Score ─────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:09:40 UTC
+#> ℹ Data updated: 2026-11-09 23:08:52 UTC
 #> # A tibble: 1 × 8
 #>   league                   event_id team_id value display_value winner source_id
 #>   <chr>                    <chr>    <chr>   <dbl> <chr>         <lgl>  <chr>    

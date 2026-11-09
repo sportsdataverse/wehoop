@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 21:13:58"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 23:13:04"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/167?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 21:13:58"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 23:13:04"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "2"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 21:13:58"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 23:13:04"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 21:13:58"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 23:13:04"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 21:13:58"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 23:13:04"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 21:13:58"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-09 23:13:04"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -1018,9 +1018,21 @@ espn_wnba_game_team_leaders(event_id = EID, team_id = TID)
 
 # Game-day roster index. Returns athlete ids + core-v2 $refs.
 espn_wnba_game_team_roster(event_id = EID, team_id = TID)
-#> # A tibble: 0 × 5
-#> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>, athlete_id <chr>,
-#> #   ref <chr>
+#> # A tibble: 11 × 12
+#>    league event_id  team_id athlete_id ref    display_name jersey starter active
+#>    <chr>  <chr>     <chr>   <chr>      <chr>  <chr>        <chr>  <lgl>   <lgl> 
+#>  1 wnba   401736171 17      2590093    https… Stokes       41     TRUE    TRUE  
+#>  2 wnba   401736171 17      3149391    https… Wilson       22     TRUE    FALSE 
+#>  3 wnba   401736171 17      2529122    https… Gray         12     TRUE    TRUE  
+#>  4 wnba   401736171 17      2987869    https… Loyd         24     TRUE    TRUE  
+#>  5 wnba   401736171 17      4065870    https… Young        0      TRUE    TRUE  
+#>  6 wnba   401736171 17      4433309    https… Kitley       33     FALSE   FALSE 
+#>  7 wnba   401736171 17      2984741    https… Mitchell     3      FALSE   FALSE 
+#>  8 wnba   401736171 17      4281190    https… Evans        11     FALSE   FALSE 
+#>  9 wnba   401736171 17      4597509    https… Nye          13     FALSE   TRUE  
+#> 10 wnba   401736171 17      4068161    https… Holmes       4      FALSE   FALSE 
+#> 11 wnba   401736171 17      4433633    https… Bell         1      FALSE   FALSE 
+#> # ℹ 3 more variables: did_not_play <lgl>, ejected <lgl>, reason <chr>
 
 # Full team-game statistics in long format.
 espn_wnba_game_team_statistics(event_id = EID, team_id = TID)

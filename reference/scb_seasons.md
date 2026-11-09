@@ -87,7 +87,7 @@ lists every function in this family.
 # \donttest{
   try(scb_seasons())
 #> ── BBL/DBBL Seasons from the SCB API ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:12:40 UTC
+#> ℹ Data updated: 2026-11-09 23:11:38 UTC
 #> # A tibble: 3 × 4
 #>   league season season_id is_active
 #>   <chr>   <int>     <int> <lgl>    

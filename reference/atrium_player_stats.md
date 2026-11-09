@@ -128,7 +128,7 @@ Other Atrium Functions:
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 #> ── Atrium players from embed-api.eui.connect.sportradar.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:08:58 UTC
+#> ℹ Data updated: 2026-11-09 23:08:17 UTC
 #> # A tibble: 294 × 15
 #>    website_id season_id  person_id name  bib   entity_id team_name position_code
 #>         <int> <chr>      <chr>     <chr> <chr> <chr>     <chr>     <chr>        
@@ -153,7 +153,7 @@ Other Atrium Functions:
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 #> ── Atrium player stats from embed-api.eui.connect.sportradar.com ───────────────
-#> ℹ Data updated: 2026-11-09 21:09:02 UTC
+#> ℹ Data updated: 2026-11-09 23:08:21 UTC
 #> # A tibble: 10,212 × 13
 #>    website_id season_id    table_key table_label person_id person_name entity_id
 #>         <int> <chr>        <chr>     <chr>       <chr>     <chr>       <chr>    

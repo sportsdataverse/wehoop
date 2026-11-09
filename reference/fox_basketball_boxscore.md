@@ -59,7 +59,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_pbp("2215"))
 #> ── Fox Sports WNBA pbp ───────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:11:08 UTC
+#> ℹ Data updated: 2026-11-09 23:10:17 UTC
 #> # A tibble: 382 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            
@@ -79,7 +79,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_pbp("388986"))
 #> ── Fox Sports WCBK pbp ───────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:11:08 UTC
+#> ℹ Data updated: 2026-11-09 23:10:17 UTC
 #> # A tibble: 312 × 10
 #>    game_id period     left_team right_team play_id clock team  left_score_change
 #>    <chr>   <chr>      <chr>     <chr>      <chr>   <chr> <chr> <chr>            
@@ -99,7 +99,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_boxscore("2215"))
 #> ── Fox Sports WNBA boxscore ──────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:11:08 UTC
+#> ℹ Data updated: 2026-11-09 23:10:17 UTC
 #> # A tibble: 338 × 7
 #>    game_id team  stat_group player     athlete_id stat  value
 #>    <chr>   <chr> <chr>      <chr>      <chr>      <chr> <chr>
@@ -118,7 +118,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_boxscore("388986"))
 #> ── Fox Sports WCBK boxscore ──────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:11:09 UTC
+#> ℹ Data updated: 2026-11-09 23:10:18 UTC
 #> # A tibble: 378 × 7
 #>    game_id team  stat_group player      athlete_id stat  value
 #>    <chr>   <chr> <chr>      <chr>       <chr>      <chr> <chr>
@@ -137,13 +137,21 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_odds("2215"))
 #> ── Fox Sports WNBA odds ──────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:11:09 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-09 23:10:18 UTC
+#> # A tibble: 2 × 5
+#>   game_id team          spread to_win total  
+#>   <chr>   <chr>         <chr>  <chr>  <chr>  
+#> 1 2215    Atlanta Dream -9.5   -426   O 165.5
+#> 2 2215    Chicago Sky   +9.5   +316   U 165.5
 # }
 # \donttest{
   try(fox_wbb_odds("388986"))
 #> ── Fox Sports WCBK odds ──────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 21:11:09 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-09 23:10:18 UTC
+#> # A tibble: 2 × 5
+#>   game_id team             spread to_win total  
+#>   <chr>   <chr>            <chr>  <chr>  <chr>  
+#> 1 388986  UTSA Roadrunners +55.5  -      O 125.5
+#> 2 388986  UConn Huskies    -55.5  -      U 125.5
 # }
 ```
