@@ -211,7 +211,15 @@
   dplyr::bind_rows(parts)
 }
 .fox_bb_odds <- function(raw, game_id) {
-  sp <- raw[["sixPack"]]; o <- if (is.null(sp)) NULL else sp[["odds"]]; rows <- list()
+  # Fox moved the six-pack from a top-level `sixPack` into a "six-pack" module
+  # under `sectionList[].modules[]`; reading only `sixPack` returned 0 rows.
+  sp <- raw[["sixPack"]]
+  if (is.null(sp)) {
+    for (s in .fox_or(raw[["sectionList"]], list())) for (m in .fox_or(s[["modules"]], list())) {
+      if (is.null(sp) && identical(m[["type"]], "six-pack")) sp <- m[["model"]]
+    }
+  }
+  o <- if (is.null(sp)) NULL else sp[["odds"]]; rows <- list()
   if (!is.null(o)) {
     hdr <- janitor::make_clean_names(.fox_cells(o[["columnHeaders"]]))
     for (r in .fox_or(o[["rows"]], list())) {
