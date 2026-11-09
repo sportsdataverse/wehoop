@@ -495,6 +495,12 @@ wjbl_team_box_score <- function(play_schedule_id) {
 #' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
+#'   # The game must be final: wjbl_game() refuses one that is not.
+#'   try(wjbl_game(play_schedule_id = 7987))
+#' }
+#' @examplesIf interactive()
+#' \donttest{
+#'   # Interactive only: the play-by-play route takes 5 to 10 s (elapsed) to answer.
 #'   try(wjbl_pbp(play_schedule_id = 7987))
 #' }
 #' @export

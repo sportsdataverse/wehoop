@@ -51,8 +51,15 @@ Source, terms of use, request pacing, seasons, ids, coverage and error classes o
 }
 \examples{
 \donttest{
+  # The game must be final: wjbl_game() refuses one that is not.
+  try(wjbl_game(play_schedule_id = 7987))
+}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\donttest{
+  # Interactive only: the play-by-play route takes 5 to 10 s (elapsed) to answer.
   try(wjbl_pbp(play_schedule_id = 7987))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \link{family_wjbl} lists every function in this family.

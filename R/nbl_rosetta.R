@@ -181,7 +181,8 @@ nbl_rosetta_seasons_current <- function(org = "wnbl") {
 #'   Columns the body adds beyond these follow, in body order (sportsdataverse-py keeps them too).
 #' @examples
 #' \donttest{
-#'   try(nbl_rosetta_matches(season = 2026, season_type = "regular"))
+#'   # The first 10 matches: parsing the whole season takes about 3 s of CPU.
+#'   try(nbl_rosetta_matches(season = 2026, season_type = "regular", limit = 10))
 #' }
 #' @concept NBL Rosetta Functions
 #' @seealso [family_nbl_rosetta] lists every function in this family.

@@ -562,45 +562,78 @@ artifacts to the \code{wnba_stats_possessions} release tag.
 \donttest{
   try(load_wnba_stats_coaches(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_player_stats(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_lineups(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_team_stats(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_standings(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_draft(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wnba_stats_pbp(seasons = most_recent_wnba_stats_season()))
 }
 \dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other WNBA Stats loader functions:

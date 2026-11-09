@@ -386,41 +386,71 @@ modern players, while college and date of birth thin out the other way.
   try(load_wnba_pbp())
 }
 \dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_team_box())
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_player_box())
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_schedule())
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_rosters(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_player_stats(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_team_stats(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wnba_standings(seasons = most_recent_wnba_season()))
 }
 \donttest{
   try(load_wnba_draft(seasons = most_recent_wnba_season()))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_shots(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_game_rosters(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_officials(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wnba_player_core(seasons = most_recent_wnba_season()))
 }
+\dontshow{\}) # examplesIf}
 }
 \concept{WNBA loader functions}

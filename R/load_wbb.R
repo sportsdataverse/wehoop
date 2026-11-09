@@ -142,7 +142,9 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples \donttest{
+#' @examplesIf interactive()
+#' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wbb_team_box())
 #' }
 load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
@@ -232,7 +234,9 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples \donttest{
+#' @examplesIf interactive()
+#' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wbb_schedule())
 #' }
 
@@ -453,8 +457,9 @@ load_wbb_rosters <- function(seasons = most_recent_wbb_season(), ...,
 #' @return Returns a `wehoop_data` tibble of player season stats.
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wbb_player_stats(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_player_stats <- function(seasons = most_recent_wbb_season(), ...,
@@ -510,8 +515,9 @@ load_wbb_player_stats <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wbb_team_stats(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_team_stats <- function(seasons = most_recent_wbb_season(), ...,
@@ -741,8 +747,9 @@ load_wbb_game_rosters <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wbb_officials(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_officials <- function(seasons = most_recent_wbb_season(), ...,
@@ -1051,8 +1058,9 @@ get_missing_wbb_games <- function(completed_games, dbConnection, tablename) {
 #' @return Returns a `wehoop_data` tibble of athlete core records.
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wbb_player_core(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_player_core <- function(seasons = most_recent_wbb_season(), ...,

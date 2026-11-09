@@ -100,7 +100,8 @@ Source, terms of use, request pacing, seasons, ids, coverage and error classes o
 }
 \examples{
 \donttest{
-  try(nbl_rosetta_matches(season = 2026, season_type = "regular"))
+  # The first 10 matches: parsing the whole season takes about 3 s of CPU.
+  try(nbl_rosetta_matches(season = 2026, season_type = "regular", limit = 10))
 }
 }
 \seealso{

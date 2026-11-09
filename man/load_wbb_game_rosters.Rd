@@ -369,27 +369,39 @@ modern players, while college and date of birth thin out the other way.
   try(load_wbb_pbp())
 }
 \dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_team_box())
 }
+\dontshow{\}) # examplesIf}
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_player_box())
 }
 \dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_schedule())
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wbb_rosters(seasons = most_recent_wbb_season()))
 }
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_player_stats(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_team_stats(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
 \donttest{
   try(load_wbb_standings(seasons = most_recent_wbb_season()))
 }
@@ -405,11 +417,17 @@ modern players, while college and date of birth thin out the other way.
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 }
 \dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_player_core(seasons = most_recent_wbb_season()))
 }
+\dontshow{\}) # examplesIf}
 }
 \concept{WBB loader functions}

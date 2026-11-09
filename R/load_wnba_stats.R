@@ -144,8 +144,9 @@ load_wnba_stats_coaches <- function(seasons = most_recent_wnba_stats_season(),
 #' @return Returns a `wehoop_data` tibble of player season stats.
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_player_stats(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season(),
@@ -221,8 +222,9 @@ load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season
 #' @return Returns a `wehoop_data` tibble of lineup stats.
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_lineups(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_lineups <- function(seasons = most_recent_wnba_stats_season(),
@@ -334,8 +336,9 @@ load_wnba_stats_lineups <- function(seasons = most_recent_wnba_stats_season(),
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_team_stats(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season(),
@@ -432,8 +435,9 @@ load_wnba_stats_team_stats <- function(seasons = most_recent_wnba_stats_season()
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_standings(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_standings <- function(seasons = most_recent_wnba_stats_season(),
@@ -516,8 +520,9 @@ load_wnba_stats_standings <- function(seasons = most_recent_wnba_stats_season(),
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_draft(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_draft <- function(seasons = most_recent_wnba_stats_season(),
@@ -600,8 +605,9 @@ load_wnba_stats_draft <- function(seasons = most_recent_wnba_stats_season(),
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_shots(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_shots <- function(seasons = most_recent_wnba_stats_season(),
@@ -684,8 +690,9 @@ load_wnba_stats_shots <- function(seasons = most_recent_wnba_stats_season(),
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_game_rosters(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_game_rosters <- function(seasons = most_recent_wnba_stats_season(),
@@ -756,8 +763,9 @@ load_wnba_stats_game_rosters <- function(seasons = most_recent_wnba_stats_season
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_officials(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_officials <- function(seasons = most_recent_wnba_stats_season(),
@@ -818,8 +826,9 @@ load_wnba_stats_officials <- function(seasons = most_recent_wnba_stats_season(),
 #' @return Returns a `wehoop_data` tibble of per-athlete per-game log rows.
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_player_game_logs(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_player_game_logs <- function(seasons = most_recent_wnba_stats_season(),
@@ -898,8 +907,9 @@ load_wnba_stats_player_game_logs <- function(seasons = most_recent_wnba_stats_se
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_schedule(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_schedule <- function(seasons = most_recent_wnba_stats_season(),
@@ -1465,8 +1475,9 @@ update_wnba_stats_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
 #'
 #' @export
 #' @family WNBA Stats loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
 #'   try(load_wnba_stats_possessions(seasons = most_recent_wnba_stats_season()))
 #' }
 load_wnba_stats_possessions <- function(seasons = most_recent_wnba_stats_season(),
