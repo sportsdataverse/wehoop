@@ -1,6 +1,6 @@
-# Test coverage with covr. The repo has no CODECOV_TOKEN, so instead of uploading to
-# Codecov this writes the total to the job summary and keeps coverage.xml (Cobertura)
-# as an artifact. To switch to Codecov, add the token and a codecov/codecov-action step.
+# Test coverage with covr. Writes the total to the job summary, uploads coverage.xml
+# (Cobertura) to Codecov with the org CODECOV_TOKEN, and keeps it as an artifact.
+# The Codecov upload is non-fatal (continue-on-error): it says nothing about the package.
 on:
   push:
     branches:
@@ -56,6 +56,15 @@ jobs:
           cat("### ", pct, "\n", file = Sys.getenv("GITHUB_STEP_SUMMARY"), append = TRUE)
           covr::to_cobertura(cov, filename = "coverage.xml")
         shell: Rscript {0}
+
+      - uses: codecov/codecov-action@v7
+        continue-on-error: true
+        with:
+          fail_ci_if_error: true
+          files: ./coverage.xml
+          plugins: noop
+          disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v7
