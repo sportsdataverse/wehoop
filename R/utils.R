@@ -40,11 +40,63 @@ csv_from_url <- function(...){
 # `csv_from_url()` directly. These are single files (games index, manifests),
 # so when every try fails the last error is raised, as before, after the
 # warning that names the url.
-.release_csv_from_url <- function(url, ...) {
-  # `file =` so fread() never takes a url with spaces for a shell command.
-  load <- .read_release_asset(url, function(u) csv_from_url(file = u, ...))
+#
+# The file is downloaded first and fread() reads the local copy: a url handed
+# to fread() goes through `download.file.method`, and with "curl" an HTTP 503
+# body parses as csv and R's `timeout` is ignored. `strict = TRUE` also turns
+# a fread() warning (it can stop early on a malformed row and return part of
+# the file) into an error, so a caller that trusts the result as complete,
+# like the games index in `build_*_db()`, never gets a partial table.
+.release_csv_from_url <- function(url, ..., strict = FALSE) {
+  tmp <- tempfile(fileext = ".csv")
+  on.exit(unlink(tmp), add = TRUE)
+  load <- .read_release_asset(url, function(u) {
+    .download_url(u, tmp)
+    # `file =` so fread() never takes a path with spaces for a shell command.
+    if (!strict) return(csv_from_url(file = tmp, ...))
+    # Collect the warnings and raise after fread() returns: stopping inside its
+    # handler skips fread()'s cleanup, and the next fread() call warns. The error
+    # is classed so .read_release_asset() does not retry it (the file is the same
+    # on every try).
+    warned <- character()
+    out <- withCallingHandlers(
+      csv_from_url(file = tmp, ...),
+      warning = function(w) {
+        warned <<- c(warned, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      }
+    )
+    if (length(warned)) {
+      stop(errorCondition(
+        paste0("fread() warned, so the table may be partial: ", paste(warned, collapse = "; ")),
+        class = "release_csv_partial", call = NULL
+      ))
+    }
+    out
+  })
   if (inherits(load, "try-error")) stop(attr(load, "condition"))
   load
+}
+
+# The games index `build_*_db()` trusts as complete before it purges a table.
+# Any failure, including a partial read, aborts here, before the purge.
+.read_games_index_strict <- function(url) {
+  # The error below replaces the "result is incomplete" warning: nothing is returned.
+  read <- function() {
+    out <- withCallingHandlers(
+      .release_csv_from_url(url, strict = TRUE),
+      wehoop_read_failed = function(w) invokeRestart("muffleWarning")
+    )
+    # A header-only index reads without a warning, and would purge every season.
+    if (!NROW(out)) stop(errorCondition("the games index has no rows", class = "release_csv_empty", call = NULL))
+    out
+  }
+  tryCatch(read(), error = function(e) {
+    cli::cli_abort(c(
+      "Could not read the games index {.url {url}}.",
+      "i" = "No database table was changed. Try again later."
+    ), parent = e, call = NULL, class = "wehoop_games_index_failed")
+  })
 }
 
 #' @title
@@ -92,7 +144,8 @@ parquet_from_url <- function(url) {
 # A slow asset used to hit R's default 60 s `timeout`, and the loader dropped
 # that season from a multi-season load with a vague warning. The timeout is
 # raised to at least 150 s for the read (a larger user setting is kept), and a
-# failed read is tried again after 1 s and 2 s. A 404 is not retried. Warnings
+# failed read is tried again after 1 s and 2 s. A 404 and a partial strict csv
+# read (class `release_csv_partial`) are not retried. Warnings
 # from a read that then succeeds are passed on. When every try fails, it warns
 # that the file is missing from the result and returns the `try-error`.
 .read_release_asset <- function(url, read, tries = 3L) {
@@ -113,7 +166,8 @@ parquet_from_url <- function(url) {
     }
     why <- unique(c(conditionMessage(attr(out, "condition")),
                     vapply(warns, conditionMessage, character(1))))
-    if (i == tries || any(grepl("HTTP status was '404", why, fixed = TRUE))) break
+    if (i == tries || inherits(attr(out, "condition"), "release_csv_partial") ||
+        any(grepl("HTTP status was '404", why, fixed = TRUE))) break
     Sys.sleep(i)
   }
   why <- paste(why, collapse = "; ")
@@ -131,8 +185,10 @@ parquet_from_url <- function(url) {
   readRDS(con)
 }
 
+# libcurl, whatever `download.file.method` says: it errors on an HTTP error
+# status and honours `timeout`; the "curl" method does neither.
 .download_url <- function(url, dest) {
-  status <- utils::download.file(url, dest, mode = "wb", quiet = TRUE)
+  status <- utils::download.file(url, dest, mode = "wb", method = "libcurl", quiet = TRUE)
   if (status != 0L || !file.exists(dest) || file.size(dest) == 0) {
     stop("Download failed (status ", status, ") or the file is empty.", call. = FALSE)
   }

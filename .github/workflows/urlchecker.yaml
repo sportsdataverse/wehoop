@@ -23,21 +23,28 @@ permissions:
 jobs:
   urlchecker:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
+      # Only the steps that call GitHub get the token: installing remotes, and
+      # url_check(), which sends it with github.com requests (unauthenticated
+      # ones get rate-limited, and urlchecker 2.0.0 ignores a 429).
       - uses: r-lib/actions/setup-r-dependencies@v2
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         with:
           packages: any::urlchecker
 
       - name: Check URLs
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           db <- urlchecker:::build_url_db(normalizePath(".", winslash = "/"))
           blocked <- "^https?://([a-z0-9-]+[.])*(stats[.]wnba[.]com|stats[.]nba[.]com|stats[.]ncaa[.]org|sports-reference[.]com|basketball-reference[.]com)"

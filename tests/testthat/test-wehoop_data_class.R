@@ -19,7 +19,10 @@ test_that("make_wehoop_data() and rbindlist_with_attrs() output supports head()/
 test_that("every exported load_*() result supports head()/tail() (offline)", {
   # group_quantity: load_wnba_stats_lineups() keeps the 5-man rows
   fake <- function(...) data.table::data.table(a = 1:10, b = letters[1:10], group_quantity = 5L)
-  local_mocked_bindings(rds_from_url = fake, parquet_from_url = fake, csv_from_url = fake)
+  local_mocked_bindings(
+    rds_from_url = fake, parquet_from_url = fake, csv_from_url = fake,
+    .download_url = function(url, dest) invisible(dest)
+  )
   args <- list(load_wnba_stats_leaguedash = list(table = wnba_stats_leaguedash_tables[[1]]))
 
   loaders <- grep("^load_", getNamespaceExports("wehoop"), value = TRUE)

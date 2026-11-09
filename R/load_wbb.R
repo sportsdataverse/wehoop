@@ -96,8 +96,9 @@
 #' \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #' @export
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_pbp())
 #' }
 load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
@@ -185,7 +186,9 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples \donttest{
+#' @examplesIf interactive()
+#' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_player_box())
 #' }
 load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
@@ -263,12 +266,12 @@ load_wbb_schedule <- function(seasons = most_recent_wbb_season(), ...,
   out
 }
 
-# load games file
-load_wbb_games <- function(){
+# load games file. `strict = TRUE` (for build_wbb_db()) fails on a partial
+# read and aborts with an error that names the index url.
+load_wbb_games <- function(strict = FALSE) {
   .url <- "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_womens_college_basketball_schedules/wbb_games_in_data_repo.csv"
-  dat <- .release_csv_from_url(.url)
-  # close(con)
-  return(dat)
+  if (!strict) return(.release_csv_from_url(.url))
+  .read_games_index_strict(.url)
 }
 
 
@@ -620,8 +623,9 @@ load_wbb_standings <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_shots(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_shots <- function(seasons = most_recent_wbb_season(), ...,
@@ -680,8 +684,9 @@ NULL
 #'
 #' @export
 #' @family WBB loader functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # A season of this table is a multi-MB download, so the example runs interactively only.
 #'   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_game_rosters <- function(seasons = most_recent_wbb_season(), ...,
@@ -958,7 +963,9 @@ build_wbb_db <- function(tblname = "wehoop_wbb_pbp", db_conn, rebuild = FALSE, s
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  valid_seasons <- load_wbb_games() %>%
+  # The whole index is read before anything is purged; a failed or partial
+  # read aborts here and leaves the table as it was.
+  valid_seasons <- load_wbb_games(strict = TRUE) %>%
     dplyr::filter(.data$season >= 2004) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%

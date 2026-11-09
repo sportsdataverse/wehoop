@@ -146,28 +146,50 @@ test_that("parquet_from_url returns an empty table when the download keeps faili
   expect_equal(nrow(out), 0L)
 })
 
+# A fake download that records each url and writes `lines` to the temp file.
+fake_download <- function(lines = c("season,game_id", "2024,1")) {
+  urls <- character()
+  f <- function(url, dest) {
+    urls <<- c(urls, url)
+    writeLines(lines, dest)
+    invisible(dest)
+  }
+  list(download = f, urls = function() urls)
+}
+
 test_that("a release csv read is retried and passes its arguments on", {
   withr::local_options(timeout = 60)
   calls <- 0L
-  local_mocked_bindings(csv_from_url = function(file, ...) {
-    calls <<- calls + 1L
-    expect_equal(getOption("timeout"), 150)
-    if (calls == 1L) stop("Timeout of 60 seconds was reached")
-    data.table::data.table(url = file, ...)
-  })
+  dl <- fake_download()
+  local_mocked_bindings(
+    .download_url = dl$download,
+    csv_from_url = function(file, ...) {
+      calls <<- calls + 1L
+      expect_equal(getOption("timeout"), 150)
+      expect_true(file.exists(file))
+      if (calls == 1L) stop("Timeout of 60 seconds was reached")
+      data.table::data.table(file = file, ...)
+    }
+  )
   expect_no_warning(out <- load_wnba_stats_rosters_manifest())
   expect_equal(calls, 2L)
-  expect_match(out$url, "wnba_stats_rosters_in_data_repo.csv", fixed = TRUE)
+  expect_match(dl$urls(), "wnba_stats_rosters_in_data_repo.csv", fixed = TRUE)
+  # fread() reads the downloaded copy, not the url, and the copy is removed
+  expect_false(grepl("^https?://", out$file))
+  expect_false(file.exists(out$file))
   expect_equal(.release_csv_from_url("https://x/a.csv", sep = ",")$sep, ",")
   expect_equal(getOption("timeout"), 60)
 })
 
 test_that("a release csv that keeps failing warns with the url, then raises", {
   calls <- 0L
-  local_mocked_bindings(csv_from_url = function(file, ...) {
-    calls <<- calls + 1L
-    stop("Timeout of 150 seconds was reached")
-  })
+  local_mocked_bindings(
+    .download_url = fake_download()$download,
+    csv_from_url = function(file, ...) {
+      calls <<- calls + 1L
+      stop("Timeout of 150 seconds was reached")
+    }
+  )
   expect_error(
     expect_warning(load_wbb_games(), "wbb_games_in_data_repo.csv", fixed = TRUE),
     "Timeout of 150 seconds"
@@ -175,16 +197,34 @@ test_that("a release csv that keeps failing warns with the url, then raises", {
   expect_equal(calls, 3L)
 })
 
+test_that("a failed release csv download is retried, then raises", {
+  calls <- 0L
+  local_mocked_bindings(.download_url = function(url, dest) {
+    calls <<- calls + 1L
+    stop("cannot open URL: HTTP status was '503 Service Unavailable'")
+  })
+  expect_error(
+    expect_warning(.release_csv_from_url("https://x/a.csv"), "a.csv", fixed = TRUE),
+    "503"
+  )
+  expect_equal(calls, 3L)
+})
+
 test_that("the WNBA games index is read through the retrying release reader", {
   calls <- 0L
-  local_mocked_bindings(csv_from_url = function(file, ...) {
-    calls <<- calls + 1L
-    if (calls == 1L) stop("Timeout of 60 seconds was reached")
-    data.table::data.table(url = file)
-  })
+  dl <- fake_download()
+  local_mocked_bindings(
+    .download_url = dl$download,
+    csv_from_url = function(file, ...) {
+      calls <<- calls + 1L
+      if (calls == 1L) stop("Timeout of 60 seconds was reached")
+      data.table::fread(file = file)
+    }
+  )
   expect_no_warning(out <- load_wnba_games())
   expect_equal(calls, 2L)
-  expect_match(out$url, "espn_wnba_schedules/wnba_games_in_data_repo.csv", fixed = TRUE)
+  expect_match(dl$urls()[1], "espn_wnba_schedules/wnba_games_in_data_repo.csv", fixed = TRUE)
+  expect_equal(out$game_id, 1L)
 })
 
 test_that("a release csv is read from a local file", {
@@ -194,4 +234,88 @@ test_that("a release csv is read from a local file", {
   path <- normalizePath(src, winslash = "/")
   out <- .release_csv_from_url(paste0("file://", if (!startsWith(path, "/")) "/", path))
   expect_equal(out$game_id, 1:2)
+})
+
+# fread() can stop early on a malformed row: it warns and returns the rows
+# before it. That partial table must not pass as the whole games index.
+partial_fread <- function(file, ...) {
+  warning("Stopped early on line 3. Expected 2 fields but found 3.")
+  data.table::data.table(season = 2024L, game_id = 1L)
+}
+
+test_that("strict = TRUE turns a fread() warning into an error", {
+  local_mocked_bindings(.download_url = fake_download()$download, csv_from_url = partial_fread)
+  # not strict: the warning is passed on with the partial table, as before
+  expect_warning(out <- .release_csv_from_url("https://x/g.csv"), "Stopped early")
+  expect_equal(nrow(out), 1L)
+  expect_error(
+    suppressWarnings(.release_csv_from_url("https://x/g.csv", strict = TRUE)),
+    "Stopped early"
+  )
+  # the partial read is not retried (the file is the same on every try), and
+  # fread() finished its own cleanup, so the next read is clean
+  reads <- 0L
+  local_mocked_bindings(csv_from_url = function(file, ...) {
+    reads <<- reads + 1L
+    partial_fread(file, ...)
+  })
+  expect_error(
+    suppressWarnings(.release_csv_from_url("https://x/g.csv", strict = TRUE)),
+    class = "release_csv_partial"
+  )
+  expect_equal(reads, 1L)
+  expect_no_warning(data.table::fread(text = "a,b\n1,2"))
+  expect_error(
+    suppressWarnings(load_wbb_games(strict = TRUE)),
+    "wbb_games_in_data_repo.csv", class = "wehoop_games_index_failed"
+  )
+  # the abort replaces the "result is incomplete" warning
+  expect_no_warning(try(load_wbb_games(strict = TRUE), silent = TRUE), class = "wehoop_read_failed")
+})
+
+for (sport in c("wbb", "wnba")) {
+  test_that(paste0("build_", sport, "_db(rebuild = TRUE) keeps the table when the index read fails"), {
+    skip_if_not_installed("DBI")
+    skip_if_not_installed("RSQLite")
+    con <- DBI::dbConnect(RSQLite::SQLite(), withr::local_tempfile(fileext = ".sqlite"))
+    on.exit(DBI::dbDisconnect(con), add = TRUE)
+    tbl <- paste0("wehoop_", sport, "_pbp")
+    old <- data.frame(season = c(2023L, 2024L), game_id = c(1L, 2L))
+    DBI::dbWriteTable(con, tbl, old)
+    pbp_loads <- 0L
+    local_mocked_bindings(
+      .download_url = fake_download()$download,
+      csv_from_url = partial_fread,
+      load_wbb_pbp = function(...) pbp_loads <<- pbp_loads + 1L,
+      load_wnba_pbp = function(...) pbp_loads <<- pbp_loads + 1L
+    )
+    build <- get(paste0("build_", sport, "_db"))
+    expect_error(
+      suppressWarnings(build(tbl, con, rebuild = TRUE)),
+      paste0(sport, "_games_in_data_repo.csv"), class = "wehoop_games_index_failed"
+    )
+    expect_true(DBI::dbExistsTable(con, tbl))
+    expect_equal(DBI::dbReadTable(con, tbl), old)
+    expect_equal(pbp_loads, 0L)
+  })
+}
+
+test_that("a header-only games index aborts before build_wbb_db() purges the table", {
+  skip_if_not_installed("DBI")
+  skip_if_not_installed("RSQLite")
+  con <- DBI::dbConnect(RSQLite::SQLite(), withr::local_tempfile(fileext = ".sqlite"))
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+  old <- data.frame(season = 2024L, game_id = 1L)
+  DBI::dbWriteTable(con, "wehoop_wbb_pbp", old)
+  local_mocked_bindings(
+    .download_url = fake_download()$download,
+    # what fread() gives for a file holding only the "season,game_id" header
+    csv_from_url = function(file, ...) data.table::data.table(season = integer(), game_id = integer()),
+    load_wbb_pbp = function(...) stop("must not load")
+  )
+  expect_error(
+    build_wbb_db("wehoop_wbb_pbp", con, rebuild = TRUE),
+    "no rows", class = "wehoop_games_index_failed"
+  )
+  expect_equal(DBI::dbReadTable(con, "wehoop_wbb_pbp"), old)
 })

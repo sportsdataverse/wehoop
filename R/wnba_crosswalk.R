@@ -193,8 +193,9 @@ NULL
 #' @importFrom dplyr transmute distinct bind_rows
 #' @export
 #' @family WNBA Crosswalk Functions
-#' @examples
+#' @examplesIf interactive()
 #' \donttest{
+#'   # Reads one ESPN scoreboard per game date of the season, so it runs interactively only.
 #'   try(wnba_schedule_crosswalk(season = 2024))
 #' }
 wnba_schedule_crosswalk <- function(season = most_recent_wnba_season()) {
@@ -368,6 +369,7 @@ NULL
 #' @family WNBA Crosswalk Functions
 #' @examplesIf interactive()
 #' \donttest{
+#'   # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
 #'   try(wnba_player_crosswalk(season = 2024))
 #' }
 wnba_player_crosswalk <- function(season = most_recent_wnba_season(),

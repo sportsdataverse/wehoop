@@ -22,7 +22,8 @@ unseen team ids (calling one seed per conference) and unions the results.
 }
 \examples{
 \donttest{
-  try(fox_wbb_teams_all())
+  # max_calls = 5 probes five seed team ids (up to five conferences).
+  try(fox_wbb_teams_all(max_calls = 5))
 }
 }
 \seealso{

@@ -49,6 +49,7 @@ WBB, so neither source is joined.
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
+  # Reads every team roster from ESPN and Fox, so it runs interactively only.
   try(wbb_player_crosswalk(season = 2025))
 }
 \dontshow{\}) # examplesIf}

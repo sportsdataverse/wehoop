@@ -76,7 +76,8 @@ the season, and a missing conference reference raise an error of class
 }
 \examples{
 \donttest{
-  try(wbb_team_crosswalk(season = 2025))
+  # fox = data.frame() skips the per-conference Fox calls; drop it to fill the Fox columns.
+  try(wbb_team_crosswalk(season = 2025, fox = data.frame()))
 }
 }
 \seealso{
