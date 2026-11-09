@@ -42,8 +42,15 @@ Get ESPN women's college basketball team names and ids
 }
 \examples{
 \donttest{
+  # The conferences espn_wbb_teams() joins each team to:
+  try(espn_wbb_conferences())
+}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\donttest{
+  # Interactive only: it makes one request per conference (about 35), 7 to 20 s.
   try(espn_wbb_teams())
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \link{family_espn_wbb} lists every function in this family.

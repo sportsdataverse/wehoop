@@ -789,6 +789,12 @@ espn_wbb_conferences <- function() {
 #'
 #' @examples
 #' \donttest{
+#'   # The conferences espn_wbb_teams() joins each team to:
+#'   try(espn_wbb_conferences())
+#' }
+#' @examplesIf interactive()
+#' \donttest{
+#'   # Interactive only: it makes one request per conference (about 35), 7 to 20 s.
 #'   try(espn_wbb_teams())
 #' }
 
