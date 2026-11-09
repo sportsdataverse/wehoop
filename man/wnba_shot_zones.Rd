@@ -52,7 +52,7 @@ the basket and within 80 legacy units of the paint center
 }\if{html}{\out{</div>}}
 }
 \examples{
-\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\dontshow{if (interactive() && !nzchar(Sys.getenv("CI"))) withAutoprint(\{ # examplesIf}
 \donttest{
   try({
     df <- wnba_shot_zones(game_id = "1022400003")

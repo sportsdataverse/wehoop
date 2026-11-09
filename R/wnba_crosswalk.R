@@ -193,7 +193,7 @@ NULL
 #' @importFrom dplyr transmute distinct bind_rows
 #' @export
 #' @family WNBA Crosswalk Functions
-#' @examplesIf interactive()
+#' @examplesIf interactive() && !nzchar(Sys.getenv("CI"))
 #' \donttest{
 #'   # Reads one ESPN scoreboard per game date of the season, so it runs interactively only.
 #'   try(wnba_schedule_crosswalk(season = 2024))
@@ -367,7 +367,7 @@ NULL
 #' @importFrom purrr map list_rbind
 #' @export
 #' @family WNBA Crosswalk Functions
-#' @examplesIf interactive()
+#' @examplesIf interactive() && !nzchar(Sys.getenv("CI"))
 #' \donttest{
 #'   # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
 #'   try(wnba_player_crosswalk(season = 2024))

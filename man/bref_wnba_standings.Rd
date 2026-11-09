@@ -29,7 +29,7 @@ One row per team with record and win percentage, labelled by a \code{conference}
 column (\code{Eastern} / \code{Western}). No account or API key is required.
 }
 \examples{
-\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\dontshow{if (interactive() && !nzchar(Sys.getenv("CI"))) withAutoprint(\{ # examplesIf}
 \donttest{
   try(bref_wnba_standings(season = 2024))
 }

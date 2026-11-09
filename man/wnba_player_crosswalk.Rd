@@ -24,7 +24,7 @@ exact name within a team block, then Jaro-Winkler fuzzy with jersey/DOB
 tiebreakers. Yahoo columns are NA placeholders.
 }
 \examples{
-\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\dontshow{if (interactive() && !nzchar(Sys.getenv("CI"))) withAutoprint(\{ # examplesIf}
 \donttest{
   # Reads every team roster from ESPN, WNBA Stats and Fox, so it runs interactively only.
   try(wnba_player_crosswalk(season = 2024))

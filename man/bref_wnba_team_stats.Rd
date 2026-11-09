@@ -31,7 +31,7 @@ Basketball-Reference.}
 One row per team for a season. No account or API key is required.
 }
 \examples{
-\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\dontshow{if (interactive() && !nzchar(Sys.getenv("CI"))) withAutoprint(\{ # examplesIf}
 \donttest{
   try(bref_wnba_team_stats(season = 2024, table = "per_game"))
 }

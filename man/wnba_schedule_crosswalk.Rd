@@ -23,7 +23,7 @@ Stats CDN serves the current season only, so the live builder is effectively
 current-season; historical coverage comes from cached release artifacts.
 }
 \examples{
-\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
+\dontshow{if (interactive() && !nzchar(Sys.getenv("CI"))) withAutoprint(\{ # examplesIf}
 \donttest{
   # Reads one ESPN scoreboard per game date of the season, so it runs interactively only.
   try(wnba_schedule_crosswalk(season = 2024))
