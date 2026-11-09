@@ -118,29 +118,7 @@ Endpoint: \verb{GET https://api.basketball-bundesliga.de/games/recent} (DBBL: th
 \verb{https://api-1.dbbl.scb.world}).
 }
 \details{
-\itemize{
-\item Unofficial use of a public source: these wrappers read the front-end API of the German Bundesliga sites
-(easycredit-bbl.de, toyota-dbbl.de), run by SCB; payloads are not redistributed as release assets.
-\item Legal notice: the BBL Impressum forbids storing BBL content (\code{Inhalte}) in an information system without
-BBL's written permission. That is a copyright term, not a robots rule (the API host has no robots.txt).
-Keep requests slow (the runtime waits at least 1 s per host) and check the notice before you republish
-the data. The DBBL host is the same operator and API; check its own site notice as well.
-\item Both hosts need two headers: a constant \code{x-api-key} and an \code{x-api-secret} that rotates. The runtime
-derives the secret on first use from the key embedded in an easycredit-bbl.de page (reversed, \code{:} turned
-into \code{-}) and never logs or returns it. The derivation was reverse-engineered from observed requests and
-responses and has not been checked against the site's own front-end code; if the site changes how it
-signs requests, every call fails with \code{wehoop_asset_fetch}.
-\item Id key spaces: seasonId is the START year (2025 = 2025-26), so a wrapper's END-year \code{season} is sent as
-\code{season - 1}. Teams are keyed by teamId (seasonTeamId equals it in every sample). seasonPlayerId is per
-player per season and per club (a player traded mid-season has two); realPlayerId is the person. playerId
-is ambiguous (the seasonPlayerId in box scores, records and /season-players; the person in /transfers).
-Game ids are strings.
-\item Errors are classed conditions: \code{wehoop_no_data} (404, 204, a 400 "not a valid" id, no rows, a box score of
-a game not yet started), \code{wehoop_bad_request} (a bad argument, another 400 / 422) and \code{wehoop_asset_fetch}
-(a refused secret after one re-derive, any other non-2xx, an HTML / non-JSON / error-shaped body, a
-truncated page, a body for another game, season, club or league, a box score still in play), all
-inheriting \code{wehoop_error}. Wrappers raise; they never return an empty frame.
-}
+Source, terms of use, request pacing, seasons, ids, coverage and error classes of this family: see the notes in \code{\link[=scb_seasons]{scb_seasons()}}.
 }
 \examples{
 \donttest{

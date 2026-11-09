@@ -47,42 +47,7 @@ Box score of a final game (2013-14 on): one row per player of both teams.
 Endpoint: \verb{GET https://api.wjbl.01core.app/api/boxscore}
 }
 \details{
-\itemize{
-\item Unofficial and unsupported: these wrappers read the JSON backend of www.wjbl.org (api.wjbl.01core.app),
-keyless, found in the site's own JavaScript. The site's terms of use (www.wjbl.org/kiyaku/) forbid
-reproducing, republishing or otherwise using site content without permission: a copyright clause, not an
-anti-scraping one. The wrappers fetch on the user's behalf; check the terms before you republish the data
-or host a mirror. The site has no robots.txt (404, checked 2026-10-12), so no Crawl-delay is
-published; the runtime waits at least 1 s before every request, retries included. Payloads are not
-redistributed as release assets.
-\item Women's league: the W League is Japan's top women's basketball league. All text is Japanese (team names,
-phases, play-by-play actions); the column descriptions translate the vocabulary.
-\item Seasons are END years (2026 = 2025-26, 2000 = 1999-2000). The API keys a season edition by an opaque league_id
-(45 = '25-26 W League'; every all-star game, cup and camp has one too) and the wrappers map the END year with
-the live league list (one extra, cached request; END = 2000 + the second YY of league_title). Phases inside an
-edition (season_id: 169 = regular season Premier, 170 = Future, 176 = playoff final; two divisions from
-2024-25) are native ids, passed as given: wjbl_standing_seasons lists them with their END year.
-\item The schedule is paged by month: wjbl_schedule answers ONE month (game_month, YYYY-MM; omitted = the season's
-latest month only). List the months with wjbl_game_months and loop. The game routes take only the global
-play_schedule_id and serve final games only: each makes one extra, cached request (the game header) to prove
-the game is final and that the answer is the game and the teams asked for.
-\item Errors are HTTP 200: an unknown id answers [] (wehoop_no_data) and a missing or non-numeric parameter
-answers an error envelope (wehoop_asset_fetch). Coverage: schedules from 1999-2000, box scores from 2013-14,
-play-by-play and the period stats from 2018-19 (earlier games answer [] on the /pbp routes: wehoop_no_data).
-No route carries shot coordinates.
-\item Personal data: the organiser's contact details (phones, e-mail) and the player's blood type are never output,
-and phone numbers and e-mail addresses inside free text are replaced by [redacted-phone] /
-[redacted-email]. Do not add them back. Player bio fields and referee names are public and stay.
-\item Errors are classed conditions, all inheriting \code{wehoop_error}: \code{wehoop_no_data} (HTTP 404 or the API has
-nothing for the request: an empty list, an id it does not know, a game without play-by-play before 2018-19, a
-season without months or games), \code{wehoop_bad_request} (a season that is not the END year of a W League
-edition, an id that is not an integer or a game_month that is not YYYY-MM, raised before the request, or the
-API's HTTP 400 / 422) and \code{wehoop_asset_fetch} (any other failure: an error envelope at HTTP 200, any other
-non-2xx, an empty or non-JSON body, a game that is not final, a truncated play-by-play, or a body for another
-game, league edition, month, team, season phase or player than the one asked for; \code{transient} is TRUE for 408
-/ 429 / 5xx and transport failures). HTTP 500 is retried. Wrappers raise; they never warn and return an empty
-frame.
-}
+Source, terms of use, request pacing, seasons, ids, coverage and error classes of this family: see the notes in \code{\link[=wjbl_leagues]{wjbl_leagues()}}.
 }
 \examples{
 \donttest{

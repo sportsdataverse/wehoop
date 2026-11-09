@@ -56,7 +56,7 @@
 #' | league_id | integer | Competition-edition id league_id (key space: W League competitions; sequential, ONE id per season of the league AND per all-star game, cup or camp: 45 = '25-26 W League', 47 = '26-27', 20 = '13-14', 46 = All-Star 2025-26). The league_id parameter of /play-schedules and /play-schedule-months; enumerate with /leagues. The sdv season is the END year of league_title (END = 2000 + the second YY: '25-26' -> 2026, '99-00' -> 2000). |
 #' | league_title | character | Competition-edition title in Japanese: '25-26 W League' = 2025-26 W League (sdv END year 2026; END = 2000 + the second YY: '25-26' -> 2026, '99-00' -> 2000); also All-Star game, Autumn Cup, Summer Camp, 'W League SUPERGAMES'. |
 #' | season | integer | Season END year (2025-26 = 2026, 1999-2000 = 2000) from league_title ('25-26 W League'); null for an all-star game, cup or camp. |
-#' @eval .intl_details(.wjbl_leagues_details)
+#' @eval .intl_details(.wjbl_leagues_details, full = TRUE)
 #' @examples
 #' \donttest{
 #'   try(wjbl_leagues())
@@ -87,7 +87,7 @@ wjbl_leagues <- function() {
 #' | season | integer | Season END year of the request (2026 = 2025-26); the body itself does not carry it. |
 #' | game_month | character | Month 'YYYY-MM': the game_month parameter of /play-schedules. |
 #' | game_month_jpn | character | The month in Japanese, (Japanese text) (April 2026). |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_game_months(season = 2026))
@@ -158,7 +158,7 @@ wjbl_game_months <- function(season) {
 #' | away_team_free_text | character | Free-text team label used when the slot has no team (e.g. 'winner of game X'); empty string in every sample. |
 #' | away_team_score | integer | Away final points (integer). Null on unplayed games, as for home_team_score (not in the finished samples). |
 #' | away_team_entry_flg | integer | Official-league participant flag: 1 = a W League member team (the site links its roster), 0 = not (guest or all-star side). Integer. |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_schedule(game_month = "2026-04", season = 2026))
@@ -222,7 +222,7 @@ wjbl_schedule <- function(season, game_month = NULL, team_id = NULL) {
 #' | away_score_ot2 | integer | Unobserved: null in every sample. When filled: Points in the 2nd overtime; null when none. |
 #' | away_score_ot3 | integer | Unobserved: null in every sample. When filled: Points in the 3rd overtime; null when none. |
 #' | away_score_ot4 | integer | Unobserved: null in every sample. When filled: Points in the 4th overtime; null when none. There is no score_ot5+: overtimes 5-10 appear only as play-by-play period 9-14 and in the /pbp/team-stats and /pbp/player-stats periods maps. |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_game(play_schedule_id = 7987))
@@ -327,7 +327,7 @@ wjbl_period_scores <- function(play_schedule_id) {
 #' | away_season_team_short_name | character | Away team short name: Short team name for that season, Japanese (Toyota). |
 #' | away_team_logo_image | character | Away team logo: Team logo path, relative to https://www.wjbl.org ('/static/images/base_team/...png' or '/assets/img/team/...png'). |
 #' | away_free_text | character | Free-text team label used when the slot has no team (e.g. 'winner of game X'); empty string in every sample. |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_game_info(play_schedule_id = 7987))
@@ -379,7 +379,7 @@ wjbl_game_info <- function(play_schedule_id) {
 #' | to | integer | Turnovers. Integer. |
 #' | min | character | Minutes played 'mm:ss' ('22:19'), a string. |
 #' | min_seconds | integer | Minutes played in whole seconds, from the 'mm:ss' clock string min (null when it does not parse). |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_box_score(play_schedule_id = 7987))
@@ -432,7 +432,7 @@ wjbl_box_score <- function(play_schedule_id) {
 #' | p3p | double | Three-point field-goal percentage 0-100 (a string on the wire); total row only. |
 #' | ftp | double | Free-throw percentage 0-100 (a string on the wire); total row only. |
 #' | fgp | double | Field-goal percentage 0-100, two- and three-pointers together (a string on the wire); total row only. |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_team_box_score(play_schedule_id = 7987))
@@ -484,7 +484,7 @@ wjbl_team_box_score <- function(play_schedule_id) {
 #' | action2 | character | Sub-action in Japanese: jump shot (on field-goal attempts), free throws awarded on this foul, N = 0-3; '' otherwise. |
 #' | action3 | character | Second qualifier in Japanese: shooting foul; '' otherwise. |
 #' | home_away | integer | Side of the acting team: 1 = home, 2 = away; null on period/game-end lines. |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_pbp(play_schedule_id = 7987))
@@ -609,7 +609,7 @@ wjbl_player_period_leaders <- function(play_schedule_id) {
 #' | team_standings_flg | integer | 1 = the phase has a standings grid (/team-standings), 0 = not (cups, all-star games, phases not started). |
 #' | season_tournament_text_flg | integer | 1 = the phase shows a tournament text instead of a table, 0 = not; 0 in every sample. |
 #' | season_tournament_text | character | Tournament text (HTML) for knockout phases; empty in every sample. |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_standing_seasons())
@@ -652,7 +652,7 @@ wjbl_standing_seasons <- function() {
 #' | win_lost | character | Record in Japanese, (Japanese text) (23 wins, 5 losses). |
 #' | wins | integer | Wins in the record, parsed from win_lost (23 wins). |
 #' | losses | integer | Losses in the record, parsed from win_lost (5 losses). |
-#' @inherit wjbl_leagues details
+#' @eval .intl_details(.wjbl_leagues_details)
 #' @examples
 #' \donttest{
 #'   try(wjbl_team_standings(season_ids = "169"))
