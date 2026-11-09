@@ -199,6 +199,17 @@
   `update_wnba_db()`. A
   manifest that still fails warns with its URL and then raises the error, as
   before.
+* A failed or partial read of the games index no longer empties the play by
+  play table in `update_wbb_db(force_rebuild = TRUE)` and
+  `update_wnba_db(force_rebuild = TRUE)`. The table was dropped and rebuilt
+  only for the seasons in the index, and a truncated index (`fread()` stops at
+  a malformed row with only a warning) dropped the other seasons. The index
+  is now read in full first; any failure, a `fread()` warning included,
+  stops with an error that names the index URL, and the table is left as it
+  was. Release `.csv` and `.parquet` files are now downloaded with the
+  `"libcurl"` method whatever `options(download.file.method)` says: with
+  `"curl"`, an HTTP 503 error page was read as csv and the raised timeout did
+  not apply.
 
 ### **Deprecations**
 

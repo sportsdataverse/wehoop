@@ -40,11 +40,38 @@ csv_from_url <- function(...){
 # `csv_from_url()` directly. These are single files (games index, manifests),
 # so when every try fails the last error is raised, as before, after the
 # warning that names the url.
-.release_csv_from_url <- function(url, ...) {
-  # `file =` so fread() never takes a url with spaces for a shell command.
-  load <- .read_release_asset(url, function(u) csv_from_url(file = u, ...))
+#
+# The file is downloaded first and fread() reads the local copy: a url handed
+# to fread() goes through `download.file.method`, and with "curl" an HTTP 503
+# body parses as csv and R's `timeout` is ignored. `strict = TRUE` also turns
+# a fread() warning (it can stop early on a malformed row and return part of
+# the file) into an error, so a caller that trusts the result as complete,
+# like the games index in `build_*_db()`, never gets a partial table.
+.release_csv_from_url <- function(url, ..., strict = FALSE) {
+  tmp <- tempfile(fileext = ".csv")
+  on.exit(unlink(tmp), add = TRUE)
+  load <- .read_release_asset(url, function(u) {
+    .download_url(u, tmp)
+    # `file =` so fread() never takes a path with spaces for a shell command.
+    if (!strict) return(csv_from_url(file = tmp, ...))
+    withCallingHandlers(
+      csv_from_url(file = tmp, ...),
+      warning = function(w) stop(conditionMessage(w), call. = FALSE)
+    )
+  })
   if (inherits(load, "try-error")) stop(attr(load, "condition"))
   load
+}
+
+# The games index `build_*_db()` trusts as complete before it purges a table.
+# Any failure, including a partial read, aborts here, before the purge.
+.read_games_index_strict <- function(url) {
+  tryCatch(.release_csv_from_url(url, strict = TRUE), error = function(e) {
+    cli::cli_abort(c(
+      "Could not read the games index {.url {url}}.",
+      "i" = "No database table was changed. Try again later."
+    ), parent = e, call = NULL, class = "wehoop_games_index_failed")
+  })
 }
 
 #' @title
@@ -131,8 +158,10 @@ parquet_from_url <- function(url) {
   readRDS(con)
 }
 
+# libcurl, whatever `download.file.method` says: it errors on an HTTP error
+# status and honours `timeout`; the "curl" method does neither.
 .download_url <- function(url, dest) {
-  status <- utils::download.file(url, dest, mode = "wb", quiet = TRUE)
+  status <- utils::download.file(url, dest, mode = "wb", method = "libcurl", quiet = TRUE)
   if (status != 0L || !file.exists(dest) || file.size(dest) == 0) {
     stop("Download failed (status ", status, ") or the file is empty.", call. = FALSE)
   }

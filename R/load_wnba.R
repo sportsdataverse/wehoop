@@ -251,10 +251,12 @@ load_wnba_schedule <- function(seasons = most_recent_wnba_season(), ...,
   out
 }
 
-# load games file
-load_wnba_games <- function(){
+# load games file. `strict = TRUE` (for build_wnba_db()) fails on a partial
+# read and aborts with an error that names the index url.
+load_wnba_games <- function(strict = FALSE) {
   .url <- "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_wnba_schedules/wnba_games_in_data_repo.csv"
-  .release_csv_from_url(.url)
+  if (!strict) return(.release_csv_from_url(.url))
+  .read_games_index_strict(.url)
 }
 
 
@@ -1015,7 +1017,9 @@ build_wnba_db <- function(tblname = "wehoop_wnba_pbp", db_conn, rebuild = FALSE,
   
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
-  valid_seasons <- load_wnba_games() %>%
+  # The whole index is read before anything is purged; a failed or partial
+  # read aborts here and leaves the table as it was.
+  valid_seasons <- load_wnba_games(strict = TRUE) %>%
     dplyr::filter(.data$season >= 2002) %>%
     dplyr::group_by(.data$season) %>%
     dplyr::summarise() %>%
