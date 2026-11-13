@@ -77,7 +77,7 @@ Saiem Gilani
 # \donttest{
   try(load_wbb_player_aliases())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 76,968 × 12
+#> # A tibble: 84,687 × 12
 #>    league athlete_id athlete_id_source source source_player_id team_id
 #>    <chr>  <chr>      <chr>             <chr>  <chr>            <chr>  
 #>  1 wbb    10002      espn              ncaa   3564815          58     
@@ -90,7 +90,7 @@ Saiem Gilani
 #>  8 wbb    10028      espn              ncaa   3576633          2670   
 #>  9 wbb    10029      espn              ncaa   3727937          166    
 #> 10 wbb    10035      espn              ncaa   3288173          2427   
-#> # ℹ 76,958 more rows
+#> # ℹ 84,677 more rows
 #> # ℹ 6 more variables: source_team_id <chr>, valid_from <int>, valid_to <int>,
 #> #   match_method <chr>, match_confidence <dbl>, evidence <chr>
 # }

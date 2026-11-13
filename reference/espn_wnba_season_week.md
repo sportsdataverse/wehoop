@@ -58,7 +58,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_season_week(week = 5, season = 2025)
-#> ✖ 2026-11-09 23:09:37.194531: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
+#> ✖ 2026-11-13 11:56:55.162475: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
 #> ✖ Args: league = "wnba", season = 2025, season_type = 2L, week = 5
 #> ✖ Error: The API returned an error
 #> NULL

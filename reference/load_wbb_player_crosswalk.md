@@ -50,10 +50,9 @@ load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
 
   A vector of 4-digit seasons, or `TRUE` for every published season.
   Each loader accepts the seasons its release publishes: 2002 onward for
-  the three WNBA crosswalks; for WBB, `load_wbb_team_crosswalk()`
-  2002-2003 and 2014 onward, `load_wbb_schedule_crosswalk()` 2021 onward
-  and `load_wbb_player_crosswalk()` 2014-2022 and 2025 onward. The upper
-  bound is
+  the three WNBA crosswalks; for WBB, `load_wbb_team_crosswalk()` 2002
+  onward, `load_wbb_schedule_crosswalk()` 2021 onward and
+  `load_wbb_player_crosswalk()` 2014 onward. The upper bound is
   [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
   /
   [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md).
@@ -208,7 +207,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,928 × 17
+#> # A tibble: 4,955 × 17
 #>    season espn_team_id team_abbreviation player_name     espn_athlete_id
 #>     <int>        <int> <chr>             <chr>                     <int>
 #>  1   2027         2000 ACU               salena carrasco         5458291
@@ -221,7 +220,7 @@ Other WBB Crosswalk Functions:
 #>  8   2027         2000 ACU               meredith mayes          5175546
 #>  9   2027         2000 ACU               raimi mccrary           5177964
 #> 10   2027         2000 ACU               samara morrow           5458292
-#> # ℹ 4,918 more rows
+#> # ℹ 4,945 more rows
 #> # ℹ 12 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
 #> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,

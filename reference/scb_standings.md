@@ -116,14 +116,14 @@ lists every function in this family.
 # \donttest{
   try(scb_standings())
 #> ── BBL/DBBL Standings from the SCB API ───────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 23:11:39 UTC
+#> ℹ Data updated: 2026-11-13 11:58:47 UTC
 #> # A tibble: 10 × 55
 #>    league season standing_id season_team_id team_id team_name           team_tlc
 #>    <chr>   <int> <chr>       <chr>          <chr>   <chr>               <chr>   
 #>  1 dbbl     2027 4000        107            107     Rutronik Stars Kel… KEL     
 #>  2 dbbl     2027 3993        100            100     ALBA BERLIN         ALB     
-#>  3 dbbl     2027 4002        109            109     halfit LIONS        hfL     
-#>  4 dbbl     2027 3994        101            101     BC Marburg          MAR     
+#>  3 dbbl     2027 3994        101            101     BC Marburg          MAR     
+#>  4 dbbl     2027 4002        109            109     halfit LIONS        hfL     
 #>  5 dbbl     2027 3997        104            104     GiroLive Panthers … OSN     
 #>  6 dbbl     2027 3996        103            103     Eisvögel USC Freib… FRE     
 #>  7 dbbl     2027 3998        105            105     Herner TC           HER     

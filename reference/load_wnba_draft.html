@@ -499,13 +499,11 @@ modern players, while college and date of birth thin out the other way.</p>
 <dd><p>A vector of 4-digit years associated with given WNBA seasons, or
 <code>TRUE</code> for every published season. Each loader accepts only the seasons its
 release tag publishes (any other season is an error):</p><ul><li><p><code>load_wnba_pbp()</code>, <code>load_wnba_player_box()</code>, <code>load_wnba_standings()</code>,
-<code>load_wnba_shots()</code>, <code>load_wnba_game_rosters()</code>: 2002 onward.</p></li>
-<li><p><code>load_wnba_team_box()</code>, <code>load_wnba_officials()</code>, <code>load_wnba_player_core()</code>: 2003 onward.</p></li>
-<li><p><code>load_wnba_schedule()</code>: 1997, 1999 and 2001 onward.</p></li>
-<li><p><code>load_wnba_player_stats()</code>, <code>load_wnba_team_stats()</code>: 2002-2021 and 2023
-onward (2022 was never published).</p></li>
-<li><p><code>load_wnba_draft()</code>: 2018 onward (2018-2025 are published as <code>.parquet</code>
-only and need the <span class="pkg">arrow</span> package).</p></li>
+<code>load_wnba_shots()</code>, <code>load_wnba_game_rosters()</code>, <code>load_wnba_player_core()</code>,
+<code>load_wnba_player_stats()</code>, <code>load_wnba_team_stats()</code>: 2002 onward.</p></li>
+<li><p><code>load_wnba_team_box()</code>, <code>load_wnba_officials()</code>: 2003 onward.</p></li>
+<li><p><code>load_wnba_schedule()</code>: 1997 onward.</p></li>
+<li><p><code>load_wnba_draft()</code>: 2018 onward.</p></li>
 <li><p><code>load_wnba_rosters()</code>: 2024 onward.</p></li>
 </ul><p>The upper bound is <code><a href="most_recent_wnba_season.html">most_recent_wnba_season()</a></code>.
 When <code>seasons</code> is left at its default and that season's

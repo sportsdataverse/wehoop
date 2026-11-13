@@ -116,6 +116,26 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="3.1.0" id="wehoop-310"><strong>wehoop 3.1.0</strong><a class="anchor" aria-label="anchor" href="#wehoop-310"></a></h2>
 <div class="section level4">
+<h4 id="loader-seasons-after-the-backfill-3-1-0"><strong>Loader seasons after the 2026-11-13 backfill</strong><a class="anchor" aria-label="anchor" href="#loader-seasons-after-the-backfill-3-1-0"></a></h4>
+<ul><li>The release holes are filled, so the loaders stop refusing those seasons:
+<ul><li>
+<code><a href="../reference/load_wbb_game_rosters.html">load_wbb_standings()</a></code>, <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_player_stats()</a></code>, <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_team_stats()</a></code> and <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_officials()</a></code> accept 2024-2025.</li>
+<li>
+<code><a href="../reference/load_wbb_game_rosters.html">load_wbb_player_core()</a></code> accepts 2005.</li>
+<li>
+<code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_team_crosswalk()</a></code> accepts 2004-2013, and <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code> 2023-2024.</li>
+<li>
+<code><a href="../reference/load_wnba_draft.html">load_wnba_schedule()</a></code> accepts 1998 and 2000.</li>
+<li>
+<code><a href="../reference/load_wnba_draft.html">load_wnba_player_stats()</a></code> and <code><a href="../reference/load_wnba_draft.html">load_wnba_team_stats()</a></code> accept 2022.</li>
+<li>
+<code><a href="../reference/load_wnba_draft.html">load_wnba_player_core()</a></code> now starts in 2002.</li>
+<li>
+<code><a href="../reference/load_wbb_game_rosters.html">load_wbb_player_stats()</a></code> now starts in 2010. The 2006-2009 release files held multi-season totals, since ESPN has no single-season WBB player rows before 2009-10, and were withdrawn.</li>
+</ul></li>
+<li>Every season in each documented range is now published as <code>.rds</code>, so the WBB 2005 box scores, the WBB 2023-2025 game rosters and the WNBA 2018-2025 drafts no longer need . Before, a reader without arrow got empty columns from some 2004-2022 WBB and WNBA files (wehoop#120).</li>
+</ul></div>
+<div class="section level4">
 <h4 id="international-basketball-3-1-0"><strong>International basketball</strong><a class="anchor" aria-label="anchor" href="#international-basketball-3-1-0"></a></h4>
 <ul><li>New wrappers mirroring sportsdataverse-py’s international basketball families (same function names, arguments and columns): FIBA, Genius Sports, Sportradar Atrium, NBL / WNBL (Rosetta), SCB (DBBL), FEB, TBF and the W League (WJBL), plus the women’s per-competition aliases; shared engines default to the women’s league. They share one polite transport (at least 1 s between requests to a host) and raise classed conditions instead of returning empty: <code>wehoop_no_data</code>, <code>wehoop_asset_fetch</code> (with a <code>transient</code> field) and <code>wehoop_bad_request</code>, all inheriting <code>wehoop_error</code>. In all, 289 new exports (8 families plus 108 per-competition aliases). Every route is tested at parity with sportsdataverse-py on the same fixtures (column names, types, every cell and the request sent). Python-only arguments (<code>return_parsed</code>, <code>return_as_pandas</code>) are not ported, and a whole-number double is accepted wherever sportsdataverse-py takes an integer. Live tests run only with <code>WEHOOP_INTL_LIVE_TESTS=1</code>; Genius needs <code>GENIUS_PROXY</code>. (<a href="https://github.com/sportsdataverse/wehoop/issues/100" class="external-link">#100</a>, <a href="https://github.com/sportsdataverse/wehoop/issues/101" class="external-link">#101</a>, <a href="https://github.com/sportsdataverse/wehoop/issues/103" class="external-link">#103</a>)</li>
 </ul></div>

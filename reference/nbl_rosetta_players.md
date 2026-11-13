@@ -100,7 +100,7 @@ lists every function in this family.
 # \donttest{
   try(nbl_rosetta_players(org = "nbl", season = 2026))
 #> ── NBL Rosetta players from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 23:11:19 UTC
+#> ℹ Data updated: 2026-11-13 11:58:29 UTC
 #> # A tibble: 195 × 33
 #>    org   jersey_number playing_position player_id              rosetta_player_id
 #>    <chr> <chr>         <chr>            <chr>                  <chr>            

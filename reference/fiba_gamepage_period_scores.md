@@ -65,7 +65,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gamepage_period_scores(game_id = 100720, comp = 208182))
 #> ── FIBA gamepage_period_scores from fiba.basketball ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 23:10:00 UTC
+#> ℹ Data updated: 2026-11-13 11:57:13 UTC
 #> # A tibble: 8 × 8
 #>   game_id competition_id team_side organisation_id period period_number points
 #>     <int>          <int> <chr>               <int> <chr>          <int>  <int>

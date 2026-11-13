@@ -233,18 +233,14 @@ load_wnba_player_core(
 
   - `load_wnba_pbp()`, `load_wnba_player_box()`,
     `load_wnba_standings()`, `load_wnba_shots()`,
-    `load_wnba_game_rosters()`: 2002 onward.
+    `load_wnba_game_rosters()`, `load_wnba_player_core()`,
+    `load_wnba_player_stats()`, `load_wnba_team_stats()`: 2002 onward.
 
-  - `load_wnba_team_box()`, `load_wnba_officials()`,
-    `load_wnba_player_core()`: 2003 onward.
+  - `load_wnba_team_box()`, `load_wnba_officials()`: 2003 onward.
 
-  - `load_wnba_schedule()`: 1997, 1999 and 2001 onward.
+  - `load_wnba_schedule()`: 1997 onward.
 
-  - `load_wnba_player_stats()`, `load_wnba_team_stats()`: 2002-2021 and
-    2023 onward (2022 was never published).
-
-  - `load_wnba_draft()`: 2018 onward (2018-2025 are published as
-    `.parquet` only and need the arrow package).
+  - `load_wnba_draft()`: 2018 onward.
 
   - `load_wnba_rosters()`: 2024 onward.
 

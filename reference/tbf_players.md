@@ -66,8 +66,8 @@ lists every function in this family.
 # \donttest{
   try(tbf_players(competition = "bsl", season = 2027))
 #> ── TBF Players ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 23:11:49 UTC
-#> # A tibble: 262 × 11
+#> ℹ Data updated: 2026-11-13 11:58:56 UTC
+#> # A tibble: 263 × 11
 #>    season competition person_id player_name nationality nationality_code club_id
 #>     <int> <chr>           <int> <chr>       <chr>       <chr>              <int>
 #>  1   2027 bsl            443749 Ahmet Aldi… TÜRKİYE     TUR               246239
@@ -80,7 +80,7 @@ lists every function in this family.
 #>  8   2027 bsl            778182 Alex Reese  ABD         USA               246463
 #>  9   2027 bsl            393217 Ali Yiğit … TÜRKİYE     TUR                    3
 #> 10   2027 bsl            222914 Alican Gün… TÜRKİYE     TUR                47153
-#> # ℹ 252 more rows
+#> # ℹ 253 more rows
 #> # ℹ 4 more variables: team_name <chr>, jersey_number <chr>, prefix <chr>,
 #> #   season_id <int>
 # }

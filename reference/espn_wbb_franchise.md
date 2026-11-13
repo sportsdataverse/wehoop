@@ -59,7 +59,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_franchise(franchise_id = 2509)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Franchise from ESPN.com ────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 23:08:45 UTC
+#> ℹ Data updated: 2026-11-13 11:56:12 UTC
 #> # A tibble: 1 × 16
 #>   id    uid              slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>            <chr> <chr>    <chr> <chr>    <chr>        <chr>       

@@ -68,8 +68,8 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_rankings())
 #> ── ESPN WBB Rankings Information from ESPN.com ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-09 23:08:59 UTC
-#> # A tibble: 37 × 37
+#> ℹ Data updated: 2026-11-13 11:56:23 UTC
+#> # A tibble: 77 × 37
 #>       id name   short_name type  headline short_headline current previous points
 #>    <int> <chr>  <chr>      <chr> <chr>    <chr>            <int>    <int>  <dbl>
 #>  1     1 AP To… AP Poll    ap    2027 NC… 2027 : Week 2        1        1    823
@@ -82,7 +82,7 @@ Saiem Gilani
 #>  8     1 AP To… AP Poll    ap    2027 NC… 2027 : Week 2        8        8    609
 #>  9     1 AP To… AP Poll    ap    2027 NC… 2027 : Week 2        9        9    561
 #> 10     1 AP To… AP Poll    ap    2027 NC… 2027 : Week 2       10       10    469
-#> # ℹ 27 more rows
+#> # ℹ 67 more rows
 #> # ℹ 28 more variables: first_place_votes <int>, trend <chr>, date <chr>,
 #> #   last_updated <chr>, record_summary <chr>, team_id <int>, team_uid <chr>,
 #> #   team_location <chr>, team_name <chr>, team_nickname <chr>,

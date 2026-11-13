@@ -65,7 +65,7 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> # A tibble: 1 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
-#> 1 Overall Record <df [30 × 2]> 2-0     total
+#> 1 Overall Record <df [30 × 2]> 3-0     total
 #> 
 #> $NextEvent
 #> # A tibble: 1 × 4
@@ -193,11 +193,12 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Draft
 #> # A tibble: 0 × 0
 espn_wbb_player_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
-#> # A tibble: 2 × 27
+#> # A tibble: 3 × 27
 #>   athlete_id season id     week  at_vs game_date score home_team_id away_team_id
 #>   <chr>       <int> <chr>  <chr> <chr> <chr>     <chr> <chr>        <chr>       
-#> 1 5239976      2027 40192… 1     vs    2026-11-… 83-73 2509         2199        
-#> 2 5239976      2027 40192… 1     vs    2026-11-… 81-73 2509         85          
+#> 1 5239976      2027 40192… 2     vs    2026-11-… 73-50 2509         2546        
+#> 2 5239976      2027 40192… 1     vs    2026-11-… 83-73 2509         2199        
+#> 3 5239976      2027 40192… 1     vs    2026-11-… 81-73 2509         85          
 #> # ℹ 18 more variables: home_team_score <chr>, away_team_score <chr>,
 #> #   game_result <chr>, league_name <chr>, league_abbreviation <chr>,
 #> #   league_short_name <chr>, team_id <chr>, team_uid <chr>,
@@ -468,16 +469,16 @@ espn_wbb_standings(year = season)
 #> # A tibble: 363 × 87
 #>    team_id team             conference avgpointsagainst avgpointsfor gamesbehind
 #>      <int> <chr>            <chr>                 <dbl>        <dbl>       <dbl>
-#>  1    2803 Bryant Bulldogs  America E…             44.7         67.7         0  
-#>  2    2885 NJIT Highlanders America E…             47.7         58           0  
-#>  3     399 UAlbany Great D… America E…             59.7         68           0  
-#>  4    2378 UMBC Retrievers  America E…             49.7         87.3         0  
-#>  5     311 Maine Black Bea… America E…             65           78.5         0.5
-#>  6     160 New Hampshire W… America E…             48.3         68.7         1  
-#>  7    2349 UMass Lowell Ri… America E…             59.7         72           1  
-#>  8     261 Vermont Catamou… America E…             59           74           1  
-#>  9    2066 Binghamton Bear… America E…             75.3         60.7         2  
-#> 10     242 Rice Owls        American …             52.7         71.3         0  
+#>  1    2803 Bryant Bulldogs  America E…             45.2         64           0  
+#>  2    2885 NJIT Highlanders America E…             50.8         59.5         0  
+#>  3    2378 UMBC Retrievers  America E…             49.7         87.3         0.5
+#>  4     311 Maine Black Bea… America E…             65           78.5         1  
+#>  5     399 UAlbany Great D… America E…             68.5         61.2         1  
+#>  6    2066 Binghamton Bear… America E…             65.5         60.2         2  
+#>  7     160 New Hampshire W… America E…             49           63           2  
+#>  8    2349 UMass Lowell Ri… America E…             66.2         68.2         2  
+#>  9     261 Vermont Catamou… America E…             64.5         69.5         2  
+#> 10     235 Memphis Tigers   American …             49.5         65.5         0  
 #> # ℹ 353 more rows
 #> # ℹ 81 more variables: leaguewinpercent <dbl>, losses <dbl>, playoffseed <dbl>,
 #> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,
