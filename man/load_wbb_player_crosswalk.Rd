@@ -31,15 +31,17 @@ load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
 season. Each loader accepts the seasons its release publishes: 2002
 onward for the three WNBA crosswalks; for WBB, \code{load_wbb_team_crosswalk()}
 2002 onward, \code{load_wbb_schedule_crosswalk()} 2021 onward and
-\code{load_wbb_player_crosswalk()} 2014 onward. The upper bound is
+\code{load_wbb_player_crosswalk()} 2007 onward. The upper bound is
 \code{\link[=most_recent_wnba_season]{most_recent_wnba_season()}} / \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}. When \code{seasons}
 is left at its default and that season is not published yet, the loader
 reads the newest published season instead, with a message; an explicit
 request for it warns and returns an empty frame. The WNBA Stats ids (\code{wnba_player_id}, \code{wnba_team_id},
 \code{wnba_home_team_id}, \code{wnba_away_team_id}) and the ESPN ids (\code{espn_game_id},
-\code{espn_athlete_id}, \code{espn_team_id}) are returned as integer, matching the
-\verb{wnba_*()} WNBA Stats tables and the ESPN loaders; \code{wnba_game_id} stays
-character.}
+\code{espn_athlete_id}, \code{espn_team_id}) and the WBB stats.ncaa.org ids
+(\code{ncaa_contest_id}, \code{ncaa_player_id}) are returned as integer, matching
+the \verb{wnba_*()} WNBA Stats tables, the ESPN loaders and the
+\verb{load_ncaa_wbb_*()} loaders; \code{wnba_game_id} and the Fox, Yahoo and
+Torvik ids stay character.}
 }
 \value{
 A \code{wehoop_data} tibble of cached team-crosswalk rows.
@@ -83,6 +85,65 @@ identifiers to Fox Sports player identifiers for Women's College
 Basketball. One row per athlete-season. Backed by the \code{wbb_crosswalk}
 release tag in \code{sportsdataverse-data}.
 }
+\section{WBB schedule crosswalk columns}{
+
+\code{load_wbb_schedule_crosswalk()} returns one row per game:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      season \tab integer \tab Season year (ending year). \cr
+      game_date \tab Date \tab ET game date. \cr
+      home_espn_team_id \tab integer \tab ESPN home team id (NA for bart-only rows). \cr
+      away_espn_team_id \tab integer \tab ESPN away team id (NA for bart-only rows). \cr
+      espn_game_id \tab integer \tab ESPN game id (NA for bart-only rows). \cr
+      bart_muid \tab character \tab Torvik muid (NA for espn-only rows). \cr
+      bart_team1 \tab character \tab Torvik team1 name. \cr
+      bart_team2 \tab character \tab Torvik team2 name. \cr
+      bart_winner \tab character \tab Torvik winner name. \cr
+      fox_game_id \tab character \tab Fox game id (NA when unmatched). \cr
+      yahoo_game_id \tab character \tab Yahoo game id (e.g. \code{ncaaw.g.202511030525}). \cr
+      ncaa_contest_id \tab integer \tab stats.ncaa.org contest id (NA when unmatched). \cr
+      match_method \tab character \tab "both"/"espn_only"/"bart_only". \cr
+      match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+\code{ncaa_contest_id} is integer, so it joins the \code{contest_id} of the
+\verb{load_ncaa_wbb_*()} tables directly.
+}
+
+\section{WBB player crosswalk columns}{
+
+\code{load_wbb_player_crosswalk()} returns one row per player per team:
+
+\if{html}{\tabular{lll}{
+      col_name \tab types \tab description \cr
+      season \tab integer \tab Season year (ending year). \cr
+      espn_team_id \tab integer \tab ESPN team id. \cr
+      team_abbreviation \tab character \tab ESPN team abbreviation. \cr
+      player_name \tab character \tab Normalized player name (matching key). \cr
+      espn_athlete_id \tab integer \tab ESPN athlete id. \cr
+      espn_full_name \tab character \tab ESPN full name. \cr
+      espn_jersey \tab character \tab ESPN jersey number. \cr
+      espn_position \tab character \tab ESPN position abbreviation. \cr
+      fox_athlete_id \tab character \tab Fox athlete id (NA if unmatched). \cr
+      fox_player \tab character \tab Fox player name. \cr
+      fox_jersey \tab character \tab Fox jersey number. \cr
+      fox_position_group \tab character \tab Fox position group label. \cr
+      yahoo_player_id \tab character \tab Yahoo player id (e.g. \code{ncaaw.p.70879}). \cr
+      yahoo_player_name \tab character \tab Yahoo player name. \cr
+      ncaa_player_id \tab integer \tab stats.ncaa.org player id (NA before 2010 and when unmatched). \cr
+      match_method \tab character \tab How the player was matched. \cr
+      match_confidence \tab numeric \tab Match score (1 for exact). \cr
+      match_keys \tab character \tab Keys the match used. \cr
+   }}
+\if{latex}{See the HTML help or pkgdown reference for the column table.}
+
+The 2007-2009 seasons carry ESPN columns only: Fox, Yahoo and
+stats.ncaa.org ids start later. \code{ncaa_player_id} is integer, so it joins
+the \code{player_id} of the \verb{load_ncaa_wbb_*()} tables directly.
+}
+
 \examples{
 \donttest{
   try(load_wnba_team_crosswalk(seasons = most_recent_wnba_season()))

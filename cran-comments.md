@@ -33,7 +33,9 @@ full list of changes is in NEWS.md. The main additions:
   seasons that used to be missing, every published season is available
   as `.rds`, so no loader needs arrow for an older season, and
   `load_wbb_player_stats()` starts in 2010 (the withdrawn 2006-2009 files
-  held multi-season totals), `load_wbb_standings()` in 2001, and
+  held multi-season totals), `load_wbb_standings()` in 2001,
+  `load_wbb_player_crosswalk()` in 2007 (the WBB schedule and player
+  crosswalks also gain integer stats.ncaa.org ids), and
   `load_wnba_team_stats()` and `load_wnba_player_stats()` in 1997.
   `load_wnba_stats_coaches()` skips the unpublished 2019 season (also for
   `seasons = TRUE` and `update_wnba_stats_db()`), warning without a
