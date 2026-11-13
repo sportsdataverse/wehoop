@@ -82,6 +82,7 @@ the season, and a missing conference reference raise an error of class
 }
 \seealso{
 Other WBB Crosswalk Functions:
+\code{\link[=load_wbb_ncaa_espn_team_crosswalk]{load_wbb_ncaa_espn_team_crosswalk()}},
 \code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
 \code{\link[=wbb_player_crosswalk]{wbb_player_crosswalk()}},
 \code{\link[=wbb_schedule_crosswalk]{wbb_schedule_crosswalk()}}

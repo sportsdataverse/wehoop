@@ -225,3 +225,37 @@ test_that("load_ncaa_wbb_team_ids accepts a multi-season vector", {
   expect_s3_class(df, "wehoop_data")
   expect_gte(length(unique(df$season)), 2)
 })
+
+test_that("load_ncaa_wbb_* cast the numeric join ids and leave name columns alone (offline)", {
+  local_mocked_bindings(
+    rds_from_url = function(url) data.table::data.table(
+      contest_id = "5722020", home_espn_team_id = "59", away_ncaa_team_id = NA_character_,
+      home_1_player_id = "8724103", espn_game_id = "401711537",
+      team_id = "Georgia Tech", shooter_id = "ToMorgan", id = "591979"
+    ),
+    .release_asset_exists = function(url) TRUE
+  )
+  shots <- load_ncaa_wbb_shots(seasons = 2025)
+  expect_identical(shots$contest_id, 5722020L)
+  expect_identical(shots$home_espn_team_id, 59L)
+  expect_identical(shots$away_ncaa_team_id, NA_integer_)
+  expect_identical(shots$home_1_player_id, 8724103L)
+  expect_identical(shots$espn_game_id, 401711537L)
+  expect_identical(shots$team_id, "Georgia Tech")
+  expect_identical(shots$shooter_id, "ToMorgan")
+  expect_identical(shots$id, "591979")
+  expect_identical(load_ncaa_wbb_team_ids(seasons = 2025)$id, 591979L)
+})
+
+test_that("load_ncaa_wbb_* return integer join ids from the release", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_load_test()
+  tb <- load_ncaa_wbb_team_box(seasons = 2025)
+  for (k in c("contest_id", "team_ncaa_team_id", "team_espn_team_id", "espn_game_id")) {
+    expect_type(tb[[k]], "integer")
+  }
+  tr <- load_ncaa_wbb_team_rosters(seasons = 2025)
+  expect_type(tr$team_id, "integer")
+  expect_type(tr$player_id, "integer")
+})

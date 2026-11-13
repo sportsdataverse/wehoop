@@ -19,6 +19,11 @@ full list of changes is in NEWS.md. The main additions:
 * Fixes for ESPN play-by-play running scores, past-season ESPN rosters,
   `wnba_todays_scoreboard()` and the cdn.nba.com / cdn.wnba.com headers,
   `wbb_team_crosswalk()` and `bart_wbb_ratings()`.
+* Three stats.ncaa.org to ESPN crosswalk loaders
+  (`load_wbb_ncaa_espn_team_crosswalk()`, `load_wbb_ncaa_espn_schools()`,
+  `load_wbb_ncaa_espn_school_seasons()`), and the `load_ncaa_wbb_*()`
+  loaders now return their numeric stats.ncaa.org and ESPN join ids as
+  integer.
 * The release loaders accept exactly the seasons the data releases
   publish, fall back to the newest published season when the current one
   is not out yet, retry slow downloads, and return ESPN and WNBA Stats join
