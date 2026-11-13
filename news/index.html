@@ -133,6 +133,9 @@
 <li>
 <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_standings()</a></code> now starts in 2001 and <code><a href="../reference/load_wnba_draft.html">load_wnba_team_stats()</a></code> in 1997 (new ESPN scrapes; ESPN has no Sacramento Monarchs team stats in any season).</li>
 <li>
+<code><a href="../reference/load_wnba_draft.html">load_wnba_player_stats()</a></code> now starts in 1997 (1997-2001 athletes listed from ESPN’s statistics-by-athlete endpoint).</li>
+<li>The <code><a href="../reference/load_wnba_draft.html">load_wnba_draft()</a></code> and <code><a href="../reference/load_wnba_draft.html">load_wnba_rosters()</a></code> help points to <code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_draft()</a></code> and <code><a href="../reference/load_wnba_stats_coaches.html">load_wnba_stats_rosters()</a></code> for earlier seasons: ESPN has no drafts before 2018 and serves only current rosters.</li>
+<li>
 <code><a href="../reference/load_wbb_game_rosters.html">load_wbb_player_stats()</a></code> now starts in 2010. The 2006-2009 release files held multi-season totals, since ESPN has no single-season WBB player rows before 2009-10, and were withdrawn.</li>
 </ul></li>
 <li>Every season in each documented range is now published as <code>.rds</code>, so the WBB 2005 box scores, the WBB 2023-2025 game rosters and the WNBA 2018-2025 drafts no longer need . Before, a reader without arrow got empty columns from some 2004-2022 WBB and WNBA files (wehoop#120).</li>

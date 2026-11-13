@@ -499,13 +499,15 @@ modern players, while college and date of birth thin out the other way.</p>
 <dd><p>A vector of 4-digit years associated with given WNBA seasons, or
 <code>TRUE</code> for every published season. Each loader accepts only the seasons its
 release tag publishes (any other season is an error):</p><ul><li><p><code>load_wnba_pbp()</code>, <code>load_wnba_player_box()</code>, <code>load_wnba_standings()</code>,
-<code>load_wnba_shots()</code>, <code>load_wnba_game_rosters()</code>, <code>load_wnba_player_core()</code>,
-<code>load_wnba_player_stats()</code>: 2002 onward.</p></li>
+<code>load_wnba_shots()</code>, <code>load_wnba_game_rosters()</code>, <code>load_wnba_player_core()</code>: 2002 onward.</p></li>
 <li><p><code>load_wnba_team_box()</code>, <code>load_wnba_officials()</code>: 2003 onward.</p></li>
-<li><p><code>load_wnba_schedule()</code>, <code>load_wnba_team_stats()</code>: 1997 onward. ESPN has no
-Sacramento Monarchs team stats in any season.</p></li>
-<li><p><code>load_wnba_draft()</code>: 2018 onward.</p></li>
-<li><p><code>load_wnba_rosters()</code>: 2024 onward.</p></li>
+<li><p><code>load_wnba_schedule()</code>, <code>load_wnba_team_stats()</code>, <code>load_wnba_player_stats()</code>: 1997
+onward. ESPN has no Sacramento Monarchs team stats in any season.</p></li>
+<li><p><code>load_wnba_draft()</code>: 2018 onward. ESPN has no earlier drafts; <code><a href="load_wnba_stats_coaches.html">load_wnba_stats_draft()</a></code>
+has 1997 onward, keyed on WNBA Stats ids.</p></li>
+<li><p><code>load_wnba_rosters()</code>: 2024 onward. ESPN serves only current rosters;
+<code><a href="load_wnba_stats_coaches.html">load_wnba_stats_rosters()</a></code> has 1997 onward, keyed on WNBA Stats ids, and
+<code><a href="load_wbb_player_crosswalk.html">load_wnba_player_crosswalk()</a></code> maps those ids to ESPN <code>athlete_id</code>.</p></li>
 </ul><p>The upper bound is <code><a href="most_recent_wnba_season.html">most_recent_wnba_season()</a></code>.
 When <code>seasons</code> is left at its default and that season's
 file is not published yet, the loader reads the newest published season

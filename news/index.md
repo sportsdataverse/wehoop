@@ -31,6 +31,19 @@
     [`load_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
     in 1997 (new ESPN scrapes; ESPN has no Sacramento Monarchs team
     stats in any season).
+  - [`load_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+    now starts in 1997 (1997-2001 athletes listed from ESPN’s
+    statistics-by-athlete endpoint).
+  - The
+    [`load_wnba_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+    and
+    [`load_wnba_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+    help points to
+    [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+    and
+    [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+    for earlier seasons: ESPN has no drafts before 2018 and serves only
+    current rosters.
   - [`load_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
     now starts in 2010. The 2006-2009 release files held multi-season
     totals, since ESPN has no single-season WBB player rows before

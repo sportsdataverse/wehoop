@@ -233,17 +233,24 @@ load_wnba_player_core(
 
   - `load_wnba_pbp()`, `load_wnba_player_box()`,
     `load_wnba_standings()`, `load_wnba_shots()`,
-    `load_wnba_game_rosters()`, `load_wnba_player_core()`,
-    `load_wnba_player_stats()`: 2002 onward.
+    `load_wnba_game_rosters()`, `load_wnba_player_core()`: 2002 onward.
 
   - `load_wnba_team_box()`, `load_wnba_officials()`: 2003 onward.
 
-  - `load_wnba_schedule()`, `load_wnba_team_stats()`: 1997 onward. ESPN
-    has no Sacramento Monarchs team stats in any season.
+  - `load_wnba_schedule()`, `load_wnba_team_stats()`,
+    `load_wnba_player_stats()`: 1997 onward. ESPN has no Sacramento
+    Monarchs team stats in any season.
 
-  - `load_wnba_draft()`: 2018 onward.
+  - `load_wnba_draft()`: 2018 onward. ESPN has no earlier drafts;
+    [`load_wnba_stats_draft()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+    has 1997 onward, keyed on WNBA Stats ids.
 
-  - `load_wnba_rosters()`: 2024 onward.
+  - `load_wnba_rosters()`: 2024 onward. ESPN serves only current
+    rosters;
+    [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+    has 1997 onward, keyed on WNBA Stats ids, and
+    [`load_wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
+    maps those ids to ESPN `athlete_id`.
 
   The upper bound is
   [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md).

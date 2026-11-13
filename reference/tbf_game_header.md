@@ -75,7 +75,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_game_header(match_id = 346279))
 #> ── TBF Game Header ───────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 13:59:56 UTC
+#> ℹ Data updated: 2026-11-13 14:52:41 UTC
 #> # A tibble: 1 × 27
 #>   match_id match_code genius_id activity_id activity_name season_id season_label
 #>      <int> <chr>          <int>       <int> <chr>             <int> <chr>       

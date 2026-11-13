@@ -61,7 +61,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_team_standings(season_ids = "169"))
 #> ── W League Team Standings from api.wjbl.01core.app ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 14:00:35 UTC
+#> ℹ Data updated: 2026-11-13 14:53:14 UTC
 #> # A tibble: 8 × 15
 #>   season_id season_title       league_name season_league_name season_league_flg
 #>       <int> <chr>              <chr>       <chr>                          <int>
