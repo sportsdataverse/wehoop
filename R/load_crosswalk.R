@@ -10,12 +10,14 @@
 
   # ESPN and WNBA Stats ids are integer in every other wehoop dataset; some
   # crosswalk assets publish them as character. wnba_game_id stays character,
-  # as in the wnba_*() WNBA Stats tables.
+  # as in the wnba_*() WNBA Stats tables. The stats.ncaa.org ids are cast too,
+  # to join the integer ids of the load_ncaa_wbb_*() tables.
   loader <- function(url) {
     .ids_as_integer(rds_from_url(url), c(
       "wnba_player_id", "wnba_team_id", "wnba_home_team_id", "wnba_away_team_id",
       "espn_game_id", "espn_athlete_id", "espn_team_id",
-      "home_espn_team_id", "away_espn_team_id"
+      "home_espn_team_id", "away_espn_team_id",
+      "ncaa_contest_id", "ncaa_player_id"
     ))
   }
 
@@ -57,9 +59,11 @@
 #'   reads the newest published season instead, with a message; an explicit
 #'   request for it warns and returns an empty frame. The WNBA Stats ids (`wnba_player_id`, `wnba_team_id`,
 #'   `wnba_home_team_id`, `wnba_away_team_id`) and the ESPN ids (`espn_game_id`,
-#'   `espn_athlete_id`, `espn_team_id`) are returned as integer, matching the
-#'   `wnba_*()` WNBA Stats tables and the ESPN loaders; `wnba_game_id` stays
-#'   character.
+#'   `espn_athlete_id`, `espn_team_id`) and the WBB stats.ncaa.org ids
+#'   (`ncaa_contest_id`, `ncaa_player_id`) are returned as integer, matching
+#'   the `wnba_*()` WNBA Stats tables, the ESPN loaders and the
+#'   `load_ncaa_wbb_*()` loaders; `wnba_game_id` and the Fox, Yahoo and
+#'   Torvik ids stay character.
 #' @return A `wehoop_data` tibble of cached team-crosswalk rows.
 #' @export
 #' @family WNBA Crosswalk Functions
@@ -159,15 +163,14 @@ load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
 #'       bart_winner \tab character \tab Torvik winner name. \cr
 #'       fox_game_id \tab character \tab Fox game id (NA when unmatched). \cr
 #'       yahoo_game_id \tab character \tab Yahoo game id (e.g. \code{ncaaw.g.202511030525}). \cr
-#'       ncaa_contest_id \tab character \tab stats.ncaa.org contest id (NA when unmatched). \cr
+#'       ncaa_contest_id \tab integer \tab stats.ncaa.org contest id (NA when unmatched). \cr
 #'       match_method \tab character \tab "both"/"espn_only"/"bart_only". \cr
 #'       match_confidence \tab numeric \tab 1 for matched, NA for unmatched. \cr
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
-#'   `ncaa_contest_id` is kept as character, like the other provider ids
-#'   (`fox_game_id`, `yahoo_game_id`); `as.integer()` it to join to the
-#'   integer `contest_id` of the `load_ncaa_wbb_*()` tables.
+#'   `ncaa_contest_id` is integer, so it joins the `contest_id` of the
+#'   `load_ncaa_wbb_*()` tables directly.
 #' @return A `wehoop_data` tibble of cached WBB schedule-crosswalk rows.
 #' @export
 #' @family WBB Crosswalk Functions
@@ -210,7 +213,7 @@ NULL
 #'       fox_position_group \tab character \tab Fox position group label. \cr
 #'       yahoo_player_id \tab character \tab Yahoo player id (e.g. \code{ncaaw.p.70879}). \cr
 #'       yahoo_player_name \tab character \tab Yahoo player name. \cr
-#'       ncaa_player_id \tab character \tab stats.ncaa.org player id (NA before 2010 and when unmatched). \cr
+#'       ncaa_player_id \tab integer \tab stats.ncaa.org player id (NA before 2010 and when unmatched). \cr
 #'       match_method \tab character \tab How the player was matched. \cr
 #'       match_confidence \tab numeric \tab Match score (1 for exact). \cr
 #'       match_keys \tab character \tab Keys the match used. \cr
@@ -218,9 +221,8 @@ NULL
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
 #'   The 2007-2009 seasons carry ESPN columns only: Fox, Yahoo and
-#'   stats.ncaa.org ids start later. `ncaa_player_id` is kept as character,
-#'   like `fox_athlete_id` and `yahoo_player_id`; `as.integer()` it to join
-#'   to the integer `player_id` of the `load_ncaa_wbb_*()` tables.
+#'   stats.ncaa.org ids start later. `ncaa_player_id` is integer, so it joins
+#'   the `player_id` of the `load_ncaa_wbb_*()` tables directly.
 #' @return A `wehoop_data` tibble of cached WBB player-crosswalk rows.
 #' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk>
 #' @export
