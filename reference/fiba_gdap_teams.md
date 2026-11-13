@@ -81,7 +81,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gdap_teams(comp = 208182))
 #> ── FIBA gdap_teams from fiba.basketball ──────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:57:28 UTC
+#> ℹ Data updated: 2026-11-13 13:58:19 UTC
 #> # A tibble: 32 × 29
 #>    team_id team_code short_name    profile_team_id profile_organisation_id
 #>      <int> <chr>     <chr>                   <int>                   <int>

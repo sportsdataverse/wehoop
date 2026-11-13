@@ -62,7 +62,7 @@ lists every function in this family.
 # \donttest{
   try(scb_season_players(season = 2026))
 #> ── BBL/DBBL Season Players from the SCB API ──────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:58:44 UTC
+#> ℹ Data updated: 2026-11-13 13:59:50 UTC
 #> # A tibble: 124 × 8
 #>    league season season_id season_player_id real_player_id season_team_id
 #>    <chr>   <int>     <int> <chr>                     <int> <chr>         

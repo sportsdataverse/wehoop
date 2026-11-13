@@ -26,6 +26,11 @@
     accept 2022.
   - [`load_wnba_player_core()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
     now starts in 2002.
+  - [`load_wbb_standings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
+    now starts in 2001 and
+    [`load_wnba_team_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
+    in 1997 (new ESPN scrapes; ESPN has no Sacramento Monarchs team
+    stats in any season).
   - [`load_wbb_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wbb_game_rosters.md)
     now starts in 2010. The 2006-2009 release files held multi-season
     totals, since ESPN has no single-season WBB player rows before

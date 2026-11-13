@@ -228,7 +228,7 @@ load_wbb_player_core(
 
   - `load_wbb_schedule()`: 2001 onward.
 
-  - `load_wbb_standings()`: 2003 onward.
+  - `load_wbb_standings()`: 2001 onward.
 
   - `load_wbb_player_stats()`: 2010 onward. ESPN has no single-season
     player rows before 2009-10; the 2006-2009 files held multi-season
@@ -379,7 +379,7 @@ Returns a `wehoop_data` tibble of athlete core records.
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_pbp())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 322,898 × 71
+#> # A tibble: 347,640 × 71
 #>    game_play_number id        sequence_number type_id type_text text  away_score
 #>               <int> <chr>               <int>   <int> <chr>     <chr>      <int>
 #>  1                1 40190355…       120613210     615 Jumpball  "Sta…          0
@@ -392,7 +392,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8                8 40190355…       120616261     587 Defensiv… "Mac…          2
 #>  9                9 40190355…       120616341     598 Lost Bal… "Mac…          2
 #> 10               10 40190355…       120616372     572 LayUpShot "Lul…          2
-#> # ℹ 322,888 more rows
+#> # ℹ 347,630 more rows
 #> # ℹ 64 more variables: home_score <int>, period_number <int>,
 #> #   period_display_value <chr>, clock_display_value <chr>, scoring_play <lgl>,
 #> #   score_value <int>, wallclock <chr>, shooting_play <lgl>,
@@ -404,20 +404,20 @@ Returns a `wehoop_data` tibble of athlete core records.
   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_team_box())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 1,296 × 58
+#> # A tibble: 1,398 × 58
 #>      game_id season season_type game_date  game_date_time      team_id team_uid 
 #>        <int>  <int>       <int> <date>     <dttm>                <int> <chr>    
-#>  1 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    2571 s:40~l:5…
-#>  2 401918842   2027           2 2026-11-11 2026-11-11 19:00:00     251 s:40~l:5…
-#>  3 401918829   2027           2 2026-11-11 2026-11-11 19:30:00      98 s:40~l:5…
-#>  4 401918829   2027           2 2026-11-11 2026-11-11 19:30:00     238 s:40~l:5…
-#>  5 401919680   2027           2 2026-11-11 2026-11-11 18:30:00     339 s:40~l:5…
-#>  6 401919680   2027           2 2026-11-11 2026-11-11 18:30:00      96 s:40~l:5…
-#>  7 401913800   2027           2 2026-11-11 2026-11-11 19:00:00     399 s:40~l:5…
-#>  8 401913800   2027           2 2026-11-11 2026-11-11 19:00:00     145 s:40~l:5…
-#>  9 401906090   2027           2 2026-11-11 2026-11-11 19:00:00    2428 s:40~l:5…
-#> 10 401906090   2027           2 2026-11-11 2026-11-11 19:00:00     153 s:40~l:5…
-#> # ℹ 1,286 more rows
+#>  1 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    2579 s:40~l:5…
+#>  2 401915886   2027           2 2026-11-12 2026-11-12 19:00:00     228 s:40~l:5…
+#>  3 401919324   2027           2 2026-11-12 2026-11-12 19:00:00     130 s:40~l:5…
+#>  4 401919324   2027           2 2026-11-12 2026-11-12 19:00:00     171 s:40~l:5…
+#>  5 401911739   2027           2 2026-11-12 2026-11-12 18:30:00      41 s:40~l:5…
+#>  6 401911739   2027           2 2026-11-12 2026-11-12 18:30:00     194 s:40~l:5…
+#>  7 401915908   2027           2 2026-11-12 2026-11-12 19:00:00     150 s:40~l:5…
+#>  8 401915908   2027           2 2026-11-12 2026-11-12 19:00:00    2450 s:40~l:5…
+#>  9 401906078   2027           2 2026-11-12 2026-11-12 20:00:00      97 s:40~l:5…
+#> 10 401906078   2027           2 2026-11-12 2026-11-12 20:00:00    2050 s:40~l:5…
+#> # ℹ 1,388 more rows
 #> # ℹ 51 more variables: team_slug <chr>, team_location <chr>, team_name <chr>,
 #> #   team_abbreviation <chr>, team_display_name <chr>,
 #> #   team_short_display_name <chr>, team_color <chr>,
@@ -429,20 +429,20 @@ Returns a `wehoop_data` tibble of athlete core records.
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_player_box())
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 18,212 × 55
+#> # A tibble: 19,616 × 55
 #>      game_id season season_type game_date  game_date_time      athlete_id
 #>        <int>  <int>       <int> <date>     <dttm>                   <int>
-#>  1 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5109985
-#>  2 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5314699
-#>  3 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5240742
-#>  4 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5240741
-#>  5 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5240740
-#>  6 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5314701
-#>  7 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5240744
-#>  8 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5240743
-#>  9 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5178483
-#> 10 401918842   2027           2 2026-11-11 2026-11-11 19:00:00    5178238
-#> # ℹ 18,202 more rows
+#>  1 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5239100
+#>  2 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5121055
+#>  3 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5311577
+#>  4 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5239104
+#>  5 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5174284
+#>  6 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5455223
+#>  7 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5455219
+#>  8 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5329673
+#>  9 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    4565516
+#> 10 401915886   2027           2 2026-11-12 2026-11-12 19:00:00    5455224
+#> # ℹ 19,606 more rows
 #> # ℹ 49 more variables: athlete_display_name <chr>, team_id <int>,
 #> #   team_name <chr>, team_location <chr>, team_short_display_name <chr>,
 #> #   minutes <dbl>, field_goals_made <int>, field_goals_attempted <int>,
@@ -478,7 +478,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 # \donttest{
   try(load_wbb_rosters(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 9,900 × 36
+#> # A tibble: 9,903 × 36
 #>    season team_id team_slug team_abbreviation team_display_name         
 #>     <int>   <int> <chr>     <chr>             <chr>                     
 #>  1   2027       1 NA        UAA               Alaska Anchorage Seawolves
@@ -491,7 +491,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027       1 NA        UAA               Alaska Anchorage Seawolves
 #>  9   2027       1 NA        UAA               Alaska Anchorage Seawolves
 #> 10   2027       1 NA        UAA               Alaska Anchorage Seawolves
-#> # ℹ 9,890 more rows
+#> # ℹ 9,893 more rows
 #> # ℹ 31 more variables: team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_logo <chr>, athlete_id <int>, uid <chr>,
 #> #   guid <chr>, full_name <chr>, display_name <chr>, short_name <chr>,
@@ -503,7 +503,7 @@ Returns a `wehoop_data` tibble of athlete core records.
   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_player_stats(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 250,341 × 16
+#> # A tibble: 256,191 × 16
 #>    season athlete_id athlete_display_name athlete_first_name athlete_last_name
 #>     <int>      <int> <chr>                <chr>              <chr>            
 #>  1   2027    4433418 Kateri Poole         Kateri             Poole            
@@ -516,7 +516,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027    4433418 Kateri Poole         Kateri             Poole            
 #>  9   2027    4433418 Kateri Poole         Kateri             Poole            
 #> 10   2027    4433418 Kateri Poole         Kateri             Poole            
-#> # ℹ 250,331 more rows
+#> # ℹ 256,181 more rows
 #> # ℹ 11 more variables: athlete_position_abbreviation <chr>,
 #> #   athlete_jersey <chr>, team_id <int>, team_display_name <chr>,
 #> #   category <chr>, stat_label <chr>, stat_name <chr>, stat_display_name <chr>,
@@ -526,7 +526,7 @@ Returns a `wehoop_data` tibble of athlete core records.
   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_team_stats(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 23,400 × 16
+#> # A tibble: 23,805 × 16
 #>    season team_id team_slug team_abbreviation team_display_name         
 #>     <int>   <int> <chr>     <chr>             <chr>                     
 #>  1   2027  100277 NA        PCC               Pensacola Christian Eagles
@@ -539,7 +539,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027  100277 NA        PCC               Pensacola Christian Eagles
 #>  9   2027  100277 NA        PCC               Pensacola Christian Eagles
 #> 10   2027  100277 NA        PCC               Pensacola Christian Eagles
-#> # ℹ 23,390 more rows
+#> # ℹ 23,795 more rows
 #> # ℹ 11 more variables: team_short_display_name <chr>, team_color <chr>,
 #> #   team_alternate_color <chr>, team_logo <chr>, category <chr>,
 #> #   stat_label <chr>, stat_name <chr>, stat_display_name <chr>,
@@ -573,20 +573,20 @@ Returns a `wehoop_data` tibble of athlete core records.
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_shots(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 100,500 × 20
+#> # A tibble: 108,365 × 20
 #>      game_id season period_number clock_display_value team_id athlete_id_1
 #>        <int>  <int>         <int> <chr>                 <int>        <int>
-#>  1 401918842   2027             1 9:49                    251      5239093
-#>  2 401918842   2027             1 9:42                   2571      5240740
-#>  3 401918842   2027             1 9:33                    251      5455529
-#>  4 401918842   2027             1 8:58                    251      5455529
-#>  5 401918842   2027             1 8:51                    251      5175870
-#>  6 401918842   2027             1 8:41                   2571      5240741
-#>  7 401918842   2027             1 8:41                   2571      5240741
-#>  8 401918842   2027             1 8:29                    251      5175792
-#>  9 401918842   2027             1 8:09                   2571      5240742
-#> 10 401918842   2027             1 7:50                    251      5239093
-#> # ℹ 100,490 more rows
+#>  1 401915886   2027             1 9:30                   2579      5239100
+#>  2 401915886   2027             1 9:10                    228      5312400
+#>  3 401915886   2027             1 8:51                    228      5175410
+#>  4 401915886   2027             1 8:51                    228      5175410
+#>  5 401915886   2027             1 8:31                    228      5174438
+#>  6 401915886   2027             1 7:41                   2579      5121055
+#>  7 401915886   2027             1 7:19                    228      5174438
+#>  8 401915886   2027             1 7:03                   2579      5174284
+#>  9 401915886   2027             1 6:23                    228      5174417
+#> 10 401915886   2027             1 6:16                   2579      5174284
+#> # ℹ 108,355 more rows
 #> # ℹ 14 more variables: athlete_id_2 <int>, type_id <int>, type_text <chr>,
 #> #   scoring_play <lgl>, score_value <int>, coordinate_x <dbl>,
 #> #   coordinate_y <dbl>, coordinate_x_raw <dbl>, coordinate_y_raw <dbl>,
@@ -597,7 +597,7 @@ Returns a `wehoop_data` tibble of athlete core records.
   # A season of this table is a multi-MB download, so the example runs interactively only.
   try(load_wbb_game_rosters(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 18,241 × 22
+#> # A tibble: 19,616 × 22
 #>    season   game_id team_id team_slug        team_abbreviation team_display_name
 #>     <int>     <int>   <int> <chr>            <chr>             <chr>            
 #>  1   2027 401920983      87 notre-dame-figh… ND                Notre Dame Fight…
@@ -610,7 +610,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027 401920983      87 notre-dame-figh… ND                Notre Dame Fight…
 #>  9   2027 401920983      87 notre-dame-figh… ND                Notre Dame Fight…
 #> 10   2027 401920983      87 notre-dame-figh… ND                Notre Dame Fight…
-#> # ℹ 18,231 more rows
+#> # ℹ 19,606 more rows
 #> # ℹ 16 more variables: home_away <chr>, athlete_id <int>, athlete_uid <chr>,
 #> #   athlete_guid <chr>, athlete_display_name <chr>, athlete_short_name <chr>,
 #> #   athlete_first_name <chr>, athlete_last_name <chr>, athlete_jersey <chr>,
@@ -621,7 +621,7 @@ Returns a `wehoop_data` tibble of athlete core records.
   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_officials(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 1,861 × 11
+#> # A tibble: 2,002 × 11
 #>    season   game_id official_id official_uid official_full_name
 #>     <int>     <int>       <int> <chr>        <chr>             
 #>  1   2027 401920983       18906 NA           Joseph Vaszily    
@@ -634,7 +634,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027 401911736     4316357 NA           Blanca Burns      
 #>  9   2027 401911736     4605516 NA           Cori Chambers     
 #> 10   2027 401920491       18971 NA           Michol Murray     
-#> # ℹ 1,851 more rows
+#> # ℹ 1,992 more rows
 #> # ℹ 6 more variables: official_display_name <chr>, official_first_name <chr>,
 #> #   official_last_name <chr>, official_order <int>, position_name <chr>,
 #> #   position_display_name <chr>
@@ -643,7 +643,7 @@ Returns a `wehoop_data` tibble of athlete core records.
   # Interactive only: this help page documents a dozen loaders, and each downloads a file.
   try(load_wbb_player_core(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 7,383 × 36
+#> # A tibble: 7,535 × 36
 #>    season athlete_id guid       uid   slug  type  first_name last_name full_name
 #>     <int>      <int> <chr>      <chr> <chr> <chr> <chr>      <chr>     <chr>    
 #>  1   2027    4433418 279c890e-… s:40… kate… bask… Kateri     Poole     Kateri P…
@@ -656,7 +656,7 @@ Returns a `wehoop_data` tibble of athlete core records.
 #>  8   2027    4565520 1f430e41-… s:40… samy… bask… Sa'Myah    Smith     Sa'Myah …
 #>  9   2027    4565525 e2153da0-… s:40… amiy… bask… Amiya      Joyner    Amiya Jo…
 #> 10   2027    4565530 594f7378-… s:40… mila… bask… Mila       Reynolds  Mila Rey…
-#> # ℹ 7,373 more rows
+#> # ℹ 7,525 more rows
 #> # ℹ 27 more variables: display_name <chr>, short_name <chr>, height <dbl>,
 #> #   display_height <chr>, weight <dbl>, display_weight <chr>, age <int>,
 #> #   date_of_birth <chr>, birth_city <chr>, birth_state <chr>,

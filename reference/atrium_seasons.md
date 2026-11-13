@@ -92,7 +92,7 @@ Other Atrium Functions:
 # \donttest{
   try(atrium_seasons(website_id = 12))
 #> ── Atrium seasons from embed-api.eui.connect.sportradar.com ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:55:54 UTC
+#> ℹ Data updated: 2026-11-13 13:56:37 UTC
 #> # A tibble: 19 × 9
 #>    website_id season_id              competition_id competition_name season_name
 #>         <int> <chr>                  <chr>          <chr>            <chr>      

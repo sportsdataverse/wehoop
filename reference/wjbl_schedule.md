@@ -97,7 +97,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_schedule(game_month = "2026-04", season = 2026))
 #> ── W League Schedule from api.wjbl.01core.app ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:59:25 UTC
+#> ℹ Data updated: 2026-11-13 14:00:31 UTC
 #> # A tibble: 4 × 40
 #>   league_id league_title  season season_id season_title         season_full_name
 #>       <int> <chr>          <int>     <int> <chr>                <chr>           

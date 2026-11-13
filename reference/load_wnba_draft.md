@@ -234,11 +234,12 @@ load_wnba_player_core(
   - `load_wnba_pbp()`, `load_wnba_player_box()`,
     `load_wnba_standings()`, `load_wnba_shots()`,
     `load_wnba_game_rosters()`, `load_wnba_player_core()`,
-    `load_wnba_player_stats()`, `load_wnba_team_stats()`: 2002 onward.
+    `load_wnba_player_stats()`: 2002 onward.
 
   - `load_wnba_team_box()`, `load_wnba_officials()`: 2003 onward.
 
-  - `load_wnba_schedule()`: 1997 onward.
+  - `load_wnba_schedule()`, `load_wnba_team_stats()`: 1997 onward. ESPN
+    has no Sacramento Monarchs team stats in any season.
 
   - `load_wnba_draft()`: 2018 onward.
 

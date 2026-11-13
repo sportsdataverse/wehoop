@@ -71,7 +71,7 @@ lists every function in this family.
   # The game must be final: wjbl_game() refuses one that is not.
   try(wjbl_game(play_schedule_id = 7987))
 #> ── W League Game from api.wjbl.01core.app ────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:59:20 UTC
+#> ℹ Data updated: 2026-11-13 14:00:28 UTC
 #> # A tibble: 1 × 36
 #>   play_schedule_id game_status home_team_id home_season_team_name      
 #>              <int> <chr>              <int> <chr>                      
@@ -88,7 +88,7 @@ lists every function in this family.
   # Interactive only: the play-by-play route takes 5 to 10 s (elapsed) to answer.
   try(wjbl_pbp(play_schedule_id = 7987))
 #> ── W League Play-by-Play from api.wjbl.01core.app ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:59:24 UTC
+#> ℹ Data updated: 2026-11-13 14:00:30 UTC
 #> # A tibble: 439 × 24
 #>    play_schedule_id    no period rest_time seconds_remaining team_id team_name  
 #>               <int> <int>  <int> <chr>                 <int>   <int> <chr>      

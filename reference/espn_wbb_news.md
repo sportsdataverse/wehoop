@@ -46,14 +46,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:56:19 UTC
-#> # A tibble: 5 × 8
-#>         id type  headline       description published premium link_web league_id
-#>      <int> <chr> <chr>          <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 50469096 Recap Addy Brown, S… — Addy Bro… 2026-11-… FALSE   http://… 54       
-#> 2 50469068 Media Arizona Wildc… Arizona Wi… 2026-11-… FALSE   https:/… 54       
-#> 3 50468843 Recap No. 16 Washin… — Avery Ho… 2026-11-… FALSE   http://… 54       
-#> 4 50468617 Media Arkansas-Pine… Arkansas-P… 2026-11-… FALSE   https:/… 54       
-#> 5 50468236 Media Jianna Morris… Morris des… 2026-11-… FALSE   https:/… 54       
+#> ℹ Data updated: 2026-11-13 13:57:04 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  5.05e7 Story UConn, … "The Huski… 2026-11-… FALSE   Alexa… https:/… 54       
+#> 2  5.05e7 Recap Addy Br… "— Addy Br… 2026-11-… FALSE   NA     http://… 54       
+#> 3  5.05e7 Media Arizona… "Arizona W… 2026-11-… FALSE   NA     https:/… 54       
+#> 4  5.05e7 Recap No. 16 … "— Avery H… 2026-11-… FALSE   NA     http://… 54       
+#> 5  5.05e7 Media Arkansa… "Arkansas-… 2026-11-… FALSE   NA     https:/… 54       
 # }
 ```

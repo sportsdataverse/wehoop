@@ -55,7 +55,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gdap_game_periods(game_id = 100720))
 #> ── FIBA gdap_game_periods from fiba.basketball ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 11:57:19 UTC
+#> ℹ Data updated: 2026-11-13 13:58:10 UTC
 #> # A tibble: 4 × 7
 #>   game_id name  number team_a_score team_b_score team_a_from       team_b_from  
 #>     <int> <chr>  <int>        <int>        <int> <chr>             <chr>        
