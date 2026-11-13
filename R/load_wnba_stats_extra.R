@@ -8,9 +8,10 @@
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
 
+  # recycle0: zero seasons give zero urls, not one bogus "<prefix>_.rds".
   url_for <- function(seasons) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    tag, "/", prefix, "_", seasons, ".rds"
+    tag, "/", prefix, "_", seasons, ".rds", recycle0 = TRUE
   )
   seasons <- .loader_seasons(seasons, first, most_recent_wnba_stats_season(),
                              fn = fn, url_for = url_for, default = default)
@@ -21,7 +22,8 @@
   out <- lapply(url_for(seasons), progressively(rds_from_url, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (!is.null(dbConnection) && !is.null(tablename)) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    # Nothing read: a zero-column table cannot be written.
+    if (length(seasons)) DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     return(NULL)
   }
   class(out) <- c("wehoop_data", "tbl_df", "tbl", "data.frame")
