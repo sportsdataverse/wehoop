@@ -18,6 +18,15 @@
     accepts 2004-2013, and
     [`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
     2023-2024.
+  - [`load_wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
+    now starts in 2007 (2007-2009 rows carry ESPN columns only), and
+    [`load_wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md)
+    includes 2027.
+  - The WBB schedule and player crosswalks carry the stats.ncaa.org ids:
+    `ncaa_contest_id` (after `yahoo_game_id`) and `ncaa_player_id`
+    (after `yahoo_player_name`; NA before 2010), returned as integer so
+    they join the `load_ncaa_wbb_*()` ids without a cast. Both loaders
+    now document their columns.
   - [`load_wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)
     accepts 1998 and 2000.
   - [`load_wnba_player_stats()`](https://wehoop.sportsdataverse.org/reference/load_wnba_draft.md)

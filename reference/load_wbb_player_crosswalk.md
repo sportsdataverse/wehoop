@@ -58,7 +58,7 @@ load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
   Each loader accepts the seasons its release publishes: 2002 onward for
   the three WNBA crosswalks; for WBB, `load_wbb_team_crosswalk()` 2002
   onward, `load_wbb_schedule_crosswalk()` 2021 onward and
-  `load_wbb_player_crosswalk()` 2014 onward. The upper bound is
+  `load_wbb_player_crosswalk()` 2007 onward. The upper bound is
   [`most_recent_wnba_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wnba_season.md)
   /
   [`most_recent_wbb_season()`](https://wehoop.sportsdataverse.org/reference/most_recent_wbb_season.md).
@@ -67,9 +67,11 @@ load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
   message; an explicit request for it warns and returns an empty frame.
   The WNBA Stats ids (`wnba_player_id`, `wnba_team_id`,
   `wnba_home_team_id`, `wnba_away_team_id`) and the ESPN ids
-  (`espn_game_id`, `espn_athlete_id`, `espn_team_id`) are returned as
-  integer, matching the `wnba_*()` WNBA Stats tables and the ESPN
-  loaders; `wnba_game_id` stays character.
+  (`espn_game_id`, `espn_athlete_id`, `espn_team_id`) and the WBB
+  stats.ncaa.org ids (`ncaa_contest_id`, `ncaa_player_id`) are returned
+  as integer, matching the `wnba_*()` WNBA Stats tables, the ESPN
+  loaders and the `load_ncaa_wbb_*()` loaders; `wnba_game_id` and the
+  Fox, Yahoo and Torvik ids stay character.
 
 ## Value
 
@@ -84,6 +86,61 @@ A `wehoop_data` tibble of cached WBB team-crosswalk rows.
 A `wehoop_data` tibble of cached WBB schedule-crosswalk rows.
 
 A `wehoop_data` tibble of cached WBB player-crosswalk rows.
+
+## WBB schedule crosswalk columns
+
+`load_wbb_schedule_crosswalk()` returns one row per game:
+
+|                   |           |                                                |
+|-------------------|-----------|------------------------------------------------|
+| col_name          | types     | description                                    |
+| season            | integer   | Season year (ending year).                     |
+| game_date         | Date      | ET game date.                                  |
+| home_espn_team_id | integer   | ESPN home team id (NA for bart-only rows).     |
+| away_espn_team_id | integer   | ESPN away team id (NA for bart-only rows).     |
+| espn_game_id      | integer   | ESPN game id (NA for bart-only rows).          |
+| bart_muid         | character | Torvik muid (NA for espn-only rows).           |
+| bart_team1        | character | Torvik team1 name.                             |
+| bart_team2        | character | Torvik team2 name.                             |
+| bart_winner       | character | Torvik winner name.                            |
+| fox_game_id       | character | Fox game id (NA when unmatched).               |
+| yahoo_game_id     | character | Yahoo game id (e.g. `ncaaw.g.202511030525`).   |
+| ncaa_contest_id   | integer   | stats.ncaa.org contest id (NA when unmatched). |
+| match_method      | character | "both"/"espn_only"/"bart_only".                |
+| match_confidence  | numeric   | 1 for matched, NA for unmatched.               |
+
+`ncaa_contest_id` is integer, so it joins the `contest_id` of the
+`load_ncaa_wbb_*()` tables directly.
+
+## WBB player crosswalk columns
+
+`load_wbb_player_crosswalk()` returns one row per player per team:
+
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| season | integer | Season year (ending year). |
+| espn_team_id | integer | ESPN team id. |
+| team_abbreviation | character | ESPN team abbreviation. |
+| player_name | character | Normalized player name (matching key). |
+| espn_athlete_id | integer | ESPN athlete id. |
+| espn_full_name | character | ESPN full name. |
+| espn_jersey | character | ESPN jersey number. |
+| espn_position | character | ESPN position abbreviation. |
+| fox_athlete_id | character | Fox athlete id (NA if unmatched). |
+| fox_player | character | Fox player name. |
+| fox_jersey | character | Fox jersey number. |
+| fox_position_group | character | Fox position group label. |
+| yahoo_player_id | character | Yahoo player id (e.g. `ncaaw.p.70879`). |
+| yahoo_player_name | character | Yahoo player name. |
+| ncaa_player_id | integer | stats.ncaa.org player id (NA before 2010 and when unmatched). |
+| match_method | character | How the player was matched. |
+| match_confidence | numeric | Match score (1 for exact). |
+| match_keys | character | Keys the match used. |
+
+The 2007-2009 seasons carry ESPN columns only: Fox, Yahoo and
+stats.ncaa.org ids start later. `ncaa_player_id` is integer, so it joins
+the `player_id` of the `load_ncaa_wbb_*()` tables directly.
 
 ## See also
 
@@ -215,13 +272,13 @@ Other WBB Crosswalk Functions:
 #> 10   2027 2026-11-02               153               201    401906088 North Car…
 #> # ℹ 6,336 more rows
 #> # ℹ 8 more variables: bart_team1 <chr>, bart_team2 <chr>, bart_winner <chr>,
-#> #   fox_game_id <chr>, yahoo_game_id <chr>, ncaa_contest_id <chr>,
+#> #   fox_game_id <chr>, yahoo_game_id <chr>, ncaa_contest_id <int>,
 #> #   match_method <chr>, match_confidence <dbl>
 # }
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,955 × 18
+#> # A tibble: 4,968 × 18
 #>    season espn_team_id team_abbreviation player_name     espn_athlete_id
 #>     <int>        <int> <chr>             <chr>                     <int>
 #>  1   2027         2000 ACU               salena carrasco         5458291
@@ -234,11 +291,11 @@ Other WBB Crosswalk Functions:
 #>  8   2027         2000 ACU               meredith mayes          5175546
 #>  9   2027         2000 ACU               raimi mccrary           5177964
 #> 10   2027         2000 ACU               samara morrow           5458292
-#> # ℹ 4,945 more rows
+#> # ℹ 4,958 more rows
 #> # ℹ 13 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
 #> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,
-#> #   yahoo_player_name <chr>, ncaa_player_id <chr>, match_method <chr>,
+#> #   yahoo_player_name <chr>, ncaa_player_id <int>, match_method <chr>,
 #> #   match_confidence <dbl>, match_keys <chr>
 # }
 ```

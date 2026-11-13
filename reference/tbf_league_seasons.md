@@ -55,7 +55,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_league_seasons(competition = "bsl"))
 #> ── TBF League Seasons ────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 18:19:09 UTC
+#> ℹ Data updated: 2026-11-13 19:08:02 UTC
 #> # A tibble: 61 × 7
 #>    activity_id activity_name     url   season_id season_label season competition
 #>          <int> <chr>             <chr>     <int> <chr>         <int> <chr>      

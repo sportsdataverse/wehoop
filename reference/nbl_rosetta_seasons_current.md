@@ -59,7 +59,7 @@ lists every function in this family.
 # \donttest{
   try(nbl_rosetta_seasons_current(org = "nbl"))
 #> ── NBL Rosetta seasons_current from prod.rosetta.nbl.com.au ──── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 18:18:47 UTC
+#> ℹ Data updated: 2026-11-13 19:07:43 UTC
 #> # A tibble: 1 × 12
 #>   org   season_id     rosetta_season_id name  season_year season_type start_date
 #>   <chr> <chr>         <chr>             <chr>       <int> <chr>       <chr>     

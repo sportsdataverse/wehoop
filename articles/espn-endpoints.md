@@ -173,12 +173,12 @@ head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
 #>   headline                                                             published
 #>   <chr>                                                                <chr>    
-#> 1 UConn, Strong still searching for identity amid 3-1 start to season  2026-11-…
-#> 2 Addy Brown, Sienna Betts lead No. 10 UCLA to 76-44 win over Arizona  2026-11-…
-#> 3 Arizona Wildcats vs. UCLA Bruins: Game Highlights                    2026-11-…
-#> 4 No. 16 Washington women jump to early 27-point lead, cruise past Ca… 2026-11-…
-#> 5 Arkansas-Pine Bluff Golden Lions vs. Arkansas Razorbacks: Game High… 2026-11-…
-#> 6 Jianna Morris discusses how Arkansas kept its composure vs. UAPB     2026-11-…
+#> 1 Sahara Williams has 21 points, 10 rebounds and 10 assists, No. 14 O… 2026-11-…
+#> 2 Oral Roberts Golden Eagles vs. Oklahoma Sooners: Game Highlights     2026-11-…
+#> 3 UConn, Strong still searching for identity amid 3-1 start to season  2026-11-…
+#> 4 Addy Brown, Sienna Betts lead No. 10 UCLA to 76-44 win over Arizona  2026-11-…
+#> 5 Arizona Wildcats vs. UCLA Bruins: Game Highlights                    2026-11-…
+#> 6 No. 16 Washington women jump to early 27-point lead, cruise past Ca… 2026-11-…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 18:20:18"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 19:09:10"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/167?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 18:20:18"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 19:09:10"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "2"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 18:20:18"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 19:09:10"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 18:20:18"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 19:09:10"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 18:20:18"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 19:09:10"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 18:20:18"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-13 19:09:10"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)
@@ -914,11 +914,11 @@ espn_wbb_coach_record(coach_id = 2167842, record_type = 2)
 #> # A tibble: 5 × 12
 #>   league          coach_id record_type_id record_name record_type record_summary
 #>   <chr>           <chr>             <int> <chr>       <chr>       <chr>         
-#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
-#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 0-0-0         
+#> 1 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 2 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 3 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 4 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
+#> 5 womens-college… 2167842               2 Regular Se… Regular Se… 15-17-0       
 #> # ℹ 6 more variables: record_display <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, stat_display_value <chr>
 ```

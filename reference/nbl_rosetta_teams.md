@@ -75,7 +75,7 @@ lists every function in this family.
 # \donttest{
   try(nbl_rosetta_teams(org = "nbl"))
 #> ── NBL Rosetta teams from prod.rosetta.nbl.com.au ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 18:18:49 UTC
+#> ℹ Data updated: 2026-11-13 19:07:45 UTC
 #> # A tibble: 86 × 22
 #>    org   team_id          rosetta_team_id name  team_code established head_coach
 #>    <chr> <chr>            <chr>           <chr> <chr>     <chr>       <chr>     

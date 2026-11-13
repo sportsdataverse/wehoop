@@ -125,6 +125,9 @@
 <li>
 <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_team_crosswalk()</a></code> accepts 2004-2013, and <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code> 2023-2024.</li>
 <li>
+<code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_player_crosswalk()</a></code> now starts in 2007 (2007-2009 rows carry ESPN columns only), and <code><a href="../reference/load_wbb_player_crosswalk.html">load_wbb_schedule_crosswalk()</a></code> includes 2027.</li>
+<li>The WBB schedule and player crosswalks carry the stats.ncaa.org ids: <code>ncaa_contest_id</code> (after <code>yahoo_game_id</code>) and <code>ncaa_player_id</code> (after <code>yahoo_player_name</code>; NA before 2010), returned as integer so they join the <code>load_ncaa_wbb_*()</code> ids without a cast. Both loaders now document their columns.</li>
+<li>
 <code><a href="../reference/load_wnba_draft.html">load_wnba_schedule()</a></code> accepts 1998 and 2000.</li>
 <li>
 <code><a href="../reference/load_wnba_draft.html">load_wnba_player_stats()</a></code> and <code><a href="../reference/load_wnba_draft.html">load_wnba_team_stats()</a></code> accept 2022.</li>

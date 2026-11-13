@@ -113,7 +113,7 @@ Other Atrium Functions:
     website_id = 12, season = 2026, competition_id = "3f4064bb-51ad-11f0-aaaf-2923c944b404"
   ))
 #> ── Atrium teams from embed-api.eui.connect.sportradar.com ────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 18:15:50 UTC
+#> ℹ Data updated: 2026-11-13 19:04:49 UTC
 #> # A tibble: 16 × 5
 #>    website_id season_id                            entity_id     name  image_url
 #>         <int> <chr>                                <chr>         <chr> <chr>    

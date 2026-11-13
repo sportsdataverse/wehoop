@@ -108,7 +108,7 @@ Other Genius Functions:
 # \donttest{
   try(genius_competitions(org = "ESAKE"))
 #> ── Genius LiveStats competitions ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 18:17:36 UTC
+#> ℹ Data updated: 2026-11-13 19:06:32 UTC
 #> # A tibble: 47 × 8
 #>    org   comp_id label               league_id  year season season_rule selected
 #>    <chr>   <int> <chr>                   <int> <int>  <int> <chr>       <lgl>   
