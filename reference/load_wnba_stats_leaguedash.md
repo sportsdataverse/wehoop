@@ -26,6 +26,10 @@ load_wnba_stats_leaguedash(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash>
+
 ## Arguments
 
 - seasons:
@@ -69,6 +73,10 @@ measure type for that entity.
 ## See also
 
 Other WNBA Stats loader functions:
+[`load_wnba_stats_game_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_lineups.md),
+[`load_wnba_stats_metric_curves()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_metric_curves.md),
+[`load_wnba_stats_player_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md),
+[`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md),
 [`load_wnba_stats_rosters()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
 
 ## Examples

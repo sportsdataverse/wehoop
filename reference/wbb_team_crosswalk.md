@@ -86,6 +86,7 @@ A `wehoop_data` tibble, one row per ESPN team:
 ## See also
 
 Other WBB Crosswalk Functions:
+[`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md),
 [`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
 [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md),
 [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md)

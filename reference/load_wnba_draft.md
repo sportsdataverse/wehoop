@@ -223,6 +223,34 @@ load_wnba_player_core(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_pbp>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_team_boxscores>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_player_boxscores>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_schedules>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_player_season_stats>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_team_season_stats>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_standings>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_draft>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_shots>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_game_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_officials>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_player_core>
+
 ## Arguments
 
 - seasons:

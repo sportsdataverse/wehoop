@@ -25,6 +25,12 @@ load_wnba_team_group_seasons(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
+
 ## Arguments
 
 - seasons:

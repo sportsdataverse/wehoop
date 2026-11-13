@@ -48,6 +48,14 @@ load_wbb_ratings(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_player_impact>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_player_value>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_ratings>
+
 ## Arguments
 
 - seasons:

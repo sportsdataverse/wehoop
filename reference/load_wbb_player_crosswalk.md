@@ -44,6 +44,12 @@ load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season())
 load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_crosswalk>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk>
+
 ## Arguments
 
 - seasons:
@@ -87,6 +93,7 @@ Other WNBA Crosswalk Functions:
 [`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)
 
 Other WBB Crosswalk Functions:
+[`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md),
 [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md),
 [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md),
 [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
@@ -192,22 +199,29 @@ Other WBB Crosswalk Functions:
 # }
 # \donttest{
   try(load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season()))
-#> Warning: Failed to read
-#> <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_schedule_crosswalk_2027.rds>
-#> after 1 attempt.
-#> ! The result is incomplete: it is missing this file.
-#> ✖ cannot open the connection to
-#>   'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_schedule_crosswalk_2027.rds';
-#>   cannot open URL
-#>   'https://github.com/sportsdataverse/sportsdataverse-data/releases/download/wbb_crosswalk/wbb_schedule_crosswalk_2027.rds':
-#>   HTTP status was '404 Not Found'
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 6,346 × 14
+#>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
+#>     <int> <date>                 <int>             <int>        <int> <chr>     
+#>  1   2027 2026-11-01               222                87    401920983 Notre Dam…
+#>  2   2027 2026-11-02              2579               120    401918849 MarylandS…
+#>  3   2027 2026-11-02                41               172    401911736 CornellCo…
+#>  4   2027 2026-11-02              2439                30    401920491 UNLVUSC11…
+#>  5   2027 2026-11-02                97                91    401906074 Bellarmin…
+#>  6   2027 2026-11-02               238               288    401916067 LipscombV…
+#>  7   2027 2026-11-02                99              2545    401912964 Southeast…
+#>  8   2027 2026-11-02              2294               119    401921404 TowsonIow…
+#>  9   2027 2026-11-02                26              2329    401918896 LehighUCL…
+#> 10   2027 2026-11-02               153               201    401906088 North Car…
+#> # ℹ 6,336 more rows
+#> # ℹ 8 more variables: bart_team1 <chr>, bart_team2 <chr>, bart_winner <chr>,
+#> #   fox_game_id <chr>, yahoo_game_id <chr>, ncaa_contest_id <chr>,
+#> #   match_method <chr>, match_confidence <dbl>
 # }
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 4,955 × 17
+#> # A tibble: 4,955 × 18
 #>    season espn_team_id team_abbreviation player_name     espn_athlete_id
 #>     <int>        <int> <chr>             <chr>                     <int>
 #>  1   2027         2000 ACU               salena carrasco         5458291
@@ -221,10 +235,10 @@ Other WBB Crosswalk Functions:
 #>  9   2027         2000 ACU               raimi mccrary           5177964
 #> 10   2027         2000 ACU               samara morrow           5458292
 #> # ℹ 4,945 more rows
-#> # ℹ 12 more variables: espn_full_name <chr>, espn_jersey <chr>,
+#> # ℹ 13 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
 #> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,
-#> #   yahoo_player_name <chr>, match_method <chr>, match_confidence <dbl>,
-#> #   match_keys <chr>
+#> #   yahoo_player_name <chr>, ncaa_player_id <chr>, match_method <chr>,
+#> #   match_confidence <dbl>, match_keys <chr>
 # }
 ```

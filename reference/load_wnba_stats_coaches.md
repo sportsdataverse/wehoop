@@ -304,13 +304,49 @@ load_wnba_stats_possessions(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_coaches>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_draft>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_shots>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_game_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_officials>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_game_logs>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_schedules>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_pbp>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_season_stats>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_lineups>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_team_season_stats>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_standings>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_possessions>
+
 ## Arguments
 
 - seasons:
 
   A vector of 4-digit years associated with given WNBA seasons.
   Published coverage runs 1997 through the most recent season, with no
-  gaps. Pass `seasons = TRUE` for every published season. (Min: 1997)
+  gaps, for every loader on this page except two:
+  `load_wnba_stats_coaches()` has no 2019 season (WNBA Stats has no 2019
+  coaching staff; `seasons = TRUE` leaves it out and an explicit 2019
+  warns and is skipped), and `load_wnba_stats_officials()` starts
+  in 2004. Pass `seasons = TRUE` for every published season. (Min: 1997)
 
 - ...:
 
@@ -537,7 +573,11 @@ Returns a `wehoop_data` tibble with one row per possession.
 ## See also
 
 Other WNBA Stats loader functions:
-[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md)
+[`load_wnba_stats_game_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_lineups.md),
+[`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
+[`load_wnba_stats_metric_curves()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_metric_curves.md),
+[`load_wnba_stats_player_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md),
+[`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md)
 
 ## Author
 

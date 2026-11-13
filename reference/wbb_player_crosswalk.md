@@ -52,6 +52,7 @@ A `wehoop_data` tibble, one row per player per team (ESPN-anchored):
 ## See also
 
 Other WBB Crosswalk Functions:
+[`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md),
 [`load_wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_crosswalk.md),
 [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md),
 [`wbb_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_team_crosswalk.md)
@@ -62,7 +63,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   # Reads every team roster from ESPN and Fox, so it runs interactively only.
   try(wbb_player_crosswalk(season = 2025))
-#> ✖ 2026-11-13 14:52:58.180258: Could not build WBB player crosswalk for 2025!
+#> ✖ 2026-11-13 18:19:31.184291: Could not build WBB player crosswalk for 2025!
 #> ✖ Args: season = 2025, min_confidence = 0.92
 #> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
 #> data frame with 0 columns and 0 rows

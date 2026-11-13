@@ -22,6 +22,12 @@ load_wbb_team_aliases(..., dbConnection = NULL, tablename = NULL)
 load_wnba_team_aliases(..., dbConnection = NULL, tablename = NULL)
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
+
 ## Arguments
 
 - ...:

@@ -335,6 +335,27 @@
   `wnba_*`/`espn_*` ids are integer at load, so they join with the WNBA
   Stats and ESPN tables (`wnba_game_id` stays character).
   ([\#109](https://github.com/sportsdataverse/wehoop/issues/109))
+- The 13 `load_ncaa_wbb_*()` loaders return their numeric join ids as
+  integer too: `contest_id`, `espn_game_id`, the `*ncaa_team_id` /
+  `*espn_team_id` columns, `player_id`, the `player_*_id` and on-court
+  `home_*_player_id` / `away_*_player_id` columns, `shooter_player_id`,
+  the RAPM-within-team and team-rosters `team_id` and the team-ids `id`.
+  The release publishes them as character. Columns holding names or
+  hashes (the shots `team_id` / `shooter_id`, the lineups
+  `player_1`-`player_5` and `lineup_id`, the RAPM `person_id`) stay
+  character.
+- Three new loaders read the static stats.ncaa.org to ESPN tables on the
+  `wbb_crosswalk` release:
+  [`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+  (one row per season and stats.ncaa.org team id, 2009-10 onward, with
+  the ESPN team and each source’s conference; the table behind
+  sportsdataverse-py’s `ncaa_espn_team_crosswalk(league = "wbb")`),
+  [`load_wbb_ncaa_espn_schools()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+  (one row per NCAA school) and
+  [`load_wbb_ncaa_espn_school_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+  (each school’s stats.ncaa.org team id per sport and season). They link
+  the `load_ncaa_wbb_*()` tables to the ESPN-based `load_wbb_*()`
+  tables; `espn_team_id` and `espn_conference_id` are integer.
 - The ESPN WBB/WNBA game helpers return the home team’s default logo
   rather than its dark-mode variant.
   ([\#109](https://github.com/sportsdataverse/wehoop/issues/109))
@@ -488,6 +509,25 @@
   map an NCAA, Fox, Yahoo or WNBA Stats player id to the ESPN
   `athlete_id`. Each row carries the seasons it holds (`valid_from` /
   `valid_to`), how it was matched and where it came from.
+- Five WNBA Stats release tags that had no wehoop loader now have one,
+  named as in sportsdataverse-py:
+  [`load_wnba_stats_game_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_lineups.md)
+  (the ten players on court at every play-by-play event, 1997 onward),
+  [`load_wnba_stats_player_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md)
+  /
+  [`load_wnba_stats_team_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md)
+  (`boxscoretraditionalv3` box scores, 2026 onward),
+  [`load_wnba_stats_metric_curves()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_metric_curves.md)
+  (field-goal percentage by shot distance for the league, each team and
+  each player, 1997 onward) and
+  [`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md)
+  (player shooting over her last 50 and 200 attempts, 1997 onward). They
+  accept only published seasons.
+- [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
+  no longer requests the unpublished 2019 season: `seasons = TRUE` (and
+  [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md))
+  leave it out, and an explicit 2019 warns and is skipped without a
+  download.
 
 #### **WNBA referee assignments (`wnba_referee_assignments()`)**
 
@@ -541,6 +581,9 @@ raises the `httr2` and `testthat` floors (see Dependencies).
 
 - `citation("wehoop")` now gives the release year and the CRAN DOI
   (`10.32614/CRAN.package.wehoop`).
+- The help page of every release loader now has a Source section that
+  links the sportsdataverse-data release tag each loader reads, 60 tags
+  in all.
 - The README has a data status table for the release-data producers
   ([\#88](https://github.com/sportsdataverse/wehoop/issues/88)), a
   companion-package section, and one line per function family. The

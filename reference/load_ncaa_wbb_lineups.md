@@ -8,6 +8,17 @@ play-by-play parsed, cleaned, and enriched); backed by the
 `ncaa-wbb-hoops-data` pipeline, published to the `ncaa_wbb_pbp` release
 tag as csv.gz/parquet/rds.
 
+Every `load_ncaa_wbb_*()` loader returns the numeric join ids as
+integer, as the other wehoop loaders do: `contest_id`, `espn_game_id`,
+the `*ncaa_team_id` / `*espn_team_id` columns, `player_id`, the
+`player_*_id` / `home_*_player_id` / `away_*_player_id` columns,
+`shooter_player_id`, and the numeric `team_id` (RAPM within team, team
+rosters) and `id` (team ids). Columns that hold names or hashes (the
+shots `team_id` / `shooter_id`, the lineups `player_1`-`player_5` and
+`lineup_id`, the RAPM `person_id`) stay character. Use
+[`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+to map a season's stats.ncaa.org team id to its ESPN team.
+
 Loads shot-chart events for NCAA women's college basketball – one row
 per field goal attempt, with court coordinates, distance, shot zone, and
 made/missed result. Coordinates are only available from the 2019 season
@@ -199,6 +210,34 @@ load_ncaa_wbb_team_ids(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_pbp>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_shots>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_lineups>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_matchup_stints>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_possessions>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm_within_team>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_player_box>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_box>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_schedule>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_ids>
+
 ## Arguments
 
 - seasons:
@@ -269,40 +308,40 @@ Returns a `wehoop_data` tibble with one row per play-by-play event.
 | status | character | Row QA status flag ('CLEAN' or a data-quality note). |
 | is_garbage_time | logical | Whether the event occurred in garbage time. |
 | sub_deviate | integer | Substitution-inference deviation counter used by the lineup reconstructor. |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
-| home_ncaa_team_id | character | stats.ncaa.org team identifier for the home team. |
-| home_espn_team_id | character | ESPN team identifier for the home team. |
-| away_ncaa_team_id | character | stats.ncaa.org team identifier for the away team. |
-| away_espn_team_id | character | ESPN team identifier for the away team. |
-| event_team_ncaa_team_id | character | stats.ncaa.org team identifier for the event team. |
-| event_team_espn_team_id | character | ESPN team identifier for the event team. |
-| poss_team_ncaa_team_id | character | stats.ncaa.org team identifier for the possession team. |
-| poss_team_espn_team_id | character | ESPN team identifier for the possession team. |
-| player_1_id | character | stats.ncaa.org player identifier for player_1. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
+| home_ncaa_team_id | integer | stats.ncaa.org team identifier for the home team. |
+| home_espn_team_id | integer | ESPN team identifier for the home team. |
+| away_ncaa_team_id | integer | stats.ncaa.org team identifier for the away team. |
+| away_espn_team_id | integer | ESPN team identifier for the away team. |
+| event_team_ncaa_team_id | integer | stats.ncaa.org team identifier for the event team. |
+| event_team_espn_team_id | integer | ESPN team identifier for the event team. |
+| poss_team_ncaa_team_id | integer | stats.ncaa.org team identifier for the possession team. |
+| poss_team_espn_team_id | integer | ESPN team identifier for the possession team. |
+| player_1_id | integer | stats.ncaa.org player identifier for player_1. |
 | player_1_clean_name | character | Cleaned/title-cased display name for player_1. |
-| player_2_id | character | stats.ncaa.org player identifier for player_2. |
+| player_2_id | integer | stats.ncaa.org player identifier for player_2. |
 | player_2_clean_name | character | Cleaned/title-cased display name for player_2. |
-| home_1_player_id | character | stats.ncaa.org player identifier for home lineup slot 1. |
+| home_1_player_id | integer | stats.ncaa.org player identifier for home lineup slot 1. |
 | home_1_clean_name | character | Cleaned display name for home lineup slot 1. |
-| home_2_player_id | character | stats.ncaa.org player identifier for home lineup slot 2. |
+| home_2_player_id | integer | stats.ncaa.org player identifier for home lineup slot 2. |
 | home_2_clean_name | character | Cleaned display name for home lineup slot 2. |
-| home_3_player_id | character | stats.ncaa.org player identifier for home lineup slot 3. |
+| home_3_player_id | integer | stats.ncaa.org player identifier for home lineup slot 3. |
 | home_3_clean_name | character | Cleaned display name for home lineup slot 3. |
-| home_4_player_id | character | stats.ncaa.org player identifier for home lineup slot 4. |
+| home_4_player_id | integer | stats.ncaa.org player identifier for home lineup slot 4. |
 | home_4_clean_name | character | Cleaned display name for home lineup slot 4. |
-| home_5_player_id | character | stats.ncaa.org player identifier for home lineup slot 5. |
+| home_5_player_id | integer | stats.ncaa.org player identifier for home lineup slot 5. |
 | home_5_clean_name | character | Cleaned display name for home lineup slot 5. |
-| away_1_player_id | character | stats.ncaa.org player identifier for away lineup slot 1. |
+| away_1_player_id | integer | stats.ncaa.org player identifier for away lineup slot 1. |
 | away_1_clean_name | character | Cleaned display name for away lineup slot 1. |
-| away_2_player_id | character | stats.ncaa.org player identifier for away lineup slot 2. |
+| away_2_player_id | integer | stats.ncaa.org player identifier for away lineup slot 2. |
 | away_2_clean_name | character | Cleaned display name for away lineup slot 2. |
-| away_3_player_id | character | stats.ncaa.org player identifier for away lineup slot 3. |
+| away_3_player_id | integer | stats.ncaa.org player identifier for away lineup slot 3. |
 | away_3_clean_name | character | Cleaned display name for away lineup slot 3. |
-| away_4_player_id | character | stats.ncaa.org player identifier for away lineup slot 4. |
+| away_4_player_id | integer | stats.ncaa.org player identifier for away lineup slot 4. |
 | away_4_clean_name | character | Cleaned display name for away lineup slot 4. |
-| away_5_player_id | character | stats.ncaa.org player identifier for away lineup slot 5. |
+| away_5_player_id | integer | stats.ncaa.org player identifier for away lineup slot 5. |
 | away_5_clean_name | character | Cleaned display name for away lineup slot 5. |
-| espn_game_id | character | ESPN game identifier crosswalked to this contest. |
+| espn_game_id | integer | ESPN game identifier crosswalked to this contest. |
 | is_fastbreak | logical | Whether the play was a fastbreak possession. |
 | is_from_turnover | logical | Whether the possession began off a turnover. |
 | is_paint | logical | Whether the shot was taken in the paint. |
@@ -341,12 +380,12 @@ Returns a `wehoop_data` tibble with one row per shot attempt.
 | period | logical | Period of the game (1-2 halves pre-2016, 1-4 quarters 2016+). |
 | sec_left | logical | Seconds remaining in the period at the time of the shot. |
 | source | character | Source system for the shot record (e.g. 'ncaa'). |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
-| ncaa_team_id | character | stats.ncaa.org team identifier for the shooting team. |
-| espn_team_id | character | ESPN team identifier for the shooting team. |
-| shooter_player_id | character | stats.ncaa.org player identifier for the shooter. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
+| ncaa_team_id | integer | stats.ncaa.org team identifier for the shooting team. |
+| espn_team_id | integer | ESPN team identifier for the shooting team. |
+| shooter_player_id | integer | stats.ncaa.org player identifier for the shooter. |
 | shooter_clean_name | character | Cleaned display name for the shooter. |
-| espn_game_id | character | ESPN game identifier crosswalked to this contest. |
+| espn_game_id | integer | ESPN game identifier crosswalked to this contest. |
 
 Returns a `wehoop_data` tibble with one row per lineup stint.
 
@@ -428,7 +467,7 @@ Returns a `wehoop_data` tibble with one row per lineup stint.
 | opp_ast | integer | Opponent assists. |
 | opp_foul | integer | Opponent personal fouls. |
 | stint_num | integer | Sequential stint number for this lineup within the game. |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
 | season | integer | Season identifier (4-digit season-ending year). |
 
 Returns a `wehoop_data` tibble with one row per matchup stint.
@@ -436,7 +475,7 @@ Returns a `wehoop_data` tibble with one row per matchup stint.
 |  |  |  |
 |----|----|----|
 | col_name | types | description |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
 | season | integer | Season identifier (4-digit season-ending year). |
 | game_date | character | Date the game was played (MM/DD/YYYY). |
 | home | character | Home team name. |
@@ -502,34 +541,34 @@ Returns a `wehoop_data` tibble with one row per possession.
 | first_shot_type | character | Event type of the possession's first shot attempt. |
 | last_event_time | integer | Elapsed game seconds at the possession's final event. |
 | last_event_type | character | Event type of the possession's final event. |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
-| home_ncaa_team_id | character | stats.ncaa.org team identifier for the home team. |
-| home_espn_team_id | character | ESPN team identifier for the home team. |
-| away_ncaa_team_id | character | stats.ncaa.org team identifier for the away team. |
-| away_espn_team_id | character | ESPN team identifier for the away team. |
-| poss_team_ncaa_team_id | character | stats.ncaa.org team identifier for the possession team. |
-| poss_team_espn_team_id | character | ESPN team identifier for the possession team. |
-| home_1_player_id | character | stats.ncaa.org player identifier for home lineup slot 1. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
+| home_ncaa_team_id | integer | stats.ncaa.org team identifier for the home team. |
+| home_espn_team_id | integer | ESPN team identifier for the home team. |
+| away_ncaa_team_id | integer | stats.ncaa.org team identifier for the away team. |
+| away_espn_team_id | integer | ESPN team identifier for the away team. |
+| poss_team_ncaa_team_id | integer | stats.ncaa.org team identifier for the possession team. |
+| poss_team_espn_team_id | integer | ESPN team identifier for the possession team. |
+| home_1_player_id | integer | stats.ncaa.org player identifier for home lineup slot 1. |
 | home_1_clean_name | character | Cleaned display name for home lineup slot 1. |
-| home_2_player_id | character | stats.ncaa.org player identifier for home lineup slot 2. |
+| home_2_player_id | integer | stats.ncaa.org player identifier for home lineup slot 2. |
 | home_2_clean_name | character | Cleaned display name for home lineup slot 2. |
-| home_3_player_id | character | stats.ncaa.org player identifier for home lineup slot 3. |
+| home_3_player_id | integer | stats.ncaa.org player identifier for home lineup slot 3. |
 | home_3_clean_name | character | Cleaned display name for home lineup slot 3. |
-| home_4_player_id | character | stats.ncaa.org player identifier for home lineup slot 4. |
+| home_4_player_id | integer | stats.ncaa.org player identifier for home lineup slot 4. |
 | home_4_clean_name | character | Cleaned display name for home lineup slot 4. |
-| home_5_player_id | character | stats.ncaa.org player identifier for home lineup slot 5. |
+| home_5_player_id | integer | stats.ncaa.org player identifier for home lineup slot 5. |
 | home_5_clean_name | character | Cleaned display name for home lineup slot 5. |
-| away_1_player_id | character | stats.ncaa.org player identifier for away lineup slot 1. |
+| away_1_player_id | integer | stats.ncaa.org player identifier for away lineup slot 1. |
 | away_1_clean_name | character | Cleaned display name for away lineup slot 1. |
-| away_2_player_id | character | stats.ncaa.org player identifier for away lineup slot 2. |
+| away_2_player_id | integer | stats.ncaa.org player identifier for away lineup slot 2. |
 | away_2_clean_name | character | Cleaned display name for away lineup slot 2. |
-| away_3_player_id | character | stats.ncaa.org player identifier for away lineup slot 3. |
+| away_3_player_id | integer | stats.ncaa.org player identifier for away lineup slot 3. |
 | away_3_clean_name | character | Cleaned display name for away lineup slot 3. |
-| away_4_player_id | character | stats.ncaa.org player identifier for away lineup slot 4. |
+| away_4_player_id | integer | stats.ncaa.org player identifier for away lineup slot 4. |
 | away_4_clean_name | character | Cleaned display name for away lineup slot 4. |
-| away_5_player_id | character | stats.ncaa.org player identifier for away lineup slot 5. |
+| away_5_player_id | integer | stats.ncaa.org player identifier for away lineup slot 5. |
 | away_5_clean_name | character | Cleaned display name for away lineup slot 5. |
-| espn_game_id | character | ESPN game identifier crosswalked to this contest. |
+| espn_game_id | integer | ESPN game identifier crosswalked to this contest. |
 | season | integer | Season identifier (4-digit season-ending year). |
 
 Returns a `wehoop_data` tibble with one row per player-team-season.
@@ -545,8 +584,8 @@ Returns a `wehoop_data` tibble with one row per player-team-season.
 | num_players | integer | Number of teammates included in the within-team RAPM fit. |
 | rapm_net | numeric | Within-team net regularized adjusted plus-minus (rapm_off - rapm_def). |
 | season | integer | Season identifier (4-digit season-ending year). |
-| player_id | character | stats.ncaa.org player identifier. |
-| team_id | character | Unique team identifier. |
+| player_id | integer | stats.ncaa.org player identifier. |
+| team_id | integer | stats.ncaa.org team identifier. |
 | person_id | character | Internal person identifier used to join across seasons/teams. |
 
 Returns a `wehoop_data` tibble with one row per player-season.
@@ -555,7 +594,7 @@ Returns a `wehoop_data` tibble with one row per player-season.
 |----|----|----|
 | col_name | types | description |
 | season | integer | Season identifier (4-digit season-ending year). |
-| player_id | character | stats.ncaa.org player identifier. |
+| player_id | integer | stats.ncaa.org player identifier. |
 | person_id | character | Internal person identifier used to join across seasons/teams. |
 | player | character | Player display name ('LAST.FIRST' format). |
 | team | character | Team name. |
@@ -685,16 +724,16 @@ Returns a `wehoop_data` tibble with one row per player-game.
 | midm_unast | numeric | Mid-range shots made that were unassisted. |
 | mida_unast | numeric | Mid-range shot attempts that were unassisted. |
 | mid_pct_unast | numeric | Mid-range field goal percentage that were unassisted. |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
-| home_ncaa_team_id | character | stats.ncaa.org team identifier for the home team. |
-| home_espn_team_id | character | ESPN team identifier for the home team. |
-| away_ncaa_team_id | character | stats.ncaa.org team identifier for the away team. |
-| away_espn_team_id | character | ESPN team identifier for the away team. |
-| team_ncaa_team_id | character | stats.ncaa.org team identifier. |
-| team_espn_team_id | character | ESPN team identifier. |
-| player_id | character | stats.ncaa.org player identifier. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
+| home_ncaa_team_id | integer | stats.ncaa.org team identifier for the home team. |
+| home_espn_team_id | integer | ESPN team identifier for the home team. |
+| away_ncaa_team_id | integer | stats.ncaa.org team identifier for the away team. |
+| away_espn_team_id | integer | ESPN team identifier for the away team. |
+| team_ncaa_team_id | integer | stats.ncaa.org team identifier. |
+| team_espn_team_id | integer | ESPN team identifier. |
+| player_id | integer | stats.ncaa.org player identifier. |
 | clean_name | character | Cleaned/title-cased display name. |
-| espn_game_id | character | ESPN game identifier crosswalked to this contest. |
+| espn_game_id | integer | ESPN game identifier crosswalked to this contest. |
 | season | integer | Season identifier (4-digit season-ending year). |
 
 Returns a `wehoop_data` tibble with one row per team-game.
@@ -774,14 +813,14 @@ Returns a `wehoop_data` tibble with one row per team-game.
 | drb_pct | numeric | Defensive rebound percentage. |
 | time_per_poss | numeric | Average seconds per possession. |
 | d_time_per_poss | numeric | Opponent average seconds per possession. |
-| contest_id | character | Unique stats.ncaa.org contest identifier. |
-| home_ncaa_team_id | character | stats.ncaa.org team identifier for the home team. |
-| home_espn_team_id | character | ESPN team identifier for the home team. |
-| away_ncaa_team_id | character | stats.ncaa.org team identifier for the away team. |
-| away_espn_team_id | character | ESPN team identifier for the away team. |
-| team_ncaa_team_id | character | stats.ncaa.org team identifier. |
-| team_espn_team_id | character | ESPN team identifier. |
-| espn_game_id | character | ESPN game identifier crosswalked to this contest. |
+| contest_id | integer | Unique stats.ncaa.org contest identifier. |
+| home_ncaa_team_id | integer | stats.ncaa.org team identifier for the home team. |
+| home_espn_team_id | integer | ESPN team identifier for the home team. |
+| away_ncaa_team_id | integer | stats.ncaa.org team identifier for the away team. |
+| away_espn_team_id | integer | ESPN team identifier for the away team. |
+| team_ncaa_team_id | integer | stats.ncaa.org team identifier. |
+| team_espn_team_id | integer | ESPN team identifier. |
+| espn_game_id | integer | ESPN game identifier crosswalked to this contest. |
 | season | integer | Season identifier (4-digit season-ending year). |
 
 Returns a `wehoop_data` tibble with one row per player-team-season.
@@ -800,9 +839,9 @@ Returns a `wehoop_data` tibble with one row per player-team-season.
 |-------------|-----------|-------------------------------------------------|
 | col_name    | types     | description                                     |
 | season      | integer   | Season identifier (4-digit season-ending year). |
-| team_id     | character | Unique team identifier.                         |
+| team_id     | integer   | stats.ncaa.org team identifier.                 |
 | team        | character | Team name.                                      |
-| player_id   | character | stats.ncaa.org player identifier.               |
+| player_id   | integer   | stats.ncaa.org player identifier.               |
 | player      | character | Player name (raw, upper-cased).                 |
 | clean_name  | character | Cleaned/title-cased display name.               |
 | name        | character | Player full display name.                       |
@@ -821,7 +860,7 @@ Returns a `wehoop_data` tibble with one row per game.
 |            |           |                                                 |
 |------------|-----------|-------------------------------------------------|
 | col_name   | types     | description                                     |
-| contest_id | character | Unique stats.ncaa.org contest identifier.       |
+| contest_id | integer   | Unique stats.ncaa.org contest identifier.       |
 | game_date  | character | Date the game was played (MM/DD/YYYY).          |
 | home       | character | Home team name.                                 |
 | away       | character | Away team name.                                 |
@@ -836,7 +875,7 @@ Returns a `wehoop_data` tibble with one row per team-season.
 | col_name   | types     | description                                     |
 | team       | character | Team name.                                      |
 | conference | character | Conference affiliation.                         |
-| id         | character | stats.ncaa.org team identifier.                 |
+| id         | integer   | stats.ncaa.org team identifier.                 |
 | season     | integer   | Season identifier (4-digit season-ending year). |
 
 ## Details
@@ -897,8 +936,8 @@ Saiem Gilani
 #> 10   2027 Colorado S… CaRunner     -3    10.0    10.5  paint     unknown   FALSE
 #> # ℹ 83,662 more rows
 #> # ℹ 10 more variables: point_value <int>, period <int>, sec_left <dbl>,
-#> #   source <chr>, contest_id <chr>, ncaa_team_id <chr>, espn_team_id <chr>,
-#> #   shooter_player_id <chr>, shooter_clean_name <chr>, espn_game_id <chr>
+#> #   source <chr>, contest_id <int>, ncaa_team_id <int>, espn_team_id <int>,
+#> #   shooter_player_id <int>, shooter_clean_name <chr>, espn_game_id <int>
 # }
 # \donttest{
   # A season of this table is a multi-MB download, so the example runs interactively only.
@@ -931,17 +970,17 @@ Saiem Gilani
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 25,824 × 33
 #>    contest_id season game_date  home   away  game_stint_num period start_seconds
-#>    <chr>       <int> <chr>      <chr>  <chr>          <int>  <int>         <int>
-#>  1 6607281      2027 11/02/2026 Color… Lind…              1      1             2
-#>  2 6607281      2027 11/02/2026 Color… Lind…              2      1           154
-#>  3 6607281      2027 11/02/2026 Color… Lind…              3      1           204
-#>  4 6607281      2027 11/02/2026 Color… Lind…              4      1           307
-#>  5 6607281      2027 11/02/2026 Color… Lind…              5      1           336
-#>  6 6607281      2027 11/02/2026 Color… Lind…              6      1           421
-#>  7 6607281      2027 11/02/2026 Color… Lind…              7      1           447
-#>  8 6607281      2027 11/02/2026 Color… Lind…              8      1           475
-#>  9 6607281      2027 11/02/2026 Color… Lind…              9      1           534
-#> 10 6607281      2027 11/02/2026 Color… Lind…             10      1           599
+#>         <int>  <int> <chr>      <chr>  <chr>          <int>  <int>         <int>
+#>  1    6607281   2027 11/02/2026 Color… Lind…              1      1             2
+#>  2    6607281   2027 11/02/2026 Color… Lind…              2      1           154
+#>  3    6607281   2027 11/02/2026 Color… Lind…              3      1           204
+#>  4    6607281   2027 11/02/2026 Color… Lind…              4      1           307
+#>  5    6607281   2027 11/02/2026 Color… Lind…              5      1           336
+#>  6    6607281   2027 11/02/2026 Color… Lind…              6      1           421
+#>  7    6607281   2027 11/02/2026 Color… Lind…              7      1           447
+#>  8    6607281   2027 11/02/2026 Color… Lind…              8      1           475
+#>  9    6607281   2027 11/02/2026 Color… Lind…              9      1           534
+#> 10    6607281   2027 11/02/2026 Color… Lind…             10      1           599
 #> # ℹ 25,814 more rows
 #> # ℹ 25 more variables: end_seconds <int>, duration_seconds <int>,
 #> #   matchup_key <chr>, home_lineup_key <chr>, away_lineup_key <chr>,
@@ -972,8 +1011,8 @@ Saiem Gilani
 #> #   away_4 <chr>, away_5 <chr>, home_score <int>, away_score <int>, pts <int>,
 #> #   is_assisted <int>, is_transition <int>, is_garbage_time <int>,
 #> #   start_event_type <chr>, first_shot_time <int>, first_shot_type <chr>,
-#> #   last_event_time <int>, last_event_type <chr>, contest_id <chr>,
-#> #   home_ncaa_team_id <chr>, home_espn_team_id <chr>, …
+#> #   last_event_time <int>, last_event_type <chr>, contest_id <int>,
+#> #   home_ncaa_team_id <int>, home_espn_team_id <int>, …
 # }
 # \donttest{
   try(load_ncaa_wbb_rapm_within_team(seasons = most_recent_wbb_season()))
@@ -1075,17 +1114,17 @@ Saiem Gilani
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 4,993 × 16
 #>    season team_id team   player_id player clean_name name  jersey class position
-#>     <int> <chr>   <chr>  <chr>     <chr>  <chr>      <chr> <chr>  <chr> <chr>   
-#>  1   2027 628770  A&M-C… 12150679  ANDJE… Andjela M… Andj… 24     Jr.   F       
-#>  2   2027 628770  A&M-C… 12150673  ANDRE… Andrea Ch… Andr… 14     Sr.   F       
-#>  3   2027 628770  A&M-C… 11517774  ASHA.… Asha Walk… Asha… 11     Sr.   G       
-#>  4   2027 628770  A&M-C… 12150677  CAITL… Caitlin L… Cait… 22     Jr.   F       
-#>  5   2027 628770  A&M-C… 12150692  CARME… Carmen Sá… Carm… 10     Fr.   G       
-#>  6   2027 628770  A&M-C… 12150693  CHELS… Chelsy Si… Chel… 23     Sr.   G       
-#>  7   2027 628770  A&M-C… 12150696  LAURA… Laura Fra… Laur… 1      Fr.   G       
-#>  8   2027 628770  A&M-C… 12150699  LORI.… Lori Zlat… Lori… 4      Fr.   F       
-#>  9   2027 628770  A&M-C… 12150691  LYNN.… Lynn Rieth Lynn… 5      Jr.   G       
-#> 10   2027 628770  A&M-C… 12150689  NADIA… Nadia Mer… Nadi… 15     Fr.   G       
+#>     <int>   <int> <chr>      <int> <chr>  <chr>      <chr> <chr>  <chr> <chr>   
+#>  1   2027  628770 A&M-C…  12150679 ANDJE… Andjela M… Andj… 24     Jr.   F       
+#>  2   2027  628770 A&M-C…  12150673 ANDRE… Andrea Ch… Andr… 14     Sr.   F       
+#>  3   2027  628770 A&M-C…  11517774 ASHA.… Asha Walk… Asha… 11     Sr.   G       
+#>  4   2027  628770 A&M-C…  12150677 CAITL… Caitlin L… Cait… 22     Jr.   F       
+#>  5   2027  628770 A&M-C…  12150692 CARME… Carmen Sá… Carm… 10     Fr.   G       
+#>  6   2027  628770 A&M-C…  12150693 CHELS… Chelsy Si… Chel… 23     Sr.   G       
+#>  7   2027  628770 A&M-C…  12150696 LAURA… Laura Fra… Laur… 1      Fr.   G       
+#>  8   2027  628770 A&M-C…  12150699 LORI.… Lori Zlat… Lori… 4      Fr.   F       
+#>  9   2027  628770 A&M-C…  12150691 LYNN.… Lynn Rieth Lynn… 5      Jr.   G       
+#> 10   2027  628770 A&M-C…  12150689 NADIA… Nadia Mer… Nadi… 15     Fr.   G       
 #> # ℹ 4,983 more rows
 #> # ℹ 6 more variables: height <chr>, ht_inches <int>, hometown <chr>,
 #> #   high_school <chr>, gp <chr>, gs <chr>
@@ -1095,25 +1134,25 @@ Saiem Gilani
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 698 × 7
 #>    contest_id game_date  home         away          home_score away_score season
-#>    <chr>      <chr>      <chr>        <chr>              <int>      <int>  <int>
-#>  1 6607281    11/02/2026 Colorado St. Lindenwood            63         46   2027
-#>  2 6607283    11/04/2026 Denver       Lindenwood            66         52   2027
-#>  3 6607284    11/07/2026 Lindenwood   Evansville            62         49   2027
-#>  4 6607285    11/10/2026 Louisville   Lindenwood            71         35   2027
-#>  5 6607906    11/04/2026 Oregon St.   California B…         77         79   2027
-#>  6 6607907    11/06/2026 Utah Tech    California B…         60         87   2027
-#>  7 6608915    11/02/2026 NIU          Indiana St.           76         71   2027
-#>  8 6608916    11/06/2026 Seton Hall   Indiana St.           74         56   2027
-#>  9 6608917    11/08/2026 Rutgers      Indiana St.          107         76   2027
-#> 10 6608918    11/10/2026 Indiana St.  IU Indy               86         74   2027
+#>         <int> <chr>      <chr>        <chr>              <int>      <int>  <int>
+#>  1    6607281 11/02/2026 Colorado St. Lindenwood            63         46   2027
+#>  2    6607283 11/04/2026 Denver       Lindenwood            66         52   2027
+#>  3    6607284 11/07/2026 Lindenwood   Evansville            62         49   2027
+#>  4    6607285 11/10/2026 Louisville   Lindenwood            71         35   2027
+#>  5    6607906 11/04/2026 Oregon St.   California B…         77         79   2027
+#>  6    6607907 11/06/2026 Utah Tech    California B…         60         87   2027
+#>  7    6608915 11/02/2026 NIU          Indiana St.           76         71   2027
+#>  8    6608916 11/06/2026 Seton Hall   Indiana St.           74         56   2027
+#>  9    6608917 11/08/2026 Rutgers      Indiana St.          107         76   2027
+#> 10    6608918 11/10/2026 Indiana St.  IU Indy               86         74   2027
 #> # ℹ 688 more rows
 # }
 # \donttest{
   try(load_ncaa_wbb_team_ids(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 363 × 4
-#>    team               conference id     season
-#>    <chr>              <chr>      <chr>   <int>
+#>    team               conference     id season
+#>    <chr>              <chr>       <int>  <int>
 #>  1 A&M-Corpus Christi Southland  628770   2027
 #>  2 Abilene Christian  WAC        628820   2027
 #>  3 Air Force          MWC        628725   2027

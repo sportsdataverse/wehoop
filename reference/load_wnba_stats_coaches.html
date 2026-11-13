@@ -684,14 +684,35 @@ artifacts to the <code>wnba_stats_possessions</code> release tag.</p>
     </div>
 
     <div class="section level2">
+    <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
+    <p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_rosters" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_rosters</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_coaches" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_coaches</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_draft" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_draft</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_shots" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_shots</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_game_rosters" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_game_rosters</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_officials" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_officials</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_game_logs" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_game_logs</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_schedules" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_schedules</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_pbp" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_pbp</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_season_stats" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_season_stats</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_lineups" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_lineups</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_team_season_stats" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_team_season_stats</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_standings" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_standings</a></p>
+<p><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_possessions" class="external-link">https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_possessions</a></p>
+    </div>
+    <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
 <dl><dt id="arg-seasons">seasons<a class="anchor" aria-label="anchor" href="#arg-seasons"></a></dt>
 <dd><p>A vector of 4-digit years associated with given WNBA
 seasons. Published coverage runs 1997 through the most recent season,
-with no gaps. Pass <code>seasons = TRUE</code> for every published season. (Min:
-1997)</p></dd>
+with no gaps, for every loader on this page except two:
+<code>load_wnba_stats_coaches()</code> has no 2019 season (WNBA Stats has no 2019
+coaching staff; <code>seasons = TRUE</code> leaves it out and an explicit 2019
+warns and is skipped), and <code>load_wnba_stats_officials()</code> starts in 2004.
+Pass <code>seasons = TRUE</code> for every published season. (Min: 1997)</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -728,7 +749,11 @@ game with the home/away sides pre-joined into <code>home_*</code> / <code>away_*
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other WNBA Stats loader functions:
-<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code></p></div>
+<code><a href="load_wnba_stats_game_lineups.html">load_wnba_stats_game_lineups()</a></code>,
+<code><a href="load_wnba_stats_leaguedash.html">load_wnba_stats_leaguedash()</a></code>,
+<code><a href="load_wnba_stats_metric_curves.html">load_wnba_stats_metric_curves()</a></code>,
+<code><a href="load_wnba_stats_player_boxscores.html">load_wnba_stats_player_boxscores()</a></code>,
+<code><a href="load_wnba_stats_rolling_windows.html">load_wnba_stats_rolling_windows()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>

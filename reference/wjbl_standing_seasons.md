@@ -44,7 +44,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_standing_seasons())
 #> ── W League Standing Seasons from api.wjbl.01core.app ────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 14:53:11 UTC
+#> ℹ Data updated: 2026-11-13 18:19:45 UTC
 #> # A tibble: 118 × 7
 #>    season_id season_full_name       season season_league_name team_standings_flg
 #>        <int> <chr>                   <int> <chr>                           <int>

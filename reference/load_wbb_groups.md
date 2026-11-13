@@ -23,6 +23,12 @@ load_wbb_groups(..., dbConnection = NULL, tablename = NULL)
 load_wnba_groups(..., dbConnection = NULL, tablename = NULL)
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
+
 ## Arguments
 
 - ...:

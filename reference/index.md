@@ -116,6 +116,13 @@ scrapers and the Fox full-directory enumerator.
 
   **Load cached WNBA team crosswalk from the data repo**
 
+- [`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+  [`load_wbb_ncaa_espn_schools()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+  [`load_wbb_ncaa_espn_school_seasons()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
+  :
+
+  **Load the stats.ncaa.org to ESPN WBB crosswalks**
+
 - [`bart_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/bart_wbb_ratings.md)
   :
 
@@ -240,6 +247,27 @@ API artifacts
   :
 
   **Load wehoop WNBA Stats League Dashboard cube**
+
+- [`load_wnba_stats_game_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_lineups.md)
+  :
+
+  **Load wehoop WNBA Stats per-event game lineups**
+
+- [`load_wnba_stats_player_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md)
+  [`load_wnba_stats_team_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md)
+  :
+
+  **Load wehoop WNBA Stats box scores**
+
+- [`load_wnba_stats_metric_curves()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_metric_curves.md)
+  :
+
+  **Load wehoop WNBA Stats metric curves**
+
+- [`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md)
+  :
+
+  **Load wehoop WNBA Stats rolling windows**
 
 - [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md)
   :

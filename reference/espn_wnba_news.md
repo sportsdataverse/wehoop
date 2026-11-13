@@ -45,7 +45,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 14:50:23 UTC
+#> ℹ Data updated: 2026-11-13 18:16:45 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    

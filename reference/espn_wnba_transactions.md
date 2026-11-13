@@ -66,7 +66,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_transactions(season = 2025, limit = 10)
 #> ── ESPN WNBA Transactions from ESPN.com ──────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 14:50:37 UTC
+#> ℹ Data updated: 2026-11-13 18:16:58 UTC
 #> # A tibble: 10 × 9
 #>    transaction_id date         type  description team_id athlete_id athlete_name
 #>    <chr>          <chr>        <chr> <chr>       <chr>   <chr>      <chr>       

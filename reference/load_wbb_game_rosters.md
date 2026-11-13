@@ -210,6 +210,32 @@ load_wbb_player_core(
 )
 ```
 
+## Source
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_pbp>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_team_boxscores>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_boxscores>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_schedules>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_season_stats>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_team_season_stats>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_standings>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_shots>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_game_rosters>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_officials>
+
+<https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_core>
+
 ## Arguments
 
 - seasons:
