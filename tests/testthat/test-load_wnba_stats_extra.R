@@ -48,8 +48,27 @@ test_that("load_wnba_stats_coaches skips the unpublished 2019 season (offline)",
   expect_no_warning(load_wnba_stats_coaches(seasons = TRUE))
   expect_false(any(grepl("coaches_2019", urls)))
 
+  urls <- character()
   expect_warning(out <- load_wnba_stats_coaches(seasons = 2019), "2019")
   expect_equal(nrow(out), 0)
+  expect_length(urls, 0)
+})
+
+test_that("a loader left with no seasons builds no url and writes nothing (offline)", {
+  urls <- character()
+  local_mocked_bindings(
+    rds_from_url = function(url) { urls <<- c(urls, url); data.table::data.table() },
+    .release_asset_exists = function(url) FALSE,
+    .loader_seasons = function(...) integer()
+  )
+  con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+
+  expect_s3_class(load_wnba_stats_player_boxscores(seasons = TRUE), "wehoop_data")
+  expect_null(load_wnba_stats_team_boxscores(seasons = TRUE, dbConnection = con, tablename = "tb"))
+  expect_null(suppressWarnings(load_wnba_stats_coaches(seasons = 2019, dbConnection = con, tablename = "co")))
+  expect_length(urls, 0)
+  expect_false(any(c("tb", "co") %in% DBI::dbListTables(con)))
 })
 
 test_that("the new WNBA Stats loaders return the published tables", {

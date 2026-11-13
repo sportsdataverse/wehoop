@@ -123,7 +123,8 @@ load_wnba_stats_coaches <- function(seasons = most_recent_wnba_stats_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    # Only 2019 was asked for: a zero-column table cannot be written.
+    if (length(seasons)) DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
