@@ -142,8 +142,8 @@ load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
 #'   identifiers to Bart Torvik game identifiers for Women's College
 #'   Basketball. One row per game-season. Backed by the `wbb_crosswalk`
 #'   release tag in `sportsdataverse-data`.
-#' @return `load_wbb_schedule_crosswalk()` returns a `wehoop_data` tibble of
-#'   cached WBB schedule-crosswalk rows, one row per game:
+#' @section WBB schedule crosswalk columns:
+#'   `load_wbb_schedule_crosswalk()` returns one row per game:
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -167,6 +167,7 @@ load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
 #'   `ncaa_contest_id` is kept as character, like the other provider ids
 #'   (`fox_game_id`, `yahoo_game_id`); `as.integer()` it to join to the
 #'   integer `contest_id` of the `load_ncaa_wbb_*()` tables.
+#' @return A `wehoop_data` tibble of cached WBB schedule-crosswalk rows.
 #' @export
 #' @family WBB Crosswalk Functions
 #' @examples
@@ -189,8 +190,8 @@ NULL
 #'   identifiers to Fox Sports player identifiers for Women's College
 #'   Basketball. One row per athlete-season. Backed by the `wbb_crosswalk`
 #'   release tag in `sportsdataverse-data`.
-#' @return `load_wbb_player_crosswalk()` returns a `wehoop_data` tibble of
-#'   cached WBB player-crosswalk rows, one row per player per team:
+#' @section WBB player crosswalk columns:
+#'   `load_wbb_player_crosswalk()` returns one row per player per team:
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -219,6 +220,7 @@ NULL
 #'   stats.ncaa.org ids start later. `ncaa_player_id` is kept as character,
 #'   like `fox_athlete_id` and `yahoo_player_id`; `as.integer()` it to join
 #'   to the integer `player_id` of the `load_ncaa_wbb_*()` tables.
+#' @return A `wehoop_data` tibble of cached WBB player-crosswalk rows.
 #' @export
 #' @family WBB Crosswalk Functions
 #' @examples
