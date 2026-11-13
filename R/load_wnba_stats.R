@@ -1437,8 +1437,11 @@ update_wnba_stats_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
 #'   artifacts to the `wnba_stats_possessions` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA
 #'   seasons. Published coverage runs 1997 through the most recent season,
-#'   with no gaps. Pass `seasons = TRUE` for every published season. (Min:
-#'   1997)
+#'   with no gaps, for every loader on this page except two:
+#'   `load_wnba_stats_coaches()` has no 2019 season (WNBA Stats has no 2019
+#'   coaching staff; `seasons = TRUE` leaves it out and an explicit 2019
+#'   warns and is skipped), and `load_wnba_stats_officials()` starts in 2004.
+#'   Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
