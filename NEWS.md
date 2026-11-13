@@ -36,6 +36,11 @@
     2024-2025.
   * `load_wbb_player_core()` accepts 2005.
   * `load_wbb_team_crosswalk()` accepts 2004-2013, and `load_wbb_player_crosswalk()` 2023-2024.
+  * `load_wbb_player_crosswalk()` now starts in 2007 (2007-2009 rows carry ESPN columns only), and
+    `load_wbb_schedule_crosswalk()` includes 2027.
+  * The WBB schedule and player crosswalks carry the stats.ncaa.org ids: `ncaa_contest_id` (after `yahoo_game_id`)
+    and `ncaa_player_id` (after `yahoo_player_name`; NA before 2010). Like the Fox and Yahoo ids they stay
+    character. Both loaders now document their columns.
   * `load_wnba_schedule()` accepts 1998 and 2000.
   * `load_wnba_player_stats()` and `load_wnba_team_stats()` accept 2022.
   * `load_wnba_player_core()` now starts in 2002.
