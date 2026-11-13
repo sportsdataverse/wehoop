@@ -216,6 +216,23 @@
 * WNBA and WBB `game_id`/`athlete_id` and the crosswalk `wnba_*`/`espn_*` ids
   are integer at load, so they join with the WNBA Stats and ESPN tables
   (`wnba_game_id` stays character). (#109)
+* The 13 `load_ncaa_wbb_*()` loaders return their numeric join ids as
+  integer too: `contest_id`, `espn_game_id`, the `*ncaa_team_id` /
+  `*espn_team_id` columns, `player_id`, the `player_*_id` and on-court
+  `home_*_player_id` / `away_*_player_id` columns, `shooter_player_id`, the
+  RAPM-within-team and team-rosters `team_id` and the team-ids `id`. The
+  release publishes them as character. Columns holding names or hashes (the
+  shots `team_id` / `shooter_id`, the lineups `player_1`-`player_5` and
+  `lineup_id`, the RAPM `person_id`) stay character.
+* Three new loaders read the static stats.ncaa.org to ESPN tables on the
+  `wbb_crosswalk` release: `load_wbb_ncaa_espn_team_crosswalk()` (one row
+  per season and stats.ncaa.org team id, 2009-10 onward, with the ESPN team
+  and each source's conference; the table behind sportsdataverse-py's
+  `ncaa_espn_team_crosswalk(league = "wbb")`), `load_wbb_ncaa_espn_schools()`
+  (one row per NCAA school) and `load_wbb_ncaa_espn_school_seasons()` (each
+  school's stats.ncaa.org team id per sport and season). They link the
+  `load_ncaa_wbb_*()` tables to the ESPN-based `load_wbb_*()` tables;
+  `espn_team_id` and `espn_conference_id` are integer.
 * The ESPN WBB/WNBA game helpers return the home team's default logo rather
   than its dark-mode variant. (#109)
 * `tail()` works on the result of every loader and every function that

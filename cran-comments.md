@@ -12,15 +12,16 @@ full list of changes is in NEWS.md. The main additions:
   result.
 * WNBA referee assignments from official.nba.com
   (`wnba_referee_assignments()`), new conference and division membership
-  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends) and Fox
+  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends), the
+  stats.ncaa.org to ESPN crosswalk loaders (`load_wbb_ncaa_espn_*()`) and Fox
   Sports, Basketball-Reference and crosswalk improvements.
 * Fixes for ESPN play-by-play running scores, past-season ESPN rosters,
   `wnba_todays_scoreboard()` and the cdn.nba.com / cdn.wnba.com headers,
   `wbb_team_crosswalk()` and `bart_wbb_ratings()`.
 * The release loaders accept exactly the seasons the data releases
   publish, fall back to the newest published season when the current one
-  is not out yet, retry slow downloads, and return ESPN and WNBA Stats join
-  ids as integer. `update_wbb_db()` / `update_wnba_db()` read the games
+  is not out yet, retry slow downloads, and return ESPN, WNBA Stats and
+  stats.ncaa.org join ids as integer. `update_wbb_db()` / `update_wnba_db()` read the games
   index in full before they drop or rebuild a table. After the data
   releases' 2026-11 backfill, the WBB and WNBA loaders no longer skip
   seasons that used to be missing, every published season is available
