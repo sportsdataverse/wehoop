@@ -94,6 +94,7 @@
 #' }}
 #' \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_pbp>
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -140,6 +141,7 @@ load_wbb_pbp <- function(seasons = most_recent_wbb_season(), ...,
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_team_boxscores>
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -186,6 +188,7 @@ load_wbb_team_box <- function(seasons = most_recent_wbb_season(), ...,
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_boxscores>
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -232,6 +235,7 @@ load_wbb_player_box <- function(seasons = most_recent_wbb_season(), ...,
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()] 
 #' @param tablename The name of the play by play data table within the database
 #' @return Returns a tibble
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_schedules>
 #' @export
 #' @examplesIf interactive()
 #' \donttest{
@@ -401,6 +405,7 @@ load_wbb_officials_manifest <- function() {
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the rosters data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per athlete-team-season.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_rosters>
 #' @export
 #' @family WBB loader functions
 #' @examples
@@ -454,6 +459,7 @@ load_wbb_rosters <- function(seasons = most_recent_wbb_season(), ...,
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player season stats table within the database
 #' @return Returns a `wehoop_data` tibble of player season stats.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_season_stats>
 #' @export
 #' @family WBB loader functions
 #' @examplesIf interactive()
@@ -512,6 +518,7 @@ load_wbb_player_stats <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #'    Columns as documented in the shared [basketball_load_wbb_team_stats_schema] table.
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_team_season_stats>
 #' @export
 #' @family WBB loader functions
 #' @examplesIf interactive()
@@ -570,6 +577,7 @@ load_wbb_team_stats <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #'    Columns as documented in the shared [basketball_load_wbb_standings_schema] table.
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_standings>
 #' @export
 #' @family WBB loader functions
 #' @examples
@@ -626,6 +634,7 @@ load_wbb_standings <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #'    Columns as documented in the shared [basketball_load_wbb_shots_schema] table.
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_shots>
 #' @export
 #' @family WBB loader functions
 #' @examplesIf interactive()
@@ -687,6 +696,7 @@ NULL
 #'
 #'    Columns as documented in the shared [basketball_load_wbb_game_rosters_schema] table.
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_game_rosters>
 #' @export
 #' @family WBB loader functions
 #' @examplesIf interactive()
@@ -744,6 +754,7 @@ load_wbb_game_rosters <- function(seasons = most_recent_wbb_season(), ...,
 #'
 #'    Columns as documented in the shared [basketball_load_wbb_officials_schema] table.
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_officials>
 #' @export
 #' @family WBB loader functions
 #' @examplesIf interactive()
@@ -1055,6 +1066,7 @@ get_missing_wbb_games <- function(completed_games, dbConnection, tablename) {
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player core table within the database
 #' @return Returns a `wehoop_data` tibble of athlete core records.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_core>
 #' @export
 #' @family WBB loader functions
 #' @examplesIf interactive()

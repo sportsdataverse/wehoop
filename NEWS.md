@@ -350,6 +350,8 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
 
 * `citation("wehoop")` now gives the release year and the CRAN DOI
   (`10.32614/CRAN.package.wehoop`).
+* The help page of every release loader now has a Source section that links the sportsdataverse-data
+  release tag each loader reads, 60 tags in all.
 * The README has a data status table for the release-data producers (#88), a companion-package
   section, and one line per function family. The README, vignettes and contributor guides give the
   current counts (180 ESPN wrappers, 750 exports).

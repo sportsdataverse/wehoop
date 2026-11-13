@@ -15,6 +15,33 @@
 \alias{load_ncaa_wbb_schedule}
 \alias{load_ncaa_wbb_team_ids}
 \title{\strong{Load cleaned NCAA women's college basketball play-by-play from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_pbp}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_shots}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_lineups}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_matchup_stints}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_possessions}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm_within_team}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_player_box}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_box}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_schedule}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_ids}
+}
 \usage{
 load_ncaa_wbb_pbp(
   seasons = most_recent_wbb_season(),

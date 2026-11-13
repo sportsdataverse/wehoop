@@ -14,6 +14,7 @@
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the rosters data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per athlete-team-season.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_rosters>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examples
@@ -80,6 +81,7 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the coaches data table within the database
 #' @return Returns a `wehoop_data` tibble with one row per coach-team-season.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_coaches>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examples
@@ -220,6 +222,7 @@ load_wnba_stats_player_stats <- function(seasons = most_recent_wnba_stats_season
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the lineups data table within the database
 #' @return Returns a `wehoop_data` tibble of lineup stats.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -518,6 +521,7 @@ load_wnba_stats_standings <- function(seasons = most_recent_wnba_stats_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_draft>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -603,6 +607,7 @@ load_wnba_stats_draft <- function(seasons = most_recent_wnba_stats_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_shots>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -688,6 +693,7 @@ load_wnba_stats_shots <- function(seasons = most_recent_wnba_stats_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_game_rosters>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -761,6 +767,7 @@ load_wnba_stats_game_rosters <- function(seasons = most_recent_wnba_stats_season
 #'    |season      |integer   |Season identifier (4-digit year).               |
 #'    |game_id     |character |Unique game identifier.                         |
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_officials>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -824,6 +831,7 @@ load_wnba_stats_officials <- function(seasons = most_recent_wnba_stats_season(),
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the player game logs table within the database
 #' @return Returns a `wehoop_data` tibble of per-athlete per-game log rows.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_game_logs>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -905,6 +913,7 @@ load_wnba_stats_player_game_logs <- function(seasons = most_recent_wnba_stats_se
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_schedules>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -963,6 +972,7 @@ load_wnba_stats_schedule <- function(seasons = most_recent_wnba_stats_season(),
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the play-by-play data table within the database
 #' @return Returns a `wehoop_data` tibble of per-event play-by-play rows.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_pbp>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()
@@ -1059,6 +1069,7 @@ wnba_stats_leaguedash_tables <- c(
 #'   row per player-season, team-season or lineup-season depending on
 #'   `table`. Column sets differ per table; the `*_master` tables are wide
 #'   joins of every measure type for that entity.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examples
@@ -1151,6 +1162,7 @@ load_wnba_stats_coaches_manifest <- function() {
 #'   per-season manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats player season stats release tag
 #'   without downloading any season's full data.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_season_stats>
 #' @export
 load_wnba_stats_player_stats_manifest <- function() {
   url <- paste0(
@@ -1166,6 +1178,7 @@ load_wnba_stats_player_stats_manifest <- function() {
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats lineups release tag without
 #'   downloading any season's full data.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_lineups>
 #' @export
 load_wnba_stats_lineups_manifest <- function() {
   url <- paste0(
@@ -1180,6 +1193,7 @@ load_wnba_stats_lineups_manifest <- function() {
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats team season stats release tag
 #'   without downloading any season's full data.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_team_season_stats>
 #' @export
 load_wnba_stats_team_stats_manifest <- function() {
   url <- paste0(
@@ -1195,6 +1209,7 @@ load_wnba_stats_team_stats_manifest <- function() {
 #'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
 #'   `source_endpoint`) for the WNBA Stats standings release tag without
 #'   downloading any season's full data.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_standings>
 #' @export
 load_wnba_stats_standings_manifest <- function() {
   url <- paste0(
@@ -1473,6 +1488,7 @@ update_wnba_stats_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_possessions>
 #' @export
 #' @family WNBA Stats loader functions
 #' @examplesIf interactive()

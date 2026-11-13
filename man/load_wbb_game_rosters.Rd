@@ -21,6 +21,31 @@
 \alias{load_wbb_officials}
 \alias{load_wbb_player_core}
 \title{\strong{Load cleaned women's college basketball play-by-play from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_pbp}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_team_boxscores}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_boxscores}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_schedules}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_season_stats}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_team_season_stats}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_standings}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_shots}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_game_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_officials}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_womens_college_basketball_player_core}
+}
 \usage{
 load_wbb_pbp(
   seasons = most_recent_wbb_season(),

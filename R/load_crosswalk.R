@@ -100,6 +100,7 @@ load_wnba_schedule_crosswalk <- function(seasons = most_recent_wnba_season()) {
 #'   athlete-season. Backed by the `wnba_crosswalk` release tag in
 #'   `sportsdataverse-data`.
 #' @return A `wehoop_data` tibble of cached player-crosswalk rows.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_crosswalk>
 #' @export
 #' @family WNBA Crosswalk Functions
 #' @examples
@@ -166,6 +167,7 @@ NULL
 #'   Basketball. One row per athlete-season. Backed by the `wbb_crosswalk`
 #'   release tag in `sportsdataverse-data`.
 #' @return A `wehoop_data` tibble of cached WBB player-crosswalk rows.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk>
 #' @export
 #' @family WBB Crosswalk Functions
 #' @examples

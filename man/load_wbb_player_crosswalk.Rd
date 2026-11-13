@@ -8,6 +8,11 @@
 \alias{load_wbb_schedule_crosswalk}
 \alias{load_wbb_player_crosswalk}
 \title{\strong{Load cached WNBA team crosswalk from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_crosswalk}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk}
+}
 \usage{
 load_wnba_team_crosswalk(seasons = most_recent_wnba_season())
 
