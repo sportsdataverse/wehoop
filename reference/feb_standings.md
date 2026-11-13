@@ -82,14 +82,14 @@ Other FEB Functions:
 # \donttest{
   try(feb_standings(group = 1, season = 2027))
 #> ── FEB standings from baloncestoenvivo.feb.es ────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:06:05 UTC
+#> ℹ Data updated: 2026-11-13 23:22:35 UTC
 #> # A tibble: 18 × 17
 #>    group season competition comp_id table position team_id team     played   won
 #>    <int>  <int> <chr>         <int> <chr>    <int>   <int> <chr>     <int> <int>
 #>  1     1   2027 PRIMERA FEB     115 live         1 1008687 HLA ALI…      7     7
 #>  2     1   2027 PRIMERA FEB     115 live         2 1010493 MOVISTA…      7     6
 #>  3     1   2027 PRIMERA FEB     115 live         3 1010207 IBEROLE…      7     6
-#>  4     1   2027 PRIMERA FEB     115 live         4 1008797 CAJASIE…      7     5
+#>  4     1   2027 PRIMERA FEB     115 live         4 1008797 CAJASIE…      8     6
 #>  5     1   2027 PRIMERA FEB     115 live         5 1009584 GRUPO A…      7     5
 #>  6     1   2027 PRIMERA FEB     115 live         6 1009095 CLUB OU…      7     4
 #>  7     1   2027 PRIMERA FEB     115 live         7 1009713 PALMER …      7     4
@@ -99,8 +99,8 @@ Other FEB Functions:
 #> 11     1   2027 PRIMERA FEB     115 live        11 1008900 CAJA RU…      7     3
 #> 12     1   2027 PRIMERA FEB     115 live        12 1009716 BUENO A…      7     3
 #> 13     1   2027 PRIMERA FEB     115 live        13 1009110 CAJASOL…      7     2
-#> 14     1   2027 PRIMERA FEB     115 live        14 1008400 GRUPO U…      7     2
-#> 15     1   2027 PRIMERA FEB     115 live        15 1008378 INVEREA…      7     2
+#> 14     1   2027 PRIMERA FEB     115 live        14 1008378 INVEREA…      7     2
+#> 15     1   2027 PRIMERA FEB     115 live        15 1008400 GRUPO U…      8     2
 #> 16     1   2027 PRIMERA FEB     115 live        16 1010494 PARTIZÁ…      7     1
 #> 17     1   2027 PRIMERA FEB     115 live        17 1009929 BÀSQUET…      7     1
 #> 18     1   2027 PRIMERA FEB     115 live        18 1009072 FIBWI M…      7     1

@@ -93,7 +93,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_game_info(play_schedule_id = 7987))
 #> ── W League Game Info from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:08:24 UTC
+#> ℹ Data updated: 2026-11-13 23:25:15 UTC
 #> # A tibble: 1 × 47
 #>   play_schedule_id league_id league_title  season season_id season_title        
 #>              <int>     <int> <chr>          <int>     <int> <chr>               

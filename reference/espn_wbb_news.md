@@ -46,14 +46,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:12 UTC
+#> ℹ Data updated: 2026-11-13 23:21:35 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  5.05e7 Media Oral Ro… "Oral Robe… 2026-11-… FALSE   NA     https:/… 54       
-#> 2  5.05e7 Story UConn, … "The Huski… 2026-11-… FALSE   Alexa… https:/… 54       
-#> 3  5.05e7 Recap Addy Br… "— Addy Br… 2026-11-… FALSE   NA     http://… 54       
-#> 4  5.05e7 Media Arizona… "Arizona W… 2026-11-… FALSE   NA     https:/… 54       
-#> 5  5.05e7 Recap No. 16 … "— Avery H… 2026-11-… FALSE   NA     http://… 54       
+#> 1  5.05e7 Media Walla W… "Walla Wal… 2026-11-… FALSE   NA     https:/… 54       
+#> 2  5.05e7 Media Sooners… "Jennie Ba… 2026-11-… FALSE   NA     https:/… 54       
+#> 3  5.05e7 Recap Sahara … "— Sahara … 2026-11-… FALSE   NA     http://… 54       
+#> 4  5.05e7 Media Oral Ro… "Oral Robe… 2026-11-… FALSE   NA     https:/… 54       
+#> 5  5.05e7 Story UConn, … "The Huski… 2026-11-… FALSE   Alexa… https:/… 54       
 # }
 ```

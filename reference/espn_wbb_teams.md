@@ -58,7 +58,7 @@ Saiem Gilani
   # The conferences espn_wbb_teams() joins each team to:
   try(espn_wbb_conferences())
 #> ── ESPN WBB Conferences Information from ESPN.com ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:28 UTC
+#> ℹ Data updated: 2026-11-13 23:21:53 UTC
 #> # A tibble: 32 × 7
 #>    group_id conference_name conference_short_name conference_uid conference_logo
 #>       <int> <chr>           <chr>                 <chr>          <chr>          
@@ -79,7 +79,7 @@ Saiem Gilani
   # Interactive only: it makes one request per conference (about 30), 7 to 20 s.
   try(espn_wbb_teams())
 #> ── ESPN WBB Teams Information from ESPN.com ──────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:30 UTC
+#> ℹ Data updated: 2026-11-13 23:21:55 UTC
 #> # A tibble: 363 × 32
 #>    abbreviation alternate_color color display_name team_id team  logo  logo_dark
 #>    <chr>        <chr>           <chr> <chr>          <int> <chr> <chr> <chr>    

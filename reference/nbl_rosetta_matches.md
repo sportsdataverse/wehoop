@@ -140,7 +140,7 @@ lists every function in this family.
   # The first 10 matches: parsing the whole season takes about 3 s of CPU.
   try(nbl_rosetta_matches(season = 2026, season_type = "regular", limit = 10))
 #> ── NBL Rosetta matches from prod.rosetta.nbl.com.au ──────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:07:36 UTC
+#> ℹ Data updated: 2026-11-13 23:24:19 UTC
 #> # A tibble: 10 × 59
 #>    org   match_id  external_media_id date_updated start_time start_time_datetime
 #>    <chr> <chr>     <chr>             <chr>        <chr>      <chr>              

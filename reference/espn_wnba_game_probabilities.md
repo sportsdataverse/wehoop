@@ -48,7 +48,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_probabilities(event_id = "401736171", limit = 50)
 #> ── ESPN WNBA Event Probabilities (event_id=401736171) from ESPN.com ────────────
-#> ℹ Data updated: 2026-11-13 19:05:40 UTC
+#> ℹ Data updated: 2026-11-13 23:22:08 UTC
 #> # A tibble: 50 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>

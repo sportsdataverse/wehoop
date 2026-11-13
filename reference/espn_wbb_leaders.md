@@ -53,7 +53,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_leaders(season = 2025, season_type = 2)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Leaders from ESPN.com ──────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:12 UTC
+#> ℹ Data updated: 2026-11-13 23:21:35 UTC
 #> # A tibble: 350 × 11
 #>    season season_type category      abbreviation athlete_id athlete_name team_id
 #>     <int>       <int> <chr>         <chr>        <chr>      <chr>        <chr>  

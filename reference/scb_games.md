@@ -172,7 +172,7 @@ lists every function in this family.
 # \donttest{
   try(scb_games())
 #> ── BBL/DBBL Games from the SCB API ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:07:52 UTC
+#> ℹ Data updated: 2026-11-13 23:24:36 UTC
 #> # A tibble: 130 × 89
 #>    league season season_id game_id competition stage       status scheduled_time
 #>    <chr>   <int>     <int> <chr>   <chr>       <chr>       <chr>  <chr>         

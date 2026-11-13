@@ -35,7 +35,7 @@ lists every function in this family.
 # \donttest{
   try(espn_wbb_scoreboard (season = "20230225"))
 #> ── ESPN WBB Scoreboard Information from ESPN.com ─────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:17 UTC
+#> ℹ Data updated: 2026-11-13 23:21:41 UTC
 #> # A tibble: 532 × 36
 #>    matchup         matchup_short season season_type season_slug game_id game_uid
 #>    <chr>           <chr>          <int>       <int> <chr>         <int> <chr>   

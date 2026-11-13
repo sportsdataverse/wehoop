@@ -108,7 +108,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_group(group_id = 5, season = 2025)
 #> ── ESPN WNBA Season Group Detail ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:47 UTC
+#> ℹ Data updated: 2026-11-13 23:22:15 UTC
 #> # A tibble: 1 × 15
 #>   league season season_type group_id uid           name  abbreviation short_name
 #>   <chr>   <int>       <int> <chr>    <chr>         <chr> <chr>        <chr>     
@@ -119,7 +119,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_group_children(group_id = 5, season = 2025)
 #> ── ESPN WNBA Season Group Children Index ─────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:48 UTC
+#> ℹ Data updated: 2026-11-13 23:22:15 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   parent_group_id <chr>, child_group_id <chr>, ref <chr>
@@ -127,7 +127,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_group_teams(group_id = 5, season = 2025)
 #> ── ESPN WNBA Season Group Teams Index ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:48 UTC
+#> ℹ Data updated: 2026-11-13 23:22:15 UTC
 #> # A tibble: 1 × 6
 #>   league season season_type group_id team_id ref                                
 #>   <chr>   <int>       <int> <chr>    <chr>   <chr>                              

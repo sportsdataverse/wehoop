@@ -68,7 +68,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_rankings())
 #> ── ESPN WBB Rankings Information from ESPN.com ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 19:05:16 UTC
+#> ℹ Data updated: 2026-11-13 23:21:40 UTC
 #> # A tibble: 77 × 37
 #>       id name   short_name type  headline short_headline current previous points
 #>    <int> <chr>  <chr>      <chr> <chr>    <chr>            <int>    <int>  <dbl>
