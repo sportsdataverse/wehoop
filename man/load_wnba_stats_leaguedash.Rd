@@ -59,6 +59,10 @@ reshapes in \code{\link[=load_wnba_stats_player_stats]{load_wnba_stats_player_st
 }
 \seealso{
 Other WNBA Stats loader functions:
+\code{\link[=load_wnba_stats_game_lineups]{load_wnba_stats_game_lineups()}},
+\code{\link[=load_wnba_stats_metric_curves]{load_wnba_stats_metric_curves()}},
+\code{\link[=load_wnba_stats_player_boxscores]{load_wnba_stats_player_boxscores()}},
+\code{\link[=load_wnba_stats_rolling_windows]{load_wnba_stats_rolling_windows()}},
 \code{\link[=load_wnba_stats_rosters]{load_wnba_stats_rosters()}}
 }
 \concept{WNBA Stats loader functions}

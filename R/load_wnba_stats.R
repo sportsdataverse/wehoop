@@ -71,8 +71,9 @@ NULL
 #'   Published coverage runs 1997 through the most recent season with one
 #'   gap: **2019 is absent upstream** -- `commonteamroster` returns no
 #'   coaching staff for that season (confirmed by positive controls on 2018
-#'   and 2020), so no 2019 asset is published. Requesting 2019 emits a
-#'   download warning and contributes no rows. Historical seasons also lack
+#'   and 2020), so no 2019 asset is published. `seasons = TRUE` leaves 2019
+#'   out, and an explicit request for 2019 warns and skips it without a
+#'   download, so it contributes no rows. Historical seasons also lack
 #'   the `sub_sort_sequence` column added in 2026. Pass `seasons = TRUE` for
 #'   every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
@@ -96,16 +97,25 @@ load_wnba_stats_coaches <- function(seasons = most_recent_wnba_stats_season(),
   loader <- rds_from_url
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
 
-  if (isTRUE(seasons)) seasons <- 1997:most_recent_wnba_stats_season()
+  # 2019 is not published (commonteamroster has no 2019 coaching staff).
+  if (isTRUE(seasons)) seasons <- setdiff(1997:most_recent_wnba_stats_season(), 2019)
 
   stopifnot(is.numeric(seasons),
             seasons >= 1997,
             seasons <= most_recent_wnba_stats_season())
 
-  urls <- paste0(
+  if (2019 %in% seasons) {
+    cli::cli_warn(c(
+      "!" = "{.fn load_wnba_stats_coaches}: no 2019 coaches are published (WNBA Stats has no 2019 coaching staff); skipping 2019."
+    ))
+    seasons <- setdiff(seasons, 2019)
+  }
+
+  # paste0() would turn zero seasons into one bogus url.
+  urls <- if (length(seasons)) paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "wnba_stats_coaches/coaches_", seasons, ".rds"
-  )
+  ) else character()
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -113,7 +123,8 @@ load_wnba_stats_coaches <- function(seasons = most_recent_wnba_stats_season(),
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    # Only 2019 was asked for: a zero-column table cannot be written.
+    if (length(seasons)) DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     out <- NULL
   } else {
     class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
@@ -1426,8 +1437,11 @@ update_wnba_stats_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
 #'   artifacts to the `wnba_stats_possessions` release tag.
 #' @param seasons A vector of 4-digit years associated with given WNBA
 #'   seasons. Published coverage runs 1997 through the most recent season,
-#'   with no gaps. Pass `seasons = TRUE` for every published season. (Min:
-#'   1997)
+#'   with no gaps, for every loader on this page except two:
+#'   `load_wnba_stats_coaches()` has no 2019 season (WNBA Stats has no 2019
+#'   coaching staff; `seasons = TRUE` leaves it out and an explicit 2019
+#'   warns and is skipped), and `load_wnba_stats_officials()` starts in 2004.
+#'   Pass `seasons = TRUE` for every published season. (Min: 1997)
 #' @param ... Additional arguments passed to an underlying function that writes
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]

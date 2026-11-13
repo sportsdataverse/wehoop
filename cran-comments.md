@@ -12,7 +12,9 @@ full list of changes is in NEWS.md. The main additions:
   result.
 * WNBA referee assignments from official.nba.com
   (`wnba_referee_assignments()`), new conference and division membership
-  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends) and Fox
+  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends), five
+  WNBA Stats release loaders (game lineups, player and team box scores,
+  metric curves, rolling windows) and Fox
   Sports, Basketball-Reference and crosswalk improvements.
 * Fixes for ESPN play-by-play running scores, past-season ESPN rosters,
   `wnba_todays_scoreboard()` and the cdn.nba.com / cdn.wnba.com headers,
@@ -28,6 +30,9 @@ full list of changes is in NEWS.md. The main additions:
   `load_wbb_player_stats()` starts in 2010 (the withdrawn 2006-2009 files
   held multi-season totals), `load_wbb_standings()` in 2001, and
   `load_wnba_team_stats()` and `load_wnba_player_stats()` in 1997.
+  `load_wnba_stats_coaches()` skips the unpublished 2019 season (also for
+  `seasons = TRUE` and `update_wnba_stats_db()`), warning without a
+  download when 2019 is asked for.
 * Dependencies: jsonlite now requires (>= 1.6) for parse_json(), httr2
   (>= 1.0.4) for req_retry(retry_on_failure = ), and withr is a new import.
   Rcpp and RcppParallel (unused; the package has no compiled code) are no

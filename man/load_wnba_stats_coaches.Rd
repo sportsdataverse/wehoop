@@ -157,8 +157,11 @@ load_wnba_stats_possessions(
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given WNBA
 seasons. Published coverage runs 1997 through the most recent season,
-with no gaps. Pass \code{seasons = TRUE} for every published season. (Min:
-1997)}
+with no gaps, for every loader on this page except two:
+\code{load_wnba_stats_coaches()} has no 2019 season (WNBA Stats has no 2019
+coaching staff; \code{seasons = TRUE} leaves it out and an explicit 2019
+warns and is skipped), and \code{load_wnba_stats_officials()} starts in 2004.
+Pass \code{seasons = TRUE} for every published season. (Min: 1997)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
@@ -637,7 +640,11 @@ artifacts to the \code{wnba_stats_possessions} release tag.
 }
 \seealso{
 Other WNBA Stats loader functions:
-\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}}
+\code{\link[=load_wnba_stats_game_lineups]{load_wnba_stats_game_lineups()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
+\code{\link[=load_wnba_stats_metric_curves]{load_wnba_stats_metric_curves()}},
+\code{\link[=load_wnba_stats_player_boxscores]{load_wnba_stats_player_boxscores()}},
+\code{\link[=load_wnba_stats_rolling_windows]{load_wnba_stats_rolling_windows()}}
 }
 \author{
 Saiem Gilani
