@@ -56,6 +56,7 @@ WBB, so neither source is joined.
 }
 \seealso{
 Other WBB Crosswalk Functions:
+\code{\link[=load_wbb_ncaa_espn_team_crosswalk]{load_wbb_ncaa_espn_team_crosswalk()}},
 \code{\link[=load_wnba_team_crosswalk]{load_wnba_team_crosswalk()}},
 \code{\link[=wbb_schedule_crosswalk]{wbb_schedule_crosswalk()}},
 \code{\link[=wbb_team_crosswalk]{wbb_team_crosswalk()}}

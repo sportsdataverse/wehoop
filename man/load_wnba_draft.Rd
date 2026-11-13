@@ -23,6 +23,33 @@
 \alias{load_wnba_officials}
 \alias{load_wnba_player_core}
 \title{\strong{Load cleaned WNBA play-by-play from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_pbp}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_team_boxscores}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_player_boxscores}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_schedules}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_player_season_stats}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_team_season_stats}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_standings}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_draft}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_shots}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_game_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_officials}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/espn_wnba_player_core}
+}
 \usage{
 load_wnba_pbp(
   seasons = most_recent_wnba_season(),

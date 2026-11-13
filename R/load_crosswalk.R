@@ -100,6 +100,7 @@ load_wnba_schedule_crosswalk <- function(seasons = most_recent_wnba_season()) {
 #'   athlete-season. Backed by the `wnba_crosswalk` release tag in
 #'   `sportsdataverse-data`.
 #' @return A `wehoop_data` tibble of cached player-crosswalk rows.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_crosswalk>
 #' @export
 #' @family WNBA Crosswalk Functions
 #' @examples
@@ -221,6 +222,7 @@ NULL
 #'   like `fox_athlete_id` and `yahoo_player_id`; `as.integer()` it to join
 #'   to the integer `player_id` of the `load_ncaa_wbb_*()` tables.
 #' @return A `wehoop_data` tibble of cached WBB player-crosswalk rows.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk>
 #' @export
 #' @family WBB Crosswalk Functions
 #' @examples
@@ -231,3 +233,88 @@ load_wbb_player_crosswalk <- function(seasons = most_recent_wbb_season()) {
   .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_player_crosswalk", 2007, most_recent_wbb_season(),
                          default = missing(seasons))
 }
+
+# ---------------------------------------------------------------------------
+# stats.ncaa.org <-> ESPN (static, all-seasons files on the wbb_crosswalk tag)
+# ---------------------------------------------------------------------------
+
+# The release publishes the ESPN ids as character; cast them like every
+# other wehoop ESPN id. The NCAA ids are already integer.
+.load_wbb_ncaa_espn <- function(file) {
+  out <- .ids_as_integer(parquet_from_url(paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wbb_crosswalk/", file, ".parquet"
+  )), c("espn_team_id", "espn_conference_id"))
+  class(out) <- c("wehoop_data", "tbl_df", "tbl", "data.frame")
+  out
+}
+
+#' **Load the stats.ncaa.org to ESPN WBB crosswalks**
+#' @name load_wbb_ncaa_espn_team_crosswalk
+NULL
+#' @title
+#' **Load the stats.ncaa.org to ESPN WBB team crosswalk from the data repo**
+#' @rdname load_wbb_ncaa_espn_team_crosswalk
+#' @description stats.ncaa.org gives a team a new numeric id every season
+#'   and spells school names in AP style; ESPN keeps one id per school. These
+#'   loaders read the all-seasons crosswalk tables on the `wbb_crosswalk`
+#'   release tag that join the two, so the `load_ncaa_wbb_*()` tables can be
+#'   matched to the ESPN-based `load_wbb_*()` tables.
+#'
+#'   * `load_wbb_ncaa_espn_team_crosswalk()`: one row per season and
+#'     stats.ncaa.org team id (2009-10 onward), with the ESPN team and both
+#'     sources' conference for that season. The same table as
+#'     sportsdataverse-py's `ncaa_espn_team_crosswalk(league = "wbb")`.
+#'   * `load_wbb_ncaa_espn_schools()`: one row per NCAA school (org id)
+#'     with its ESPN team.
+#'   * `load_wbb_ncaa_espn_school_seasons()`: one row per school, sport and
+#'     season with that season's stats.ncaa.org team id. It covers both
+#'     sports (`sport` is `mbb` or `wbb`), since an org id is shared by every
+#'     team of a school.
+#'
+#'   The ESPN ids (`espn_team_id`, `espn_conference_id`) are returned as
+#'   integer, matching the ESPN loaders; `ncaa_team_id` and `ncaa_org_id`
+#'   are integer, as in [load_ncaa_wbb_team_ids()]. `season` is the
+#'   `"YYYY-YY"` string the release uses.
+#' @return `load_wbb_ncaa_espn_team_crosswalk()` returns a `wehoop_data`
+#'   tibble:
+#'
+#'    |col_name             |types     |description                                                                 |
+#'    |:--------------------|:---------|:---------------------------------------------------------------------------|
+#'    |season               |character |Season, `"YYYY-YY"` (e.g. `"2024-25"`).                                     |
+#'    |ncaa_team_id         |integer   |stats.ncaa.org team id for that season.                                     |
+#'    |ncaa_org_id          |integer   |stats.ncaa.org school (org) id, stable across seasons.                      |
+#'    |ncaa_team            |character |stats.ncaa.org school name.                                                 |
+#'    |ncaa_conference      |character |stats.ncaa.org conference that season.                                      |
+#'    |conference_id        |character |SportsDataverse group id (e.g. `wbb:big-ten`).                              |
+#'    |espn_team_id         |integer   |ESPN team id.                                                               |
+#'    |espn_display_name    |character |ESPN team display name.                                                     |
+#'    |espn_location        |character |ESPN team location.                                                         |
+#'    |espn_mascot          |character |ESPN team mascot.                                                           |
+#'    |espn_abbreviation    |character |ESPN team abbreviation.                                                     |
+#'    |espn_conference_name |character |ESPN conference name that season.                                           |
+#'    |espn_conference_id   |integer   |ESPN conference (group) id that season.                                     |
+#'    |match_method         |character |How the team was matched: `exact`, `dict`, `alias`, `org` or `unmatched`.   |
+#'
+#'   `load_wbb_ncaa_espn_schools()` returns `ncaa_org_id`, `ncaa_team`,
+#'   `espn_team_id` and `espn_display_name`.
+#'   `load_wbb_ncaa_espn_school_seasons()` returns `ncaa_org_id`, `sport`,
+#'   `season`, `ncaa_team_id` and `espn_team_id`.
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk>
+#' @export
+#' @family WBB Crosswalk Functions
+#' @examples
+#' \donttest{
+#'   try(load_wbb_ncaa_espn_team_crosswalk())
+#'   try(load_wbb_ncaa_espn_schools())
+#'   try(load_wbb_ncaa_espn_school_seasons())
+#' }
+load_wbb_ncaa_espn_team_crosswalk <- function() .load_wbb_ncaa_espn("ncaa_espn_team_crosswalk")
+
+#' @rdname load_wbb_ncaa_espn_team_crosswalk
+#' @export
+load_wbb_ncaa_espn_schools <- function() .load_wbb_ncaa_espn("ncaa_espn_schools")
+
+#' @rdname load_wbb_ncaa_espn_team_crosswalk
+#' @export
+load_wbb_ncaa_espn_school_seasons <- function() .load_wbb_ncaa_espn("ncaa_espn_school_seasons")

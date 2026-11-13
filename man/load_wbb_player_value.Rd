@@ -5,6 +5,13 @@
 \alias{load_wbb_player_value}
 \alias{load_wbb_ratings}
 \title{\strong{Load WNBA player-impact ratings (RAPM / SPM / BPM / DARKO) from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_player_impact}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_player_value}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_ratings}
+}
 \usage{
 load_wnba_player_impact(
   seasons = most_recent_wnba_stats_season(),

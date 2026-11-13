@@ -8,6 +8,11 @@
 \alias{load_wbb_schedule_crosswalk}
 \alias{load_wbb_player_crosswalk}
 \title{\strong{Load cached WNBA team crosswalk from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_crosswalk}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_crosswalk}
+}
 \usage{
 load_wnba_team_crosswalk(seasons = most_recent_wnba_season())
 
@@ -166,6 +171,7 @@ Other WNBA Crosswalk Functions:
 \code{\link[=wnba_team_crosswalk]{wnba_team_crosswalk()}}
 
 Other WBB Crosswalk Functions:
+\code{\link[=load_wbb_ncaa_espn_team_crosswalk]{load_wbb_ncaa_espn_team_crosswalk()}},
 \code{\link[=wbb_player_crosswalk]{wbb_player_crosswalk()}},
 \code{\link[=wbb_schedule_crosswalk]{wbb_schedule_crosswalk()}},
 \code{\link[=wbb_team_crosswalk]{wbb_team_crosswalk()}}

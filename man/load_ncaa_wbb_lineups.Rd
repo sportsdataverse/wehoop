@@ -15,6 +15,33 @@
 \alias{load_ncaa_wbb_schedule}
 \alias{load_ncaa_wbb_team_ids}
 \title{\strong{Load cleaned NCAA women's college basketball play-by-play from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_pbp}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_shots}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_lineups}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_matchup_stints}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_possessions}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm_within_team}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_player_box}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_box}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_schedule}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_ids}
+}
 \usage{
 load_ncaa_wbb_pbp(
   seasons = most_recent_wbb_season(),
@@ -164,40 +191,40 @@ Returns a \code{wehoop_data} tibble with one row per play-by-play event.
       status \tab character \tab Row QA status flag ('CLEAN' or a data-quality note). \cr
       is_garbage_time \tab logical \tab Whether the event occurred in garbage time. \cr
       sub_deviate \tab integer \tab Substitution-inference deviation counter used by the lineup reconstructor. \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
-      home_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the home team. \cr
-      home_espn_team_id \tab character \tab ESPN team identifier for the home team. \cr
-      away_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the away team. \cr
-      away_espn_team_id \tab character \tab ESPN team identifier for the away team. \cr
-      event_team_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the event team. \cr
-      event_team_espn_team_id \tab character \tab ESPN team identifier for the event team. \cr
-      poss_team_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the possession team. \cr
-      poss_team_espn_team_id \tab character \tab ESPN team identifier for the possession team. \cr
-      player_1_id \tab character \tab stats.ncaa.org player identifier for player_1. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
+      home_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the home team. \cr
+      home_espn_team_id \tab integer \tab ESPN team identifier for the home team. \cr
+      away_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the away team. \cr
+      away_espn_team_id \tab integer \tab ESPN team identifier for the away team. \cr
+      event_team_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the event team. \cr
+      event_team_espn_team_id \tab integer \tab ESPN team identifier for the event team. \cr
+      poss_team_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the possession team. \cr
+      poss_team_espn_team_id \tab integer \tab ESPN team identifier for the possession team. \cr
+      player_1_id \tab integer \tab stats.ncaa.org player identifier for player_1. \cr
       player_1_clean_name \tab character \tab Cleaned/title-cased display name for player_1. \cr
-      player_2_id \tab character \tab stats.ncaa.org player identifier for player_2. \cr
+      player_2_id \tab integer \tab stats.ncaa.org player identifier for player_2. \cr
       player_2_clean_name \tab character \tab Cleaned/title-cased display name for player_2. \cr
-      home_1_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 1. \cr
+      home_1_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 1. \cr
       home_1_clean_name \tab character \tab Cleaned display name for home lineup slot 1. \cr
-      home_2_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 2. \cr
+      home_2_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 2. \cr
       home_2_clean_name \tab character \tab Cleaned display name for home lineup slot 2. \cr
-      home_3_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 3. \cr
+      home_3_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 3. \cr
       home_3_clean_name \tab character \tab Cleaned display name for home lineup slot 3. \cr
-      home_4_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 4. \cr
+      home_4_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 4. \cr
       home_4_clean_name \tab character \tab Cleaned display name for home lineup slot 4. \cr
-      home_5_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 5. \cr
+      home_5_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 5. \cr
       home_5_clean_name \tab character \tab Cleaned display name for home lineup slot 5. \cr
-      away_1_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 1. \cr
+      away_1_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 1. \cr
       away_1_clean_name \tab character \tab Cleaned display name for away lineup slot 1. \cr
-      away_2_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 2. \cr
+      away_2_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 2. \cr
       away_2_clean_name \tab character \tab Cleaned display name for away lineup slot 2. \cr
-      away_3_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 3. \cr
+      away_3_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 3. \cr
       away_3_clean_name \tab character \tab Cleaned display name for away lineup slot 3. \cr
-      away_4_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 4. \cr
+      away_4_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 4. \cr
       away_4_clean_name \tab character \tab Cleaned display name for away lineup slot 4. \cr
-      away_5_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 5. \cr
+      away_5_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 5. \cr
       away_5_clean_name \tab character \tab Cleaned display name for away lineup slot 5. \cr
-      espn_game_id \tab character \tab ESPN game identifier crosswalked to this contest. \cr
+      espn_game_id \tab integer \tab ESPN game identifier crosswalked to this contest. \cr
       is_fastbreak \tab logical \tab Whether the play was a fastbreak possession. \cr
       is_from_turnover \tab logical \tab Whether the possession began off a turnover. \cr
       is_paint \tab logical \tab Whether the shot was taken in the paint. \cr
@@ -237,12 +264,12 @@ Returns a \code{wehoop_data} tibble with one row per shot attempt.
       period \tab logical \tab Period of the game (1-2 halves pre-2016, 1-4 quarters 2016+). \cr
       sec_left \tab logical \tab Seconds remaining in the period at the time of the shot. \cr
       source \tab character \tab Source system for the shot record (e.g. 'ncaa'). \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
-      ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the shooting team. \cr
-      espn_team_id \tab character \tab ESPN team identifier for the shooting team. \cr
-      shooter_player_id \tab character \tab stats.ncaa.org player identifier for the shooter. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
+      ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the shooting team. \cr
+      espn_team_id \tab integer \tab ESPN team identifier for the shooting team. \cr
+      shooter_player_id \tab integer \tab stats.ncaa.org player identifier for the shooter. \cr
       shooter_clean_name \tab character \tab Cleaned display name for the shooter. \cr
-      espn_game_id \tab character \tab ESPN game identifier crosswalked to this contest. \cr
+      espn_game_id \tab integer \tab ESPN game identifier crosswalked to this contest. \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
 
@@ -325,7 +352,7 @@ Returns a \code{wehoop_data} tibble with one row per lineup stint.
       opp_ast \tab integer \tab Opponent assists. \cr
       opp_foul \tab integer \tab Opponent personal fouls. \cr
       stint_num \tab integer \tab Sequential stint number for this lineup within the game. \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
@@ -334,7 +361,7 @@ Returns a \code{wehoop_data} tibble with one row per matchup stint.
 
 \if{html}{\tabular{lll}{
       col_name \tab types \tab description \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
       game_date \tab character \tab Date the game was played (MM/DD/YYYY). \cr
       home \tab character \tab Home team name. \cr
@@ -401,34 +428,34 @@ Returns a \code{wehoop_data} tibble with one row per possession.
       first_shot_type \tab character \tab Event type of the possession's first shot attempt. \cr
       last_event_time \tab integer \tab Elapsed game seconds at the possession's final event. \cr
       last_event_type \tab character \tab Event type of the possession's final event. \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
-      home_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the home team. \cr
-      home_espn_team_id \tab character \tab ESPN team identifier for the home team. \cr
-      away_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the away team. \cr
-      away_espn_team_id \tab character \tab ESPN team identifier for the away team. \cr
-      poss_team_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the possession team. \cr
-      poss_team_espn_team_id \tab character \tab ESPN team identifier for the possession team. \cr
-      home_1_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 1. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
+      home_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the home team. \cr
+      home_espn_team_id \tab integer \tab ESPN team identifier for the home team. \cr
+      away_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the away team. \cr
+      away_espn_team_id \tab integer \tab ESPN team identifier for the away team. \cr
+      poss_team_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the possession team. \cr
+      poss_team_espn_team_id \tab integer \tab ESPN team identifier for the possession team. \cr
+      home_1_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 1. \cr
       home_1_clean_name \tab character \tab Cleaned display name for home lineup slot 1. \cr
-      home_2_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 2. \cr
+      home_2_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 2. \cr
       home_2_clean_name \tab character \tab Cleaned display name for home lineup slot 2. \cr
-      home_3_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 3. \cr
+      home_3_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 3. \cr
       home_3_clean_name \tab character \tab Cleaned display name for home lineup slot 3. \cr
-      home_4_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 4. \cr
+      home_4_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 4. \cr
       home_4_clean_name \tab character \tab Cleaned display name for home lineup slot 4. \cr
-      home_5_player_id \tab character \tab stats.ncaa.org player identifier for home lineup slot 5. \cr
+      home_5_player_id \tab integer \tab stats.ncaa.org player identifier for home lineup slot 5. \cr
       home_5_clean_name \tab character \tab Cleaned display name for home lineup slot 5. \cr
-      away_1_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 1. \cr
+      away_1_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 1. \cr
       away_1_clean_name \tab character \tab Cleaned display name for away lineup slot 1. \cr
-      away_2_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 2. \cr
+      away_2_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 2. \cr
       away_2_clean_name \tab character \tab Cleaned display name for away lineup slot 2. \cr
-      away_3_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 3. \cr
+      away_3_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 3. \cr
       away_3_clean_name \tab character \tab Cleaned display name for away lineup slot 3. \cr
-      away_4_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 4. \cr
+      away_4_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 4. \cr
       away_4_clean_name \tab character \tab Cleaned display name for away lineup slot 4. \cr
-      away_5_player_id \tab character \tab stats.ncaa.org player identifier for away lineup slot 5. \cr
+      away_5_player_id \tab integer \tab stats.ncaa.org player identifier for away lineup slot 5. \cr
       away_5_clean_name \tab character \tab Cleaned display name for away lineup slot 5. \cr
-      espn_game_id \tab character \tab ESPN game identifier crosswalked to this contest. \cr
+      espn_game_id \tab integer \tab ESPN game identifier crosswalked to this contest. \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
@@ -445,8 +472,8 @@ Returns a \code{wehoop_data} tibble with one row per player-team-season.
       num_players \tab integer \tab Number of teammates included in the within-team RAPM fit. \cr
       rapm_net \tab numeric \tab Within-team net regularized adjusted plus-minus (rapm_off - rapm_def). \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
-      player_id \tab character \tab stats.ncaa.org player identifier. \cr
-      team_id \tab character \tab Unique team identifier. \cr
+      player_id \tab integer \tab stats.ncaa.org player identifier. \cr
+      team_id \tab integer \tab stats.ncaa.org team identifier. \cr
       person_id \tab character \tab Internal person identifier used to join across seasons/teams. \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
@@ -456,7 +483,7 @@ Returns a \code{wehoop_data} tibble with one row per player-season.
 \if{html}{\tabular{lll}{
       col_name \tab types \tab description \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
-      player_id \tab character \tab stats.ncaa.org player identifier. \cr
+      player_id \tab integer \tab stats.ncaa.org player identifier. \cr
       person_id \tab character \tab Internal person identifier used to join across seasons/teams. \cr
       player \tab character \tab Player display name ('LAST.FIRST' format). \cr
       team \tab character \tab Team name. \cr
@@ -587,16 +614,16 @@ Returns a \code{wehoop_data} tibble with one row per player-game.
       midm_unast \tab numeric \tab Mid-range shots made that were unassisted. \cr
       mida_unast \tab numeric \tab Mid-range shot attempts that were unassisted. \cr
       mid_pct_unast \tab numeric \tab Mid-range field goal percentage that were unassisted. \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
-      home_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the home team. \cr
-      home_espn_team_id \tab character \tab ESPN team identifier for the home team. \cr
-      away_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the away team. \cr
-      away_espn_team_id \tab character \tab ESPN team identifier for the away team. \cr
-      team_ncaa_team_id \tab character \tab stats.ncaa.org team identifier. \cr
-      team_espn_team_id \tab character \tab ESPN team identifier. \cr
-      player_id \tab character \tab stats.ncaa.org player identifier. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
+      home_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the home team. \cr
+      home_espn_team_id \tab integer \tab ESPN team identifier for the home team. \cr
+      away_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the away team. \cr
+      away_espn_team_id \tab integer \tab ESPN team identifier for the away team. \cr
+      team_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier. \cr
+      team_espn_team_id \tab integer \tab ESPN team identifier. \cr
+      player_id \tab integer \tab stats.ncaa.org player identifier. \cr
       clean_name \tab character \tab Cleaned/title-cased display name. \cr
-      espn_game_id \tab character \tab ESPN game identifier crosswalked to this contest. \cr
+      espn_game_id \tab integer \tab ESPN game identifier crosswalked to this contest. \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
@@ -677,14 +704,14 @@ Returns a \code{wehoop_data} tibble with one row per team-game.
       drb_pct \tab numeric \tab Defensive rebound percentage. \cr
       time_per_poss \tab numeric \tab Average seconds per possession. \cr
       d_time_per_poss \tab numeric \tab Opponent average seconds per possession. \cr
-      contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
-      home_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the home team. \cr
-      home_espn_team_id \tab character \tab ESPN team identifier for the home team. \cr
-      away_ncaa_team_id \tab character \tab stats.ncaa.org team identifier for the away team. \cr
-      away_espn_team_id \tab character \tab ESPN team identifier for the away team. \cr
-      team_ncaa_team_id \tab character \tab stats.ncaa.org team identifier. \cr
-      team_espn_team_id \tab character \tab ESPN team identifier. \cr
-      espn_game_id \tab character \tab ESPN game identifier crosswalked to this contest. \cr
+      contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
+      home_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the home team. \cr
+      home_espn_team_id \tab integer \tab ESPN team identifier for the home team. \cr
+      away_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier for the away team. \cr
+      away_espn_team_id \tab integer \tab ESPN team identifier for the away team. \cr
+      team_ncaa_team_id \tab integer \tab stats.ncaa.org team identifier. \cr
+      team_espn_team_id \tab integer \tab ESPN team identifier. \cr
+      espn_game_id \tab integer \tab ESPN game identifier crosswalked to this contest. \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
    }}
 \if{latex}{See the HTML help or pkgdown reference for the column table.}
@@ -702,9 +729,9 @@ Returns a \code{wehoop_data} tibble with one row per player-team-season.
 \if{html}{\tabular{lll}{
       col_name \tab types \tab description \cr
       season \tab integer \tab Season identifier (4-digit season-ending year). \cr
-      team_id \tab character \tab Unique team identifier. \cr
+      team_id \tab integer \tab stats.ncaa.org team identifier. \cr
       team \tab character \tab Team name. \cr
-      player_id \tab character \tab stats.ncaa.org player identifier. \cr
+      player_id \tab integer \tab stats.ncaa.org player identifier. \cr
       player \tab character \tab Player name (raw, upper-cased). \cr
       clean_name \tab character \tab Cleaned/title-cased display name. \cr
       name \tab character \tab Player full display name. \cr
@@ -722,7 +749,7 @@ Returns a \code{wehoop_data} tibble with one row per player-team-season.
 
 Returns a \code{wehoop_data} tibble with one row per game.\tabular{lll}{
    col_name \tab types \tab description \cr
-   contest_id \tab character \tab Unique stats.ncaa.org contest identifier. \cr
+   contest_id \tab integer \tab Unique stats.ncaa.org contest identifier. \cr
    game_date \tab character \tab Date the game was played (MM/DD/YYYY). \cr
    home \tab character \tab Home team name. \cr
    away \tab character \tab Away team name. \cr
@@ -735,7 +762,7 @@ Returns a \code{wehoop_data} tibble with one row per team-season.\tabular{lll}{
    col_name \tab types \tab description \cr
    team \tab character \tab Team name. \cr
    conference \tab character \tab Conference affiliation. \cr
-   id \tab character \tab stats.ncaa.org team identifier. \cr
+   id \tab integer \tab stats.ncaa.org team identifier. \cr
    season \tab integer \tab Season identifier (4-digit season-ending year). \cr
 }
 }
@@ -747,6 +774,17 @@ an ESPN game-id crosswalk. Produced by the sportsdataverse-py \code{ncaa_wbb} en
 (stats.ncaa.org play-by-play parsed, cleaned, and enriched); backed by
 the \code{ncaa-wbb-hoops-data} pipeline, published to the \code{ncaa_wbb_pbp}
 release tag as csv.gz/parquet/rds.
+
+Every \verb{load_ncaa_wbb_*()} loader returns the numeric join ids as
+integer, as the other wehoop loaders do: \code{contest_id}, \code{espn_game_id},
+the \verb{*ncaa_team_id} / \verb{*espn_team_id} columns, \code{player_id}, the
+\verb{player_*_id} / \verb{home_*_player_id} / \verb{away_*_player_id} columns,
+\code{shooter_player_id}, and the numeric \code{team_id} (RAPM within team, team
+rosters) and \code{id} (team ids). Columns that hold names or hashes (the
+shots \code{team_id} / \code{shooter_id}, the lineups \code{player_1}-\code{player_5} and
+\code{lineup_id}, the RAPM \code{person_id}) stay character. Use
+\code{\link[=load_wbb_ncaa_espn_team_crosswalk]{load_wbb_ncaa_espn_team_crosswalk()}} to map a season's
+stats.ncaa.org team id to its ESPN team.
 
 Loads shot-chart events for NCAA women's college basketball --
 one row per field goal attempt, with court coordinates, distance, shot

@@ -12,11 +12,18 @@ full list of changes is in NEWS.md. The main additions:
   result.
 * WNBA referee assignments from official.nba.com
   (`wnba_referee_assignments()`), new conference and division membership
-  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends) and Fox
+  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends), five
+  WNBA Stats release loaders (game lineups, player and team box scores,
+  metric curves, rolling windows) and Fox
   Sports, Basketball-Reference and crosswalk improvements.
 * Fixes for ESPN play-by-play running scores, past-season ESPN rosters,
   `wnba_todays_scoreboard()` and the cdn.nba.com / cdn.wnba.com headers,
   `wbb_team_crosswalk()` and `bart_wbb_ratings()`.
+* Three stats.ncaa.org to ESPN crosswalk loaders
+  (`load_wbb_ncaa_espn_team_crosswalk()`, `load_wbb_ncaa_espn_schools()`,
+  `load_wbb_ncaa_espn_school_seasons()`), and the `load_ncaa_wbb_*()`
+  loaders now return their numeric stats.ncaa.org and ESPN join ids as
+  integer.
 * The release loaders accept exactly the seasons the data releases
   publish, fall back to the newest published season when the current one
   is not out yet, retry slow downloads, and return ESPN and WNBA Stats join
@@ -30,6 +37,9 @@ full list of changes is in NEWS.md. The main additions:
   `load_wbb_player_crosswalk()` in 2007 (the WBB schedule and player
   crosswalks also gain stats.ncaa.org ids), and
   `load_wnba_team_stats()` and `load_wnba_player_stats()` in 1997.
+  `load_wnba_stats_coaches()` skips the unpublished 2019 season (also for
+  `seasons = TRUE` and `update_wnba_stats_db()`), warning without a
+  download when 2019 is asked for.
 * Dependencies: jsonlite now requires (>= 1.6) for parse_json(), httr2
   (>= 1.0.4) for req_retry(retry_on_failure = ), and withr is a new import.
   Rcpp and RcppParallel (unused; the package has no compiled code) are no
