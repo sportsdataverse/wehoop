@@ -12,7 +12,9 @@ full list of changes is in NEWS.md. The main additions:
   result.
 * WNBA referee assignments from official.nba.com
   (`wnba_referee_assignments()`), new conference and division membership
-  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends) and Fox
+  loaders (`load_wbb_groups()`, `load_wnba_groups()` and friends), five
+  WNBA Stats release loaders (game lineups, player and team box scores,
+  metric curves, rolling windows) and Fox
   Sports, Basketball-Reference and crosswalk improvements.
 * Fixes for ESPN play-by-play running scores, past-season ESPN rosters,
   `wnba_todays_scoreboard()` and the cdn.nba.com / cdn.wnba.com headers,

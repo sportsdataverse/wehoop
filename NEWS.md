@@ -312,6 +312,18 @@
   map an NCAA, Fox, Yahoo or WNBA Stats player id to the ESPN `athlete_id`.
   Each row carries the seasons it holds (`valid_from` / `valid_to`), how it
   was matched and where it came from.
+* Five WNBA Stats release tags that had no wehoop loader now have one, named
+  as in sportsdataverse-py: `load_wnba_stats_game_lineups()` (the ten players
+  on court at every play-by-play event, 1997 onward),
+  `load_wnba_stats_player_boxscores()` / `load_wnba_stats_team_boxscores()`
+  (`boxscoretraditionalv3` box scores, 2026 onward),
+  `load_wnba_stats_metric_curves()` (field-goal percentage by shot distance
+  for the league, each team and each player, 1997 onward) and
+  `load_wnba_stats_rolling_windows()` (player shooting over her last 50 and
+  200 attempts, 1997 onward). They accept only published seasons.
+* `load_wnba_stats_coaches()` no longer requests the unpublished 2019 season:
+  `seasons = TRUE` (and `update_wnba_stats_db()`) leave it out, and an
+  explicit 2019 warns and is skipped without a download.
 
 ### **WNBA referee assignments (`wnba_referee_assignments()`)**
 

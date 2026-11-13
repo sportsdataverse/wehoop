@@ -637,7 +637,11 @@ artifacts to the \code{wnba_stats_possessions} release tag.
 }
 \seealso{
 Other WNBA Stats loader functions:
-\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}}
+\code{\link[=load_wnba_stats_game_lineups]{load_wnba_stats_game_lineups()}},
+\code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
+\code{\link[=load_wnba_stats_metric_curves]{load_wnba_stats_metric_curves()}},
+\code{\link[=load_wnba_stats_player_boxscores]{load_wnba_stats_player_boxscores()}},
+\code{\link[=load_wnba_stats_rolling_windows]{load_wnba_stats_rolling_windows()}}
 }
 \author{
 Saiem Gilani
