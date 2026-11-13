@@ -26,7 +26,8 @@ full list of changes is in NEWS.md. The main additions:
   seasons that used to be missing, every published season is available
   as `.rds`, so no loader needs arrow for an older season, and
   `load_wbb_player_stats()` starts in 2010 (the withdrawn 2006-2009 files
-  held multi-season totals).
+  held multi-season totals), `load_wbb_standings()` in 2001 and
+  `load_wnba_team_stats()` in 1997.
 * Dependencies: jsonlite now requires (>= 1.6) for parse_json(), httr2
   (>= 1.0.4) for req_retry(retry_on_failure = ), and withr is a new import.
   Rcpp and RcppParallel (unused; the package has no compiled code) are no

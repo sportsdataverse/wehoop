@@ -138,9 +138,10 @@ release tag publishes (any other season is an error):
 \itemize{
 \item \code{load_wnba_pbp()}, \code{load_wnba_player_box()}, \code{load_wnba_standings()},
 \code{load_wnba_shots()}, \code{load_wnba_game_rosters()}, \code{load_wnba_player_core()},
-\code{load_wnba_player_stats()}, \code{load_wnba_team_stats()}: 2002 onward.
+\code{load_wnba_player_stats()}: 2002 onward.
 \item \code{load_wnba_team_box()}, \code{load_wnba_officials()}: 2003 onward.
-\item \code{load_wnba_schedule()}: 1997 onward.
+\item \code{load_wnba_schedule()}, \code{load_wnba_team_stats()}: 1997 onward. ESPN has no
+Sacramento Monarchs team stats in any season.
 \item \code{load_wnba_draft()}: 2018 onward.
 \item \code{load_wnba_rosters()}: 2024 onward.
 }
