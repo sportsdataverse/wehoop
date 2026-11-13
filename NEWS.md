@@ -29,6 +29,20 @@
 
 # **wehoop 3.1.0**
 
+### **Loader seasons after the 2026-11-13 backfill**
+
+* The release holes are filled, so the loaders stop refusing those seasons:
+  * `load_wbb_standings()`, `load_wbb_player_stats()`, `load_wbb_team_stats()` and `load_wbb_officials()` accept
+    2024-2025.
+  * `load_wbb_player_core()` accepts 2005.
+  * `load_wbb_team_crosswalk()` accepts 2004-2013, and `load_wbb_player_crosswalk()` 2023-2024.
+  * `load_wnba_schedule()` accepts 1998 and 2000.
+  * `load_wnba_player_stats()` and `load_wnba_team_stats()` accept 2022.
+  * `load_wnba_player_core()` now starts in 2002.
+* Every season in each documented range is now published as `.rds`, so the WBB 2005 box scores, the WBB 2023-2025
+  game rosters and the WNBA 2018-2025 drafts no longer need \pkg{arrow}. Before, a reader without arrow got empty
+  columns from some 2004-2022 WBB and WNBA files (wehoop#120).
+
 ### **International basketball**
 
 * New wrappers mirroring sportsdataverse-py's international basketball families (same

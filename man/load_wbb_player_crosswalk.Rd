@@ -25,8 +25,8 @@ load_wbb_player_crosswalk(seasons = most_recent_wbb_season())
 \item{seasons}{A vector of 4-digit seasons, or \code{TRUE} for every published
 season. Each loader accepts the seasons its release publishes: 2002
 onward for the three WNBA crosswalks; for WBB, \code{load_wbb_team_crosswalk()}
-2002-2003 and 2014 onward, \code{load_wbb_schedule_crosswalk()} 2021 onward and
-\code{load_wbb_player_crosswalk()} 2014-2022 and 2025 onward. The upper bound is
+2002 onward, \code{load_wbb_schedule_crosswalk()} 2021 onward and
+\code{load_wbb_player_crosswalk()} 2014 onward. The upper bound is
 \code{\link[=most_recent_wnba_season]{most_recent_wnba_season()}} / \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}. When \code{seasons}
 is left at its default and that season is not published yet, the loader
 reads the newest published season instead, with a message; an explicit

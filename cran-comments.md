@@ -21,7 +21,10 @@ full list of changes is in NEWS.md. The main additions:
   publish, fall back to the newest published season when the current one
   is not out yet, retry slow downloads, and return ESPN and WNBA Stats join
   ids as integer. `update_wbb_db()` / `update_wnba_db()` read the games
-  index in full before they drop or rebuild a table.
+  index in full before they drop or rebuild a table. After the data
+  releases' 2026-11 backfill, the WBB and WNBA loaders no longer skip
+  seasons that used to be missing, and every published season is
+  available as `.rds`, so no loader needs arrow for an older season.
 * Dependencies: jsonlite now requires (>= 1.6) for parse_json(), httr2
   (>= 1.0.4) for req_retry(retry_on_failure = ), and withr is a new import.
   Rcpp and RcppParallel (unused; the package has no compiled code) are no
