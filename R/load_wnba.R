@@ -8,9 +8,10 @@
 #'   release tag publishes (any other season is an error):
 #'   * `load_wnba_pbp()`, `load_wnba_player_box()`, `load_wnba_standings()`,
 #'     `load_wnba_shots()`, `load_wnba_game_rosters()`, `load_wnba_player_core()`,
-#'     `load_wnba_player_stats()`, `load_wnba_team_stats()`: 2002 onward.
+#'     `load_wnba_player_stats()`: 2002 onward.
 #'   * `load_wnba_team_box()`, `load_wnba_officials()`: 2003 onward.
-#'   * `load_wnba_schedule()`: 1997 onward.
+#'   * `load_wnba_schedule()`, `load_wnba_team_stats()`: 1997 onward. ESPN has no
+#'     Sacramento Monarchs team stats in any season.
 #'   * `load_wnba_draft()`: 2018 onward.
 #'   * `load_wnba_rosters()`: 2024 onward.
 #'
@@ -521,7 +522,7 @@ load_wnba_team_stats <- function(seasons = most_recent_wnba_season(), ...,
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
     "espn_wnba_team_season_stats/team_season_stats_", seasons, ".rds"
   )
-  seasons <- .loader_seasons(seasons, 2002, most_recent_wnba_season(),
+  seasons <- .loader_seasons(seasons, 1997, most_recent_wnba_season(),
                              fn = "load_wnba_team_stats", url_for = url_for,
                              default = missing(seasons))
 

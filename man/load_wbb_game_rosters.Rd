@@ -129,7 +129,7 @@ only the seasons its release tag publishes (any other season is an error):
 \item \code{load_wbb_team_box()}, \code{load_wbb_player_box()}: 2004 onward.
 \item \code{load_wbb_player_core()}: 2004 onward.
 \item \code{load_wbb_schedule()}: 2001 onward.
-\item \code{load_wbb_standings()}: 2003 onward.
+\item \code{load_wbb_standings()}: 2001 onward.
 \item \code{load_wbb_player_stats()}: 2010 onward. ESPN has no single-season player rows before
 2009-10; the 2006-2009 files held multi-season totals and were withdrawn on 2026-11-13.
 \item \code{load_wbb_team_stats()}: 2010 onward.
