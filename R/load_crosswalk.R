@@ -50,8 +50,8 @@
 #' @param seasons A vector of 4-digit seasons, or `TRUE` for every published
 #'   season. Each loader accepts the seasons its release publishes: 2002
 #'   onward for the three WNBA crosswalks; for WBB, `load_wbb_team_crosswalk()`
-#'   2002-2003 and 2014 onward, `load_wbb_schedule_crosswalk()` 2021 onward and
-#'   `load_wbb_player_crosswalk()` 2014-2022 and 2025 onward. The upper bound is
+#'   2002 onward, `load_wbb_schedule_crosswalk()` 2021 onward and
+#'   `load_wbb_player_crosswalk()` 2014 onward. The upper bound is
 #'   [most_recent_wnba_season()] / [most_recent_wbb_season()]. When `seasons`
 #'   is left at its default and that season is not published yet, the loader
 #'   reads the newest published season instead, with a message; an explicit
@@ -130,7 +130,7 @@ load_wnba_player_crosswalk <- function(seasons = most_recent_wnba_season()) {
 #'   try(load_wbb_team_crosswalk(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_team_crosswalk <- function(seasons = most_recent_wbb_season()) {
-  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_team_crosswalk", 2002, most_recent_wbb_season(), gaps = 2004:2013,
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_team_crosswalk", 2002, most_recent_wbb_season(),
                          default = missing(seasons))
 }
 
@@ -173,6 +173,6 @@ NULL
 #'   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #' }
 load_wbb_player_crosswalk <- function(seasons = most_recent_wbb_season()) {
-  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_player_crosswalk", 2014, most_recent_wbb_season(), gaps = 2023:2024,
+  .load_wehoop_crosswalk(seasons, "wbb_crosswalk", "wbb_player_crosswalk", 2014, most_recent_wbb_season(),
                          default = missing(seasons))
 }

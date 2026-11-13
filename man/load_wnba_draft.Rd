@@ -137,13 +137,11 @@ load_wnba_player_core(
 release tag publishes (any other season is an error):
 \itemize{
 \item \code{load_wnba_pbp()}, \code{load_wnba_player_box()}, \code{load_wnba_standings()},
-\code{load_wnba_shots()}, \code{load_wnba_game_rosters()}: 2002 onward.
-\item \code{load_wnba_team_box()}, \code{load_wnba_officials()}, \code{load_wnba_player_core()}: 2003 onward.
-\item \code{load_wnba_schedule()}: 1997, 1999 and 2001 onward.
-\item \code{load_wnba_player_stats()}, \code{load_wnba_team_stats()}: 2002-2021 and 2023
-onward (2022 was never published).
-\item \code{load_wnba_draft()}: 2018 onward (2018-2025 are published as \code{.parquet}
-only and need the \pkg{arrow} package).
+\code{load_wnba_shots()}, \code{load_wnba_game_rosters()}, \code{load_wnba_player_core()},
+\code{load_wnba_player_stats()}, \code{load_wnba_team_stats()}: 2002 onward.
+\item \code{load_wnba_team_box()}, \code{load_wnba_officials()}: 2003 onward.
+\item \code{load_wnba_schedule()}: 1997 onward.
+\item \code{load_wnba_draft()}: 2018 onward.
 \item \code{load_wnba_rosters()}: 2024 onward.
 }
 

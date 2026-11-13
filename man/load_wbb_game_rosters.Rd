@@ -127,19 +127,18 @@ only the seasons its release tag publishes (any other season is an error):
 \itemize{
 \item \code{load_wbb_pbp()}, \code{load_wbb_shots()}, \code{load_wbb_game_rosters()}: 2004 onward.
 \item \code{load_wbb_team_box()}, \code{load_wbb_player_box()}: 2004 onward.
-\item \code{load_wbb_player_core()}: 2004 and 2006 onward (2005 was never published).
+\item \code{load_wbb_player_core()}: 2004 onward.
 \item \code{load_wbb_schedule()}: 2001 onward.
-\item \code{load_wbb_standings()}: 2003-2023 and 2026 onward.
-\item \code{load_wbb_player_stats()}: 2006-2023 and 2026 onward.
-\item \code{load_wbb_team_stats()}: 2010-2023 and 2026 onward.
-\item \code{load_wbb_officials()}: 2014-2023 and 2026 onward.
+\item \code{load_wbb_standings()}: 2003 onward.
+\item \code{load_wbb_player_stats()}: 2010 onward. ESPN has no single-season player rows before
+2009-10; the 2006-2009 files held multi-season totals and were withdrawn on 2026-11-13.
+\item \code{load_wbb_team_stats()}: 2010 onward.
+\item \code{load_wbb_officials()}: 2014 onward.
 \item \code{load_wbb_rosters()}: 2026 onward.
 }
 
-2024 and 2025 were never published for the season stats, standings and
-officials. A few seasons are published as \code{.parquet} only (2005 box scores,
-2023 season stats, standings and officials, 2023-2025 game rosters); those
-need the \pkg{arrow} package. The upper bound is \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
+Every season in those ranges is published as \code{.rds} (checked 2026-11-13).
+The upper bound is \code{\link[=most_recent_wbb_season]{most_recent_wbb_season()}}.
 When \code{seasons} is left at its default and that season's
 file is not published yet, the loader reads the newest published season
 instead, with a message. An explicit request for an unpublished season
