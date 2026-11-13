@@ -39,6 +39,8 @@
   * `load_wnba_schedule()` accepts 1998 and 2000.
   * `load_wnba_player_stats()` and `load_wnba_team_stats()` accept 2022.
   * `load_wnba_player_core()` now starts in 2002.
+  * `load_wbb_player_stats()` now starts in 2010. The 2006-2009 release files held multi-season totals, since ESPN
+    has no single-season WBB player rows before 2009-10, and were withdrawn.
 * Every season in each documented range is now published as `.rds`, so the WBB 2005 box scores, the WBB 2023-2025
   game rosters and the WNBA 2018-2025 drafts no longer need \pkg{arrow}. Before, a reader without arrow got empty
   columns from some 2004-2022 WBB and WNBA files (wehoop#120).

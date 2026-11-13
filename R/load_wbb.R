@@ -11,7 +11,8 @@
 #'   * `load_wbb_player_core()`: 2004 onward.
 #'   * `load_wbb_schedule()`: 2001 onward.
 #'   * `load_wbb_standings()`: 2003 onward.
-#'   * `load_wbb_player_stats()`: 2006 onward.
+#'   * `load_wbb_player_stats()`: 2010 onward. ESPN has no single-season player rows before
+#'     2009-10; the 2006-2009 files held multi-season totals and were withdrawn on 2026-11-13.
 #'   * `load_wbb_team_stats()`: 2010 onward.
 #'   * `load_wbb_officials()`: 2014 onward.
 #'   * `load_wbb_rosters()`: 2026 onward.
@@ -474,7 +475,7 @@ load_wbb_player_stats <- function(seasons = most_recent_wbb_season(), ...,
     "espn_womens_college_basketball_player_season_stats/player_season_stats_",
     seasons, ".rds"
   )
-  seasons <- .loader_seasons(seasons, 2006, most_recent_wbb_season(),
+  seasons <- .loader_seasons(seasons, 2010, most_recent_wbb_season(),
                              fn = "load_wbb_player_stats", url_for = url_for,
                              default = missing(seasons), parquet = TRUE)
 
