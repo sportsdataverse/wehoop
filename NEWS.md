@@ -41,6 +41,10 @@
   * `load_wnba_player_core()` now starts in 2002.
   * `load_wbb_standings()` now starts in 2001 and `load_wnba_team_stats()` in 1997 (new ESPN scrapes; ESPN has
     no Sacramento Monarchs team stats in any season).
+  * `load_wnba_player_stats()` now starts in 1997 (1997-2001 athletes listed from ESPN's statistics-by-athlete
+    endpoint).
+  * The `load_wnba_draft()` and `load_wnba_rosters()` help points to `load_wnba_stats_draft()` and
+    `load_wnba_stats_rosters()` for earlier seasons: ESPN has no drafts before 2018 and serves only current rosters.
   * `load_wbb_player_stats()` now starts in 2010. The 2006-2009 release files held multi-season totals, since ESPN
     has no single-season WBB player rows before 2009-10, and were withdrawn.
 * Every season in each documented range is now published as `.rds`, so the WBB 2005 box scores, the WBB 2023-2025
