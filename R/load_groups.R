@@ -38,6 +38,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
 #' @export
 #' @family Conference and Division Group loader functions
 #' @examples
@@ -63,6 +64,7 @@ load_wbb_groups <- function(..., dbConnection = NULL, tablename = NULL) {
 }
 
 #' @rdname load_wbb_groups
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
 #' @export
 #' @examples
 #' \donttest{
@@ -116,6 +118,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
 #' @export
 #' @family Conference and Division Group loader functions
 #' @examples
@@ -141,6 +144,7 @@ load_wbb_group_seasons <- function(..., dbConnection = NULL, tablename = NULL) {
 }
 
 #' @rdname load_wbb_group_seasons
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
 #' @export
 #' @examples
 #' \donttest{
@@ -193,6 +197,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
 #' @export
 #' @family Conference and Division Group loader functions
 #' @examples
@@ -218,6 +223,7 @@ load_wbb_group_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
 }
 
 #' @rdname load_wbb_group_aliases
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
 #' @export
 #' @examples
 #' \donttest{
@@ -279,6 +285,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
 #' @export
 #' @family Conference and Division Group loader functions
 #' @examples
@@ -324,6 +331,7 @@ load_wbb_team_group_seasons <- function(seasons = most_recent_wbb_season(),
 }
 
 #' @rdname load_wbb_team_group_seasons
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
 #' @export
 #' @examples
 #' \donttest{
@@ -406,6 +414,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
 #' @export
 #' @family Conference and Division Group loader functions
 #' @examples
@@ -431,6 +440,7 @@ load_wbb_team_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
 }
 
 #' @rdname load_wbb_team_aliases
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
 #' @export
 #' @examples
 #' \donttest{
@@ -493,6 +503,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups>
 #' @export
 #' @family Conference and Division Group loader functions
 #' @examples
@@ -518,6 +529,7 @@ load_wbb_player_aliases <- function(..., dbConnection = NULL, tablename = NULL) 
 }
 
 #' @rdname load_wbb_player_aliases
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups>
 #' @export
 #' @examples
 #' \donttest{

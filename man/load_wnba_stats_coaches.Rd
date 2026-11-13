@@ -29,6 +29,37 @@
 \alias{load_wnba_stats_pbp_manifest}
 \alias{load_wnba_stats_possessions}
 \title{\strong{Load cleaned WNBA Stats API season rosters from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_coaches}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_draft}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_shots}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_game_rosters}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_officials}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_game_logs}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_schedules}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_pbp}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_player_season_stats}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_lineups}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_team_season_stats}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_standings}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_possessions}
+}
 \usage{
 load_wnba_stats_rosters(
   seasons = most_recent_wnba_stats_season(),

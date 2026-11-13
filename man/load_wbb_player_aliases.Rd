@@ -4,6 +4,11 @@
 \alias{load_wbb_player_aliases}
 \alias{load_wnba_player_aliases}
 \title{\strong{Load provider player id aliases (WBB / WNBA) from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups}
+}
 \usage{
 load_wbb_player_aliases(..., dbConnection = NULL, tablename = NULL)
 

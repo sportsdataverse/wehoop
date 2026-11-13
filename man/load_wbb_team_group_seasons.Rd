@@ -4,6 +4,11 @@
 \alias{load_wbb_team_group_seasons}
 \alias{load_wnba_team_group_seasons}
 \title{\strong{Load team conference membership by season (WBB / WNBA) from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups}
+}
 \usage{
 load_wbb_team_group_seasons(
   seasons = most_recent_wbb_season(),

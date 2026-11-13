@@ -4,6 +4,11 @@
 \alias{load_wbb_group_aliases}
 \alias{load_wnba_group_aliases}
 \title{\strong{Load conference and division aliases (WBB / WNBA) from the data repo}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_groups}
+
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_groups}
+}
 \usage{
 load_wbb_group_aliases(..., dbConnection = NULL, tablename = NULL)
 

@@ -149,6 +149,7 @@
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_pbp>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examplesIf interactive()
@@ -233,6 +234,7 @@ load_ncaa_wbb_pbp <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_shots>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examplesIf interactive()
@@ -377,6 +379,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_lineups>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examplesIf interactive()
@@ -474,6 +477,7 @@ load_ncaa_wbb_lineups <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_matchup_stints>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examplesIf interactive()
@@ -594,6 +598,7 @@ load_ncaa_wbb_matchup_stints <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_possessions>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examplesIf interactive()
@@ -670,6 +675,7 @@ load_ncaa_wbb_possessions <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm_within_team>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples
@@ -749,6 +755,7 @@ load_ncaa_wbb_rapm_within_team <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rapm>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples
@@ -939,6 +946,7 @@ load_ncaa_wbb_rapm <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_player_box>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examplesIf interactive()
@@ -1084,6 +1092,7 @@ load_ncaa_wbb_player_box <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_box>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples
@@ -1148,6 +1157,7 @@ load_ncaa_wbb_team_box <- function(seasons = most_recent_wbb_season(),
 #'    |player   |character |Player name (raw, upper-cased).                 |
 #'    |games    |integer   |Games played (season total).                    |
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_rosters>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples
@@ -1226,6 +1236,7 @@ load_ncaa_wbb_rosters <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_rosters>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples
@@ -1292,6 +1303,7 @@ load_ncaa_wbb_team_rosters <- function(seasons = most_recent_wbb_season(),
 #'    |away_score |integer   |Away team score after the event.                |
 #'    |season     |integer   |Season identifier (4-digit season-ending year). |
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_schedule>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples
@@ -1356,6 +1368,7 @@ load_ncaa_wbb_schedule <- function(seasons = most_recent_wbb_season(),
 #'    |id         |integer   |stats.ncaa.org team identifier.                 |
 #'    |season     |integer   |Season identifier (4-digit season-ending year). |
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/ncaa_wbb_team_ids>
 #' @export
 #' @family NCAA WBB loader functions
 #' @examples

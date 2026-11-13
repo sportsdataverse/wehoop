@@ -64,6 +64,7 @@
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_player_impact>
 #' @export
 #' @family Model Dataset loader functions
 #' @examples
@@ -138,6 +139,7 @@ NULL
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_player_value>
 #' @export
 #' @family Model Dataset loader functions
 #' @examples
@@ -212,6 +214,7 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wbb_ratings>
 #' @export
 #' @family Model Dataset loader functions
 #' @examples

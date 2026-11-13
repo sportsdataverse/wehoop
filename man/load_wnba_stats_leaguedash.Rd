@@ -3,6 +3,9 @@
 \name{load_wnba_stats_leaguedash}
 \alias{load_wnba_stats_leaguedash}
 \title{\strong{Load wehoop WNBA Stats League Dashboard cube}}
+\source{
+\url{https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_leaguedash}
+}
 \usage{
 load_wnba_stats_leaguedash(
   seasons = most_recent_wnba_stats_season(),
