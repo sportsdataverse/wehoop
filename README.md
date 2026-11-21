@@ -190,7 +190,8 @@ season); most can also write to a database through `dbConnection` and
   - **WNBA Stats API** (`load_wnba_stats_*`): play-by-play, schedules,
     rosters, coaches, player game logs, the league dashboard cube
     (`load_wnba_stats_leaguedash()`), draft, shots, game rosters,
-    officials and possessions (`load_wnba_stats_possessions()`).
+    officials, player matchups (`load_wnba_stats_matchups()`) and
+    possessions (`load_wnba_stats_possessions()`).
   - **NCAA play-by-play engine** (`load_ncaa_wbb_*`, 13 loaders):
     play-by-play, shots, lineups, matchup stints, possessions, RAPM
     (within-team and league-wide), box scores, rosters, schedules and

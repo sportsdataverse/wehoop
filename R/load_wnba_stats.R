@@ -1132,6 +1132,166 @@ load_wnba_stats_leaguedash <- function(seasons = most_recent_wnba_stats_season()
 }
 
 
+#' **Load wehoop WNBA Stats player matchups**
+#' @name load_wnba_stats_matchups
+NULL
+
+#' @title
+#' **Load WNBA Stats API offensive-vs-defensive player matchups from the data repo**
+#' @rdname load_wnba_stats_matchups
+#' @description Loads the `wnba_stats_matchups` release tag: one row per
+#'   (offensive player, defensive player) pair per season, season type and
+#'   per mode, with the offensive player's production while matched up
+#'   against that defender.The regular-season rows are stats.wnba.com's
+#'   `leagueseasonmatchups` table. stats.wnba.com serves no playoff rows for
+#'   that endpoint, so the playoffs rows are the season's playoff games'
+#'   `boxscorematchupsv3` matchups summed into the same columns (summing the
+#'   regular-season games the same way reproduces the official table).
+#'
+#'   Coverage follows what stats.wnba.com publishes: 2023 onward, with no 2026
+#'   playoffs. Its matchup data is missing some games -- 111 of the 330 2026
+#'   regular-season games, and about 90 of the 240 in 2023 -- so those
+#'   seasons' totals undercount.
+#'
+#'   `matchup_min` is `"MM:SS"` text in `totals` rows and decimal minutes in
+#'   `pergame` rows, so reading both per modes makes it character. Pass one
+#'   `per_mode` to keep the native types.
+#' @param seasons A vector of 4-digit years associated with given WNBA seasons.
+#'   Published coverage runs 2023 through the most recent season. Pass
+#'   `seasons = TRUE` for every published season. (Min: 2023)
+#' @param season_type `"regular-season"` and/or `"playoffs"`; `NULL` (the
+#'   default) reads both.
+#' @param per_mode `"totals"` and/or `"pergame"`; `NULL` (the default) reads both.
+#' @param ... Additional arguments passed to an underlying function that writes
+#'   the season data into a database.
+#' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
+#' @param tablename The name of the data table within the database
+#' @return Returns a `wehoop_data` tibble with one row per matchup pair per
+#'   season type per per mode. In `pergame` rows the counting columns are
+#'   per-game averages.
+#'
+#'    \if{html}{\tabular{lll}{
+#'       col_name \tab types \tab description \cr
+#'       season_id \tab character \tab Season-type digit (2 regular season, 4 playoffs) followed by the season, e.g. '22025'. \cr
+#'       off_player_id \tab integer \tab WNBA Stats id of the offensive player. \cr
+#'       off_player_name \tab character \tab Offensive player's name. \cr
+#'       def_player_id \tab integer \tab WNBA Stats id of the defender. \cr
+#'       def_player_name \tab character \tab Defender's name. \cr
+#'       gp \tab integer \tab Games in which the pair was matched up. \cr
+#'       matchup_min \tab character \tab Time matched up: 'MM:SS' in totals rows, decimal minutes per game in pergame rows. \cr
+#'       partial_poss \tab numeric \tab Possessions matched up, counting the matched-up share of each possession. \cr
+#'       player_pts \tab integer \tab Points the offensive player scored while matched up. \cr
+#'       team_pts \tab integer \tab Points the offensive player's team scored while matched up. \cr
+#'       matchup_ast \tab integer \tab Assists by the offensive player while matched up. \cr
+#'       matchup_tov \tab integer \tab Turnovers by the offensive player while matched up. \cr
+#'       matchup_blk \tab integer \tab Offensive player's shots the defender blocked. \cr
+#'       matchup_fgm \tab integer \tab Field goals the offensive player made while matched up. \cr
+#'       matchup_fga \tab integer \tab Field goals the offensive player attempted while matched up. \cr
+#'       matchup_fg_pct \tab numeric \tab matchup_fgm / matchup_fga (0 when no attempts). \cr
+#'       matchup_fg3_m \tab integer \tab Three-pointers the offensive player made while matched up. \cr
+#'       matchup_fg3_a \tab integer \tab Three-pointers the offensive player attempted while matched up. \cr
+#'       matchup_fg3_pct \tab numeric \tab matchup_fg3_m / matchup_fg3_a (0 when no attempts). \cr
+#'       help_blk \tab integer \tab Help-defense blocks (0 in every published row). \cr
+#'       help_fgm \tab integer \tab Field goals made against help defense (0 in every published row). \cr
+#'       help_fga \tab integer \tab Field goals attempted against help defense (0 in every published row). \cr
+#'       help_fg_perc \tab integer \tab help_fgm / help_fga (0 in every published row). \cr
+#'       matchup_ftm \tab integer \tab Free throws the offensive player made while matched up. \cr
+#'       matchup_fta \tab integer \tab Free throws the offensive player attempted while matched up. \cr
+#'       sfl \tab integer \tab Shooting fouls the defender committed on the offensive player. \cr
+#'       matchup_time_sec \tab numeric \tab Seconds matched up (totals rows only; NA in pergame rows). \cr
+#'       season \tab integer \tab Season (4-digit year). \cr
+#'       season_type \tab character \tab 'regular-season' or 'playoffs'. \cr
+#'       per_mode \tab character \tab 'totals' or 'pergame'. \cr
+#'    }}
+#'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
+#'
+#' @source <https://github.com/sportsdataverse/sportsdataverse-data/releases/tag/wnba_stats_matchups>,
+#'   published by <https://github.com/sportsdataverse/wehoop-wnba-stats-data>.
+#' @export
+#' @family WNBA Stats loader functions
+#' @examples
+#' \donttest{
+#'   try(load_wnba_stats_matchups(seasons = 2025, season_type = "playoffs",
+#'                                per_mode = "totals"))
+#' }
+load_wnba_stats_matchups <- function(seasons = most_recent_wnba_stats_season(),
+                                     season_type = NULL, per_mode = NULL,
+                                     ...,
+                                     dbConnection = NULL, tablename = NULL) {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  in_db <- !is.null(dbConnection) && !is.null(tablename)
+
+  pick <- function(name, value, valid) {
+    if (is.null(value)) return(valid)
+    value <- unique(as.character(value))
+    if (!length(value) || !all(value %in% valid)) {
+      cli::cli_abort(c(
+        "x" = "Unknown {.arg {name}} {.val {setdiff(value, valid)}}.",
+        "i" = "Expected one or more of {.val {valid}}."
+      ))
+    }
+    value
+  }
+  season_type <- pick("season_type", season_type, c("regular-season", "playoffs"))
+  per_mode <- pick("per_mode", per_mode, c("totals", "pergame"))
+
+  url_of <- function(s, st, pm) {
+    paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+           "wnba_stats_matchups/leagueseasonmatchups_", st, "_", pm, "_", s, ".rds")
+  }
+  seasons <- .loader_seasons(seasons, 2023, most_recent_wnba_stats_season(),
+                             fn = "load_wnba_stats_matchups",
+                             url_for = function(s) url_of(s, "regular-season", "totals"),
+                             default = missing(seasons))
+
+  jobs <- expand.grid(per_mode = per_mode, season_type = season_type, season = seasons,
+                      stringsAsFactors = FALSE, KEEP.OUT.ATTRS = FALSE)
+  # An unpublished file inside a published season (2026 has no playoffs) is
+  # skipped quietly; a season with no file at all is warned about below.
+  read <- function(i) {
+    withCallingHandlers(
+      rds_from_url(url_of(jobs$season[i], jobs$season_type[i], jobs$per_mode[i])),
+      wehoop_read_failed = function(w) {
+        if (grepl("404", w$reason, fixed = TRUE)) invokeRestart("muffleWarning")
+      }
+    )
+  }
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(steps = nrow(jobs))
+  out <- lapply(seq_len(nrow(jobs)), progressively(read, p))
+
+  empty <- setdiff(seasons, jobs$season[vapply(out, NROW, 1L) > 0])
+  if (length(empty)) {
+    cli::cli_warn("{.fn load_wnba_stats_matchups}: no {.val {season_type}} matchups for season{?s} {empty}; skipped.")
+  }
+
+  out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
+  if (in_db) {
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
+    out <- NULL
+  } else {
+    class(out) <- c("wehoop_data","tbl_df","tbl","data.frame")
+  }
+  out
+}
+
+#' @rdname load_wnba_stats_matchups
+#' @description `load_wnba_stats_matchups_manifest()` returns the per-season
+#'   manifest CSV (`season`, `row_count`, `generated_at_utc`,
+#'   `source_endpoint`) for the `wnba_stats_matchups` release tag without
+#'   downloading any season's full data.
+#' @export
+load_wnba_stats_matchups_manifest <- function() {
+  url <- paste0(
+    "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
+    "wnba_stats_matchups/wnba_stats_matchups_in_data_repo.csv"
+  )
+  .release_csv_from_url(url)
+}
+
+
 # -----------------------------------------------------------------------------
 # Manifest loaders -- thin wrappers around .release_csv_from_url() that return the
 # per-season manifest CSV (columns: season, row_count, generated_at_utc,

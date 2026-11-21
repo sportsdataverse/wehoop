@@ -319,6 +319,8 @@ reference:
       - '`load_wnba_stats_coaches`'
       - '`load_wnba_stats_coaches_manifest`'
       - '`load_wnba_stats_leaguedash`'
+      - '`load_wnba_stats_matchups`'
+      - '`load_wnba_stats_matchups_manifest`'
       - '`load_wnba_stats_player_stats`'
       - '`load_wnba_stats_player_stats_manifest`'
       - '`load_wnba_stats_lineups`'
