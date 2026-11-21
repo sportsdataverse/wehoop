@@ -63,6 +63,7 @@ with sportsdataverse-py's \code{metric_curves()} and published to the
 Other WNBA Stats loader functions:
 \code{\link[=load_wnba_stats_game_lineups]{load_wnba_stats_game_lineups()}},
 \code{\link[=load_wnba_stats_leaguedash]{load_wnba_stats_leaguedash()}},
+\code{\link[=load_wnba_stats_matchups]{load_wnba_stats_matchups()}},
 \code{\link[=load_wnba_stats_player_boxscores]{load_wnba_stats_player_boxscores()}},
 \code{\link[=load_wnba_stats_rolling_windows]{load_wnba_stats_rolling_windows()}},
 \code{\link[=load_wnba_stats_rosters]{load_wnba_stats_rosters()}}

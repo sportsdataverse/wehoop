@@ -343,6 +343,12 @@
   for the league, each team and each player, 1997 onward) and
   `load_wnba_stats_rolling_windows()` (player shooting over her last 50 and
   200 attempts, 1997 onward). They accept only published seasons.
+* `load_wnba_stats_matchups()` reads the new `wnba_stats_matchups` release: one row per
+  (offensive player, defender) pair per season, season type and per mode, 2023 onward, with
+  `load_wnba_stats_matchups_manifest()` for its manifest. The playoffs rows are summed from
+  each playoff game's `boxscorematchupsv3` matchups, since stats.wnba.com serves no playoff
+  season table; there are no 2026 playoffs, and the 2026 regular season lacks 111 of its 330
+  games upstream.
 * `load_wnba_stats_coaches()` no longer requests the unpublished 2019 season:
   `seasons = TRUE` (and `update_wnba_stats_db()`) leave it out, and an
   explicit 2019 warns and is skipped without a download.
