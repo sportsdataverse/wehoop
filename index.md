@@ -186,7 +186,9 @@ split by season); most can also write to a database through
 - **WNBA Stats API** (`load_wnba_stats_*`): play-by-play, schedules,
   rosters, coaches, player game logs, the league dashboard cube
   ([`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md)),
-  draft, shots, game rosters, officials and possessions
+  draft, shots, game rosters, officials, player matchups
+  ([`load_wnba_stats_matchups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_matchups.md))
+  and possessions
   ([`load_wnba_stats_possessions()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)).
 - **NCAA play-by-play engine** (`load_ncaa_wbb_*`, 13 loaders):
   play-by-play, shots, lineups, matchup stints, possessions, RAPM

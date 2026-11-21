@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:23:00 UTC
+#> ℹ Data updated: 2026-11-21 11:29:11 UTC
 #> # A tibble: 75 × 6
 #>    players v2          gp    entity_id min   mpg  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr>
@@ -62,20 +62,20 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:23:00 UTC
+#> ℹ Data updated: 2026-11-21 11:29:11 UTC
 #> # A tibble: 100 × 8
-#>    players v2                gp    entity_id gs    mpg   ppg   pts  
-#>    <chr>   <chr>             <chr> <chr>     <chr> <chr> <chr> <chr>
-#>  1 1       A. Joyner         5     14985     NA    NA    NA    NA   
-#>  2 2       A. Roberson       5     15265     NA    NA    NA    NA   
-#>  3 3       N. Jones          5     16049     NA    NA    NA    NA   
-#>  4 4       C. Baker          5     16263     NA    NA    NA    NA   
-#>  5 5       K. Lewis-Williams 5     16542     NA    NA    NA    NA   
-#>  6 6       K. Lindsey        5     16614     NA    NA    NA    NA   
-#>  7 7       M. Ugwah          5     16992     NA    NA    NA    NA   
-#>  8 8       L. Brooks         5     21512     NA    NA    NA    NA   
-#>  9 9       C. Silva          5     21564     NA    NA    NA    NA   
-#> 10 10      I. Berry          5     21605     NA    NA    NA    NA   
+#>    players v2                   gp    entity_id gs    mpg   ppg   pts  
+#>    <chr>   <chr>                <chr> <chr>     <chr> <chr> <chr> <chr>
+#>  1 1       V. Morris            8     22897     NA    NA    NA    NA   
+#>  2 2       A. Grant             8     26746     NA    NA    NA    NA   
+#>  3 3       A. Harris            8     26747     NA    NA    NA    NA   
+#>  4 4       E. Clay              8     29296     NA    NA    NA    NA   
+#>  5 5       S. Amer              8     30741     NA    NA    NA    NA   
+#>  6 6       C. Crawford          8     30744     NA    NA    NA    NA   
+#>  7 7       K. Banks             8     30747     NA    NA    NA    NA   
+#>  8 8       M. Moore             7     13283     NA    NA    NA    NA   
+#>  9 9       V. Fontenelle-Posson 7     14256     NA    NA    NA    NA   
+#> 10 10      S. Tyler             7     14460     NA    NA    NA    NA   
 #> # ℹ 90 more rows
 # }
 ```

@@ -49,23 +49,24 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_awards(season = 2024)
 #> ── ESPN WNBA Season Awards Index ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:22:15 UTC
-#> # A tibble: 14 × 4
+#> ℹ Data updated: 2026-11-21 11:28:32 UTC
+#> # A tibble: 15 × 4
 #>    season award_id ref                                                    league
 #>     <int> <chr>    <chr>                                                  <chr> 
 #>  1   2024 241      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#>  2   2024 244      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#>  3   2024 246      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#>  2   2024 246      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#>  3   2024 244      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  4   2024 243      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  5   2024 242      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  6   2024 245      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 #>  7   2024 257      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#>  8   2024 237      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#>  9   2024 250      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#> 10   2024 251      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#> 11   2024 238      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#> 12   2024 239      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#> 13   2024 248      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
-#> 14   2024 247      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#>  8   2024 249      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#>  9   2024 237      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#> 10   2024 250      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#> 11   2024 251      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#> 12   2024 238      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#> 13   2024 239      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#> 14   2024 248      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
+#> 15   2024 247      http://sports.core.api.espn.com/v2/sports/basketball/… wnba  
 # }
 ```

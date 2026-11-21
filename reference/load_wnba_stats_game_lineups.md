@@ -71,6 +71,7 @@ Returns a `wehoop_data` tibble with one row per play-by-play event.
 
 Other WNBA Stats loader functions:
 [`load_wnba_stats_leaguedash()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_leaguedash.md),
+[`load_wnba_stats_matchups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_matchups.md),
 [`load_wnba_stats_metric_curves()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_metric_curves.md),
 [`load_wnba_stats_player_boxscores()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_player_boxscores.md),
 [`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md),

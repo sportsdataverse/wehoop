@@ -119,13 +119,16 @@ Other Genius Functions:
 # \donttest{
   try(genius_competition_games(comp_id = 49915))
 #> ── Genius LiveStats competition games ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:23:03 UTC
-#> # A tibble: 3 × 20
+#> ℹ Data updated: 2026-11-21 11:29:12 UTC
+#> # A tibble: 6 × 20
 #>   league_id competition_id match_id match_status match_time match_time_utc  live
 #>       <int>          <int>    <int> <chr>        <chr>      <chr>          <int>
-#> 1       115          49915  2902719 SCHEDULED    2026-11-1… 2026-11-14 15…     0
-#> 2       115          49915  2902721 SCHEDULED    2026-11-1… 2026-11-14 15…     0
-#> 3       115          49915  2902724 SCHEDULED    2026-11-1… 2026-11-14 15…     0
+#> 1       115          49915  2902730 SCHEDULED    2026-11-2… 2026-11-21 13…     0
+#> 2       115          49915  2902731 SCHEDULED    2026-11-2… 2026-11-21 14…     0
+#> 3       115          49915  2902732 SCHEDULED    2026-11-2… 2026-11-21 15…     0
+#> 4       115          49915  2902733 SCHEDULED    2026-11-2… 2026-11-21 15…     0
+#> 5       115          49915  2902734 SCHEDULED    2026-11-2… 2026-11-21 15…     0
+#> 6       115          49915  2902735 SCHEDULED    2026-11-2… 2026-11-22 11…     0
 #> # ℹ 13 more variables: period <int>, period_type <chr>, clock <chr>,
 #> #   home_team_id <int>, home_name <chr>, home_name_international <chr>,
 #> #   home_code <chr>, home_score <int>, away_team_id <int>, away_name <chr>,

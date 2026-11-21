@@ -50,14 +50,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_team_news(team_id = "17", limit = 5)
 #> ── ESPN WNBA Team News (team_id=17) from ESPN.com ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:22:22 UTC
+#> ℹ Data updated: 2026-11-21 11:28:38 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  5.05e7 Story JuJu Wa… JuJu Watki… 2026-11-… FALSE   Micha… https:/… 59       
-#> 2  5.04e7 Story 2027 WN… An early l… 2026-11-… FALSE   Doug … https:/… 22000    
-#> 3  5.04e7 Story The 10 … WNBA Art, … 2026-11-… FALSE   Kate … https:/… 59       
-#> 4  5.04e7 Head… Valkyri… The defend… 2026-11-… FALSE   Doug … https:/… 59       
-#> 5  5.04e7 Story Where d… Las Vegas'… 2026-11-… FALSE   Micha… https:/… 59       
+#> 1  2.96e7 Story Tom Bra… The legend… 2026-11-… FALSE   ESPN   https:/… 59       
+#> 2  5.05e7 Story 2027 WN… Toronto ed… 2026-11-… FALSE   Micha… https:/… 59       
+#> 3  5.05e7 Story JuJu Wa… JuJu Watki… 2026-11-… FALSE   Micha… https:/… 59       
+#> 4  5.04e7 Story 2027 WN… An early l… 2026-11-… FALSE   Doug … https:/… 22000    
+#> 5  5.04e7 Story The 10 … WNBA Art, … 2026-11-… FALSE   Kate … https:/… 59       
 # }
 ```

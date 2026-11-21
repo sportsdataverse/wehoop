@@ -248,6 +248,12 @@ API artifacts
 
   **Load wehoop WNBA Stats League Dashboard cube**
 
+- [`load_wnba_stats_matchups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_matchups.md)
+  [`load_wnba_stats_matchups_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_matchups.md)
+  :
+
+  **Load wehoop WNBA Stats player matchups**
+
 - [`load_wnba_stats_game_lineups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_game_lineups.md)
   :
 

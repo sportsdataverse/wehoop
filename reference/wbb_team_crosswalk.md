@@ -97,7 +97,26 @@ Other WBB Crosswalk Functions:
 # \donttest{
   # fox = data.frame() skips the per-conference Fox calls; drop it to fill the Fox columns.
   try(wbb_team_crosswalk(season = 2025, fox = data.frame()))
-#> Error in .bb_source_error(sprintf("Torvik %d: no team rows (%d rows, columns %s); a blocked or empty response must not ship as NA bart_* columns",  : 
-#>   Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
+#> ── WBB team crosswalk (ESPN / Fox / Torvik) ──────────────────── wehoop 3.1.0 ──
+#> ℹ Data updated: 2026-11-21 11:33:11 UTC
+#> # A tibble: 363 × 18
+#>    season espn_team_id espn_abbreviation espn_display_name       espn_short_name
+#>     <int>        <int> <chr>             <chr>                   <chr>          
+#>  1   2025         2000 ACU               Abilene Christian Wild… Abilene Chrstn 
+#>  2   2025         2005 AF                Air Force Falcons       Air Force      
+#>  3   2025         2006 AKR               Akron Zips              Akron          
+#>  4   2025         2010 AAMU              Alabama A&M Bulldogs    Alabama A&M    
+#>  5   2025          333 ALA               Alabama Crimson Tide    Alabama        
+#>  6   2025         2011 ALST              Alabama State Lady Hor… Alabama St     
+#>  7   2025         2016 ALCN              Alcorn State Lady Brav… Alcorn St      
+#>  8   2025           44 AMER              American University Ea… American       
+#>  9   2025         2026 APP               App State Mountaineers  App State      
+#> 10   2025            9 ASU               Arizona State Sun Devi… Arizona St     
+#> # ℹ 353 more rows
+#> # ℹ 13 more variables: espn_location <chr>, espn_mascot <chr>,
+#> #   espn_conference <chr>, fox_team_id <chr>, fox_team_name <chr>,
+#> #   fox_section <chr>, bart_team <chr>, bart_conf <chr>, yahoo_team_id <chr>,
+#> #   yahoo_team_name <chr>, fox_match_confidence <dbl>,
+#> #   bart_match_confidence <dbl>, match_method <chr>
 # }
 ```

@@ -45,14 +45,14 @@ Saiem Gilani
 # \donttest{
   espn_wnba_news(limit = 5)
 #> ── ESPN WNBA News from ESPN.com ──────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:22:11 UTC
+#> ℹ Data updated: 2026-11-21 11:28:29 UTC
 #> # A tibble: 5 × 9
 #>        id type  headline description published premium byline link_web league_id
 #>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  5.05e7 Media How Chi… How Chiney… 2026-11-… FALSE   NA     https:/… 59       
-#> 2  5.05e7 Story Where t… Teams will… 2026-11-… FALSE   ESPN   https:/… 59       
-#> 3  5.05e7 Story JuJu Wa… JuJu Watki… 2026-11-… FALSE   Micha… https:/… 59       
-#> 4  5.05e7 Head… Sources… The 2027 W… 2026-11-… FALSE   Alexa… https:/… 59       
-#> 5  5.04e7 Head… Wings' … Azzi Fudd … 2026-11-… FALSE   Micha… https:/… 59       
+#> 1  2.96e7 Story Tom Bra… "The legen… 2026-11-… FALSE   ESPN   https:/… 59       
+#> 2  5.05e7 Story Revisit… "\"Grand T… 2026-11-… FALSE   ESPN … https:/… 46       
+#> 3  5.05e7 Head… Sources… "The Fever… 2026-11-… FALSE   Alexa… https:/… 59       
+#> 4  5.05e7 Story 2027 WN… "Toronto e… 2026-11-… FALSE   Micha… https:/… 59       
+#> 5  5.05e7 Media Ogwumik… "Ogwumike … 2026-11-… FALSE   NA     https:/… 59       
 # }
 ```

@@ -40,23 +40,23 @@ Other Fox Sports Functions:
 # \donttest{
   # max_calls = 5 probes five seed team ids (up to five conferences).
   try(fox_wbb_teams_all(max_calls = 5))
-#> ✖ 2026-11-13 23:23:02.777059: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-11-21 11:29:12.317845: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "3", category = "scoring", who = "player", page = 0
 #> ✖ Error: The API returned an error
 #> ── Fox Sports WBB full team directory ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:23:02 UTC
+#> ℹ Data updated: 2026-11-21 11:29:12 UTC
 #> # A tibble: 49 × 3
 #>    fox_team_id fox_team_name                    fox_section                 
 #>    <chr>       <chr>                            <chr>                       
 #>  1 223         Bryant Bulldogs                  America East                
 #>  2 55          Njit Highlanders                 America East                
-#>  3 8           Umbc Retrievers                  America East                
-#>  4 4           Maine Black Bears                America East                
+#>  3 4           Maine Black Bears                America East                
+#>  4 6           New Hampshire Wildcats           America East                
 #>  5 1           University At Albany Great Danes America East                
-#>  6 2           Binghamton Bearcats              America East                
-#>  7 6           New Hampshire Wildcats           America East                
-#>  8 5           Umass Lowell River Hawks         America East                
-#>  9 9           Vermont Catamounts               America East                
+#>  6 8           Umbc Retrievers                  America East                
+#>  7 9           Vermont Catamounts               America East                
+#>  8 2           Binghamton Bearcats              America East                
+#>  9 5           Umass Lowell River Hawks         America East                
 #> 10 7           Stony Brook Seawolves            Coastal Athletic Association
 #> # ℹ 39 more rows
 # }

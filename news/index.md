@@ -532,6 +532,15 @@
   [`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md)
   (player shooting over her last 50 and 200 attempts, 1997 onward). They
   accept only published seasons.
+- [`load_wnba_stats_matchups()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_matchups.md)
+  reads the new `wnba_stats_matchups` release: one row per (offensive
+  player, defender) pair per season, season type and per mode, 2023
+  onward, with
+  [`load_wnba_stats_matchups_manifest()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_matchups.md)
+  for its manifest. The playoffs rows are summed from each playoff
+  game’s `boxscorematchupsv3` matchups, since stats.wnba.com serves no
+  playoff season table; there are no 2026 playoffs, and the 2026 regular
+  season lacks 111 of its 330 games upstream.
 - [`load_wnba_stats_coaches()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_coaches.md)
   no longer requests the unpublished 2019 season: `seasons = TRUE` (and
   [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md))

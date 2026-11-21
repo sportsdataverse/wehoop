@@ -145,20 +145,20 @@ lists every function in this family.
 # \donttest{
   try(scb_games_recent())
 #> ── BBL/DBBL Recent Games from the SCB API ────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-13 23:24:36 UTC
+#> ℹ Data updated: 2026-11-21 11:30:06 UTC
 #> # A tibble: 27 × 92
 #>    league season season_id game_id competition stage status bucket game_progress
 #>    <chr>   <int>     <int> <chr>   <chr>       <chr> <chr>  <chr>  <chr>        
-#>  1 dbbl     2027      2026 11224   DBBL        MAIN… OFFIC… past   E            
-#>  2 dbbl     2027      2026 11223   DBBL        MAIN… OFFIC… past   E            
-#>  3 dbbl     2027      2026 11225   DBBL        MAIN… OFFIC… past   E            
-#>  4 dbbl     2027      2026 11221   DBBL        MAIN… OFFIC… past   E            
-#>  5 dbbl     2027      2026 11227   DBBL        MAIN… OFFIC… past   E            
-#>  6 dbbl     2027      2026 11228   DBBL        MAIN… OFFIC… past   E            
-#>  7 dbbl     2027      2026 11226   DBBL        MAIN… OFFIC… past   E            
-#>  8 dbbl     2027      2026 11229   DBBL        MAIN… OFFIC… past   E            
-#>  9 dbbl     2027      2026 11230   DBBL        MAIN… OFFIC… past   E            
-#> 10 dbbl     2027      2026 11591   DBBL_CUP    THIR… PRE    prese… NA           
+#>  1 dbbl     2027      2026 11227   DBBL        MAIN… OFFIC… past   E            
+#>  2 dbbl     2027      2026 11228   DBBL        MAIN… OFFIC… past   E            
+#>  3 dbbl     2027      2026 11226   DBBL        MAIN… OFFIC… past   E            
+#>  4 dbbl     2027      2026 11229   DBBL        MAIN… OFFIC… past   E            
+#>  5 dbbl     2027      2026 11591   DBBL_CUP    THIR… OFFIC… past   E            
+#>  6 dbbl     2027      2026 11593   DBBL_CUP    THIR… OFFIC… past   E            
+#>  7 dbbl     2027      2026 11589   DBBL_CUP    THIR… OFFIC… past   E            
+#>  8 dbbl     2027      2026 11590   DBBL_CUP    THIR… OFFIC… past   E            
+#>  9 dbbl     2027      2026 11592   DBBL_CUP    THIR… OFFIC… past   E            
+#> 10 dbbl     2027      2026 11231   DBBL        MAIN… PRE    prese… NA           
 #> # ℹ 17 more rows
 #> # ℹ 83 more variables: scheduled_time <chr>, match_day <int>, is_tbd <lgl>,
 #> #   is_hidden <lgl>, home_team_id <chr>, home_season_team_id <chr>,
