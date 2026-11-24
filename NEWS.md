@@ -82,9 +82,10 @@
   warning of class `wehoop_warning` that names the function, for example
   `espn_wbb_conferences(): NAs introduced by coercion`, and the function
   finishes and returns its data. Since these are now warnings rather than
-  messages, `suppressMessages()` no longer hides them; use
-  `suppressWarnings(classes = "wehoop_warning")`. A classed warning (an
-  rlang or lifecycle one, say) also keeps its own class. The ESPN helpers'
+  messages, `suppressMessages()` no longer hides them; wrap the call as
+  `suppressWarnings(espn_wbb_teams(), classes = "wehoop_warning")`. A
+  classed warning (an rlang or lifecycle one, say) also keeps its own
+  class. The ESPN helpers'
   warnings name the internal helper (for example
   `.espn_basketball_team_roster()`), which the `espn_wbb_*()` and
   `espn_wnba_*()` wrappers of the same name share.

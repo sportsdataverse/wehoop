@@ -632,7 +632,7 @@ check_status <- function(res) {
       # keep the original classes, so suppressWarnings(classes = <original>) still matches
       orig <- setdiff(class(w), c("simpleWarning", "warning", "condition"))
       cli::cli_warn(c("!" = "{fn}(): {msg}"), class = c("wehoop_warning", orig), call = NULL)
-      invokeRestart("muffleWarning")
+      tryInvokeRestart("muffleWarning") # absent for a bare signalCondition()
     }
   )
 }
