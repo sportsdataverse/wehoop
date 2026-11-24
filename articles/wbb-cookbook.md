@@ -65,7 +65,7 @@ espn_wbb_team(team_id = team_id)                              # identity + recor
 #> # A tibble: 1 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
-#> 1 Overall Record <df [30 × 2]> 4-1     total
+#> 1 Overall Record <df [30 × 2]> 4-2     total
 #> 
 #> $NextEvent
 #> # A tibble: 1 × 4
@@ -193,14 +193,15 @@ espn_wbb_player_info(athlete_id = athlete_id)            # bio
 #> $Draft
 #> # A tibble: 0 × 0
 espn_wbb_player_gamelog(athlete_id = athlete_id, season = most_recent_wbb_season())
-#> # A tibble: 5 × 28
+#> # A tibble: 6 × 28
 #>   athlete_id season id     week  at_vs game_date score home_team_id away_team_id
 #>   <chr>       <int> <chr>  <chr> <chr> <chr>     <chr> <chr>        <chr>       
-#> 1 5239976      2027 40191… 3     vs    2026-11-… 63-50 52           2509        
-#> 2 5239976      2027 40192… 2     vs    2026-11-… 70-61 2509         2535        
-#> 3 5239976      2027 40192… 2     vs    2026-11-… 73-50 2509         2546        
-#> 4 5239976      2027 40192… 1     vs    2026-11-… 83-73 2509         2199        
-#> 5 5239976      2027 40192… 1     vs    2026-11-… 81-73 2509         85          
+#> 1 5239976      2027 40191… 3     vs    2026-11-… 58-57 2641         2509        
+#> 2 5239976      2027 40191… 3     vs    2026-11-… 63-50 52           2509        
+#> 3 5239976      2027 40192… 2     vs    2026-11-… 70-61 2509         2535        
+#> 4 5239976      2027 40192… 2     vs    2026-11-… 73-50 2509         2546        
+#> 5 5239976      2027 40192… 1     vs    2026-11-… 83-73 2509         2199        
+#> 6 5239976      2027 40192… 1     vs    2026-11-… 81-73 2509         85          
 #> # ℹ 19 more variables: home_team_score <chr>, away_team_score <chr>,
 #> #   game_result <chr>, league_name <chr>, league_abbreviation <chr>,
 #> #   league_short_name <chr>, event_note <chr>, team_id <chr>, team_uid <chr>,
@@ -471,16 +472,16 @@ espn_wbb_standings(year = season)
 #> # A tibble: 363 × 87
 #>    team_id team             conference avgpointsagainst avgpointsfor gamesbehind
 #>      <int> <chr>            <chr>                 <dbl>        <dbl>       <dbl>
-#>  1    2803 Bryant Bulldogs  America E…             46           63.6         0  
-#>  2    2885 NJIT Highlanders America E…             52.8         59.2         0.5
-#>  3     311 Maine Black Bea… America E…             67.4         73.4         1  
-#>  4     160 New Hampshire W… America E…             50.5         67.2         1.5
-#>  5     399 UAlbany Great D… America E…             69.3         59           1.5
-#>  6    2378 UMBC Retrievers  America E…             54.8         75.7         1.5
-#>  7     261 Vermont Catamou… America E…             66.2         70.8         1.5
-#>  8    2066 Binghamton Bear… America E…             65           61.5         2.5
-#>  9    2349 UMass Lowell Ri… America E…             65.8         62           3.5
-#> 10     235 Memphis Tigers   American …             50.8         66.6         0  
+#>  1    2803 Bryant Bulldogs  America E…             47.5         62.7         0  
+#>  2    2885 NJIT Highlanders America E…             56.3         57.9         1.5
+#>  3     160 New Hampshire W… America E…             51.7         67.1         1.5
+#>  4     399 UAlbany Great D… America E…             67.9         59.7         1.5
+#>  5     261 Vermont Catamou… America E…             65.1         70.9         1.5
+#>  6     311 Maine Black Bea… America E…             69           69.5         2  
+#>  7    2066 Binghamton Bear… America E…             61.1         64.4         2  
+#>  8    2378 UMBC Retrievers  America E…             58.6         75.9         2.5
+#>  9    2349 UMass Lowell Ri… America E…             64.4         61.7         3.5
+#> 10     235 Memphis Tigers   American …             55           68.7         0  
 #> # ℹ 353 more rows
 #> # ℹ 81 more variables: leaguewinpercent <dbl>, losses <dbl>, playoffseed <dbl>,
 #> #   pointdifferential <chr>, pointsagainst <dbl>, pointsfor <dbl>,

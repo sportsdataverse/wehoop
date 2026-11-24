@@ -278,7 +278,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 5,004 × 18
+#> # A tibble: 5,006 × 18
 #>    season espn_team_id team_abbreviation player_name     espn_athlete_id
 #>     <int>        <int> <chr>             <chr>                     <int>
 #>  1   2027         2000 ACU               salena carrasco         5458291
@@ -291,7 +291,7 @@ Other WBB Crosswalk Functions:
 #>  8   2027         2000 ACU               meredith mayes          5175546
 #>  9   2027         2000 ACU               raimi mccrary           5177964
 #> 10   2027         2000 ACU               samara morrow           5458292
-#> # ℹ 4,994 more rows
+#> # ℹ 4,996 more rows
 #> # ℹ 13 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
 #> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,

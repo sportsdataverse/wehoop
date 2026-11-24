@@ -172,8 +172,8 @@ lists every function in this family.
 # \donttest{
   try(scb_games())
 #> ── BBL/DBBL Games from the SCB API ───────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:30:06 UTC
-#> # A tibble: 137 × 89
+#> ℹ Data updated: 2026-11-24 19:19:26 UTC
+#> # A tibble: 138 × 89
 #>    league season season_id game_id competition stage       status scheduled_time
 #>    <chr>   <int>     <int> <chr>   <chr>       <chr>       <chr>  <chr>         
 #>  1 dbbl     2027      2026 11575   DBBL_CUP    FIRST_ROUND OFFIC… 2026-09-19T14…
@@ -186,7 +186,7 @@ lists every function in this family.
 #>  8 dbbl     2027      2026 11205   DBBL        MAIN_ROUND  OFFIC… 2026-10-04T15…
 #>  9 dbbl     2027      2026 11578   DBBL_CUP    SECOND_ROU… OFFIC… 2026-10-09T17…
 #> 10 dbbl     2027      2026 11580   DBBL_CUP    SECOND_ROU… OFFIC… 2026-10-10T13…
-#> # ℹ 127 more rows
+#> # ℹ 128 more rows
 #> # ℹ 81 more variables: match_day <int>, is_tbd <lgl>, is_hidden <lgl>,
 #> #   home_team_id <chr>, home_season_team_id <chr>, home_team_name <chr>,
 #> #   home_tlc <chr>, home_is_foreign <lgl>, home_rank <int>, home_streak <chr>,

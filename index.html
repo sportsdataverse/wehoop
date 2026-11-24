@@ -154,7 +154,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><ul>
 <li>
-<a href="#wehoop-">wehoop </a><a href="https://wehoop.sportsdataverse.org"><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right" width="20%" min-width="100px" alt="wehoop logo"></a>
+<a href="#wehoop-"><strong>wehoop</strong> </a><a href="https://wehoop.sportsdataverse.org"><img src="https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png" align="right" width="20%" min-width="100px" alt="wehoop logo"></a>
 <ul>
 <li><a href="#data-status"><strong>Data status</strong></a></li>
 <li><a href="#installation"><strong>Installation</strong></a></li>
@@ -165,7 +165,7 @@
 <li><a href="#breaking-changes"><strong>Breaking Changes</strong></a></li>
 <li><a href="#companion-packages"><strong>Companion packages</strong></a></li>
 <li><a href="#the-sportsdataverse"><strong>The SportsDataverse</strong></a></li>
-<li><a href="#follow-the-sportsdataverse-on-x-and-star-this-repo"><strong>Follow the SportsDataverse on X and star this repo</strong></a></li>
+<li><a href="#follow-the-sportsdataverse-on-x-and-star-this-repo"><strong>Follow the <span>SportsDataverse</span> on X and star this repo</strong></a></li>
 <li><a href="#our-authors"><strong>Our Authors</strong></a></li>
 <li><a href="#cheat-sheet"><strong>Cheat sheet</strong></a></li>
 <li><a href="#code-of-conduct"><strong>Code of Conduct</strong></a></li>
@@ -183,7 +183,7 @@
 </div>
 <!-- badges: start -->
 
-<p>The goal of <a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is to provide tools for working with women’s college and professional basketball data. It exports 754 functions: live wrappers for ESPN, the WNBA Stats API, the NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers, plus 102 <code>load_*()</code> functions that read pre-built season files (play-by-play, box scores, rosters, schedules, crosswalks and model outputs) instead of calling the sources.</p>
+<p>The goal of <a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is to provide tools for working with women’s college and professional basketball data. It exports 764 functions: live wrappers for ESPN, the WNBA Stats API, the NCAA, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers, plus 112 <code>load_*()</code> functions that read pre-built season files (play-by-play, box scores, rosters, schedules, crosswalks and model outputs) instead of calling the sources.</p>
 <div class="section level2">
 <h2 id="data-status">
 <strong>Data status</strong><a class="anchor" aria-label="anchor" href="#data-status"></a>
@@ -324,7 +324,7 @@
 <h2 id="bulk-datasets">
 <strong>Bulk datasets</strong><a class="anchor" aria-label="anchor" href="#bulk-datasets"></a>
 </h2>
-<p>The 102 <code>load_*()</code> functions read pre-built season files (rds or parquet) from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a> releases instead of calling the source APIs. Most take <code>seasons</code> and return a <code>wehoop_data</code> tibble (<code><a href="reference/load_wnba_draft.html">load_wnba_draft_manifest()</a></code> takes no arguments and the <code>load_*_groups()</code> lineage tables are not split by season); most can also write to a database through <code>dbConnection</code> and <code>tablename</code>.</p>
+<p>The 112 <code>load_*()</code> functions read pre-built season files (rds or parquet) from the <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a> releases instead of calling the source APIs. Most take <code>seasons</code> and return a <code>wehoop_data</code> tibble (<code><a href="reference/load_wnba_draft.html">load_wnba_draft_manifest()</a></code> takes no arguments and the <code>load_*_groups()</code> lineage tables are not split by season); most can also write to a database through <code>dbConnection</code> and <code>tablename</code>.</p>
 <ul>
 <li>
 <strong>ESPN-backed</strong> (<code>load_wnba_*</code>, <code>load_wbb_*</code>): play-by-play, player and team box scores, schedules, rosters, player and team season stats, standings, shots, game rosters, officials, player cores and the WNBA draft.</li>
@@ -401,8 +401,8 @@
 <p><a href="https://wehoop.sportsdataverse.org/"><strong><code>wehoop</code></strong></a> is part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a>, a set of open-source packages for sports data.</p>
 <table class="table">
 <colgroup>
-<col width="50%">
-<col width="50%">
+<col width="77%">
+<col width="22%">
 </colgroup>
 <thead><tr>
 <th>Package</th>

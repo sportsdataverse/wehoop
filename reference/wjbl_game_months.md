@@ -49,7 +49,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_game_months(season = 2026))
 #> ── W League Game Months from api.wjbl.01core.app ─────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:33:17 UTC
+#> ℹ Data updated: 2026-11-24 19:20:04 UTC
 #> # A tibble: 9 × 4
 #>   league_id season game_month game_month_jpn
 #>       <int>  <int> <chr>      <chr>         

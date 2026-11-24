@@ -50,13 +50,13 @@ Saiem Gilani
 # \donttest{
   espn_wbb_team_news(team_id = "2509", limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Team News (team_id=2509) from ESPN.com ───────
-#> ℹ Data updated: 2026-11-21 11:28:15 UTC
-#> # A tibble: 4 × 9
-#>        id type  headline description published premium byline link_web league_id
-#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
-#> 1  5.05e7 Media Purdue … "Purdue Bo… 2026-11-… FALSE   NA     https:/… 54       
-#> 2  5.04e7 Prev… Purdue … "Eastern M… 2026-11-… FALSE   NA     http://… 54       
-#> 3  4.96e7 Head… New Pur… "New Purdu… 2026-08-… FALSE   NA     https:/… 23       
-#> 4  4.95e7 Head… Purdue … "Purdue ha… 2026-08-… FALSE   Pete … https:/… 3170     
+#> ℹ Data updated: 2026-11-24 19:17:04 UTC
+#> # A tibble: 4 × 8
+#>         id type        headline description published premium link_web league_id
+#>      <int> <chr>       <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
+#> 1 50554327 Media       Purdue … "Purdue Bo… 2026-11-… FALSE   https:/… 54       
+#> 2 50532516 Media       Purdue … "Purdue Bo… 2026-11-… FALSE   https:/… 54       
+#> 3 50377073 Preview     Purdue … "Eastern M… 2026-11-… FALSE   http://… 54       
+#> 4 49554744 HeadlineNe… New Pur… "New Purdu… 2026-08-… FALSE   https:/… 23       
 # }
 ```

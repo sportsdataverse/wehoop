@@ -353,6 +353,14 @@
   hashes (the shots `team_id` / `shooter_id`, the lineups
   `player_1`-`player_5` and `lineup_id`, the RAPM `person_id`) stay
   character.
+- [`load_wnba_stats_metric_curves()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_metric_curves.md)
+  and
+  [`load_wnba_stats_rolling_windows()`](https://wehoop.sportsdataverse.org/reference/load_wnba_stats_rolling_windows.md)
+  return `entity_id` and `team_id` as integer, like the other WNBA Stats
+  ids. The release files publish them as character.
+- A loader id that is not a whole number (`"1.5"`) now becomes `NA` with
+  a warning when it is cast to integer, instead of being truncated
+  without one.
 - Three new loaders read the static stats.ncaa.org to ESPN tables on the
   `wbb_crosswalk` release:
   [`load_wbb_ncaa_espn_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/load_wbb_ncaa_espn_team_crosswalk.md)
@@ -594,6 +602,11 @@ raises the `httr2` and `testthat` floors (see Dependencies).
   compiled code), and `usethis` is no longer in Suggests: the
   `update_*_db()` messages use cli.
   ([\#109](https://github.com/sportsdataverse/wehoop/issues/109))
+- `tibble` moved from Suggests to Imports: the ESPN wrappers call it
+  unconditionally.
+- cachem, crayon, ggrepel, gh, memoise, piggyback and tictoc are no
+  longer in Suggests; nothing in the package, its tests or its vignettes
+  used them.
 
 #### **Documentation**
 
@@ -606,7 +619,7 @@ raises the `httr2` and `testthat` floors (see Dependencies).
   ([\#88](https://github.com/sportsdataverse/wehoop/issues/88)), a
   companion-package section, and one line per function family. The
   README, vignettes and contributor guides give the current counts (180
-  ESPN wrappers, 750 exports).
+  ESPN wrappers, 764 exports, 112 `load_*()` loaders).
 - [`load_ncaa_wbb_rapm_within_team()`](https://wehoop.sportsdataverse.org/reference/load_ncaa_wbb_lineups.md)
   documented `rapm_net` as `rapm_off + rapm_def`. The data has
   `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a

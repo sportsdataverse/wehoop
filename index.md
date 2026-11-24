@@ -1,6 +1,6 @@
 # **wehoop**
 
-- [wehoop](#wehoop-) [![wehoop
+- [**wehoop**](#wehoop-) [![wehoop
   logo](https://raw.githubusercontent.com/sportsdataverse/wehoop/main/logo.png)](https://wehoop.sportsdataverse.org)
   - [**Data status**](#data-status)
   - [**Installation**](#installation)
@@ -21,10 +21,10 @@
 
 The goal of [**`wehoop`**](https://wehoop.sportsdataverse.org/) is to
 provide tools for working with women’s college and professional
-basketball data. It exports 754 functions: live wrappers for ESPN, the
+basketball data. It exports 764 functions: live wrappers for ESPN, the
 WNBA Stats API, the NCAA, Fox Sports, Basketball-Reference, Her Hoop
 Stats, Bart Torvik, official.nba.com and eight international data
-providers, plus 102 `load_*()` functions that read pre-built season
+providers, plus 112 `load_*()` functions that read pre-built season
 files (play-by-play, box scores, rosters, schedules, crosswalks and
 model outputs) instead of calling the sources.
 
@@ -169,7 +169,7 @@ reference](https://wehoop.sportsdataverse.org/reference/index.html).
 
 ## **Bulk datasets**
 
-The 102 `load_*()` functions read pre-built season files (rds or
+The 112 `load_*()` functions read pre-built season files (rds or
 parquet) from the
 [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases)
 releases instead of calling the source APIs. Most take `seasons` and

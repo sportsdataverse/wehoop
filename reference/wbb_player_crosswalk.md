@@ -63,26 +63,9 @@ Other WBB Crosswalk Functions:
 # \donttest{
   # Reads every team roster from ESPN and Fox, so it runs interactively only.
   try(wbb_player_crosswalk(season = 2025))
-#> ── WBB player crosswalk (ESPN / Fox) ─────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:31:44 UTC
-#> # A tibble: 5,224 × 17
-#>    season espn_team_id team_abbreviation player_name    espn_athlete_id
-#>     <int>        <int> <chr>             <chr>          <chr>          
-#>  1   2025         2000 ACU               zoe jackson    4899004        
-#>  2   2025         2000 ACU               bella earle    4899858        
-#>  3   2025         2000 ACU               mia rivers     4901645        
-#>  4   2025         2000 ACU               breanna davis  5108299        
-#>  5   2025         2000 ACU               natalia chavez 5109756        
-#>  6   2025         2000 ACU               payton hull    5175545        
-#>  7   2025         2000 ACU               meredith mayes 5175546        
-#>  8   2025         2000 ACU               emma troxell   5175548        
-#>  9   2025         2000 ACU               erin woodson   5178096        
-#> 10   2025         2000 ACU               carlota gomez  5241473        
-#> # ℹ 5,214 more rows
-#> # ℹ 12 more variables: espn_full_name <chr>, espn_jersey <chr>,
-#> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
-#> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,
-#> #   yahoo_player_name <chr>, match_method <chr>, match_confidence <dbl>,
-#> #   match_keys <chr>
+#> ✖ 2026-11-24 19:19:57.708217: Could not build WBB player crosswalk for 2025!
+#> ✖ Args: season = 2025, min_confidence = 0.92
+#> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
+#> data frame with 0 columns and 0 rows
 # }
 ```

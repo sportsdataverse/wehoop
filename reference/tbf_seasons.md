@@ -75,7 +75,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_seasons())
 #> ── TBF Seasons ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:30:23 UTC
+#> ℹ Data updated: 2026-11-24 19:19:43 UTC
 #> # A tibble: 20 × 6
 #>    season_id season_label season start_date end_date   international
 #>        <int> <chr>         <int> <date>     <date>     <lgl>        

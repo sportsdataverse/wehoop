@@ -58,11 +58,11 @@ Saiem Gilani
   # The conferences espn_wbb_teams() joins each team to:
   try(espn_wbb_conferences())
 #> ── ESPN WBB Conferences Information from ESPN.com ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:28:17 UTC
+#> ℹ Data updated: 2026-11-24 19:17:06 UTC
 #> # A tibble: 32 × 7
 #>    group_id conference_name conference_short_name conference_uid conference_logo
 #>       <int> <chr>           <chr>                 <chr>          <chr>          
-#>  1        3 Atlantic 10 Co… A-10                  s:40~l:54~g:3  https://a.espn…
+#>  1        3 Atlantic 10 Co… A10                   s:40~l:54~g:3  https://a.espn…
 #>  2        2 Atlantic Coast… ACC                   s:40~l:54~g:2  https://a.espn…
 #>  3        1 America East C… Am. East              s:40~l:54~g:1  https://a.espn…
 #>  4       62 American Confe… American              s:40~l:54~g:62 NA             
@@ -79,7 +79,7 @@ Saiem Gilani
   # Interactive only: it makes one request per conference (about 30), 7 to 20 s.
   try(espn_wbb_teams())
 #> ── ESPN WBB Teams Information from ESPN.com ──────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:28:18 UTC
+#> ℹ Data updated: 2026-11-24 19:17:07 UTC
 #> # A tibble: 363 × 32
 #>    abbreviation alternate_color color display_name team_id team  logo  logo_dark
 #>    <chr>        <chr>           <chr> <chr>          <int> <chr> <chr> <chr>    

@@ -54,9 +54,9 @@ window.
 | col_name | types | description |
 | season | integer | Season identifier (4-digit year). |
 | entity_type | character | Grain of the row (`player`). |
-| entity_id | character | WNBA Stats player id. |
+| entity_id | integer | WNBA Stats player id. |
 | entity_name | character | Player name. |
-| team_id | character | WNBA Stats team id. |
+| team_id | integer | WNBA Stats team id. |
 | metric | character | `fg_pct` or `fg3_pct`. |
 | window_unit | character | Event the window counts (`fga` or `fg3a`). |
 | window_n | integer | Window length in events (50 or 200). |
@@ -91,18 +91,18 @@ Other WNBA Stats loader functions:
   try(load_wnba_stats_rolling_windows(seasons = most_recent_wnba_stats_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 916 × 21
-#>    season entity_type entity_id entity_name team_id  metric window_unit window_n
-#>     <int> <chr>       <chr>     <chr>       <chr>    <chr>  <chr>          <int>
-#>  1   2026 player      1627668   Stewart     1611661… fg3_p… fg3a              50
-#>  2   2026 player      1627671   Banham      1611661… fg3_p… fg3a              50
-#>  3   2026 player      1627673   Jones       1611661… fg3_p… fg3a              50
-#>  4   2026 player      1627674   Copper      1611661… fg3_p… fg3a              50
-#>  5   2026 player      1627675   Williams    1611661… fg3_p… fg3a              50
-#>  6   2026 player      1627700   Allemand    1611661… fg3_p… fg3a              50
-#>  7   2026 player      1627701   Fagbenle    1611661… fg3_p… fg3a              50
-#>  8   2026 player      1628242   Cannon      1611661… fg3_p… fg3a              50
-#>  9   2026 player      1628244   Whitcomb    1611661… fg3_p… fg3a              50
-#> 10   2026 player      1628269   Brodie      1611661… fg3_p… fg3a              50
+#>    season entity_type entity_id entity_name  team_id metric window_unit window_n
+#>     <int> <chr>           <int> <chr>          <int> <chr>  <chr>          <int>
+#>  1   2026 player        1627668 Stewart       1.61e9 fg3_p… fg3a              50
+#>  2   2026 player        1627671 Banham        1.61e9 fg3_p… fg3a              50
+#>  3   2026 player        1627673 Jones         1.61e9 fg3_p… fg3a              50
+#>  4   2026 player        1627674 Copper        1.61e9 fg3_p… fg3a              50
+#>  5   2026 player        1627675 Williams      1.61e9 fg3_p… fg3a              50
+#>  6   2026 player        1627700 Allemand      1.61e9 fg3_p… fg3a              50
+#>  7   2026 player        1627701 Fagbenle      1.61e9 fg3_p… fg3a              50
+#>  8   2026 player        1628242 Cannon        1.61e9 fg3_p… fg3a              50
+#>  9   2026 player        1628244 Whitcomb      1.61e9 fg3_p… fg3a              50
+#> 10   2026 player        1628269 Brodie        1.61e9 fg3_p… fg3a              50
 #> # ℹ 906 more rows
 #> # ℹ 13 more variables: cur <dbl>, prev <dbl>, season_start <dbl>,
 #> #   career_baseline <dbl>, delta_prev <dbl>, delta_season <dbl>,

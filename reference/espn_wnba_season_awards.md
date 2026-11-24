@@ -49,7 +49,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_season_awards(season = 2024)
 #> ── ESPN WNBA Season Awards Index ─────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:28:32 UTC
+#> ℹ Data updated: 2026-11-24 19:17:23 UTC
 #> # A tibble: 15 × 4
 #>    season award_id ref                                                    league
 #>     <int> <chr>    <chr>                                                  <chr> 

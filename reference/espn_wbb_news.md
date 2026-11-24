@@ -46,14 +46,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-21 11:28:04 UTC
-#> # A tibble: 5 × 8
-#>         id type        headline description published premium link_web league_id
-#>      <int> <chr>       <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 50547862 Recap       No. 16 … — Brynn Mc… 2026-11-… FALSE   http://… 54       
-#> 2 50547805 HeadlineNe… JuJu Wa… JuJu Watki… 2026-11-… FALSE   https:/… 54       
-#> 3 50547690 Recap       No. 4 U… — JuJu Wat… 2026-11-… FALSE   http://… 54       
-#> 4 50547679 Media       Baylor … Baylor Bea… 2026-11-… FALSE   https:/… 54       
-#> 5 50547648 Media       JuJu Wa… JuJu Watki… 2026-11-… FALSE   https:/… 54       
+#> ℹ Data updated: 2026-11-24 19:16:49 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  5.06e7 Media La Sall… La Salle E… 2026-11-… FALSE   NA     https:/… 54       
+#> 2  5.06e7 Media America… American U… 2026-11-… FALSE   NA     https:/… 54       
+#> 3  3.04e7 Etic… NCAA Wo… It's early… 2026-11-… FALSE   Charl… https:/… 54       
+#> 4  5.06e7 Story Why UCo… UConn is 4… 2026-11-… FALSE   Alexa… https:/… 54       
+#> 5  5.06e7 Story Can Gen… Geno Aurie… 2026-11-… FALSE   Dan W… https:/… 54       
 # }
 ```

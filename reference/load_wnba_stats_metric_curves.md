@@ -54,9 +54,9 @@ bucket.
 | col_name | types | description |
 | season | integer | Season identifier (4-digit year). |
 | entity_type | character | Grain of the row: `league`, `team` or `player`. |
-| entity_id | character | WNBA Stats team or player id (`NA` for `league` rows). |
+| entity_id | integer | WNBA Stats team or player id (`NA` for `league` rows). |
 | entity_name | character | Team or player name (`NA` for `league` rows). |
-| team_id | character | WNBA Stats team id of a player row. |
+| team_id | integer | WNBA Stats team id of a player row. |
 | id_source | character | Id namespace of `entity_id` / `team_id` (`wnba_stats`). |
 | metric | character | Curve name (`fg_pct_by_shot_distance`). |
 | down | integer | Football-only down split; always `NA` here. |
@@ -85,17 +85,17 @@ Other WNBA Stats loader functions:
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
 #> # A tibble: 5,598 × 14
 #>    season entity_type entity_id entity_name team_id id_source metric  down  x_lo
-#>     <int> <chr>       <chr>     <chr>       <chr>   <chr>     <chr>  <int> <dbl>
-#>  1   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     0
-#>  2   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     1
-#>  3   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     2
-#>  4   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     3
-#>  5   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     4
-#>  6   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     5
-#>  7   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     6
-#>  8   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     7
-#>  9   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     8
-#> 10   2026 league      NA        NA          NA      wnba_sta… fg_pc…    NA     9
+#>     <int> <chr>           <int> <chr>         <int> <chr>     <chr>  <int> <dbl>
+#>  1   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     0
+#>  2   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     1
+#>  3   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     2
+#>  4   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     3
+#>  5   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     4
+#>  6   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     5
+#>  7   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     6
+#>  8   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     7
+#>  9   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     8
+#> 10   2026 league             NA NA               NA wnba_sta… fg_pc…    NA     9
 #> # ℹ 5,588 more rows
 #> # ℹ 5 more variables: x_hi <dbl>, attempts <int>, successes <int>, rate <dbl>,
 #> #   epa_per_att <dbl>
