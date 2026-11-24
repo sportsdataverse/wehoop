@@ -31,7 +31,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_futures", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>%
@@ -106,15 +106,10 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} season futures for season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} season futures for season={season}",
       args = .args
     ),
     finally = {}

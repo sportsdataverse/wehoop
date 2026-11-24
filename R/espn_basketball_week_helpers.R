@@ -22,7 +22,10 @@
       league, "/seasons/", season, "/types/", st,
       "/weeks?limit=200&lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) NULL)
+    res <- tryCatch(.retry_request(url), error = function(e) {
+      .report_api_error(e, hint = "Request failed for {url}", args = .args)
+      NULL
+    })
     if (is.null(res) || httr2::resp_status(res) != 200L) return(NULL)
     raw <- res %>% .resp_text() %>%
       jsonlite::fromJSON(simplifyVector = FALSE)
@@ -46,7 +49,7 @@
 
   result <- NULL
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_season_weeks", {
       parts <- list()
       for (st in season_type) {
         df <- fetch_one(as.integer(st))
@@ -71,12 +74,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} weeks for season={season}, season_type={season_type}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} weeks",
       args = .args),
     finally = {}
   )
@@ -102,7 +102,7 @@
     "/weeks/", week, "?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_season_week", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -122,12 +122,9 @@
           paste0("ESPN ", toupper(league), " Season Week Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} week {week} for season={season}, season_type={season_type}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} week {week}",
       args = .args),
     finally = {}
   )
@@ -153,7 +150,7 @@
     "/weeks/", week, "/rankings?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_week_rankings", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -176,12 +173,9 @@
           paste0("ESPN ", toupper(league), " Week Rankings Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} week-{week} rankings for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} week-{week} rankings",
       args = .args),
     finally = {}
   )
@@ -213,7 +207,7 @@
     "?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_week_ranking", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -275,12 +269,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} week-{week} ranking {ranking_id} for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} week-{week} ranking {ranking_id}",
       args = .args),
     finally = {}
   )

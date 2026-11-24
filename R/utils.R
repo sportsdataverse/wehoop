@@ -501,8 +501,7 @@ check_status <- function(res) {
 #' Capture the calling function's formal arguments
 #'
 #' Returns a named list of the bound formal arguments (excluding `...`) of the
-#' calling function, suitable for passing to `.report_api_error()` /
-#' `.report_api_warning()`. Tolerates functions with empty or `...`-only
+#' calling function, suitable for passing to `.report_api_error()`. Tolerates functions with empty or `...`-only
 #' formals (where `names(formals())` is `NULL`), unlike the inline
 #' `mget(setdiff(names(formals()), "..."))` pattern that errors with
 #' `mget: invalid first argument` for arg-less wrappers.
@@ -531,7 +530,7 @@ check_status <- function(res) {
 #' Minimal brace-template interpolator
 #'
 #' Replaces `{expr}` tokens in `template` by evaluating `expr` in `envir`.
-#' Used in `.report_api_error()` / `.report_api_warning()` so callers can
+#' Used in `.report_api_error()` so callers can
 #' write hints like `"No data for {game_id}"` and have `{game_id}` resolve
 #' against the function's frame at the call-site.
 #'
@@ -619,47 +618,23 @@ check_status <- function(res) {
   invisible(NULL)
 }
 
-#' Report an API-call warning with full context
-#'
-#' Mirrors `.report_api_error()` but for `tryCatch(warning = ...)` handlers.
-#' Emits, in order:
-#'
-#' 1. A timestamped friendly hint (brace-interpolated against the caller env),
-#' 2. A dump of the function call's arguments,
-#' 3. The actual warning message (`conditionMessage(w)`).
-#'
-#' @param w warning condition (the `w` from `function(w)` in `tryCatch`).
-#' @param hint character. Same semantics as `.report_api_error()`'s `hint`.
-#'   If `NULL`, defaults to "Request emitted a warning".
-#' @param args optional named list of caller arguments to dump.
-#' @return Invisibly `NULL`. Called for its side effects.
-#' @keywords internal
-.report_api_warning <- function(w, hint = NULL, args = list()) {
-  caller_env <- parent.frame()
-
-  hint_text <- if (!is.null(hint)) {
-    .interp_braces(hint, envir = caller_env)
-  } else {
-    "Request emitted a warning"
-  }
-
-  cli::cli_alert_warning("{Sys.time()}: {hint_text}")
-
-  if (length(args) > 0) {
-    args_str <- paste0(
-      names(args), " = ",
-      vapply(args, function(a) {
-        s <- tryCatch(deparse(a, width.cutoff = 60)[1],
-                      error = function(...) "<?>")
-        if (nchar(s) > 60) paste0(substr(s, 1, 60), "...") else s
-      }, character(1)),
-      collapse = ", "
-    )
-    cli::cli_alert_warning("Args: {args_str}")
-  }
-
-  cli::cli_alert_warning("Warning: {conditionMessage(w)}")
-  invisible(NULL)
+# Evaluate a wrapper's body, re-raising each warning as a classed
+# `wehoop_warning` that names the wrapper, and carry on. A
+# `tryCatch(warning =)` handler would instead stop the body at the first
+# warning and return the empty or half-built frame. `expr` is a promise,
+# so its assignments (and a `return()`) land in the caller's frame.
+.wehoop_with_warnings <- function(fn, expr) {
+  withCallingHandlers(
+    expr,
+    warning = function(w) {
+      if (inherits(w, "wehoop_warning")) return() # already named by an inner wrapper
+      msg <- conditionMessage(w)
+      # keep the original classes, so suppressWarnings(classes = <original>) still matches
+      orig <- setdiff(class(w), c("simpleWarning", "warning", "condition"))
+      cli::cli_warn(c("!" = "{fn}(): {msg}"), class = c("wehoop_warning", orig), call = NULL)
+      invokeRestart("muffleWarning")
+    }
+  )
 }
 
 #' @title

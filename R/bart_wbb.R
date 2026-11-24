@@ -42,7 +42,7 @@ bart_wbb_ratings <- function(year = most_recent_wbb_season()) {
   .args <- .capture_args()
   df <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("bart_wbb_ratings", {
       txt <- .bart_wbb_text(paste0("/", year, "_team_results.csv"))
       # Older files quote one header ("Fun Rk, adjt"). fread resolves it but
       # warns, and the warning handler below would discard the whole season.
@@ -55,9 +55,8 @@ bart_wbb_ratings <- function(year = most_recent_wbb_season()) {
       df <- dplyr::as_tibble(janitor::clean_names(as.data.frame(df)))
       df[["year"]] <- as.integer(year)
       df <- make_wehoop_data(df, "Bart Torvik women's T-Rank ratings from barttorvik.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(e, hint = "No women's T-Rank ratings available for {year}!", args = .args),
-    warning = function(w) .report_api_warning(w, hint = "Warning fetching women's T-Rank ratings for {year}", args = .args),
     finally = {}
   )
   df
@@ -97,7 +96,7 @@ bart_wbb_game_schedule <- function(year = most_recent_wbb_season()) {
   )
   df <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("bart_wbb_game_schedule", {
       txt <- .bart_wbb_text(paste0("/", year, "_super_sked.json"))
       raw <- jsonlite::fromJSON(txt, simplifyVector = FALSE)
       mat <- do.call(rbind, lapply(raw, function(g) {
@@ -111,9 +110,8 @@ bart_wbb_game_schedule <- function(year = most_recent_wbb_season()) {
       df <- janitor::clean_names(dplyr::as_tibble(df))
       df[["year"]] <- as.integer(year)
       df <- make_wehoop_data(df, "Bart Torvik women's season schedule from barttorvik.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(e, hint = "No women's schedule available for {year}!", args = .args),
-    warning = function(w) .report_api_warning(w, hint = "Warning fetching women's Torvik schedule for {year}", args = .args),
     finally = {}
   )
   df

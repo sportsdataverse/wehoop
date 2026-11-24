@@ -434,19 +434,18 @@ wnba_scoreboardv2 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_scoreboardv2", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no scoreboardv2 data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -577,7 +576,7 @@ wnba_scoreboardv3 <- function(
   games <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_scoreboardv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -627,13 +626,12 @@ wnba_scoreboardv3 <- function(
         dplyr::relocate("broadcasters", .after = dplyr::last_col()) %>%
         make_wehoop_data("WNBA Scoreboard V3 Information from WNBA.com", Sys.time())
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no scoreboard v3 data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

@@ -924,7 +924,7 @@ update_wbb_db <- function(dbdir = tools::R_user_dir("wehoop", "data"),
                          dbConnection = connection,
                          tablename = ds_table),
         error = function(e) {
-          cli::cli_alert_danger("{Sys.time()}: dataset {.val {ds}} failed: {e$message}")
+          cli::cli_alert_danger("{Sys.time()}: dataset {.val {ds}} failed: {conditionMessage(e)}")
         }
       )
     }

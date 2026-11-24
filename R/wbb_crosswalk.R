@@ -433,7 +433,7 @@ wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
   .args <- .capture_args()
   out <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wbb_schedule_crosswalk", {
       # Pass an empty Fox frame so wbb_team_crosswalk() skips the expensive
       # fox_wbb_teams_all() enumeration (~40-60 network calls). The schedule
       # crosswalk only needs espn_team_id + bart_team from the team crosswalk;
@@ -487,12 +487,9 @@ wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
         season      = season
       ) |>
         make_wehoop_data("WBB schedule crosswalk (ESPN / Torvik)", Sys.time())
-    },
+    }),
     error   = function(e) .report_api_error(
       e, hint = "Could not build WBB schedule crosswalk for {season}!", args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w, hint = "Warning building WBB schedule crosswalk for {season}", args = .args
     ),
     finally = {}
   )
@@ -658,7 +655,7 @@ wbb_player_crosswalk <- function(season = most_recent_wbb_season(),
   .args <- .capture_args()
   out <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wbb_player_crosswalk", {
       team_xwalk <- wbb_team_crosswalk(season = season)
 
       fetch_team <- function(i) {
@@ -711,12 +708,9 @@ wbb_player_crosswalk <- function(season = most_recent_wbb_season(),
       out <- purrr::map(seq_len(nrow(team_xwalk)), fetch_team) |>
         purrr::list_rbind() |>
         make_wehoop_data("WBB player crosswalk (ESPN / Fox)", Sys.time())
-    },
+    }),
     error   = function(e) .report_api_error(
       e, hint = "Could not build WBB player crosswalk for {season}!", args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w, hint = "Warning building WBB player crosswalk for {season}", args = .args
     ),
     finally = {}
   )

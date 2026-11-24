@@ -36,7 +36,7 @@ ncaa_wbb_NET_rankings <- function(){
 
   NET_url <- "https://www.ncaa.com/rankings/basketball-women/d1/ncaa-womens-basketball-net-rankings"
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("ncaa_wbb_NET_rankings", {
       x <- (NET_url %>%
               rvest::read_html() %>%
               rvest::html_nodes("table"))[[1]] %>%
@@ -48,13 +48,12 @@ ncaa_wbb_NET_rankings <- function(){
           "previous" = "prev"
         ))) %>%
         make_wehoop_data("NCAA WBB NET Rankings Information from NCAA.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no NET rankings available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -145,7 +144,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
   headers <- .ncaa_headers()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("ncaa_wbb_teams", {
       url <- paste0(
         "http://stats.ncaa.org/team/inst_team_list?academic_year=",
         year,
@@ -281,13 +280,12 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
           "season_team_id"
         ))) %>%
         make_wehoop_data("NCAA WBB Teams data from stats.ncaa.org", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or stats.ncaa.org unreachable (try `proxy =`)!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(df)

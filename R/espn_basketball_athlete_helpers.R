@@ -36,7 +36,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_info", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -166,16 +166,10 @@
           paste0("ESPN ", toupper(league), " Athlete Draft from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
-                    " athlete info for athlete_id=", athlete_id),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
                     " athlete info for athlete_id=", athlete_id),
       args = .args
     ),
@@ -218,7 +212,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_overview", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -311,18 +305,12 @@
           paste0("ESPN ", toupper(league), " Athlete Overview FantasyOutlook from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
                     " athlete overview for athlete_id=", athlete_id,
                     ", season=", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
-                    " athlete overview for athlete_id=", athlete_id),
       args = .args
     ),
     finally = {}
@@ -378,7 +366,7 @@
   }
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_stats", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -433,18 +421,12 @@
         dplyr::relocate(dplyr::any_of(c("athlete_id", "season", "team_id", "team_slug"))) %>%
         dplyr::arrange(dplyr::across(dplyr::any_of("season"))) %>%
         make_wehoop_data(desc, Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
                     " athlete stats for athlete_id=", athlete_id,
                     ", season=", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
-                    " athlete stats for athlete_id=", athlete_id),
       args = .args
     ),
     finally = {}
@@ -486,7 +468,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_gamelog", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -581,18 +563,12 @@
           result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
         }
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
                     " athlete gamelog for athlete_id=", athlete_id,
                     ", season=", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
-                    " athlete gamelog for athlete_id=", athlete_id),
       args = .args
     ),
     finally = {}
@@ -635,7 +611,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_splits", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -710,18 +686,12 @@
       } else {
         result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
                     " athlete splits for athlete_id=", athlete_id,
                     ", season=", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
-                    " athlete splits for athlete_id=", athlete_id),
       args = .args
     ),
     finally = {}
@@ -766,7 +736,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_eventlog", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -869,18 +839,12 @@
             )
         }
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
                     " athlete eventlog for athlete_id=", athlete_id,
                     ", season=", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
-                    " athlete eventlog for athlete_id=", athlete_id),
       args = .args
     ),
     finally = {}
@@ -939,7 +903,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_awards", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -994,16 +958,10 @@
             Sys.time()
           )
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
-                    " athlete awards for athlete_id=", athlete_id),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
                     " athlete awards for athlete_id=", athlete_id),
       args = .args
     ),
@@ -1050,7 +1008,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_athlete_statisticslog", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -1109,18 +1067,12 @@
       } else {
         result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league,
                     " athlete statisticslog for athlete_id=", athlete_id,
                     ", season=", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league,
-                    " athlete statisticslog for athlete_id=", athlete_id),
       args = .args
     ),
     finally = {}

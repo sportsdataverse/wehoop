@@ -244,7 +244,7 @@
 
   out <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".fox_bb_resource", {
       raw <- switch(
         resource,
         pbp = , boxscore = .fox_bb_get(paste0(sport, "/event/", game_id, "/data")),
@@ -266,14 +266,10 @@
         dplyr::as_tibble() |>
         janitor::clean_names() |>
         make_wehoop_data(paste0("Fox Sports ", toupper(sport), " ", resource), Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(
         e, hint = "Invalid arguments or no Fox {sport} {resource} data available!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(
-        w, hint = "Warning fetching Fox {sport} {resource}", args = .args)
     },
     finally = {
     }

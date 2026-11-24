@@ -74,7 +74,7 @@ espn_wnba_draft <- function(season = most_recent_wnba_season(), ...) {
   }
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wnba_draft", {
       # /draft itself returns {rounds, athletes, ...} (no top-level items).
       # /draft/rounds returns a paged collection where each item is a round
       # carrying its picks inline as `picks: [...]`.
@@ -132,15 +132,10 @@ espn_wnba_draft <- function(season = most_recent_wnba_season(), ...) {
       picks_df <- do.call(rbind, pick_rows) %>%
         dplyr::as_tibble() %>%
         make_wehoop_data("ESPN WNBA Draft Picks from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN WNBA draft data for season ", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN WNBA draft data for season ", season),
       args = .args
     ),
     finally = {}
@@ -208,7 +203,7 @@ espn_wnba_freeagents <- function(season = most_recent_wnba_season(), ...) {
   fa_df <- data.frame(stringsAsFactors = FALSE)
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wnba_freeagents", {
       url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba",
         "/seasons/", as.integer(season), "/freeagents"
@@ -310,15 +305,10 @@ espn_wnba_freeagents <- function(season = most_recent_wnba_season(), ...) {
       ) %>%
         dplyr::as_tibble() %>%
         make_wehoop_data("ESPN WNBA Free Agents from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN WNBA free agents for season {season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN WNBA free agents for season {season}",
       args = .args
     ),
     finally = {}
@@ -387,7 +377,7 @@ espn_wnba_transactions <- function(
   tx_df <- data.frame(stringsAsFactors = FALSE)
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wnba_transactions", {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba",
         "/transactions?season=", as.integer(season),
@@ -488,15 +478,10 @@ espn_wnba_transactions <- function(
       ) %>%
         dplyr::as_tibble() %>%
         make_wehoop_data("ESPN WNBA Transactions from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN WNBA transactions for season {season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN WNBA transactions for season {season}",
       args = .args
     ),
     finally = {}

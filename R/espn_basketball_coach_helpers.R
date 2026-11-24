@@ -18,7 +18,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_coach", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -51,15 +51,10 @@
           paste0("ESPN ", toupper(league), " Coach Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} coach {coach_id}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} coach {coach_id}",
       args = .args
     ),
     finally = {}
@@ -94,7 +89,7 @@
     "/record/", as.integer(record_type), "?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_coach_record", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -144,12 +139,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} coach record for coach_id={coach_id}, record_type={record_type}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} coach record",
       args = .args),
     finally = {}
   )

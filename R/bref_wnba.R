@@ -38,7 +38,7 @@ bref_wnba_player_stats <- function(season = most_recent_wnba_season(), table = "
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("bref_wnba_player_stats", {
       if (!table %in% c("per_game", "totals", "advanced")) {
         stop("`table` must be one of 'per_game', 'totals', 'advanced'", call. = FALSE)
       }
@@ -51,12 +51,9 @@ bref_wnba_player_stats <- function(season = most_recent_wnba_season(), table = "
       d[["season"]] <- as.integer(season)
       d[["table"]] <- table
       df <- make_wehoop_data(d, "WNBA player season stats from basketball-reference.com", Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(e, hint = "No WNBA player stats for {season} ({table})!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w, hint = "Warning fetching WNBA player stats for {season}", args = .args)
     },
     finally = {
     }
@@ -100,7 +97,7 @@ bref_wnba_team_stats <- function(season = most_recent_wnba_season(), table = "pe
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("bref_wnba_team_stats", {
       if (!table %in% c("per_game", "totals", "per_poss", "advanced")) {
         stop("`table` must be one of 'per_game', 'totals', 'per_poss', 'advanced'", call. = FALSE)
       }
@@ -113,12 +110,9 @@ bref_wnba_team_stats <- function(season = most_recent_wnba_season(), table = "pe
       d[["season"]] <- as.integer(season)
       d[["table"]] <- table
       df <- make_wehoop_data(d, "WNBA team season stats from basketball-reference.com", Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(e, hint = "No WNBA team stats for {season} ({table})!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w, hint = "Warning fetching WNBA team stats for {season}", args = .args)
     },
     finally = {
     }
@@ -161,7 +155,7 @@ bref_wnba_standings <- function(season = most_recent_wnba_season()) {
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("bref_wnba_standings", {
       html <- .bref_wnba_text(sprintf("/wnba/years/%s.html", season))
       parse_conf <- function(id, label) {
         d <- .bref_wnba_table(html, id)
@@ -178,12 +172,9 @@ bref_wnba_standings <- function(season = most_recent_wnba_season()) {
       d <- dplyr::bind_rows(parts)
       d[["season"]] <- as.integer(season)
       df <- make_wehoop_data(d, "WNBA standings from basketball-reference.com", Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(e, hint = "No WNBA standings for {season}!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w, hint = "Warning fetching WNBA standings for {season}", args = .args)
     },
     finally = {
     }

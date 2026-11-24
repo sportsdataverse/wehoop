@@ -102,7 +102,7 @@ wnba_data_pbp <- function(game_id = "1022200034",
   plays_df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_data_pbp", {
       res <- .retry_request(full_url)
       
       # Check the result
@@ -157,13 +157,12 @@ wnba_data_pbp <- function(game_id = "1022200034",
             TRUE ~ 'NBA')) %>%
         dplyr::select("game_id", "league", tidyr::everything()) %>%
         make_wehoop_data("WNBA Play-by-Play Information from data.WNBA.com",Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

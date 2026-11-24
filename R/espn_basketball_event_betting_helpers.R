@@ -44,7 +44,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_odds", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -137,15 +137,10 @@
           paste0("ESPN ", toupper(league), " Event Odds (event_id=", event_id, ") from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN ", league, " event odds for event_id=", event_id),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN ", league, " event odds for event_id=", event_id),
       args = .args
     ),
     finally = {}
@@ -169,7 +164,7 @@
   page <- 1L
   page_count <- NA_integer_
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_propbets", {
       repeat {
         url <- paste0(
           "https://sports.core.api.espn.com/v2/sports/basketball/leagues/",
@@ -177,7 +172,10 @@
           "/odds/", provider_id, "/propBets?limit=", page_limit,
           "&page=", page, "&lang=en&region=us"
         )
-        res <- tryCatch(.retry_request(url), error = function(e) NULL)
+        res <- tryCatch(.retry_request(url), error = function(e) {
+          .report_api_error(e, hint = "Request failed for {url}", args = .args)
+          NULL
+        })
         if (is.null(res) || httr2::resp_status(res) != 200L) break
         raw <- res %>% .resp_text() %>%
           jsonlite::fromJSON(simplifyVector = FALSE)
@@ -237,12 +235,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event prop bets for event_id={event_id}, provider_id={provider_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event prop bets",
       args = .args),
     finally = {}
   )

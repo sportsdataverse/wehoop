@@ -16,10 +16,10 @@ share a common set of internal helpers in \code{R/espn_basketball_*.R}:
 Each public wrapper is a thin shim over an internal helper that
 takes a \code{league} argument (\code{"wnba"} or
 \code{"womens-college-basketball"}); the helper does the actual HTTP
-call + parsing. Error reporting flows through ESPN-side reporters
-\code{.report_api_error()} / \code{.report_api_warning()} in \code{R/utils.R}
-(do \strong{not} use raw \code{cli::cli_alert_danger()} here -- that is the
-WNBA Stats convention).
+call + parsing. Errors are reported through the ESPN-side
+\code{.report_api_error()} in \code{R/utils.R} (do \strong{not} use raw
+\code{cli::cli_alert_danger()} here -- that is the WNBA Stats convention),
+and warnings are re-raised by \code{.wehoop_with_warnings()}.
 }
 \details{
 \subsection{\strong{Play-by-play, scoreboard, schedule}}{\tabular{ll}{
