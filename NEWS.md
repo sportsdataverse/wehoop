@@ -388,6 +388,9 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
   `expect_in()`, already used across the test suite, needs 3.1.9. (#84)
 * `Rcpp` and `RcppParallel` are no longer Imports (wehoop has no compiled code), and
   `usethis` is no longer in Suggests: the `update_*_db()` messages use cli. (#109)
+* `tibble` moved from Suggests to Imports: the ESPN wrappers call it unconditionally.
+* cachem, crayon, ggrepel, gh, memoise, piggyback and tictoc are no longer in Suggests;
+  nothing in the package, its tests or its vignettes used them.
 
 ### **Documentation**
 
