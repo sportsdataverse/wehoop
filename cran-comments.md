@@ -28,7 +28,8 @@ full list of changes is in NEWS.md. The main additions:
   publish, fall back to the newest published season when the current one
   is not out yet, retry slow downloads, and return ESPN and WNBA Stats join
   ids as integer (including `entity_id` / `team_id` in
-  `load_wnba_stats_metric_curves()` and `load_wnba_stats_rolling_windows()`).
+  `load_wnba_stats_metric_curves()` and `load_wnba_stats_rolling_windows()`;
+  an id that is not a whole number becomes NA with a warning).
   `update_wbb_db()` / `update_wnba_db()` read the games index in full
   before they drop or rebuild a table. After the data releases' 2026-11
   backfill, the WBB and WNBA loaders no longer skip seasons that used to be
@@ -51,7 +52,7 @@ full list of changes is in NEWS.md. The main additions:
 ## Test environments
 
 All local checks below ran on 2026-11-24 on one tarball built (`R CMD
-build`, 1,876,675 bytes) from `git archive` of commit 250cf0765. The
+build`, 1,876,893 bytes) from `git archive` of commit 661c66fc6. The
 commits after it change only this file, which is in `.Rbuildignore`, so
 the tarball contents are the same.
 
@@ -59,7 +60,7 @@ the tarball contents are the same.
   --run-donttest --timings`, with `_R_CHECK_CRAN_INCOMING_REMOTE_=true`,
   NOT_CRAN unset and an empty user `.Renviron` (no API keys, no live-test
   switches): `Status: OK`. Tests: 0 failures, 0 warnings, 697 skips,
-  8,775 passes. The PDF and HTML manuals build.
+  8,781 passes. The PDF and HTML manuals build.
 * The same check under R 4.6.1 (ucrt) on the same machine: 0 errors, 0
   warnings and 1 NOTE, "Found the following files/directories: ''NULL''"
   (non-standard things in the check directory). That NOTE comes from R
@@ -69,7 +70,7 @@ the tarball contents are the same.
   directory, before any package loads. A one-function dummy package checked
   the same way gets the same `'NULL'` directory, and R 4.6.0 creates none.
   Tests and examples were otherwise identical (0 failures, 0 warnings, 697
-  skips, 8,775 passes).
+  skips, 8,781 passes).
 * The same tarball checked offline under R 4.6.0 (`R CMD check
   --run-donttest --no-tests --no-manual` with every proxy variable pointed
   at a closed local port): `Status: OK`. With no network, every
@@ -77,13 +78,17 @@ the tarball contents are the same.
   warnings or as errors caught by the examples' `try()`, and none stops
   the run.
 * GitHub Actions R-CMD-check: R release on macOS, Windows and Ubuntu, R
-  oldrel-1 and R-devel on Ubuntu. All five passed on main at 7f8d7f1db
-  (2026-11-21). The commits after it make two loaders cast two id columns
-  to integer (with an offline test), quiet four expected lifecycle
-  warnings in one test, drop seven unused Suggests and update docs; the
+  oldrel-1 and R-devel on Ubuntu. All five passed on this release branch
+  at 42a8175b0 (2026-11-24). The commits after it change only an internal
+  id-cast helper (a non-whole id now becomes NA with a warning instead of
+  being truncated), its tests and contributor docs; the
   local checks above cover them.
-* R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel):
-  dispatched on the submitted commit on 2026-11-24, results pending.
+* R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel), run on
+  42a8175b0 on 2026-11-24 (before the id-cast helper change above):
+  linux and windows passed. macos-arm64 stopped while
+  installing the suggested package arrow, whose source build failed in its
+  bundled Boost CMake step before the wehoop check started. A run on the
+  submitted commit was dispatched on 2026-11-24, results pending.
 * win-builder (devel and release): not yet run (win-builder unreachable
   2026-11-24); to be run before submission.
 
@@ -93,9 +98,9 @@ the tarball contents are the same.
 `'NULL'` directory NOTE).
 
 * **Example timing.** No example took more than 5 s. The slowest in the
-  R 4.6.0 check were `atrium_player_stats` (0.14 s CPU, 3.60 s elapsed),
-  `load_ncaa_wbb_lineups` (0.33 s / 3.44 s) and
-  `load_wbb_player_crosswalk` (0.20 s / 3.36 s).
+  R 4.6.0 check were `nbl_rosetta_players` (2.01 s CPU, 3.52 s elapsed),
+  `bart_wbb_game_schedule` (2.66 s / 3.41 s) and
+  `load_ncaa_wbb_lineups` (0.34 s / 3.39 s).
 
 * **Installed package size (INFO).** Locally (R 4.6.0):
 
