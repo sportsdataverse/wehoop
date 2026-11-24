@@ -17,7 +17,7 @@
 
 ## Project Context
 
-wehoop is an R package (v3.1.0) that wraps the WNBA Stats API, ESPN API (WNBA & WBB), NCAA women's basketball endpoints, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers. It exports 754 functions (including 180 ESPN wrappers, 289 international wrappers and 102 `load_*()` release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.
+wehoop is an R package (v3.1.0) that wraps the WNBA Stats API, ESPN API (WNBA & WBB), NCAA women's basketball endpoints, Fox Sports, Basketball-Reference, Her Hoop Stats, Bart Torvik, official.nba.com and eight international data providers. It exports 764 functions (including 180 ESPN wrappers, 289 international wrappers and 112 `load_*()` release-dataset loaders) and uses roxygen2 for documentation, testthat for testing, and pkgdown for the documentation site.
 
 When there is any conflict between this file and repository contributor docs, follow `CONTRIBUTING.md` and the current test implementations under `tests/testthat/` as the source of truth.
 
@@ -47,14 +47,14 @@ WNBA Stats HTTP requests use `request_with_proxy()` in `utils_wnba_stats.R` whic
 
 Proxy value accepts a URL string `"http://host:port"` or a named list `list(url=, port=, username=, password=, auth=)` spread into `httr2::req_proxy()`.
 
-Per-call override (`wnba_foo(proxy = ...)`) only threads through WNBA Stats wrappers (which forward `...` to `request_with_proxy`). ESPN / NCAA / KenPom wrappers call `.retry_request()` directly without `...`, so use `options(wehoop.proxy = ...)` once at session top — that's the recommended pattern for any session that runs through a proxy.
+Per-call override (`wnba_foo(proxy = ...)`) only threads through WNBA Stats wrappers (which forward `...` to `request_with_proxy`). ESPN / NCAA / Fox / Torvik wrappers call `.retry_request()` directly without `...`, so use `options(wehoop.proxy = ...)` once at session top — that's the recommended pattern for any session that runs through a proxy.
 
 Shared internal helpers in `utils.R`:
 - `check_status()` for HTTP response validation
 - `make_wehoop_data()` for standardizing data frame output
 - `pad_id()` for zero-padding game IDs
 
-ESPN and live endpoints use `rvest::session()` with `httr::timeout()`.
+ESPN and the other non-WNBA-Stats live endpoints call `.retry_request()` (httr2 with a timeout and retries).
 
 ## Messaging Layer
 

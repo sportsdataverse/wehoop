@@ -400,7 +400,7 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
   release tag each loader reads, 60 tags in all.
 * The README has a data status table for the release-data producers (#88), a companion-package
   section, and one line per function family. The README, vignettes and contributor guides give the
-  current counts (180 ESPN wrappers, 750 exports).
+  current counts (180 ESPN wrappers, 764 exports, 112 `load_*()` loaders).
 * `load_ncaa_wbb_rapm_within_team()` documented `rapm_net` as `rapm_off + rapm_def`. The data
   has `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a points-allowed scale (lower
   is better). The docs now say so.
