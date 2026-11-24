@@ -228,6 +228,8 @@ rds_or_parquet_from_url <- function(url) {
     x <- df[[k]]
     if (is.integer(x)) next
     out <- suppressWarnings(as.integer(x))
+    # as.integer() truncates "1.5" / 2.5 without a warning; treat those as lost too.
+    out[!is.na(out) & suppressWarnings(as.numeric(x)) != out] <- NA_integer_
     lost <- is.na(out) & !is.na(x) & !(as.character(x) %in% "")
     if (any(lost)) {
       cli::cli_warn(c(

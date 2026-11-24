@@ -32,9 +32,9 @@ window.\tabular{lll}{
    col_name \tab types \tab description \cr
    season \tab integer \tab Season identifier (4-digit year). \cr
    entity_type \tab character \tab Grain of the row (\code{player}). \cr
-   entity_id \tab character \tab WNBA Stats player id. \cr
+   entity_id \tab integer \tab WNBA Stats player id. \cr
    entity_name \tab character \tab Player name. \cr
-   team_id \tab character \tab WNBA Stats team id. \cr
+   team_id \tab integer \tab WNBA Stats team id. \cr
    metric \tab character \tab \code{fg_pct} or \code{fg3_pct}. \cr
    window_unit \tab character \tab Event the window counts (\code{fga} or \code{fg3a}). \cr
    window_n \tab integer \tab Window length in events (50 or 200). \cr

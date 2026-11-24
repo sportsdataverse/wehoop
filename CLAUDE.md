@@ -322,7 +322,7 @@ The proxy value (whether passed or read from the option) accepts:
 - `"http://host:port"` — string form, forwarded to `httr2::req_proxy(url = ...)`.
 - `list(url = "...", port = 8080, username = "...", password = "...", auth = "basic")` — spread as keyword args into `httr2::req_proxy()` for authenticated proxies.
 
-**Per-call override** works only for wrappers that thread `...` to `request_with_proxy()` — that's every WNBA Stats API function (`wnba_*()`), e.g. `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")`. ESPN / NCAA / KenPom wrappers call `.retry_request()` directly without `...`, so for those use the `options()` fallback or env-var path. The session option is the recommended pattern when working through one proxy across many calls — it's a single line at the top of the script and it covers everything.
+**Per-call override** works for wrappers that thread `...` to `request_with_proxy()` — that's every WNBA Stats API function (`wnba_*()`), e.g. `wnba_pbp(game_id = "...", proxy = "http://my-proxy:8080")` — and for `ncaa_wbb_teams()`, which passes `proxy` from `...` straight to `.retry_request()`. ESPN / Fox / Torvik wrappers and `ncaa_wbb_NET_rankings()` call `.retry_request()` directly without `...`, so for those use the `options()` fallback or env-var path. `ncaa_wbb_teams()` is the exception: it takes `proxy` through `...` and passes it to every `.retry_request()` call, e.g. `ncaa_wbb_teams(2025, proxy = "http://my-proxy:8080")`. The session option is the recommended pattern when working through one proxy across many calls — it's a single line at the top of the script and it covers everything.
 
 ### Messaging Layer
 

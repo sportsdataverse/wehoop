@@ -3,7 +3,7 @@
 
 # Shared body: reads `<tag>/<prefix>_<season>.rds`, accepting only
 # `first`..most_recent_wnba_stats_season() (see .loader_seasons()).
-.load_wnba_stats_release <- function(seasons, tag, prefix, first, fn, default = FALSE,
+.load_wnba_stats_release <- function(seasons, tag, prefix, first, fn, default = FALSE, id_cols = NULL,
                                      dbConnection = NULL, tablename = NULL, ...) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
@@ -19,7 +19,8 @@
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
-  out <- lapply(url_for(seasons), progressively(rds_from_url, p))
+  read <- function(url) .ids_as_integer(rds_from_url(url), id_cols)
+  out <- lapply(url_for(seasons), progressively(read, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (!is.null(dbConnection) && !is.null(tablename)) {
     # Nothing read: a zero-column table cannot be written.
@@ -107,9 +108,9 @@ NULL
 #'    |:-----------|:---------|:--------------------------------------------------------|
 #'    |season      |integer   |Season identifier (4-digit year).                        |
 #'    |entity_type |character |Grain of the row: `league`, `team` or `player`.          |
-#'    |entity_id   |character |WNBA Stats team or player id (`NA` for `league` rows).   |
+#'    |entity_id   |integer   |WNBA Stats team or player id (`NA` for `league` rows).   |
 #'    |entity_name |character |Team or player name (`NA` for `league` rows).            |
-#'    |team_id     |character |WNBA Stats team id of a player row.                      |
+#'    |team_id     |integer   |WNBA Stats team id of a player row.                      |
 #'    |id_source   |character |Id namespace of `entity_id` / `team_id` (`wnba_stats`).  |
 #'    |metric      |character |Curve name (`fg_pct_by_shot_distance`).                  |
 #'    |down        |integer   |Football-only down split; always `NA` here.              |
@@ -132,6 +133,7 @@ load_wnba_stats_metric_curves <- function(seasons = most_recent_wnba_stats_seaso
                                           dbConnection = NULL, tablename = NULL) {
   .load_wnba_stats_release(seasons, "wnba_stats_metric_curves", "metric_curves", 1997,
                            fn = "load_wnba_stats_metric_curves", default = missing(seasons),
+                           id_cols = c("entity_id", "team_id"),
                            dbConnection = dbConnection, tablename = tablename, ...)
 }
 
@@ -157,9 +159,9 @@ NULL
 #'    |:---------------|:---------|:--------------------------------------------------------|
 #'    |season          |integer   |Season identifier (4-digit year).                        |
 #'    |entity_type     |character |Grain of the row (`player`).                             |
-#'    |entity_id       |character |WNBA Stats player id.                                    |
+#'    |entity_id       |integer   |WNBA Stats player id.                                    |
 #'    |entity_name     |character |Player name.                                             |
-#'    |team_id         |character |WNBA Stats team id.                                      |
+#'    |team_id         |integer   |WNBA Stats team id.                                      |
 #'    |metric          |character |`fg_pct` or `fg3_pct`.                                   |
 #'    |window_unit     |character |Event the window counts (`fga` or `fg3a`).               |
 #'    |window_n        |integer   |Window length in events (50 or 200).                     |
@@ -189,6 +191,7 @@ load_wnba_stats_rolling_windows <- function(seasons = most_recent_wnba_stats_sea
                                             dbConnection = NULL, tablename = NULL) {
   .load_wnba_stats_release(seasons, "wnba_stats_rolling_windows", "rolling_windows", 1997,
                            fn = "load_wnba_stats_rolling_windows", default = missing(seasons),
+                           id_cols = c("entity_id", "team_id"),
                            dbConnection = dbConnection, tablename = tablename, ...)
 }
 

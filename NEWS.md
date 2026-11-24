@@ -229,6 +229,11 @@
   release publishes them as character. Columns holding names or hashes (the
   shots `team_id` / `shooter_id`, the lineups `player_1`-`player_5` and
   `lineup_id`, the RAPM `person_id`) stay character.
+* `load_wnba_stats_metric_curves()` and `load_wnba_stats_rolling_windows()` return
+  `entity_id` and `team_id` as integer, like the other WNBA Stats ids. The release
+  files publish them as character.
+* A loader id that is not a whole number (`"1.5"`) now becomes `NA` with a warning
+  when it is cast to integer, instead of being truncated without one.
 * Three new loaders read the static stats.ncaa.org to ESPN tables on the
   `wbb_crosswalk` release: `load_wbb_ncaa_espn_team_crosswalk()` (one row
   per season and stats.ncaa.org team id, 2009-10 onward, with the ESPN team
@@ -385,6 +390,9 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
   `expect_in()`, already used across the test suite, needs 3.1.9. (#84)
 * `Rcpp` and `RcppParallel` are no longer Imports (wehoop has no compiled code), and
   `usethis` is no longer in Suggests: the `update_*_db()` messages use cli. (#109)
+* `tibble` moved from Suggests to Imports: the ESPN wrappers call it unconditionally.
+* cachem, crayon, ggrepel, gh, memoise, piggyback and tictoc are no longer in Suggests;
+  nothing in the package, its tests or its vignettes used them.
 
 ### **Documentation**
 
@@ -394,7 +402,7 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
   release tag each loader reads, 60 tags in all.
 * The README has a data status table for the release-data producers (#88), a companion-package
   section, and one line per function family. The README, vignettes and contributor guides give the
-  current counts (180 ESPN wrappers, 750 exports).
+  current counts (180 ESPN wrappers, 764 exports, 112 `load_*()` loaders).
 * `load_ncaa_wbb_rapm_within_team()` documented `rapm_net` as `rapm_off + rapm_def`. The data
   has `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a points-allowed scale (lower
   is better). The docs now say so.
