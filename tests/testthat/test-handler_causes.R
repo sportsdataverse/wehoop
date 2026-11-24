@@ -1,8 +1,8 @@
 # A wrapper's tryCatch() error handler must name the cause of a failure, not
-# only "no data available": a 429, a 403 and a parse bug otherwise read like an
-# empty result. Every request is made to fail offline, and every function with
-# a reporting tryCatch() error handler must pass that cause on, without the
-# error escaping.
+# only "no data available": a timeout, a connection reset and a parse bug
+# otherwise read like an empty result. Every request is made to fail offline,
+# and every function with a reporting tryCatch() error handler must pass that
+# cause on, without the error escaping.
 
 # Functions this setup cannot exercise, with why.
 .handler_cause_skip <- c(
@@ -10,18 +10,23 @@
   .intl_json = "parses the text it is given; no request",
   .players_on_court_v3_wnba = "takes a play-by-play frame, not request arguments",
   .read_games_index_strict = "aborts on purpose, with the cause as parent = e",
-  update_wbb_db = "aborts on purpose, with the cause as parent = e",
-  update_wnba_db = "aborts on purpose, with the cause as parent = e",
-  update_wnba_stats_db = "aborts on purpose, with the cause as parent = e",
+  update_wbb_db = "aborts on purpose in .read_games_index_strict(), with the cause as parent = e",
+  update_wnba_db = "aborts on purpose in .read_games_index_strict(), with the cause as parent = e",
+  update_wnba_stats_db = "aborts on purpose in .read_games_index_strict(), with the cause as parent = e",
   wnba_playerheadshot = "builds a URL; no request",
   ncaa_wbb_NET_rankings = "reads through xml2, not httr2",
   wnba_referee_assignments = "aborts on purpose, with the cause as parent = cnd",
-  .espn_basketball_team_roster = "a past season reads a release asset, not httr2; a failed read warns with its cause",
   wnba_boxscoreplayertrackv2 = "defunct (lifecycle::deprecate_stop())",
   wnba_data_pbp = "defunct (lifecycle::deprecate_stop())",
   wnba_playercareerbycollege = "defunct (lifecycle::deprecate_stop())",
   wnba_teamgamestreakfinder = "defunct (lifecycle::deprecate_stop())",
   wnba_teamhistoricalleaders = "defunct (lifecycle::deprecate_stop())"
+)
+
+# Per-function overrides of .handler_cause_args. A past season sends
+# .espn_basketball_team_roster() to a release asset instead of the request.
+.handler_cause_overrides <- list(
+  .espn_basketball_team_roster = list(season = 9999L)
 )
 
 .handler_cause_args <- list(
@@ -46,9 +51,10 @@
 test_that("error handlers report the cause of a failed request", {
   skip_on_cran()
   ns <- asNamespace("wehoop")
-  # Selected by handler shape, not by whether it already reports the cause,
-  # so a handler that loses conditionMessage() fails here instead of
-  # silently dropping out of the list.
+  # Selected by handler shape (a block body or .report_api_error()), not by
+  # whether it already reports the cause, so a handler that loses
+  # conditionMessage() fails here instead of dropping out of the list. A
+  # value fallback such as `error = function(e) NULL` is not selected.
   has_reporting_handler <- function(nm) {
     f <- .unmemoise(get(nm, envir = ns))
     if (!is.function(f) || is.primitive(f)) return(FALSE)
@@ -63,6 +69,8 @@ test_that("error handlers report the cause of a failed request", {
 
   # Anything that reaches the network without httr2 fails fast on a dead proxy.
   withr::local_envvar(http_proxy = "http://127.0.0.1:9", https_proxy = "http://127.0.0.1:9")
+  # Fake Her Hoop Stats credentials, so its wrappers get as far as the request.
+  withr::local_envvar(HERHOOPSTATS_EMAIL = "test@example.com", HERHOOPSTATS_PW = "test")
   local_mocked_bindings(
     req_perform = function(...) stop("mock outage"),
     .package = "httr2"
@@ -76,6 +84,7 @@ test_that("error handlers report the cause of a failed request", {
     fm <- formals(f)
     req <- names(fm)[vapply(fm, function(x) identical(x, quote(expr = )), logical(1))]
     args <- .handler_cause_args[intersect(req, names(.handler_cause_args))]
+    args[names(.handler_cause_overrides[[nm]])] <- .handler_cause_overrides[[nm]]
     msgs <- character()
     withCallingHandlers(
       tryCatch(do.call(f, args), error = function(e) escaped <<- c(escaped, nm)),

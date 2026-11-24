@@ -898,7 +898,12 @@ NULL
   if (empty_rotation) {
     # gamerotation is flaky under batched calls: infer lineups from
     # substitution events (the pre-v3 path) before degrading to all-NA
-    fallback <- tryCatch(.players_on_court(pbp_data), error = function(e) NULL)
+    fallback <- tryCatch(.players_on_court(pbp_data), error = function(e) {
+      cli::cli_alert_warning(
+        "Could not infer on-court players for {game_id} from substitution events: {conditionMessage(e)}"
+      )
+      NULL
+    })
     if (!is.null(fallback)) {
       cli::cli_alert_warning(
         "No game rotation for {game_id}: on-court players inferred from substitution events."

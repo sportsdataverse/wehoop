@@ -84,17 +84,19 @@
   finishes and returns its data. Since these are now warnings rather than
   messages, `suppressMessages()` no longer hides them; use
   `suppressWarnings(classes = "wehoop_warning")`. A classed warning (an
-  rlang or lifecycle one, say) also keeps its own class. The ESPN helpers' warnings name the internal helper (for example
-  `.espn_basketball_team_roster()`), shared by the `espn_wbb_*()` and
-  `espn_wnba_*()` wrapper of the same name.
+  rlang or lifecycle one, say) also keeps its own class. The ESPN helpers'
+  warnings name the internal helper (for example
+  `.espn_basketball_team_roster()`), which the `espn_wbb_*()` and
+  `espn_wnba_*()` wrappers of the same name share.
 * Failed requests now say why. Six ESPN helpers that fetched a page with
   `tryCatch(error = function(e) NULL)` (season leaders, season groups and
   weeks, team records, athlete career stats and prop-bet pages) returned an
   empty result on a timeout or connection error without a message; they now
   report the URL and the underlying error. `update_wbb_db()`,
   `update_wnba_db()` and `update_wnba_stats_db()` report a failed dataset
-  with `conditionMessage()`, and an FEB schedule page that fails to parse
-  says why.
+  with `conditionMessage()`, an FEB schedule page that fails to parse says
+  why, and `wnba_pbp()` says why its substitution-based lineup fallback
+  failed before leaving the on-court columns `NA`.
 * `espn_wbb_game_team_roster()` and `espn_wnba_game_team_roster()` returned 0 rows for every
   game: ESPN serves the game-day roster inline under `entries`, and the parser read only
   `items`. They now return one row per athlete, with the display name, jersey, starter,

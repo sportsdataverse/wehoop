@@ -45,7 +45,8 @@ bart_wbb_ratings <- function(year = most_recent_wbb_season()) {
     expr = .wehoop_with_warnings("bart_wbb_ratings", {
       txt <- .bart_wbb_text(paste0("/", year, "_team_results.csv"))
       # Older files quote one header ("Fun Rk, adjt"). fread resolves it but
-      # warns, and the warning handler below would discard the whole season.
+      # warns; that warning is expected, so it is muffled here instead of being
+      # re-raised by .wehoop_with_warnings().
       df <- withCallingHandlers(
         data.table::fread(text = txt, showProgress = FALSE),
         warning = function(w) {
