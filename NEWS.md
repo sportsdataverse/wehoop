@@ -229,6 +229,9 @@
   release publishes them as character. Columns holding names or hashes (the
   shots `team_id` / `shooter_id`, the lineups `player_1`-`player_5` and
   `lineup_id`, the RAPM `person_id`) stay character.
+* `load_wnba_stats_metric_curves()` and `load_wnba_stats_rolling_windows()` return
+  `entity_id` and `team_id` as integer, like the other WNBA Stats ids. The release
+  files publish them as character.
 * Three new loaders read the static stats.ncaa.org to ESPN tables on the
   `wbb_crosswalk` release: `load_wbb_ncaa_espn_team_crosswalk()` (one row
   per season and stats.ncaa.org team id, 2009-10 onward, with the ESPN team

@@ -23,6 +23,22 @@ test_that("the new WNBA Stats loaders read their release assets (offline)", {
   )))
 })
 
+test_that("metric curves and rolling windows return integer WNBA Stats ids (offline)", {
+  # The release files publish entity_id / team_id as character.
+  local_mocked_bindings(
+    rds_from_url = function(url) data.table::data.table(
+      season = 2025L, entity_id = c(NA, "1627668"), team_id = c(NA, "1611661321")
+    ),
+    .release_asset_exists = function(url) TRUE
+  )
+  for (f in list(load_wnba_stats_metric_curves, load_wnba_stats_rolling_windows)) {
+    out <- f(seasons = 2025)
+    expect_type(out$entity_id, "integer")
+    expect_type(out$team_id, "integer")
+    expect_equal(out$entity_id, c(NA, 1627668L))
+  }
+})
+
 test_that("the box score loaders refuse seasons before their 2026 floor (offline)", {
   local_mocked_bindings(
     rds_from_url = function(url) stop("no download expected"),

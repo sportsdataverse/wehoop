@@ -32,9 +32,9 @@ bucket.\tabular{lll}{
    col_name \tab types \tab description \cr
    season \tab integer \tab Season identifier (4-digit year). \cr
    entity_type \tab character \tab Grain of the row: \code{league}, \code{team} or \code{player}. \cr
-   entity_id \tab character \tab WNBA Stats team or player id (\code{NA} for \code{league} rows). \cr
+   entity_id \tab integer \tab WNBA Stats team or player id (\code{NA} for \code{league} rows). \cr
    entity_name \tab character \tab Team or player name (\code{NA} for \code{league} rows). \cr
-   team_id \tab character \tab WNBA Stats team id of a player row. \cr
+   team_id \tab integer \tab WNBA Stats team id of a player row. \cr
    id_source \tab character \tab Id namespace of \code{entity_id} / \code{team_id} (\code{wnba_stats}). \cr
    metric \tab character \tab Curve name (\code{fg_pct_by_shot_distance}). \cr
    down \tab integer \tab Football-only down split; always \code{NA} here. \cr
