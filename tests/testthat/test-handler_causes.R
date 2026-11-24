@@ -40,14 +40,6 @@
   season_dates = "20240601"
 )
 
-.unmemoise <- function(f) {
-  if (requireNamespace("memoise", quietly = TRUE) && memoise::is.memoised(f)) {
-    environment(f)$`_f`
-  } else {
-    f
-  }
-}
-
 test_that("error handlers report the cause of a failed request", {
   skip_on_cran()
   ns <- asNamespace("wehoop")
@@ -56,7 +48,7 @@ test_that("error handlers report the cause of a failed request", {
   # conditionMessage() fails here instead of dropping out of the list. A
   # value fallback such as `error = function(e) NULL` is not selected.
   has_reporting_handler <- function(nm) {
-    f <- .unmemoise(get(nm, envir = ns))
+    f <- get(nm, envir = ns)
     if (!is.function(f) || is.primitive(f)) return(FALSE)
     b <- paste(deparse(body(f)), collapse = "\n")
     grepl("tryCatch", b, fixed = TRUE) &&
@@ -79,7 +71,7 @@ test_that("error handlers report the cause of a failed request", {
   silent <- character()
   escaped <- character()
   for (nm in fns) {
-    f <- .unmemoise(get(nm, envir = ns))
+    f <- get(nm, envir = ns)
     # Only the arguments without a default; the defaults cover the rest.
     fm <- formals(f)
     req <- names(fm)[vapply(fm, function(x) identical(x, quote(expr = )), logical(1))]
