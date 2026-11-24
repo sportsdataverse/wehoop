@@ -47,7 +47,7 @@ WNBA Stats HTTP requests use `request_with_proxy()` in `utils_wnba_stats.R` whic
 
 Proxy value accepts a URL string `"http://host:port"` or a named list `list(url=, port=, username=, password=, auth=)` spread into `httr2::req_proxy()`.
 
-Per-call override (`wnba_foo(proxy = ...)`) only threads through WNBA Stats wrappers (which forward `...` to `request_with_proxy`). ESPN / NCAA / Fox / Torvik wrappers call `.retry_request()` directly without `...`, so use `options(wehoop.proxy = ...)` once at session top — that's the recommended pattern for any session that runs through a proxy.
+Per-call override (`wnba_foo(proxy = ...)`) only threads through WNBA Stats wrappers (which forward `...` to `request_with_proxy`). ESPN / Fox / Torvik wrappers and `ncaa_wbb_NET_rankings()` call `.retry_request()` directly without `...`, so use `options(wehoop.proxy = ...)` once at session top (`ncaa_wbb_teams()` is the exception: it takes `proxy` through `...`) — that's the recommended pattern for any session that runs through a proxy.
 
 Shared internal helpers in `utils.R`:
 - `check_status()` for HTTP response validation
