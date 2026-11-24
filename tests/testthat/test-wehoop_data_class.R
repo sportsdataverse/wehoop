@@ -17,6 +17,8 @@ test_that("make_wehoop_data() and rbindlist_with_attrs() output supports head()/
 })
 
 test_that("every exported load_*() result supports head()/tail() (offline)", {
+  # Four of these loaders are deprecated; their lifecycle warnings are expected.
+  withr::local_options(lifecycle_verbosity = "quiet")
   # group_quantity: load_wnba_stats_lineups() keeps the 5-man rows
   fake <- function(...) data.table::data.table(a = 1:10, b = letters[1:10], group_quantity = 5L)
   local_mocked_bindings(
