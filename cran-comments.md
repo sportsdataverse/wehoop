@@ -53,8 +53,9 @@ full list of changes is in NEWS.md. The main additions:
 
 All local checks below ran on 2026-11-24 on one tarball built (`R CMD
 build`, 1,876,893 bytes) from `git archive` of commit 661c66fc6. The
-commits after it change only this file, which is in `.Rbuildignore`, so
-the tarball contents are the same.
+commits after it change only this file, CLAUDE.md and
+`.github/copilot-instructions.md`, all in `.Rbuildignore`, so the tarball
+contents are the same.
 
 * Local Windows 10 x64, R 4.6.0 (ucrt), `R CMD check --as-cran
   --run-donttest --timings`, with `_R_CHECK_CRAN_INCOMING_REMOTE_=true`,
