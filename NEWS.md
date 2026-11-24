@@ -232,6 +232,8 @@
 * `load_wnba_stats_metric_curves()` and `load_wnba_stats_rolling_windows()` return
   `entity_id` and `team_id` as integer, like the other WNBA Stats ids. The release
   files publish them as character.
+* A loader id that is not a whole number (`"1.5"`) now becomes `NA` with a warning
+  when it is cast to integer, instead of being truncated without one.
 * Three new loaders read the static stats.ncaa.org to ESPN tables on the
   `wbb_crosswalk` release: `load_wbb_ncaa_espn_team_crosswalk()` (one row
   per season and stats.ncaa.org team id, 2009-10 onward, with the ESPN team

@@ -110,4 +110,11 @@ test_that(".ids_as_integer warns when a cast loses a value", {
   df <- data.table::data.table(wnba_player_id = c("1628932", "abc"))
   expect_warning(out <- .ids_as_integer(df, "wnba_player_id"), "1 value could not be read")
   expect_identical(out$wnba_player_id, c(1628932L, NA))
+
+  # as.integer() alone would truncate these to 1 and 2 without a word.
+  frac <- data.table::data.table(a = c("1.5", "3"), b = c(2.5, 4))
+  expect_warning(expect_warning(out <- .ids_as_integer(frac, c("a", "b")),
+                                "Column a"), "Column b")
+  expect_identical(out$a, c(NA, 3L))
+  expect_identical(out$b, c(NA, 4L))
 })
