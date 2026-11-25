@@ -125,13 +125,9 @@
       league, "/seasons/", season, "/types/", st,
       "/leaders?lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) {
-      .report_api_error(e, hint = "Request failed for {url}", args = .args)
-      NULL
-    })
-    if (is.null(res) || httr2::resp_status(res) != 200L) return(list())
-    raw <- res %>% .resp_text() %>%
-      jsonlite::fromJSON(simplifyVector = FALSE)
+    # 404: no leaders for this season type (e.g. WBB postseason, a future season)
+    raw <- .espn_core_get(url, missing_ok = TRUE)
+    if (is.null(raw)) return(list())
     categories <- raw[["categories"]] %||% list()
     rows <- list()
     for (cat in categories) {
@@ -174,11 +170,14 @@
   tryCatch(
     expr = .wehoop_with_warnings(".espn_basketball_season_leaders", {
       all_rows <- list()
+      fallbacks <- new.env()
       for (st in season_type) {
-        rs <- fetch_one(as.integer(st))
+        rs <- .wehoop_fallback(fetch_one(as.integer(st)), what = paste0("season_type=", st),
+                               log = fallbacks, fallback = list())
         if (length(rs) > 0L) all_rows <- c(all_rows, rs)
         if (length(season_type) > 1L) Sys.sleep(0.3)
       }
+      .wehoop_report_fallbacks(".espn_basketball_season_leaders", fallbacks)
       if (length(all_rows) == 0L) {
         result <- data.frame(
           league = character(0), season = integer(0),

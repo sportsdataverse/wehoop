@@ -22,13 +22,9 @@
       league, "/seasons/", season, "/types/", st,
       "/groups?limit=200&lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) {
-      .report_api_error(e, hint = "Request failed for {url}", args = .args)
-      NULL
-    })
-    if (is.null(res) || httr2::resp_status(res) != 200L) return(NULL)
-    raw <- res %>% .resp_text() %>%
-      jsonlite::fromJSON(simplifyVector = FALSE)
+    # ESPN answers 200 with no items for a season type without groups, so
+    # every non-2xx (404 included) is a failure
+    raw <- .espn_core_get(url)
     items <- raw[["items"]] %||% list()
     refs <- if (length(items) == 0L) character(0) else
       vapply(items, function(x) x[["$ref"]] %||% NA_character_,
@@ -49,11 +45,14 @@
   tryCatch(
     expr = .wehoop_with_warnings(".espn_basketball_season_groups", {
       parts <- list()
+      fallbacks <- new.env()
       for (st in season_type) {
-        df <- fetch_one(as.integer(st))
+        df <- .wehoop_fallback(fetch_one(as.integer(st)), what = paste0("season_type=", st),
+                               log = fallbacks)
         if (!is.null(df) && nrow(df) > 0L) parts[[length(parts) + 1L]] <- df
         if (length(season_type) > 1L) Sys.sleep(0.3)
       }
+      .wehoop_report_fallbacks(".espn_basketball_season_groups", fallbacks)
       if (length(parts) == 0L) {
         result <- data.frame(
           league = character(0), season = integer(0),

@@ -481,6 +481,17 @@ check_status <- function(res) {
   )
 }
 
+# GET an ESPN core-v2 resource and parse its JSON. With `missing_ok = TRUE` a
+# 404 is the answer "this does not exist" (a postseason the athlete or league
+# has no data for, a provider with no prop bets) and gives NULL quietly; any
+# other non-2xx raises a wehoop_http_error for the caller's .wehoop_fallback().
+.espn_core_get <- function(url, missing_ok = FALSE) {
+  res <- .retry_request(url)
+  if (missing_ok && httr2::resp_status(res) == 404L) return(NULL)
+  check_status(res)
+  jsonlite::fromJSON(.resp_text(res), simplifyVector = FALSE)
+}
+
 .wehoop_report_fallbacks <- function(fn, log) {
   n <- length(log$causes)
   if (!n) return(invisible(NULL))

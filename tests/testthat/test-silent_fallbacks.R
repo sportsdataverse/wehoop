@@ -50,29 +50,52 @@ test_that(".wehoop_fallback() returns the fallback and .wehoop_report_fallbacks(
   expect_length(collect_messages(.wehoop_report_fallbacks("some_fn", new.env()))$msgs, 0L)
 })
 
-test_that("wnba_boxscoresummaryv3() reports a sub-frame that fails to build, once, and keeps the rest", {
-  skip_on_cran()
-  withr::local_options(lifecycle_verbosity = "quiet")
-  body <- paste0(
-    '{"boxScoreSummary": {"gameSummary": {"gameId": "1022200034"},',
-    '"arenaInfo": {"arenaName": "Michelob ULTRA Arena"},',
-    '"officials": {"a": [1, 2], "b": [1, 2, 3]},',
-    '"lineScore": {"x": [1, 2], "y": [1, 2, 3, 4, 5]}}}'
-  )
+# A real 2025 response (recorded by data-raw/http_fixtures/record_fixtures.R,
+# arrays trimmed to 5 items): only `officials` and `lastFiveMeetings` carry
+# rows, which matches the deprecation note on wnba_boxscoresummaryv3().
+boxscoresummaryv3_2025 <- function() {
+  path <- testthat::test_path("fixtures", "http",
+    http_fixture_index()[["https://stats.wnba.com/stats/boxscoresummaryv3?GameID=1022500034"]]$file)
+  rawToChar(memDecompress(readBin(path, "raw", file.size(path)), "gzip"))
+}
+
+local_body <- function(body, env = parent.frame()) {
   httr2::local_mocked_responses(function(req) {
     httr2::response(status_code = 200L, url = req$url,
                     headers = list(`Content-Type` = "application/json"), body = charToRaw(body))
-  })
-  got <- collect_messages(wnba_boxscoresummaryv3(game_id = "1022200034"))
+  }, env = env)
+}
+
+test_that("wnba_boxscoresummaryv3() builds every sub-frame of a real 2025 response without an alert", {
+  skip_on_cran()
+  skip_if_no_fixtures("http")
+  withr::local_options(lifecycle_verbosity = "quiet")
+  local_body(boxscoresummaryv3_2025())
+  got <- collect_messages(wnba_boxscoresummaryv3(game_id = "1022500034"))
   out <- got$value
-  expect_equal(nrow(out$arena_info), 1L)
+  expect_length(got$msgs, 0L)
+  expect_true(all(vapply(out, is.data.frame, TRUE)))
+  expect_equal(nrow(out$officials), 3L)
+  expect_in(c("person_id", "first_name", "family_name", "jersey_num"), names(out$officials))
+  expect_gt(nrow(out$last_five_meetings), 0L)
+})
+
+test_that("wnba_boxscoresummaryv3() reports a sub-frame that fails to build, once, and keeps the rest", {
+  skip_on_cran()
+  skip_if_no_fixtures("http")
+  withr::local_options(lifecycle_verbosity = "quiet")
+  # the real response with `officials` made ragged, so that one sub-frame fails
+  body <- jsonlite::fromJSON(boxscoresummaryv3_2025(), simplifyVector = FALSE)
+  body$boxScoreSummary$officials <- list(a = list(1, 2), b = list(1, 2, 3))
+  local_body(as.character(jsonlite::toJSON(body, auto_unbox = TRUE, null = "null")))
+  got <- collect_messages(wnba_boxscoresummaryv3(game_id = "1022500034"))
+  out <- got$value
   expect_equal(nrow(out$officials), 0L)
-  expect_equal(nrow(out$line_score), 0L)
+  expect_gt(nrow(out$last_five_meetings), 0L)
   hits <- grep("wnba_boxscoresummaryv3()", got$msgs, fixed = TRUE, value = TRUE)
   expect_length(hits, 1L)
-  expect_match(hits, "2 parts failed", fixed = TRUE)
+  expect_match(hits, "1 part failed", fixed = TRUE)
   expect_match(hits, "officials: arguments imply differing number of rows", fixed = TRUE)
-  expect_match(hits, "lineScore: arguments imply differing number of rows", fixed = TRUE)
 })
 
 test_that("wnba_team_crosswalk() reports a failed Fox lookup and still builds the crosswalk", {
@@ -171,13 +194,11 @@ test_that("wbb_schedule_crosswalk() reports failed per-date scoreboards once", {
     }
   )
   got <- collect_messages(wbb_schedule_crosswalk(season = 2025))
-  # espn_wbb_scoreboard() still prints its own one-line "no scoreboard data"
-  # alert per date; the per-request error reports are collected
-  expect_false(any(grepl("Error:", got$msgs, fixed = TRUE)))
-  hits <- grep("wbb_schedule_crosswalk()", got$msgs, fixed = TRUE, value = TRUE)
-  expect_length(hits, 1L)
-  expect_match(hits, "parts failed and were left out of the result: espn_wbb_scoreboard(20241104): HTTP 503",
+  # one multi-date espn_wbb_scoreboard() call: both failed dates, one line
+  expect_length(got$msgs, 1L)
+  expect_match(got$msgs, "espn_wbb_scoreboard(): 2 parts failed and were left out of the result: dates=20241104: HTTP 503",
                fixed = TRUE)
+  expect_match(got$msgs, "dates=20241105: HTTP 503", fixed = TRUE)
 })
 
 test_that("ncaa_wbb_teams() leaves out failed conference pages and reports them once", {
