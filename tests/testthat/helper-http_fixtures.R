@@ -22,6 +22,8 @@ local_http_fixtures <- function(env = parent.frame()) {
     exists("local_mocked_responses", envir = asNamespace("httr2")),
     "httr2 >= 1.1.0 is needed to replay recorded responses"
   )
+  # replays test parsing; a soft-deprecated wrapper's lifecycle warning is noise here
+  withr::local_options(lifecycle_verbosity = "quiet", .local_envir = env)
   index <- http_fixture_index()
   dir <- testthat::test_path("fixtures", "http")
   httr2::local_mocked_responses(function(req) {

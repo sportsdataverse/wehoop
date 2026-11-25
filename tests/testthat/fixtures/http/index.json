@@ -1338,5 +1338,10 @@
     "file": "0137.gz",
     "status": 200,
     "type": "application/json;charset=utf-8"
+  },
+  "https://stats.wnba.com/stats/boxscoresummaryv3?GameID=1022500034": {
+    "file": "0346.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
   }
 }
