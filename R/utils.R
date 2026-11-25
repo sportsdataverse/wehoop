@@ -443,6 +443,12 @@ check_status <- function(res) {
     if (is.list(body)) body$message %||% body$error else NULL
   }, error = function(e) NULL) # ponytail: an HTML or empty error body has no detail to add
   detail <- if (is.character(detail) && length(detail) == 1L && nzchar(detail)) detail else NULL
+  if (!is.null(detail)) {
+    # the body is the server's text: no control characters, no echoed key, no wall of text
+    detail <- gsub("[[:cntrl:]]+", " ", detail)
+    detail <- gsub("(api_?key=)[^&[:space:]]+", "\\1<redacted>", detail, ignore.case = TRUE)
+    detail <- substr(detail, 1L, 300L)
+  }
   desc <- httr2::resp_status_desc(resp)
   url <- sub("\\?.*$", "", resp$url) # the query is not part of the cause
   rlang::abort(

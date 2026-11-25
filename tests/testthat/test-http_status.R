@@ -79,6 +79,18 @@ test_that(".wehoop_stop_for_http_status() raises a classed error carrying the st
   expect_s3_class(err, "wehoop_error")
   expect_identical(err$status, 403L)
   expect_identical(conditionMessage(err), "HTTP 403 Forbidden from https://example.com/x: Forbidden here")
+  expect_identical(err$url, "https://example.com/x")
+
+  # the server's message loses control characters and any echoed key
+  echo <- httr2::response(
+    status_code = 401L, url = "https://api.foxsports.com/bifrost/v1/x?apikey=secret",
+    headers = list(`Content-Type` = "application/json"),
+    body = charToRaw('{"message":"bad apikey=secret&x=1\\u001b[31m"}')
+  )
+  msg <- conditionMessage(expect_error(.wehoop_stop_for_http_status(echo), class = "wehoop_http_error"))
+  expect_false(grepl("secret", msg, fixed = TRUE))
+  expect_false(grepl("[[:cntrl:]]", msg))
+  expect_match(msg, "apikey=<redacted>", fixed = TRUE)
 })
 
 test_that("the shared request helpers stop on an error status before parsing", {
