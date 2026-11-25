@@ -98,18 +98,22 @@
   with `conditionMessage()`, an FEB schedule page that fails to parse says
   why, and `wnba_pbp()` says why its substitution-based lineup fallback
   failed before leaving the on-court columns `NA`.
-* Parts of a result that fail to build are now reported. The eight
+* Parts of a result that fail to build are now reported once. The eight
   sub-frames of `wnba_boxscoresummaryv3()` (`game_info` to
-  `available_video`) and the per-source lookups of the crosswalk builders
+  `available_video`) fell back to an empty frame on any error with no
+  message. The crosswalk builders' per-source lookups
   (`wnba_team_crosswalk()`'s Fox teams, `wnba_schedule_crosswalk()` and
   `wbb_schedule_crosswalk()`'s per-date ESPN scoreboards, and
   `wnba_player_crosswalk()` and `wbb_player_crosswalk()`'s per-team ESPN,
-  WNBA Stats and Fox rosters) fell back to an empty frame on any error,
-  with no message. They still fall back, but each function now prints one
-  warning-level alert naming itself, how many parts failed and why, for
-  example `wnba_schedule_crosswalk(): 3 parts failed and were left out of
-  the result: espn_wnba_scoreboard(20240601): ...`; a per-date or per-team
-  loop reports once, not once per row.
+  WNBA Stats and Fox rosters) dropped any error that escaped the inner
+  function, while the inner function's own report printed three lines per
+  date or team (about 450 for a season of scoreboards). They still fall
+  back, but each function now prints one warning-level alert naming
+  itself, how many parts failed and why, for example
+  `wnba_schedule_crosswalk(): 3 parts failed and were left out of the
+  result: espn_wnba_scoreboard(20240601): HTTP 503 ...`. `ncaa_wbb_teams()`
+  does the same for a conference page that fails, which is left out
+  instead of losing every other conference's teams.
 * An HTTP error answer is no longer parsed as data. The shared request
   helper turns off httr2's status errors, and the WNBA Stats request
   helper `request_with_proxy()` (behind every `wnba_*()` Stats wrapper),
