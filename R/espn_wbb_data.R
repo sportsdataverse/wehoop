@@ -985,6 +985,8 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
           simplifyVector = FALSE,
           simplifyMatrix = FALSE
         )
+      # a date with no games is an answer, not a failure
+      if (!length(raw_sched[["events"]])) return(NULL)
 
       wbb_data <- raw_sched[["events"]] %>%
         tibble::tibble(data = .data$.) %>%
@@ -1349,16 +1351,17 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 
 #' **Get ESPN women's college basketball schedule for a specific year**
 #'
-#' @param season Either numeric or character
+#' @param season One or more dates as `YYYYMMDD` (numeric or character). Each
+#'   date is one request; a date that fails is left out and reported once,
+#'   together with the other failed dates.
 #' @return Returns a tibble
 #'
 #'    Columns as documented in the shared [espn_basketball_scoreboard_schema] table.
 #'
 #' @import utils
-#' @importFrom dplyr select rename any_of mutate
+#' @importFrom dplyr select rename any_of mutate bind_rows
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr unnest_wider unchop hoist
-#' @importFrom purrr map2_dfr possibly quietly
 #' @import rvest
 #' @export
 #' @keywords WBB Scoreboard
@@ -1374,25 +1377,21 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
 espn_wbb_scoreboard <- function(season) {
   max_year <- substr(Sys.Date(), 1, 4)
 
-  if (!(as.integer(substr(season, 1, 4)) > 2001)) {
-    message(paste("Error: Season must be between 2001 and", max_year + 1))
+  if (!all(as.integer(substr(season, 1, 4)) > 2001)) {
+    message(paste("Error: Season must be between 2001 and", as.integer(max_year) + 1L))
   }
 
   # year > 2000
   season <- as.character(season)
 
-  season_dates <- season
-
-  # check for regular and postseason games
-
-  scoreboard_df <-
-    purrr::map2_dfr(c("50"), rep(season, 4), parse_espn_wbb_scoreboard)
-
-  if (!nrow(scoreboard_df)) {
-    cli::cli_alert_danger(
-      "{Sys.time()}: Invalid arguments or no scoreboard data available!"
-    )
-  }
+  # one request per date (group 50 is all of D-I); a failed date is collected
+  # and reported once for the whole call
+  fallbacks <- new.env()
+  scoreboard_df <- dplyr::bind_rows(lapply(season, function(d) {
+    .wehoop_fallback(parse_espn_wbb_scoreboard("50", d),
+                     what = paste0("dates=", d), log = fallbacks)
+  }))
+  .wehoop_report_fallbacks("espn_wbb_scoreboard", fallbacks)
   return(scoreboard_df)
 }
 

@@ -7,7 +7,9 @@
 espn_wbb_scoreboard(season)
 }
 \arguments{
-\item{season}{Either numeric or character}
+\item{season}{One or more dates as \code{YYYYMMDD} (numeric or character). Each
+date is one request; a date that fails is left out and reported once,
+together with the other failed dates.}
 }
 \value{
 Returns a tibble

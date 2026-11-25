@@ -333,10 +333,8 @@ wbb_team_crosswalk <- function(season = most_recent_wbb_season(),
     espn_game_id     = as.character(.data$espn_game_id),
     .pair_key        = .pair_key(.data$home_espn_team_id, .data$away_espn_team_id)
   )
-  # De-duplicate ESPN games: espn_wbb_scoreboard() returns each game once per
-  # ESPN group (D-I, conference tournaments, etc.), so the per-date pull yields
-  # multiple identical rows per game; collapse to one before the join to avoid
-  # a row blow-up.
+  # De-duplicate ESPN games (one row per game) before the join, so a game
+  # listed twice cannot blow up the row count.
   espn2 <- espn2[!duplicated(espn2$espn_game_id), , drop = FALSE]
 
   # Torvik side — keep ALL games; those where either team name cannot be
@@ -461,26 +459,18 @@ wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
       bart_games <- bart_games[!is.na(bart_games$game_date), , drop = FALSE]
 
       # --- ESPN side ---------------------------------------------------------
-      # Derive unique ET dates from Torvik and call the WBB scoreboard once
-      # per date. ~150 calls for a full season.
+      # Derive unique ET dates from Torvik and pull the WBB scoreboard for all
+      # of them in one call (one request per date, ~150 for a full season);
+      # espn_wbb_scoreboard() reports the dates that failed, once.
       dates <- sort(unique(bart_games$game_date))
-      fallbacks <- new.env()
-      espn_list <- lapply(dates, function(d) {
-        sb <- .wehoop_fallback(
-          espn_wbb_scoreboard(season = as.integer(format(d, "%Y%m%d"))),
-          paste0("espn_wbb_scoreboard(", format(d, "%Y%m%d"), ")"), fallbacks
-        )
-        if (is.null(sb) || !nrow(sb)) return(NULL)
-        dplyr::transmute(
-          sb,
-          espn_game_id      = as.character(.data$game_id),
-          game_date         = .bb_to_eastern(.data$game_date_time),
-          home_espn_team_id = as.integer(.data$home_team_id),
-          away_espn_team_id = as.integer(.data$away_team_id)
-        )
-      })
-      espn_games <- dplyr::bind_rows(espn_list)
-      .wehoop_report_fallbacks("wbb_schedule_crosswalk", fallbacks)
+      sb <- espn_wbb_scoreboard(season = format(dates, "%Y%m%d"))
+      espn_games <- dplyr::bind_rows(if (NROW(sb)) dplyr::transmute(
+        sb,
+        espn_game_id      = as.character(.data$game_id),
+        game_date         = .bb_to_eastern(.data$game_date_time),
+        home_espn_team_id = as.integer(.data$home_team_id),
+        away_espn_team_id = as.integer(.data$away_team_id)
+      ))
 
       out <- .bb_assemble_schedule_crosswalk_wbb(
         espn_games  = espn_games,

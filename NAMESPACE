@@ -809,10 +809,7 @@ importFrom(jsonlite,
 importFrom(purrr,
   list_rbind,
   map,
-  map2_dfr,
-  map_dfr,
-  possibly,
-  quietly
+  map_dfr
 )
 importFrom(rlang,
   "%||%",
