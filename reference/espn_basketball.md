@@ -9,14 +9,13 @@ a common set of internal helpers in `R/espn_basketball_*.R`:
 
 Each public wrapper is a thin shim over an internal helper that takes a
 `league` argument (`"wnba"` or `"womens-college-basketball"`); the
-helper does the actual HTTP call + parsing. Error reporting flows
-through ESPN-side reporters
+helper does the actual HTTP call + parsing. Errors are reported through
+the ESPN-side
 [`.report_api_error()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_error.md)
-/
-[`.report_api_warning()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_warning.md)
 in `R/utils.R` (do **not** use raw
 [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
-here – that is the WNBA Stats convention).
+here – that is the WNBA Stats convention), and warnings are re-raised by
+`.wehoop_with_warnings()`.
 
 ## Details
 

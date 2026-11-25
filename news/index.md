@@ -86,6 +86,44 @@
 
 #### **Behavior changes and bug fixes**
 
+- Warnings no longer cut a result short. 245
+  [`tryCatch()`](https://rdrr.io/r/base/conditions.html) blocks in the
+  WNBA Stats, ESPN, NCAA, Fox, Basketball-Reference, Her Hoop Stats,
+  Torvik and crosswalk wrappers had a `warning =` handler (244 printed
+  the warning, one was empty). Any warning while parsing (a coercion
+  `NA`, a partial read) stopped the parse there, so the function
+  returned an empty or half-built result, with the warning printed as a
+  message (or, for the empty handler in
+  [`wnba_playbyplayv3()`](https://wehoop.sportsdataverse.org/reference/wnba_playbyplayv3.md),
+  not at all). Each warning is now raised as an R warning of class
+  `wehoop_warning` that names the function, for example
+  `espn_wbb_conferences(): NAs introduced by coercion`, and the function
+  finishes and returns its data. Since these are now warnings rather
+  than messages,
+  [`suppressMessages()`](https://rdrr.io/r/base/message.html) no longer
+  hides them; wrap the call as
+  `suppressWarnings(espn_wbb_teams(), classes = "wehoop_warning")`. A
+  classed warning (an rlang or lifecycle one, say) also keeps its own
+  class. The ESPN helpers’ warnings name the internal helper (for
+  example `.espn_basketball_team_roster()`), which the `espn_wbb_*()`
+  and `espn_wnba_*()` wrappers of the same name share.
+
+- Failed requests now say why. Six ESPN helpers that fetched a page with
+  `tryCatch(error = function(e) NULL)` (season leaders, season groups
+  and weeks, team records, athlete career stats and prop-bet pages)
+  returned an empty result on a timeout or connection error without a
+  message; they now report the URL and the underlying error.
+  [`update_wbb_db()`](https://wehoop.sportsdataverse.org/reference/update_wbb_db.md),
+  [`update_wnba_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_db.md)
+  and
+  [`update_wnba_stats_db()`](https://wehoop.sportsdataverse.org/reference/update_wnba_stats_db.md)
+  report a failed dataset with
+  [`conditionMessage()`](https://rdrr.io/r/base/conditions.html), an FEB
+  schedule page that fails to parse says why, and
+  [`wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_pbp.md)
+  says why its substitution-based lineup fallback failed before leaving
+  the on-court columns `NA`.
+
 - [`espn_wbb_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_leaders.md)
   and
   [`espn_wnba_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_leaders.md)
@@ -1285,7 +1323,7 @@ shim has been removed and the original body restored on each:
 | Restored function | Verified return |
 |----|----|
 | [`wnba_playerprofilev2()`](https://wehoop.sportsdataverse.org/reference/wnba_playerprofilev2.md) | `SeasonTotalsRegularSeason` (9 seasons), `SeasonTotalsPostSeason` (7), `SeasonTotalsAllStarSeason` (6), `SeasonTotalsPreseason` (7), matching `CareerTotals*` rollups, `SeasonRankings*`, `SeasonHighs` (17), `CareerHighs` (22), and `NextGame` for A’ja Wilson (`PLAYER_ID = 1628932`). Default `league_id` is now `'10'`. |
-| [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md) | `TeamInfoCommon` (current-season W/L + conference/division + slug/code), `TeamSeasonRanks` (PTS/REB/AST + opponent PTS rank), and 76-season `AvailableSeasons` list for the Aces. Body un-commented; error handling migrated from raw [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html) to [`.report_api_error()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_error.md) / [`.report_api_warning()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_warning.md). |
+| [`wnba_teaminfocommon()`](https://wehoop.sportsdataverse.org/reference/wnba_teaminfocommon.md) | `TeamInfoCommon` (current-season W/L + conference/division + slug/code), `TeamSeasonRanks` (PTS/REB/AST + opponent PTS rank), and 76-season `AvailableSeasons` list for the Aces. Body un-commented; error handling migrated from raw [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html) to [`.report_api_error()`](https://wehoop.sportsdataverse.org/reference/dot-report_api_error.md) / `.report_api_warning()`. |
 | [`wnba_teamyearbyyearstats()`](https://wehoop.sportsdataverse.org/reference/wnba_teamyearbyyearstats.md) | `TeamStats` with 30 seasons × 34 columns of full franchise-level year-by-year ledger (GP, W, L, win%, conference rank, division rank, ratings) for the Aces. |
 | [`wnba_leaguelineupviz()`](https://wehoop.sportsdataverse.org/reference/wnba_leaguelineupviz.md) | `LeagueLineupViz` with 458–4,169 5-player lineup combinations × 25 columns (off/def/net rating, pace, TS%, eFG%) depending on filters, current 2025-26 WNBA season. |
 

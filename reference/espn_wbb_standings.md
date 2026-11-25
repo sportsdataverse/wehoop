@@ -108,7 +108,7 @@ lists every function in this family.
 # \donttest{
   try(espn_wbb_standings(2021))
 #> ── ESPN WBB Standings Information from ESPN.com ──────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-24 19:17:01 UTC
+#> ℹ Data updated: 2026-11-25 00:36:19 UTC
 #> # A tibble: 300 × 87
 #>    team_id team             conference avgpointsagainst avgpointsfor gamesbehind
 #>      <int> <chr>            <chr>                 <dbl>        <dbl>       <dbl>

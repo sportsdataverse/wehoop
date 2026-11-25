@@ -8,10 +8,10 @@ espn_wbb_*() – ESPN women's college basketball wrappers
 Each public wrapper is a thin shim over an internal helper that
 takes a league argument (&quot;wnba&quot; or
 &quot;womens-college-basketball&quot;); the helper does the actual HTTP
-call + parsing. Error reporting flows through ESPN-side reporters
-.report_api_error() / .report_api_warning() in R/utils.R
-(do not use raw cli::cli_alert_danger() here – that is the
-WNBA Stats convention)."><meta property="og:description" content="Wrappers around ESPN's basketball endpoints. Two parallel families
+call + parsing. Errors are reported through the ESPN-side
+.report_api_error() in R/utils.R (do not use raw
+cli::cli_alert_danger() here – that is the WNBA Stats convention),
+and warnings are re-raised by .wehoop_with_warnings()."><meta property="og:description" content="Wrappers around ESPN's basketball endpoints. Two parallel families
 share a common set of internal helpers in R/espn_basketball_*.R:
 espn_wnba_*() – ESPN WNBA wrappers
 espn_wbb_*() – ESPN women's college basketball wrappers
@@ -20,10 +20,10 @@ espn_wbb_*() – ESPN women's college basketball wrappers
 Each public wrapper is a thin shim over an internal helper that
 takes a league argument (&quot;wnba&quot; or
 &quot;womens-college-basketball&quot;); the helper does the actual HTTP
-call + parsing. Error reporting flows through ESPN-side reporters
-.report_api_error() / .report_api_warning() in R/utils.R
-(do not use raw cli::cli_alert_danger() here – that is the
-WNBA Stats convention)."><meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/themes/wehoop_gh.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@saiemgilani"><meta name="twitter:site" content="@sportsdataverse"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-WSdGcGupN6agTk6mJqQL4.js"></script><script>
+call + parsing. Errors are reported through the ESPN-side
+.report_api_error() in R/utils.R (do not use raw
+cli::cli_alert_danger() here – that is the WNBA Stats convention),
+and warnings are re-raised by .wehoop_with_warnings()."><meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/wehoop-data/main/themes/wehoop_gh.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@saiemgilani"><meta name="twitter:site" content="@sportsdataverse"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-WSdGcGupN6agTk6mJqQL4.js"></script><script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script></head><body>
@@ -145,10 +145,10 @@ share a common set of internal helpers in <code>R/espn_basketball_*.R</code>:</p
 </ul><p>Each public wrapper is a thin shim over an internal helper that
 takes a <code>league</code> argument (<code>"wnba"</code> or
 <code>"womens-college-basketball"</code>); the helper does the actual HTTP
-call + parsing. Error reporting flows through ESPN-side reporters
-<code><a href="dot-report_api_error.html">.report_api_error()</a></code> / <code><a href="dot-report_api_warning.html">.report_api_warning()</a></code> in <code>R/utils.R</code>
-(do <strong>not</strong> use raw <code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_danger()</a></code> here – that is the
-WNBA Stats convention).</p>
+call + parsing. Errors are reported through the ESPN-side
+<code><a href="dot-report_api_error.html">.report_api_error()</a></code> in <code>R/utils.R</code> (do <strong>not</strong> use raw
+<code><a href="https://cli.r-lib.org/reference/cli_alert.html" class="external-link">cli::cli_alert_danger()</a></code> here – that is the WNBA Stats convention),
+and warnings are re-raised by <code>.wehoop_with_warnings()</code>.</p>
     </div>
 
 

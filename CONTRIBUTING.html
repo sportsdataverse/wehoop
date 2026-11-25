@@ -290,6 +290,8 @@
 <li>Internal helpers start with <code>.</code> (e.g., <code><a href="reference/dot-players_on_court_v3_wnba.html">.players_on_court_v3_wnba()</a></code>)</li>
 <li>Game IDs must be passed through <code>pad_id()</code> before API calls</li>
 <li>Use <code>%||%</code> (rlang) for null-safe defaults when parsing API responses</li>
+<li>Initialize the return variable before <code>tryCatch</code>, wrap the body as <code>expr = .wehoop_with_warnings("&lt;function name&gt;", { ... })</code>, and give the <code>tryCatch</code> <strong>no</strong> <code>warning =</code> handler. A <code>warning =</code> handler stops the body at the first warning and returns the empty fallback; <code>.wehoop_with_warnings()</code> re-raises each warning as a <code>wehoop_warning</code> naming the function and lets the body finish.</li>
+<li>Every <code>error =</code> handler must report <code>conditionMessage(e)</code> (directly or through <code><a href="reference/dot-report_api_error.html">.report_api_error()</a></code>), so a timeout, a connection reset or a parse failure is reported with its cause. <code>tests/testthat/test-handler_causes.R</code> fails a block or <code><a href="reference/dot-report_api_error.html">.report_api_error()</a></code> handler that drops it when the function’s first request fails. It does not select value fallbacks such as <code>error = function(e) NULL</code>, nor the functions in its skip list; give those a focused test.</li>
 </ul></div>
 </div>
 <div class="section level2">
