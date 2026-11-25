@@ -24,7 +24,7 @@ test_that("custom_mode, %c% and year_to_season", {
 test_that("check_status raises on a non-200 response", {
   skip_on_cran()
   expect_silent(check_status(httr2::response(status_code = 200L)))
-  expect_error(check_status(httr2::response(status_code = 500L)), "API returned an error")
+  expect_error(check_status(httr2::response(status_code = 500L)), "HTTP 500", class = "wehoop_http_error")
 })
 
 test_that(".retry_request applies params, headers and a proxy", {

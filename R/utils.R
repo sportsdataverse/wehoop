@@ -417,11 +417,42 @@ my_time <- function() strftime(Sys.time(), format = "%H:%M:%S")
 #' @import rvest
 #'
 check_status <- function(res) {
+  .wehoop_stop_for_http_status(res, call = NULL)
+}
 
-  x <- httr2::resp_status(res)
-
-  if (x != 200) stop("The API returned an error", call. = FALSE)
-
+#' Raise a classed error for a non-2xx response
+#'
+#' [.retry_request()] turns off httr2's status errors, so a helper that parses
+#' the body straight away would read a 401, 403 or 500 error body as data (or
+#' fail with a JSON parse error that hides the status). Shared request helpers
+#' call this between the request and the parse: a 2xx response is returned
+#' unchanged; anything else raises a `wehoop_http_error` (also a
+#' `wehoop_fetch_error` and `wehoop_error`) whose message names the status,
+#' the host and path, and the `message` (or `error`) field of a JSON error
+#' body, and which carries `status` and `url` fields. A wrapper's `error =`
+#' handler then reports it with its cause.
+#' @param resp An httr2 response.
+#' @return `resp`, invisibly, when its status is 2xx.
+#' @keywords internal
+#' @noRd
+.wehoop_stop_for_http_status <- function(resp, call = rlang::caller_env()) {
+  status <- httr2::resp_status(resp)
+  if (status >= 200L && status < 300L) return(invisible(resp))
+  detail <- tryCatch({
+    body <- jsonlite::fromJSON(httr2::resp_body_string(resp), simplifyVector = TRUE)
+    if (is.list(body)) body$message %||% body$error else NULL
+  }, error = function(e) NULL) # ponytail: an HTML or empty error body has no detail to add
+  detail <- if (is.character(detail) && length(detail) == 1L && nzchar(detail)) detail else NULL
+  desc <- httr2::resp_status_desc(resp)
+  url <- sub("\\?.*$", "", resp$url) # the query is not part of the cause
+  rlang::abort(
+    paste0(
+      "HTTP ", status, if (!is.na(desc)) paste0(" ", desc), " from ", url,
+      if (!is.null(detail)) paste0(": ", detail)
+    ),
+    class = c("wehoop_http_error", "wehoop_fetch_error", "wehoop_error"),
+    status = status, url = url, call = call
+  )
 }
 
 #' Retry an HTTP request with httr2
@@ -592,6 +623,7 @@ check_status <- function(res) {
 #' @keywords internal
 .report_api_error <- function(e, hint = NULL, args = list()) {
   caller_env <- parent.frame()
+
 
   hint_text <- if (!is.null(hint)) {
     .interp_braces(hint, envir = caller_env)

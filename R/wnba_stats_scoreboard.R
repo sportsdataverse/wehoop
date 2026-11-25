@@ -93,6 +93,7 @@ wnba_schedule <- function(
     expr = {
 
       resp <- .retry_request(cdn_url, headers = .wnba_cdn_headers()) %>%
+        .wehoop_stop_for_http_status() %>%
         .resp_text() %>%
         jsonlite::fromJSON()
 
@@ -731,6 +732,7 @@ wnba_todays_scoreboard <- function(
       # but it has been frozen at 2020-10-06 (one 2020 Finals game), not today.
       full_url <- paste0(wnba_live_endpoint("scoreboard"), "/todaysScoreboard_10.json")
       res <- .retry_request(full_url, headers = .wnba_cdn_headers())
+      .wehoop_stop_for_http_status(res)
 
       resp <- res %>%
         .resp_text() %>%

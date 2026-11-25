@@ -309,6 +309,8 @@ WNBA Stats API requests use `request_with_proxy()` in `utils_wnba_stats.R` with 
 
 `wnba_endpoint()` builds URLs via `paste0("https://stats.wnba.com/stats/", endpoint)`.
 
+`.retry_request()` turns off httr2's status errors, so any helper that parses a body calls `.wehoop_stop_for_http_status(resp)` first (`request_with_proxy()`, the CDN wrappers, the Torvik and Basketball-Reference helpers do; ESPN and Fox go through `check_status()`, which delegates to it). A non-2xx answer raises `wehoop_http_error` (also `wehoop_fetch_error`) naming the status, endpoint and JSON `message`; never parse a body before that check.
+
 #### Proxy support
 
 `.retry_request()` resolves a proxy in this order:

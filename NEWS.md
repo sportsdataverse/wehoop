@@ -98,6 +98,21 @@
   with `conditionMessage()`, an FEB schedule page that fails to parse says
   why, and `wnba_pbp()` says why its substitution-based lineup fallback
   failed before leaving the on-court columns `NA`.
+* An HTTP error answer is no longer parsed as data. The shared request
+  helper turns off httr2's status errors, and the WNBA Stats request
+  helper `request_with_proxy()` (behind every `wnba_*()` Stats wrapper),
+  the WNBA CDN wrappers (`wnba_schedule()`, `wnba_todays_scoreboard()`, `wnba_live_pbp()`,
+  `wnba_live_boxscore()`), `wnba_draftboard()`, `wnba_homepagewidget()`,
+  the Bart Torvik and Basketball-Reference helpers and the per-conference
+  pages of `ncaa_wbb_teams()` parsed the body without looking at the
+  status. A JSON error body (a 401 or 403) came back as rows, and an HTML
+  error page failed with a JSON parse error that hid the status. They now
+  raise a classed `wehoop_http_error` (also a `wehoop_fetch_error`) naming
+  the status, the endpoint and the error body's `message`, which the
+  function's error handler reports. `check_status()`, used by the ESPN and
+  Fox wrappers, raises the same error instead of "The API returned an
+  error", so their reports name the status too; it now accepts any 2xx
+  status, not only 200. A 200 response is parsed as before.
 * `espn_wbb_game_team_roster()` and `espn_wnba_game_team_roster()` returned 0 rows for every
   game: ESPN serves the game-day roster inline under `entries`, and the parser read only
   `items`. They now return one row per athlete, with the display name, jersey, starter,

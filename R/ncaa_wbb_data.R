@@ -224,6 +224,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
 
         resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
                                proxy = .proxy)
+        .wehoop_stop_for_http_status(resp)
 
         page <- resp %>%
           .resp_text() %>%

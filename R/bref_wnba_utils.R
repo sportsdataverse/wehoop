@@ -26,6 +26,7 @@
     paste0(.bref_wnba_base_url, path),
     headers = c("User-Agent" = .bref_wnba_user_agent)
   )
+  .wehoop_stop_for_http_status(resp)
   .resp_text(resp)
 }
 
