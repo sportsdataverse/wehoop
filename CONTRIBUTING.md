@@ -245,7 +245,7 @@ The WNBA Stats API has rate limits similar to the NBA Stats API. Always add `Sys
 
 ## CI / GitHub Actions
 
-The repository uses GitHub Actions for R CMD check (release, oldrel and a non-blocking R-devel job), test coverage, a URL check, and pkgdown site deployment. `GITHUB_TOKEN` is the only secret the workflows need. R-CMD-check passes the `WNBA_STATS_TESTS`, `ESPN_TESTS` and `NCAA_WBB_TESTS` repository variables through, but live tests skip on CI regardless (see above).
+The repository uses GitHub Actions for R CMD check (macOS and Ubuntu release on every push and PR; the weekly cron and manual runs add Windows release and a non-blocking Ubuntu R-devel job), test coverage, a URL check, and pkgdown site deployment. `GITHUB_TOKEN` is the only secret the workflows need. R-CMD-check passes the `WNBA_STATS_TESTS`, `ESPN_TESTS` and `NCAA_WBB_TESTS` repository variables through, but live tests skip on CI regardless (see above).
 
 ## Reporting Issues
 
