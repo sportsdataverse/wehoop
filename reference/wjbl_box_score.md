@@ -70,7 +70,7 @@ lists every function in this family.
 # \donttest{
   try(wjbl_box_score(play_schedule_id = 7987))
 #> ── W League Box Score from api.wjbl.01core.app ───────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:42:56 UTC
+#> ℹ Data updated: 2026-11-25 06:13:15 UTC
 #> # A tibble: 27 × 24
 #>    play_schedule_id team_side team_id player_id player_name  player_number    gs
 #>               <int> <chr>       <int>     <int> <chr>        <chr>         <int>

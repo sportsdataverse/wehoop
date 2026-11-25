@@ -131,9 +131,7 @@
   error with no message. The crosswalk builders’ per-source lookups
   ([`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)’s
   Fox teams,
-  [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)
-  and
-  [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md)’s
+  [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)’s
   per-date ESPN scoreboards, and
   [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
   and
@@ -148,6 +146,37 @@
   [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
   does the same for a conference page that fails, which is left out
   instead of losing every other conference’s teams.
+
+- [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md)
+  makes one request per date. It sent four identical requests for each
+  date and returned every game four times. It now takes a vector of
+  dates, leaves out a date that fails and reports the failed dates in
+  one alert
+  (`espn_wbb_scoreboard(): 2 parts failed ...: dates=20250105: HTTP 500 ...`)
+  instead of an extra “no scoreboard data” line; a date with no games
+  returns no rows without a message.
+  [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md)
+  pulls all its dates in one such call, so its failed dates are reported
+  in that one
+  [`espn_wbb_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_scoreboard.md)
+  alert.
+  [`espn_wnba_scoreboard()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_scoreboard.md)
+  and the team-schedule wrappers already made one request per call.
+
+- [`espn_wbb_player_career_stats()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_player_career_stats.md),
+  [`espn_wbb_season_leaders()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_leaders.md),
+  [`espn_wbb_game_propbets()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_propbets.md),
+  [`espn_wnba_team_record()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_team_record.md),
+  [`espn_wbb_season_groups()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_groups.md),
+  [`espn_wbb_season_weeks()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_weeks.md)
+  and their WNBA twins returned an empty part with no message on a
+  non-200 answer. A 404 stays quiet where it is the answer “none”:
+  postseason stats for an athlete without any, leaders for a season type
+  that has none, a provider without prop bets (on the first page). Team
+  records, season groups and weeks answer 200 with no items when there
+  is nothing, so a 404 there is a failure too. Any other status (5xx,
+  401, 403, 429) is reported in one alert naming the helper, and the
+  parts that succeeded are kept.
 
 - An HTTP error answer is no longer parsed as data. The shared request
   helper turns off httr2’s status errors, and the WNBA Stats request

@@ -12,7 +12,9 @@ espn_wbb_scoreboard(season)
 
 - season:
 
-  Either numeric or character
+  One or more dates as `YYYYMMDD` (numeric or character). Each date is
+  one request; a date that fails is left out and reported once, together
+  with the other failed dates.
 
 ## Value
 
@@ -35,8 +37,8 @@ lists every function in this family.
 # \donttest{
   try(espn_wbb_scoreboard (season = "20230225"))
 #> ── ESPN WBB Scoreboard Information from ESPN.com ─────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:39:34 UTC
-#> # A tibble: 532 × 36
+#> ℹ Data updated: 2026-11-25 06:09:28 UTC
+#> # A tibble: 133 × 36
 #>    matchup         matchup_short season season_type season_slug game_id game_uid
 #>    <chr>           <chr>          <int>       <int> <chr>         <int> <chr>   
 #>  1 Stanford Cardi… STAN @ UTAH     2023           2 regular-se…  4.01e8 s:40~l:…
@@ -49,7 +51,7 @@ lists every function in this family.
 #>  8 California Gol… CAL @ COLO      2023           2 regular-se…  4.01e8 s:40~l:…
 #>  9 San Diego Stat… SDSU @ UNLV     2023           2 regular-se…  4.01e8 s:40~l:…
 #> 10 Middle Tenness… MTSU @ LT       2023           2 regular-se…  4.01e8 s:40~l:…
-#> # ℹ 522 more rows
+#> # ℹ 123 more rows
 #> # ℹ 29 more variables: game_date <date>, attendance <int>,
 #> #   play_by_play_available <lgl>, status_name <chr>, broadcast_market <chr>,
 #> #   broadcast_name <chr>, start_date <chr>, broadcast <chr>,

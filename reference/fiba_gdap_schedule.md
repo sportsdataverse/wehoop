@@ -137,7 +137,7 @@ lists every function in this family.
 # \donttest{
   try(fiba_gdap_schedule(comp = 208182))
 #> ── FIBA gdap_schedule from fiba.basketball ───────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:40:46 UTC
+#> ℹ Data updated: 2026-11-25 06:10:49 UTC
 #> # A tibble: 92 × 86
 #>    game_id game_name game_number status_code team_a_team_id
 #>      <int> <chr>     <chr>       <chr>                <int>

@@ -97,7 +97,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   # fox = data.frame() skips the per-conference Fox calls; drop it to fill the Fox columns.
   try(wbb_team_crosswalk(season = 2025, fox = data.frame()))
-#> ✖ 2026-11-25 04:42:54.063536: No women's T-Rank ratings available for 2025!
+#> ✖ 2026-11-25 06:13:13.430992: No women's T-Rank ratings available for 2025!
 #> ✖ Args: year = 2025L
 #> ✖ Error: HTTP 403 Forbidden from https://barttorvik.com/ncaaw/2025_team_results.csv
 #> Error in .bb_source_error(sprintf("Torvik %d: no team rows (%d rows, columns %s); a blocked or empty response must not ship as NA bart_* columns",  : 
