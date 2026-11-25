@@ -118,7 +118,9 @@ wnba_team_crosswalk <- function(season = most_recent_wnba_season(), .schedule = 
       wnba_team_slug = .data$away_team_slug)
   ) |>
     dplyr::distinct()
-  fox <- tryCatch(fox_wnba_teams(), error = function(e) NULL)
+  fallbacks <- new.env()
+  fox <- .wehoop_fallback(fox_wnba_teams(), "fox_wnba_teams()", fallbacks)
+  .wehoop_report_fallbacks("wnba_team_crosswalk", fallbacks)
   .bb_assemble_team_crosswalk_wnba(espn, stats, fox, season) |>
     make_wehoop_data("WNBA team crosswalk (ESPN / WNBA Stats / Fox)", Sys.time())
 }
@@ -223,9 +225,10 @@ wnba_schedule_crosswalk <- function(season = most_recent_wnba_season()) {
 
   # ESPN side: iterate the season's ET game dates (live) via the daily scoreboard.
   dates <- sort(unique(stats_games$game_date))
+  fallbacks <- new.env()
   espn_list <- lapply(dates, function(d) {
-    sb <- tryCatch(espn_wnba_scoreboard(season = as.integer(format(d, "%Y%m%d"))),
-                   error = function(e) NULL)
+    sb <- .wehoop_fallback(espn_wnba_scoreboard(season = as.integer(format(d, "%Y%m%d"))),
+                           paste0("espn_wnba_scoreboard(", format(d, "%Y%m%d"), ")"), fallbacks)
     if (is.null(sb) || !nrow(sb)) return(NULL)
     dplyr::transmute(
       sb,
@@ -236,6 +239,7 @@ wnba_schedule_crosswalk <- function(season = most_recent_wnba_season()) {
     )
   })
   espn_games <- dplyr::bind_rows(espn_list)
+  .wehoop_report_fallbacks("wnba_schedule_crosswalk", fallbacks)
   # Guard: if every scoreboard call returned NULL, build a properly-typed empty
   # frame so the assembler's transmute() does not error on missing columns.
   if (!nrow(espn_games)) {
@@ -376,6 +380,7 @@ wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
                                   min_confidence = 0.92) {
   rlang::check_installed("stringdist", reason = "to fuzzy-match player names")
   team_xwalk <- wnba_team_crosswalk(season = season)
+  fallbacks <- new.env()
 
   fetch_team <- function(i) {
     espn_id <- team_xwalk$espn_team_id[i]
@@ -383,8 +388,8 @@ wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
     fox_id  <- team_xwalk$fox_team_id[i]
     abbr    <- team_xwalk$espn_abbreviation[i]
 
-    er <- tryCatch(espn_wnba_team_roster(team_id = espn_id, season = season),
-                   error = function(e) NULL)
+    er <- .wehoop_fallback(espn_wnba_team_roster(team_id = espn_id, season = season),
+                           paste0("espn_wnba_team_roster(", espn_id, ")"), fallbacks)
     if (is.null(er) || !nrow(er)) return(NULL)
     espn <- dplyr::transmute(er,
       espn_team_id = as.integer(espn_id), team_abbreviation = abbr,
@@ -393,8 +398,8 @@ wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
       espn_position = .data$position_abbrev, espn_birth_date = .data$birth_date)
 
     sr_raw <- if (!is.na(wnba_id))
-      tryCatch(wnba_commonteamroster(season = season, team_id = wnba_id),
-               error = function(e) NULL) else NULL
+      .wehoop_fallback(wnba_commonteamroster(season = season, team_id = wnba_id),
+                       paste0("wnba_commonteamroster(", wnba_id, ")"), fallbacks) else NULL
     # wnba_commonteamroster returns a named list {CommonTeamRoster, Coaches};
     # extract the roster element when present.
     sr <- if (is.list(sr_raw) && !is.data.frame(sr_raw) && "CommonTeamRoster" %in% names(sr_raw))
@@ -412,7 +417,8 @@ wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
         stringsAsFactors = FALSE)
 
     fr <- if (!is.na(fox_id))
-      tryCatch(fox_wnba_team_roster(team_id = fox_id), error = function(e) NULL) else NULL
+      .wehoop_fallback(fox_wnba_team_roster(team_id = fox_id),
+                       paste0("fox_wnba_team_roster(", fox_id, ")"), fallbacks) else NULL
     fox <- if (!is.null(fr) && nrow(fr)) dplyr::transmute(fr,
       espn_team_id = as.integer(espn_id),
       fox_athlete_id = as.character(.data$athlete_id), fox_player = .data$player,
@@ -425,7 +431,9 @@ wnba_player_crosswalk <- function(season = most_recent_wnba_season(),
     .bb_assemble_player_crosswalk_wnba(espn, stats, fox, season, min_confidence)
   }
 
-  purrr::map(seq_len(nrow(team_xwalk)), fetch_team) |>
+  out <- purrr::map(seq_len(nrow(team_xwalk)), fetch_team) |>
     purrr::list_rbind() |>
     make_wehoop_data("WNBA player crosswalk (ESPN / WNBA Stats / Fox)", Sys.time())
+  .wehoop_report_fallbacks("wnba_player_crosswalk", fallbacks)
+  out
 }

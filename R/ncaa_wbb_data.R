@@ -213,6 +213,9 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
         conference_id = conference_ids
       )
 
+      # A conference page that fails is left out and reported once below,
+      # instead of losing every other conference's teams.
+      fallbacks <- new.env()
       conferences_team_df <- lapply(conference_df$conference_id, function(x) {
         conf_team_url <- paste0(
           "http://stats.ncaa.org/team/inst_team_list?academic_year=",
@@ -222,13 +225,15 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
           "&sport_code=WBB"
         )
 
-        resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
-                               proxy = .proxy)
-        .wehoop_stop_for_http_status(resp)
-
-        page <- resp %>%
-          .resp_text() %>%
-          rvest::read_html()
+        page <- .wehoop_fallback({
+          resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
+                                 proxy = .proxy)
+          .wehoop_stop_for_http_status(resp)
+          resp %>%
+            .resp_text() %>%
+            rvest::read_html()
+        }, paste0("conference ", x), fallbacks)
+        if (is.null(page)) return(NULL)
 
         urls  <- page %>%
           rvest::html_elements("table") %>%
@@ -252,6 +257,7 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
         return(out)
       })
 
+      .wehoop_report_fallbacks("ncaa_wbb_teams", fallbacks)
       conferences_team_df <- rbindlist_with_attrs(conferences_team_df)
 
       # stats.ncaa.org serves two team-url shapes; extract ids from whichever

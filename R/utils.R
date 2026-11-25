@@ -455,6 +455,36 @@ check_status <- function(res) {
   )
 }
 
+# A value fallback that keeps its cause. `expr` is evaluated; on an error the
+# fallback value is returned and "<what>: <message>" is added to `log$causes`
+# (an environment), so the caller can report every cause once with
+# .wehoop_report_fallbacks() instead of dropping them, or flooding per row.
+# A wrapper inside `expr` that reports its own failure with .report_api_error()
+# and returns its empty result has that cause collected here too, not printed.
+.wehoop_fallback <- function(expr, what, log, fallback = NULL) {
+  note <- function(e) log$causes <- c(log$causes, paste0(what, ": ", conditionMessage(e)))
+  withCallingHandlers(
+    tryCatch(expr, error = function(e) {
+      note(e)
+      fallback
+    }),
+    wehoop_error_report = function(cnd) {
+      note(cnd$error)
+      invokeRestart("wehoop_collect_report")
+    }
+  )
+}
+
+.wehoop_report_fallbacks <- function(fn, log) {
+  n <- length(log$causes)
+  if (!n) return(invisible(NULL))
+  causes <- unique(log$causes)
+  shown <- paste(utils::head(causes, 3L), collapse = "; ")
+  if (length(causes) > 3L) shown <- paste0(shown, "; and ", length(causes) - 3L, " more")
+  cli::cli_alert_warning("{fn}(): {n} part{?s} failed and {?was/were} left out of the result: {shown}")
+  invisible(NULL)
+}
+
 #' Retry an HTTP request with httr2
 #'
 #' Internal helper used by `request_with_proxy()` and other wrappers that
@@ -624,6 +654,16 @@ check_status <- function(res) {
 .report_api_error <- function(e, hint = NULL, args = list()) {
   caller_env <- parent.frame()
 
+  # Inside .wehoop_fallback() the cause is collected and reported once by the
+  # caller, so a per-date or per-team loop does not print one report per row.
+  collected <- withRestarts(
+    {
+      rlang::signal("", class = "wehoop_error_report", error = e)
+      FALSE
+    },
+    wehoop_collect_report = function() TRUE
+  )
+  if (collected) return(invisible(NULL))
 
   hint_text <- if (!is.null(hint)) {
     .interp_braces(hint, envir = caller_env)
