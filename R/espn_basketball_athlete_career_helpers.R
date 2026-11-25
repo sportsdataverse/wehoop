@@ -82,14 +82,9 @@
       league, "/athletes/", athlete_id, "/statistics", type_segment,
       "?lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) {
-      .report_api_error(e, hint = "Request failed for {url}", args = .args)
-      NULL
-    })
-    if (is.null(res)) return(list())
-    if (httr2::resp_status(res) != 200) return(list())
-    raw <- res %>% .resp_text() %>%
-      jsonlite::fromJSON(simplifyVector = FALSE)
+    # 404: the athlete has no stats of this type (e.g. no postseason)
+    raw <- .espn_core_get(url, missing_ok = TRUE)
+    if (is.null(raw)) return(list())
     splits <- raw[["splits"]]
     if (!is.list(splits)) return(list())
     categories <- splits[["categories"]] %||% list()
@@ -131,12 +126,15 @@
   tryCatch(
     expr = .wehoop_with_warnings(".espn_basketball_athlete_career_stats", {
       all_rows <- list()
+      fallbacks <- new.env()
       types_to_fetch <- if (length(stat_type) == 0L) list(NULL) else as.list(stat_type)
       for (t in types_to_fetch) {
-        rs <- fetch_one(t)
+        rs <- .wehoop_fallback(fetch_one(t), what = paste0("stat_type=", t %||% "NULL"),
+                               log = fallbacks, fallback = list())
         if (length(rs) > 0L) all_rows <- c(all_rows, rs)
         if (length(types_to_fetch) > 1L) Sys.sleep(0.3)
       }
+      .wehoop_report_fallbacks(".espn_basketball_athlete_career_stats", fallbacks)
       if (length(all_rows) == 0L) {
         result <- data.frame(
           league = character(0), athlete_id = character(0),

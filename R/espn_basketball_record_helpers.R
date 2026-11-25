@@ -25,14 +25,9 @@
       league, "/seasons/", season, "/types/", st,
       "/teams/", team_id, "/record?lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) {
-      .report_api_error(e, hint = "Request failed for {url}", args = .args)
-      NULL
-    })
-    if (is.null(res)) return(list())
-    if (httr2::resp_status(res) != 200L) return(list())
-    raw <- res %>% .resp_text() %>%
-      jsonlite::fromJSON(simplifyVector = FALSE)
+    # ESPN answers 200 with no items for a record that does not exist, so
+    # every non-2xx (404 included) is a failure
+    raw <- .espn_core_get(url)
     items <- raw[["items"]] %||% list()
     lapply(items, function(it) {
       list(
@@ -58,11 +53,14 @@
   tryCatch(
     expr = .wehoop_with_warnings(".espn_basketball_team_record", {
       all_rows <- list()
+      fallbacks <- new.env()
       for (st in season_type) {
-        rs <- fetch_one(as.integer(st))
+        rs <- .wehoop_fallback(fetch_one(as.integer(st)), what = paste0("season_type=", st),
+                               log = fallbacks, fallback = list())
         if (length(rs) > 0L) all_rows <- c(all_rows, rs)
         if (length(season_type) > 1L) Sys.sleep(0.3)
       }
+      .wehoop_report_fallbacks(".espn_basketball_team_record", fallbacks)
       if (length(all_rows) == 0L) {
         result <- data.frame(
           league = character(0), team_id = character(0),

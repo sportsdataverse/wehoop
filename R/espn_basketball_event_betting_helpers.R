@@ -163,6 +163,7 @@
   rows <- list()
   page <- 1L
   page_count <- NA_integer_
+  fallbacks <- new.env()
   tryCatch(
     expr = .wehoop_with_warnings(".espn_basketball_event_propbets", {
       repeat {
@@ -172,13 +173,12 @@
           "/odds/", provider_id, "/propBets?limit=", page_limit,
           "&page=", page, "&lang=en&region=us"
         )
-        res <- tryCatch(.retry_request(url), error = function(e) {
-          .report_api_error(e, hint = "Request failed for {url}", args = .args)
-          NULL
-        })
-        if (is.null(res) || httr2::resp_status(res) != 200L) break
-        raw <- res %>% .resp_text() %>%
-          jsonlite::fromJSON(simplifyVector = FALSE)
+        # a 404 on page 1: this provider has no prop bets for the event; any
+        # other failed page (a 404 past page 1 included) ends the paging and
+        # is reported once
+        raw <- .wehoop_fallback(.espn_core_get(url, missing_ok = page == 1L),
+                                what = paste0("page ", page), log = fallbacks)
+        if (is.null(raw)) break
         if (is.na(page_count)) {
           page_count <- as.integer(raw[["pageCount"]] %||% 1L)
         }
@@ -211,6 +211,7 @@
         page <- page + 1L
         Sys.sleep(0.4)
       }
+      .wehoop_report_fallbacks(".espn_basketball_event_propbets", fallbacks)
       if (length(rows) == 0L) {
         result <- data.frame(
           league = character(0), event_id = character(0),
