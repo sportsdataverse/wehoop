@@ -46,14 +46,14 @@ Saiem Gilani
 # \donttest{
   espn_wbb_news(limit = 5)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL News from ESPN.com ─────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 00:36:05 UTC
-#> # A tibble: 5 × 8
-#>         id type  headline       description published premium link_web league_id
-#>      <int> <chr> <chr>          <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 50587375 Recap No. 10 UCLA e… — Sienna B… 2026-11-… FALSE   http://… 54       
-#> 2 50587282 Media Hofstra Pride… Hofstra Pr… 2026-11-… FALSE   https:/… 54       
-#> 3 50587165 Recap Chavez scores… — Aaliyah … 2026-11-… FALSE   http://… 54       
-#> 4 50586512 Recap Walton scores… — Zahirah … 2026-11-… FALSE   http://… 54       
-#> 5 50586458 Media Florida Gator… Florida Ga… 2026-11-… FALSE   https:/… 54       
+#> ℹ Data updated: 2026-11-25 04:39:28 UTC
+#> # A tibble: 5 × 9
+#>        id type  headline description published premium byline link_web league_id
+#>     <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>    <chr>    
+#> 1  5.06e7 Media Carroll… Carroll (M… 2026-11-… FALSE   NA     https:/… 54       
+#> 2  5.06e7 Media Whittie… Whittier P… 2026-11-… FALSE   NA     https:/… 54       
+#> 3  5.05e7 Story Tuesday… The top no… 2026-11-… FALSE   Charl… https:/… 54       
+#> 4  5.06e7 Media Whitwor… Whitworth … 2026-11-… FALSE   NA     https:/… 54       
+#> 5  5.06e7 Head… S. Caro… Tessa John… 2026-11-… FALSE   NA     https:/… 54       
 # }
 ```

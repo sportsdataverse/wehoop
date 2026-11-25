@@ -45,9 +45,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_game_play(event_id = 401276115, play_id = 401276115101899901)
-#> ✖ 2026-11-25 00:36:03.027983: Failed to retrieve ESPN womens-college-basketball event play detail for event_id=401276115, play_id=401276115101899904
+#> ✖ 2026-11-25 04:39:26.366645: Failed to retrieve ESPN womens-college-basketball event play detail for event_id=401276115, play_id=401276115101899904
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115, play_id = 401276115101899904
-#> ✖ Error: The API returned an error
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/plays/401276115101899904
 #> NULL
 # }
 ```

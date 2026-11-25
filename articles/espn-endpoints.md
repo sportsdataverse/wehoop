@@ -173,12 +173,12 @@ head(wbb_news[, c("headline", "published")])
 #> # A tibble: 6 × 2
 #>   headline                                                             published
 #>   <chr>                                                                <chr>    
-#> 1 No. 10 UCLA extends season-opening win streak to 7 games with a 69-… 2026-11-…
-#> 2 Hofstra Pride vs. Pennsylvania Quakers: Game Highlights              2026-11-…
-#> 3 Chavez scores 18 as No. 14 Oklahoma women defeat Montana State 81-64 2026-11-…
-#> 4 Walton scores 18, No. 22 West Virginia women turn back Florida 70-6… 2026-11-…
-#> 5 Florida Gators vs. West Virginia Mountaineers: Game Highlights       2026-11-…
-#> 6 Pepperdine Waves vs. Sam Houston Bearkats: Game Highlights           2026-11-…
+#> 1 Carroll (MT) Fighting Saints vs. Montana Lady Griz: Game Highlights  2026-11-…
+#> 2 Whittier Poets vs. UC San Diego Tritons: Game Highlights             2026-11-…
+#> 3 Tuesday's Feast Week highlights include South Carolina, Virginia Te… 2026-11-…
+#> 4 Whitworth Pirates vs. Eastern Washington Eagles: Game Highlights     2026-11-…
+#> 5 S. Carolina topples UConn behind Tessa Johnson's career-high 32      2026-11-…
+#> 6 Tessa Johnson's career-high 32 points lifts No. 1 South Carolina to… 2026-11-…
 
 # 2025 WBB season calendar
 wbb_cal <- espn_wbb_calendar(season = 2025)
@@ -311,11 +311,11 @@ glimpse(bio)
 #>   ..$ birth_city    : chr "South Bend"
 #>   ..$ birth_state   : chr "IN"
 #>   ..$ birth_country : chr "USA"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 00:40:31"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 04:43:43"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Bio from ESPN.com"
 #>  $ Team    : wehop_dt [1 × 1] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ x_ref: chr "http://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2027/teams/167?l"| __truncated__
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 00:40:31"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 04:43:43"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Team from ESPN.com"
 #>  $ Position: wehop_dt [1 × 5] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "2"
@@ -323,22 +323,22 @@ glimpse(bio)
 #>   ..$ display_name: chr "Forward"
 #>   ..$ abbreviation: chr "F"
 #>   ..$ leaf        : logi FALSE
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 00:40:31"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 04:43:43"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Position from ESPN.com"
 #>  $ Status  : wehop_dt [1 × 4] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>   ..$ id          : chr "1"
 #>   ..$ name        : chr "Active"
 #>   ..$ type        : chr "active"
 #>   ..$ abbreviation: chr "Active"
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 00:40:31"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 04:43:43"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Status from ESPN.com"
 #>  $ College : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 00:40:31"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 04:43:43"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete College from ESPN.com"
 #>  $ Draft   : wehop_dt [0 × 0] (S3: wehoop_data/tbl_df/tbl/data.frame)
 #>  Named list()
-#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 00:40:31"
+#>   ..- attr(*, "wehoop_timestamp")= POSIXct[1:1], format: "2026-11-25 04:43:43"
 #>   ..- attr(*, "wehoop_type")= chr "ESPN WOMENS-COLLEGE-BASKETBALL Athlete Draft from ESPN.com"
 
 # Season overview (web-common-v3)

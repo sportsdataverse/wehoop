@@ -124,6 +124,57 @@
   says why its substitution-based lineup fallback failed before leaving
   the on-court columns `NA`.
 
+- Parts of a result that fail to build are now reported once. The eight
+  sub-frames of
+  [`wnba_boxscoresummaryv3()`](https://wehoop.sportsdataverse.org/reference/wnba_boxscoresummaryv3.md)
+  (`game_info` to `available_video`) fell back to an empty frame on any
+  error with no message. The crosswalk builders’ per-source lookups
+  ([`wnba_team_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_team_crosswalk.md)’s
+  Fox teams,
+  [`wnba_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule_crosswalk.md)
+  and
+  [`wbb_schedule_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_schedule_crosswalk.md)’s
+  per-date ESPN scoreboards, and
+  [`wnba_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wnba_player_crosswalk.md)
+  and
+  [`wbb_player_crosswalk()`](https://wehoop.sportsdataverse.org/reference/wbb_player_crosswalk.md)’s
+  per-team ESPN, WNBA Stats and Fox rosters) dropped any error that
+  escaped the inner function, while the inner function’s own report
+  printed three lines per date or team (about 450 for a season of
+  scoreboards). They still fall back, but each function now prints one
+  warning-level alert naming itself, how many parts failed and why, for
+  example
+  `wnba_schedule_crosswalk(): 3 parts failed and were left out of the result: espn_wnba_scoreboard(20240601): HTTP 503 ...`.
+  [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
+  does the same for a conference page that fails, which is left out
+  instead of losing every other conference’s teams.
+
+- An HTTP error answer is no longer parsed as data. The shared request
+  helper turns off httr2’s status errors, and the WNBA Stats request
+  helper
+  [`request_with_proxy()`](https://wehoop.sportsdataverse.org/reference/request_with_proxy.md)
+  (behind every `wnba_*()` Stats wrapper), the WNBA CDN wrappers
+  ([`wnba_schedule()`](https://wehoop.sportsdataverse.org/reference/wnba_schedule.md),
+  [`wnba_todays_scoreboard()`](https://wehoop.sportsdataverse.org/reference/wnba_todays_scoreboard.md),
+  [`wnba_live_pbp()`](https://wehoop.sportsdataverse.org/reference/wnba_live_pbp.md),
+  [`wnba_live_boxscore()`](https://wehoop.sportsdataverse.org/reference/wnba_live_boxscore.md)),
+  [`wnba_draftboard()`](https://wehoop.sportsdataverse.org/reference/wnba_draftboard.md),
+  [`wnba_homepagewidget()`](https://wehoop.sportsdataverse.org/reference/wnba_homepagewidget.md),
+  the Bart Torvik and Basketball-Reference helpers and the
+  per-conference pages of
+  [`ncaa_wbb_teams()`](https://wehoop.sportsdataverse.org/reference/ncaa_wbb_teams.md)
+  parsed the body without looking at the status. A JSON error body (a
+  401 or 403) came back as rows, and an HTML error page failed with a
+  JSON parse error that hid the status. They now raise a classed
+  `wehoop_http_error` (also a `wehoop_fetch_error`) naming the status,
+  the endpoint and the error body’s `message`, which the function’s
+  error handler reports.
+  [`check_status()`](https://wehoop.sportsdataverse.org/reference/check_status.md),
+  used by the ESPN and Fox wrappers, raises the same error instead of
+  “The API returned an error”, so their reports name the status too; it
+  now accepts any 2xx status, not only 200. A 200 response is parsed as
+  before.
+
 - [`espn_wbb_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_team_leaders.md)
   and
   [`espn_wnba_game_team_roster()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_team_leaders.md)

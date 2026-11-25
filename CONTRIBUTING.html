@@ -422,7 +422,7 @@ ci: update GitHub Actions workflow versions</code></pre>
 </div>
 <div class="section level2">
 <h2 id="ci--github-actions">CI / GitHub Actions<a class="anchor" aria-label="anchor" href="#ci--github-actions"></a></h2>
-<p>The repository uses GitHub Actions for R CMD check (release, oldrel and a non-blocking R-devel job), test coverage, a URL check, and pkgdown site deployment. <code>GITHUB_TOKEN</code> is the only secret the workflows need. R-CMD-check passes the <code>WNBA_STATS_TESTS</code>, <code>ESPN_TESTS</code> and <code>NCAA_WBB_TESTS</code> repository variables through, but live tests skip on CI regardless (see above).</p>
+<p>The repository uses GitHub Actions for R CMD check (macOS and Ubuntu release on every push and PR; the weekly cron and manual runs add Windows release and a non-blocking Ubuntu R-devel job), test coverage, a URL check, and pkgdown site deployment. <code>GITHUB_TOKEN</code> is the only secret the workflows need. R-CMD-check passes the <code>WNBA_STATS_TESTS</code>, <code>ESPN_TESTS</code> and <code>NCAA_WBB_TESTS</code> repository variables through, but live tests skip on CI regardless (see above).</p>
 </div>
 <div class="section level2">
 <h2 id="reporting-issues">Reporting Issues<a class="anchor" aria-label="anchor" href="#reporting-issues"></a></h2>

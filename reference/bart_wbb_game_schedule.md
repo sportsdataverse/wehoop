@@ -34,9 +34,9 @@ Other Bart Torvik Functions:
 ``` r
 # \donttest{
   try(bart_wbb_game_schedule(year = 2024))
-#> ✖ 2026-11-25 00:35:38.306545: No women's schedule available for 2024!
+#> ✖ 2026-11-25 04:39:04.404288: No women's schedule available for 2024!
 #> ✖ Args: year = 2024
-#> ✖ Error: lexical error: invalid char in json text.                                        <!DOCTYPE HTML PUBLIC "-//W3C//                      (right here) ------^ 
+#> ✖ Error: HTTP 403 Forbidden from https://barttorvik.com/ncaaw/2024_super_sked.json
 #> data frame with 0 columns and 0 rows
 # }
 ```

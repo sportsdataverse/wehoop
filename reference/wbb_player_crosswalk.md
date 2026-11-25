@@ -63,9 +63,12 @@ Other WBB Crosswalk Functions:
 # \donttest{
   # Reads every team roster from ESPN and Fox, so it runs interactively only.
   try(wbb_player_crosswalk(season = 2025))
-#> ✖ 2026-11-25 00:39:36.501214: Could not build WBB player crosswalk for 2025!
+#> ✖ 2026-11-25 04:42:53.266778: No women's T-Rank ratings available for 2025!
+#> ✖ Args: year = 2025L
+#> ✖ Error: HTTP 403 Forbidden from https://barttorvik.com/ncaaw/2025_team_results.csv
+#> ✖ 2026-11-25 04:42:53.284128: Could not build WBB player crosswalk for 2025!
 #> ✖ Args: season = 2025, min_confidence = 0.92
-#> ✖ Error: Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
+#> ✖ Error: Torvik 2025: no team rows (0 rows, columns ); a blocked or empty response must not ship as NA bart_* columns
 #> data frame with 0 columns and 0 rows
 # }
 ```

@@ -97,7 +97,10 @@ Other WBB Crosswalk Functions:
 # \donttest{
   # fox = data.frame() skips the per-conference Fox calls; drop it to fill the Fox columns.
   try(wbb_team_crosswalk(season = 2025, fox = data.frame()))
+#> ✖ 2026-11-25 04:42:54.063536: No women's T-Rank ratings available for 2025!
+#> ✖ Args: year = 2025L
+#> ✖ Error: HTTP 403 Forbidden from https://barttorvik.com/ncaaw/2025_team_results.csv
 #> Error in .bb_source_error(sprintf("Torvik %d: no team rows (%d rows, columns %s); a blocked or empty response must not ship as NA bart_* columns",  : 
-#>   Torvik 2025: no team rows (19 rows, columns doctype_html_public_w3c_dtd_html_4_01_transitional_en_http_www_w3_org_tr_html4_loose_dtd, year); a blocked or empty response must not ship as NA bart_* columns
+#>   Torvik 2025: no team rows (0 rows, columns ); a blocked or empty response must not ship as NA bart_* columns
 # }
 ```
