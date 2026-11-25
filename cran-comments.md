@@ -87,13 +87,19 @@ tests; the fourth check is of a tarball built after it.
   4.24 s / 6.90 s on the commit before wehoop#131 and 4.06 s / 6.77 s
   after it, minutes apart. Tests: 0 failures, 0 warnings, 698 skips,
   8,793 passes.
+* After wehoop#132 (value fallbacks report their cause; HTTP status checked
+  before parsing): a tarball (1,885,143 bytes) from `git archive` of
+  a8dc3bc4f, checked like the first bullet but under R 4.6.1: 0 errors, 0
+  warnings and the 1 `'NULL'` directory NOTE described above. Tests: 0
+  failures, 0 warnings, 709 skips, 8,815 passes.
 * GitHub Actions R-CMD-check: R release on macOS, Windows and Ubuntu, R
   oldrel-1 and R-devel on Ubuntu. All five passed on this release branch
   at 42a8175b0 (2026-11-24). The commits after it change only an internal
   id-cast helper (a non-whole id now becomes NA with a warning instead of
   being truncated), its tests and contributor docs; the
   local checks above cover them. All five passed again on the
-  wehoop#131 pull request at 9292876f9.
+  wehoop#131 pull request at 9292876f9. On the wehoop#132 pull request
+  (which runs R release on Ubuntu and macOS only) both passed at a8dc3bc4f.
 * R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel), run on
   42a8175b0 on 2026-11-24 (before the id-cast helper change above):
   linux and windows passed. macos-arm64 stopped while
