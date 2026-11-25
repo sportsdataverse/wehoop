@@ -225,36 +225,37 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
           "&sport_code=WBB"
         )
 
-        page <- .wehoop_fallback({
+        .wehoop_fallback({
           resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
                                  proxy = .proxy)
           .wehoop_stop_for_http_status(resp)
-          resp %>%
+          page <- resp %>%
             .resp_text() %>%
             rvest::read_html()
+
+          urls  <- page %>%
+            rvest::html_elements("table") %>%
+            rvest::html_elements("a") %>%
+            rvest::html_attr("href")
+          names <- page %>%
+            rvest::html_elements("table") %>%
+            rvest::html_elements("a") %>%
+            rvest::html_text()
+          # an HTTP 200 block page (Akamai "Access Denied") has no team table
+          if (!length(urls)) stop("the page lists no teams (blocked or empty)", call. = FALSE)
+
+          out <- data.frame(
+            team_url = urls,
+            team_name = names,
+            division = division,
+            year = year,
+            conference_id = x,
+            stringsAsFactors = FALSE
+          ) %>%
+            dplyr::left_join(conference_df, by = c("conference_id"))
+          Sys.sleep(5)
+          out
         }, paste0("conference ", x), fallbacks)
-        if (is.null(page)) return(NULL)
-
-        urls  <- page %>%
-          rvest::html_elements("table") %>%
-          rvest::html_elements("a") %>%
-          rvest::html_attr("href")
-        names <- page %>%
-          rvest::html_elements("table") %>%
-          rvest::html_elements("a") %>%
-          rvest::html_text()
-
-        out <- data.frame(
-          team_url = urls,
-          team_name = names,
-          division = division,
-          year = year,
-          conference_id = x,
-          stringsAsFactors = FALSE
-        ) %>%
-          dplyr::left_join(conference_df, by = c("conference_id"))
-        Sys.sleep(5)
-        return(out)
       })
 
       .wehoop_report_fallbacks("ncaa_wbb_teams", fallbacks)

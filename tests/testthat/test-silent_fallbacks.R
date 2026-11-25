@@ -138,13 +138,56 @@ test_that("wbb_player_crosswalk() reports failed per-team roster lookups once", 
                fixed = TRUE)
 })
 
-test_that("ncaa_wbb_teams() leaves out a failed conference page and reports it once", {
+test_that("wnba_player_crosswalk() reports failed per-team WNBA Stats and Fox rosters once", {
+  skip_on_cran()
+  local_http_503()
+  local_mocked_bindings(
+    wnba_team_crosswalk = function(...) data.frame(
+      espn_team_id = c(5L, 6L), wnba_team_id = c(1611661325L, 1611661319L),
+      fox_team_id = c("10", "11"), espn_abbreviation = c("IND", "LV"), stringsAsFactors = FALSE),
+    espn_wnba_team_roster = function(team_id, ...) data.frame(
+      athlete_id = paste0(team_id, "1"), full_name = "A Player", jersey = "1",
+      position_abbrev = "G", birth_date = "2000-01-01", stringsAsFactors = FALSE)
+  )
+  got <- collect_messages(wnba_player_crosswalk(season = 2024))
+  expect_equal(nrow(got$value), 2L)
+  expect_length(got$msgs, 1L)
+  expect_match(got$msgs, "wnba_player_crosswalk(): 4 parts failed", fixed = TRUE)
+  expect_match(got$msgs, "wnba_commonteamroster(1611661325): HTTP 503", fixed = TRUE)
+  expect_match(got$msgs, "fox_wnba_team_roster(10): HTTP 503", fixed = TRUE)
+})
+
+test_that("wbb_schedule_crosswalk() reports failed per-date scoreboards once", {
+  skip_on_cran()
+  local_http_503()
+  local_mocked_bindings(
+    wbb_team_crosswalk = function(...) data.frame(espn_team_id = 1L, bart_team = "UConn"),
+    bart_wbb_game_schedule = function(...) data.frame(
+      muid = c("a", "b"), date = c("11/04/24", "11/05/24"), team1 = "UConn", team2 = "Villanova",
+      winner = "UConn", stringsAsFactors = FALSE),
+    .bb_assemble_schedule_crosswalk_wbb = function(espn_games, ...) {
+      expect_equal(NROW(espn_games), 0L)
+      data.frame(espn_game_id = character())
+    }
+  )
+  got <- collect_messages(wbb_schedule_crosswalk(season = 2025))
+  # espn_wbb_scoreboard() still prints its own one-line "no scoreboard data"
+  # alert per date; the per-request error reports are collected
+  expect_false(any(grepl("Error:", got$msgs, fixed = TRUE)))
+  hits <- grep("wbb_schedule_crosswalk()", got$msgs, fixed = TRUE, value = TRUE)
+  expect_length(hits, 1L)
+  expect_match(hits, "parts failed and were left out of the result: espn_wbb_scoreboard(20241104): HTTP 503",
+               fixed = TRUE)
+})
+
+test_that("ncaa_wbb_teams() leaves out failed conference pages and reports them once", {
   skip_on_cran()
   index <- paste0(
     "<html><body>", strrep("<div class='level2'><a href='#'>x</a></div>", 3),
     "<div class='level2'><a href='#'>All</a>",
     "<a href='javascript:changeConference(1)'>Big East</a>",
-    "<a href='javascript:changeConference(2)'>Big Ten</a></div>",
+    "<a href='javascript:changeConference(2)'>Big Ten</a>",
+    "<a href='javascript:changeConference(3)'>SEC</a></div>",
     "<table><a href='/teams/1'>UConn</a></table></body></html>"
   )
   conf1 <- "<html><body><table><a href='/teams/100'>UConn</a><a href='/teams/101'>Villanova</a></table></body></html>"
@@ -155,13 +198,16 @@ test_that("ncaa_wbb_teams() leaves out a failed conference page and reports it o
                              headers = list(`Content-Type` = "text/html", `Retry-After` = "0"),
                              body = charToRaw("<html>busy</html>")))
     }
+    # conf 3: an HTTP 200 block page with no team table
+    body <- switch(conf, "1" = conf1, "3" = "<html><body>Access Denied</body></html>", index)
     httr2::response(status_code = 200L, url = req$url, headers = list(`Content-Type` = "text/html"),
-                    body = charToRaw(if (conf == "1") conf1 else index))
+                    body = charToRaw(body))
   })
   got <- collect_messages(ncaa_wbb_teams(year = 2025))
   expect_equal(nrow(got$value), 2L)
   expect_identical(got$value$season_team_id, c("100", "101"))
   expect_length(got$msgs, 1L)
-  expect_match(got$msgs, "ncaa_wbb_teams(): 1 part failed and was left out of the result: conference 2: HTTP 503 Service Unavailable from http://stats.ncaa.org/team/inst_team_list",
+  expect_match(got$msgs, "ncaa_wbb_teams(): 2 parts failed and were left out of the result: conference 2: HTTP 503 Service Unavailable from http://stats.ncaa.org/team/inst_team_list",
                fixed = TRUE)
+  expect_match(got$msgs, "conference 3: the page lists no teams (blocked or empty)", fixed = TRUE)
 })
