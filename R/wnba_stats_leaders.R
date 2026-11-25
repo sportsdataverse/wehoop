@@ -258,19 +258,18 @@ wnba_alltimeleadersgrids <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_alltimeleadersgrids", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no all-time leaders grid data for {league_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -346,19 +345,18 @@ wnba_assistleaders <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_assistleaders", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no assist leaders data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -416,19 +414,18 @@ wnba_assisttracker <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_assisttracker", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no assist tracker data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1296,7 +1293,7 @@ wnba_homepagewidget <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_homepagewidget", {
       
       resp <- .retry_request(full_url, headers = wnba_headers_params())
       json <- resp %>%
@@ -1372,13 +1369,12 @@ wnba_homepagewidget <- function(
         df_list <- teams_df_list_final
       }
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no homepage widget data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1591,7 +1587,7 @@ wnba_leagueleaders <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leagueleaders", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -1606,13 +1602,12 @@ wnba_leagueleaders <- function(
       })
       names(df_list) <- resp$resultSet$name
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league leaders data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

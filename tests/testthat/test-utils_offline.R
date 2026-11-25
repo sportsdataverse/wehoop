@@ -64,9 +64,6 @@ test_that(".capture_args and the api reporters", {
   e <- simpleError("boom")
   expect_message(.report_api_error(e), "Request failed")
   expect_message(.report_api_error(e, hint = "id {game_id}", args = list(game_id = 7, x = strrep("a", 80))), "boom")
-  w <- simpleWarning("careful")
-  expect_message(.report_api_warning(w), "Request emitted a warning")
-  expect_message(.report_api_warning(w, hint = "id {game_id}", args = list(game_id = 7, x = strrep("a", 80))), "careful")
 })
 
 test_that(".echo_identity keeps the wehoop_data class and print shows the timestamp", {

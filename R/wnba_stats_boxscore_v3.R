@@ -192,7 +192,7 @@ wnba_boxscoretraditionalv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscoretraditionalv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -331,13 +331,12 @@ wnba_boxscoretraditionalv3 <- function(
         "away_team_bench_totals"
       )
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no traditional boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -490,7 +489,7 @@ wnba_boxscoreadvancedv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscoreadvancedv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -581,13 +580,12 @@ wnba_boxscoreadvancedv3 <- function(
         "away_team_totals_advanced"
       )
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no advanced boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -720,7 +718,7 @@ wnba_boxscoremiscv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscoremiscv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -811,13 +809,12 @@ wnba_boxscoremiscv3 <- function(
         "away_team_totals_misc"
       )
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no misc boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -956,7 +953,7 @@ wnba_boxscorescoringv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscorescoringv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -1047,13 +1044,12 @@ wnba_boxscorescoringv3 <- function(
         "away_team_totals_scoring"
       )
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no scoring boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1179,7 +1175,7 @@ wnba_boxscorefourfactorsv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscorefourfactorsv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -1270,13 +1266,12 @@ wnba_boxscorefourfactorsv3 <- function(
         "away_team_totals_four_factors"
       )
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no four factors boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1424,7 +1419,7 @@ wnba_boxscoreplayertrackv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscoreplayertrackv3", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -1515,13 +1510,12 @@ wnba_boxscoreplayertrackv3 <- function(
         "away_team_totals_player_track"
       )
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player tracking boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1666,7 +1660,7 @@ wnba_boxscoreusagev3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscoreusagev3", {
       resp <- request_with_proxy(url = full_url, params = params, ...)
 
       data <- resp %>%
@@ -1755,13 +1749,12 @@ wnba_boxscoreusagev3 <- function(
         "home_team_totals_usage",
         "away_team_totals_usage"
       )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no usage boxscore v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1860,7 +1853,7 @@ wnba_boxscoresummaryv3 <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_boxscoresummaryv3", {
       resp <- request_with_proxy(url = full_url, params = params, ...)
 
       summary_data <- resp %>%
@@ -1964,13 +1957,12 @@ wnba_boxscoresummaryv3 <- function(
         other_stats = other_stats,
         available_video = available_video
       )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no boxscore summary v3 data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2174,7 +2166,7 @@ wnba_gamerotation <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_gamerotation", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -2188,13 +2180,12 @@ wnba_gamerotation <- function(
         return(data)
       })
       names(df_list) <- resp$resultSets$name
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no game rotation data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

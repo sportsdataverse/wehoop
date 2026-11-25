@@ -165,18 +165,15 @@ wnba_functionname <- function(game_id = "1022200034", ...) {
   df_list <- list()  # Always initialize before tryCatch
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_functionname", {
       resp <- request_with_proxy(url = full_url, params = params, ...)
       # Parse response...
       # Apply janitor::clean_names()
       # Apply make_wehoop_data()
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no data for {game_id} available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -233,7 +230,7 @@ espn_wbb_functionname <- function(team_id,
 
 ESPN public wrappers are thin shims over internal helpers in `R/espn_basketball_*_helpers.R` that take a `league` argument (`"wnba"` or `"womens-college-basketball"`). The helpers do the actual HTTP call + parsing; the public functions just fix the league slug. This keeps the WBB/WNBA pair DRY -- one bugfix to the helper propagates to both public wrappers.
 
-ESPN wrappers use the ESPN-side reporters `.report_api_error(e, hint, args)` and `.report_api_warning(w, args)` (from `R/utils.R`), captured at function entry with `.args <- mget(setdiff(names(formals()), "..."))` (or `.args <- .capture_args()` for argless wrappers). Do NOT use raw `cli::cli_alert_danger()` -- that is the WNBA Stats convention.
+ESPN wrappers report errors with the ESPN-side `.report_api_error(e, hint, args)` (from `R/utils.R`; it prints `conditionMessage(e)`), with the arguments captured at function entry with `.args <- mget(setdiff(names(formals()), "..."))` (or `.args <- .capture_args()` for argless wrappers). Do NOT use raw `cli::cli_alert_danger()` -- that is the WNBA Stats convention.
 
 ### Data Processing Pipeline
 
@@ -276,16 +273,13 @@ wnba_func <- function(...) {
   df_list <- list()   # <-- MANDATORY. Not inside tryCatch.
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_func", {
       resp    <- request_with_proxy(url = endpoint, params = params, ...)
       df_list <- wnba_stats_map_result_sets(resp)
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no data available!")
-      cli::cli_alert_danger("Error:\n{e}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning:\n{w}")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {}
   )
@@ -294,6 +288,11 @@ wnba_func <- function(...) {
 ```
 
 This rule applies to **every return variable name**, not just `df_list`: `plays_df`, `pbp`, `standings`, `teams`, `team_box_score`, `athlete_roster_df`, `games`, `conferences`, `resp`, `data`, etc. Initialize to the appropriate empty value — `list()` for named-list returns, `NULL` for single-object returns, `data.frame()` for tibble returns.
+
+### Warnings and error causes in `tryCatch` (CRITICAL)
+
+- **No `warning =` handler on a wrapper's `tryCatch`.** Any handler there, even one that only reports, stops `expr` at the first warning and returns the empty or half-built fallback (245 handlers did until 3.1.0). Write `expr = .wehoop_with_warnings("<fn>", { ... })` (`R/utils.R`): each warning is re-raised as a classed `wehoop_warning` naming the function, keeping its original classes, and the body finishes. `withCallingHandlers()` collectors that call `invokeRestart("muffleWarning")` are fine: they do not unwind.
+- **Every `error =` handler names its cause**: `.report_api_error(e, ...)`, `{conditionMessage(e)}`, or a re-raise with `parent = e`. `tests/testthat/test-handler_causes.R` mocks `httr2::req_perform()` to fail and checks that every function with a reporting handler passes the cause on; a function it cannot exercise goes in its skip list with a reason.
 
 ### Column Drift Resilience
 
@@ -328,7 +327,7 @@ The proxy value (whether passed or read from the option) accepts:
 
 All user-facing messages use `cli`:
 - `cli::cli_alert_danger()` for errors
-- `cli::cli_alert_warning()` for warnings
+- `cli::cli_alert_warning()` for a degraded-but-continuing result (never from a `tryCatch(warning =)` handler)
 - `cli::cli_alert_success()` for success messages
 
 ## Testing

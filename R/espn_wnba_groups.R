@@ -47,7 +47,7 @@ espn_wnba_conferences <- function() {
     )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wnba_conferences", {
       play_base_url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba",
         "/scoreboard/conferences?seasontype=2"
@@ -79,13 +79,12 @@ espn_wnba_conferences <- function() {
           "ESPN WNBA Conferences Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no conferences info available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(conferences)

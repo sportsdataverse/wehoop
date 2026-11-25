@@ -109,6 +109,8 @@ Every exported function needs:
 - Internal helpers start with `.` (e.g., `.players_on_court_v3_wnba()`)
 - Game IDs must be passed through `pad_id()` before API calls
 - Use `%||%` (rlang) for null-safe defaults when parsing API responses
+- Initialize the return variable before `tryCatch`, wrap the body as `expr = .wehoop_with_warnings("<function name>", { ... })`, and give the `tryCatch` **no** `warning =` handler. A `warning =` handler stops the body at the first warning and returns the empty fallback; `.wehoop_with_warnings()` re-raises each warning as a `wehoop_warning` naming the function and lets the body finish.
+- Every `error =` handler must report `conditionMessage(e)` (directly or through `.report_api_error()`), so a timeout, a connection reset or a parse failure is reported with its cause. `tests/testthat/test-handler_causes.R` fails a block or `.report_api_error()` handler that drops it when the function's first request fails. It does not select value fallbacks such as `error = function(e) NULL`, nor the functions in its skip list; give those a focused test.
 
 ## Documentation Maintenance
 

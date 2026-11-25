@@ -144,19 +144,18 @@ wnba_cumestatsplayer <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_cumestatsplayer", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no cumulative player stats data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -233,19 +232,18 @@ wnba_cumestatsplayergames <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_cumestatsplayergames", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no cumulative player game stats data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -403,18 +401,17 @@ wnba_cumestatsteam <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_cumestatsteam", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no cumulative team stats data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -493,19 +490,18 @@ wnba_cumestatsteamgames <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_cumestatsteamgames", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no cumulative team game stats data available for {team_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

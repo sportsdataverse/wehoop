@@ -51,18 +51,17 @@ espn_wbb_game_all <- function(game_id) {
 
   #---- Fetch the summary endpoint (single outer tryCatch) -------------------
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_game_all", {
       res <- .retry_request(full_url)
       check_status(res)
       resp <- res %>%
         .resp_text()
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Could not fetch game summary for game_id = {game_id}",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 
@@ -72,7 +71,7 @@ espn_wbb_game_all <- function(game_id) {
 
   #---- Play-by-Play ------
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_game_all", {
       plays_df <- helper_espn_wbb_pbp(resp)
 
       if (is.null(plays_df)) {
@@ -80,18 +79,17 @@ espn_wbb_game_all <- function(game_id) {
           "{Sys.time()}: No play-by-play data for {game_id} available!"
         )
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   #---- Team Box ------
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_game_all", {
       team_box_score <- helper_espn_wbb_team_box(resp)
 
       if (is.null(team_box_score)) {
@@ -99,18 +97,17 @@ espn_wbb_game_all <- function(game_id) {
           "{Sys.time()}: No team box score data for {game_id} available!"
         )
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   #---- Player Box ------
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_game_all", {
       player_box_score <- helper_espn_wbb_player_box(resp)
 
       if (is.null(player_box_score)) {
@@ -118,13 +115,12 @@ espn_wbb_game_all <- function(game_id) {
           "{Sys.time()}: No player box score data for {game_id} available!"
         )
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 
@@ -171,7 +167,7 @@ espn_wbb_pbp <- function(game_id) {
   plays_df <- NULL
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_pbp", {
       res <- .retry_request(full_url)
       check_status(res)
       resp <- res %>%
@@ -184,13 +180,12 @@ espn_wbb_pbp <- function(game_id) {
           "{Sys.time()}: No play-by-play data for {game_id} available!"
         ))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 
@@ -235,7 +230,7 @@ espn_wbb_team_box <- function(game_id) {
   team_box_score <- NULL
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_team_box", {
       res <- .retry_request(full_url)
       check_status(res)
       resp <- res %>%
@@ -248,13 +243,12 @@ espn_wbb_team_box <- function(game_id) {
           "{Sys.time()}: No team box score data for {game_id} available!"
         )
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(team_box_score)
@@ -299,7 +293,7 @@ espn_wbb_player_box <- function(game_id) {
   player_box_score <- NULL
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_player_box", {
       res <- .retry_request(full_url)
       check_status(res)
       resp <- res %>%
@@ -312,13 +306,12 @@ espn_wbb_player_box <- function(game_id) {
           "{Sys.time()}: No player box score data for {game_id} available!"
         ))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(player_box_score)
@@ -424,7 +417,7 @@ espn_wbb_game_rosters <- function(game_id) {
   athlete_roster_df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_game_rosters", {
       play_base_url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/",
         game_id,
@@ -651,13 +644,12 @@ espn_wbb_game_rosters <- function(game_id) {
           "ESPN WBB Game Roster Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no game roster data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(athlete_roster_df)
@@ -705,7 +697,7 @@ espn_wbb_conferences <- function() {
     )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_conferences", {
       play_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard/conferences?seasontype=2"
 
       res <- .retry_request(play_base_url)
@@ -735,13 +727,12 @@ espn_wbb_conferences <- function() {
           "ESPN WBB Conferences Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no conferences info available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(conferences)
@@ -806,7 +797,7 @@ espn_wbb_teams <- function(year = most_recent_wbb_season()) {
   teams <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_teams", {
       teams_base_url <- "http://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams?limit=1000"
 
       res <- .retry_request(teams_base_url)
@@ -948,13 +939,12 @@ espn_wbb_teams <- function(year = most_recent_wbb_season()) {
           parent_group_id = as.integer(.data$parent_group_id)
         ) %>%
         make_wehoop_data("ESPN WBB Teams Information from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no teams data available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(teams)
@@ -982,7 +972,7 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("parse_espn_wbb_scoreboard", {
       res <- .retry_request(schedule_api)
 
       # Check the result
@@ -1347,13 +1337,12 @@ parse_espn_wbb_scoreboard <- function(group, season_dates) {
             )
         }
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Error:\n{e}",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 }
@@ -1481,7 +1470,7 @@ espn_wbb_rankings <- function() {
   ranks <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_rankings", {
       res <- .retry_request(ranks_url)
       check_status(res)
       resp <- res %>%
@@ -1536,13 +1525,12 @@ espn_wbb_rankings <- function() {
           "ESPN WBB Rankings Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no rankings data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
 
@@ -1658,7 +1646,7 @@ espn_wbb_standings <- function(year) {
   standings <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_standings", {
       res <- .retry_request(full_url)
       check_status(res)
       resp <- res %>%
@@ -1817,13 +1805,12 @@ espn_wbb_standings <- function(year) {
           "ESPN WBB Standings Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no standings data available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(standings)
@@ -1977,7 +1964,7 @@ espn_wbb_team_stats <- function(
 
   df <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_team_stats", {
       # Create the GET request and set response as res
       res <- .retry_request(full_url)
 
@@ -2085,13 +2072,12 @@ espn_wbb_team_stats <- function(
           as.integer
         ) %>%
         make_wehoop_data("ESPN WBB Team Season Stats from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team season stats data available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(df)
@@ -2282,7 +2268,7 @@ espn_wbb_player_stats <- function(
   )
   df <- data.frame()
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("espn_wbb_player_stats", {
       # Create the GET request and set response as res
       res <- .retry_request(full_url)
 
@@ -2432,13 +2418,12 @@ espn_wbb_player_stats <- function(
           "ESPN WBB Player Season Stats from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player season stats data available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(df)

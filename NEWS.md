@@ -72,6 +72,32 @@
 
 ### **Behavior changes and bug fixes**
 
+* Warnings no longer cut a result short. 245 `tryCatch()` blocks in the
+  WNBA Stats, ESPN, NCAA, Fox, Basketball-Reference, Her Hoop Stats, Torvik
+  and crosswalk wrappers had a `warning =` handler (244 printed the warning,
+  one was empty). Any warning while parsing (a coercion `NA`, a partial read)
+  stopped the parse there, so the function returned an empty or half-built
+  result, with the warning printed as a message (or, for the empty handler
+  in `wnba_playbyplayv3()`, not at all). Each warning is now raised as an R
+  warning of class `wehoop_warning` that names the function, for example
+  `espn_wbb_conferences(): NAs introduced by coercion`, and the function
+  finishes and returns its data. Since these are now warnings rather than
+  messages, `suppressMessages()` no longer hides them; wrap the call as
+  `suppressWarnings(espn_wbb_teams(), classes = "wehoop_warning")`. A
+  classed warning (an rlang or lifecycle one, say) also keeps its own
+  class. The ESPN helpers'
+  warnings name the internal helper (for example
+  `.espn_basketball_team_roster()`), which the `espn_wbb_*()` and
+  `espn_wnba_*()` wrappers of the same name share.
+* Failed requests now say why. Six ESPN helpers that fetched a page with
+  `tryCatch(error = function(e) NULL)` (season leaders, season groups and
+  weeks, team records, athlete career stats and prop-bet pages) returned an
+  empty result on a timeout or connection error without a message; they now
+  report the URL and the underlying error. `update_wbb_db()`,
+  `update_wnba_db()` and `update_wnba_stats_db()` report a failed dataset
+  with `conditionMessage()`, an FEB schedule page that fails to parse says
+  why, and `wnba_pbp()` says why its substitution-based lineup fallback
+  failed before leaving the on-court columns `NA`.
 * `espn_wbb_game_team_roster()` and `espn_wnba_game_team_roster()` returned 0 rows for every
   game: ESPN serves the game-day roster inline under `entries`, and the parser read only
   `items`. They now return one row per athlete, with the display name, jersey, starter,

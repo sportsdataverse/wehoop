@@ -47,7 +47,7 @@ hhs_teams <- function(min_season = most_recent_wbb_season(),
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("hhs_teams", {
       jar <- .hhs_login(email, password)
       path <- sprintf(
         "/stats/ncaa/research/team_single_seasons/?min_season=%s&max_season=%s&division=%s&games=all&stats_to_show=summary&submit=true",
@@ -64,12 +64,9 @@ hhs_teams <- function(min_season = most_recent_wbb_season(),
       d[["max_season"]] <- as.integer(max_season)
       d[["division"]] <- as.integer(division)
       df <- make_wehoop_data(dplyr::as_tibble(d), "NCAA women's team seasons from herhoopstats.com", Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(e, hint = "No Her Hoop Stats team data available!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w, hint = "Warning fetching Her Hoop Stats teams", args = .args)
     },
     finally = {
     }
@@ -104,19 +101,16 @@ hhs_team_stats <- function(team_link, email = NULL, password = NULL) {
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("hhs_team_stats", {
       jar <- .hhs_login(email, password)
       doc <- .hhs_doc(team_link, jar)
       tables <- .hhs_tables(doc, min_rows = 1)
       if (!length(tables)) stop("No Her Hoop Stats team tables found", call. = FALSE)
       d <- tables[[which.max(vapply(tables, nrow, integer(1)))]]
       df <- make_wehoop_data(dplyr::as_tibble(d), "Team statistics from herhoopstats.com", Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(e, hint = "No Her Hoop Stats team statistics available!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w, hint = "Warning fetching Her Hoop Stats team statistics", args = .args)
     },
     finally = {
     }
@@ -152,7 +146,7 @@ hhs_team_roster <- function(team_link, email = NULL, password = NULL) {
   df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("hhs_team_roster", {
       jar <- .hhs_login(email, password)
       doc <- .hhs_doc(team_link, jar)
       tables <- .hhs_tables(doc, min_rows = 2)
@@ -162,12 +156,9 @@ hhs_team_roster <- function(team_link, email = NULL, password = NULL) {
         tables[[which.max(vapply(tables, nrow, integer(1)))]]
       if (is.null(d) || nrow(d) == 0) stop("No Her Hoop Stats roster table found", call. = FALSE)
       df <- make_wehoop_data(dplyr::as_tibble(d), "Team roster from herhoopstats.com", Sys.time())
-    },
+    }),
     error = function(e) {
       .report_api_error(e, hint = "No Her Hoop Stats roster available!", args = .args)
-    },
-    warning = function(w) {
-      .report_api_warning(w, hint = "Warning fetching Her Hoop Stats roster", args = .args)
     },
     finally = {
     }

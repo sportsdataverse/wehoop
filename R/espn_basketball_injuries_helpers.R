@@ -34,7 +34,7 @@
   injuries_df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_league_injuries", {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/basketball/",
         league,
@@ -90,16 +90,13 @@
           paste0("ESPN ", toupper(league), " Injury Information from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(
         e,
         hint = "Invalid arguments or no injury data available for {league} season {season}!",
         args = .args
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w, args = .args)
     },
     finally = {}
   )
@@ -136,7 +133,7 @@
   injuries_df <- data.frame()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_team_injuries", {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/basketball/",
         league,
@@ -192,16 +189,13 @@
           paste0("ESPN ", toupper(league), " Team Injury Information from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(
         e,
         hint = "Invalid arguments or no injury data available for team {team_id} in {league}!",
         args = .args
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w, args = .args)
     },
     finally = {}
   )

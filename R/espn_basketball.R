@@ -11,10 +11,10 @@
 #' Each public wrapper is a thin shim over an internal helper that
 #' takes a `league` argument (`"wnba"` or
 #' `"womens-college-basketball"`); the helper does the actual HTTP
-#' call + parsing. Error reporting flows through ESPN-side reporters
-#' `.report_api_error()` / `.report_api_warning()` in `R/utils.R`
-#' (do **not** use raw `cli::cli_alert_danger()` here -- that is the
-#' WNBA Stats convention).
+#' call + parsing. Errors are reported through the ESPN-side
+#' `.report_api_error()` in `R/utils.R` (do **not** use raw
+#' `cli::cli_alert_danger()` here -- that is the WNBA Stats convention),
+#' and warnings are re-raised by `.wehoop_with_warnings()`.
 #'
 #' @details
 #'

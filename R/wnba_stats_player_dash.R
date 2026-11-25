@@ -166,19 +166,18 @@ wnba_playerdashboardbyclutch <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbyclutch", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or player dashboard by clutch splits data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -315,19 +314,18 @@ wnba_playerdashboardbygamesplits <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbygamesplits", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or player dashboard by game splits data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -475,19 +473,18 @@ wnba_playerdashboardbygeneralsplits <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbygeneralsplits", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player dashboard by general splits data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -630,19 +627,18 @@ wnba_playerdashboardbylastngames <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbylastngames", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player dashboard by last n games data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -837,19 +833,18 @@ wnba_playerdashboardbyopponent <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbyopponent", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player dashboard by opponent data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1019,19 +1014,18 @@ wnba_playerdashboardbyshootingsplits <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbyshootingsplits", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player dashboard by shooting splits data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1228,19 +1222,18 @@ wnba_playerdashboardbyteamperformance <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbyteamperformance", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player dashboard by team performance data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1428,19 +1421,18 @@ wnba_playerdashboardbyyearoveryear <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_playerdashboardbyyearoveryear", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player dashboard year-over-year data available for {player_id}!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

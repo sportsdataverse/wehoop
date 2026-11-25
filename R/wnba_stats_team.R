@@ -50,7 +50,7 @@ wnba_teams <- function(...){
   result <- NULL
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teams", {
       # The current season on purpose: its standings list every team before tip-off,
       # and an expansion team appears only in the season it joins.
       season <- most_recent_wnba_season()
@@ -118,13 +118,12 @@ wnba_teams <- function(...){
         result <- dplyr::mutate(result, wnba_logo_svg = NA_character_)
       }
       result <- janitor::clean_names(result)
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team details data available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -247,19 +246,18 @@ wnba_teamdetails <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamdetails", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team details data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -350,7 +348,7 @@ wnba_teamestimatedmetrics <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamestimatedmetrics", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -365,13 +363,12 @@ wnba_teamestimatedmetrics <- function(
       })
       names(df_list) <- resp$resultSet$name
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team estimated metrics data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -470,19 +467,18 @@ wnba_teamgamelog <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamgamelog", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team game log data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -651,19 +647,18 @@ wnba_teamgamelogs <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamgamelogs", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team game logs for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -746,19 +741,18 @@ wnba_teamhistoricalleaders <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamhistoricalleaders", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team historical leaders data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -869,19 +863,18 @@ wnba_teaminfocommon <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teaminfocommon", {
 
       resp <- request_with_proxy(url = full_url, params = params, ...)
 
       df_list <- wnba_stats_map_result_sets(resp)
 
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team common info data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1008,19 +1001,18 @@ wnba_teamplayeronoffdetails <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamplayeronoffdetails", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team player on off details data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1160,19 +1152,18 @@ wnba_teamplayeronoffsummary <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamplayeronoffsummary", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team player on off summary data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1422,19 +1413,18 @@ wnba_teamplayerdashboard <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamplayerdashboard", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team player dashboard data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1538,19 +1528,18 @@ wnba_teamyearbyyearstats <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamyearbyyearstats", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team year-by-year stats data for {team_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1859,19 +1848,18 @@ wnba_teamvsplayer <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamvsplayer", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team vs player data for {team_id} and {player_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -2508,19 +2496,18 @@ wnba_teamgamestreakfinder <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_teamgamestreakfinder", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team streak finder data for the given parameters available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

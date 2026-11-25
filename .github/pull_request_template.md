@@ -68,6 +68,7 @@ Example format:
 
 - [ ] Code follows tidyverse style (`snake_case`, 2-space indent)
 - [ ] `devtools::document()` has been run (NAMESPACE updated)
+- [ ] `tryCatch` bodies are wrapped in `.wehoop_with_warnings("<fn>", { ... })` with no `warning =` handler, and every `error =` handler reports `conditionMessage(e)` (directly or through `.report_api_error()`)
 - [ ] New/changed functions have roxygen docs with `@export`, `@family`, `@return` tables
 - [ ] Tests added/updated in `tests/testthat/`
 - [ ] `devtools::check()` passes with no errors or warnings

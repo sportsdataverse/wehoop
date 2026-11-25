@@ -324,7 +324,7 @@ wnba_videoevents <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_videoevents", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -338,13 +338,12 @@ wnba_videoevents <- function(
       df_list <- c(list(videoUrls), list(playlist))
       names(df_list) <- c("videoUrls", "playlist")
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no video events data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -413,19 +412,18 @@ wnba_videostatus <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_videostatus", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no video status data for {game_date} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

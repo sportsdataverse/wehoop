@@ -48,7 +48,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_team", {
       res  <- .retry_request(url)
       check_status(res)
       raw  <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -146,15 +146,10 @@
           )
       }
       result[["Coaches"]] <- coaches_df
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "No team data available for team_id={team_id}, season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning fetching team data for team_id={team_id}",
       args = .args
     ),
     finally = {}
@@ -203,7 +198,7 @@
   invisible(season)
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_team_roster", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -304,15 +299,10 @@
             )
         }
       }
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "No roster data available for team_id={team_id}, season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning fetching roster for team_id={team_id}",
       args = .args
     ),
     finally = {}
@@ -439,7 +429,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_team_schedule", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -606,15 +596,10 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "No schedule data available for team_id={team_id}, season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning fetching schedule for team_id={team_id}",
       args = .args
     ),
     finally = {}
@@ -657,7 +642,7 @@
   invisible(season)
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_team_leaders", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -720,15 +705,10 @@
             )
         }
       }
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "No leaders data available for team_id={team_id}, season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning fetching leaders for team_id={team_id}",
       args = .args
     ),
     finally = {}
@@ -775,7 +755,7 @@
   )
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_team_season_profile", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>%
@@ -818,15 +798,10 @@
                  " Team Season Profile from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} team-season profile for team_id={team_id}, season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} team-season profile for team_id={team_id}",
       args = .args
     ),
     finally = {}

@@ -51,11 +51,11 @@ full list of changes is in NEWS.md. The main additions:
 
 ## Test environments
 
-All local checks below ran on 2026-11-24 on one tarball built (`R CMD
-build`, 1,876,893 bytes) from `git archive` of commit 661c66fc6. The
-commits after it change only this file, CLAUDE.md and
-`.github/copilot-instructions.md`, all in `.Rbuildignore`, so the tarball
-contents are the same.
+The first three local checks below ran on 2026-11-24 on one tarball built
+(`R CMD build`, 1,876,893 bytes) from `git archive` of commit 661c66fc6.
+The commits after it changed only files in `.Rbuildignore` until the
+warning and error handling change (wehoop#131), which changes R code and
+tests; the fourth check is of a tarball built after it.
 
 * Local Windows 10 x64, R 4.6.0 (ucrt), `R CMD check --as-cran
   --run-donttest --timings`, with `_R_CHECK_CRAN_INCOMING_REMOTE_=true`,
@@ -78,12 +78,22 @@ contents are the same.
   `\donttest{}` example runs to the end: the failed requests show up as
   warnings or as errors caught by the examples' `try()`, and none stops
   the run.
+* After wehoop#131: a tarball (1,879,782 bytes) from `git archive` of
+  9292876f9, checked like the first bullet under R 4.6.0: 0 errors, 0
+  warnings and 1 NOTE from the example timing check.
+  `bart_wbb_game_schedule` (3.83 s CPU, 5.93 s elapsed) and
+  `load_ncaa_wbb_lineups` (0.53 s / 5.23 s) passed 5 s elapsed while
+  waiting on the network: `bart_wbb_game_schedule(year = 2024)` took
+  4.24 s / 6.90 s on the commit before wehoop#131 and 4.06 s / 6.77 s
+  after it, minutes apart. Tests: 0 failures, 0 warnings, 698 skips,
+  8,793 passes.
 * GitHub Actions R-CMD-check: R release on macOS, Windows and Ubuntu, R
   oldrel-1 and R-devel on Ubuntu. All five passed on this release branch
   at 42a8175b0 (2026-11-24). The commits after it change only an internal
   id-cast helper (a non-whole id now becomes NA with a warning instead of
   being truncated), its tests and contributor docs; the
-  local checks above cover them.
+  local checks above cover them. All five passed again on the
+  wehoop#131 pull request at 9292876f9.
 * R-hub v2 (linux, macos, macos-arm64 and windows, all R-devel), run on
   42a8175b0 on 2026-11-24 (before the id-cast helper change above):
   linux and windows passed. macos-arm64 stopped while
@@ -96,12 +106,14 @@ contents are the same.
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes (R 4.6.0; see above for the R 4.6.1
-`'NULL'` directory NOTE).
+`'NULL'` directory NOTE and the network-bound example-timing NOTE after
+wehoop#131).
 
 * **Example timing.** No example took more than 5 s. The slowest in the
   R 4.6.0 check were `nbl_rosetta_players` (2.01 s CPU, 3.52 s elapsed),
   `bart_wbb_game_schedule` (2.66 s / 3.41 s) and
-  `load_ncaa_wbb_lineups` (0.34 s / 3.39 s).
+  `load_ncaa_wbb_lineups` (0.34 s / 3.39 s). In the later check after
+  wehoop#131 those two passed 5 s elapsed on network waits (see above).
 
 * **Installed package size (INFO).** Locally (R 4.6.0):
 

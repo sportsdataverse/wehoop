@@ -164,19 +164,18 @@ wnba_leaguedashplayerbiostats <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashplayerbiostats", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard player bio stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -414,19 +413,18 @@ wnba_leaguedashplayerclutch <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashplayerclutch", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard player clutch stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -653,19 +651,18 @@ wnba_leaguedashplayerstats <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashplayerstats", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard player stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -861,7 +858,7 @@ wnba_leaguedashplayershotlocations <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashplayershotlocations", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -879,13 +876,12 @@ wnba_leaguedashplayershotlocations <- function(
         return(data)
       })
       names(df_list) <- resp$resultSets$name
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard player shot locations data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1033,19 +1029,18 @@ wnba_leaguedashteamclutch <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashteamclutch", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard team clutch data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1179,19 +1174,18 @@ wnba_leaguedashteamstats <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashteamstats", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
       df_list <- wnba_stats_map_result_sets(resp)
       
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard team stats data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )
@@ -1360,7 +1354,7 @@ wnba_leaguedashteamshotlocations <- function(
   df_list <- list()
 
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings("wnba_leaguedashteamshotlocations", {
       
       resp <- request_with_proxy(url = full_url, params = params, ...)
       
@@ -1378,13 +1372,12 @@ wnba_leaguedashteamshotlocations <- function(
         return(data)
       })
       names(df_list) <- resp$resultSets$name
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no league dashboard team shot location data for {season} available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {
     }
   )

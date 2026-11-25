@@ -20,7 +20,7 @@
     "/competitors/", team_id, "/linescores?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_linescores", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -57,12 +57,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} competitor linescores for event_id={event_id}, team_id={team_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} competitor linescores",
       args = .args),
     finally = {}
   )
@@ -86,7 +83,7 @@
     "/competitors/", team_id, "/leaders?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_leaders", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -139,12 +136,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} competitor leaders for event_id={event_id}, team_id={team_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} competitor leaders",
       args = .args),
     finally = {}
   )
@@ -168,7 +162,7 @@
     "/competitors/", team_id, "/roster?limit=100&lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_roster", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -208,12 +202,9 @@
           paste0("ESPN ", toupper(league), " Competitor Roster"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} competitor roster for event_id={event_id}, team_id={team_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} competitor roster",
       args = .args),
     finally = {}
   )
@@ -237,7 +228,7 @@
     "/competitors/", team_id, "/statistics?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_statistics", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -285,12 +276,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} competitor statistics for event_id={event_id}, team_id={team_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} competitor statistics",
       args = .args),
     finally = {}
   )
@@ -314,7 +302,7 @@
     "/competitors/", team_id, "/records?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_records", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -357,12 +345,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} competitor records for event_id={event_id}, team_id={team_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} competitor records",
       args = .args),
     finally = {}
   )
@@ -395,7 +380,7 @@
     "?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_player_box", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -446,12 +431,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event player box for event_id={event_id}, team_id={team_id}, athlete_id={athlete_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event player box",
       args = .args),
     finally = {}
   )
@@ -483,7 +465,7 @@
     "?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_roster_entry", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -517,12 +499,9 @@
                  " Event Competitor Roster Entry"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event roster entry for event_id={event_id}, team_id={team_id}, athlete_id={athlete_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event roster entry",
       args = .args),
     finally = {}
   )
@@ -551,7 +530,7 @@
     "/competitors/", team_id, "/score?lang=en&region=us"
   )
   tryCatch(
-    expr = {
+    expr = .wehoop_with_warnings(".espn_basketball_event_competitor_score", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -575,12 +554,9 @@
           paste0("ESPN ", toupper(league), " Event Competitor Score"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} competitor score for event_id={event_id}, team_id={team_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} competitor score",
       args = .args),
     finally = {}
   )

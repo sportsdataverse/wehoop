@@ -60,7 +60,7 @@ ESPN and the other non-WNBA-Stats live endpoints call `.retry_request()` (httr2 
 
 User-facing messages use `cli`:
 - `cli::cli_alert_danger()` for errors
-- `cli::cli_alert_warning()` for warnings
+- `cli::cli_alert_warning()` for a degraded-but-continuing result (never from a `tryCatch(warning =)` handler)
 - `cli::cli_alert_success()` for completion messages
 
 ## Function Naming
@@ -257,6 +257,7 @@ Supporting scrapers: `bart_wbb_ratings()`, `bart_wbb_game_schedule()`,
 ## Common Pitfalls
 
 - **Return-value initialization is mandatory**: every wrapper that `return(X)` where `X` is assigned only inside `tryCatch(expr = {...})` must initialize `X` *before* the `tryCatch`. Otherwise, when the API errors, `return(X)` throws `object 'X' not found` instead of the intended empty-list fallback. Applies to `df_list`, `plays_df`, `pbp`, `teams`, `standings`, `conferences`, `resp`, `games`, `data`, etc. — any return variable.
+- **No `warning =` handler on a wrapper's `tryCatch`**: it stops `expr` at the first warning and returns the empty fallback. Wrap the body as `expr = .wehoop_with_warnings("<function name>", { ... })` (`R/utils.R`), which re-raises each warning as a classed `wehoop_warning` naming the function and lets the body finish. Every `error =` handler must name the cause: `.report_api_error(e, ...)` or `{conditionMessage(e)}`.
 - When dropping a known-transient column inside a function, use `dplyr::select(-dplyr::any_of("colname"))` instead of `dplyr::select(-"colname")`. The bare form errors the moment upstream drops the column.
 - When renaming columns after `janitor::clean_names()`, use `dplyr::rename(dplyr::any_of(c(new = "old")))` so the function survives upstream rename/drops without breaking.
 - ESPN API columns change over time — **column assertions in tests must use the subset direction** (`expect_in(expected, actual)`).
