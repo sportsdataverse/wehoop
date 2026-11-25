@@ -102,8 +102,8 @@
   sub-frames of `wnba_boxscoresummaryv3()` (`game_info` to
   `available_video`) fell back to an empty frame on any error with no
   message. The crosswalk builders' per-source lookups
-  (`wnba_team_crosswalk()`'s Fox teams, `wnba_schedule_crosswalk()` and
-  `wbb_schedule_crosswalk()`'s per-date ESPN scoreboards, and
+  (`wnba_team_crosswalk()`'s Fox teams, `wnba_schedule_crosswalk()`'s
+  per-date ESPN scoreboards, and
   `wnba_player_crosswalk()` and `wbb_player_crosswalk()`'s per-team ESPN,
   WNBA Stats and Fox rosters) dropped any error that escaped the inner
   function, while the inner function's own report printed three lines per
@@ -114,6 +114,27 @@
   result: espn_wnba_scoreboard(20240601): HTTP 503 ...`. `ncaa_wbb_teams()`
   does the same for a conference page that fails, which is left out
   instead of losing every other conference's teams.
+* `espn_wbb_scoreboard()` makes one request per date. It sent four
+  identical requests for each date and returned every game four times. It
+  now takes a vector of dates, leaves out a date that fails and reports
+  the failed dates in one alert (`espn_wbb_scoreboard(): 2 parts failed
+  ...: dates=20250105: HTTP 500 ...`) instead of an extra "no scoreboard
+  data" line; a date with no games returns no rows without a message.
+  `wbb_schedule_crosswalk()` pulls all its dates in one such call, so its
+  failed dates are reported in that one `espn_wbb_scoreboard()` alert.
+  `espn_wnba_scoreboard()` and the team-schedule wrappers already made one
+  request per call.
+* `espn_wbb_player_career_stats()`, `espn_wbb_season_leaders()`,
+  `espn_wbb_game_propbets()`, `espn_wnba_team_record()`,
+  `espn_wbb_season_groups()`, `espn_wbb_season_weeks()` and their WNBA
+  twins returned an empty part with no message on a non-200 answer. A 404
+  stays quiet where it is the answer "none": postseason stats for an
+  athlete without any, leaders for a season type that has none, a
+  provider without prop bets (on the first page). Team records, season
+  groups and weeks answer 200 with no items when there is nothing, so a
+  404 there is a failure too. Any other status
+  (5xx, 401, 403, 429) is reported in one alert naming the helper, and the
+  parts that succeeded are kept.
 * An HTTP error answer is no longer parsed as data. The shared request
   helper turns off httr2's status errors, and the WNBA Stats request
   helper `request_with_proxy()` (behind every `wnba_*()` Stats wrapper),
