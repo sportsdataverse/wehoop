@@ -213,6 +213,9 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
         conference_id = conference_ids
       )
 
+      # A conference page that fails is left out and reported once below,
+      # instead of losing every other conference's teams.
+      fallbacks <- new.env()
       conferences_team_df <- lapply(conference_df$conference_id, function(x) {
         conf_team_url <- paste0(
           "http://stats.ncaa.org/team/inst_team_list?academic_year=",
@@ -222,35 +225,40 @@ ncaa_wbb_teams <- function(year = most_recent_wbb_season(), division = 1, ...) {
           "&sport_code=WBB"
         )
 
-        resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
-                               proxy = .proxy)
+        .wehoop_fallback({
+          resp <- .retry_request(conf_team_url, headers = headers, timeout = 15,
+                                 proxy = .proxy)
+          .wehoop_stop_for_http_status(resp)
+          page <- resp %>%
+            .resp_text() %>%
+            rvest::read_html()
 
-        page <- resp %>%
-          .resp_text() %>%
-          rvest::read_html()
+          urls  <- page %>%
+            rvest::html_elements("table") %>%
+            rvest::html_elements("a") %>%
+            rvest::html_attr("href")
+          names <- page %>%
+            rvest::html_elements("table") %>%
+            rvest::html_elements("a") %>%
+            rvest::html_text()
+          # an HTTP 200 block page (Akamai "Access Denied") has no team table
+          if (!length(urls)) stop("the page lists no teams (blocked or empty)", call. = FALSE)
 
-        urls  <- page %>%
-          rvest::html_elements("table") %>%
-          rvest::html_elements("a") %>%
-          rvest::html_attr("href")
-        names <- page %>%
-          rvest::html_elements("table") %>%
-          rvest::html_elements("a") %>%
-          rvest::html_text()
-
-        out <- data.frame(
-          team_url = urls,
-          team_name = names,
-          division = division,
-          year = year,
-          conference_id = x,
-          stringsAsFactors = FALSE
-        ) %>%
-          dplyr::left_join(conference_df, by = c("conference_id"))
-        Sys.sleep(5)
-        return(out)
+          out <- data.frame(
+            team_url = urls,
+            team_name = names,
+            division = division,
+            year = year,
+            conference_id = x,
+            stringsAsFactors = FALSE
+          ) %>%
+            dplyr::left_join(conference_df, by = c("conference_id"))
+          Sys.sleep(5)
+          out
+        }, paste0("conference ", x), fallbacks)
       })
 
+      .wehoop_report_fallbacks("ncaa_wbb_teams", fallbacks)
       conferences_team_df <- rbindlist_with_attrs(conferences_team_df)
 
       # stats.ncaa.org serves two team-url shapes; extract ids from whichever

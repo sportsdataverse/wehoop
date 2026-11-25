@@ -15,6 +15,7 @@
     paste0(.bart_wbb_base_url, path),
     headers = c("User-Agent" = .bart_wbb_user_agent)
   )
+  .wehoop_stop_for_http_status(resp)
   .resp_text(resp)
 }
 

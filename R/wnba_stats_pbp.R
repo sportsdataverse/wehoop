@@ -1384,6 +1384,7 @@ wnba_live_pbp <- function(
     expr = {
       
       res <- .retry_request(full_url, headers = .wnba_cdn_headers())
+      .wehoop_stop_for_http_status(res)
 
       resp <- res %>%
         .resp_text() %>%
@@ -1708,6 +1709,7 @@ wnba_live_boxscore <- function(
     expr = {
       
       res <- .retry_request(full_url, headers = .wnba_cdn_headers())
+      .wehoop_stop_for_http_status(res)
 
       resp <- res %>%
         .resp_text() %>%

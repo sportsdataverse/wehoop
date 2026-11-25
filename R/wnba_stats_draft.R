@@ -85,6 +85,7 @@ wnba_draftboard <- function(
   tryCatch(
     expr = .wehoop_with_warnings("wnba_draftboard", {
       res <- .retry_request(endpoint, headers = headers)
+      .wehoop_stop_for_http_status(res)
 
       resp <- res %>%
         .resp_text() %>%

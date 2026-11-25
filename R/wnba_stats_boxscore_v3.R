@@ -1866,85 +1866,27 @@ wnba_boxscoresummaryv3 <- function(
         janitor::clean_names() %>%
         make_wehoop_data("WNBA Game Summary from WNBA.com", Sys.time())
 
-      game_info <- tryCatch(
+      # A sub-frame that fails to build stays an empty data.frame, but its
+      # cause is reported once below instead of being dropped.
+      fallbacks <- new.env()
+      sub_frame <- function(key, label) .wehoop_fallback(
         summary_data %>%
-          purrr::pluck("gameInfo") %>%
+          purrr::pluck(key) %>%
           data.frame(stringsAsFactors = F) %>%
           dplyr::as_tibble() %>%
           janitor::clean_names() %>%
-          make_wehoop_data("WNBA Game Info from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
+          make_wehoop_data(paste0("WNBA ", label, " from WNBA.com"), Sys.time()),
+        what = key, log = fallbacks, fallback = data.frame()
       )
-
-      arena_info <- tryCatch(
-        summary_data %>%
-          purrr::pluck("arenaInfo") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Arena Info from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
-
-      officials <- tryCatch(
-        summary_data %>%
-          purrr::pluck("officials") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Officials from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
-
-      line_score <- tryCatch(
-        summary_data %>%
-          purrr::pluck("lineScore") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Line Score from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
-
-      inactive_players <- tryCatch(
-        summary_data %>%
-          purrr::pluck("inactivePlayers") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Inactive Players from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
-
-      last_five_meetings <- tryCatch(
-        summary_data %>%
-          purrr::pluck("lastFiveMeetings") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Last Five Meetings from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
-
-      other_stats <- tryCatch(
-        summary_data %>%
-          purrr::pluck("otherStats") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Other Stats from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
-
-      available_video <- tryCatch(
-        summary_data %>%
-          purrr::pluck("availableVideo") %>%
-          data.frame(stringsAsFactors = F) %>%
-          dplyr::as_tibble() %>%
-          janitor::clean_names() %>%
-          make_wehoop_data("WNBA Available Video from WNBA.com", Sys.time()),
-        error = function(e) data.frame()
-      )
+      game_info <- sub_frame("gameInfo", "Game Info")
+      arena_info <- sub_frame("arenaInfo", "Arena Info")
+      officials <- sub_frame("officials", "Officials")
+      line_score <- sub_frame("lineScore", "Line Score")
+      inactive_players <- sub_frame("inactivePlayers", "Inactive Players")
+      last_five_meetings <- sub_frame("lastFiveMeetings", "Last Five Meetings")
+      other_stats <- sub_frame("otherStats", "Other Stats")
+      available_video <- sub_frame("availableVideo", "Available Video")
+      .wehoop_report_fallbacks("wnba_boxscoresummaryv3", fallbacks)
 
       df_list <- list(
         game_summary = game_summary,

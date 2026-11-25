@@ -1296,6 +1296,7 @@ wnba_homepagewidget <- function(
     expr = .wehoop_with_warnings("wnba_homepagewidget", {
       
       resp <- .retry_request(full_url, headers = wnba_headers_params())
+      .wehoop_stop_for_http_status(resp)
       json <- resp %>%
         .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = TRUE)

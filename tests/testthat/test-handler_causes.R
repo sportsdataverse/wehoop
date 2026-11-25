@@ -7,6 +7,7 @@
 # Functions this setup cannot exercise, with why.
 .handler_cause_skip <- c(
   .feb_page_record = "parses the html it is given; no request",
+  .wehoop_fallback = "a value fallback that records its cause for .wehoop_report_fallbacks(); no request",
   .intl_json = "parses the text it is given; no request",
   .players_on_court_v3_wnba = "takes a play-by-play frame, not request arguments",
   .read_games_index_strict = "aborts on purpose, with the cause as parent = e",

@@ -464,10 +464,11 @@ wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
       # Derive unique ET dates from Torvik and call the WBB scoreboard once
       # per date. ~150 calls for a full season.
       dates <- sort(unique(bart_games$game_date))
+      fallbacks <- new.env()
       espn_list <- lapply(dates, function(d) {
-        sb <- tryCatch(
+        sb <- .wehoop_fallback(
           espn_wbb_scoreboard(season = as.integer(format(d, "%Y%m%d"))),
-          error = function(e) NULL
+          paste0("espn_wbb_scoreboard(", format(d, "%Y%m%d"), ")"), fallbacks
         )
         if (is.null(sb) || !nrow(sb)) return(NULL)
         dplyr::transmute(
@@ -479,6 +480,7 @@ wbb_schedule_crosswalk <- function(season = most_recent_wbb_season()) {
         )
       })
       espn_games <- dplyr::bind_rows(espn_list)
+      .wehoop_report_fallbacks("wbb_schedule_crosswalk", fallbacks)
 
       out <- .bb_assemble_schedule_crosswalk_wbb(
         espn_games  = espn_games,
@@ -657,15 +659,16 @@ wbb_player_crosswalk <- function(season = most_recent_wbb_season(),
   tryCatch(
     expr = .wehoop_with_warnings("wbb_player_crosswalk", {
       team_xwalk <- wbb_team_crosswalk(season = season)
+      fallbacks <- new.env()
 
       fetch_team <- function(i) {
         espn_id <- team_xwalk$espn_team_id[i]
         fox_id  <- team_xwalk$fox_team_id[i]
         abbr    <- team_xwalk$espn_abbreviation[i]
 
-        er <- tryCatch(
+        er <- .wehoop_fallback(
           espn_wbb_team_roster(team_id = espn_id, season = season),
-          error = function(e) NULL
+          paste0("espn_wbb_team_roster(", espn_id, ")"), fallbacks
         )
         if (is.null(er) || !nrow(er)) return(NULL)
         espn <- dplyr::transmute(
@@ -679,7 +682,8 @@ wbb_player_crosswalk <- function(season = most_recent_wbb_season(),
         )
 
         fr <- if (!is.na(fox_id))
-          tryCatch(fox_wbb_team_roster(team_id = fox_id), error = function(e) NULL)
+          .wehoop_fallback(fox_wbb_team_roster(team_id = fox_id),
+                           paste0("fox_wbb_team_roster(", fox_id, ")"), fallbacks)
         else
           NULL
         fox <- if (!is.null(fr) && nrow(fr)) dplyr::transmute(
@@ -708,6 +712,7 @@ wbb_player_crosswalk <- function(season = most_recent_wbb_season(),
       out <- purrr::map(seq_len(nrow(team_xwalk)), fetch_team) |>
         purrr::list_rbind() |>
         make_wehoop_data("WBB player crosswalk (ESPN / Fox)", Sys.time())
+      .wehoop_report_fallbacks("wbb_player_crosswalk", fallbacks)
     }),
     error   = function(e) .report_api_error(
       e, hint = "Could not build WBB player crosswalk for {season}!", args = .args
