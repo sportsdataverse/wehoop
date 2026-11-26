@@ -263,7 +263,7 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
 #'       games \tab integer \tab Games played (season total). \cr
 #'       rank \tab integer \tab National rank by adj_em. \cr
 #'       adj_em_z \tab numeric \tab Z-score of adj_em relative to the season's team distribution. \cr
-#'       adj_o_blend \tab numeric \tab Adjusted offensive efficiency with the preseason prior blended in: the same fixed point as adj_o, with each Division I team shrunk toward last season's regressed rating as if it had played prior_games extra games at it. \cr
+#'       adj_o_blend \tab numeric \tab Adjusted offensive efficiency with the preseason prior blended in: the same fixed point as adj_o, with each Division I team shrunk toward last season's regressed rating as if it had played prior_games extra games at it. A team new to Division I (or with no rated game last season) is shrunk toward the 23rd percentile of last season's Division I adj_em instead. \cr
 #'       adj_d_blend \tab numeric \tab Adjusted defensive efficiency with the preseason prior blended in, on the same basis as adj_o_blend (lower is better). \cr
 #'       adj_em_blend \tab numeric \tab adj_o_blend minus adj_d_blend. A team with g games is rated about g / (g + prior_games) on this season. \cr
 #'       rank_blend \tab integer \tab National rank by adj_em_blend (dense, 1 = best). \cr
