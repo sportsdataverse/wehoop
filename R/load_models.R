@@ -29,10 +29,13 @@
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
-#' @return Returns a `wehoop_data` tibble with one row per player-team-season.
+#' @return `load_wnba_player_impact()` returns a `wehoop_data` tibble with one
+#'   row per player-team-season.
 #'   Each of the 16 ratings gets an `_n` (sample size), `_rank` and `_pct`
 #'   column, computed within each season and season type. The sample gates
-#'   are regular-season sized, so most playoff ranks are null.
+#'   are regular-season sized: in the published 1997-2026 files no season has
+#'   10 playoff players past a gate, so every playoff `_rank` and `_pct` is
+#'   null except `war_rank` and `war_pct`.
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -49,8 +52,8 @@
 #'       rapm \tab numeric \tab Net regularized adjusted plus-minus (o_rapm + d_rapm). \cr
 #'       off_poss \tab integer \tab Offensive possessions used in the RAPM fit. \cr
 #'       def_poss \tab integer \tab Defensive possessions used in the RAPM fit. \cr
-#'       o_adj_rapm \tab numeric \tab Offensive RAPM adjusted for minutes/possession stability. \cr
-#'       d_adj_rapm \tab numeric \tab Defensive RAPM adjusted for minutes/possession stability. \cr
+#'       o_adj_rapm \tab numeric \tab Offensive RAPM fitted with a ridge prior toward the previous season's SPM (instead of shrinking to zero). \cr
+#'       d_adj_rapm \tab numeric \tab Defensive RAPM fitted with a ridge prior toward the previous season's SPM (instead of shrinking to zero). \cr
 #'       adj_rapm \tab numeric \tab Net adjusted RAPM (o_adj_rapm + d_adj_rapm). \cr
 #'       ospm \tab numeric \tab Offensive statistical plus-minus (box-score component). \cr
 #'       dspm \tab numeric \tab Defensive statistical plus-minus (box-score component). \cr
@@ -80,22 +83,22 @@
 #'       boban_filtered_skill_n \tab integer \tab Possessions behind boban_filtered_skill (off_poss + def_poss this season). A multi-season estimate takes the net gate: its rank and percentile are set only when it reaches 1,600. \cr
 #'       boban_projected_rating_n \tab integer \tab Possessions behind boban_projected_rating (off_poss + def_poss this season). A multi-season estimate takes the net gate: its rank and percentile are set only when it reaches 1,600. \cr
 #'       boban_projected_sd_n \tab integer \tab Possessions behind boban_projected_sd (off_poss + def_poss this season). A multi-season estimate takes the net gate: its rank and percentile are set only when it reaches 1,600. \cr
-#'       o_rapm_rank \tab numeric \tab Rank of o_rapm within the season and season type, 1 = best, ties averaged. Null when o_rapm_n is under 610 or fewer than 10 players are ranked. \cr
-#'       d_rapm_rank \tab numeric \tab Rank of d_rapm within the season and season type, 1 = best, ties averaged. Null when d_rapm_n is under 1,200 or fewer than 10 players are ranked. \cr
-#'       rapm_rank \tab numeric \tab Rank of rapm within the season and season type, 1 = best, ties averaged. Null when rapm_n is under 1,600 or fewer than 10 players are ranked. \cr
-#'       o_adj_rapm_rank \tab numeric \tab Rank of o_adj_rapm within the season and season type, 1 = best, ties averaged. Null when o_adj_rapm_n is under 610 or fewer than 10 players are ranked. \cr
-#'       d_adj_rapm_rank \tab numeric \tab Rank of d_adj_rapm within the season and season type, 1 = best, ties averaged. Null when d_adj_rapm_n is under 1,200 or fewer than 10 players are ranked. \cr
-#'       adj_rapm_rank \tab numeric \tab Rank of adj_rapm within the season and season type, 1 = best, ties averaged. Null when adj_rapm_n is under 1,600 or fewer than 10 players are ranked. \cr
-#'       ospm_rank \tab numeric \tab Rank of ospm within the season and season type, 1 = best, ties averaged. Null when ospm_n is under 610 or fewer than 10 players are ranked. \cr
-#'       dspm_rank \tab numeric \tab Rank of dspm within the season and season type, 1 = best, ties averaged. Null when dspm_n is under 1,200 or fewer than 10 players are ranked. \cr
-#'       spm_rank \tab numeric \tab Rank of spm within the season and season type, 1 = best, ties averaged. Null when spm_n is under 1,600 or fewer than 10 players are ranked. \cr
-#'       obpm_rank \tab numeric \tab Rank of obpm within the season and season type, 1 = best, ties averaged. Null when obpm_n is under 610 or fewer than 10 players are ranked. \cr
-#'       dbpm_rank \tab numeric \tab Rank of dbpm within the season and season type, 1 = best, ties averaged. Null when dbpm_n is under 1,200 or fewer than 10 players are ranked. \cr
-#'       bpm_rank \tab numeric \tab Rank of bpm within the season and season type, 1 = best, ties averaged. Null when bpm_n is under 1,600 or fewer than 10 players are ranked. \cr
-#'       war_rank \tab numeric \tab Rank of war within the season and season type, 1 = best, ties averaged. Ungated; null when fewer than 10 players are ranked. \cr
-#'       boban_filtered_skill_rank \tab numeric \tab Rank of boban_filtered_skill within the season and season type, 1 = best, ties averaged. Null when boban_filtered_skill_n is under 1,600 or fewer than 10 players are ranked. \cr
-#'       boban_projected_rating_rank \tab numeric \tab Rank of boban_projected_rating within the season and season type, 1 = best, ties averaged. Null when boban_projected_rating_n is under 1,600 or fewer than 10 players are ranked. \cr
-#'       boban_projected_sd_rank \tab numeric \tab Rank of boban_projected_sd within the season and season type, ascending: 1 = the smallest sd (the most certain projection), ties averaged. Null when boban_projected_sd_n is under 1,600 or fewer than 10 players are ranked. \cr
+#'       o_rapm_rank \tab numeric \tab Rank of o_rapm within the season and season type, 1 = best, ties averaged. Null when o_rapm is null, o_rapm_n is under 610, or fewer than 10 players are ranked. \cr
+#'       d_rapm_rank \tab numeric \tab Rank of d_rapm within the season and season type, 1 = best, ties averaged. Null when d_rapm is null, d_rapm_n is under 1,200, or fewer than 10 players are ranked. \cr
+#'       rapm_rank \tab numeric \tab Rank of rapm within the season and season type, 1 = best, ties averaged. Null when rapm is null, rapm_n is under 1,600, or fewer than 10 players are ranked. \cr
+#'       o_adj_rapm_rank \tab numeric \tab Rank of o_adj_rapm within the season and season type, 1 = best, ties averaged. Null when o_adj_rapm is null, o_adj_rapm_n is under 610, or fewer than 10 players are ranked. \cr
+#'       d_adj_rapm_rank \tab numeric \tab Rank of d_adj_rapm within the season and season type, 1 = best, ties averaged. Null when d_adj_rapm is null, d_adj_rapm_n is under 1,200, or fewer than 10 players are ranked. \cr
+#'       adj_rapm_rank \tab numeric \tab Rank of adj_rapm within the season and season type, 1 = best, ties averaged. Null when adj_rapm is null, adj_rapm_n is under 1,600, or fewer than 10 players are ranked. \cr
+#'       ospm_rank \tab numeric \tab Rank of ospm within the season and season type, 1 = best, ties averaged. Null when ospm is null, ospm_n is under 610, or fewer than 10 players are ranked. \cr
+#'       dspm_rank \tab numeric \tab Rank of dspm within the season and season type, 1 = best, ties averaged. Null when dspm is null, dspm_n is under 1,200, or fewer than 10 players are ranked. \cr
+#'       spm_rank \tab numeric \tab Rank of spm within the season and season type, 1 = best, ties averaged. Null when spm is null, spm_n is under 1,600, or fewer than 10 players are ranked. \cr
+#'       obpm_rank \tab numeric \tab Rank of obpm within the season and season type, 1 = best, ties averaged. Null when obpm is null, obpm_n is under 610, or fewer than 10 players are ranked. \cr
+#'       dbpm_rank \tab numeric \tab Rank of dbpm within the season and season type, 1 = best, ties averaged. Null when dbpm is null, dbpm_n is under 1,200, or fewer than 10 players are ranked. \cr
+#'       bpm_rank \tab numeric \tab Rank of bpm within the season and season type, 1 = best, ties averaged. Null when bpm is null, bpm_n is under 1,600, or fewer than 10 players are ranked. \cr
+#'       war_rank \tab numeric \tab Rank of war within the season and season type, 1 = best, ties averaged. Ungated; null when war is null or fewer than 10 players are ranked. \cr
+#'       boban_filtered_skill_rank \tab numeric \tab Rank of boban_filtered_skill within the season and season type, 1 = best, ties averaged. Null when boban_filtered_skill is null, boban_filtered_skill_n is under 1,600, or fewer than 10 players are ranked. \cr
+#'       boban_projected_rating_rank \tab numeric \tab Rank of boban_projected_rating within the season and season type, 1 = best, ties averaged. Null when boban_projected_rating is null, boban_projected_rating_n is under 1,600, or fewer than 10 players are ranked. \cr
+#'       boban_projected_sd_rank \tab numeric \tab Rank of boban_projected_sd within the season and season type, ascending: 1 = the smallest sd (the most certain projection), ties averaged. Null when boban_projected_sd is null, boban_projected_sd_n is under 1,600, or fewer than 10 players are ranked. \cr
 #'       o_rapm_pct \tab numeric \tab Percentile of o_rapm_rank, 100 x (n + 1 - rank) / (n + 1) over the n ranked players; null where the rank is. \cr
 #'       d_rapm_pct \tab numeric \tab Percentile of d_rapm_rank, 100 x (n + 1 - rank) / (n + 1) over the n ranked players; null where the rank is. \cr
 #'       rapm_pct \tab numeric \tab Percentile of rapm_rank, 100 x (n + 1 - rank) / (n + 1) over the n ranked players; null where the rank is. \cr
@@ -175,7 +178,8 @@ NULL
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
-#' @return Returns a `wehoop_data` tibble with one row per player-team-season.
+#' @return `load_wbb_player_value()` returns a `wehoop_data` tibble with one
+#'   row per player-team-season.
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -187,7 +191,7 @@ NULL
 #'       box_obpm \tab numeric \tab Box-score offensive box plus-minus. \cr
 #'       box_dbpm \tab numeric \tab Box-score defensive box plus-minus. \cr
 #'       box_bpm \tab numeric \tab Box-score net box plus-minus (box_obpm + box_dbpm). \cr
-#'       qualified \tab logical \tab TRUE when min is at least 300, the floor where the spread of box_bpm reaches its high-minute plateau. An additive flag: no row is dropped. \cr
+#'       qualified \tab logical \tab TRUE when min is at least 300, the floor where the spread of box_bpm first sits within 2% of its high-minute plateau. An additive flag: no row is dropped. \cr
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
@@ -248,7 +252,8 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
 #'   the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
-#' @return Returns a `wehoop_data` tibble with one row per team-season.
+#' @return `load_wbb_ratings()` returns a `wehoop_data` tibble with one row per
+#'   team-season.
 #'
 #'    \if{html}{\tabular{lll}{
 #'       col_name \tab types \tab description \cr
@@ -261,13 +266,13 @@ load_wbb_player_value <- function(seasons = most_recent_wbb_season(),
 #'       raw_o \tab numeric \tab Unadjusted (raw) offensive efficiency. \cr
 #'       raw_d \tab numeric \tab Unadjusted (raw) defensive efficiency. \cr
 #'       games \tab integer \tab Games played (season total). \cr
-#'       rank \tab integer \tab National rank by adj_em. \cr
+#'       rank \tab integer \tab Rank by adj_em among every team in the file (dense, 1 = best; includes non-Division I opponents). \cr
 #'       adj_em_z \tab numeric \tab Z-score of adj_em relative to the season's team distribution. \cr
-#'       adj_o_blend \tab numeric \tab Adjusted offensive efficiency with the preseason prior blended in: the same fixed point as adj_o, with each Division I team shrunk toward last season's regressed rating as if it had played prior_games extra games at it. A team new to Division I (or with no rated game last season) is shrunk toward the 23rd percentile of last season's Division I adj_em instead. \cr
+#'       adj_o_blend \tab numeric \tab Adjusted offensive efficiency with the preseason prior blended in: the same fixed point as adj_o, with each Division I team shrunk toward last season's regressed rating as if it had played prior_games extra games at it. A team new to Division I (or with no rated game last season) is shrunk toward the 23rd percentile of last season's Division I adj_em instead. Non-Division I opponents get no prior; their values move only through their Division I opponents. \cr
 #'       adj_d_blend \tab numeric \tab Adjusted defensive efficiency with the preseason prior blended in, on the same basis as adj_o_blend (lower is better). \cr
 #'       adj_em_blend \tab numeric \tab adj_o_blend minus adj_d_blend. A team with g games is rated about g / (g + prior_games) on this season. \cr
-#'       rank_blend \tab integer \tab National rank by adj_em_blend (dense, 1 = best). \cr
-#'       prior_games \tab numeric \tab Weight of the preseason prior, in games (3 for women's). 0 when the previous season is not released; the blend then equals the unblended rating. \cr
+#'       rank_blend \tab integer \tab Rank by adj_em_blend among every team in the file (dense, 1 = best; includes non-Division I opponents). \cr
+#'       prior_games \tab numeric \tab Weight of the preseason prior, in games (3). 0 when the previous season has no ratable games (2009); the blend then equals the unblended rating. \cr
 #'    }}
 #'    \if{latex}{See the HTML help or pkgdown reference for the column table.}
 #'
