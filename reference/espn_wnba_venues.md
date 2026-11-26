@@ -43,7 +43,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_venues()
 #> ── ESPN WNBA Venues from ESPN.com ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-26 19:20:27 UTC
+#> ℹ Data updated: 2026-11-26 22:09:12 UTC
 #> # A tibble: 227 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor grass
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl>  <lgl>

@@ -774,6 +774,23 @@ raises the `httr2` and `testthat` floors (see Dependencies).
   copying it, and the nine `tbf_leaders_*()` wrappers share one page
   ([`?tbf_leaders`](https://wehoop.sportsdataverse.org/reference/tbf_leaders.md)).
   No export changes.
+- Help pages no longer name functions that do not exist:
+  [`espn_wbb_game_play()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_play.md)
+  and
+  [`espn_wnba_game_play()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_play.md)
+  point at
+  [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
+  /
+  [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+  for play ids, and
+  [`espn_wbb_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_season_ranking.md)
+  /
+  [`espn_wnba_season_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_season_ranking.md)
+  link
+  [`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md)
+  /
+  [`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md)
+  for the ranked teams instead of an unfilled template name.
 
 ## **wehoop 3.0.0**
 

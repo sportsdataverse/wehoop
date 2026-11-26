@@ -477,8 +477,8 @@ espn_wbb_standings(year = season)
 #>  2    2885 NJIT Highlanders America E…             55.4         57.2         0.5
 #>  3     399 UAlbany Great D… America E…             67.9         64.2         0.5
 #>  4     261 Vermont Catamou… America E…             63.5         71.4         0.5
-#>  5     311 Maine Black Bea… America E…             69           69.5         1.5
-#>  6    2066 Binghamton Bear… America E…             61.1         64.4         1.5
+#>  5    2066 Binghamton Bear… America E…             61.8         65.6         1  
+#>  6     311 Maine Black Bea… America E…             69           69.5         1.5
 #>  7     160 New Hampshire W… America E…             54.9         66.1         1.5
 #>  8    2378 UMBC Retrievers  America E…             58.6         75.9         2  
 #>  9    2349 UMass Lowell Ri… America E…             64.4         61.7         3  

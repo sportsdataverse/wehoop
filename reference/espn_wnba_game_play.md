@@ -20,8 +20,9 @@ espn_wnba_game_play(event_id, play_id, ...)
 
 - play_id:
 
-  ESPN play identifier (visible in `pbp()` output as `play_id` or
-  extractable from `plays[].$ref`).
+  ESPN play identifier (visible in
+  [`espn_wnba_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_game_all.md)
+  output as `play_id` or extractable from `plays[].$ref`).
 
 - ...:
 
@@ -46,7 +47,7 @@ Saiem Gilani
 # \donttest{
   espn_wnba_game_play(event_id = 401736171, play_id = 4017361714)
 #> ── ESPN WNBA Event Play Detail ───────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-26 19:20:08 UTC
+#> ℹ Data updated: 2026-11-26 22:08:53 UTC
 #> # A tibble: 1 × 19
 #>   league event_id  play_id    sequence_number type_id type_text text  short_text
 #>   <chr>  <chr>     <chr>      <chr>           <chr>   <chr>     <chr> <chr>     

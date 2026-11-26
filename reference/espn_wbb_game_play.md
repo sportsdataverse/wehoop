@@ -20,8 +20,9 @@ espn_wbb_game_play(event_id, play_id, ...)
 
 - play_id:
 
-  ESPN play identifier (visible in `pbp()` output as `play_id` or
-  extractable from `plays[].$ref`).
+  ESPN play identifier (visible in
+  [`espn_wbb_pbp()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_game_all.md)
+  output as `play_id` or extractable from `plays[].$ref`).
 
 - ...:
 
@@ -45,7 +46,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_game_play(event_id = 401276115, play_id = 401276115101899901)
-#> ✖ 2026-11-26 19:19:33.39568: Failed to retrieve ESPN womens-college-basketball event play detail for event_id=401276115, play_id=401276115101899904
+#> ✖ 2026-11-26 22:08:20.017763: Failed to retrieve ESPN womens-college-basketball event play detail for event_id=401276115, play_id=401276115101899904
 #> ✖ Args: league = "womens-college-basketball", event_id = 401276115, play_id = 401276115101899904
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/events/401276115/competitions/401276115/plays/401276115101899904
 #> NULL

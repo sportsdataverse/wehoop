@@ -2,8 +2,8 @@
 
 Returns the per-week snapshot index for one ranking source (e.g. AP Top
 25). Each row is one weekly snapshot; the `ref` URL resolves to the
-actual ranked teams for that (season-type x week) and will be wrapped by
-a forthcoming `espn_LOWERWBB_week_ranking()`.
+actual ranked teams for that (season-type x week); fetch them with
+[`espn_wbb_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wbb_week_ranking.md).
 
 ## Usage
 
@@ -52,7 +52,7 @@ Saiem Gilani
 # \donttest{
   espn_wbb_season_ranking(ranking_id = 1, season = 2025)
 #> ── ESPN WOMENS-COLLEGE-BASKETBALL Season Ranking Snapshots Index ───────────────
-#> ℹ Data updated: 2026-11-26 19:19:45 UTC
+#> ℹ Data updated: 2026-11-26 22:08:31 UTC
 #> # A tibble: 21 × 9
 #>    league       season ranking_id name  short_name type  season_type  week ref  
 #>    <chr>         <int> <chr>      <chr> <chr>      <chr>       <int> <int> <chr>

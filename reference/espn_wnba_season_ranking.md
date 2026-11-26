@@ -2,8 +2,8 @@
 
 Returns the per-week snapshot index for one ranking source (e.g. AP Top
 25). Each row is one weekly snapshot; the `ref` URL resolves to the
-actual ranked teams for that (season-type x week) and will be wrapped by
-a forthcoming `espn_LOWERWNBA_week_ranking()`.
+actual ranked teams for that (season-type x week); fetch them with
+[`espn_wnba_week_ranking()`](https://wehoop.sportsdataverse.org/reference/espn_wnba_week_ranking.md).
 
 ## Usage
 
@@ -51,7 +51,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_season_ranking(ranking_id = 1, season = 2025)
-#> ✖ 2026-11-26 19:20:19.865052: Failed to retrieve ESPN wnba ranking 1 for season=2025
+#> ✖ 2026-11-26 22:09:04.715877: Failed to retrieve ESPN wnba ranking 1 for season=2025
 #> ✖ Args: league = "wnba", season = 2025, ranking_id = 1
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/rankings/1
 #> NULL

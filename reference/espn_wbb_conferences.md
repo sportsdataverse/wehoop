@@ -31,7 +31,7 @@ Saiem Gilani
 # \donttest{
   try(espn_wbb_conferences())
 #> ── ESPN WBB Conferences Information from ESPN.com ────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-26 19:19:26 UTC
+#> ℹ Data updated: 2026-11-26 22:08:13 UTC
 #> # A tibble: 32 × 7
 #>    group_id conference_name conference_short_name conference_uid conference_logo
 #>       <int> <chr>           <chr>                 <chr>          <chr>          
