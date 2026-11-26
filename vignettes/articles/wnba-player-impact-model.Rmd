@@ -32,7 +32,9 @@ This article explains what each engine estimates, how the suite is built, how
 well it holds up out of sample, and where it is weakest. It condenses the
 official model card in the
 [wehoop-wnba-stats-data repository](https://github.com/sportsdataverse/wehoop-wnba-stats-data/blob/main/docs/models/player_impact.md);
-numbers quoted from that card are labelled as such.
+numbers quoted from that card are labelled as such. The card gives the adj-RAPM
+prior as the previous season's SPM only; it omits the playoff case, where playoff
+rows use the same season's regular-season SPM.
 
 ## What the model estimates
 

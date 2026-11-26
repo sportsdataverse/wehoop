@@ -10,7 +10,7 @@
 #' @rdname load_wbb_player_value
 #' @author Saiem Gilani
 #' @description Loads season-level WNBA player-impact ratings -- one row per
-#'   player-team-season, combining regularized adjusted plus-minus (RAPM),
+#'   player, team, season and season type, combining regularized adjusted plus-minus (RAPM),
 #'   statistical plus-minus (SPM), box plus-minus (BPM), wins above
 #'   replacement (WAR), and a DARKO-style skill/projection pair. Produced by
 #'   the sportsdataverse-py NBA/WNBA possession-engine model program; published to the
@@ -30,7 +30,8 @@
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
 #' @return `load_wnba_player_impact()` returns a `wehoop_data` tibble with one
-#'   row per player-team-season.
+#'   row per player, team, season and season type (`Regular Season` and
+#'   `Playoffs` rows are separate).
 #'   Each of the 16 ratings gets an `_n` (sample size), `_rank` and `_pct`
 #'   column, computed within each season and season type. The sample gates
 #'   are regular-season sized: in the published 1997-2026 files no season has
