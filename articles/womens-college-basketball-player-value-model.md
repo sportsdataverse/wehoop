@@ -51,9 +51,6 @@ library(ggplot2)
 
 pv <- load_wbb_player_value(seasons = 2025:2026)
 
-# Older release files predate the `qualified` flag; derive it the same way.
-if (!"qualified" %in% names(pv)) pv$qualified <- pv$min >= 300
-
 pv |> count(season, qualified)
 #> # A tibble: 4 × 3
 #>   season qualified     n
@@ -270,9 +267,7 @@ other.
 - **No shrinkage.** Low-minute values are unreliable; use the
   `qualified` flag.
 - **Team-anchored.** A player’s BPM inherits her team’s adjusted margin,
-  so an error in the team rating moves the whole roster. As reported in
-  the cards, the 2015 team ratings are missing, which leaves every 2015
-  player value empty.
+  so an error in the team rating moves the whole roster.
 - **Not yet blended with RAPM.** As reported in the card, a hybrid that
   uses BPM as a prior for RAPM is the planned next step.
 

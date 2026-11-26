@@ -34,7 +34,7 @@ Other Bart Torvik Functions:
 ``` r
 # \donttest{
   try(bart_wbb_ratings(year = 2024))
-#> ✖ 2026-11-25 06:08:51.663638: No women's T-Rank ratings available for 2024!
+#> ✖ 2026-11-26 19:19:10.22784: No women's T-Rank ratings available for 2024!
 #> ✖ Args: year = 2024
 #> ✖ Error: HTTP 403 Forbidden from https://barttorvik.com/ncaaw/2024_team_results.csv
 #> data frame with 0 columns and 0 rows

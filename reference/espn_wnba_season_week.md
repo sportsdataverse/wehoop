@@ -58,7 +58,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wnba_season_week(week = 5, season = 2025)
-#> ✖ 2026-11-25 06:10:11.641128: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
+#> ✖ 2026-11-26 19:20:20.760529: Failed to retrieve ESPN wnba week 5 for season=2025, season_type=2
 #> ✖ Args: league = "wnba", season = 2025, season_type = 2L, week = 5
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/2025/types/2/weeks/5
 #> NULL

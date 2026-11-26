@@ -43,7 +43,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_league_leaders("scoring"))
 #> ── Fox Sports WNBA league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:55 UTC
+#> ℹ Data updated: 2026-11-26 19:21:00 UTC
 #> # A tibble: 75 × 6
 #>    players v2          gp    entity_id min   mpg  
 #>    <chr>   <chr>       <chr> <chr>     <chr> <chr>
@@ -62,20 +62,20 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_league_leaders("scoring"))
 #> ── Fox Sports WCBK league_leaders ────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:56 UTC
+#> ℹ Data updated: 2026-11-26 19:21:00 UTC
 #> # A tibble: 100 × 8
-#>    players v2        gp    entity_id gs    mpg   ppg   pts  
-#>    <chr>   <chr>     <chr> <chr>     <chr> <chr> <chr> <chr>
-#>  1 1       A. Joyner 9     14985     NA    NA    NA    NA   
-#>  2 2       C. Baker  9     16263     NA    NA    NA    NA   
-#>  3 3       I. Berry  9     21605     NA    NA    NA    NA   
-#>  4 4       R. Graves 9     21606     NA    NA    NA    NA   
-#>  5 5       R. Bender 9     21608     NA    NA    NA    NA   
-#>  6 6       Z. Jones  9     21630     NA    NA    NA    NA   
-#>  7 7       K. Ramsey 9     22498     NA    NA    NA    NA   
-#>  8 8       V. Morris 9     22897     NA    NA    NA    NA   
-#>  9 9       M. Hayes  9     25611     NA    NA    NA    NA   
-#> 10 10      G. Mbugua 9     26179     NA    NA    NA    NA   
+#>    players v2           gp    entity_id gs    mpg   ppg   pts  
+#>    <chr>   <chr>        <chr> <chr>     <chr> <chr> <chr> <chr>
+#>  1 1       S. Tyler     10    14460     NA    NA    NA    NA   
+#>  2 2       A. Roberson  10    15265     NA    NA    NA    NA   
+#>  3 3       N. Jones     10    16049     NA    NA    NA    NA   
+#>  4 4       C. Dykstra   10    16755     NA    NA    NA    NA   
+#>  5 5       V. McNece    10    17297     NA    NA    NA    NA   
+#>  6 6       K. Mantziori 10    17353     NA    NA    NA    NA   
+#>  7 7       L. Brooks    10    21512     NA    NA    NA    NA   
+#>  8 8       A. West      10    21682     NA    NA    NA    NA   
+#>  9 9       M. Richards  10    22378     NA    NA    NA    NA   
+#> 10 10      A. Austin    10    26011     NA    NA    NA    NA   
 #> # ℹ 90 more rows
 # }
 ```

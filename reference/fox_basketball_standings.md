@@ -83,7 +83,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_roster("1"))
 #> ── Fox Sports WNBA roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:56 UTC
+#> ℹ Data updated: 2026-11-26 19:21:00 UTC
 #> # A tibble: 14 × 9
 #>    team_id position_group player      pos   age   ht    wt    college athlete_id
 #>    <chr>   <chr>          <chr>       <chr> <chr> <chr> <chr> <chr>   <chr>     
@@ -105,7 +105,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_roster("11"))
 #> ── Fox Sports WCBK roster ────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:56 UTC
+#> ℹ Data updated: 2026-11-26 19:21:00 UTC
 #> # A tibble: 13 × 7
 #>    team_id position_group player            pos   cls   ht       athlete_id
 #>    <chr>   <chr>          <chr>             <chr> <chr> <chr>    <chr>     
@@ -126,7 +126,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_team_stats("1"))
 #> ── Fox Sports WNBA team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:57 UTC
+#> ℹ Data updated: 2026-11-26 19:21:00 UTC
 #> # A tibble: 17 × 6
 #>    team_id category     stat       stat_abbreviation player        value
 #>    <chr>   <chr>        <chr>      <chr>             <chr>         <chr>
@@ -151,26 +151,26 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_stats("11"))
 #> ── Fox Sports WCBK team_stats ────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:57 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat                      stat_abbreviation player value
 #>    <chr>   <chr>        <chr>                     <chr>             <chr>  <chr>
-#>  1 11      PLAYER STATS Points Per Game           PPG               Sarah… 21.3 
-#>  2 11      PLAYER STATS Three Point Field Goals … 3FGM/G            Sarah… 3.0  
-#>  3 11      PLAYER STATS Free Throws Made Per Game FTM/G             Kelis… 1.8  
+#>  1 11      PLAYER STATS Points Per Game           PPG               Sarah… 21.4 
+#>  2 11      PLAYER STATS Three Point Field Goals … 3FGM/G            Sarah… 2.9  
+#>  3 11      PLAYER STATS Free Throws Made Per Game FTM/G             Sarah… 2.6  
 #>  4 11      PLAYER STATS High Game Points          HIGH              Sarah… 39   
-#>  5 11      PLAYER STATS Rebounds Per Game         RPG               Sarah… 7.2  
+#>  5 11      PLAYER STATS Rebounds Per Game         RPG               Sarah… 7.9  
 #>  6 11      PLAYER STATS True Shooting Percentage  TS%               Marin… 91.7 
 #>  7 11      PLAYER STATS Assists Per Game          APG               KK Ar… 5.0  
-#>  8 11      PLAYER STATS Turnovers Per Game        TPG               KK Ar… 2.5  
-#>  9 11      PLAYER STATS Steals Per Game           SPG               Sarah… 2.8  
-#> 10 11      PLAYER STATS Blocks Per Game           BPG               Sarah… 0.8  
+#>  8 11      PLAYER STATS Turnovers Per Game        TPG               Jovan… 2.6  
+#>  9 11      PLAYER STATS Steals Per Game           SPG               Sarah… 2.7  
+#> 10 11      PLAYER STATS Blocks Per Game           BPG               Sarah… 0.9  
 #> # ℹ 19 more rows
 # }
 # \donttest{
   try(fox_wnba_team_gamelog("1"))
 #> ── Fox Sports WNBA gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:57 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 165 × 8
 #>    team_id season_type category game_id game_date opponent stat         value
 #>    <chr>   <chr>       <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -189,7 +189,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_team_gamelog("11"))
 #> ── Fox Sports WCBK gamelog ───────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:58 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 110 × 8
 #>    team_id season_type    category game_id game_date opponent stat         value
 #>    <chr>   <chr>          <chr>    <chr>   <chr>     <chr>    <chr>        <chr>
@@ -208,7 +208,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_standings("1"))
 #> ── Fox Sports WNBA standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:58 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 30 × 16
 #>    team_id section eastern v2    w_l   pct   gb    pf    pa    home  away  conf 
 #>    <chr>   <chr>   <chr>   <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
@@ -228,16 +228,16 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_standings("11"))
 #> ── Fox Sports WCBK standings ─────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:58 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 11 × 13
 #>    team_id section    big_east v2     conf  w_l   top_25 home  away  pf    pa   
 #>    <chr>   <chr>      <chr>    <chr>  <chr> <chr> <chr>  <chr> <chr> <chr> <chr>
 #>  1 11      CONFERENCE 1        UConn  1-0   4-3   2-3    3-0   1-2   534   423  
-#>  2 11      CONFERENCE 2        Butler 0-0   7-0   0-0    5-0   2-0   603   371  
+#>  2 11      CONFERENCE 2        Butler 0-0   8-0   0-0    5-0   2-0   690   425  
 #>  3 11      CONFERENCE 3        DePaul 0-0   7-1   0-1    6-0   1-0   701   587  
 #>  4 11      CONFERENCE 4        Marqu… 0-0   5-2   0-1    3-1   2-1   502   421  
-#>  5 11      CONFERENCE 5        St. J… 0-0   4-2   0-2    4-0   0-1   457   319  
-#>  6 11      CONFERENCE 6        Creig… 0-0   4-2   0-1    1-1   3-0   379   343  
+#>  5 11      CONFERENCE 5        Creig… 0-0   4-2   0-1    1-1   3-0   379   343  
+#>  6 11      CONFERENCE 6        St. J… 0-0   4-2   0-2    4-0   0-1   457   319  
 #>  7 11      CONFERENCE 7        Xavier 0-0   4-2   0-0    2-0   2-2   425   376  
 #>  8 11      CONFERENCE 8        Georg… 0-0   4-3   0-0    4-0   0-3   514   439  
 #>  9 11      CONFERENCE 9        Villa… 0-0   3-3   0-1    2-1   1-1   440   406  
@@ -248,7 +248,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wnba_teams())
 #> ── Fox Sports WNBA teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:58 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 15 × 3
 #>    fox_team_id fox_team_name          fox_section    
 #>    <chr>       <chr>                  <chr>          
@@ -271,7 +271,7 @@ Other Fox Sports Functions:
 # \donttest{
   try(fox_wbb_teams("11"))
 #> ── Fox Sports WCBK teams ─────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:58 UTC
+#> ℹ Data updated: 2026-11-26 19:21:01 UTC
 #> # A tibble: 11 × 3
 #>    fox_team_id fox_team_name           fox_section
 #>    <chr>       <chr>                   <chr>      
@@ -279,8 +279,8 @@ Other Fox Sports Functions:
 #>  2 69          Butler Bulldogs         Big East   
 #>  3 71          Depaul Blue Demons      Big East   
 #>  4 73          Marquette Golden Eagles Big East   
-#>  5 76          St. John's Red Storm    Big East   
-#>  6 70          Creighton Bluejays      Big East   
+#>  5 70          Creighton Bluejays      Big East   
+#>  6 76          St. John's Red Storm    Big East   
 #>  7 78          Xavier Musketeers       Big East   
 #>  8 72          Georgetown Hoyas        Big East   
 #>  9 77          Villanova Wildcats      Big East   

@@ -53,7 +53,7 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_wbb_award(award_id = 344, season = 2024)
-#> ✖ 2026-11-25 06:09:04.253386: Failed to retrieve ESPN womens-college-basketball award 344 for season=2024
+#> ✖ 2026-11-26 19:19:22.839905: Failed to retrieve ESPN womens-college-basketball award 344 for season=2024
 #> ✖ Args: league = "womens-college-basketball", season = 2024, award_id = 344
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/basketball/leagues/womens-college-basketball/seasons/2024/awards/344
 #> data frame with 0 columns and 0 rows

@@ -40,11 +40,11 @@ Other Fox Sports Functions:
 # \donttest{
   # max_calls = 5 probes five seed team ids (up to five conferences).
   try(fox_wbb_teams_all(max_calls = 5))
-#> ✖ 2026-11-25 06:10:59.162303: Invalid arguments or no Fox wcbk teams data available!
+#> ✖ 2026-11-26 19:21:02.076634: Invalid arguments or no Fox wcbk teams data available!
 #> ✖ Args: sport = "wcbk", resource = "teams", game_id = NULL, team_id = "3", category = "scoring", who = "player", page = 0
 #> ✖ Error: HTTP 404 Not Found from https://api.foxsports.com/bifrost/v1/wcbk/team/3/standings
 #> ── Fox Sports WBB full team directory ────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:10:59 UTC
+#> ℹ Data updated: 2026-11-26 19:21:02 UTC
 #> # A tibble: 49 × 3
 #>    fox_team_id fox_team_name                    fox_section                 
 #>    <chr>       <chr>                            <chr>                       
@@ -53,8 +53,8 @@ Other Fox Sports Functions:
 #>  3 1           University At Albany Great Danes America East                
 #>  4 9           Vermont Catamounts               America East                
 #>  5 4           Maine Black Bears                America East                
-#>  6 6           New Hampshire Wildcats           America East                
-#>  7 2           Binghamton Bearcats              America East                
+#>  6 2           Binghamton Bearcats              America East                
+#>  7 6           New Hampshire Wildcats           America East                
 #>  8 8           Umbc Retrievers                  America East                
 #>  9 5           Umass Lowell River Hawks         America East                
 #> 10 7           Stony Brook Seawolves            Coastal Athletic Association

@@ -257,7 +257,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(load_wbb_schedule_crosswalk(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 6,347 × 14
+#> # A tibble: 6,348 × 14
 #>    season game_date  home_espn_team_id away_espn_team_id espn_game_id bart_muid 
 #>     <int> <date>                 <int>             <int>        <int> <chr>     
 #>  1   2027 2026-11-01               222                87    401920983 Notre Dam…
@@ -270,7 +270,7 @@ Other WBB Crosswalk Functions:
 #>  8   2027 2026-11-02              2294               119    401921404 TowsonIow…
 #>  9   2027 2026-11-02                26              2329    401918896 LehighUCL…
 #> 10   2027 2026-11-02               153               201    401906088 North Car…
-#> # ℹ 6,337 more rows
+#> # ℹ 6,338 more rows
 #> # ℹ 8 more variables: bart_team1 <chr>, bart_team2 <chr>, bart_winner <chr>,
 #> #   fox_game_id <chr>, yahoo_game_id <chr>, ncaa_contest_id <int>,
 #> #   match_method <chr>, match_confidence <dbl>
@@ -278,7 +278,7 @@ Other WBB Crosswalk Functions:
 # \donttest{
   try(load_wbb_player_crosswalk(seasons = most_recent_wbb_season()))
 #> ──────────────────────────────────────────────────────────────── wehoop 3.1.0 ──
-#> # A tibble: 5,006 × 18
+#> # A tibble: 5,008 × 18
 #>    season espn_team_id team_abbreviation player_name     espn_athlete_id
 #>     <int>        <int> <chr>             <chr>                     <int>
 #>  1   2027         2000 ACU               salena carrasco         5458291
@@ -291,7 +291,7 @@ Other WBB Crosswalk Functions:
 #>  8   2027         2000 ACU               meredith mayes          5175546
 #>  9   2027         2000 ACU               raimi mccrary           5177964
 #> 10   2027         2000 ACU               samara morrow           5458292
-#> # ℹ 4,996 more rows
+#> # ℹ 4,998 more rows
 #> # ℹ 13 more variables: espn_full_name <chr>, espn_jersey <chr>,
 #> #   espn_position <chr>, fox_athlete_id <chr>, fox_player <chr>,
 #> #   fox_jersey <chr>, fox_position_group <chr>, yahoo_player_id <chr>,

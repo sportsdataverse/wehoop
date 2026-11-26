@@ -178,7 +178,10 @@ result.</p>
 <p>This article explains what each engine estimates, how the suite is
 built, how well it holds up out of sample, and where it is weakest. It
 condenses the official model card in the <a href="https://github.com/sportsdataverse/wehoop-wnba-stats-data/blob/main/docs/models/player_impact.md" class="external-link">wehoop-wnba-stats-data
-repository</a>; numbers quoted from that card are labelled as such.</p>
+repository</a>; numbers quoted from that card are labelled as such. The
+card gives the adj-RAPM prior as the previous season’s SPM only; it
+omits the playoff case, where playoff rows use the same season’s
+regular-season SPM.</p>
 <div class="section level2">
 <h2 id="what-the-model-estimates">What the model estimates<a class="anchor" aria-label="anchor" href="#what-the-model-estimates"></a>
 </h2>
@@ -211,8 +214,8 @@ outcomes on the ten players on the court</td>
 <code>o_adj_rapm</code>, <code>d_adj_rapm</code>,
 <code>adj_rapm</code>
 </td>
-<td>RAPM with a prior from the previous season’s SPM, instead of
-shrinking every player to zero</td>
+<td>RAPM with a prior from SPM instead of zero: last season’s in the
+regular season, this season’s regular-season SPM in the playoffs</td>
 </tr>
 <tr class="odd">
 <td>SPM</td>
@@ -342,8 +345,10 @@ on noise. The fitted coefficients ship beside the release as
 <code>wnba_player_impact_spm_coefficients.json</code>.</li>
 <li>
 <strong>adj-RAPM.</strong> RAPM again, but each player is shrunk
-toward her previous season’s SPM rather than toward zero. A gap season
-deliberately breaks the prior chain.</li>
+toward her previous season’s SPM rather than toward zero (in the
+playoffs, toward that season’s regular-season SPM). A player with no
+prior is still shrunk toward zero, and a gap season deliberately breaks
+the prior chain.</li>
 <li>
 <strong>BPM.</strong> A box plus-minus from box score logs and
 listed positions.</li>

@@ -241,9 +241,6 @@ package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pv</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_wbb_player_value.html">load_wbb_player_value</a></span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2025</span><span class="op">:</span><span class="fl">2026</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Older release files predate the `qualified` flag; derive it the same way.</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="st">"qualified"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">pv</span><span class="op">)</span><span class="op">)</span> <span class="va">pv</span><span class="op">$</span><span class="va">qualified</span> <span class="op">&lt;-</span> <span class="va">pv</span><span class="op">$</span><span class="va">min</span> <span class="op">&gt;=</span> <span class="fl">300</span></span>
-<span></span>
 <span><span class="va">pv</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">qualified</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 3</span></span></span>
 <span><span class="co">#&gt;   season qualified     n</span></span>
@@ -481,9 +478,8 @@ defensive specialists and helps high-volume scorers.</li>
 the <code>qualified</code> flag.</li>
 <li>
 <strong>Team-anchored.</strong> A player’s BPM inherits her team’s
-adjusted margin, so an error in the team rating moves the whole roster.
-As reported in the cards, the 2015 team ratings are missing, which
-leaves every 2015 player value empty.</li>
+adjusted margin, so an error in the team rating moves the whole
+roster.</li>
 <li>
 <strong>Not yet blended with RAPM.</strong> As reported in the card,
 a hybrid that uses BPM as a prior for RAPM is the planned next

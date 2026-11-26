@@ -26,7 +26,8 @@ numbers quoted from that card are labelled as such.
 | `adj_em_z` | `adj_em` as a z-score within the season |
 | `adj_tempo` | Adjusted possessions per 40 minutes |
 | `raw_o`, `raw_d` | Unadjusted points scored and allowed per 100 possessions |
-| `games`, `rank` | Games in the fit and national rank by `adj_em` |
+| `games`, `rank` | Games in the fit and a rank by `adj_em` over every team in the file (including non-Division I opponents) |
+| `adj_o_blend`, `adj_d_blend`, `adj_em_blend`, `rank_blend`, `prior_games` | The same ratings with a `prior_games`-game preseason prior toward last season (3; 0 in 2009) |
 
 The design is the same family as the KenPom and Bart Torvik ratings that
 are standard in college basketball analysis.
@@ -300,18 +301,20 @@ core |>
 
 ## Limitations and known issues
 
-As reported in the model card:
+As reported in the model card, updated for the current release files
+(the card predates the preseason prior and the 2026-11-14 republish that
+fixed the 2015 files):
 
-- **2015 is missing.** The published 2015 file has no usable ratings
-  (the fixed point did not converge on that season’s inputs), which also
-  leaves the 2015 player value file empty. A repair and republish is
-  pending.
 - **Older seasons are thin.** Seasons before about 2017 have fewer teams
   with a full schedule in the box scores, and seasons before 2013 sit on
-  a different possession scale because of the older box score format.
-  The 2008 file fails the level gate. Use pre-2017 ratings with care.
-- **No preseason prior.** Early-season ratings start from a flat slate,
-  so they are noisy until teams have played enough games.
+  a different possession scale because of the older box score format. A
+  2008 season was computed but refused by the level gate, so the files
+  start in 2009. Use pre-2017 ratings with care.
+- **A light preseason prior.** The unblended `adj_*` and `rank` columns
+  start from a flat slate, so they are noisy until teams have played
+  enough games. Use `adj_*_blend` / `rank_blend` for early-season
+  ratings: a 3-game prior toward last season (none in 2009, the first
+  season).
 - **Home court and travel.** Altitude and travel distance are not
   modelled.
 

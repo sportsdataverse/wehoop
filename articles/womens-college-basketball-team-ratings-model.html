@@ -225,8 +225,17 @@ against an average offense (lower is better)</td>
 <td>
 <code>games</code>, <code>rank</code>
 </td>
-<td>Games in the fit and national rank by <code>adj_em</code>
+<td>Games in the fit and a rank by <code>adj_em</code> over every team
+in the file (including non-Division I opponents)</td>
+</tr>
+<tr class="even">
+<td>
+<code>adj_o_blend</code>, <code>adj_d_blend</code>,
+<code>adj_em_blend</code>, <code>rank_blend</code>,
+<code>prior_games</code>
 </td>
+<td>The same ratings with a <code>prior_games</code>-game preseason
+prior toward last season (3; 0 in 2009)</td>
 </tr>
 </tbody>
 </table>
@@ -480,23 +489,23 @@ card</a>.</li>
 <div class="section level2">
 <h2 id="limitations-and-known-issues">Limitations and known issues<a class="anchor" aria-label="anchor" href="#limitations-and-known-issues"></a>
 </h2>
-<p>As reported in the model card:</p>
+<p>As reported in the model card, updated for the current release files
+(the card predates the preseason prior and the 2026-11-14 republish that
+fixed the 2015 files):</p>
 <ul>
-<li>
-<strong>2015 is missing.</strong> The published 2015 file has no
-usable ratings (the fixed point did not converge on that season’s
-inputs), which also leaves the 2015 player value file empty. A repair
-and republish is pending.</li>
 <li>
 <strong>Older seasons are thin.</strong> Seasons before about 2017
 have fewer teams with a full schedule in the box scores, and seasons
 before 2013 sit on a different possession scale because of the older box
-score format. The 2008 file fails the level gate. Use pre-2017 ratings
-with care.</li>
+score format. A 2008 season was computed but refused by the level gate,
+so the files start in 2009. Use pre-2017 ratings with care.</li>
 <li>
-<strong>No preseason prior.</strong> Early-season ratings start from
-a flat slate, so they are noisy until teams have played enough
-games.</li>
+<strong>A light preseason prior.</strong> The unblended
+<code>adj_*</code> and <code>rank</code> columns start from a flat
+slate, so they are noisy until teams have played enough games. Use
+<code>adj_*_blend</code> / <code>rank_blend</code> for early-season
+ratings: a 3-game prior toward last season (none in 2009, the first
+season).</li>
 <li>
 <strong>Home court and travel.</strong> Altitude and travel distance
 are not modelled.</li>

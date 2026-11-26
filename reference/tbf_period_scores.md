@@ -54,7 +54,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_period_scores(match_id = 346279))
 #> ── TBF Period Scores ─────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:12:55 UTC
+#> ℹ Data updated: 2026-11-26 19:22:47 UTC
 #> # A tibble: 8 × 5
 #>   match_id side  period period_type points
 #>      <int> <chr>  <int>       <int>  <int>

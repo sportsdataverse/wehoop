@@ -66,7 +66,7 @@ lists every function in this family.
 # \donttest{
   try(tbf_players(competition = "bsl", season = 2027))
 #> ── TBF Players ───────────────────────────────────────────────── wehoop 3.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:12:57 UTC
+#> ℹ Data updated: 2026-11-26 19:22:50 UTC
 #> # A tibble: 269 × 11
 #>    season competition person_id player_name nationality nationality_code club_id
 #>     <int> <chr>           <int> <chr>       <chr>       <chr>              <int>

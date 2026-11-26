@@ -742,6 +742,24 @@ raises the `httr2` and `testthat` floors (see Dependencies).
   documented `rapm_net` as `rapm_off + rapm_def`. The data has
   `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a
   points-allowed scale (lower is better). The docs now say so.
+- The returns tables of the three model loaders now list every column of
+  the published files:
+  [`load_wnba_player_impact()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  76 (was 28; adds the `_n`, `_rank` and `_pct` columns of each of the
+  16 ratings),
+  [`load_wbb_ratings()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  16 (was 11; adds `adj_o_blend`, `adj_d_blend`, `adj_em_blend`,
+  `rank_blend` and `prior_games`) and
+  [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  9 (was 8; adds `qualified`). `o_adj_rapm` / `d_adj_rapm` were
+  documented as adjusted for minutes/possession stability; they are RAPM
+  with a ridge prior toward SPM (last season’s in the regular season,
+  this season’s regular-season SPM in the playoffs).
+  [`load_wbb_player_value()`](https://wehoop.sportsdataverse.org/reference/load_wbb_player_value.md)
+  documented `player_id` as a stats.ncaa.org id; it is the ESPN athlete
+  id. The team-ratings and player-value articles no longer say 2015 is
+  missing, that there is no preseason prior, or that older files lack
+  `qualified`.
 - The installed help is a third smaller (4.4 MB to 3.0 MB). The help
   pages of the 9 largest function families (ESPN WNBA and WBB, WNBA
   Player and Team, FIBA, TBF, SCB, NBL Rosetta, WJBL) link to one family
