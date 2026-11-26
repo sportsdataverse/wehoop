@@ -185,7 +185,8 @@ be removed in a future release, no earlier than 3.2.0:
     A quick call to a related function (`wjbl_game()`, `atrium_players()`,
     `espn_wbb_conferences()`) runs on those pages instead.
   * On the `espn_wbb_game_all` and `espn_wnba_game_all` pages: the team
-    and player box examples (`game_all()` returns those tables too) and
+    and player box examples (`espn_wbb_game_all()` and `espn_wnba_game_all()` return those tables
+    too) and
     the game roster example (one request per team).
   * `wnba_schedule_crosswalk()`, `wbb_schedule_crosswalk()` and
     `wbb_player_crosswalk()`: each builds a whole season's crosswalk from

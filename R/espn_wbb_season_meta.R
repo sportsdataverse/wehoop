@@ -170,8 +170,8 @@ espn_wbb_season_rankings <- function(season = most_recent_wbb_season(), ...) {
 #' @description
 #' Returns the per-week snapshot index for one ranking source (e.g. AP
 #' Top 25). Each row is one weekly snapshot; the `ref` URL resolves to
-#' the actual ranked teams for that (season-type x week) and will be
-#' wrapped by a forthcoming `espn_LOWERWBB_week_ranking()`.
+#' the actual ranked teams for that (season-type x week); fetch them with
+#' [espn_wbb_week_ranking()].
 #'
 #' @param ranking_id ESPN ranking identifier (character or numeric).
 #' @param season Season year. Defaults to most recent WBB season.

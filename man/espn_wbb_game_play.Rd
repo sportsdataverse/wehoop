@@ -9,7 +9,7 @@ espn_wbb_game_play(event_id, play_id, ...)
 \arguments{
 \item{event_id}{ESPN event identifier.}
 
-\item{play_id}{ESPN play identifier (visible in \code{pbp()} output as
+\item{play_id}{ESPN play identifier (visible in \code{\link[=espn_wbb_pbp]{espn_wbb_pbp()}} output as
 \code{play_id} or extractable from \verb{plays[].$ref}).}
 
 \item{...}{Additional arguments; currently unused.}
