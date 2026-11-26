@@ -77,8 +77,8 @@ null except \code{war_rank} and \code{war_pct}.
       rapm \tab numeric \tab Net regularized adjusted plus-minus (o_rapm + d_rapm). \cr
       off_poss \tab integer \tab Offensive possessions used in the RAPM fit. \cr
       def_poss \tab integer \tab Defensive possessions used in the RAPM fit. \cr
-      o_adj_rapm \tab numeric \tab Offensive RAPM fitted with a ridge prior toward the previous season's SPM (instead of shrinking to zero). \cr
-      d_adj_rapm \tab numeric \tab Defensive RAPM fitted with a ridge prior toward the previous season's SPM (instead of shrinking to zero). \cr
+      o_adj_rapm \tab numeric \tab Offensive RAPM fitted with a ridge prior toward SPM instead of zero: the previous season's SPM in the regular season, the same season's regular-season SPM in the playoffs. A player with no prior (a first season, or after a gap) is shrunk toward zero. \cr
+      d_adj_rapm \tab numeric \tab Defensive RAPM fitted with a ridge prior toward SPM instead of zero: the previous season's SPM in the regular season, the same season's regular-season SPM in the playoffs. A player with no prior (a first season, or after a gap) is shrunk toward zero. \cr
       adj_rapm \tab numeric \tab Net adjusted RAPM (o_adj_rapm + d_adj_rapm). \cr
       ospm \tab numeric \tab Offensive statistical plus-minus (box-score component). \cr
       dspm \tab numeric \tab Defensive statistical plus-minus (box-score component). \cr
@@ -203,7 +203,8 @@ published to the \code{wbb_player_value} release tag.
 Loads season-level NCAA women's college basketball team
 ratings -- one row per team-season, with adjusted
 (opponent-strength-normalized) offensive/defensive efficiency, adjusted
-tempo, raw efficiency, and a national rank, solved as an iterative fixed
+tempo, raw efficiency, and a rank by adj_em over every team in the file
+(including non-Division I opponents), solved as an iterative fixed
 point. This tag is parquet-only, with no
 csv/rds sibling assets. Produced by the sportsdataverse-py NCAA WBB model program;
 published to the \code{wbb_ratings} release tag.

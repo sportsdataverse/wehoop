@@ -42,7 +42,7 @@ average player, split into offense and defense, except WAR, which counts wins.
 | Engine | Columns | What it measures |
 |---|---|---|
 | RAPM | `o_rapm`, `d_rapm`, `rapm` | Regularized adjusted plus-minus: a ridge regression of possession outcomes on the ten players on the court |
-| adj-RAPM | `o_adj_rapm`, `d_adj_rapm`, `adj_rapm` | RAPM with a prior from the previous season's SPM, instead of shrinking every player to zero |
+| adj-RAPM | `o_adj_rapm`, `d_adj_rapm`, `adj_rapm` | RAPM with a prior from SPM instead of zero: last season's in the regular season, this season's regular-season SPM in the playoffs |
 | SPM | `ospm`, `dspm`, `spm` | Statistical plus-minus: box score rates weighted by coefficients fitted to regular-season RAPM |
 | BPM | `obpm`, `dbpm`, `bpm` | Box plus-minus (BPM 2.0 design) from box score logs and listed positions |
 | WAR | `war` | Wins above replacement: the RAPM rating times a calibrated points-per-win, with replacement level at -2.0 |
@@ -113,8 +113,9 @@ in time.
    roughly 15-game sample would train noise on noise. The fitted coefficients
    ship beside the release as `wnba_player_impact_spm_coefficients.json`.
 4. **adj-RAPM.** RAPM again, but each player is shrunk toward her previous
-   season's SPM rather than toward zero. A gap season deliberately breaks the
-   prior chain.
+   season's SPM rather than toward zero (in the playoffs, toward that season's
+   regular-season SPM). A player with no prior is still shrunk toward zero, and
+   a gap season deliberately breaks the prior chain.
 5. **BPM.** A box plus-minus from box score logs and listed positions.
 6. **DARKO-style filter.** A per-season Kalman update over the RAPM panel with
    an aging curve. Playoff form enters as a possession-weighted blend rather
