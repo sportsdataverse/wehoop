@@ -484,6 +484,11 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
 * `load_ncaa_wbb_rapm_within_team()` documented `rapm_net` as `rapm_off + rapm_def`. The data
   has `rapm_net = rapm_off - rapm_def`, because `rapm_def` is on a points-allowed scale (lower
   is better). The docs now say so.
+* The returns tables of the three model loaders now list every column of the published files:
+  `load_wnba_player_impact()` 76 (was 28; adds the `_n`, `_rank` and `_pct` columns of each
+  of the 16 ratings), `load_wbb_ratings()` 16 (was 11; adds the preseason-prior `_blend` columns,
+  `rank_blend` and `prior_games`) and `load_wbb_player_value()` 9 (was 8; adds `qualified`).
+  `load_wbb_player_value()` documented `player_id` as a stats.ncaa.org id; it is the ESPN athlete id.
 * The installed help is a third smaller (4.4 MB to 3.0 MB). The help pages of the 9 largest
   function families (ESPN WNBA and WBB, WNBA Player and Team, FIBA, TBF, SCB, NBL Rosetta,
   WJBL) link to one family index page (`?family_espn_wnba`, `?family_tbf`, ...) in "See also"
