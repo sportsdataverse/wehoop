@@ -502,6 +502,10 @@ the `httr2` and `testthat` floors (see Dependencies). (#84)
   topics link there. The per-competition alias pages and six topics whose returns table
   repeated a sibling's link to that table instead of copying it, and the nine
   `tbf_leaders_*()` wrappers share one page (`?tbf_leaders`). No export changes.
+* Help pages no longer name functions that do not exist: `espn_wbb_game_play()` and
+  `espn_wnba_game_play()` point at `espn_wbb_pbp()` / `espn_wnba_pbp()` for play ids, and
+  `espn_wbb_season_ranking()` / `espn_wnba_season_ranking()` link `espn_wbb_week_ranking()` /
+  `espn_wnba_week_ranking()` for the ranked teams instead of an unfilled template name.
 
 # **wehoop 3.0.0**
 
